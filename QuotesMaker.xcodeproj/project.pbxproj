@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDBE9222352D90005EB60 /* AppDelegate.swift */; };
-		38FEDBEC222352D90005EB60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDBEB222352D90005EB60 /* ViewController.swift */; };
 		38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBED222352D90005EB60 /* Main.storyboard */; };
 		38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBF0222352DB0005EB60 /* Assets.xcassets */; };
 		38FEDBF4222352DB0005EB60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBF2222352DB0005EB60 /* LaunchScreen.storyboard */; };
 		38FEDBFF222352DB0005EB60 /* QuotesMakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDBFE222352DB0005EB60 /* QuotesMakerTests.swift */; };
+		38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDC09222354970005EB60 /* HomeVC.swift */; };
+		38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDC0B222356BD0005EB60 /* QMImageEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +29,6 @@
 /* Begin PBXFileReference section */
 		38FEDBE6222352D90005EB60 /* QuotesMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FEDBE9222352D90005EB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38FEDBEB222352D90005EB60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		38FEDBEE222352D90005EB60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38FEDBF0222352DB0005EB60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38FEDBF3222352DB0005EB60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +36,8 @@
 		38FEDBFA222352DB0005EB60 /* QuotesMakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotesMakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FEDBFE222352DB0005EB60 /* QuotesMakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesMakerTests.swift; sourceTree = "<group>"; };
 		38FEDC00222352DB0005EB60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38FEDC09222354970005EB60 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		38FEDC0B222356BD0005EB60 /* QMImageEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +80,12 @@
 			isa = PBXGroup;
 			children = (
 				38FEDBE9222352D90005EB60 /* AppDelegate.swift */,
-				38FEDBEB222352D90005EB60 /* ViewController.swift */,
 				38FEDBED222352D90005EB60 /* Main.storyboard */,
 				38FEDBF0222352DB0005EB60 /* Assets.xcassets */,
 				38FEDBF2222352DB0005EB60 /* LaunchScreen.storyboard */,
 				38FEDBF5222352DB0005EB60 /* Info.plist */,
+				38FEDC09222354970005EB60 /* HomeVC.swift */,
+				38FEDC0B222356BD0005EB60 /* QMImageEngine.swift */,
 			);
 			path = QuotesMaker;
 			sourceTree = "<group>";
@@ -197,8 +200,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38FEDBEC222352D90005EB60 /* ViewController.swift in Sources */,
+				38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
+				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
