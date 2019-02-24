@@ -20,8 +20,32 @@ class ImageEngine{
     }
     
     func getCurrentOutputImage()->UIImage?{
-        return currentImage
+        guard let image = baseCIImage else { return nil}
+        return UIImage(ciImage: image)
     }
     
+    func addFilter(_ filter:Filters){
+        switch filter {
+        case .bloom:
+            addBloom()
+            break
+        }
+    }
     
+    func addBloom(){
+        guard let base = baseCIImage else {return}
+        let filter = CIFilter(name: "CIBloom", parameters: [kCIInputRadiusKey: 8, kCIInputIntensityKey: 1.25,kCIInputImageKey:base])
+        baseCIImage = filter?.outputImage
+        
+    }
+    
+}
+
+
+
+extension ImageEngine{
+    
+    enum Filters {
+        case bloom
+    }
 }
