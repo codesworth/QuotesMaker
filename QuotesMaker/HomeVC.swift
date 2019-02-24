@@ -17,14 +17,18 @@ class HomeVC:UIViewController{
         let v = UIImageView(frame: .zero)
         v.contentMode = .scaleAspectFill
         v.isUserInteractionEnabled = true
+        v.backgroundColor = .gray
         return v
     }()
+    
+    var engine:ImageEngine!
     
     lazy var filterButton:UIButton = {
         let but = UIButton(frame: .zero)
         but.setTitle("Add Filter", for: .normal)
         but.setTitleColor(.magenta, for: .normal)
         but.backgroundColor = .clear
+        but.isEnabled = false
         return but
     }()
     
@@ -40,14 +44,19 @@ class HomeVC:UIViewController{
     
     @objc func filter(){
         
+        let image = engine.addBloom()
+        imageView.image = image
     }
     
     @objc func imageTapped(_ tap:UITapGestureRecognizer){
-        
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        setupView()
     }
     
     func setupView(){
@@ -63,6 +72,23 @@ class HomeVC:UIViewController{
             filterButton.heightAnchor.constraint(equalToConstant: 40),
             filterButton.widthAnchor.constraint(equalToConstant: 200)
         ])
+    }
+}
+
+
+extension HomeVC:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage{
+            imageView.image = image
+            filterButton.isEnabled = true
+            engine = ImageEngine(image: image)
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 

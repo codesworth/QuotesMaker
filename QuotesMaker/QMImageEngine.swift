@@ -15,8 +15,9 @@ class ImageEngine{
     private var currentImage:UIImage?
     
     init(image:UIImage) {
-        baseCIImage = image.ciImage
+        baseCIImage = CIImage(image: image)
         currentImage = image
+        
     }
     
     func getCurrentOutputImage()->UIImage?{
@@ -32,10 +33,13 @@ class ImageEngine{
         }
     }
     
-    func addBloom(){
-        guard let base = baseCIImage else {return}
-        let filter = CIFilter(name: "CIBloom", parameters: [kCIInputRadiusKey: 8, kCIInputIntensityKey: 1.25,kCIInputImageKey:base])
-        baseCIImage = filter?.outputImage
+    func addBloom()->UIImage?{
+        guard let base = baseCIImage else {return nil}
+//        let filter = CIFilter(name: "CIBloom", parameters: [kCIInputRadiusKey: 100, kCIInputIntensityKey: 1.25,kCIInputImageKey:base])
+        let filter = CIFilter(name: "CIGaussianBlur")!
+        filter.setValue(base, forKey: kCIInputImageKey)
+        filter.setValue(25, forKey: kCIInputRadiusKey)
+        return UIImage(ciImage:filter.outputImage!)
         
     }
     
