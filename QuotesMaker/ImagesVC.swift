@@ -72,6 +72,7 @@ class ImagesVC: UIViewController {
                 layer.render(in: context.cgContext)
             }
             self.imageView.image = image
+            print("Image Orientation is:\(image.imageOrientation)")
         }
         
         
@@ -89,6 +90,7 @@ extension ImagesVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
             baseView.layer.addSublayer(imageLayer)
             imageLayer.contents = image.cgImage
             imageLayer.masksToBounds = true
+            print("Image Orientation is:\(image.imageOrientation)")
         }
         picker.dismiss(animated: true, completion: nil)
     }
