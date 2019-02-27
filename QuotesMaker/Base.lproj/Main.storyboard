@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SkS-Wl-SEb">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="0Lq-7j-mSx" customClass="HomeVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pde-jf-DuH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GyS-mr-Yq5"/>
@@ -32,18 +32,18 @@
             <objects>
                 <viewController id="SkS-Wl-SEb" customClass="ImagesVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecE-Bv-QgP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvg-Li-dhV">
-                                <rect key="frame" x="20" y="62" width="335" height="300"/>
+                                <rect key="frame" x="20" y="86" width="374" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="pxG-5Z-NRf"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-e8-6gH">
-                                <rect key="frame" x="112.5" y="392" width="150" height="40"/>
+                                <rect key="frame" x="132" y="416" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="m6x-Tv-6qZ"/>
@@ -62,12 +62,21 @@
                                     <action selector="addImageButt:" destination="SkS-Wl-SEb" eventType="touchUpInside" id="KrJ-3W-anp"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xva-Kd-AXh">
+                                <rect key="frame" x="20" y="502" width="374" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="KZn-OS-lgm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Cjs-hm-mfA" firstAttribute="trailing" secondItem="Tvg-Li-dhV" secondAttribute="trailing" constant="20" id="45a-c9-xab"/>
+                            <constraint firstItem="Cjs-hm-mfA" firstAttribute="bottom" secondItem="xva-Kd-AXh" secondAttribute="bottom" constant="60" id="9EJ-PN-RVe"/>
+                            <constraint firstItem="Cjs-hm-mfA" firstAttribute="trailing" secondItem="xva-Kd-AXh" secondAttribute="trailing" constant="20" id="AJF-fr-1Qh"/>
                             <constraint firstItem="Tvg-Li-dhV" firstAttribute="top" secondItem="Cjs-hm-mfA" secondAttribute="top" constant="42" id="EiO-YN-ddJ"/>
                             <constraint firstItem="qHC-e8-6gH" firstAttribute="centerX" secondItem="ecE-Bv-QgP" secondAttribute="centerX" id="Oyn-St-xZ9"/>
+                            <constraint firstItem="xva-Kd-AXh" firstAttribute="leading" secondItem="Cjs-hm-mfA" secondAttribute="leading" constant="20" id="bke-gp-7MR"/>
                             <constraint firstItem="qHC-e8-6gH" firstAttribute="top" secondItem="Tvg-Li-dhV" secondAttribute="bottom" constant="30" id="iLE-Sk-dJC"/>
                             <constraint firstItem="Tvg-Li-dhV" firstAttribute="leading" secondItem="Cjs-hm-mfA" secondAttribute="leading" constant="20" id="knb-40-8cV"/>
                         </constraints>
@@ -75,6 +84,7 @@
                     </view>
                     <connections>
                         <outlet property="baseView" destination="Tvg-Li-dhV" id="FN8-vz-FYY"/>
+                        <outlet property="imageView" destination="xva-Kd-AXh" id="JFW-7Y-zkB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gad-ob-45f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,7 +97,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n8B-EA-K5F" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TJW-Ss-1DZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
