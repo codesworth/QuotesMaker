@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n8B-EA-K5F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SkS-Wl-SEb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,6 +27,57 @@
             </objects>
             <point key="canvasLocation" x="1903.2" y="-76.011994002998506"/>
         </scene>
+        <!--ImagesVC-->
+        <scene sceneID="Ozm-YX-xe6">
+            <objects>
+                <viewController id="SkS-Wl-SEb" customClass="ImagesVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ecE-Bv-QgP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvg-Li-dhV">
+                                <rect key="frame" x="20" y="62" width="335" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="pxG-5Z-NRf"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-e8-6gH">
+                                <rect key="frame" x="112.5" y="392" width="150" height="40"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="m6x-Tv-6qZ"/>
+                                    <constraint firstAttribute="width" constant="150" id="nJe-wU-Zgc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Add Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Cjs-hm-mfA" firstAttribute="trailing" secondItem="Tvg-Li-dhV" secondAttribute="trailing" constant="20" id="45a-c9-xab"/>
+                            <constraint firstItem="Tvg-Li-dhV" firstAttribute="top" secondItem="Cjs-hm-mfA" secondAttribute="top" constant="42" id="EiO-YN-ddJ"/>
+                            <constraint firstItem="qHC-e8-6gH" firstAttribute="centerX" secondItem="ecE-Bv-QgP" secondAttribute="centerX" id="Oyn-St-xZ9"/>
+                            <constraint firstItem="qHC-e8-6gH" firstAttribute="top" secondItem="Tvg-Li-dhV" secondAttribute="bottom" constant="30" id="iLE-Sk-dJC"/>
+                            <constraint firstItem="Tvg-Li-dhV" firstAttribute="leading" secondItem="Cjs-hm-mfA" secondAttribute="leading" constant="20" id="knb-40-8cV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cjs-hm-mfA"/>
+                    </view>
+                    <connections>
+                        <outlet property="baseView" destination="Tvg-Li-dhV" id="FN8-vz-FYY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gad-ob-45f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2620" y="-56.221889055472268"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="w7n-MK-N3Y">
             <objects>
@@ -52,6 +103,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="N0w-va-M0I"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cfg-6P-DzU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
