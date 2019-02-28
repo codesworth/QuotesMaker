@@ -25,4 +25,5 @@ class ImageBackingLayer:CALayer{
         self.contents = image.cgImage
         orientation = image.imageOrientation
     }
+    
 }
