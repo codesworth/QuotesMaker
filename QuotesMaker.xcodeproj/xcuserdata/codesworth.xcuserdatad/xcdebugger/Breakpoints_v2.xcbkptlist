@@ -211,13 +211,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/ImagesVC.swift"
-            timestampString = "572958131.109619"
+            timestampString = "572966069.899039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -227,13 +227,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/ImagesVC.swift"
-            timestampString = "572958131.110334"
+            timestampString = "572966069.899835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
-            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -243,13 +243,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/ImagesVC.swift"
-            timestampString = "572958131.110706"
+            timestampString = "572966069.900436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
             endingLineNumber = "74"
-            landmarkName = "turnLayerIntoImage()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -259,13 +259,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/ImagesVC.swift"
-            timestampString = "572958131.11107"
+            timestampString = "572966069.901165"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
             endingLineNumber = "76"
-            landmarkName = "turnLayerIntoImage()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
