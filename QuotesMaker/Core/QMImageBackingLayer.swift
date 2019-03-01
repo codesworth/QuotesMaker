@@ -30,7 +30,7 @@ class ImageBackingLayer:CALayer{
     func addImage(_ image:UIImage){
         self.contents = image.cgImage
         orientation = image.imageOrientation
-        bounds.size = image.size
+        bounds.size = Dimensions.scaledDownFrom(rect: image.size)
     }
     
     

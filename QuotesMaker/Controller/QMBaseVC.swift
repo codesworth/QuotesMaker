@@ -42,11 +42,12 @@ class QMBaseVC: UIViewController {
     func setupViews(){
         
         baseView.translatesAutoresizingMaskIntoConstraints = false
+        let size = Dimensions.sizeForAspect(.default)
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            baseView.widthAnchor.constraint(equalToConstant: .fixedWidth),
-            baseView.heightAnchor.constraint(equalToConstant: .fixedWidth)
+            baseView.widthAnchor.constraint(equalToConstant: size.width),
+            baseView.heightAnchor.constraint(equalToConstant: size.height)
         ])
         
     }

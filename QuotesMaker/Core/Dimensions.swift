@@ -15,12 +15,27 @@ class Dimensions{
         return [rectSize.width * scale, rectSize.height * scale ]
     }
     
+    
     class func scaledDownFrom(rect:CGSize)->CGSize{
         let lowestSide = min(rect.width, rect.height)
         let maxSide = CGFloat.fixedWidth
         let scaler = maxSide / lowestSide
         return rect.scaledBy(scaler)
         
+    }
+    
+    enum AspectRatios{
+        case `default`
+        case square
+    }
+    
+    class func sizeForAspect(_ ratio:AspectRatios)-> CGSize{
+        switch ratio {
+        case .default:
+            return [.fixedWidth, .fixedWidth * (9 / 16)]
+        case .square:
+            return [.fixedWidth]
+        }
     }
     
 }
