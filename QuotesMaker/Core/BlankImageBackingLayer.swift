@@ -14,7 +14,16 @@ class BlankImageBackingLayer:CALayer{
     
     override init() {
         super.init()
-//        
+        setup()
+    }
+    
+    override init(layer: Any) {
+        super.init(layer: layer)
+        setup()
+    }
+    
+    func setup(){
+        backgroundColor = UIColor.blankWhite.cgColor
     }
     
     required init?(coder aDecoder: NSCoder) {

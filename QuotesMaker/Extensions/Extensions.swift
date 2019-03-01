@@ -29,4 +29,8 @@ extension UIColor{
     class var primary:UIColor{
         return UIColor(red: 238/255, green: 2/255, blue: 144/255, alpha: 1)
     }
+    
+    class var blankWhite:UIColor{
+        return UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
+    }
 }

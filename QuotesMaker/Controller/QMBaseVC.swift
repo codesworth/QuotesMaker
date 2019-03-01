@@ -42,7 +42,7 @@ class QMBaseVC: UIViewController {
     func setupViews(){
         
         baseView.translatesAutoresizingMaskIntoConstraints = false
-        let size = Dimensions.sizeForAspect(.default)
+        let size = Dimensions.sizeForAspect(.square)
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -53,9 +53,12 @@ class QMBaseVC: UIViewController {
     }
     
     @objc func baseViewTapped(_ tap:UITapGestureRecognizer){
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+//        let picker = UIImagePickerController()
+//        picker.delegate = self
+//        present(picker, animated: true, completion: nil)
+        let blank = BlankImageBackingLayer()
+        blank.bounds.size = baseView.bounds.size
+        baseView.addLayer(blank)
     }
     
     func setTouchRegisters(){
