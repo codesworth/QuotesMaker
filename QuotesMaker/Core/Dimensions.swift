@@ -15,4 +15,12 @@ class Dimensions{
         return [rectSize.width * scale, rectSize.height * scale ]
     }
     
+    class func scaledDownFrom(rect:CGSize)->CGSize{
+        let lowestSide = min(rect.width, rect.height)
+        let maxSide = CGFloat.fixedWidth
+        let scaler = maxSide / lowestSide
+        return rect.scaledBy(scaler)
+        
+    }
+    
 }

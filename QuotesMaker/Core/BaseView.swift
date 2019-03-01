@@ -9,7 +9,7 @@
 import UIKit
 
 
-class BaseView:UIView{
+class BaseView:UIImageView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,6 +31,7 @@ class BaseView:UIView{
         layer.cornerRadius = 2
         layer.borderColor = UIColor.primary.cgColor
         contentMode = .scaleAspectFill
+        layer.masksToBounds = true
     }
     
     
@@ -40,7 +41,7 @@ class BaseView:UIView{
     
     func addLayer(_ layer:CALayer){
         self.layer.addSublayer(layer)
-        layer.bounds = bounds
+        //layer.bounds = bounds
         layer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         
     }

@@ -46,3 +46,11 @@ extension CGSize:ExpressibleByFloatLiteral{
         self = CGSize(width: value, height: value)
     }
 }
+
+
+extension CGSize{
+    
+    func scaledBy(_ scaler:CGFloat)->CGSize{
+        return [width * scaler, height * scaler]
+    }
+}

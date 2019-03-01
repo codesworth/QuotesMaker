@@ -13,10 +13,12 @@ class ImageBackingLayer:CALayer{
     
     override init() {
         super.init()
+        
     }
     
     override init(layer: Any) {
         super.init(layer: layer)
+        
     }
     
     var orientation:UIImage.Orientation?
@@ -28,6 +30,8 @@ class ImageBackingLayer:CALayer{
     func addImage(_ image:UIImage){
         self.contents = image.cgImage
         orientation = image.imageOrientation
+        bounds.size = image.size
     }
+    
     
 }
