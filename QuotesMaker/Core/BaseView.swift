@@ -16,6 +16,11 @@ class BaseView:UIView{
         setup()
     }
     
+    var currentSublayer:CALayer?{
+        
+        return layer.sublayers?.last
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -25,6 +30,7 @@ class BaseView:UIView{
         layer.borderWidth = 1
         layer.cornerRadius = 2
         layer.borderColor = UIColor.primary.cgColor
+        contentMode = .scaleAspectFill
     }
     
     
@@ -34,6 +40,7 @@ class BaseView:UIView{
     
     func addLayer(_ layer:CALayer){
         self.layer.addSublayer(layer)
+        layer.bounds = bounds
         layer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         
     }
