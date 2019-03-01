@@ -20,7 +20,7 @@ class CreateButton:UIButton{
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        addIcon.path = Utils.drawAddInRect().cgPath
+        addIcon.path = Utils.drawPlusIcon(with: .orange).cgPath
         addIcon.position = center
         layer.addSublayer(addIcon)
     }

@@ -74,6 +74,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		387B963B22298DB100824498 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		389B938822275C88009FE9E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +145,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
+				387B963B22298DB100824498 /* New Group */,
 				389B9390222768C7009FE9E6 /* Extensions */,
 				389B938B22275CB9009FE9E6 /* Core */,
 				389B938A22275CAB009FE9E6 /* Controller */,

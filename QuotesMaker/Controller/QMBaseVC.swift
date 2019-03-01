@@ -16,10 +16,10 @@ class QMBaseVC: UIViewController {
         return view
     }()
     
-//    lazy var createButton:CreateButton = {
-//       let button = CreateButton(frame:CGRect(origin: .zero, size: CGSize(width: .fixedWidth, height: .fixedWidth)))
-//        return button
-//    }()
+    lazy var createButton:CreateButton = {
+       let button = CreateButton()
+        return button
+    }()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -50,7 +50,7 @@ class QMBaseVC: UIViewController {
             baseView.widthAnchor.constraint(equalToConstant: .fixedWidth),
             baseView.heightAnchor.constraint(equalToConstant: .fixedWidth)
         ])
-        //view.addSubview(createButton)
+        view.addSubview(createButton)
     }
 
 }
