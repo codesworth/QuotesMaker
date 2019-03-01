@@ -14,7 +14,7 @@ class BlankImageBackingLayer:CALayer{
     
     override init() {
         super.init()
-        
+//        
     }
     
     required init?(coder aDecoder: NSCoder) {
