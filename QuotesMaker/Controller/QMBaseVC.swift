@@ -10,16 +10,8 @@ import UIKit
 
 class QMBaseVC: UIViewController {
     
-    lazy var baseView:UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .white
-        return view
-    }()
+    @IBOutlet weak var baseView:UIView!
     
-    lazy var createButton:CreateButton = {
-       let button = CreateButton()
-        return button
-    }()
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -55,9 +47,38 @@ class QMBaseVC: UIViewController {
             baseView.widthAnchor.constraint(equalToConstant: .fixedWidth),
             baseView.heightAnchor.constraint(equalToConstant: .fixedWidth)
         ])
-        createButton.frame = CGRect(origin: .zero, size: Dimensions.sizedRectForScale(rectSize: baseView.bounds.size, scale: 0.5))
-        createButton.center = baseView.center
-        view.addSubview(createButton)
+        
+    }
+    
+    @objc func baseViewTapped(_ tap:UITapGestureRecognizer){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func setTouchRegisters(){
+        baseView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(baseViewTapped(_:)))
+        tap.numberOfTapsRequired = 1
+        baseView.addGestureRecognizer(tap)
     }
 
+}
+
+
+extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage{
+            let layer = ImageBackingLayer()
+            layer.addImage(image)
+            
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
 }

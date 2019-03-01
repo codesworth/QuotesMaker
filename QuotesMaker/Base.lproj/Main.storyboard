@@ -13,7 +13,7 @@
         <!--Item-->
         <scene sceneID="Ehl-ZC-UGt">
             <objects>
-                <viewController id="0Lq-7j-mSx" customClass="HomeVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Lq-7j-mSx" customClass="QMBaseVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pde-jf-DuH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="grz-tt-gaQ"/>
                     <navigationItem key="navigationItem" id="mK7-NY-It0"/>
+                    <connections>
+                        <outlet property="baseView" destination="TSF-MB-lNu" id="OqC-yR-hrB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBo-Mu-kt0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
