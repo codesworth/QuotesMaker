@@ -13,6 +13,7 @@
 		388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */; };
 		388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F422299B01005BF44B /* UIOffset+Literals.swift */; };
 		388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F522299B01005BF44B /* CGRect+Literals.swift */; };
+		388BE2FC2229A458005BF44B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2FB2229A458005BF44B /* BaseView.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -59,6 +60,7 @@
 		388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F422299B01005BF44B /* UIOffset+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIOffset+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F522299B01005BF44B /* CGRect+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Literals.swift"; sourceTree = "<group>"; };
+		388BE2FB2229A458005BF44B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */,
 				389B938E2227689E009FE9E6 /* Utils.swift */,
 				389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */,
+				388BE2FB2229A458005BF44B /* BaseView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
 				389B939622276BAD009FE9E6 /* Extensions.swift in Sources */,
+				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
 				38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */,
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,

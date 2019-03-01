@@ -15,6 +15,10 @@ class ImageBackingLayer:CALayer{
         super.init()
     }
     
+    override init(layer: Any) {
+        super.init(layer: layer)
+    }
+    
     var orientation:UIImage.Orientation?
     
     required init?(coder aDecoder: NSCoder) {

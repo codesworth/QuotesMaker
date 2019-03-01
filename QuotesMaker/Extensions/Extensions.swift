@@ -21,3 +21,12 @@ extension CGFloat{
         return UIScreen.main.bounds.width * 0.9
     }
 }
+
+
+
+extension UIColor{
+    
+    class var primary:UIColor{
+        return UIColor(red: 238/255, green: 2/255, blue: 144/255, alpha: 1)
+    }
+}

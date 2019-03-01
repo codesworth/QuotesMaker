@@ -10,7 +10,7 @@ import UIKit
 
 class QMBaseVC: UIViewController {
     
-    @IBOutlet weak var baseView:UIView!
+    @IBOutlet weak var baseView:BaseView!
     
     
     init() {
@@ -23,19 +23,20 @@ class QMBaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(baseView)
+        
+        setTouchRegisters()
         // Do any additional setup after loading the view.
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //setupViews()
+        setupViews()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupViews()
+        
     }
     
     func setupViews(){
@@ -77,7 +78,7 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
         if let image = info[.originalImage] as? UIImage{
             let layer = ImageBackingLayer()
             layer.addImage(image)
-            
+            baseView.addLayer(layer)
         }
         picker.dismiss(animated: true, completion: nil)
     }
