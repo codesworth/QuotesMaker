@@ -50,6 +50,8 @@ class QMBaseVC: UIViewController {
             baseView.widthAnchor.constraint(equalToConstant: .fixedWidth),
             baseView.heightAnchor.constraint(equalToConstant: .fixedWidth)
         ])
+        createButton.frame = CGRect(origin: .zero, size: Dimensions.sizedRectForScale(rectSize: baseView.bounds.size, scale: 0.5))
+        createButton.center = baseView.center
         view.addSubview(createButton)
     }
 

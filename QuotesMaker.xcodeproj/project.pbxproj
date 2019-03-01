@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861A4A2222691B70040D819 /* ImagesVC.swift */; };
-		387B963D22298E0300824498 /* LiteralExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387B963C22298E0300824498 /* LiteralExtensions.framework */; };
+		388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F122299B01005BF44B /* CGPoint+Literals.swift */; };
+		388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F222299B01005BF44B /* CGSize+Literals.swift */; };
+		388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */; };
+		388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F422299B01005BF44B /* UIOffset+Literals.swift */; };
+		388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F522299B01005BF44B /* CGRect+Literals.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -35,9 +39,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		387B964B2229973700824498 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3861A4A2222691B70040D819 /* ImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesVC.swift; sourceTree = "<group>"; };
-		387B963C22298E0300824498 /* LiteralExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LiteralExtensions.framework; sourceTree = "<group>"; };
+		388BE2F122299B01005BF44B /* CGPoint+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Literals.swift"; sourceTree = "<group>"; };
+		388BE2F222299B01005BF44B /* CGSize+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Literals.swift"; sourceTree = "<group>"; };
+		388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Literals.swift"; sourceTree = "<group>"; };
+		388BE2F422299B01005BF44B /* UIOffset+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIOffset+Literals.swift"; sourceTree = "<group>"; };
+		388BE2F522299B01005BF44B /* CGRect+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Literals.swift"; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -63,7 +84,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				387B963D22298E0300824498 /* LiteralExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +97,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		387B963B22298DB100824498 /* Frameworks */ = {
+		387B96472229966F00824498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				387B963C22298E0300824498 /* LiteralExtensions.framework */,
+				388BE2F022299B01005BF44B /* LiteralExtensions */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		388BE2F022299B01005BF44B /* LiteralExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				388BE2F122299B01005BF44B /* CGPoint+Literals.swift */,
+				388BE2F222299B01005BF44B /* CGSize+Literals.swift */,
+				388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */,
+				388BE2F422299B01005BF44B /* UIOffset+Literals.swift */,
+				388BE2F522299B01005BF44B /* CGRect+Literals.swift */,
+			);
+			path = LiteralExtensions;
 			sourceTree = "<group>";
 		};
 		389B938822275C88009FE9E6 /* Models */ = {
@@ -149,7 +181,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
-				387B963B22298DB100824498 /* Frameworks */,
+				387B96472229966F00824498 /* Frameworks */,
 				389B9390222768C7009FE9E6 /* Extensions */,
 				389B938B22275CB9009FE9E6 /* Core */,
 				389B938A22275CAB009FE9E6 /* Controller */,
@@ -185,6 +217,7 @@
 				38FEDBE2222352D90005EB60 /* Sources */,
 				38FEDBE3222352D90005EB60 /* Frameworks */,
 				38FEDBE4222352D90005EB60 /* Resources */,
+				387B964B2229973700824498 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,10 +312,15 @@
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
 				389B939622276BAD009FE9E6 /* Extensions.swift in Sources */,
+				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
 				38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */,
+				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
+				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
+				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */,
 				389B939422276B55009FE9E6 /* QMBaseVC.swift in Sources */,
+				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
@@ -450,10 +488,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MB46J93Q7Z;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/QuotesMaker/Frameworks",
-				);
 				INFOPLIST_FILE = QuotesMaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -472,10 +506,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MB46J93Q7Z;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/QuotesMaker/Frameworks",
-				);
 				INFOPLIST_FILE = QuotesMaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
