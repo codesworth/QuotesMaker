@@ -7,13 +7,12 @@
 //
 
 import UIKit
-
+import LiteralExtensions
 
 class Dimensions{
     
     func sizedRectForScale(rectSize:CGSize, scale:CGFloat)->CGSize{
-        
-        return CGRect(
+        return [rectSize.width * scale, rectSize.height * scale ]
     }
     
 }

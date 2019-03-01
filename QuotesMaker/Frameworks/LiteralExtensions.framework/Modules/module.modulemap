@@ -1,0 +1,11 @@
+framework module LiteralExtensions {
+  umbrella header "LiteralExtensions.h"
+
+  export *
+  module * { export * }
+}
+
+module LiteralExtensions.Swift {
+    header "LiteralExtensions-Swift.h"
+    requires objc
+}
