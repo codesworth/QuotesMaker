@@ -21,6 +21,7 @@
 		388BE319222ABBA5005BF44B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE312222ABBA5005BF44B /* GradientView.swift */; };
 		388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE313222ABBA5005BF44B /* HSBColor.swift */; };
 		388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */; };
+		388BE31D222ABC94005BF44B /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE31C222ABC94005BF44B /* ColorPickerView.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -75,6 +76,7 @@
 		388BE312222ABBA5005BF44B /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		388BE313222ABBA5005BF44B /* HSBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSBColor.swift; sourceTree = "<group>"; };
 		388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPreviewView.swift; sourceTree = "<group>"; };
+		388BE31C222ABC94005BF44B /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				389B939722277A77009FE9E6 /* CreateButton.swift */,
+				388BE31C222ABC94005BF44B /* ColorPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */,
+				388BE31D222ABC94005BF44B /* ColorPickerView.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				389B939422276B55009FE9E6 /* QMBaseVC.swift in Sources */,
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,
