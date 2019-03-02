@@ -74,7 +74,7 @@ class QMBaseVC: UIViewController {
     }
     
     func blankImageSelected(){
-        let blank = BlankImageBackingLayer()
+        let blank = BackingGradientlayer()
         blank.bounds.size = baseView.bounds.size
         baseView.addLayer(blank)
         setupColorPanel()

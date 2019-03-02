@@ -32,6 +32,7 @@
 		388BE332222B0C5D005BF44B /* snow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32D222B06BC005BF44B /* snow.ttf */; };
 		388BE333222B0C61005BF44B /* candy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32C222B069D005BF44B /* candy.otf */; };
 		388BE334222B0C65005BF44B /* fontjek.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32B222B067A005BF44B /* fontjek.ttf */; };
+		388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE335222B2135005BF44B /* BackingGradientlayer.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -97,6 +98,7 @@
 		388BE32D222B06BC005BF44B /* snow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snow.ttf; sourceTree = "<group>"; };
 		388BE32E222B0700005BF44B /* painter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = painter.ttf; sourceTree = "<group>"; };
 		388BE32F222B0771005BF44B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		388BE335222B2135005BF44B /* BackingGradientlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingGradientlayer.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				389B938E2227689E009FE9E6 /* Utils.swift */,
 				389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */,
 				388BE2FB2229A458005BF44B /* BaseView.swift */,
+				388BE335222B2135005BF44B /* BackingGradientlayer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */,
 				388BE323222AC376005BF44B /* CreateOptions.swift in Sources */,
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
+				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
