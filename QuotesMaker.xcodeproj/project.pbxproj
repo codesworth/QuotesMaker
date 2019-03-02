@@ -33,6 +33,8 @@
 		388BE333222B0C61005BF44B /* candy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32C222B069D005BF44B /* candy.otf */; };
 		388BE334222B0C65005BF44B /* fontjek.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32B222B067A005BF44B /* fontjek.ttf */; };
 		388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE335222B2135005BF44B /* BackingGradientlayer.swift */; };
+		388BE338222B369E005BF44B /* GradientOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE337222B369E005BF44B /* GradientOptionsView.swift */; };
+		388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE339222B39D4005BF44B /* BasicLabel.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -99,6 +101,8 @@
 		388BE32E222B0700005BF44B /* painter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = painter.ttf; sourceTree = "<group>"; };
 		388BE32F222B0771005BF44B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		388BE335222B2135005BF44B /* BackingGradientlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingGradientlayer.swift; sourceTree = "<group>"; };
+		388BE337222B369E005BF44B /* GradientOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientOptionsView.swift; sourceTree = "<group>"; };
+		388BE339222B39D4005BF44B /* BasicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLabel.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				388BE31E222AC007005BF44B /* OptionsStack.swift */,
 				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
 				388BE327222ADC6F005BF44B /* AlphaSliderView.swift */,
+				388BE337222B369E005BF44B /* GradientOptionsView.swift */,
+				388BE339222B39D4005BF44B /* BasicLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,6 +429,7 @@
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */,
+				388BE338222B369E005BF44B /* GradientOptionsView.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				389B939422276B55009FE9E6 /* QMBaseVC.swift in Sources */,
@@ -433,6 +440,7 @@
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
+				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
