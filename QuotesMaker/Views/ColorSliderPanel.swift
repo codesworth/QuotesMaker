@@ -24,8 +24,16 @@ class ColorSliderPanel: UIView {
         return lable
     }()
     
+    override var isHidden: Bool{
+        didSet{
+            if !isHidden{
+                colorSlider.centerPreview(at: colorSlider.center)
+            }
+        }
+    }
+    
     private let alphaSlider = AlphaSliderView(frame: .zero)
-    private let colorSlider = ColorSlider(orientation: .horizontal, previewView: nil)
+    private let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
     var currentColor:UIColor = .clear
     var currentAlpha:CGFloat = 0.5
     weak var delegate:PickerColorDelegate?
@@ -79,9 +87,9 @@ class ColorSliderPanel: UIView {
         alphaSlider.translatesAutoresizingMaskIntoConstraints = false
         lable.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            colorSlider.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor),
-            colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor),
+            colorSlider.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant:8),
+            colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-8),
             colorSlider.heightAnchor.constraint(equalToConstant: 20),
             lable.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: 8),
             lable.centerXAnchor.constraint(equalTo: centerXAnchor),

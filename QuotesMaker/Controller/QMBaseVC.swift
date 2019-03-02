@@ -19,6 +19,7 @@ class QMBaseVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -26,6 +27,8 @@ class QMBaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         colorPanel.isHidden = true
+        let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
+        navigationController?.title = attr.string
         //setTouchRegisters()
         // Do any additional setup after loading the view.
     }

@@ -36,6 +36,7 @@ class BaseView:UIImageView{
     }
     
     
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -46,6 +47,8 @@ class BaseView:UIImageView{
         layer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         
     }
+    
+    
     
     
 }

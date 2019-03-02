@@ -41,5 +41,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>painter.ttf</string>
+		<string>snow.ttf</string>
+		<string>candy.otf</string>
+		<string>fontjek.ttf</string>
+	</array>
 </dict>
 </plist>

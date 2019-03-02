@@ -27,6 +27,11 @@
 		388BE323222AC376005BF44B /* CreateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE322222AC376005BF44B /* CreateOptions.swift */; };
 		388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE325222AD4E8005BF44B /* QMEngine.swift */; };
 		388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE327222ADC6F005BF44B /* AlphaSliderView.swift */; };
+		388BE330222B0771005BF44B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE32F222B0771005BF44B /* Fonts.swift */; };
+		388BE331222B0A16005BF44B /* painter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32E222B0700005BF44B /* painter.ttf */; };
+		388BE332222B0C5D005BF44B /* snow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32D222B06BC005BF44B /* snow.ttf */; };
+		388BE333222B0C61005BF44B /* candy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32C222B069D005BF44B /* candy.otf */; };
+		388BE334222B0C65005BF44B /* fontjek.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 388BE32B222B067A005BF44B /* fontjek.ttf */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -87,6 +92,11 @@
 		388BE322222AC376005BF44B /* CreateOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOptions.swift; sourceTree = "<group>"; };
 		388BE325222AD4E8005BF44B /* QMEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMEngine.swift; sourceTree = "<group>"; };
 		388BE327222ADC6F005BF44B /* AlphaSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaSliderView.swift; sourceTree = "<group>"; };
+		388BE32B222B067A005BF44B /* fontjek.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontjek.ttf; sourceTree = "<group>"; };
+		388BE32C222B069D005BF44B /* candy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = candy.otf; sourceTree = "<group>"; };
+		388BE32D222B06BC005BF44B /* snow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snow.ttf; sourceTree = "<group>"; };
+		388BE32E222B0700005BF44B /* painter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = painter.ttf; sourceTree = "<group>"; };
+		388BE32F222B0771005BF44B /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -168,6 +178,26 @@
 			path = Engine;
 			sourceTree = "<group>";
 		};
+		388BE329222B065A005BF44B /* Resourcres */ = {
+			isa = PBXGroup;
+			children = (
+				388BE32A222B0669005BF44B /* Fonts */,
+			);
+			path = Resourcres;
+			sourceTree = "<group>";
+		};
+		388BE32A222B0669005BF44B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				388BE32B222B067A005BF44B /* fontjek.ttf */,
+				388BE32C222B069D005BF44B /* candy.otf */,
+				388BE32D222B06BC005BF44B /* snow.ttf */,
+				388BE32E222B0700005BF44B /* painter.ttf */,
+				388BE32F222B0771005BF44B /* Fonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		389B938822275C88009FE9E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +268,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
+				388BE329222B065A005BF44B /* Resourcres */,
 				388BE324222AD4CD005BF44B /* Engine */,
 				387B96472229966F00824498 /* Frameworks */,
 				389B9390222768C7009FE9E6 /* Extensions */,
@@ -347,8 +378,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388BE332222B0C5D005BF44B /* snow.ttf in Resources */,
+				388BE333222B0C61005BF44B /* candy.otf in Resources */,
+				388BE334222B0C65005BF44B /* fontjek.ttf in Resources */,
 				38FEDBF4222352DB0005EB60 /* LaunchScreen.storyboard in Resources */,
 				38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */,
+				388BE331222B0A16005BF44B /* painter.ttf in Resources */,
 				38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +426,7 @@
 				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
 				388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
+				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
