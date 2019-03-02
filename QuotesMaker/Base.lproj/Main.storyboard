@@ -24,10 +24,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdF-Ie-zji" customClass="ColorSliderPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="665" width="374" height="120"/>
+                                <rect key="frame" x="20" y="645" width="374" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="GVa-L1-YTN"/>
+                                    <constraint firstAttribute="height" constant="140" id="GVa-L1-YTN"/>
                                 </constraints>
                             </view>
                         </subviews>

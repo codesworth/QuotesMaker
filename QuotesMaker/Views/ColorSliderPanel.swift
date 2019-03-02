@@ -45,8 +45,15 @@ class ColorSliderPanel: UIView {
         colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
         addSubview(colorSlider)
         alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .valueChanged)
+        alphaSlider.slider.value = Float(currentAlpha)
         addSubview(alphaSlider)
         addSubview(lable)
+        layer.cornerRadius = 8
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowRadius = 5
+        layer.shadowOffset = 2
+        //clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,6 +70,7 @@ class ColorSliderPanel: UIView {
         currentAlpha = value
         delegate?.colorDidChange(currentColor.withAlphaComponent(value))
         
+        
     }
     
     override func layoutSubviews() {
@@ -74,7 +82,7 @@ class ColorSliderPanel: UIView {
             colorSlider.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor),
             colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor),
-            colorSlider.heightAnchor.constraint(equalToConstant: 30),
+            colorSlider.heightAnchor.constraint(equalToConstant: 20),
             lable.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: 8),
             lable.centerXAnchor.constraint(equalTo: centerXAnchor),
             alphaSlider.topAnchor.constraint(equalTo: lable.bottomAnchor, constant: 8),
