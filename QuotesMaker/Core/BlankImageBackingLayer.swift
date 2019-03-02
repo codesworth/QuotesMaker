@@ -22,6 +22,11 @@ class BlankImageBackingLayer:CALayer{
         setup()
     }
     
+    func setBackGroundColor(_ color:UIColor){
+        backgroundColor = color.cgColor
+        
+    }
+    
     func setup(){
         backgroundColor = UIColor.blankWhite.cgColor
     }

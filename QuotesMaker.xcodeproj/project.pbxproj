@@ -14,6 +14,13 @@
 		388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F422299B01005BF44B /* UIOffset+Literals.swift */; };
 		388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F522299B01005BF44B /* CGRect+Literals.swift */; };
 		388BE2FC2229A458005BF44B /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2FB2229A458005BF44B /* BaseView.swift */; };
+		388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE30E222ABBA5005BF44B /* PreviewView.swift */; };
+		388BE316222ABBA5005BF44B /* ColorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE30F222ABBA5005BF44B /* ColorSlider.swift */; };
+		388BE317222ABBA5005BF44B /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE310222ABBA5005BF44B /* Gradient.swift */; };
+		388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE311222ABBA5005BF44B /* ColorSliderExtensions.swift */; };
+		388BE319222ABBA5005BF44B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE312222ABBA5005BF44B /* GradientView.swift */; };
+		388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE313222ABBA5005BF44B /* HSBColor.swift */; };
+		388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -61,6 +68,13 @@
 		388BE2F422299B01005BF44B /* UIOffset+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIOffset+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F522299B01005BF44B /* CGRect+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Literals.swift"; sourceTree = "<group>"; };
 		388BE2FB2229A458005BF44B /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		388BE30E222ABBA5005BF44B /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		388BE30F222ABBA5005BF44B /* ColorSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSlider.swift; sourceTree = "<group>"; };
+		388BE310222ABBA5005BF44B /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		388BE311222ABBA5005BF44B /* ColorSliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSliderExtensions.swift; sourceTree = "<group>"; };
+		388BE312222ABBA5005BF44B /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		388BE313222ABBA5005BF44B /* HSBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSBColor.swift; sourceTree = "<group>"; };
+		388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPreviewView.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -102,6 +116,7 @@
 		387B96472229966F00824498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				388BE30D222ABBA5005BF44B /* Color Slider */,
 				388BE2F022299B01005BF44B /* LiteralExtensions */,
 			);
 			path = Frameworks;
@@ -117,6 +132,20 @@
 				388BE2F522299B01005BF44B /* CGRect+Literals.swift */,
 			);
 			path = LiteralExtensions;
+			sourceTree = "<group>";
+		};
+		388BE30D222ABBA5005BF44B /* Color Slider */ = {
+			isa = PBXGroup;
+			children = (
+				388BE30E222ABBA5005BF44B /* PreviewView.swift */,
+				388BE30F222ABBA5005BF44B /* ColorSlider.swift */,
+				388BE310222ABBA5005BF44B /* Gradient.swift */,
+				388BE311222ABBA5005BF44B /* ColorSliderExtensions.swift */,
+				388BE312222ABBA5005BF44B /* GradientView.swift */,
+				388BE313222ABBA5005BF44B /* HSBColor.swift */,
+				388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */,
+			);
+			path = "Color Slider";
 			sourceTree = "<group>";
 		};
 		389B938822275C88009FE9E6 /* Models */ = {
@@ -314,6 +343,8 @@
 			files = (
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
+				388BE319222ABBA5005BF44B /* GradientView.swift in Sources */,
+				388BE316222ABBA5005BF44B /* ColorSlider.swift in Sources */,
 				389B939622276BAD009FE9E6 /* Extensions.swift in Sources */,
 				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
@@ -321,12 +352,17 @@
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
+				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */,
+				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				389B939422276B55009FE9E6 /* QMBaseVC.swift in Sources */,
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,
+				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
+				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
+				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
 				389B938F2227689E009FE9E6 /* Utils.swift in Sources */,
 			);
