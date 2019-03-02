@@ -12,7 +12,7 @@ class QMBaseVC: UIViewController {
     
     @IBOutlet weak var colorPanel: ColorSliderPanel!
     @IBOutlet weak var baseView:BaseView!
-    private var  optionsView:OptionsStack!
+    private var  optionsView:OptionsStack?
     private var aspectRatio:Dimensions.AspectRatios = .square
     
     init() {
@@ -54,15 +54,17 @@ class QMBaseVC: UIViewController {
             baseView.widthAnchor.constraint(equalToConstant: size.width),
             baseView.heightAnchor.constraint(equalToConstant: size.height)
         ])
-        setupOverlayOptions()
+        if optionsView == nil{
+            setupOverlayOptions()
+        }
         
     }
     
     func setupOverlayOptions(){
         let size = Dimensions.sizeForAspect(aspectRatio)
         optionsView = OptionsStack(frame:[0,0,size.width,size.height])
-        optionsView.delegate = self
-        baseView.addSubview(optionsView)
+        optionsView!.delegate = self
+        baseView.addSubview(optionsView!)
     }
     
     @objc func imageOptionSelected(){
@@ -111,7 +113,7 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
 extension QMBaseVC:OptionsSelectedDelegate{
     
     func didPressButton(_ id: Int) {
-        optionsView.removeFromSuperview()
+        optionsView?.removeFromSuperview()
         if id == 1{
             imageOptionSelected()
         }else{

@@ -21,7 +21,7 @@ class OptionsStack: UIView {
     private var options = Options.getDefaultOptions()
     var createButtons:[OptionsButtonView]!
     weak var delegate:OptionsSelectedDelegate?
-    
+    var isRemovedFromSuperView = false
     override init(frame: CGRect) {
         stackView = UIStackView(frame: frame)
         stackView.axis = .vertical
@@ -69,6 +69,11 @@ class OptionsStack: UIView {
         //upperStack.frame.size = [frame.size.width,frame.size.height/]
         stackView.addArrangedSubview(upperStack)
         stackView.addArrangedSubview(lowerStack)
+    }
+    
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+        isRemovedFromSuperView = true
     }
     
     

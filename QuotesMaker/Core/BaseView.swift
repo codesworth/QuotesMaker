@@ -11,6 +11,7 @@ import UIKit
 
 class BaseView:UIImageView{
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -47,7 +48,6 @@ class BaseView:UIImageView{
         layer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         
     }
-    
     
     
     
