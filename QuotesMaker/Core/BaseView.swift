@@ -21,6 +21,7 @@ class BaseView:UIImageView{
         return layer.sublayers?.last
     }
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()

@@ -25,7 +25,7 @@ class QMBaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        colorPanel.isHidden = true
         //setTouchRegisters()
         // Do any additional setup after loading the view.
     }
@@ -72,6 +72,7 @@ class QMBaseVC: UIViewController {
         let blank = BlankImageBackingLayer()
         blank.bounds.size = baseView.bounds.size
         baseView.addLayer(blank)
+        setupColorPanel()
     }
     
     func setTouchRegisters(){
@@ -82,6 +83,8 @@ class QMBaseVC: UIViewController {
     }
 
 }
+
+
 
 
 extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
@@ -111,5 +114,20 @@ extension QMBaseVC:OptionsSelectedDelegate{
         }else{
            blankImageSelected()
         }
+    }
+}
+
+
+
+extension QMBaseVC:PickerColorDelegate{
+    
+    func setupColorPanel(){
+        //Animate Sliders in
+        colorPanel.isHidden = false
+        colorPanel.delegate = self
+    }
+    
+    func colorDidChange(_ color: UIColor) {
+        baseView.currentSublayer?.backgroundColor  = color.cgColor
     }
 }
