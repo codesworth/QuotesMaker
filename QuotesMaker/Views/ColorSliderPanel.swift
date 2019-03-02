@@ -32,6 +32,15 @@ class ColorSliderPanel: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        commonSetup()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        commonSetup()
+    }
+    
+    func commonSetup(){
         backgroundColor = .white
         colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
         addSubview(colorSlider)

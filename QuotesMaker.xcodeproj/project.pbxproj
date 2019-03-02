@@ -21,7 +21,7 @@
 		388BE319222ABBA5005BF44B /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE312222ABBA5005BF44B /* GradientView.swift */; };
 		388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE313222ABBA5005BF44B /* HSBColor.swift */; };
 		388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */; };
-		388BE31D222ABC94005BF44B /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE31C222ABC94005BF44B /* ColorPickerView.swift */; };
+		388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */; };
 		388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE31E222AC007005BF44B /* OptionsStack.swift */; };
 		388BE321222AC23C005BF44B /* OptionsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE320222AC23C005BF44B /* OptionsButtonView.swift */; };
 		388BE323222AC376005BF44B /* CreateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE322222AC376005BF44B /* CreateOptions.swift */; };
@@ -81,7 +81,7 @@
 		388BE312222ABBA5005BF44B /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		388BE313222ABBA5005BF44B /* HSBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSBColor.swift; sourceTree = "<group>"; };
 		388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPreviewView.swift; sourceTree = "<group>"; };
-		388BE31C222ABC94005BF44B /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderPanel.swift; sourceTree = "<group>"; };
 		388BE31E222AC007005BF44B /* OptionsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsStack.swift; sourceTree = "<group>"; };
 		388BE320222AC23C005BF44B /* OptionsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsButtonView.swift; sourceTree = "<group>"; };
 		388BE322222AC376005BF44B /* CreateOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOptions.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				389B939722277A77009FE9E6 /* CreateButton.swift */,
-				388BE31C222ABC94005BF44B /* ColorPickerView.swift */,
+				388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */,
 				388BE31E222AC007005BF44B /* OptionsStack.swift */,
 				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
 				388BE327222ADC6F005BF44B /* AlphaSliderView.swift */,
@@ -384,7 +384,7 @@
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */,
-				388BE31D222ABC94005BF44B /* ColorPickerView.swift in Sources */,
+				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				389B939422276B55009FE9E6 /* QMBaseVC.swift in Sources */,
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,

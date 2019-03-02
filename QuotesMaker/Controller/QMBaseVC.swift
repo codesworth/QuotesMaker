@@ -10,6 +10,7 @@ import UIKit
 
 class QMBaseVC: UIViewController {
     
+    @IBOutlet weak var colorPanel: ColorSliderPanel!
     @IBOutlet weak var baseView:BaseView!
     private var  optionsView:OptionsStack!
     private var aspectRatio:Dimensions.AspectRatios = .square
