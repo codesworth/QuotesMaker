@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol OptionsSelectedDelegate:class {
+    func didPressButton(_ id:Int)
+}
+
 class OptionsStack: UIView {
     
     
@@ -16,6 +20,7 @@ class OptionsStack: UIView {
     private var lowerStack:UIStackView
     private var options = Options.getDefaultOptions()
     var createButtons:[OptionsButtonView]!
+    weak var delegate:OptionsSelectedDelegate?
     
     override init(frame: CGRect) {
         stackView = UIStackView(frame: frame)
@@ -46,11 +51,16 @@ class OptionsStack: UIView {
         createButtons = options.compactMap{
             return OptionsButtonView(frame: .zero, option: $0)
         }
+        createButtons.forEach{$0.addTarget(self, action: #selector(optionSelected(_:)), for: .touchUpInside)}
         precondition(createButtons.count == 4, "CreateButtons Count Error")
         upperStack.addArrangedSubview(createButtons[0])
         upperStack.addArrangedSubview(createButtons[1])
         lowerStack.addArrangedSubview(createButtons[2])
         lowerStack.addArrangedSubview(createButtons[3])
+    }
+    
+    @objc func optionSelected(_ sender:OptionsButtonView){
+        delegate?.didPressButton(sender.option.position)
     }
     
     
@@ -60,5 +70,7 @@ class OptionsStack: UIView {
         stackView.addArrangedSubview(upperStack)
         stackView.addArrangedSubview(lowerStack)
     }
+    
+    
 
 }

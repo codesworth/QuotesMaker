@@ -56,6 +56,7 @@ class QMBaseVC: UIViewController {
     func setupOverlayOptions(){
         let size = Dimensions.sizeForAspect(aspectRatio)
         let optionsView = OptionsStack(frame:[0,0,size.width,size.height])
+        optionsView.delegate = self
         baseView.addSubview(optionsView)
     }
     
@@ -92,5 +93,13 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
             baseView.addLayer(layer)
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+
+extension QMBaseVC:OptionsSelectedDelegate{
+    
+    func didPressButton(_ id: Int) {
+        
     }
 }
