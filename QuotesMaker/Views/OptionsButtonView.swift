@@ -10,10 +10,12 @@ import UIKit
 
 class OptionsButtonView: UIButton {
     
+    var option:Options!
     
-    override init(frame: CGRect) {
+    init(frame: CGRect,option:Options) {
         super.init(frame: frame)
         self.backgroundColor = .clear
+        self.option = option
     }
     
     required init?(coder aDecoder: NSCoder) {
