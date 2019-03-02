@@ -22,6 +22,9 @@
 		388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE313222ABBA5005BF44B /* HSBColor.swift */; };
 		388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */; };
 		388BE31D222ABC94005BF44B /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE31C222ABC94005BF44B /* ColorPickerView.swift */; };
+		388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE31E222AC007005BF44B /* OptionsStack.swift */; };
+		388BE321222AC23C005BF44B /* OptionsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE320222AC23C005BF44B /* OptionsButtonView.swift */; };
+		388BE323222AC376005BF44B /* CreateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE322222AC376005BF44B /* CreateOptions.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -77,6 +80,9 @@
 		388BE313222ABBA5005BF44B /* HSBColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSBColor.swift; sourceTree = "<group>"; };
 		388BE314222ABBA5005BF44B /* DefaultPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPreviewView.swift; sourceTree = "<group>"; };
 		388BE31C222ABC94005BF44B /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		388BE31E222AC007005BF44B /* OptionsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsStack.swift; sourceTree = "<group>"; };
+		388BE320222AC23C005BF44B /* OptionsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsButtonView.swift; sourceTree = "<group>"; };
+		388BE322222AC376005BF44B /* CreateOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOptions.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 		389B938822275C88009FE9E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				388BE322222AC376005BF44B /* CreateOptions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +169,8 @@
 			children = (
 				389B939722277A77009FE9E6 /* CreateButton.swift */,
 				388BE31C222ABC94005BF44B /* ColorPickerView.swift */,
+				388BE31E222AC007005BF44B /* OptionsStack.swift */,
+				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -347,11 +356,14 @@
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
 				388BE319222ABBA5005BF44B /* GradientView.swift in Sources */,
+				388BE321222AC23C005BF44B /* OptionsButtonView.swift in Sources */,
+				388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */,
 				388BE316222ABBA5005BF44B /* ColorSlider.swift in Sources */,
 				389B939622276BAD009FE9E6 /* Extensions.swift in Sources */,
 				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
 				38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */,
+				388BE323222AC376005BF44B /* CreateOptions.swift in Sources */,
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
