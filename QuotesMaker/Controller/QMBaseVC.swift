@@ -11,7 +11,7 @@ import UIKit
 class QMBaseVC: UIViewController {
     
     @IBOutlet weak var baseView:BaseView!
-    
+    private var aspectRatio:Dimensions.AspectRatios = .square
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -24,7 +24,7 @@ class QMBaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setTouchRegisters()
+        //setTouchRegisters()
         // Do any additional setup after loading the view.
     }
     
@@ -49,7 +49,14 @@ class QMBaseVC: UIViewController {
             baseView.widthAnchor.constraint(equalToConstant: size.width),
             baseView.heightAnchor.constraint(equalToConstant: size.height)
         ])
+        setupOverlayOptions()
         
+    }
+    
+    func setupOverlayOptions(){
+        let size = Dimensions.sizeForAspect(aspectRatio)
+        let optionsView = OptionsStack(frame:[0,0,size.width,size.height])
+        baseView.addSubview(optionsView)
     }
     
     @objc func baseViewTapped(_ tap:UITapGestureRecognizer){

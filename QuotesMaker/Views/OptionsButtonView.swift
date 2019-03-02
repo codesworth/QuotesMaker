@@ -10,11 +10,13 @@ import UIKit
 
 class OptionsButtonView: UIButton {
     
+    var colors:[UIColor] = [.green,.yellow,.groupTableViewBackground,.orange,.purple,.magenta,.cyan]
+    
     var option:Options!
     
     init(frame: CGRect,option:Options) {
         super.init(frame: frame)
-        self.backgroundColor = .clear
+        self.backgroundColor = colors.randomElement()!
         self.option = option
     }
     
@@ -22,6 +24,13 @@ class OptionsButtonView: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setTitle(option.name, for: .normal)
+        setTitleColor(.primary, for: .normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        titleLabel?.textAlignment = .center
+        titleLabel?.numberOfLines = 4
+    }
 
 }

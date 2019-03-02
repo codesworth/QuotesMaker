@@ -32,7 +32,10 @@ class OptionsStack: UIView {
         lowerStack.spacing = 5
         upperStack.spacing = 5
         lowerStack.alignment = .fill
+        upperStack.alignment = .fill
         super.init(frame: frame)
+        addSubview(stackView)
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,7 +50,7 @@ class OptionsStack: UIView {
         upperStack.addArrangedSubview(createButtons[0])
         upperStack.addArrangedSubview(createButtons[1])
         lowerStack.addArrangedSubview(createButtons[2])
-        lowerStack.addArrangedSubview(createButtons[4])
+        lowerStack.addArrangedSubview(createButtons[3])
     }
     
     
