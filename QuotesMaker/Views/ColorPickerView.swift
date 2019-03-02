@@ -10,19 +10,34 @@ import UIKit
 
 protocol PickerColorDelegate:class {
     func colorDidChange(_ color:UIColor)
+    
 }
 
-class ColorPickerView: UIView {
+class ColorSliderPanel: UIView {
     
+    lazy var lable:UILabel = {
+        let lable = UILabel(frame: .zero)
+        lable.font = .systemFont(ofSize: 16, weight: .medium)
+        lable.text = "Set Background Color"
+        lable.textColor = .black
+        lable.textAlignment = .center
+        return lable
+    }()
     
-    private let slider = ColorSlider(orientation: .horizontal, previewView: nil)
-    var currentColor:UIColor?
+    private let alphaSlider = AlphaSliderView(frame: .zero)
+    private let colorSlider = ColorSlider(orientation: .horizontal, previewView: nil)
+    var currentColor:UIColor = .clear
+    var currentAlpha:CGFloat = 0.5
     weak var delegate:PickerColorDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
-        slider.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
-        addSubview(slider)
+        colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
+        addSubview(colorSlider)
+        alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .valueChanged)
+        addSubview(alphaSlider)
+        addSubview(lable)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,12 +46,33 @@ class ColorPickerView: UIView {
     
     @objc func colorChanged(_ slider:ColorSlider){
         currentColor = slider.color
-        delegate?.colorDidChange(slider.color)
+        delegate?.colorDidChange(slider.color.withAlphaComponent(currentAlpha))
+    }
+    
+    @objc func alphaChanged(_ slider:UISlider){
+        let value = CGFloat(slider.value)
+        currentAlpha = value
+        delegate?.colorDidChange(currentColor.withAlphaComponent(value))
+        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        slider.frame = [0,0.5 * frame.height,frame.width, 25]
+        colorSlider.translatesAutoresizingMaskIntoConstraints = false
+        alphaSlider.translatesAutoresizingMaskIntoConstraints = false
+        lable.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            colorSlider.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor),
+            colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor),
+            colorSlider.heightAnchor.constraint(equalToConstant: 30),
+            lable.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: 8),
+            lable.centerXAnchor.constraint(equalTo: centerXAnchor),
+            alphaSlider.topAnchor.constraint(equalTo: lable.bottomAnchor, constant: 8),
+            alphaSlider.leadingAnchor.constraint(equalTo: leadingAnchor),
+            alphaSlider.trailingAnchor.constraint(equalTo: trailingAnchor),
+            alphaSlider.heightAnchor.constraint(equalToConstant: 50)
+        ])
         
     }
 
