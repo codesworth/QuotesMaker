@@ -11,6 +11,7 @@ import UIKit
 class QMBaseVC: UIViewController {
     
     @IBOutlet weak var baseView:BaseView!
+    private var  optionsView:OptionsStack!
     private var aspectRatio:Dimensions.AspectRatios = .square
     
     init() {
@@ -55,25 +56,28 @@ class QMBaseVC: UIViewController {
     
     func setupOverlayOptions(){
         let size = Dimensions.sizeForAspect(aspectRatio)
-        let optionsView = OptionsStack(frame:[0,0,size.width,size.height])
+        optionsView = OptionsStack(frame:[0,0,size.width,size.height])
         optionsView.delegate = self
         baseView.addSubview(optionsView)
     }
     
-    @objc func baseViewTapped(_ tap:UITapGestureRecognizer){
-//        let picker = UIImagePickerController()
-//        picker.delegate = self
-//        present(picker, animated: true, completion: nil)
+    @objc func imageOptionSelected(){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func blankImageSelected(){
         let blank = BlankImageBackingLayer()
         blank.bounds.size = baseView.bounds.size
         baseView.addLayer(blank)
     }
     
     func setTouchRegisters(){
-        baseView.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(baseViewTapped(_:)))
-        tap.numberOfTapsRequired = 1
-        baseView.addGestureRecognizer(tap)
+//        baseView.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(baseViewTapped(_:)))
+//        tap.numberOfTapsRequired = 1
+//        baseView.addGestureRecognizer(tap)
     }
 
 }
@@ -100,6 +104,11 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
 extension QMBaseVC:OptionsSelectedDelegate{
     
     func didPressButton(_ id: Int) {
-        
+        optionsView.removeFromSuperview()
+        if id == 1{
+            imageOptionSelected()
+        }else{
+           blankImageSelected()
+        }
     }
 }

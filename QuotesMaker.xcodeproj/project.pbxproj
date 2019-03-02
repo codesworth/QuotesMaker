@@ -25,6 +25,8 @@
 		388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE31E222AC007005BF44B /* OptionsStack.swift */; };
 		388BE321222AC23C005BF44B /* OptionsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE320222AC23C005BF44B /* OptionsButtonView.swift */; };
 		388BE323222AC376005BF44B /* CreateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE322222AC376005BF44B /* CreateOptions.swift */; };
+		388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE325222AD4E8005BF44B /* QMEngine.swift */; };
+		388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE327222ADC6F005BF44B /* AlphaSliderView.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -83,6 +85,8 @@
 		388BE31E222AC007005BF44B /* OptionsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsStack.swift; sourceTree = "<group>"; };
 		388BE320222AC23C005BF44B /* OptionsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsButtonView.swift; sourceTree = "<group>"; };
 		388BE322222AC376005BF44B /* CreateOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOptions.swift; sourceTree = "<group>"; };
+		388BE325222AD4E8005BF44B /* QMEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMEngine.swift; sourceTree = "<group>"; };
+		388BE327222ADC6F005BF44B /* AlphaSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaSliderView.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -156,6 +160,14 @@
 			path = "Color Slider";
 			sourceTree = "<group>";
 		};
+		388BE324222AD4CD005BF44B /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				388BE325222AD4E8005BF44B /* QMEngine.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
 		389B938822275C88009FE9E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +183,7 @@
 				388BE31C222ABC94005BF44B /* ColorPickerView.swift */,
 				388BE31E222AC007005BF44B /* OptionsStack.swift */,
 				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
+				388BE327222ADC6F005BF44B /* AlphaSliderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +238,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
+				388BE324222AD4CD005BF44B /* Engine */,
 				387B96472229966F00824498 /* Frameworks */,
 				389B9390222768C7009FE9E6 /* Extensions */,
 				389B938B22275CB9009FE9E6 /* Core */,
@@ -375,9 +389,11 @@
 				389B939422276B55009FE9E6 /* QMBaseVC.swift in Sources */,
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,
 				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
+				388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
+				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
 				389B938F2227689E009FE9E6 /* Utils.swift in Sources */,
