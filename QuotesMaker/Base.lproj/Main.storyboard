@@ -21,11 +21,11 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSF-MB-lNu" customClass="BaseView" customModule="QuotesMaker" customModuleProvider="target">
                                 <rect key="frame" x="20" y="170" width="374" height="316"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdF-Ie-zji" customClass="ColorSliderPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                <rect key="frame" x="8" y="694" width="398" height="140"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdF-Ie-zji" customClass="ColorSliderPanel" customModule="QuotesMaker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="756" width="414" height="140"/>
+                                <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="GVa-L1-YTN"/>
                                 </constraints>
@@ -33,11 +33,10 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GyS-mr-Yq5" firstAttribute="bottom" secondItem="fdF-Ie-zji" secondAttribute="bottom" constant="28" id="6Sw-hH-DeH"/>
-                            <constraint firstItem="fdF-Ie-zji" firstAttribute="leading" secondItem="GyS-mr-Yq5" secondAttribute="leading" constant="8" id="FzL-GN-R6X"/>
-                            <constraint firstItem="GyS-mr-Yq5" firstAttribute="trailing" secondItem="fdF-Ie-zji" secondAttribute="trailing" constant="8" id="Pa7-TS-gWG"/>
+                            <constraint firstAttribute="trailing" secondItem="fdF-Ie-zji" secondAttribute="trailing" id="GJw-dd-6OK"/>
+                            <constraint firstAttribute="bottom" secondItem="fdF-Ie-zji" secondAttribute="bottom" id="d7c-gb-cCW"/>
+                            <constraint firstItem="fdF-Ie-zji" firstAttribute="leading" secondItem="pde-jf-DuH" secondAttribute="leading" id="osO-l3-sBh"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="GyS-mr-Yq5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Studio" id="grz-tt-gaQ"/>
                     <navigationItem key="navigationItem" title="Quote Maker" id="mK7-NY-It0"/>

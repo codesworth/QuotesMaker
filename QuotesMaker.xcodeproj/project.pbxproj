@@ -37,6 +37,7 @@
 		388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE339222B39D4005BF44B /* BasicLabel.swift */; };
 		388BE33C222BB5AD005BF44B /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE33B222BB5AD005BF44B /* MaterialView.swift */; };
 		388BE33E222BBFDE005BF44B /* GradientModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE33D222BBFDE005BF44B /* GradientModel.swift */; };
+		388BE340222C2E7F005BF44B /* StudioPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE33F222C2E7F005BF44B /* StudioPanel.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -107,6 +108,7 @@
 		388BE339222B39D4005BF44B /* BasicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLabel.swift; sourceTree = "<group>"; };
 		388BE33B222BB5AD005BF44B /* MaterialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		388BE33D222BBFDE005BF44B /* GradientModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientModel.swift; sourceTree = "<group>"; };
+		388BE33F222C2E7F005BF44B /* StudioPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioPanel.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				388BE337222B369E005BF44B /* GradientOptionsView.swift */,
 				388BE339222B39D4005BF44B /* BasicLabel.swift */,
 				388BE33B222BB5AD005BF44B /* MaterialView.swift */,
+				388BE33F222C2E7F005BF44B /* StudioPanel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
+				388BE340222C2E7F005BF44B /* StudioPanel.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
 				389B938F2227689E009FE9E6 /* Utils.swift in Sources */,
 			);
