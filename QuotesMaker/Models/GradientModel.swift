@@ -10,9 +10,12 @@ import UIKit
 
 
 struct GradientLayerModel {
+    static var originalColor = UIColor.white.cgColor
+    static var reservedLocations = [0, 0.25,0.50,0.75]
+    
     
     var colors:[CGColor] = [UIColor.cyan, UIColor.magenta].map{$0.cgColor}
-    var locations:[NSNumber] = [0,0.7]
+    var locations:[NSNumber] = [0,0.75]
     let startPoint:CGPoint = 0
     let endPoint:CGPoint = 1
     
@@ -20,5 +23,17 @@ struct GradientLayerModel {
         return GradientLayerModel()
     }
     
+    mutating func addLocation(at index:Int){
+        switch index{
+        case 3:
+            locations.append(0.25)
+            break
+        case 4:
+            locations.append(0.50)
+            break
+        default:
+            break
+        }
+    }
     
 }

@@ -12,10 +12,7 @@ import UIKit
 
 protocol GradientOptionsDelegate:class {
     
-    func gradientSegmentsChanged(_ model:GradientLayerModel)
-    func sliderDidChange(_ model:GradientLayerModel)
-    func gradientStepperChanged(_ model:GradientLayerModel)
-    func locationsChanged(_ model:GradientLayerModel)
+    func modelChanged(_ model:GradientLayerModel)
 }
 
 class GradientOptionsView: MaterialView {
@@ -113,7 +110,7 @@ class GradientOptionsView: MaterialView {
         
         let color = slider.color
         model.colors[workingIndex] =  color.cgColor
-        delegate?.sliderDidChange(model)
+        delegate?.modelChanged(model)
     }
     
     @objc func stepperChanged(_ sender:UIStepper){
@@ -122,17 +119,20 @@ class GradientOptionsView: MaterialView {
         guard newIndex < 5 else{return}
         if newIndex < gradientSegments.numberOfSegments{
             gradientSegments.removeSegment(at: newIndex, animated: true)
-            
+            model.colors.removeLast()
+            model.locations.removeLast()
         }else{
             gradientSegments.insertSegment(withTitle: "\(newIndex)", at: newIndex - 1, animated: true)
+            model.colors.append(GradientLayerModel.originalColor)
+            model.addLocation(at: newIndex)
         }
-        
+        delegate?.modelChanged(model)
         
     }
     
     @objc func locationSliderChanged(_ slider:UISlider){
         model.locations[workingIndex] =  NSNumber(value: slider.value)
-        delegate?.locationsChanged(model)
+        delegate?.modelChanged(model)
     }
     
     required init?(coder aDecoder: NSCoder) {

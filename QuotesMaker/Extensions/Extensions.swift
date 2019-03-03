@@ -34,3 +34,20 @@ extension UIColor{
         return UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
     }
 }
+
+
+extension Array{
+    
+    mutating func push(_ element:Element){
+        if count > 10 {
+            self = Array(dropFirst())
+            append(element)
+        }else{
+            append(element)
+        }
+    }
+    
+    mutating func pop()->Element{
+        return popLast()!
+    }
+}
