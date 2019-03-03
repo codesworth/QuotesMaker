@@ -69,7 +69,7 @@ class QMBaseVC: UIViewController {
     
     func setupGradientInteractiveView(){
 
-        let gIview = GradientOptionsView(frame: [8,view.frame.height - 310,view.frame.width - 16,250])
+        let gIview = GradientOptionsView(frame: [8,view.frame.height - 310,view.frame.width - 16,200])
         gIview.delegate = self
         view.addSubview(gIview)
         

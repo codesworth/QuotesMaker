@@ -28,6 +28,8 @@ class GradientOptionsView: MaterialView {
         v.backgroundColor = .white
         return v
     }()
+
+    lazy var alphaSlider:AlphaSliderView = {}()
     
     var workingIndex = 0
     private var model:GradientLayerModel!
@@ -176,6 +178,8 @@ class GradientOptionsView: MaterialView {
         parent.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        let priorityC = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
+        priorityC.priority = .defaultLow
         NSLayoutConstraint.activate([
             parent.topAnchor.constraint(equalTo: topAnchor),
             parent.bottomAnchor.constraint(equalTo: bottomAnchor),
@@ -187,10 +191,12 @@ class GradientOptionsView: MaterialView {
             scrollView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             contentView.widthAnchor.constraint(equalTo: parent.widthAnchor),
-            contentView.heightAnchor.constraint(equalTo: parent.heightAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 300),
+            priorityC,
             gradientSegments.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: frame.height),
             gradientSegments.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
@@ -214,6 +220,8 @@ class GradientOptionsView: MaterialView {
             locationSlider.heightAnchor.constraint(equalToConstant: 20),
             
         ])
+        
+        
     }
 
 }

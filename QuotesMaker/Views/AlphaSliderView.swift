@@ -8,6 +8,8 @@
 
 import UIKit
 
+//Height = 
+
 class AlphaSliderView: UIView {
     
    lazy var slider:UISlider = {
