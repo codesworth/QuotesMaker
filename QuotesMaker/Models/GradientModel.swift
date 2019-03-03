@@ -19,4 +19,6 @@ struct GradientLayerModel {
     static func defualt()->GradientLayerModel{
         return GradientLayerModel()
     }
+    
+    
 }

@@ -10,6 +10,14 @@ import UIKit
 
 //Height = 200
 
+protocol GradientOptionsDelegate:class {
+    
+    func gradientSegmentsChanged(_ model:GradientLayerModel)
+    func sliderDidChange(_ model:GradientLayerModel)
+    func gradientStepperChanged(_ model:GradientLayerModel)
+    func locationsChanged(_ model:GradientLayerModel)
+}
+
 class GradientOptionsView: MaterialView {
     
     lazy var titleLable:BasicLabel = {
@@ -18,6 +26,9 @@ class GradientOptionsView: MaterialView {
         return lable
     }()
     
+    var workingIndex = 0
+    private var model:GradientLayerModel!
+    weak var delegate:GradientOptionsDelegate?
     private let insets:CGFloat = 12
     private let horizontalmargin:CGFloat = 8
     private let verticalMargin:CGFloat = 16
@@ -34,6 +45,7 @@ class GradientOptionsView: MaterialView {
         segment.insertSegment(withTitle: "1", at: 0, animated: true)
         segment.insertSegment(withTitle: "2", at: 1, animated: true)
         segment.tintColor = .gray
+        segment.selectedSegmentIndex = 0
         return segment
     }()
     
@@ -77,6 +89,7 @@ class GradientOptionsView: MaterialView {
     }
     
     func commonInit(){
+        model = GradientLayerModel.defualt()
         backgroundColor = .white
         addSubview(titleLable)
         addSubview(gradientSegments)
@@ -93,11 +106,14 @@ class GradientOptionsView: MaterialView {
     }
     
     @objc func gradSegmentChanged(_ sender:UISegmentedControl){
-        
+        workingIndex = sender.selectedSegmentIndex
     }
     
     @objc func colorSliderChanged(_ slider:ColorSlider){
         
+        let color = slider.color
+        model.colors[workingIndex] =  color.cgColor
+        delegate?.sliderDidChange(model)
     }
     
     @objc func stepperChanged(_ sender:UIStepper){
@@ -106,6 +122,7 @@ class GradientOptionsView: MaterialView {
         guard newIndex < 5 else{return}
         if newIndex < gradientSegments.numberOfSegments{
             gradientSegments.removeSegment(at: newIndex, animated: true)
+            
         }else{
             gradientSegments.insertSegment(withTitle: "\(newIndex)", at: newIndex - 1, animated: true)
         }
@@ -114,7 +131,8 @@ class GradientOptionsView: MaterialView {
     }
     
     @objc func locationSliderChanged(_ slider:UISlider){
-        
+        model.locations[workingIndex] =  NSNumber(value: slider.value)
+        delegate?.locationsChanged(model)
     }
     
     required init?(coder aDecoder: NSCoder) {
