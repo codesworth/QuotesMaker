@@ -17,7 +17,7 @@ class BackingGradientlayer: CAGradientLayer {
     
     var previousModels:[GradientLayerModel] = []
     
-    private var model:GradientLayerModel!{
+    var model:GradientLayerModel!{
 
         didSet{
             if previousModels.isEmpty{previousModels.append(model)}else{previousModels.append(oldValue)}

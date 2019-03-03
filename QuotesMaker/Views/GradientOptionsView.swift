@@ -23,6 +23,12 @@ class GradientOptionsView: MaterialView {
         return lable
     }()
     
+    lazy var parent:UIView = {
+        let v = UIView(frame: frame)
+        v.backgroundColor = .white
+        return v
+    }()
+    
     var workingIndex = 0
     private var model:GradientLayerModel!
     weak var delegate:GradientOptionsDelegate?
@@ -35,6 +41,19 @@ class GradientOptionsView: MaterialView {
         lable.text = "Add / Remove Colors"
         lable.font = .systemFont(ofSize: 16, weight: .regular)
         return lable
+    }()
+    
+    lazy var scrollView:UIScrollView = {
+        let scroll = UIScrollView(frame: .zero)
+        scroll.bounces = true
+        scroll.isScrollEnabled = true
+        return scroll
+    }()
+    
+    lazy var contentView:UIView = {
+        let v = UIView(frame: .zero)
+        v.backgroundColor = .white
+        return v
     }()
     
     lazy var gradientSegments:UISegmentedControl = {
@@ -86,15 +105,20 @@ class GradientOptionsView: MaterialView {
     }
     
     func commonInit(){
+        //clipsToBounds = true
         model = GradientLayerModel.defualt()
         backgroundColor = .white
-        addSubview(titleLable)
-        addSubview(gradientSegments)
-        addSubview(stepperTitle)
-        addSubview(stepper)
-        addSubview(colorSlider)
-        addSubview(locationTitle)
-        addSubview(locationSlider)
+        parent.clipsToBounds = true
+        addSubview(parent)
+        parent.addSubview(scrollView)
+        parent.addSubview(titleLable)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(gradientSegments)
+        contentView.addSubview(stepperTitle)
+        contentView.addSubview(stepper)
+        contentView.addSubview(colorSlider)
+        contentView.addSubview(locationTitle)
+        contentView.addSubview(locationSlider)
         gradientSegments.addTarget(self, action: #selector(gradSegmentChanged(_:)), for: .valueChanged)
         colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
         stepper.addTarget(self, action: #selector(stepperChanged(_:)), for: .valueChanged)
@@ -104,12 +128,14 @@ class GradientOptionsView: MaterialView {
     
     @objc func gradSegmentChanged(_ sender:UISegmentedControl){
         workingIndex = sender.selectedSegmentIndex
+        //sender.tintColor = UIColor(cgColor: model.colors[workingIndex])
     }
     
     @objc func colorSliderChanged(_ slider:ColorSlider){
         
         let color = slider.color
         model.colors[workingIndex] =  color.cgColor
+        //gradientSegments.tintColor = UIColor(cgColor: model.colors[workingIndex])
         delegate?.modelChanged(model)
     }
     
@@ -121,6 +147,7 @@ class GradientOptionsView: MaterialView {
             gradientSegments.removeSegment(at: newIndex, animated: true)
             model.colors.removeLast()
             model.locations.removeLast()
+            updateWorkingIndex(newIndex: newIndex)
         }else{
             gradientSegments.insertSegment(withTitle: "\(newIndex)", at: newIndex - 1, animated: true)
             model.colors.append(GradientLayerModel.originalColor)
@@ -128,6 +155,10 @@ class GradientOptionsView: MaterialView {
         }
         delegate?.modelChanged(model)
         
+    }
+    
+    func updateWorkingIndex(newIndex:Int){
+        if workingIndex >= newIndex{workingIndex = newIndex - 1}
     }
     
     @objc func locationSliderChanged(_ slider:UISlider){
@@ -141,30 +172,47 @@ class GradientOptionsView: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        parent.translatesAutoresizingMaskIntoConstraints = false
+        parent.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
-            titleLable.topAnchor.constraint(equalTo: topAnchor, constant: insets),
-            titleLable.centerXAnchor.constraint(equalTo: centerXAnchor),
-            gradientSegments.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: verticalMargin),
-            gradientSegments.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
-            gradientSegments.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
+            parent.topAnchor.constraint(equalTo: topAnchor),
+            parent.bottomAnchor.constraint(equalTo: bottomAnchor),
+            parent.leadingAnchor.constraint(equalTo: leadingAnchor),
+            parent.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLable.topAnchor.constraint(equalTo: parent.topAnchor, constant: insets),
+            titleLable.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
+            scrollView.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: verticalMargin),
+            scrollView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: parent.widthAnchor),
+            contentView.heightAnchor.constraint(equalTo: parent.heightAnchor),
+            gradientSegments.topAnchor.constraint(equalTo: contentView.topAnchor),
+            scrollView.heightAnchor.constraint(equalToConstant: frame.height),
+            gradientSegments.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
+            gradientSegments.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
             gradientSegments.heightAnchor.constraint(equalToConstant: 28),
             stepperTitle.topAnchor.constraint(equalTo: gradientSegments.bottomAnchor, constant: verticalMargin),
-            stepperTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
+            stepperTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
             stepper.topAnchor.constraint(equalTo: gradientSegments.bottomAnchor, constant: verticalMargin),
-            stepper.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
+            stepper.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -insets),
             stepper.heightAnchor.constraint(equalToConstant: 20),
             //stepper.widthAnchor.constraint(equalToConstant: 40),
             colorSlider.topAnchor.constraint(equalTo: stepper.bottomAnchor, constant: verticalMargin),
-            colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
-            colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
+            colorSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
+            colorSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
             colorSlider.heightAnchor.constraint(equalToConstant: 20),
             locationTitle.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: verticalMargin),
-            locationTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
+            locationTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
             locationSlider.topAnchor.constraint(equalTo: locationTitle.bottomAnchor, constant: verticalMargin),
-            locationSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
-            locationSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
+            locationSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
+            locationSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
             locationSlider.heightAnchor.constraint(equalToConstant: 20),
+            
         ])
     }
 

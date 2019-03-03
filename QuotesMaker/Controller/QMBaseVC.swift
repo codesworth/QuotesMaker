@@ -68,9 +68,9 @@ class QMBaseVC: UIViewController {
     }
     
     func setupGradientInteractiveView(){
-        let size = Dimensions.sizeForAspect(aspectRatio)
-        //let markedInset = (view.frame.width - size.width) / 2
+
         let gIview = GradientOptionsView(frame: [8,view.frame.height - 310,view.frame.width - 16,250])
+        gIview.delegate = self
         view.addSubview(gIview)
         
     }
@@ -86,6 +86,13 @@ class QMBaseVC: UIViewController {
         blank.bounds.size = baseView.bounds.size
         baseView.addLayer(blank)
         setupColorPanel()
+    }
+    
+    func blankGradientSelected(){
+        let blank = BackingGradientlayer()
+        blank.bounds.size = baseView.bounds.size
+        baseView.addLayer(blank)
+        setupGradientInteractiveView()
     }
     
     func setTouchRegisters(){
@@ -122,11 +129,20 @@ extension QMBaseVC:OptionsSelectedDelegate{
     
     func didPressButton(_ id: Int) {
         optionsView?.removeFromSuperview()
-        if id == 1{
-            //imageOptionSelected()
-            setupGradientInteractiveView()
-        }else{
-           blankImageSelected()
+        switch id {
+        case 1:
+            imageOptionSelected()
+            break
+        case 2:
+            break
+        case 3:
+            blankImageSelected()
+            break
+        case 4:
+            blankGradientSelected()
+            break
+        default:
+            break
         }
     }
 }
@@ -143,5 +159,15 @@ extension QMBaseVC:PickerColorDelegate{
     
     func colorDidChange(_ color: UIColor) {
         baseView.currentSublayer?.backgroundColor  = color.cgColor
+    }
+}
+
+
+extension QMBaseVC:GradientOptionsDelegate{
+    
+    func modelChanged(_ model: GradientLayerModel) {
+        if let gLayer = baseView.currentSublayer as? BackingGradientlayer{
+            gLayer.model = model
+        }
     }
 }

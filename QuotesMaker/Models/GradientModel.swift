@@ -10,7 +10,7 @@ import UIKit
 
 
 struct GradientLayerModel {
-    static var originalColor = UIColor.white.cgColor
+    static var originalColor = UIColor.lightGray.cgColor
     static var reservedLocations = [0, 0.25,0.50,0.75]
     
     
