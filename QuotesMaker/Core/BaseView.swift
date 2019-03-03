@@ -17,11 +17,26 @@ class BaseView:UIImageView{
         setup()
     }
     
+    private var current:CALayer?
+    
+    
     var currentSublayer:CALayer?{
-        
-        return layer.sublayers?.last
+        get{
+            return  current
+        }
+        set{
+            current = newValue
+        }
     }
     
+    var subLayers:[CALayer]?{
+        return layer.sublayers
+    }
+    
+    func invalidateLayers(){
+        layer.sublayers?.removeAll()
+        current = nil
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +60,7 @@ class BaseView:UIImageView{
     func addLayer(_ layer:CALayer){
         self.layer.addSublayer(layer)
         //layer.bounds = bounds
+        current = layer
         layer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         
     }

@@ -14,7 +14,7 @@ class Utils{
    class func animatePanelsIn(_ view:UIView){
     
         UIView.animate(withDuration: 1) {
-            view.frame.origin.y = UIScreen.main.bounds.height - view.frame.height
+            view.frame.origin.y = UIScreen.main.bounds.height - (view.frame.height + 30)
         }
     }
     

@@ -14,7 +14,7 @@ class QMBaseVC: UIViewController {
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!
     @IBOutlet weak var baseView:BaseView!
-    private var  optionsView:OptionsStack?
+    //private var  optionsView:OptionsStack?
     private var aspectRatio:Dimensions.AspectRatios = .square
     
     init() {
@@ -60,18 +60,18 @@ class QMBaseVC: UIViewController {
             baseView.widthAnchor.constraint(equalToConstant: size.width),
             baseView.heightAnchor.constraint(equalToConstant: size.height)
         ])
-        if optionsView == nil{
-            setupOverlayOptions()
-        }
+//        if optionsView == nil{
+//            setupOverlayOptions()
+//        }
         
     }
     
-    func setupOverlayOptions(){
-        let size = Dimensions.sizeForAspect(aspectRatio)
-        optionsView = OptionsStack(frame:[0,0,size.width,size.height])
-        optionsView!.delegate = self
-        baseView.addSubview(optionsView!)
-    }
+//    func setupOverlayOptions(){
+//        let size = Dimensions.sizeForAspect(aspectRatio)
+//        optionsView = OptionsStack(frame:[0,0,size.width,size.height])
+//        optionsView!.delegate = self
+//        baseView.addSubview(optionsView!)
+//    }
     
     func setupGradientInteractiveView(){
        
@@ -89,24 +89,31 @@ class QMBaseVC: UIViewController {
         let picker = UIImagePickerController()
         picker.delegate = self
         present(picker, animated: true, completion: nil)
+        
     }
     
     func blankImageSelected(){
-        if (baseView.currentSublayer as? BlankImageBackingLayer) == nil{
+    
+        if let current = baseView.subLayers?.first(where: {type(of: $0) == BlankImageBackingLayer.self}) {
+            baseView.currentSublayer = current
+        }else{
             let blank = BlankImageBackingLayer()
             blank.bounds.size = baseView.bounds.size
             baseView.addLayer(blank)
-        }else{
-            
         }
-
+        
         setupColorPanel()
     }
     
     func blankGradientSelected(){
-        let blank = BackingGradientlayer()
-        blank.bounds.size = baseView.bounds.size
-        baseView.addLayer(blank)
+        if let current = baseView.subLayers?.first(where: {type(of: $0) == BackingGradientlayer.self}) {
+            baseView.currentSublayer = current
+        }else{
+            let blank = BackingGradientlayer()
+            blank.bounds.size = baseView.bounds.size
+            baseView.addLayer(blank)
+        }
+        
         setupGradientInteractiveView()
     }
     
@@ -131,6 +138,7 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage{
+            baseView.invalidateLayers()
             let layer = ImageBackingLayer()
             layer.addImage(image)
             baseView.addLayer(layer)
@@ -160,8 +168,8 @@ extension QMBaseVC:OptionsSelectedDelegate{
             break
         }
         
-        optionsView?.removeFromSuperview()
-        optionsView = nil
+//        optionsView?.removeFromSuperview()
+//        optionsView = nil
     }
 }
 
