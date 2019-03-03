@@ -19,9 +19,21 @@ class Dimensions{
         return UIScreen.main.bounds.width - 16
     }
     
+    class var designatedHeight:CGFloat{
+        return UIScreen.main.bounds.height * 0.3
+    }
+    
+    class func heightForPanel(_ panel:Int)->CGFloat{
+        if panel == 1{
+            return min(200, designatedHeight)
+        }else{
+            return min(300, designatedHeight)
+        }
+    }
+    
     
     class var originalPanelPoints:CGPoint{
-        return [UIScreen.main.bounds.width + 100,UIScreen.main.bounds.height * 0.7]
+        return [8,UIScreen.main.bounds.height + 300]
     }
     
     class func scaledDownFrom(rect:CGSize)->CGSize{

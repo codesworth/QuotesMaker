@@ -75,14 +75,12 @@ class QMBaseVC: UIViewController {
     
     func setupGradientInteractiveView(){
        
-        if colorPanel.isInView{colorPanel.removeFromSuperview();colorPanel.frame.origin.x = Dimensions.originalPanelPoints.x}
+        if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
          if gradientPanel.isInView{return}
-        //let gIview = GradientPanel(frame: [8,view.frame.height - 310,view.frame.width - 16,200])
+        
         gradientPanel.delegate = self
         view.addSubview(gradientPanel)
-        UIView.animate(withDuration: 1) {
-            self.gradientPanel.frame.origin.x = 8
-        }
+        Utils.animatePanelsIn(gradientPanel)
         gradientPanel.isInView = true
         
     }
@@ -167,18 +165,20 @@ extension QMBaseVC:OptionsSelectedDelegate{
 extension QMBaseVC:PickerColorDelegate{
     
     func setupColorPanel(){
-        if gradientPanel.isInView{gradientPanel.removeFromSuperview();gradientPanel.frame.origin.x = Dimensions.originalPanelPoints.x}
+        if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if colorPanel.isInView{return}
         colorPanel.delegate = self
         view.addSubview(colorPanel)
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.4, options: .curveEaseInOut, animations: {
-            self.colorPanel.frame.origin.x = 8
-        })
+        Utils.animatePanelsIn(colorPanel)
         colorPanel.isInView = true
     }
     
     func colorDidChange(_ color: UIColor) {
         baseView.currentSublayer?.backgroundColor  = color.cgColor
+    }
+    
+    func donePressed() {
+        Utils.animatePanelsOut(colorPanel)
     }
 }
 
@@ -189,6 +189,10 @@ extension QMBaseVC:GradientOptionsDelegate{
         if let gLayer = baseView.currentSublayer as? BackingGradientlayer{
             gLayer.model = model
         }
+    }
+    
+    func donePressed(_ model: GradientLayerModel) {
+        Utils.animatePanelsOut(gradientPanel)
     }
 }
 

@@ -10,6 +10,20 @@ import UIKit
 
 class Utils{
     
+    
+   class func animatePanelsIn(_ view:UIView){
+    
+        UIView.animate(withDuration: 1) {
+            view.frame.origin.y = UIScreen.main.bounds.height - 300
+        }
+    }
+    
+    class func animatePanelsOut(_ view:UIView){
+        UIView.animate(withDuration: 1,animations: {
+            view.frame.origin.y = UIScreen.main.bounds.height + 300
+        }, completion:{ _ in view.removeFromSuperview()})
+    }
+    
     class func drawAddInRect()->UIBezierPath{
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 65.85, y: 15.23))

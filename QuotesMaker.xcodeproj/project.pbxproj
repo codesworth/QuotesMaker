@@ -40,6 +40,7 @@
 		388BE340222C2E7F005BF44B /* StudioPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE33F222C2E7F005BF44B /* StudioPanel.swift */; };
 		388BE343222C3188005BF44B /* PanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE341222C3188005BF44B /* PanelCell.swift */; };
 		388BE344222C3188005BF44B /* PanelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388BE342222C3188005BF44B /* PanelCell.xib */; };
+		388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE345222C4FB6005BF44B /* DoneButton.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -113,6 +114,7 @@
 		388BE33F222C2E7F005BF44B /* StudioPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioPanel.swift; sourceTree = "<group>"; };
 		388BE341222C3188005BF44B /* PanelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelCell.swift; sourceTree = "<group>"; };
 		388BE342222C3188005BF44B /* PanelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PanelCell.xib; sourceTree = "<group>"; };
+		388BE345222C4FB6005BF44B /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				388BE33F222C2E7F005BF44B /* StudioPanel.swift */,
 				388BE341222C3188005BF44B /* PanelCell.swift */,
 				388BE342222C3188005BF44B /* PanelCell.xib */,
+				388BE345222C4FB6005BF44B /* DoneButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				388BE33E222BBFDE005BF44B /* GradientModel.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
+				388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,

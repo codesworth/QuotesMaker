@@ -13,9 +13,19 @@ import UIKit
 protocol GradientOptionsDelegate:class {
     
     func modelChanged(_ model:GradientLayerModel)
+    func donePressed(_ model:GradientLayerModel)
 }
 
 class GradientPanel: MaterialView {
+    
+    lazy var doneButt:DoneButton = {
+        let but = DoneButton(frame: .zero)
+        return but
+    }()
+    
+    @objc func done(_ sender:UIButton){
+        delegate?.donePressed(model)
+    }
     
     lazy var titleLable:BasicLabel = {
         let lable = BasicLabel(frame: .zero)
@@ -119,6 +129,7 @@ class GradientPanel: MaterialView {
         addSubview(parent)
         parent.addSubview(scrollView)
         parent.addSubview(titleLable)
+        parent.addSubview(doneButt)
         scrollView.addSubview(contentView)
         contentView.addSubview(gradientSegments)
         contentView.addSubview(stepperTitle)
@@ -132,7 +143,7 @@ class GradientPanel: MaterialView {
         stepper.addTarget(self, action: #selector(stepperChanged(_:)), for: .valueChanged)
         locationSlider.addTarget(self, action: #selector(locationSliderChanged(_:)), for: .valueChanged)
         alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .valueChanged)
-        
+        doneButt.addTarget(self, action: #selector(done(_:)), for: .touchUpInside)
     }
     
     @objc func alphaChanged(_ sender:UISlider){
@@ -204,6 +215,10 @@ class GradientPanel: MaterialView {
             parent.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-4),
             titleLable.topAnchor.constraint(equalTo: parent.topAnchor, constant: insets),
             titleLable.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
+            doneButt.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -verticalMargin),
+            doneButt.topAnchor.constraint(equalTo: parent.topAnchor, constant: insets),
+            doneButt.heightAnchor.constraint(equalToConstant: 25),
+            doneButt.widthAnchor.constraint(equalToConstant: 60),
             scrollView.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: verticalMargin),
             scrollView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: parent.trailingAnchor),

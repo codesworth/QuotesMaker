@@ -10,10 +10,17 @@ import UIKit
 
 protocol PickerColorDelegate:class {
     func colorDidChange(_ color:UIColor)
+    func donePressed()
     
 }
 
 class ColorSliderPanel: MaterialView {
+    
+    lazy var doneButt:DoneButton = {
+        let butt = DoneButton(frame: .zero)
+        butt.addTarget(self, action: #selector(donePressed(_:)), for: .touchUpInside)
+        return butt
+    }()
     
     lazy var lable:UILabel = {
         let lable = UILabel(frame: .zero)
@@ -24,7 +31,9 @@ class ColorSliderPanel: MaterialView {
         return lable
     }()
     
-    
+    @objc func donePressed(_ sender:DoneButton){
+        delegate?.donePressed()
+    }
     
     override var isHidden: Bool{
         didSet{
@@ -54,6 +63,7 @@ class ColorSliderPanel: MaterialView {
         backgroundColor = .white
         colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
         addSubview(colorSlider)
+        addSubview(doneButt)
         alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .valueChanged)
         alphaSlider.slider.value = Float(currentAlpha)
         addSubview(alphaSlider)
@@ -80,10 +90,12 @@ class ColorSliderPanel: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        colorSlider.translatesAutoresizingMaskIntoConstraints = false
-        alphaSlider.translatesAutoresizingMaskIntoConstraints = false
-        lable.translatesAutoresizingMaskIntoConstraints = false
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
+            doneButt.trailingAnchor.constraint(equalTo:trailingAnchor, constant: -16),
+            doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            doneButt.heightAnchor.constraint(equalToConstant: 25),
+            doneButt.widthAnchor.constraint(equalToConstant: 60),
             colorSlider.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant:8),
             colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-8),
