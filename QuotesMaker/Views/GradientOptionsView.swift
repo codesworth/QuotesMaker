@@ -29,7 +29,10 @@ class GradientOptionsView: MaterialView {
         return v
     }()
 
-    lazy var alphaSlider:AlphaSliderView = {}()
+    lazy var alphaSlider:AlphaSliderView = {
+        let alpha = AlphaSliderView(frame: .zero)
+        return alpha
+    }()
     
     var workingIndex = 0
     private var model:GradientLayerModel!
@@ -121,10 +124,16 @@ class GradientOptionsView: MaterialView {
         contentView.addSubview(colorSlider)
         contentView.addSubview(locationTitle)
         contentView.addSubview(locationSlider)
+        contentView.addSubview(alphaSlider)
         gradientSegments.addTarget(self, action: #selector(gradSegmentChanged(_:)), for: .valueChanged)
         colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
         stepper.addTarget(self, action: #selector(stepperChanged(_:)), for: .valueChanged)
         locationSlider.addTarget(self, action: #selector(locationSliderChanged(_:)), for: .valueChanged)
+        alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .valueChanged)
+        
+    }
+    
+    @objc func alphaChanged(_ sender:UISlider){
         
     }
     
@@ -212,7 +221,11 @@ class GradientOptionsView: MaterialView {
             colorSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
             colorSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
             colorSlider.heightAnchor.constraint(equalToConstant: 20),
-            locationTitle.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: verticalMargin),
+            alphaSlider.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant:verticalMargin),
+            alphaSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            alphaSlider.trailingAnchor.constraint(equalTo: trailingAnchor),
+            alphaSlider.heightAnchor.constraint(equalToConstant: 60),
+            locationTitle.topAnchor.constraint(equalTo: alphaSlider.bottomAnchor, constant: verticalMargin),
             locationTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
             locationSlider.topAnchor.constraint(equalTo: locationTitle.bottomAnchor, constant: verticalMargin),
             locationSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
