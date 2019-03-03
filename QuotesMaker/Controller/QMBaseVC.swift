@@ -10,7 +10,7 @@ import UIKit
 
 class QMBaseVC: UIViewController {
     
-    @IBOutlet weak var colorPanel: ColorSliderPanel!
+    @IBOutlet weak var studioPanel: StudioPanel!
     @IBOutlet weak var baseView:BaseView!
     private var  optionsView:OptionsStack?
     private var aspectRatio:Dimensions.AspectRatios = .square
@@ -26,7 +26,7 @@ class QMBaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorPanel.isHidden = true
+        
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         //setTouchRegisters()
@@ -153,8 +153,8 @@ extension QMBaseVC:PickerColorDelegate{
     
     func setupColorPanel(){
         //Animate Sliders in
-        colorPanel.isHidden = false
-        colorPanel.delegate = self
+//        colorPanel.isHidden = false
+//        colorPanel.delegate = self
     }
     
     func colorDidChange(_ color: UIColor) {

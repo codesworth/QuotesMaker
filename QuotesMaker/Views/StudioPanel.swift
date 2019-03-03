@@ -14,6 +14,7 @@ class StudioPanel: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.showsHorizontalScrollIndicator = false
         view.backgroundColor = .clear
         return view
     }()
@@ -37,6 +38,7 @@ class StudioPanel: UIView {
     
     func commonInit(){
         addSubview(collectionView)
+        collectionView.register(UINib(nibName: "\(PanelCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(PanelCell.self)")
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -66,10 +68,20 @@ extension StudioPanel:UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(PanelCell.self)", for: indexPath) as? PanelCell{
+            let process = processes[indexPath.row]
+            cell.configureView(process)
+            return cell
+        }
+        
+        return PanelCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        <#code#>
+        return [100,80]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }
