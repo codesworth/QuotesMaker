@@ -15,6 +15,15 @@ class BackingGradientlayer: CAGradientLayer {
         setup()
     }
     
+    private var model:GradientLayerModel!{
+        didSet{
+            startPoint = model.startPoint
+            endPoint = model.endPoint
+            locations = model.locations
+            colors = model.colors
+        }
+    }
+    
     override init() {
         super.init()
         setup()
@@ -26,9 +35,6 @@ class BackingGradientlayer: CAGradientLayer {
     }
     
     func setup(){
-        startPoint = 0
-        endPoint = 1
-        locations = [0, 0.7]
-        colors = [UIColor.cyan, UIColor.magenta].map{$0.cgColor}
+        model = GradientLayerModel.defualt()
     }
 }

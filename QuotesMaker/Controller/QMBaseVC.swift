@@ -67,6 +67,14 @@ class QMBaseVC: UIViewController {
         baseView.addSubview(optionsView!)
     }
     
+    func setupGradientInteractiveView(){
+        let size = Dimensions.sizeForAspect(aspectRatio)
+        //let markedInset = (view.frame.width - size.width) / 2
+        let gIview = GradientOptionsView(frame: [8,view.frame.height - 310,view.frame.width - 16,250])
+        view.addSubview(gIview)
+        
+    }
+    
     @objc func imageOptionSelected(){
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -115,7 +123,8 @@ extension QMBaseVC:OptionsSelectedDelegate{
     func didPressButton(_ id: Int) {
         optionsView?.removeFromSuperview()
         if id == 1{
-            imageOptionSelected()
+            //imageOptionSelected()
+            setupGradientInteractiveView()
         }else{
            blankImageSelected()
         }

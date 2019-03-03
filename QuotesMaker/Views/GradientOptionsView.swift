@@ -8,7 +8,9 @@
 
 import UIKit
 
-class GradientOptionsView: UIView {
+//Height = 200
+
+class GradientOptionsView: MaterialView {
     
     lazy var titleLable:BasicLabel = {
         let lable = BasicLabel(frame: .zero)
@@ -17,7 +19,8 @@ class GradientOptionsView: UIView {
     }()
     
     private let insets:CGFloat = 12
-    private let margin:CGFloat = 8
+    private let horizontalmargin:CGFloat = 8
+    private let verticalMargin:CGFloat = 16
     
     lazy var stepperTitle:BasicLabel = {
         let lable = BasicLabel(frame: .zero)
@@ -28,6 +31,9 @@ class GradientOptionsView: UIView {
     
     lazy var gradientSegments:UISegmentedControl = {
         let segment = UISegmentedControl(frame: .zero)
+        segment.insertSegment(withTitle: "1", at: 0, animated: true)
+        segment.insertSegment(withTitle: "2", at: 1, animated: true)
+        segment.tintColor = .gray
         return segment
     }()
     
@@ -71,6 +77,7 @@ class GradientOptionsView: UIView {
     }
     
     func commonInit(){
+        backgroundColor = .white
         addSubview(titleLable)
         addSubview(gradientSegments)
         addSubview(stepperTitle)
@@ -95,6 +102,15 @@ class GradientOptionsView: UIView {
     
     @objc func stepperChanged(_ sender:UIStepper){
         
+        let newIndex = Int(sender.value)
+        guard newIndex < 5 else{return}
+        if newIndex < gradientSegments.numberOfSegments{
+            gradientSegments.removeSegment(at: newIndex, animated: true)
+        }else{
+            gradientSegments.insertSegment(withTitle: "\(newIndex)", at: newIndex - 1, animated: true)
+        }
+        
+        
     }
     
     @objc func locationSliderChanged(_ slider:UISlider){
@@ -111,23 +127,23 @@ class GradientOptionsView: UIView {
         NSLayoutConstraint.activate([
             titleLable.topAnchor.constraint(equalTo: topAnchor, constant: insets),
             titleLable.centerXAnchor.constraint(equalTo: centerXAnchor),
-            gradientSegments.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: margin),
+            gradientSegments.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: verticalMargin),
             gradientSegments.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
             gradientSegments.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
             gradientSegments.heightAnchor.constraint(equalToConstant: 28),
-            stepperTitle.topAnchor.constraint(equalTo: gradientSegments.bottomAnchor, constant: margin),
+            stepperTitle.topAnchor.constraint(equalTo: gradientSegments.bottomAnchor, constant: verticalMargin),
             stepperTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
-            stepper.topAnchor.constraint(equalTo: gradientSegments.bottomAnchor, constant: margin),
+            stepper.topAnchor.constraint(equalTo: gradientSegments.bottomAnchor, constant: verticalMargin),
             stepper.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
-            stepper.heightAnchor.constraint(equalToConstant: 25),
-            stepper.widthAnchor.constraint(equalToConstant: 60),
-            colorSlider.topAnchor.constraint(equalTo: stepperTitle.bottomAnchor, constant: margin),
+            stepper.heightAnchor.constraint(equalToConstant: 20),
+            //stepper.widthAnchor.constraint(equalToConstant: 40),
+            colorSlider.topAnchor.constraint(equalTo: stepper.bottomAnchor, constant: verticalMargin),
             colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
             colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
-            colorSlider.heightAnchor.constraint(equalToConstant: 25),
-            locationTitle.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: margin),
+            colorSlider.heightAnchor.constraint(equalToConstant: 20),
+            locationTitle.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: verticalMargin),
             locationTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
-            locationSlider.topAnchor.constraint(equalTo: locationTitle.bottomAnchor, constant: margin),
+            locationSlider.topAnchor.constraint(equalTo: locationTitle.bottomAnchor, constant: verticalMargin),
             locationSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets),
             locationSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets),
             locationSlider.heightAnchor.constraint(equalToConstant: 20),

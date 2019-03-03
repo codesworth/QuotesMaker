@@ -13,7 +13,7 @@ protocol PickerColorDelegate:class {
     
 }
 
-class ColorSliderPanel: UIView {
+class ColorSliderPanel: MaterialView {
     
     lazy var lable:UILabel = {
         let lable = UILabel(frame: .zero)
@@ -56,11 +56,6 @@ class ColorSliderPanel: UIView {
         alphaSlider.slider.value = Float(currentAlpha)
         addSubview(alphaSlider)
         addSubview(lable)
-        layer.cornerRadius = 8
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowRadius = 5
-        layer.shadowOffset = 2
         //clipsToBounds = true
     }
     
