@@ -22,7 +22,7 @@ class GradientOptionsView: MaterialView {
         lable.text = "Customize Gradients"
         return lable
     }()
-    
+    var designtedAlphas:[CGFloat] = [1,1,1,1]
     lazy var parent:UIView = {
         let v = UIView(frame: frame)
         v.backgroundColor = .white
@@ -31,6 +31,7 @@ class GradientOptionsView: MaterialView {
 
     lazy var alphaSlider:AlphaSliderView = {
         let alpha = AlphaSliderView(frame: .zero)
+        alpha.slider.value = 1
         return alpha
     }()
     
@@ -89,6 +90,7 @@ class GradientOptionsView: MaterialView {
         slider.minimumValue = 0
         slider.maximumValue = 1
         slider.isContinuous = true
+        
         return slider
     }()
     
@@ -110,7 +112,7 @@ class GradientOptionsView: MaterialView {
     }
     
     func commonInit(){
-        //clipsToBounds = true
+        clipsToBounds = false
         model = GradientLayerModel.defualt()
         backgroundColor = .white
         parent.clipsToBounds = true
@@ -134,18 +136,24 @@ class GradientOptionsView: MaterialView {
     }
     
     @objc func alphaChanged(_ sender:UISlider){
-        
+        let newAlpha:CGFloat = CGFloat(sender.value)
+        designtedAlphas[workingIndex] = newAlpha
+        let currentColor = model.colors[workingIndex]
+        model.colors[workingIndex] = UIColor(cgColor: currentColor).withAlphaComponent(newAlpha).cgColor
+        delegate?.modelChanged(model)
     }
     
     @objc func gradSegmentChanged(_ sender:UISegmentedControl){
         workingIndex = sender.selectedSegmentIndex
+        alphaSlider.slider.setValue(Float(designtedAlphas[workingIndex]), animated: true)
+        locationSlider.setValue(Float(truncating: model.locations[workingIndex]), animated: true)
         //sender.tintColor = UIColor(cgColor: model.colors[workingIndex])
     }
     
     @objc func colorSliderChanged(_ slider:ColorSlider){
         
         let color = slider.color
-        model.colors[workingIndex] =  color.cgColor
+        model.colors[workingIndex] =  color.withAlphaComponent(designtedAlphas[workingIndex]).cgColor
         //gradientSegments.tintColor = UIColor(cgColor: model.colors[workingIndex])
         delegate?.modelChanged(model)
     }
@@ -190,10 +198,10 @@ class GradientOptionsView: MaterialView {
         let priorityC = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
         priorityC.priority = .defaultLow
         NSLayoutConstraint.activate([
-            parent.topAnchor.constraint(equalTo: topAnchor),
-            parent.bottomAnchor.constraint(equalTo: bottomAnchor),
-            parent.leadingAnchor.constraint(equalTo: leadingAnchor),
-            parent.trailingAnchor.constraint(equalTo: trailingAnchor),
+            parent.topAnchor.constraint(equalTo: topAnchor, constant:4),
+            parent.bottomAnchor.constraint(equalTo: bottomAnchor, constant:-4),
+            parent.leadingAnchor.constraint(equalTo: leadingAnchor, constant:4),
+            parent.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-4),
             titleLable.topAnchor.constraint(equalTo: parent.topAnchor, constant: insets),
             titleLable.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
             scrollView.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: verticalMargin),
