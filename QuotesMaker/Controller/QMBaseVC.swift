@@ -50,8 +50,8 @@ class QMBaseVC: UIViewController {
         
         baseView.translatesAutoresizingMaskIntoConstraints = false
         let points = Dimensions.originalPanelPoints
-        colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,150])
-        gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,300])
+        colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,200])
+        gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,250])
         
         let size = Dimensions.sizeForAspect(.square)
         NSLayoutConstraint.activate([
@@ -92,9 +92,14 @@ class QMBaseVC: UIViewController {
     }
     
     func blankImageSelected(){
-        let blank = BlankImageBackingLayer()
-        blank.bounds.size = baseView.bounds.size
-        baseView.addLayer(blank)
+        if (baseView.currentSublayer as? BlankImageBackingLayer) == nil{
+            let blank = BlankImageBackingLayer()
+            blank.bounds.size = baseView.bounds.size
+            baseView.addLayer(blank)
+        }else{
+            
+        }
+
         setupColorPanel()
     }
     

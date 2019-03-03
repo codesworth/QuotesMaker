@@ -27,9 +27,11 @@ class DoneButton: UIButton {
     func commonInit(){
         setTitle("Done", for: .normal)
         setTitleColor(.primary, for: .normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .light)
         backgroundColor = .white
         layer.borderColor = UIColor.primary.cgColor
-        layer.borderWidth = 2
+        layer.borderWidth = 1
+        layer.cornerRadius = 4
     }
 
 }

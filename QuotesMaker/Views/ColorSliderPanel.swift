@@ -96,7 +96,7 @@ class ColorSliderPanel: MaterialView {
             doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             doneButt.heightAnchor.constraint(equalToConstant: 25),
             doneButt.widthAnchor.constraint(equalToConstant: 60),
-            colorSlider.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            colorSlider.topAnchor.constraint(equalTo: doneButt.bottomAnchor, constant: 12),
             colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant:8),
             colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-8),
             colorSlider.heightAnchor.constraint(equalToConstant: 20),
