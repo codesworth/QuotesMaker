@@ -24,6 +24,8 @@ class ColorSliderPanel: MaterialView {
         return lable
     }()
     
+    
+    
     override var isHidden: Bool{
         didSet{
             if !isHidden{

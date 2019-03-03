@@ -15,6 +15,7 @@ class MaterialView: UIView {
         materialFeel()
     }
     
+    var isInView:Bool = false
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -23,6 +24,11 @@ class MaterialView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         materialFeel()
+    }
+    
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+        isInView = false
     }
     
     func materialFeel(){

@@ -11,6 +11,8 @@ import UIKit
 class QMBaseVC: UIViewController {
     
     @IBOutlet weak var studioPanel: StudioPanel!
+    private var colorPanel:ColorSliderPanel!
+    private var gradientPanel:GradientPanel!
     @IBOutlet weak var baseView:BaseView!
     private var  optionsView:OptionsStack?
     private var aspectRatio:Dimensions.AspectRatios = .square
@@ -26,7 +28,7 @@ class QMBaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        studioPanel.delegate = self
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         //setTouchRegisters()
@@ -47,6 +49,10 @@ class QMBaseVC: UIViewController {
     func setupViews(){
         
         baseView.translatesAutoresizingMaskIntoConstraints = false
+        let points = Dimensions.originalPanelPoints
+        colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,150])
+        gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,300])
+        
         let size = Dimensions.sizeForAspect(.square)
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -68,10 +74,16 @@ class QMBaseVC: UIViewController {
     }
     
     func setupGradientInteractiveView(){
-
-        let gIview = GradientOptionsView(frame: [8,view.frame.height - 310,view.frame.width - 16,200])
-        gIview.delegate = self
-        view.addSubview(gIview)
+       
+        if colorPanel.isInView{colorPanel.removeFromSuperview();colorPanel.frame.origin.x = Dimensions.originalPanelPoints.x}
+         if gradientPanel.isInView{return}
+        //let gIview = GradientPanel(frame: [8,view.frame.height - 310,view.frame.width - 16,200])
+        gradientPanel.delegate = self
+        view.addSubview(gradientPanel)
+        UIView.animate(withDuration: 1) {
+            self.gradientPanel.frame.origin.x = 8
+        }
+        gradientPanel.isInView = true
         
     }
     
@@ -82,7 +94,7 @@ class QMBaseVC: UIViewController {
     }
     
     func blankImageSelected(){
-        let blank = BackingGradientlayer()
+        let blank = BlankImageBackingLayer()
         blank.bounds.size = baseView.bounds.size
         baseView.addLayer(blank)
         setupColorPanel()
@@ -128,7 +140,7 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
 extension QMBaseVC:OptionsSelectedDelegate{
     
     func didPressButton(_ id: Int) {
-        optionsView?.removeFromSuperview()
+
         switch id {
         case 1:
             imageOptionSelected()
@@ -144,6 +156,9 @@ extension QMBaseVC:OptionsSelectedDelegate{
         default:
             break
         }
+        
+        optionsView?.removeFromSuperview()
+        optionsView = nil
     }
 }
 
@@ -152,9 +167,14 @@ extension QMBaseVC:OptionsSelectedDelegate{
 extension QMBaseVC:PickerColorDelegate{
     
     func setupColorPanel(){
-        //Animate Sliders in
-//        colorPanel.isHidden = false
-//        colorPanel.delegate = self
+        if gradientPanel.isInView{gradientPanel.removeFromSuperview();gradientPanel.frame.origin.x = Dimensions.originalPanelPoints.x}
+        if colorPanel.isInView{return}
+        colorPanel.delegate = self
+        view.addSubview(colorPanel)
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.4, options: .curveEaseInOut, animations: {
+            self.colorPanel.frame.origin.x = 8
+        })
+        colorPanel.isInView = true
     }
     
     func colorDidChange(_ color: UIColor) {
@@ -169,5 +189,32 @@ extension QMBaseVC:GradientOptionsDelegate{
         if let gLayer = baseView.currentSublayer as? BackingGradientlayer{
             gLayer.model = model
         }
+    }
+}
+
+
+extension QMBaseVC:StudioPanelDelegate{
+    
+    func moveToProcess(_ process:Processes){
+        
+        switch process.subProcess {
+        case .selectImage:
+            imageOptionSelected()
+            break
+        case .addBlankOverlay:
+            blankImageSelected()
+            break
+        case .addGradientOverlay:
+            blankGradientSelected()
+            break
+        case .addText:
+            break
+        case .addFilter:
+            break
+        }
+    }
+    
+    func actionFromPanel(_ process: Processes) {
+        moveToProcess(process)
     }
 }

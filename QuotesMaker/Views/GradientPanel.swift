@@ -15,7 +15,7 @@ protocol GradientOptionsDelegate:class {
     func modelChanged(_ model:GradientLayerModel)
 }
 
-class GradientOptionsView: MaterialView {
+class GradientPanel: MaterialView {
     
     lazy var titleLable:BasicLabel = {
         let lable = BasicLabel(frame: .zero)

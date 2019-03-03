@@ -15,6 +15,14 @@ class Dimensions{
         return [rectSize.width * scale, rectSize.height * scale ]
     }
     
+    class var panelWidth:CGFloat{
+        return UIScreen.main.bounds.width - 16
+    }
+    
+    
+    class var originalPanelPoints:CGPoint{
+        return [UIScreen.main.bounds.width + 100,UIScreen.main.bounds.height * 0.7]
+    }
     
     class func scaledDownFrom(rect:CGSize)->CGSize{
         let lowestSide = min(rect.width, rect.height)

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol StudioPanelDelegate:class {
+    
+    func actionFromPanel(_ process:Processes)
+}
+
 class StudioPanel: UIView {
     
     lazy var collectionView:UICollectionView = {
@@ -20,7 +25,7 @@ class StudioPanel: UIView {
     }()
     
     var processes:[Processes] = Processes.getAllProcesses()
-
+    weak var delegate:StudioPanelDelegate?
     override init(frame: CGRect) {
         super.init(frame:frame)
         commonInit()
@@ -82,6 +87,7 @@ extension StudioPanel:UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let process = processes[indexPath.row]
+        delegate?.actionFromPanel(process)
     }
 }
