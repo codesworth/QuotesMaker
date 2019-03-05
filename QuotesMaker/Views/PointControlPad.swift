@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PointControlPad: UIView {
+class PointControlPad: MaterialView {
     
     
     lazy var pointControl:UIView = {
@@ -18,10 +18,13 @@ class PointControlPad: UIView {
         return view
     }()
     
+    var controlPoints:CGPoint?
+    
     private var panGesture:UIPanGestureRecognizer?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,10 +33,11 @@ class PointControlPad: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        commonInit()
     }
     
     func commonInit(){
-        backgroundColor = .white
+        backgroundColor = .green
         addSubview(pointControl)
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
         pointControl.center = center
@@ -46,6 +50,26 @@ class PointControlPad: UIView {
     }
     
     @objc func panned(_ recognizer:UIPanGestureRecognizer){
+        guard let view = recognizer.view else {return}
+        
+        let translation = recognizer.translation(in: view)
+        view.center += translation
+        recognizer.setTranslation(.zero, in: view)
+        
+        guard recognizer.state == .ended else{
+            return
+        }
+//        let velocity = recognizer.velocity(in: view)
+//        let vectorToFinalPoint = CGPoint(x: velocity.x / 15, y: velocity.y / 15)
+//
+//        let bounds = self.bounds.inset(by: [5])
+//        let finalPoint = view.center + vectorToFinalPoint.clampedWithin(bounds)
+//
+//        print("The position is: \(pointControl.center)")
+//
+//        UIView.animate(withDuration: TimeInterval(vectorToFinalPoint.lenght / 1800), delay: 0, options: .curveEaseOut, animations: {
+//            view.center = finalPoint
+//        }, completion: nil)
         
     }
 

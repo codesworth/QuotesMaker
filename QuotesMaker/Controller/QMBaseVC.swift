@@ -94,15 +94,18 @@ class QMBaseVC: UIViewController {
     
     func blankImageSelected(){
     
-        if let current = baseView.subLayers?.first(where: {type(of: $0) == BlankImageBackingLayer.self}) {
-            baseView.currentSublayer = current
-        }else{
-            let blank = BlankImageBackingLayer()
-            blank.bounds.size = baseView.bounds.size
-            baseView.addLayer(blank)
-        }
-        
-        setupColorPanel()
+//        if let current = baseView.subLayers?.first(where: {type(of: $0) == BlankImageBackingLayer.self}) {
+//            baseView.currentSublayer = current
+//        }else{
+//            let blank = BlankImageBackingLayer()
+//            blank.bounds.size = baseView.bounds.size
+//            baseView.addLayer(blank)
+//        }
+//
+//        setupColorPanel()
+        let pad = PointControlPad(frame: [0,0,200])
+        view.addSubview(pad)
+        pad.center = view.center
     }
     
     func blankGradientSelected(){
