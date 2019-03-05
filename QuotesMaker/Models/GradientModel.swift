@@ -16,8 +16,8 @@ struct GradientLayerModel {
     
     var colors:[CGColor] = [UIColor.cyan, UIColor.magenta].map{$0.cgColor}
     var locations:[NSNumber] = [0,0.75]
-    let startPoint:CGPoint = 0
-    let endPoint:CGPoint = 1
+    var startPoint:CGPoint = 0
+    var endPoint:CGPoint = 1
     
     static func defualt()->GradientLayerModel{
         return GradientLayerModel()

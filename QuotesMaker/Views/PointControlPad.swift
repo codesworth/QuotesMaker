@@ -16,9 +16,13 @@ class PointControlPad: UIView {
     
     
     lazy var pointControl:UIView = {
-        let view = UIView(frame: CGRect(origin: .zero, size: 20))
-        view.layer.cornerRadius = 10
+        let view = UIView(frame: CGRect(origin: .zero, size: 24))
+        view.layer.cornerRadius = 12
         view.backgroundColor = .black
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowOffset = [0,3]
         return view
     }()
     
@@ -49,6 +53,8 @@ class PointControlPad: UIView {
     func commonInit(){
         backgroundColor = .green
         addSubview(pointControl)
+        layer.cornerRadius = 3
+        clipsToBounds = true
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
         pointControl.center = center
         pointControl.addGestureRecognizer(panGesture!)
@@ -59,6 +65,11 @@ class PointControlPad: UIView {
         
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        pointControl.center = [bounds.midX,bounds.midY]
+    }
+    
     @objc func panned(_ recognizer:UIPanGestureRecognizer){
         guard let view = recognizer.view else {return}
         
@@ -67,11 +78,11 @@ class PointControlPad: UIView {
         view.center = finalPoint.constrained(in: bounds)
         
         recognizer.setTranslation(.zero, in: view)
-        
+         controlPoints = view.center.maxRatio(in:bounds)
         guard recognizer.state == .ended else{
             return
         }
-        controlPoints = view.center.maxRatio(in:bounds)
+       
         print("The controlPoint is: \(controlPoints!)")
         
     }

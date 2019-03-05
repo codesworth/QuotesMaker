@@ -9,7 +9,7 @@
 import UIKit
 
 protocol IntemediaryPadDelegate:class {
-    func receivedControlUpdate(_ point:CGPoint)
+    func receivedControlUpdate(_ point:CGPoint, at:Int)
 }
 
 class PointControlView: UIView {
@@ -23,6 +23,12 @@ class PointControlView: UIView {
         return seg
     }()
     
+    lazy var label:BasicLabel = {
+        let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .regular))
+        label.text = "Gradient Orientation"
+        return label
+    }()
+    
     lazy var pad:PointControlPad = {
         let pad = PointControlPad(frame: .zero)
         return pad
@@ -31,7 +37,7 @@ class PointControlView: UIView {
     weak var delegate:IntemediaryPadDelegate?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,27 +46,38 @@ class PointControlView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        commonInit()
     }
     
+    private var currentIndex = 0
     
     func commonInit(){
         backgroundColor = .white
+        //layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMaxXMinYCorner,.layerMinXMinYCorner]
         addSubview(segments)
         addSubview(pad)
+        addSubview(label)
         pad.delegate = self
+        segments.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+    }
+    
+    @objc func segmentChanged(_ segment:UISegmentedControl){
+        currentIndex = segment.selectedSegmentIndex
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
-            segments.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            label.centerXAnchor.constraint(equalTo: centerXAnchor),
+            segments.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8),
             segments.leadingAnchor.constraint(equalTo: leadingAnchor),
             segments.trailingAnchor.constraint(equalTo: trailingAnchor),
             segments.heightAnchor.constraint(equalToConstant: 28),
-            pad.topAnchor.constraint(equalTo: segments.bottomAnchor, constant: 8),
-            pad.leadingAnchor.constraint(equalTo: leadingAnchor),
-            pad.trailingAnchor.constraint(equalTo: trailingAnchor),
+            pad.topAnchor.constraint(equalTo: segments.bottomAnchor, constant: 16),
+            pad.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pad.widthAnchor.constraint(equalToConstant: 200),
             pad.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
@@ -71,6 +88,6 @@ class PointControlView: UIView {
 extension PointControlView:PadControlDelegate{
     
     func didUpdateControl(_ point: CGPoint) {
-        delegate?.receivedControlUpdate(point)
+        delegate?.receivedControlUpdate(point, at: currentIndex)
     }
 }

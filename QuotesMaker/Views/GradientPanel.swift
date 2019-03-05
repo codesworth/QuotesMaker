@@ -23,6 +23,12 @@ class GradientPanel: MaterialView {
         return but
     }()
     
+    lazy var controlPadView:PointControlView = {
+        let pad = PointControlView(frame: .zero)
+        pad.delegate = self
+        return pad
+    }()
+    
     @objc func done(_ sender:UIButton){
         delegate?.donePressed(model)
     }
@@ -138,6 +144,7 @@ class GradientPanel: MaterialView {
         contentView.addSubview(locationTitle)
         contentView.addSubview(locationSlider)
         contentView.addSubview(alphaSlider)
+        scrollView.addSubview(controlPadView)
         gradientSegments.addTarget(self, action: #selector(gradSegmentChanged(_:)), for: .valueChanged)
         colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
         stepper.addTarget(self, action: #selector(stepperChanged(_:)), for: .valueChanged)
@@ -227,7 +234,7 @@ class GradientPanel: MaterialView {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             contentView.widthAnchor.constraint(equalTo: parent.widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 320),
+            contentView.heightAnchor.constraint(equalToConstant: 540),
             priorityC,
             gradientSegments.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: frame.height),
@@ -254,10 +261,27 @@ class GradientPanel: MaterialView {
             locationSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
             locationSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
             locationSlider.heightAnchor.constraint(equalToConstant: 20),
-            
+            controlPadView.topAnchor.constraint(equalTo: locationSlider.bottomAnchor, constant: 4),
+            controlPadView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
+            controlPadView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
+            controlPadView.heightAnchor.constraint(equalToConstant: 220)
         ])
         
         
     }
 
+}
+
+
+extension GradientPanel:IntemediaryPadDelegate{
+    
+    func receivedControlUpdate(_ point: CGPoint, at: Int) {
+        if at == 0{
+            model.startPoint = point
+            delegate?.modelChanged(model)
+        }else{
+            model.endPoint = point
+            delegate?.modelChanged(model)
+        }
+    }
 }
