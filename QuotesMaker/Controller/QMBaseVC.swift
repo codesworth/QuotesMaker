@@ -121,6 +121,7 @@ class QMBaseVC: UIViewController {
     
     func setTextLayer(){
         textField.delegate = self
+        textField.addDoneButtonOnKeyboard()
         let size = baseView.bounds.size.scaledBy(0.5)
         //let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
         textField.frame.size = size

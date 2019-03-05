@@ -39,7 +39,8 @@ class BackingTextField: UITextView {
         //layer.addSublayer(textlayer)
         textColor = UIColor.black
         font = textlayer.model.font
-        backgroundColor = .blue
+        backgroundColor = .clear
+    
         isScrollEnabled = false
         tintColor = .black
         text = "Hello"
