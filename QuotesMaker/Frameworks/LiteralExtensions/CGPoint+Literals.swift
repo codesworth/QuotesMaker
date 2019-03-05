@@ -78,10 +78,20 @@ extension CGPoint{
         return [lhs.x - rhs.x, lhs.y - rhs.y]
     }
     
-    mutating func constrainedPositvely()->CGPoint{
-        if x < 0  {x = 0}
-        if y < 0 {y = 0}
-        return self
+    func constrained(in bounds:CGRect)->CGPoint{
+        var x = self.x; var y = self.y
+        if x < bounds.minX { x = bounds.minX}else if x > bounds.maxX{
+          x = bounds.maxX
+        }
+        
+        if y < bounds.minY { y = bounds.minY}else if y > bounds.maxY{
+            y = bounds.maxY
+        }
+        return [x,y]
+    }
+    
+    func maxRatio(in rect:CGRect)-> CGPoint{
+        return [x / rect.maxX , y / rect.maxY]
     }
 
 }

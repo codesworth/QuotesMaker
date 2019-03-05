@@ -42,6 +42,7 @@
 		388BE344222C3188005BF44B /* PanelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388BE342222C3188005BF44B /* PanelCell.xib */; };
 		388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE345222C4FB6005BF44B /* DoneButton.swift */; };
 		388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE383222E7AD8005BF44B /* PointControlPad.swift */; };
+		388BE386222E93D0005BF44B /* PointControlview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE385222E93D0005BF44B /* PointControlview.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -117,6 +118,7 @@
 		388BE342222C3188005BF44B /* PanelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PanelCell.xib; sourceTree = "<group>"; };
 		388BE345222C4FB6005BF44B /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		388BE383222E7AD8005BF44B /* PointControlPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointControlPad.swift; sourceTree = "<group>"; };
+		388BE385222E93D0005BF44B /* PointControlview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointControlview.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				388BE342222C3188005BF44B /* PanelCell.xib */,
 				388BE345222C4FB6005BF44B /* DoneButton.swift */,
 				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
+				388BE385222E93D0005BF44B /* PointControlview.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
+				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,

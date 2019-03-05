@@ -8,7 +8,11 @@
 
 import UIKit
 
-class PointControlPad: MaterialView {
+protocol PadControlDelegate:class {
+    func didUpdateControl(_ point:CGPoint)
+}
+
+class PointControlPad: UIView {
     
     
     lazy var pointControl:UIView = {
@@ -18,7 +22,13 @@ class PointControlPad: MaterialView {
         return view
     }()
     
-    var controlPoints:CGPoint?
+    weak var delegate:PadControlDelegate?
+    
+    var controlPoints:CGPoint?{
+        didSet{
+            delegate?.didUpdateControl(controlPoints!)
+        }
+    }
     
     private var panGesture:UIPanGestureRecognizer?
 
@@ -53,24 +63,19 @@ class PointControlPad: MaterialView {
         guard let view = recognizer.view else {return}
         
         let translation = recognizer.translation(in: view)
-        view.center += translation
+        let finalPoint = view.center + translation
+        view.center = finalPoint.constrained(in: bounds)
+        
         recognizer.setTranslation(.zero, in: view)
         
         guard recognizer.state == .ended else{
             return
         }
-//        let velocity = recognizer.velocity(in: view)
-//        let vectorToFinalPoint = CGPoint(x: velocity.x / 15, y: velocity.y / 15)
-//
-//        let bounds = self.bounds.inset(by: [5])
-//        let finalPoint = view.center + vectorToFinalPoint.clampedWithin(bounds)
-//
-//        print("The position is: \(pointControl.center)")
-//
-//        UIView.animate(withDuration: TimeInterval(vectorToFinalPoint.lenght / 1800), delay: 0, options: .curveEaseOut, animations: {
-//            view.center = finalPoint
-//        }, completion: nil)
+        controlPoints = view.center.maxRatio(in:bounds)
+        print("The controlPoint is: \(controlPoints!)")
         
     }
+    
+    
 
 }
