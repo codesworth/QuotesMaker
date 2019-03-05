@@ -43,6 +43,8 @@
 		388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE345222C4FB6005BF44B /* DoneButton.swift */; };
 		388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE383222E7AD8005BF44B /* PointControlPad.swift */; };
 		388BE386222E93D0005BF44B /* PointControlview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE385222E93D0005BF44B /* PointControlview.swift */; };
+		388BE388222EB35A005BF44B /* TextBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE387222EB35A005BF44B /* TextBackingLayer.swift */; };
+		388BE38A222EB50B005BF44B /* TextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE389222EB50B005BF44B /* TextModel.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -119,6 +121,8 @@
 		388BE345222C4FB6005BF44B /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		388BE383222E7AD8005BF44B /* PointControlPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointControlPad.swift; sourceTree = "<group>"; };
 		388BE385222E93D0005BF44B /* PointControlview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointControlview.swift; sourceTree = "<group>"; };
+		388BE387222EB35A005BF44B /* TextBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBackingLayer.swift; sourceTree = "<group>"; };
+		388BE389222EB50B005BF44B /* TextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModel.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 			children = (
 				388BE322222AC376005BF44B /* CreateOptions.swift */,
 				388BE33D222BBFDE005BF44B /* GradientModel.swift */,
+				388BE389222EB50B005BF44B /* TextModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 		389B938922275CA1009FE9E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				388BE2FB2229A458005BF44B /* BaseView.swift */,
 				389B939722277A77009FE9E6 /* CreateButton.swift */,
 				388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */,
 				388BE31E222AC007005BF44B /* OptionsStack.swift */,
@@ -266,8 +272,8 @@
 				389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */,
 				389B938E2227689E009FE9E6 /* Utils.swift */,
 				389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */,
-				388BE2FB2229A458005BF44B /* BaseView.swift */,
 				388BE335222B2135005BF44B /* BackingGradientlayer.swift */,
+				388BE387222EB35A005BF44B /* TextBackingLayer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -446,6 +452,7 @@
 				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
 				388BE343222C3188005BF44B /* PanelCell.swift in Sources */,
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
+				388BE38A222EB50B005BF44B /* TextModel.swift in Sources */,
 				388BE33C222BB5AD005BF44B /* MaterialView.swift in Sources */,
 				38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */,
 				388BE323222AC376005BF44B /* CreateOptions.swift in Sources */,
@@ -474,6 +481,7 @@
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
+				388BE388222EB35A005BF44B /* TextBackingLayer.swift in Sources */,
 				388BE340222C2E7F005BF44B /* StudioPanel.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
 				389B938F2227689E009FE9E6 /* Utils.swift in Sources */,

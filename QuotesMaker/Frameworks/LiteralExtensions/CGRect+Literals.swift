@@ -30,6 +30,18 @@ extension CGRect:ExpressibleByArrayLiteral{
             self = .zero
         }
     }
+    
+    
+    func scaledAtCenter(ratio:CGFloat = 0.5){
+        let newSize:CGSize = [size.width * ratio, size.height * ratio]
+        if newSize.width > size.width{
+            
+        }else if newSize.width < size.width{
+            
+        }else{
+            
+        }
+    }
 
     
 }

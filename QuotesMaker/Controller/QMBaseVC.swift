@@ -19,6 +19,7 @@ class QMBaseVC: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+        
     }
     
     
@@ -31,8 +32,7 @@ class QMBaseVC: UIViewController {
         studioPanel.delegate = self
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
-        //setTouchRegisters()
-        // Do any additional setup after loading the view.
+
     }
     
     
@@ -118,11 +118,10 @@ class QMBaseVC: UIViewController {
         setupGradientInteractiveView()
     }
     
-    func setTouchRegisters(){
-//        baseView.isUserInteractionEnabled = true
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(baseViewTapped(_:)))
-//        tap.numberOfTapsRequired = 1
-//        baseView.addGestureRecognizer(tap)
+    func setTextLayer(){
+        let layer = TextBackingLayer()
+        layer.bounds.size = baseView.bounds.size.scaledBy(0.5)
+        baseView.addLayer(layer)
     }
 
 }
@@ -226,6 +225,7 @@ extension QMBaseVC:StudioPanelDelegate{
             blankGradientSelected()
             break
         case .addText:
+            setTextLayer()
             break
         case .addFilter:
             break
@@ -236,3 +236,5 @@ extension QMBaseVC:StudioPanelDelegate{
         moveToProcess(process)
     }
 }
+
+

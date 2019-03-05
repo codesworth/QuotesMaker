@@ -51,3 +51,11 @@ extension Array{
         return popLast()!
     }
 }
+
+
+extension Int{
+    
+    func nsNumber()->NSNumber{
+        return NSNumber(value: self)
+    }
+}
