@@ -32,9 +32,16 @@ class TextBackingLayer: CATextLayer {
         setAttributes()
     }
     
+    func setText(_ text:String){
+        model.string = text
+        string = model.outPutString()
+    }
     
     
     func setAttributes(){
+//        borderColor = UIColor.green.cgColor
+//        borderWidth = 1
+        
         isWrapped = true
         alignmentMode = .center
         truncationMode = .none
