@@ -41,6 +41,7 @@
 		388BE343222C3188005BF44B /* PanelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE341222C3188005BF44B /* PanelCell.swift */; };
 		388BE344222C3188005BF44B /* PanelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388BE342222C3188005BF44B /* PanelCell.xib */; };
 		388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE345222C4FB6005BF44B /* DoneButton.swift */; };
+		388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE383222E7AD8005BF44B /* PointControlPad.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -115,6 +116,7 @@
 		388BE341222C3188005BF44B /* PanelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelCell.swift; sourceTree = "<group>"; };
 		388BE342222C3188005BF44B /* PanelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PanelCell.xib; sourceTree = "<group>"; };
 		388BE345222C4FB6005BF44B /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
+		388BE383222E7AD8005BF44B /* PointControlPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointControlPad.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				388BE341222C3188005BF44B /* PanelCell.swift */,
 				388BE342222C3188005BF44B /* PanelCell.xib */,
 				388BE345222C4FB6005BF44B /* DoneButton.swift */,
+				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
+				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				388BE33E222BBFDE005BF44B /* GradientModel.swift in Sources */,

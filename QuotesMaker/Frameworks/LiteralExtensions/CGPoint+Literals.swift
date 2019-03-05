@@ -48,3 +48,12 @@ extension CGPoint:ExpressibleByFloatLiteral{
     }
 }
 
+
+extension CGPoint{
+    func clampedWithin(_ bounds:CGRect)->CGPoint{
+        return CGPoint(
+            clamp(double2(self), min: double2(x:bounds.minX, y:bounds.minY), max: double2(x: bounds.maxX, y: bounds.maxY))
+        )
+    }
+}
+
