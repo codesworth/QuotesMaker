@@ -17,7 +17,7 @@ class TextDesignableInputView:UIView{
     var fonts = UIFont.getFeaturedFonts()
     
     lazy var titleLable:BasicLabel = {
-        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 15, weight: .regular))
+        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .regular))
         lab.attributedText = NSAttributedString(string: "Fonts", attributes: [.underlineStyle:1])
         return lab
     }()
@@ -32,6 +32,18 @@ class TextDesignableInputView:UIView{
         let col = UICollectionView(frame: .zero, collectionViewLayout: flow)
         col.backgroundColor = .clear
         return col
+    }()
+    
+    lazy var firstline:LineView = {
+        return LineView.getLine()
+    }()
+    
+    lazy var secondline:LineView = {
+        return LineView.getLine()
+    }()
+    
+    lazy var thirdline:LineView = {
+        return LineView.getLine()
     }()
     
     lazy var fontSizeLable:BasicLabel = {
@@ -98,6 +110,9 @@ class TextDesignableInputView:UIView{
         scrollView.addSubview(contentView)
         contentView.addSubview(titleLable)
         contentView.addSubview(fontSizeLable)
+        contentView.addSubview(firstline)
+        contentView.addSubview(secondline)
+        contentView.addSubview(thirdline)
         contentView.addSubview(fontSizeStepper)
         contentView.addSubview(fontColorLable)
         contentView.addSubview(colorSlider)
@@ -146,16 +161,25 @@ class TextDesignableInputView:UIView{
             fontCollectionview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             fontCollectionview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             fontCollectionview.heightAnchor.constraint(equalToConstant: 80),
-            fontSizeLable.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 12),
+            firstline.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 8),
+            firstline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            firstline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            firstline.heightAnchor.constraint(equalToConstant: 1),
+            fontSizeLable.topAnchor.constraint(equalTo: firstline.bottomAnchor, constant: 8),
             fontSizeLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             fontColorLable.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            fontColorLable.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 12),
+            fontColorLable.topAnchor.constraint(equalTo: firstline.bottomAnchor, constant: 12),
             fontSizeStepper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             fontSizeStepper.topAnchor.constraint(equalTo: fontSizeLable.bottomAnchor, constant: 8),
             colorSlider.topAnchor.constraint(equalTo: fontColorLable.bottomAnchor, constant: 8),
             colorSlider.leadingAnchor.constraint(equalTo: fontSizeStepper.trailingAnchor, constant: 30),
             colorSlider.heightAnchor.constraint(equalToConstant: 20),
-            colorSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12)
+            colorSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            secondline.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: 24),
+            secondline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            secondline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            secondline.heightAnchor.constraint(equalToConstant: 1),
+            
         ])
     }
 }

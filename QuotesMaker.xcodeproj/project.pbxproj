@@ -12,6 +12,7 @@
 		38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */; };
 		38732E9822300DE700CDB703 /* FontCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E9622300DE700CDB703 /* FontCells.swift */; };
 		38732E9922300DE700CDB703 /* FontCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38732E9722300DE700CDB703 /* FontCells.xib */; };
+		38732E9B2230359500CDB703 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E9A2230359500CDB703 /* LineView.swift */; };
 		388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F122299B01005BF44B /* CGPoint+Literals.swift */; };
 		388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F222299B01005BF44B /* CGSize+Literals.swift */; };
 		388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */; };
@@ -95,6 +96,7 @@
 		38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDesignableInputView.swift; sourceTree = "<group>"; };
 		38732E9622300DE700CDB703 /* FontCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCells.swift; sourceTree = "<group>"; };
 		38732E9722300DE700CDB703 /* FontCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCells.xib; sourceTree = "<group>"; };
+		38732E9A2230359500CDB703 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		388BE2F122299B01005BF44B /* CGPoint+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F222299B01005BF44B /* CGSize+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Literals.swift"; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */,
 				38732E9622300DE700CDB703 /* FontCells.swift */,
 				38732E9722300DE700CDB703 /* FontCells.xib */,
+				38732E9A2230359500CDB703 /* LineView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
 				388BE388222EB35A005BF44B /* TextBackingLayer.swift in Sources */,
 				388BE340222C2E7F005BF44B /* StudioPanel.swift in Sources */,
+				38732E9B2230359500CDB703 /* LineView.swift in Sources */,
 				388BE38C222EC1C0005BF44B /* BackingTextView.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
 				389B938F2227689E009FE9E6 /* Utils.swift in Sources */,

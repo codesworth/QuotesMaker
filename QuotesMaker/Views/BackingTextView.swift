@@ -60,9 +60,9 @@ class BackingTextView: UITextView {
         textContainerInset = UIEdgeInsets.zero
         textContainer.lineFragmentPadding = 0
         //layer.addSublayer(textlayer)
-        textColor = UIColor.white
+        textColor = model.textColor
         font = model.font
-        backgroundColor = .black
+        backgroundColor = .clear
     
         isScrollEnabled = false
         tintColor = .black
