@@ -57,6 +57,11 @@ class TextDesignableInputView:UIView{
         lab.text = "Size: "
         return lab
     }()
+    lazy var underlinelable:BasicLabel = {
+        let lab = BasicLabel.basicMake()
+        lab.text = "Size: "
+        return lab
+    }()
     
     lazy var fontColorLable:BasicLabel = {
         let lab = BasicLabel.basicMake()
@@ -137,7 +142,7 @@ class TextDesignableInputView:UIView{
         return slider
     }()
     
-    lazy var textEffectStepper:UIStepper = {
+    lazy var obliqueStepper:UIStepper = {
         let stepper = UIStepper(frame: .zero)
         stepper.maximumValue = 100
         stepper.minimumValue = 0
@@ -169,6 +174,22 @@ class TextDesignableInputView:UIView{
     }
     
     func initialize(){
+        addsubviews()
+        registrationsAndtargetSets()
+    }
+    
+
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        setConstraints()
+        
+    }
+    
+    func addsubviews(){
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(titleLable)
@@ -182,68 +203,14 @@ class TextDesignableInputView:UIView{
         contentView.addSubview(underlineColorSlider)
         contentView.addSubview(strikeThroughStyleStepper)
         contentView.addSubview(strikeThroghColorSlider)
-        contentView.addSubview(textEffectStepper)
+        contentView.addSubview(obliqueStepper)
         contentView.addSubview(fontSizeStepper)
         contentView.addSubview(fontColorLable)
         contentView.addSubview(colorSlider)
         contentView.addSubview(fontCollectionview)
-        fontCollectionview.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
-        colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
-        fontSizeStepper.addTarget(self, action: #selector(fontSizeXhanged(_:)), for: .valueChanged)
-        fontCollectionview.delegate = self
-        fontCollectionview.dataSource = self
-    }
-    
-
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
-            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
-            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 540),
-            titleLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            titleLable.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            headlineline.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 4),
-            headlineline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48),
-            headlineline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
-            headlineline.heightAnchor.constraint(equalToConstant: 1),
-            fontCollectionview.topAnchor.constraint(equalTo: headlineline.bottomAnchor, constant: 12),
-            fontCollectionview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            fontCollectionview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            fontCollectionview.heightAnchor.constraint(equalToConstant: 80),
-            firstline.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 8),
-            firstline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            firstline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            firstline.heightAnchor.constraint(equalToConstant: 1),
-            fontSizeLable.topAnchor.constraint(equalTo: firstline.bottomAnchor, constant: 8),
-            fontSizeLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            fontColorLable.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            fontColorLable.topAnchor.constraint(equalTo: firstline.bottomAnchor, constant: 12),
-            fontSizeStepper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            fontSizeStepper.topAnchor.constraint(equalTo: fontSizeLable.bottomAnchor, constant: 8),
-            colorSlider.topAnchor.constraint(equalTo: fontColorLable.bottomAnchor, constant: 8),
-            colorSlider.leadingAnchor.constraint(equalTo: fontSizeStepper.trailingAnchor, constant: 30),
-            colorSlider.heightAnchor.constraint(equalToConstant: 20),
-            colorSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            secondline.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: 24),
-            secondline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            secondline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            secondline.heightAnchor.constraint(equalToConstant: 1),
-            
-        ])
     }
 }
+
 
 
 extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -334,6 +301,79 @@ extension TextDesignableInputView{
         let val = stepper.value
         model.strikeThrough = Int(val)
         delegate?.didUpdateModel(model)
+    }
+    
+    @objc func obliquessChanged(_ stepper:UIStepper){
+        let val = stepper.value
+        model.obliquess = Int(val)
+        delegate?.didUpdateModel(model)
+    }
+    
+    func registrationsAndtargetSets(){
+        fontCollectionview.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
+        colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
+        fontSizeStepper.addTarget(self, action: #selector(fontSizeXhanged(_:)), for: .valueChanged)
+        fontCollectionview.delegate = self
+        fontCollectionview.dataSource = self
+        strokeColorSlider.addTarget(self, action: #selector(strokecolorSliderChanged(_:)), for: .valueChanged)
+        strokeWidthStepper.addTarget(self, action: #selector(strokeWidthCanged(_:)), for: .valueChanged)
+        underlineColorSlider.addTarget(self, action: #selector(underlineStyleColorChanged(_:)), for: .valueChanged)
+        underlineStyleStepper.addTarget(self, action: #selector(underlineStyleChanged(_:)), for: .valueChanged)
+        strikeThroghColorSlider.addTarget(self, action: #selector(strikeThroughcolorSliderChanged(_:)), for: .valueChanged)
+        strikeThroughStyleStepper.addTarget(self, action: #selector(strikeThroughStylehanged(_:)), for: .valueChanged)
+        obliqueStepper.addTarget(self, action: #selector(obliquessChanged(_:)), for: .valueChanged)
+    }
+    
+    
+}
+
+
+
+extension TextDesignableInputView{
+    
+    func setConstraints(){
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 540),
+            titleLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            titleLable.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            headlineline.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 4),
+            headlineline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48),
+            headlineline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
+            headlineline.heightAnchor.constraint(equalToConstant: 1),
+            fontCollectionview.topAnchor.constraint(equalTo: headlineline.bottomAnchor, constant: 12),
+            fontCollectionview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            fontCollectionview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            fontCollectionview.heightAnchor.constraint(equalToConstant: 80),
+            firstline.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 8),
+            firstline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            firstline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            firstline.heightAnchor.constraint(equalToConstant: 1),
+            fontSizeLable.topAnchor.constraint(equalTo: firstline.bottomAnchor, constant: 8),
+            fontSizeLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            fontColorLable.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            fontColorLable.topAnchor.constraint(equalTo: firstline.bottomAnchor, constant: 12),
+            fontSizeStepper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            fontSizeStepper.topAnchor.constraint(equalTo: fontSizeLable.bottomAnchor, constant: 8),
+            colorSlider.topAnchor.constraint(equalTo: fontColorLable.bottomAnchor, constant: 8),
+            colorSlider.leadingAnchor.constraint(equalTo: fontSizeStepper.trailingAnchor, constant: 30),
+            colorSlider.heightAnchor.constraint(equalToConstant: 20),
+            colorSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            secondline.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: 24),
+            secondline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            secondline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            secondline.heightAnchor.constraint(equalToConstant: 1),
+            
+        ])
     }
 }
 

@@ -23,6 +23,7 @@ struct TextLayerModel {
     var obliquess:Int = 0
     
     
+    
     func outPutString()->NSAttributedString{
         
         var attributes:[NSAttributedString.Key:Any?] = [
