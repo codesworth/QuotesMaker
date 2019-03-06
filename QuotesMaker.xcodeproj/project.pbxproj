@@ -10,6 +10,8 @@
 		3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861A4A2222691B70040D819 /* ImagesVC.swift */; };
 		38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732A4B222EEA9100CDB703 /* String+Ex.swift */; };
 		38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */; };
+		38732E9822300DE700CDB703 /* FontCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E9622300DE700CDB703 /* FontCells.swift */; };
+		38732E9922300DE700CDB703 /* FontCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38732E9722300DE700CDB703 /* FontCells.xib */; };
 		388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F122299B01005BF44B /* CGPoint+Literals.swift */; };
 		388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F222299B01005BF44B /* CGSize+Literals.swift */; };
 		388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */; };
@@ -91,6 +93,8 @@
 		3861A4A2222691B70040D819 /* ImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesVC.swift; sourceTree = "<group>"; };
 		38732A4B222EEA9100CDB703 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDesignableInputView.swift; sourceTree = "<group>"; };
+		38732E9622300DE700CDB703 /* FontCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCells.swift; sourceTree = "<group>"; };
+		38732E9722300DE700CDB703 /* FontCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCells.xib; sourceTree = "<group>"; };
 		388BE2F122299B01005BF44B /* CGPoint+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F222299B01005BF44B /* CGSize+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Literals.swift"; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				388BE385222E93D0005BF44B /* PointControlview.swift */,
 				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
 				38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */,
+				38732E9622300DE700CDB703 /* FontCells.swift */,
+				38732E9722300DE700CDB703 /* FontCells.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 				38FEDBF4222352DB0005EB60 /* LaunchScreen.storyboard in Resources */,
 				38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */,
 				388BE331222B0A16005BF44B /* painter.ttf in Resources */,
+				38732E9922300DE700CDB703 /* FontCells.xib in Resources */,
 				388BE344222C3188005BF44B /* PanelCell.xib in Resources */,
 				38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */,
 			);
@@ -454,6 +461,7 @@
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
 				388BE319222ABBA5005BF44B /* GradientView.swift in Sources */,
+				38732E9822300DE700CDB703 /* FontCells.swift in Sources */,
 				388BE321222AC23C005BF44B /* OptionsButtonView.swift in Sources */,
 				388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */,
 				388BE316222ABBA5005BF44B /* ColorSlider.swift in Sources */,

@@ -18,4 +18,24 @@ extension UIFont{
     class func font(_ name:Fonts, size:CGFloat = 16)->UIFont{
         return UIFont(name: name.rawValue, size: size)!
     }
+    
+    class func getFeaturedFonts()->[Font]{
+        var fonts:[Font] = []
+        for font in featureFonts{
+            let font = Font(name: font.key, font: UIFont(name: font.value, size: 25)!)
+            fonts.append(font)
+        }
+        return fonts
+    }
+    
+    struct Font{
+        let name:String
+        let font:UIFont
+    }
+    
+    class var featureFonts:[String:String]{
+        return ["fontjek" : "Fontjek", "candy" : "CANDY INC.", "snow" : "Snowpersons", "painter" : "Painter PERSONAL USE ONLY"]
+    }
 }
+
+

@@ -10,6 +10,8 @@ import UIKit
 
 class TextDesignableInputView:UIView{
     
+    var fonts = UIFont.getFeaturedFonts()
+    
     lazy var titleLable:BasicLabel = {
         let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 15, weight: .regular))
         lab.attributedText = NSAttributedString(string: "Fonts", attributes: [.underlineStyle:1])
@@ -110,13 +112,42 @@ class TextDesignableInputView:UIView{
             fontCollectionview.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 12),
             fontCollectionview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             fontCollectionview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            fontCollectionview.heightAnchor.constraint(equalToConstant: 80)
+            fontCollectionview.heightAnchor.constraint(equalToConstant: 80),
+            fontSizeLable.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 12),
+            fontSizeLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            fontColorLable.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            fontColorLable.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 12),
+            fontSizeStepper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            fontSizeStepper.topAnchor.constraint(equalTo: fontSizeLable.bottomAnchor, constant: 8),
+            colorSlider.topAnchor.constraint(equalTo: fontColorLable.bottomAnchor, constant: 8),
+            colorSlider.leadingAnchor.constraint(equalTo: fontSizeStepper.trailingAnchor, constant: 16),
+            colorSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12)
         ])
     }
 }
 
 
-extension TextDesignableInputView{
+extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
+        <#code#>
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
+    }
     
 }
 
