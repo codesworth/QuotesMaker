@@ -23,6 +23,13 @@ class BackingTextView: UITextView {
         
     }
     
+    var model:TextLayerModel = TextLayerModel(){
+        
+        didSet{
+            attributedText = model.outPutString()
+        }
+    }
+    
     var inputFrame:CGRect = .zero
     
     
@@ -107,8 +114,10 @@ extension BackingTextView{
         resignFirstResponder()
         defer {becomeFirstResponder()}
         if currentInput == .keyboard{
-            let view = UIView(frame: inputFrame)
-            view.backgroundColor = .red
+            let adjustedFrame = CGRect(origin: inputFrame.origin, size: [inputFrame.size.width,400])
+            let view = TextDesignableInputView(frame: adjustedFrame, model: self.model)
+            view.delegate = self
+            view.backgroundColor = .white
             self.inputView = view
             
             currentInput = .designboard
@@ -144,6 +153,14 @@ extension BackingTextView{
         
         let keyBoardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.inputFrame = keyBoardFrame
+    }
+}
+
+
+extension BackingTextView:TextModelDelegate{
+    
+    func didUpdateModel(_ model: TextLayerModel) {
+        self.model = model
     }
 }
 //Font Type

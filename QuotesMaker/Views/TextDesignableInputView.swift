@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TextModelDelegate:class {
+    func didUpdateModel(_ model:TextLayerModel)
+}
+
 class TextDesignableInputView:UIView{
     
     var fonts = UIFont.getFeaturedFonts()
@@ -17,6 +21,10 @@ class TextDesignableInputView:UIView{
         lab.attributedText = NSAttributedString(string: "Fonts", attributes: [.underlineStyle:1])
         return lab
     }()
+    
+    var model:TextLayerModel!
+    var chosenFont:String!
+    weak var delegate:TextModelDelegate?
     
     lazy var fontCollectionview:UICollectionView = {
         let flow = UICollectionViewFlowLayout()
@@ -28,7 +36,7 @@ class TextDesignableInputView:UIView{
     
     lazy var fontSizeLable:BasicLabel = {
         let lab = BasicLabel.basicMake()
-        lab.text = "Size"
+        lab.text = "Size: "
         return lab
     }()
     
@@ -53,8 +61,8 @@ class TextDesignableInputView:UIView{
     
     lazy var fontSizeStepper:UIStepper = {
         let stepper = UIStepper(frame: .zero)
-        stepper.maximumValue = 4
-        stepper.minimumValue = 2
+        stepper.maximumValue = 100
+        stepper.minimumValue = 10
         stepper.stepValue = 1
         stepper.tintColor = .primary
         return stepper
@@ -67,8 +75,10 @@ class TextDesignableInputView:UIView{
     
     
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, model:TextLayerModel) {
         super.init(frame:frame)
+        self.model = model
+        chosenFont = model.font.fontName
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,6 +88,7 @@ class TextDesignableInputView:UIView{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initialize()
     }
     
     func initialize(){
@@ -89,6 +100,26 @@ class TextDesignableInputView:UIView{
         contentView.addSubview(fontColorLable)
         contentView.addSubview(colorSlider)
         contentView.addSubview(fontCollectionview)
+        fontCollectionview.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
+        colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
+        fontSizeStepper.addTarget(self, action: #selector(fontSizeXhanged(_:)), for: .valueChanged)
+        fontCollectionview.delegate = self
+        fontCollectionview.dataSource = self
+    }
+    
+    @objc func colorSliderChanged(_ slider:ColorSlider){
+        
+        let color = slider.color
+        model.textColor = color
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func fontSizeXhanged(_ stepper:UIStepper){
+        let val = stepper.value
+        fontSizeLable.text =  "Size: \(val)"
+        let newFont = UIFont(name: chosenFont, size: CGFloat(val))!
+        model.font = newFont
+        delegate?.didUpdateModel(model)
     }
     
     override func layoutSubviews() {
@@ -134,19 +165,27 @@ extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return fonts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FontCells.self)", for: indexPath) as? FontCells{
+            let font = fonts[indexPath.row]
+            cell.configure(font: font)
+            return cell
+        }
+        return FontCells()
     }
     
-    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
-        <#code#>
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return [80,60]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        chosenFont = fonts[indexPath.row].font.fontName
+        let newFont = UIFont(name: chosenFont, size: CGFloat(fontSizeStepper.value))!
+        model.font = newFont
+        delegate?.didUpdateModel(model)
     }
     
 }
