@@ -10,10 +10,22 @@ import UIKit
 
 class BackingTextView: UITextView {
 
+    enum CurrentInputType{
+        case keyboard
+        case designboard
+    }
+    
+    var currentInput:CurrentInputType = .keyboard
+    
     init(frame: CGRect) {
         super.init(frame: frame,textContainer:nil)
         initialize()
+        
     }
+    
+    var inputFrame:CGRect = .zero
+    
+    
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -53,7 +65,12 @@ class BackingTextView: UITextView {
         super.layoutSubviews()
         textlayer.bounds = bounds
         textlayer.position = [bounds.midX,bounds.midY]
+        watchForKeyBoardNotifications()
         //textlayer.backgroundColor = UIColor.green.cgColor
+    }
+    
+    deinit {
+        deregisterNotification()
     }
 }
 
@@ -88,14 +105,44 @@ extension BackingTextView{
     
     @objc func remakeInputView(){
         resignFirstResponder()
-        let view = UIView(frame: [0,0,300,400])
-        view.backgroundColor = .red
-        self.inputView = view
-        becomeFirstResponder()
+        defer {becomeFirstResponder()}
+        if currentInput == .keyboard{
+            let view = UIView(frame: inputFrame)
+            view.backgroundColor = .red
+            self.inputView = view
+            
+            currentInput = .designboard
+        }else{
+           inputView = nil
+            currentInput = .keyboard
+        }
+        
     }
     
     @objc func doneButtonAction()
     {
         self.resignFirstResponder()
+    }
+    
+    
+}
+
+
+extension BackingTextView{
+    
+    func watchForKeyBoardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(respondtoKeyBoard), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    func deregisterNotification(){
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    
+    @objc func respondtoKeyBoard(_ notification: Notification){
+        //Calculate lenght to bottom of screen
+        
+        let keyBoardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        self.inputFrame = keyBoardFrame
     }
 }
