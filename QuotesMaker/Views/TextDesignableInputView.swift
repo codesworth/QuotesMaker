@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 protocol TextModelDelegate:class {
     func didUpdateModel(_ model:TextLayerModel)
 }
@@ -32,6 +34,10 @@ class TextDesignableInputView:UIView{
         let col = UICollectionView(frame: .zero, collectionViewLayout: flow)
         col.backgroundColor = .clear
         return col
+    }()
+    
+    lazy var headlineline:LineView = {
+        return LineView.getLine()
     }()
     
     lazy var firstline:LineView = {
@@ -86,6 +92,63 @@ class TextDesignableInputView:UIView{
         return slider
     }()
     
+    lazy var strokeWidthStepper:UIStepper = {
+        let stepper = UIStepper(frame: .zero)
+        stepper.maximumValue = 100
+        stepper.minimumValue = 10
+        stepper.stepValue = 1
+        stepper.value = 0
+        stepper.tintColor = .primary
+        return stepper
+    }()
+    
+    lazy var strokeColorSlider:ColorSlider = {
+        let slider = ColorSlider(orientation: .horizontal, previewSide: .top)
+        return slider
+    }()
+    
+    lazy var underlineStyleStepper:UIStepper = {
+        let stepper = UIStepper(frame: .zero)
+        stepper.maximumValue = 100
+        stepper.minimumValue = 0
+        stepper.stepValue = 1
+        stepper.value = 0
+        stepper.tintColor = .primary
+        return stepper
+    }()
+    
+    lazy var underlineColorSlider:ColorSlider = {
+        let slider = ColorSlider(orientation: .horizontal, previewSide: .top)
+        return slider
+    }()
+    
+    lazy var strikeThroughStyleStepper:UIStepper = {
+        let stepper = UIStepper(frame: .zero)
+        stepper.maximumValue = 100
+        stepper.minimumValue = 0
+        stepper.stepValue = 1
+        stepper.value = 0
+        stepper.tintColor = .primary
+        return stepper
+    }()
+    
+    lazy var strikeThroghColorSlider:ColorSlider = {
+        let slider = ColorSlider(orientation: .horizontal, previewSide: .top)
+        return slider
+    }()
+    
+    lazy var textEffectStepper:UIStepper = {
+        let stepper = UIStepper(frame: .zero)
+        stepper.maximumValue = 100
+        stepper.minimumValue = 0
+        stepper.stepValue = 1
+        stepper.value = 0
+        stepper.tintColor = .primary
+        return stepper
+    }()
+    
+
+    
     
     
     init(frame: CGRect, model:TextLayerModel) {
@@ -113,6 +176,13 @@ class TextDesignableInputView:UIView{
         contentView.addSubview(firstline)
         contentView.addSubview(secondline)
         contentView.addSubview(thirdline)
+        contentView.addSubview(strokeWidthStepper)
+        contentView.addSubview(strokeColorSlider)
+        contentView.addSubview(underlineStyleStepper)
+        contentView.addSubview(underlineColorSlider)
+        contentView.addSubview(strikeThroughStyleStepper)
+        contentView.addSubview(strikeThroghColorSlider)
+        contentView.addSubview(textEffectStepper)
         contentView.addSubview(fontSizeStepper)
         contentView.addSubview(fontColorLable)
         contentView.addSubview(colorSlider)
@@ -124,20 +194,7 @@ class TextDesignableInputView:UIView{
         fontCollectionview.dataSource = self
     }
     
-    @objc func colorSliderChanged(_ slider:ColorSlider){
-        
-        let color = slider.color
-        model.textColor = color
-        delegate?.didUpdateModel(model)
-    }
-    
-    @objc func fontSizeXhanged(_ stepper:UIStepper){
-        let val = stepper.value
-        fontSizeLable.text =  "Size: \(val)"
-        let newFont = UIFont(name: chosenFont, size: CGFloat(val))!
-        model.font = newFont
-        delegate?.didUpdateModel(model)
-    }
+
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -157,7 +214,11 @@ class TextDesignableInputView:UIView{
             contentView.heightAnchor.constraint(equalToConstant: 540),
             titleLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
             titleLable.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            fontCollectionview.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 12),
+            headlineline.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 4),
+            headlineline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48),
+            headlineline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
+            headlineline.heightAnchor.constraint(equalToConstant: 1),
+            fontCollectionview.topAnchor.constraint(equalTo: headlineline.bottomAnchor, constant: 12),
             fontCollectionview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             fontCollectionview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             fontCollectionview.heightAnchor.constraint(equalToConstant: 80),
@@ -217,10 +278,72 @@ extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataS
     
 }
 
+extension TextDesignableInputView{
+    
+    @objc func colorSliderChanged(_ slider:ColorSlider){
+        
+        let color = slider.color
+        model.textColor = color
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func fontSizeXhanged(_ stepper:UIStepper){
+        let val = stepper.value
+        fontSizeLable.text =  "Size: \(val)"
+        let newFont = UIFont(name: chosenFont, size: CGFloat(val))!
+        model.font = newFont
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func strokecolorSliderChanged(_ slider:ColorSlider){
+        
+        let color = slider.color
+        model.strokeColor = color
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func strokeWidthCanged(_ stepper:UIStepper){
+        let val = stepper.value
+        fontSizeLable.text =  "Size: \(val)"
+        model.strokeWidth = Int(val)
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func underlineStyleColorChanged(_ slider:ColorSlider){
+        
+        let color = slider.color
+        model.underlineColor = color
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func underlineStyleChanged(_ stepper:UIStepper){
+        let val = stepper.value
+        
+        model.underlineStyle = Int(val)
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func strikeThroughcolorSliderChanged(_ slider:ColorSlider){
+        
+        let color = slider.color
+        model.strikeThroughColor = color
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func strikeThroughStylehanged(_ stepper:UIStepper){
+        let val = stepper.value
+        model.strikeThrough = Int(val)
+        delegate?.didUpdateModel(model)
+    }
+}
+
 
 //Font Type
 //Font size
 //Font Color
 //Stroke Width
+//strokecolor
+//underlineStyle
+//underlineColor
 // underline
 //strikethrough
