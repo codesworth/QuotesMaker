@@ -13,7 +13,7 @@ struct TextLayerModel {
     
     var string:String = "Hello"
     var textColor:UIColor = .black
-    var font:UIFont = .systemFont(ofSize: 25, weight: .semibold)
+    var font:UIFont = UIFont.font(.painter, size: 27)
     var strikeThrough:Int = 0
     var strikeThroughColor:UIColor?
     var strokeColor:UIColor?

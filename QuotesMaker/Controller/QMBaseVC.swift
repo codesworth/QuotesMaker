@@ -14,7 +14,7 @@ class QMBaseVC: UIViewController {
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!
     @IBOutlet weak var baseView:BaseView!
-    private var textField = BackingTextField(frame: .zero)
+    private var textField = BackingTextView(frame: .zero)
     //private var  optionsView:OptionsStack?
     private var aspectRatio:Dimensions.AspectRatios = .square
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BackingTextField: UITextView {
+class BackingTextView: UITextView {
 
     init(frame: CGRect) {
         super.init(frame: frame,textContainer:nil)
@@ -37,7 +37,7 @@ class BackingTextField: UITextView {
     
     func initialize(){
         //layer.addSublayer(textlayer)
-        textColor = UIColor.black
+        textColor = UIColor.white
         font = textlayer.model.font
         backgroundColor = .clear
     
@@ -57,7 +57,7 @@ class BackingTextField: UITextView {
     }
 }
 
-extension BackingTextField{
+extension BackingTextView{
     
     @IBInspectable var doneAccessory: Bool{
         get{
@@ -77,12 +77,21 @@ extension BackingTextField{
         
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
-        
-        let items = [flexSpace, done]
+        let fonts: UIBarButtonItem = UIBarButtonItem(title: "Edits", style: .plain, target: self, action: #selector(self.remakeInputView))
+        let items = [fonts,flexSpace, done]
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         
         self.inputAccessoryView = doneToolbar
+        
+    }
+    
+    @objc func remakeInputView(){
+        resignFirstResponder()
+        let view = UIView(frame: [0,0,300,400])
+        view.backgroundColor = .red
+        self.inputView = view
+        becomeFirstResponder()
     }
     
     @objc func doneButtonAction()
