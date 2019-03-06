@@ -38,4 +38,8 @@ class BasicLabel: UILabel {
         super.init(coder: aDecoder)
     }
     
+    class func basicMake()->BasicLabel{
+        return BasicLabel(frame: .zero, font: .systemFont(ofSize: 15, weight: .regular))
+    }
+    
 }

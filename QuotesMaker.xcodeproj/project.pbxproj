@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861A4A2222691B70040D819 /* ImagesVC.swift */; };
 		38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732A4B222EEA9100CDB703 /* String+Ex.swift */; };
+		38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */; };
 		388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F122299B01005BF44B /* CGPoint+Literals.swift */; };
 		388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F222299B01005BF44B /* CGSize+Literals.swift */; };
 		388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */; };
@@ -89,6 +90,7 @@
 /* Begin PBXFileReference section */
 		3861A4A2222691B70040D819 /* ImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesVC.swift; sourceTree = "<group>"; };
 		38732A4B222EEA9100CDB703 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
+		38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDesignableInputView.swift; sourceTree = "<group>"; };
 		388BE2F122299B01005BF44B /* CGPoint+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F222299B01005BF44B /* CGSize+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Literals.swift"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
 				388BE385222E93D0005BF44B /* PointControlview.swift */,
 				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
+				38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				388BE316222ABBA5005BF44B /* ColorSlider.swift in Sources */,
 				389B939622276BAD009FE9E6 /* Extensions.swift in Sources */,
 				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
+				38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */,
 				388BE343222C3188005BF44B /* PanelCell.swift in Sources */,
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
 				388BE38A222EB50B005BF44B /* TextModel.swift in Sources */,

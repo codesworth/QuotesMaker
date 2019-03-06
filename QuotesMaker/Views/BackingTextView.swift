@@ -146,3 +146,10 @@ extension BackingTextView{
         self.inputFrame = keyBoardFrame
     }
 }
+//Font Type
+//Font size
+//Font Color
+//Stroke Width
+// underline
+//strikethrough
+
