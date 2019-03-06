@@ -57,6 +57,8 @@ class BackingTextView: UITextView {
     }
     
     func initialize(){
+        textContainerInset = UIEdgeInsets.zero
+        textContainer.lineFragmentPadding = 0
         //layer.addSublayer(textlayer)
         textColor = UIColor.white
         font = model.font
