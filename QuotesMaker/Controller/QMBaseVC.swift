@@ -253,6 +253,7 @@ extension QMBaseVC:StudioPanelDelegate{
             setTextLayer()
             break
         case .addFilter:
+            baseView.transformViewTolayer()
             break
         }
     }

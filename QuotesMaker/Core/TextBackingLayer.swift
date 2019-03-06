@@ -15,7 +15,11 @@ class TextBackingLayer: CATextLayer {
         setAttributes()
     }
     
-    var model = TextLayerModel()
+    var model:TextLayerModel!{
+        didSet{
+            string = model.outPutString()
+        }
+    }
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,10 +45,10 @@ class TextBackingLayer: CATextLayer {
     func setAttributes(){
 //        borderColor = UIColor.green.cgColor
 //        borderWidth = 1
-        
+        backgroundColor  = UIColor.black.cgColor
         isWrapped = true
-        alignmentMode = .center
+        //alignmentMode = .center
         truncationMode = .none
-        string = model.outPutString()
+        //string = model.outPutString()
     }
 }

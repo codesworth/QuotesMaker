@@ -30,6 +30,8 @@ class BackingTextView: UITextView {
         }
     }
     
+    
+    
     var inputFrame:CGRect = .zero
     
     
@@ -57,13 +59,13 @@ class BackingTextView: UITextView {
     func initialize(){
         //layer.addSublayer(textlayer)
         textColor = UIColor.white
-        font = textlayer.model.font
-        backgroundColor = .clear
+        font = model.font
+        backgroundColor = .black
     
         isScrollEnabled = false
         tintColor = .black
         text = "Hello"
-        textAlignment = .center
+        //textAlignment = .center
         
     
     }
@@ -114,8 +116,10 @@ extension BackingTextView{
         resignFirstResponder()
         defer {becomeFirstResponder()}
         if currentInput == .keyboard{
-            let adjustedFrame = CGRect(origin: inputFrame.origin, size: [inputFrame.size.width,400])
+            let adjustedFrame = CGRect(origin: inputFrame.origin, size: [inputFrame.size.width,320])
+            model.string = text
             let view = TextDesignableInputView(frame: adjustedFrame, model: self.model)
+            
             view.delegate = self
             view.backgroundColor = .white
             self.inputView = view

@@ -22,7 +22,7 @@ extension UIFont{
     class func getFeaturedFonts()->[Font]{
         var fonts:[Font] = []
         for font in featureFonts{
-            let font = Font(name: font.key, font: UIFont(name: font.value, size: 25)!)
+            let font = Font(name: font.key, font: UIFont(name: font.value, size: 40)!)
             fonts.append(font)
         }
         return fonts

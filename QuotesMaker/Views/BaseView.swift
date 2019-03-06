@@ -65,6 +65,24 @@ class BaseView:UIImageView{
         
     }
     
+    func transformViewTolayer(){
+        let textViews = subviews.compactMap { (view) -> BackingTextView? in
+            if type(of: view) == BackingTextView.self{
+                return view as? BackingTextView
+            }
+            return nil
+        }
+        textViews.forEach{
+            let textLayer = TextBackingLayer()
+            textLayer.frame = $0.frame
+            textLayer.model = $0.model
+            self.layer.addSublayer(textLayer)
+            
+            $0.removeFromSuperview()
+            $0.frame = [0]
+        }
+        
+    }
     
     
 }

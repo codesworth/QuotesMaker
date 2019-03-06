@@ -64,6 +64,7 @@ class TextDesignableInputView:UIView{
         stepper.maximumValue = 100
         stepper.minimumValue = 10
         stepper.stepValue = 1
+        stepper.value = 27
         stepper.tintColor = .primary
         return stepper
     }()
@@ -77,6 +78,7 @@ class TextDesignableInputView:UIView{
     
     init(frame: CGRect, model:TextLayerModel) {
         super.init(frame:frame)
+        initialize()
         self.model = model
         chosenFont = model.font.fontName
     }
@@ -145,13 +147,14 @@ class TextDesignableInputView:UIView{
             fontCollectionview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             fontCollectionview.heightAnchor.constraint(equalToConstant: 80),
             fontSizeLable.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 12),
-            fontSizeLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            fontSizeLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             fontColorLable.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             fontColorLable.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 12),
             fontSizeStepper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             fontSizeStepper.topAnchor.constraint(equalTo: fontSizeLable.bottomAnchor, constant: 8),
             colorSlider.topAnchor.constraint(equalTo: fontColorLable.bottomAnchor, constant: 8),
-            colorSlider.leadingAnchor.constraint(equalTo: fontSizeStepper.trailingAnchor, constant: 16),
+            colorSlider.leadingAnchor.constraint(equalTo: fontSizeStepper.trailingAnchor, constant: 30),
+            colorSlider.heightAnchor.constraint(equalToConstant: 20),
             colorSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12)
         ])
     }
