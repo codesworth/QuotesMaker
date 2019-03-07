@@ -45,6 +45,7 @@ class TextBackingLayer: CATextLayer {
     func setAttributes(){
 //        borderColor = UIColor.green.cgColor
 //        borderWidth = 1
+        
         backgroundColor  = UIColor.clear.cgColor
         isWrapped = true
         //alignmentMode = .center

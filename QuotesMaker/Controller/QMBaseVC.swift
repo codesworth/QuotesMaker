@@ -144,8 +144,10 @@ class QMBaseVC: UIViewController {
                 size.width = baseView.bounds.width * 0.8
                 size.height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
             }
-            textField.frame.size = size
-            textField.center = [baseView.bounds.midX,baseView.bounds.midY]
+            DispatchQueue.main.async {
+                self.textField.frame.size = size
+                self.textField.center = [self.baseView.bounds.midX,self.baseView.bounds.midY]
+            }
         }
     }
 
@@ -268,6 +270,14 @@ extension QMBaseVC:StudioPanelDelegate{
 
 extension QMBaseVC:UITextViewDelegate{
     
+    
+    func textViewDidChange(_ textView: UITextView) {
+        print("SO this is the text that changed: \(String(describing: textView.text))")
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+         print("SO this is the text that changed: \(String(describing: textView.text))")
+    }
     
     
 //    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
