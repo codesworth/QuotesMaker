@@ -35,7 +35,7 @@ extension TextDesignableInputView{
     
     @objc func strokeWidthCanged(_ stepper:UIStepper){
         let val = stepper.value
-        fontSizeLable.text =  "Size: \(val)"
+        strokeWidthLabel.text =  "Size: \(val)"
         model.strokeWidth = Int(val)
         delegate?.didUpdateModel(model)
     }
@@ -49,7 +49,7 @@ extension TextDesignableInputView{
     
     @objc func underlineStyleChanged(_ stepper:UIStepper){
         let val = stepper.value
-        
+        underlineStylelable.text = "Style: \(val)"
         model.underlineStyle = Int(val)
         delegate?.didUpdateModel(model)
     }
@@ -63,12 +63,14 @@ extension TextDesignableInputView{
     
     @objc func strikeThroughStylehanged(_ stepper:UIStepper){
         let val = stepper.value
+        strikeStyleLabel.text = "Style: \(val)"
         model.strikeThrough = Int(val)
         delegate?.didUpdateModel(model)
     }
     
     @objc func obliquessChanged(_ stepper:UIStepper){
         let val = stepper.value
+        obliqStyleLabel.text = "Style: \(val)"
         model.obliquess = Int(val)
         delegate?.didUpdateModel(model)
     }

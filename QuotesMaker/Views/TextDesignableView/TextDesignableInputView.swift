@@ -168,7 +168,7 @@ class TextDesignableInputView:UIView{
     lazy var strokeWidthStepper:UIStepper = {
         let stepper = UIStepper(frame: .zero)
         stepper.maximumValue = 100
-        stepper.minimumValue = 10
+        stepper.minimumValue = -10
         stepper.stepValue = 1
         stepper.value = 0
         stepper.tintColor = .primary
@@ -182,7 +182,7 @@ class TextDesignableInputView:UIView{
     
     lazy var underlineStyleStepper:UIStepper = {
         let stepper = UIStepper(frame: .zero)
-        stepper.maximumValue = 100
+        stepper.maximumValue = 8
         stepper.minimumValue = 0
         stepper.stepValue = 1
         stepper.value = 0
@@ -197,7 +197,7 @@ class TextDesignableInputView:UIView{
     
     lazy var strikeThroughStyleStepper:UIStepper = {
         let stepper = UIStepper(frame: .zero)
-        stepper.maximumValue = 100
+        stepper.maximumValue = 8
         stepper.minimumValue = 0
         stepper.stepValue = 1
         stepper.value = 0
@@ -212,8 +212,8 @@ class TextDesignableInputView:UIView{
     
     lazy var obliqueStepper:UIStepper = {
         let stepper = UIStepper(frame: .zero)
-        stepper.maximumValue = 100
-        stepper.minimumValue = 0
+        stepper.maximumValue = 10
+        stepper.minimumValue = -10
         stepper.stepValue = 1
         stepper.value = 0
         stepper.tintColor = .primary

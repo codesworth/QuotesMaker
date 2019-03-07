@@ -30,7 +30,19 @@ class BackingTextView: UITextView {
         }
     }
     
+    lazy var pangesture: UIPanGestureRecognizer = {
+        let pan = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
+        return pan
+    }()
     
+    @objc func panned(_ recognizer:UIPanGestureRecognizer){
+        guard let view = recognizer.view else {return}
+        
+        let translation = recognizer.translation(in: view)
+        let finalPoint = view.center + translation
+        view.center = finalPoint.constrained(in: superview!.bounds)
+        recognizer.setTranslation(.zero, in: view)
+    }
     
     var inputFrame:CGRect = .zero
     
@@ -57,13 +69,16 @@ class BackingTextView: UITextView {
     }
     
     func initialize(){
+        clipsToBounds = false
         textContainerInset = UIEdgeInsets.zero
         textContainer.lineFragmentPadding = 0
-        //layer.addSublayer(textlayer)
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 0.5
+        addGestureRecognizer(pangesture)
         textColor = model.textColor
         font = model.font
         backgroundColor = .clear
-    
+        addSubview(rightExtendDot)
         isScrollEnabled = false
         tintColor = .black
         text = "Hello"
@@ -72,10 +87,30 @@ class BackingTextView: UITextView {
     
     }
     
+    lazy var rightExtendDot:UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(rightPanned(_:))))
+        return view
+    }()
+    
+    
+    @objc func rightPanned(_ recognizer:UIPanGestureRecognizer){
+        guard let view = recognizer.view else {return}
+        
+        let translation = recognizer.translation(in: view)
+        let finalPoint = view.center + translation
+        frame.origin.x += translation.x
+        view.center = finalPoint.constrained(in: superview!.bounds)
+        recognizer.setTranslation(.zero, in: view)
+        
+    }
     override func layoutSubviews() {
         super.layoutSubviews()
         textlayer.bounds = bounds
         textlayer.position = [bounds.midX,bounds.midY]
+        rightExtendDot.frame = [bounds.minX - 10,bounds.maxY / 2, 20]
         watchForKeyBoardNotifications()
         //textlayer.backgroundColor = UIColor.green.cgColor
     }
