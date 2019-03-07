@@ -13,6 +13,9 @@
 		38732E9822300DE700CDB703 /* FontCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E9622300DE700CDB703 /* FontCells.swift */; };
 		38732E9922300DE700CDB703 /* FontCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38732E9722300DE700CDB703 /* FontCells.xib */; };
 		38732E9B2230359500CDB703 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E9A2230359500CDB703 /* LineView.swift */; };
+		38797C2522309DAF003A9D99 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2422309DAF003A9D99 /* Constraints.swift */; };
+		38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */; };
+		38797C2922309E83003A9D99 /* Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2822309E83003A9D99 /* Selectors.swift */; };
 		388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F122299B01005BF44B /* CGPoint+Literals.swift */; };
 		388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F222299B01005BF44B /* CGSize+Literals.swift */; };
 		388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */; };
@@ -97,6 +100,9 @@
 		38732E9622300DE700CDB703 /* FontCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCells.swift; sourceTree = "<group>"; };
 		38732E9722300DE700CDB703 /* FontCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCells.xib; sourceTree = "<group>"; };
 		38732E9A2230359500CDB703 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		38797C2422309DAF003A9D99 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegates.swift; sourceTree = "<group>"; };
+		38797C2822309E83003A9D99 /* Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectors.swift; sourceTree = "<group>"; };
 		388BE2F122299B01005BF44B /* CGPoint+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F222299B01005BF44B /* CGSize+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Literals.swift"; sourceTree = "<group>"; };
 		388BE2F322299B01005BF44B /* UIEdgeInsets+Literals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Literals.swift"; sourceTree = "<group>"; };
@@ -173,6 +179,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38797C2322309D6B003A9D99 /* TextDesignableView */ = {
+			isa = PBXGroup;
+			children = (
+				38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */,
+				38797C2422309DAF003A9D99 /* Constraints.swift */,
+				38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */,
+				38797C2822309E83003A9D99 /* Selectors.swift */,
+			);
+			path = TextDesignableView;
+			sourceTree = "<group>";
+		};
 		387B96472229966F00824498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +266,7 @@
 		389B938922275CA1009FE9E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				38797C2322309D6B003A9D99 /* TextDesignableView */,
 				388BE2FB2229A458005BF44B /* BaseView.swift */,
 				389B939722277A77009FE9E6 /* CreateButton.swift */,
 				388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */,
@@ -265,7 +283,6 @@
 				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
 				388BE385222E93D0005BF44B /* PointControlview.swift */,
 				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
-				38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */,
 				38732E9622300DE700CDB703 /* FontCells.swift */,
 				38732E9722300DE700CDB703 /* FontCells.xib */,
 				38732E9A2230359500CDB703 /* LineView.swift */,
@@ -464,6 +481,7 @@
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
 				388BE319222ABBA5005BF44B /* GradientView.swift in Sources */,
+				38797C2922309E83003A9D99 /* Selectors.swift in Sources */,
 				38732E9822300DE700CDB703 /* FontCells.swift in Sources */,
 				388BE321222AC23C005BF44B /* OptionsButtonView.swift in Sources */,
 				388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */,
@@ -478,6 +496,7 @@
 				38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */,
 				388BE323222AC376005BF44B /* CreateOptions.swift in Sources */,
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
+				38797C2522309DAF003A9D99 /* Constraints.swift in Sources */,
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
@@ -499,6 +518,7 @@
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,
+				38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */,
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,

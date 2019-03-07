@@ -30,11 +30,12 @@ struct TextLayerModel {
             .font : font,
             .foregroundColor: textColor,
             .strikethroughStyle : strikeThrough.nsNumber(),
-            .strikethroughColor : underlineColor,
+            .strikethroughColor : strikeThroughColor,
             .strokeColor : strokeColor,
             .underlineStyle: underlineStyle.nsNumber(),
             .strokeWidth : strokeWidth.nsNumber(),
-            .obliqueness : obliquess.nsNumber()
+            .obliqueness : obliquess.nsNumber(),
+            .underlineColor:underlineColor
         ]
         attributes.forEach{if $0.value == nil{attributes.removeValue(forKey: $0.key)}}
         return NSAttributedString(string: string, attributes: attributes as [NSAttributedString.Key : Any])
