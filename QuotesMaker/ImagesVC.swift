@@ -40,28 +40,29 @@ class ImagesVC: UIViewController {
     */
 
     @IBAction func addImageButt(_ sender: Any) {
-        switch operationIndex {
-        case 0:
-            imageTapped()
-            break
-        case 1:
-            filterLayer = CALayer()
-            filterLayer.frame = baseView.bounds
-            baseView.layer.addSublayer(filterLayer)
-            filterLayer.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 0.4).cgColor
-            break
-        case 2:
-            textlayer = CATextLayer()
-            textlayer.frame = baseView.bounds
-            textlayer.alignmentMode = .center
-            textlayer.string = NSAttributedString(string: "Hello Warpi Image", attributes: [.font : UIFont.systemFont(ofSize: 20, weight: .bold),.foregroundColor:UIColor.red.cgColor])
-            baseView.layer.addSublayer(textlayer)
-            break
-        default:
-            turnLayerIntoImage()
-            break
-        }
-         operationIndex += 1
+        makeImaheFromView()
+//        switch operationIndex {
+//        case 0:
+//            imageTapped()
+//            break
+//        case 1:
+//            filterLayer = CALayer()
+//            filterLayer.frame = baseView.bounds
+//            baseView.layer.addSublayer(filterLayer)
+//            filterLayer.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 0.4).cgColor
+//            break
+//        case 2:
+//            textlayer = CATextLayer()
+//            textlayer.frame = baseView.bounds
+//            textlayer.alignmentMode = .center
+//            textlayer.string = NSAttributedString(string: "Hello Warpi Image", attributes: [.font : UIFont.systemFont(ofSize: 20, weight: .bold),.foregroundColor:UIColor.red.cgColor])
+//            baseView.layer.addSublayer(textlayer)
+//            break
+//        default:
+//            turnLayerIntoImage()
+//            break
+//        }
+//         operationIndex += 1
     }
     
     func turnLayerIntoImage(){
@@ -76,6 +77,14 @@ class ImagesVC: UIViewController {
         }
         
         
+    }
+    
+    func makeImaheFromView(){
+        UIGraphicsBeginImageContextWithOptions(baseView.bounds.size, baseView.isOpaque, UIScreen.main.scale)
+        baseView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        imageView.image = image
     }
 }
 

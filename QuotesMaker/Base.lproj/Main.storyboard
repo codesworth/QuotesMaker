@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n8B-EA-K5F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SkS-Wl-SEb">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -37,6 +37,7 @@
                             <constraint firstAttribute="bottom" secondItem="fdF-Ie-zji" secondAttribute="bottom" id="d7c-gb-cCW"/>
                             <constraint firstItem="fdF-Ie-zji" firstAttribute="leading" secondItem="pde-jf-DuH" secondAttribute="leading" id="osO-l3-sBh"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="cQk-fv-KES"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Studio" id="grz-tt-gaQ"/>
                     <navigationItem key="navigationItem" title="Quote Maker" id="mK7-NY-It0"/>
@@ -59,9 +60,31 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvg-Li-dhV">
                                 <rect key="frame" x="20" y="86" width="374" height="300"/>
-                                <color key="backgroundColor" red="1" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grdico" translatesAutoresizingMaskIntoConstraints="NO" id="MEw-Hg-3CV">
+                                        <rect key="frame" x="8" y="8" width="366" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="4mB-1N-Vvk"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HbL-FP-bUP">
+                                        <rect key="frame" x="36" y="164" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="MEw-Hg-3CV" firstAttribute="leading" secondItem="Tvg-Li-dhV" secondAttribute="leading" constant="8" id="9Dz-aH-q4J"/>
+                                    <constraint firstAttribute="trailing" secondItem="MEw-Hg-3CV" secondAttribute="trailing" id="Gnb-zh-Ndq"/>
+                                    <constraint firstItem="MEw-Hg-3CV" firstAttribute="top" secondItem="Tvg-Li-dhV" secondAttribute="top" constant="8" id="Uni-Mc-fvp"/>
+                                    <constraint firstItem="HbL-FP-bUP" firstAttribute="top" secondItem="MEw-Hg-3CV" secondAttribute="bottom" constant="28" id="VzB-bm-u4w"/>
+                                    <constraint firstAttribute="trailing" secondItem="HbL-FP-bUP" secondAttribute="trailing" constant="98" id="a6w-0U-f7g"/>
+                                    <constraint firstAttribute="bottom" secondItem="HbL-FP-bUP" secondAttribute="bottom" constant="8" id="fta-nP-zfF"/>
                                     <constraint firstAttribute="height" constant="300" id="pxG-5Z-NRf"/>
+                                    <constraint firstItem="HbL-FP-bUP" firstAttribute="leading" secondItem="Tvg-Li-dhV" secondAttribute="leading" constant="36" id="sdJ-55-Gyj"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-e8-6gH">
@@ -90,10 +113,6 @@
                                     <constraint firstAttribute="height" constant="300" id="KZn-OS-lgm"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qik-D9-bEX">
-                                <rect key="frame" x="42" y="455" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -115,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gad-ob-45f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2899" y="-169"/>
+            <point key="canvasLocation" x="2898.5507246376815" y="-169.41964285714286"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="iJk-DS-5bB">
@@ -177,4 +196,7 @@
             <point key="canvasLocation" x="714" y="176"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="grdico" width="96" height="96"/>
+    </resources>
 </document>

@@ -58,4 +58,8 @@ class Dimensions{
         }
     }
     
+    class func makeLayerFrame(from frame:CGRect){
+        
+    }
+    
 }

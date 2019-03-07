@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380BC9952231C3B5007F87FE /* LayerModel.swift */; };
+		380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380BC9972231C40D007F87FE /* LayerFrame.swift */; };
 		3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861A4A2222691B70040D819 /* ImagesVC.swift */; };
 		38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732A4B222EEA9100CDB703 /* String+Ex.swift */; };
 		38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */; };
@@ -94,6 +96,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		380BC9952231C3B5007F87FE /* LayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerModel.swift; sourceTree = "<group>"; };
+		380BC9972231C40D007F87FE /* LayerFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerFrame.swift; sourceTree = "<group>"; };
 		3861A4A2222691B70040D819 /* ImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesVC.swift; sourceTree = "<group>"; };
 		38732A4B222EEA9100CDB703 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDesignableInputView.swift; sourceTree = "<group>"; };
@@ -259,6 +263,8 @@
 				388BE322222AC376005BF44B /* CreateOptions.swift */,
 				388BE33D222BBFDE005BF44B /* GradientModel.swift */,
 				388BE389222EB50B005BF44B /* TextModel.swift */,
+				380BC9952231C3B5007F87FE /* LayerModel.swift */,
+				380BC9972231C40D007F87FE /* LayerFrame.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
 				388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
+				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,
@@ -522,6 +529,7 @@
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
+				380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */,
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
 				388BE388222EB35A005BF44B /* TextBackingLayer.swift in Sources */,
 				388BE340222C2E7F005BF44B /* StudioPanel.swift in Sources */,

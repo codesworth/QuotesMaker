@@ -21,6 +21,7 @@ struct TextLayerModel {
     var underlineStyle:Int = 0
     var strokeWidth:Int = 0
     var obliquess:Int = 0
+    var gframe:LayerFrame?
     
     
     
@@ -39,6 +40,17 @@ struct TextLayerModel {
         ]
         attributes.forEach{if $0.value == nil{attributes.removeValue(forKey: $0.key)}}
         return NSAttributedString(string: string, attributes: attributes as [NSAttributedString.Key : Any])
+    }
+}
+
+extension TextLayerModel:LayerModel{
+    
+    var frame: LayerFrame?{
+        return gframe
+    }
+    
+    var priority: LayerFrame.LayerPriority{
+        return .text
     }
 }
 
