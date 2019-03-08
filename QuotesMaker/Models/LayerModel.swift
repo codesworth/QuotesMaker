@@ -10,7 +10,7 @@ import Foundation
 
 protocol LayerModel {
     
-    var frame:LayerFrame? {get}
+
     var priority:LayerFrame.LayerPriority {get}
 }
 

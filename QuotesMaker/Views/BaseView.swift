@@ -65,6 +65,11 @@ class BaseView:UIImageView{
         
     }
     
+    override func didAddSubview(_ subview: UIView) {
+        super.didAddSubview(subview)
+        
+    }
+    
     func transformViewTolayer(){
         let textViews = subviews.compactMap { (view) -> BackingTextView? in
             if type(of: view) == BackingTextView.self{

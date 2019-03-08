@@ -39,19 +39,7 @@ class BackingTextView: UITextView {
         }
     }
     
-    lazy var pangesture: UIPanGestureRecognizer = {
-        let pan = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
-        return pan
-    }()
     
-    @objc func panned(_ recognizer:UIPanGestureRecognizer){
-        guard let view = recognizer.view else {return}
-        
-        let translation = recognizer.translation(in: view)
-        let finalPoint = view.center + translation
-        view.center = finalPoint.constrained(in: superview!.bounds)
-        recognizer.setTranslation(.zero, in: view)
-    }
     
     var inputFrame:CGRect = .zero
     
@@ -83,7 +71,8 @@ class BackingTextView: UITextView {
         textContainer.lineFragmentPadding = 0
 //        layer.borderColor = UIColor.black.cgColor
 //        layer.borderWidth = 0.5
-        addGestureRecognizer(pangesture)
+        setPanGesture()
+        setResizableGesture()
         textColor = model.textColor
         font = model.font
         backgroundColor = .clear
