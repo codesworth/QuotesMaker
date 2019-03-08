@@ -22,6 +22,14 @@ struct LayerFrame {
     let yCoordinte:CGFloat
     let width:CGFloat
     let height:CGFloat
-    let containingBounds:CGRect
+    
+    //let containingBounds:CGRect
+    
+    init(_ axis:CGPoint, sized:CGSize) {
+        xCoordinate = axis.x
+        yCoordinte = axis.y
+        width = sized.width
+        height = sized.height
+    }
     
 }

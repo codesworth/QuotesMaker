@@ -44,6 +44,10 @@ class Dimensions{
         
     }
     
+    class func sizedRatio(of rect:CGSize,in supeRect:CGSize)->CGSize{
+        return [rect.width / supeRect.width,rect.height / supeRect.height]
+    }
+    
     enum AspectRatios{
         case `default`
         case square
@@ -58,8 +62,6 @@ class Dimensions{
         }
     }
     
-    class func makeLayerFrame(from frame:CGRect){
-        
-    }
+    
     
 }
