@@ -17,6 +17,8 @@ class BaseView:UIImageView{
         setup()
     }
     
+    
+    
     private var current:CALayer?
     
     
@@ -89,5 +91,18 @@ class BaseView:UIImageView{
         
     }
     
+    func moveSubiewForward(subview:UIView){
+        guard subviews.contains(subview) else {return}
+        let subViewIndex = subviews.firstIndex(of: subview)!
+        exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex + 1)
+        
+    }
+    
+    func moveSubiewBackward(subview:UIView){
+        guard subviews.contains(subview) else {return}
+        let subViewIndex = subviews.firstIndex(of: subview)!
+        exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex - 1)
+        
+    }
     
 }

@@ -28,6 +28,7 @@ class BackingImageView: UIImageView {
     func initialize(){
         contentMode = .scaleAspectFill
         setResizableGesture()
+        setPanGesture()
         clipsToBounds = true
     }
 

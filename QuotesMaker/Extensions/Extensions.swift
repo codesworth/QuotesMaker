@@ -65,8 +65,9 @@ extension UIView{
     
     func makeLayerFrame()->LayerFrame{
         guard let `super` = superview else {
-            fatalError("You Cannot Call UIView.makeLayerFrame() on a view without a superview. Do you know what you are doing?")
+            fatalError("You Cannot Call UIView.makeLayerFrame() on a view without a superview. Do you know what you are doing?? 🤦‍♂️🤦‍♂️🤦‍♂️")
         }
+        
         let initialOrigin = frame.origin
         let origin:CGPoint = [initialOrigin.x / `super`.bounds.maxX,initialOrigin.y / `super`.bounds.maxY]
         let sizedRatio = Dimensions.sizedRatio(of: frame.size, in: `super`.frame.size)
