@@ -55,7 +55,7 @@ class PointControlPad: UIView {
         addSubview(pointControl)
         layer.cornerRadius = 3
         clipsToBounds = true
-        panGesture = UIPanGestureRecognizer(target: self, action: #selector(panned(_:)))
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(padPanned(_:)))
         pointControl.center = center
         pointControl.addGestureRecognizer(panGesture!)
         
@@ -70,7 +70,7 @@ class PointControlPad: UIView {
         pointControl.center = [bounds.midX,bounds.midY]
     }
     
-    @objc func panned(_ recognizer:UIPanGestureRecognizer){
+    @objc func padPanned(_ recognizer:UIPanGestureRecognizer){
         guard let view = recognizer.view else {return}
         
         let translation = recognizer.translation(in: view)

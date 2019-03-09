@@ -166,9 +166,9 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage{
             baseView.invalidateLayers()
-            let layer = ImageBackingLayer()
-            layer.addImage(image)
-            baseView.addLayer(layer)
+            let imageLayer = BackingImageView(frame: baseView.frame)
+            imageLayer.image = image
+            baseView.addSubview(imageLayer)
         }
         picker.dismiss(animated: true, completion: nil)
     }
