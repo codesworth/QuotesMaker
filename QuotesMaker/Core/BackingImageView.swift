@@ -29,6 +29,7 @@ class BackingImageView: UIImageView {
         contentMode = .scaleAspectFill
         setResizableGesture()
         setPanGesture()
+        movedInFocus()
         clipsToBounds = true
     }
 

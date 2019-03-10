@@ -15,6 +15,7 @@ class BackingTextView: UITextView {
         case designboard
     }
     
+    
     var currentInput:CurrentInputType = .keyboard
     
     init(frame: CGRect) {
@@ -74,6 +75,7 @@ class BackingTextView: UITextView {
 //        layer.borderWidth = 0.5
         setPanGesture()
         setResizableGesture()
+        movedInFocus()
         textColor = model.textColor
         font = model.font
         backgroundColor = .clear

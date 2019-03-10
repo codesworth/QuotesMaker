@@ -45,6 +45,10 @@ class BaseView:UIImageView{
         setup()
     }
     
+    func focusDidChange(){
+        let _ = subviews.map{$0.layer.borderColor = UIColor.clear.cgColor}
+    }
+    
     func setup(){
         layer.borderWidth = 1
         layer.cornerRadius = 2

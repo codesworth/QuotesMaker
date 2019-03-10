@@ -26,5 +26,6 @@ class WrapperView: UIView {
         layer.addSublayer(layer)
         superlayer.bounds = layer.bounds
         superlayer.position = [bounds.midX,bounds.midY]
+        movedInFocus()
     }
 }

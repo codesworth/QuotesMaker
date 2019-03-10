@@ -8,7 +8,9 @@
 
 import UIKit
 
-
+protocol BaseViewProtocol:class {
+    
+}
 
 
 extension UIView{
@@ -37,5 +39,20 @@ extension UIView{
         let finalPoint = view.center + translation
         view.center = finalPoint.constrained(in: superview!.bounds)
         recognizer.setTranslation(.zero, in: view)
+    }
+    
+    func movedInFocus(){
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(wasTapped(_:)))
+        tap.numberOfTapsRequired = 1
+        addGestureRecognizer(tap)
+    }
+    
+    @objc func wasTapped(_ recognizer:UITapGestureRecognizer){
+        if let auto = superview as? BaseView{
+            auto.focusDidChange()
+        }
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.borderWidth = 0.5
     }
 }
