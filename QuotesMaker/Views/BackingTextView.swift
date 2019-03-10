@@ -29,7 +29,7 @@ class BackingTextView: UITextView {
             attributedText = model.outPutString()
             textColor = model.textColor
             font = model.font
-            
+            model.string = text
         }
     }
     
@@ -67,6 +67,7 @@ class BackingTextView: UITextView {
     
     func initialize(){
         clipsToBounds = false
+        spellCheckingType = .no
         textContainerInset = UIEdgeInsets.zero
         textContainer.lineFragmentPadding = 0
 //        layer.borderColor = UIColor.black.cgColor
@@ -186,6 +187,8 @@ extension BackingTextView{
 extension BackingTextView:TextModelDelegate{
     
     func didUpdateModel(_ model: TextLayerModel) {
+        var model = model
+        model.string = text
         self.model = model
     }
 }
