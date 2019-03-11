@@ -182,11 +182,9 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage{
-            baseView.invalidateLayers()
-            let imageLayer = BackingImageView(frame: baseView.bounds)
-            imageLayer.image = image
-            baseView.addSubview(imageLayer)
+        if let image = info[.originalImage] as? UIImage, let imageView = baseView.currentSubview as? BackingImageView{
+            //baseView.invalidateLayers()
+            imageView.image = image
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -273,7 +271,7 @@ extension QMBaseVC:StudioPanelDelegate{
             setTextLayer()
             break
         case .addFilter:
-            baseView.transformViewTolayer()
+            //baseView.transformViewTolayer()
             break
         }
     }

@@ -17,7 +17,7 @@ class BaseView:UIView{
         setup()
     }
     
-    private var viewTags:(imgs:Int,txt:Int) = (0,0)
+    private var viewTags:(imgs:Int,txt:Int,ord:Int) = (0,0,0)
     
     private var current:CALayer?
     
@@ -30,6 +30,8 @@ class BaseView:UIView{
             current = newValue
         }
     }
+    
+    var currentSubview:UIView?
     
     var subLayers:[CALayer]?{
         return layer.sublayers
@@ -73,7 +75,17 @@ class BaseView:UIView{
     
     override func didAddSubview(_ subview: UIView) {
         super.didAddSubview(subview)
-        
+        if let view = subview as?  BackingImageView{
+            viewTags.imgs += 1
+            view.id_tag = viewTags.imgs
+        }else if let view = subview as? BackingTextView{
+            viewTags.txt += 1
+            view.id_tag = viewTags.txt
+        }else if let view = subview as? WrapperView{
+            viewTags.ord += 1
+            view.id_tag = viewTags.ord
+        }
+        currentSubview = subview
     }
     
 //    func transformViewTolayer(){
@@ -95,12 +107,6 @@ class BaseView:UIView{
 //
 //    }
     
-    override func addSubview(_ view: UIView) {
-        super.addSubview(view)
-        if type(of: view) == BackingImageView.self{
-            viewTags.imgs += 1
-        }
-    }
     
     func moveSubiewForward(subview:UIView){
         guard subviews.contains(subview) else {return}
