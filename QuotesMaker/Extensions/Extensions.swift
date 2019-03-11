@@ -20,6 +20,10 @@ extension CGFloat{
     static var fixedWidth:CGFloat{
         return UIScreen.main.bounds.width * 0.9
     }
+    
+    static var fixedHeight:CGFloat{
+        return UIScreen.main.bounds.height * 0.8
+    }
 }
 
 

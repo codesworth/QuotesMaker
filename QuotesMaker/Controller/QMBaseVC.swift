@@ -289,11 +289,22 @@ extension QMBaseVC:StudioPanelDelegate{
         case .addFilter:
             //baseView.transformViewTolayer()
             break
+        case .preview:
+            launchPreview()
+            break
         }
     }
     
     func actionFromPanel(_ process: Processes) {
         moveToProcess(process)
+    }
+    
+    func launchPreview(){
+        let preview = QPreviewView(frame: [0,0,.fixedWidth,.fixedHeight])
+        preview.center = view.center
+        let image = baseView.makeImageFromView()
+        preview.setImage(image)
+        view.addSubview(preview)
     }
 }
 

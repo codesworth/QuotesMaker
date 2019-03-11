@@ -122,4 +122,12 @@ class BaseView:UIView{
         
     }
     
+    func makeImageFromView()->UIImage?{
+        UIGraphicsBeginImageContextWithOptions(bounds.size,isOpaque, UIScreen.main.scale)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
 }
