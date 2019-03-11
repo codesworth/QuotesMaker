@@ -86,11 +86,15 @@ class QMBaseVC: UIViewController {
         
     }
     
-    @objc func imageOptionSelected(){
+    func imageOptionSelected(){
+        
+        
+    }
+    
+    func launchPicker(){
         let picker = UIImagePickerController()
         picker.delegate = self
         present(picker, animated: true, completion: nil)
-        
     }
     
     func blankImageSelected(){
