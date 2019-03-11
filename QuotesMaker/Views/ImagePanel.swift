@@ -38,6 +38,16 @@ class ImagePanel: MaterialView {
         return label
     }()
     
+    lazy var closeButton:CloseButton = {
+        let butt = CloseButton(type: .roundedRect)
+        butt.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
+        
+        return butt
+    }()
+    
+    @objc func donePressed(){
+        Utils.animatePanelsOut(self)
+    }
     
     lazy var pickFromGalleryButton:UIButton = {
         let butt = UIButton(frame: [0])
@@ -97,6 +107,7 @@ class ImagePanel: MaterialView {
         backgroundColor = .white
         addSubview(header)
         addSubview(scrollView)
+        addSubview(closeButton)
         scrollView.addSubview(contentView)
         contentView.addSubview(firstline)
         contentView.addSubview(secondline)
@@ -124,6 +135,10 @@ class ImagePanel: MaterialView {
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: topAnchor, constant: 12),
             header.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
+            closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            closeButton.widthAnchor.constraint(equalToConstant: 35),
+            closeButton.heightAnchor.constraint(equalToConstant: 35),
             scrollView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 12),
             scrollView.rightAnchor.constraint(equalTo: rightAnchor),
             scrollView.leftAnchor.constraint(equalTo: leftAnchor),
