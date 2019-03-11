@@ -60,4 +60,9 @@ extension UIView{
         layer.borderColor = borderColor.cgColor
         layer.borderWidth = width
     }
+    
+    func roundCorners(_ width:CGFloat = 3){
+        clipsToBounds = true
+        layer.cornerRadius = width
+    }
 }
