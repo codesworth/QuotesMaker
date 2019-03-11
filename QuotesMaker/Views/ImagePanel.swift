@@ -14,6 +14,7 @@ class ImagePanel: UIView {
         let line = LineView(frame: .zero)
         return line
     }()
+    var isInView:Bool = false
     
     let height:CGFloat = 450
     

@@ -13,6 +13,7 @@ class QMBaseVC: UIViewController {
     @IBOutlet weak var studioPanel: StudioPanel!
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!
+    private var imagePanel:ImagePanel!
     @IBOutlet weak var baseView:BaseView!
     private var textField = BackingTextView(frame: .zero)
     //private var  optionsView:OptionsStack?
@@ -53,7 +54,7 @@ class QMBaseVC: UIViewController {
         let points = Dimensions.originalPanelPoints
         colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,200])
         gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,250])
-        
+        imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,250])
         let size = Dimensions.sizeForAspect(.square)
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -83,6 +84,18 @@ class QMBaseVC: UIViewController {
         view.addSubview(gradientPanel)
         Utils.animatePanelsIn(gradientPanel)
         gradientPanel.isInView = true
+        
+    }
+    
+    func setupImageInteractiveView(){
+        
+        if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
+        if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
+        if imagePanel.isInView{return}
+    
+        view.addSubview(imagePanel)
+        Utils.animatePanelsIn(imagePanel)
+        imagePanel.isInView = true
         
     }
     
