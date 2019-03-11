@@ -55,4 +55,9 @@ extension UIView{
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 0.5
     }
+    
+    func borderlize(_ borderColor:UIColor = .primary,_ width:CGFloat = 1){
+        layer.borderColor = borderColor.cgColor
+        layer.borderWidth = width
+    }
 }

@@ -15,6 +15,8 @@ class ImagePanel: UIView {
         return line
     }()
     
+    let height:CGFloat = 450
+    
     lazy var secondline:LineView = {
         let line = LineView(frame: .zero)
         return line
@@ -40,6 +42,7 @@ class ImagePanel: UIView {
         butt.backgroundColor = .clear
         butt.tintColor = .primary
         butt.setTitle("Pick From Gallery", for: .normal)
+        butt.borderlize()
         return butt
     }()
     
@@ -48,6 +51,7 @@ class ImagePanel: UIView {
         butt.backgroundColor = .clear
         butt.tintColor = .primary
         butt.setTitle("Pick From Internet", for: .normal)
+        butt.borderlize()
         return butt
     }()
     
@@ -96,8 +100,23 @@ class ImagePanel: UIView {
         scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
-            header.topAnchor.constraint(equalTo: topAnchor, constant: 12)
-            header.centerXAnchor.constraint(equalTo: <#T##NSLayoutAnchor<NSLayoutXAxisAnchor>#>, constant: <#T##CGFloat#>)
+            header.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            header.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
+            scrollView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 12),
+            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 12),
+            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: height),
+            imageSelectionStack.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageSelectionStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            imageSelectionStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
+            imageSelectionStack.heightAnchor.constraint(equalToConstant: 100)
+            
         ])
     }
 }
