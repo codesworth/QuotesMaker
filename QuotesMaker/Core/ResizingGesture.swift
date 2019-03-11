@@ -65,4 +65,15 @@ extension UIView{
         clipsToBounds = true
         layer.cornerRadius = width
     }
+    
+    func addPanDowngesture(){
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pannedDown(_:)))
+        addGestureRecognizer(panGesture)
+    }
+    
+    @objc func pannedDown(_ recognizer:UIPanGestureRecognizer){
+        guard let view = recognizer.view else {return}
+        
+        //let translation
+    }
 }

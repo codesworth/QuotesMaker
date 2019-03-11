@@ -12,11 +12,28 @@ import UIKit
 class WrapperView: UIView {
     
     var superlayer:CALayer!
+    var isGradient = false
     
     init(frame: CGRect, layer:CALayer) {
         super.init(frame: frame)
         superlayer = layer
+        if type(of: superlayer) == BackingGradientlayer.self{isGradient = true}
+        initialize()
     }
+    var model:LayerModel!{
+        didSet{
+            if isGradient{
+                if let mod = model as? GradientLayerModel{
+                    (superlayer as! BackingGradientlayer).model = mod
+                }
+            }else{
+                if let mod = model as? BlankLayerModel{
+                    (superlayer as! BlankImageBackingLayer).model = mod
+                }
+            }
+        }
+    }
+    
     var id:String{
         if type(of: superlayer) == BackingGradientlayer.self{
             return "View \(id_tag):Gradient"
@@ -31,7 +48,7 @@ class WrapperView: UIView {
     }
     
     func initialize(){
-        layer.addSublayer(layer)
+        layer.addSublayer(superlayer)
         superlayer.bounds = layer.bounds
         superlayer.position = [bounds.midX,bounds.midY]
         movedInFocus()

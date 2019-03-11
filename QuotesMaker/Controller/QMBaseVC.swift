@@ -113,14 +113,15 @@ class QMBaseVC: UIViewController {
     
     func blankImageSelected(){
     
-        if let current = baseView.subLayers?.first(where: {type(of: $0) == BlankImageBackingLayer.self}) {
-            baseView.currentSublayer = current
-        }else{
-            let blank = BlankImageBackingLayer()
-            blank.bounds.size = baseView.bounds.size
-            baseView.addLayer(blank)
-        }
-
+//        if let current = baseView.subLayers?.first(where: {type(of: $0) == BlankImageBackingLayer.self}) {
+//            baseView.currentSublayer = current
+//        }else{
+//            let blank = BlankImageBackingLayer()
+//            blank.bounds.size = baseView.bounds.size
+//            baseView.addLayer(blank)
+//        }
+        let blank = WrapperView(frame: baseView.bounds, layer: BlankImageBackingLayer())
+        baseView.addSubview(blank)
         setupColorPanel()
 
     }
@@ -229,27 +230,22 @@ extension QMBaseVC:PickerColorDelegate{
         colorPanel.isInView = true
     }
     
-    func colorDidChange(_ color: UIColor) {
-        baseView.currentSublayer?.backgroundColor  = color.cgColor
+    func colorDidChange(_ model: BlankLayerModel) {
+        guard let current = baseView.currentSubview as? WrapperView else {return}
+        current.model = model
     }
     
-    func donePressed() {
-        Utils.animatePanelsOut(colorPanel)
-    }
 }
 
 
 extension QMBaseVC:GradientOptionsDelegate{
     
     func modelChanged(_ model: GradientLayerModel) {
-        if let gLayer = baseView.currentSublayer as? BackingGradientlayer{
-            gLayer.model = model
+        if let current = baseView.currentSubview as? WrapperView{
+            current.model = model
         }
     }
-    
-    func donePressed(_ model: GradientLayerModel) {
-        Utils.animatePanelsOut(gradientPanel)
-    }
+
 }
 
 
