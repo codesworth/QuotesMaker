@@ -79,7 +79,7 @@ class BackingTextView: UITextView {
 //        layer.borderWidth = 0.5
         setPanGesture()
         setResizableGesture()
-        movedInFocus()
+        //movedInFocus()
         textColor = model.textColor
         font = model.font
         backgroundColor = .clear

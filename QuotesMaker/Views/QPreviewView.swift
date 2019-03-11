@@ -62,6 +62,7 @@ class QPreviewView: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        imageView.roundCorners()
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         let dimens = Dimensions.sizeForAspect(.square).scaledBy(0.9)
         NSLayoutConstraint.activate([
@@ -69,9 +70,9 @@ class QPreviewView: MaterialView {
            doneButt.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
            doneButt.widthAnchor.constraint(equalToConstant: 50),
            doneButt.heightAnchor.constraint(equalToConstant: 50),
-           header.topAnchor.constraint(equalTo: topAnchor, constant: 0),
+           header.topAnchor.constraint(equalTo: topAnchor, constant: 16),
            header.centerXAnchor.constraint(equalTo: centerXAnchor),
-           imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 20),
+           imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 40),
            imageView.widthAnchor.constraint(equalToConstant: dimens.width),
            imageView.heightAnchor.constraint(equalToConstant: dimens.height),
            imageView.centerXAnchor.constraint(equalTo: centerXAnchor)
