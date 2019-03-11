@@ -31,7 +31,7 @@ class QMEngine:NSObject{
 
 struct Processes {
     enum Process{
-        case createImagebackground,createOverlay,createText, filter
+        case createImagebackground,createOverlay,createText, filter, preview
         
     }
     
@@ -42,6 +42,7 @@ struct Processes {
         //case addClipArt :: Possibly Future
         case addText
         case addFilter
+        case preview
     }
     
     let name: String
@@ -72,6 +73,9 @@ struct Processes {
             case .addFilter:
                 s = "Add Filter"
                 p = .filter
+            case .preview:
+                s = "Preview"
+                p = .preview
             }
             let pros = Processes(name: s, process: p, subProcess: i)
             sub.append(pros)

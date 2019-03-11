@@ -39,6 +39,7 @@ class QMBaseVC: UIViewController {
     }
     
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
@@ -63,6 +64,22 @@ class QMBaseVC: UIViewController {
             baseView.widthAnchor.constraint(equalToConstant: size.width),
             baseView.heightAnchor.constraint(equalToConstant: size.height)
         ])
+        
+        let handle = UIScreen.main.screenType()
+        switch handle {
+        case .xmax_xr:
+            studioHeight.constant = 130
+            return
+        case .xs_x:
+            studioHeight.constant = 130
+            return
+        case .pluses:
+            studioHeight.constant = 120
+            return    
+        default:
+            studioHeight.constant = 100
+            return
+        }
 //        if optionsView == nil{
 //            setupOverlayOptions()
 //        }
