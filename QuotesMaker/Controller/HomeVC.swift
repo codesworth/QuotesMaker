@@ -100,9 +100,4 @@ extension CGFloat{
 }
 
 
-extension UIScreen{
-    
-    func isPlus(){
-        
-    }
-}
+

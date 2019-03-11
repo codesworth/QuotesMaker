@@ -76,3 +76,40 @@ extension UIView{
     
     
 }
+
+extension UIScreen{
+    
+    enum Handle{
+        case xmax_xr
+        case xs_x
+        case pluses
+        case eight_lower
+        case fives
+        case lowly
+    }
+    
+    func screenType()->Handle{
+        let height = UIScreen.main.bounds.height
+        
+        if height > 890{
+            return .xmax_xr
+        }
+        if height > 800 {
+            return .xs_x
+        }
+        
+        if height > 700 {
+            return .pluses
+        }
+        
+        if height > 650 {
+            return .eight_lower
+        }
+        
+        if height > 550 {
+            return .fives
+        }
+        
+        return .lowly
+    }
+}
