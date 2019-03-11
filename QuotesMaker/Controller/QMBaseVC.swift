@@ -127,14 +127,16 @@ class QMBaseVC: UIViewController {
     }
     
     func blankGradientSelected(){
-        if let current = baseView.subLayers?.first(where: {type(of: $0) == BackingGradientlayer.self}) {
-            baseView.currentSublayer = current
-        }else{
-            let blank = BackingGradientlayer()
-            blank.bounds.size = baseView.bounds.size
-            baseView.addLayer(blank)
-        }
-        
+//        if let current = baseView.subLayers?.first(where: {type(of: $0) == BackingGradientlayer.self}) {
+//            baseView.currentSublayer = current
+//        }else{
+//            let blank = BackingGradientlayer()
+//            blank.bounds.size = baseView.bounds.size
+//            baseView.addLayer(blank)
+//        }
+        let grad = WrapperView(frame: baseView.bounds, layer: BackingGradientlayer())
+        grad.isGradient = true
+        baseView.addSubview(grad)
         setupGradientInteractiveView()
     }
     

@@ -17,7 +17,7 @@ class BlankImageBackingLayer:CALayer{
         setup()
     }
     
-    var model:BlankLayerModel{
+    var model:BlankLayerModel = BlankLayerModel(){
         didSet{
             backgroundColor = model.color.cgColor
         }
