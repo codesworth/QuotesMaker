@@ -296,25 +296,4 @@ extension QMBaseVC:ImagePanelDelegate{
 extension QMBaseVC:UITextViewDelegate{
     
     
-    func textViewDidChange(_ textView: UITextView) {
-        print("SO this is the text that changed: \(String(describing: textView.text))")
-    }
-    
-    func textViewDidChangeSelection(_ textView: UITextView) {
-         print("SO this is the text that changed: \(String(describing: textView.text))")
-    }
-    
-    
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        return true
-//    }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        print("This is the text: \(textField.text ?? "")")
-//    }
-    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        self.textField.textlayer.setText(string)
-//        return true
-//    }
 }

@@ -12,7 +12,7 @@ protocol ImagePanelDelegate :class {
     func didSelect(_ option:ImagePanel.PanelOptions)
 }
 
-class ImagePanel: UIView {
+class ImagePanel: MaterialView {
     
     enum PanelOptions{
         case gallery
@@ -23,7 +23,7 @@ class ImagePanel: UIView {
         let line = LineView(frame: .zero)
         return line
     }()
-    var isInView:Bool = false
+
     
     let height:CGFloat = 450
     
@@ -38,14 +38,6 @@ class ImagePanel: UIView {
         return label
     }()
     
-    lazy var imageSelectionStack:UIStackView = {
-        let stack = UIStackView(frame: .zero)
-        stack.axis = .horizontal
-        stack.alignment = .fill
-        stack.distribution = .fillEqually
-        stack.spacing = 5
-        return stack
-    }()
     
     lazy var pickFromGalleryButton:UIButton = {
         let butt = UIButton(frame: [0])
@@ -94,14 +86,14 @@ class ImagePanel: UIView {
     }
     
     func initialize(){
+        backgroundColor = .white
         addSubview(header)
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(firstline)
         contentView.addSubview(secondline)
-        imageSelectionStack.addArrangedSubview(pickFromGalleryButton)
-        imageSelectionStack.addArrangedSubview(pickFromInternetButton)
-        contentView.addSubview(imageSelectionStack)
+        contentView.addSubview(pickFromGalleryButton)
+        contentView.addSubview(pickFromInternetButton)
         pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromGallery), for: .touchUpInside)
         pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromInternet), for: .touchUpInside)
     }
@@ -132,10 +124,14 @@ class ImagePanel: UIView {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
             contentView.heightAnchor.constraint(equalToConstant: height),
-            imageSelectionStack.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageSelectionStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            imageSelectionStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 8),
-            imageSelectionStack.heightAnchor.constraint(equalToConstant: 100)
+            pickFromGalleryButton.topAnchor.constraint(equalTo: contentView.topAnchor),
+            pickFromGalleryButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            pickFromGalleryButton.widthAnchor.constraint(equalToConstant: 100),
+            pickFromGalleryButton.heightAnchor.constraint(equalToConstant: 100),
+            pickFromInternetButton.topAnchor.constraint(equalTo: contentView.topAnchor),
+            pickFromInternetButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            pickFromInternetButton.widthAnchor.constraint(equalToConstant: 100),
+            pickFromInternetButton.heightAnchor.constraint(equalToConstant: 100)
             
         ])
     }
