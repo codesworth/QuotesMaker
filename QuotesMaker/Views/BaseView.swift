@@ -9,7 +9,7 @@
 import UIKit
 
 
-class BaseView:UIImageView{
+class BaseView:UIView{
     
     
     override init(frame: CGRect) {
@@ -17,7 +17,7 @@ class BaseView:UIImageView{
         setup()
     }
     
-    
+    private var viewTags:(imgs:Int,txt:Int) = (0,0)
     
     private var current:CALayer?
     
@@ -76,23 +76,30 @@ class BaseView:UIImageView{
         
     }
     
-    func transformViewTolayer(){
-        let textViews = subviews.compactMap { (view) -> BackingTextView? in
-            if type(of: view) == BackingTextView.self{
-                return view as? BackingTextView
-            }
-            return nil
+//    func transformViewTolayer(){
+//        let textViews = subviews.compactMap { (view) -> BackingTextView? in
+//            if type(of: view) == BackingTextView.self{
+//                return view as? BackingTextView
+//            }
+//            return nil
+//        }
+//        textViews.forEach{
+//            let textLayer = TextBackingLayer()
+//            textLayer.frame = $0.frame
+//            textLayer.model = $0.model
+//            self.layer.addSublayer(textLayer)
+//
+//            $0.removeFromSuperview()
+//            $0.frame = [0]
+//        }
+//
+//    }
+    
+    override func addSubview(_ view: UIView) {
+        super.addSubview(view)
+        if type(of: view) == BackingImageView.self{
+            viewTags.imgs += 1
         }
-        textViews.forEach{
-            let textLayer = TextBackingLayer()
-            textLayer.frame = $0.frame
-            textLayer.model = $0.model
-            self.layer.addSublayer(textLayer)
-            
-            $0.removeFromSuperview()
-            $0.frame = [0]
-        }
-        
     }
     
     func moveSubiewForward(subview:UIView){

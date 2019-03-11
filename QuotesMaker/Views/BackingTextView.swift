@@ -15,6 +15,10 @@ class BackingTextView: UITextView {
         case designboard
     }
     
+    var id:String{
+        return "Text \(id_tag)"
+    }
+    var id_tag: Int = 0
     
     var currentInput:CurrentInputType = .keyboard
     

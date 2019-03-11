@@ -16,8 +16,8 @@ class QMBaseVC: UIViewController {
     private var imagePanel:ImagePanel!
     @IBOutlet weak var baseView:BaseView!
     private var textField = BackingTextView(frame: .zero)
-    //private var  optionsView:OptionsStack?
     private var aspectRatio:Dimensions.AspectRatios = .square
+    
     
     init() {
         super.init(nibName: nil, bundle: nil)

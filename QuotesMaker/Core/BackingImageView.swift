@@ -15,6 +15,10 @@ class BackingImageView: UIImageView {
         initialize()
     }
     
+    var id:String{
+        return "Image \(id_tag)"
+    }
+    var id_tag: Int = 0
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
