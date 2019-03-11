@@ -10,6 +10,7 @@ import UIKit
 
 class QMBaseVC: UIViewController {
     
+    @IBOutlet weak var studioHeight: NSLayoutConstraint!
     @IBOutlet weak var studioPanel: StudioPanel!
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!

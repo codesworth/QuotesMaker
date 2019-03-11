@@ -98,3 +98,11 @@ extension CGFloat{
         return UIScreen.main.bounds.width * 0.9
     }
 }
+
+
+extension UIScreen{
+    
+    func isPlus(){
+        
+    }
+}

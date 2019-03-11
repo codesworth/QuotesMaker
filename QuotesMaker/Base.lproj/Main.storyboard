@@ -24,10 +24,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdF-Ie-zji" customClass="StudioPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="756" width="414" height="140"/>
+                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="GVa-L1-YTN"/>
+                                    <constraint firstAttribute="height" constant="100" id="GVa-L1-YTN"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -43,6 +43,7 @@
                     <navigationItem key="navigationItem" title="Quote Maker" id="mK7-NY-It0"/>
                     <connections>
                         <outlet property="baseView" destination="TSF-MB-lNu" id="OqC-yR-hrB"/>
+                        <outlet property="studioHeight" destination="GVa-L1-YTN" id="BzL-vW-R0n"/>
                         <outlet property="studioPanel" destination="fdF-Ie-zji" id="hx9-gq-ihR"/>
                     </connections>
                 </viewController>
