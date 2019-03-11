@@ -8,7 +8,16 @@
 
 import UIKit
 
+protocol ImagePanelDelegate :class {
+    func didSelect(_ option:ImagePanel.PanelOptions)
+}
+
 class ImagePanel: UIView {
+    
+    enum PanelOptions{
+        case gallery
+        case online
+    }
     
     lazy var firstline:LineView = {
         let line = LineView(frame: .zero)
@@ -22,7 +31,7 @@ class ImagePanel: UIView {
         let line = LineView(frame: .zero)
         return line
     }()
-    
+    weak var delegate:ImagePanelDelegate?
     lazy var header:BasicLabel = {
         let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .medium))
         label.text = "Image Options"
@@ -93,6 +102,16 @@ class ImagePanel: UIView {
         imageSelectionStack.addArrangedSubview(pickFromGalleryButton)
         imageSelectionStack.addArrangedSubview(pickFromInternetButton)
         contentView.addSubview(imageSelectionStack)
+        pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromGallery), for: .touchUpInside)
+        pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromInternet), for: .touchUpInside)
+    }
+    
+    @objc func pickImageFromGallery(){
+       delegate?.didSelect(.gallery)
+    }
+    
+    @objc func pickImageFromInternet(){
+        delegate?.didSelect(.online)
     }
     
     override func layoutSubviews() {

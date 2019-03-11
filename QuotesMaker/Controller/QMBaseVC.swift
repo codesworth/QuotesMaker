@@ -92,7 +92,7 @@ class QMBaseVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{return}
-    
+        imagePanel.delegate = self
         view.addSubview(imagePanel)
         Utils.animatePanelsIn(imagePanel)
         imagePanel.isInView = true
@@ -100,8 +100,9 @@ class QMBaseVC: UIViewController {
     }
     
     func imageOptionSelected(){
-        
-        
+        let imageView = BackingImageView(frame: baseView.bounds)
+        baseView.addSubview(imageView)
+        setupImageInteractiveView()
     }
     
     func launchPicker(){
@@ -282,6 +283,15 @@ extension QMBaseVC:StudioPanelDelegate{
     }
 }
 
+
+extension QMBaseVC:ImagePanelDelegate{
+    
+    func didSelect(_ option: ImagePanel.PanelOptions) {
+        if option == .gallery{
+            launchPicker()
+        }
+    }
+}
 
 
 
