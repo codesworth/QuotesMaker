@@ -199,7 +199,7 @@ extension ColorSlider {
 				
 			// Adjust preview view size if needed
 			case .horizontal where autoresizesSubviews:
-				preview.bounds.size = CGSize(width: 25, height: bounds.height + 10)
+				preview.bounds.size = 30//CGSize(width: 25, height: bounds.height + 10)
 			case .vertical where autoresizesSubviews:
 				preview.bounds.size = CGSize(width: bounds.width + 10, height: 25)
 				

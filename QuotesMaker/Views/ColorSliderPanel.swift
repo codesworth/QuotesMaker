@@ -23,6 +23,13 @@ class ColorSliderPanel: MaterialView {
         return butt
     }()
     
+    lazy var header:BasicLabel = {
+        let h = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .medium))
+        h.textColor = .primary
+        h.text = "Styling"
+        return h
+    }()
+    
     @objc func donePressed(){
         Utils.animatePanelsOut(self)
     }
@@ -64,6 +71,7 @@ class ColorSliderPanel: MaterialView {
     
     func commonSetup(){
         backgroundColor = .white
+        addSubview(header)
         colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
         addSubview(colorSlider)
         addSubview(doneButt)
@@ -99,13 +107,15 @@ class ColorSliderPanel: MaterialView {
         super.layoutSubviews()
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
+            header.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            header.centerXAnchor.constraint(equalTo: centerXAnchor),
             doneButt.trailingAnchor.constraint(equalTo:trailingAnchor, constant: -16),
             doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             doneButt.heightAnchor.constraint(equalToConstant: 35),
             doneButt.widthAnchor.constraint(equalToConstant: 35),
             colorSlider.topAnchor.constraint(equalTo: doneButt.bottomAnchor, constant: 12),
-            colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant:8),
-            colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-8),
+            colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant:12),
+            colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-12),
             colorSlider.heightAnchor.constraint(equalToConstant: 20),
             lable.topAnchor.constraint(equalTo: colorSlider.bottomAnchor, constant: 8),
             lable.centerXAnchor.constraint(equalTo: centerXAnchor),

@@ -40,10 +40,12 @@ class GradientPanel: MaterialView {
 
     
     lazy var titleLable:BasicLabel = {
-        let lable = BasicLabel(frame: .zero)
+        let lable = BasicLabel(frame: .zero, font:.header)
         lable.text = "Customize Gradients"
+        lable.textColor = .primary
         return lable
     }()
+    
     var designtedAlphas:[CGFloat] = [1,1,1,1]
     lazy var parent:UIView = {
         let v = UIView(frame: frame)
@@ -266,7 +268,7 @@ class GradientPanel: MaterialView {
             locationSlider.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
             locationSlider.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
             locationSlider.heightAnchor.constraint(equalToConstant: 20),
-            controlPadView.topAnchor.constraint(equalTo: locationSlider.bottomAnchor, constant: 4),
+            controlPadView.topAnchor.constraint(equalTo: locationSlider.bottomAnchor, constant: 8),
             controlPadView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
             controlPadView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
             controlPadView.heightAnchor.constraint(equalToConstant: 220)

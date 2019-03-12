@@ -15,6 +15,9 @@ enum Fonts:String{
 
 extension UIFont{
     
+    class var header:UIFont{
+        return .systemFont(ofSize: 18, weight: .medium)
+    }
     class func font(_ name:Fonts, size:CGFloat = 16)->UIFont{
         return UIFont(name: name.rawValue, size: size)!
     }
