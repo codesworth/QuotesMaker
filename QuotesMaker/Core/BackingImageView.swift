@@ -31,6 +31,7 @@ class BackingImageView: UIImageView {
     
     func initialize(){
         contentMode = .scaleAspectFill
+        isUserInteractionEnabled = true
         setResizableGesture()
         setPanGesture()
         movedInFocus()

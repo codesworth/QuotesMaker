@@ -16,7 +16,19 @@ class Dimensions{
     }
     
     class var panelWidth:CGFloat{
-        return UIScreen.main.bounds.width - 16
+        return UIScreen.main.bounds.width
+    }
+    
+    class var colorPanelHeight:CGFloat{
+        return 250
+    }
+    
+    class var gradientPanelHeight:CGFloat{
+        return 300
+    }
+    
+    class var imagePanelHeight:CGFloat{
+        return 250
     }
     
     class var designatedHeight:CGFloat{
@@ -33,7 +45,7 @@ class Dimensions{
     
     
     class var originalPanelPoints:CGPoint{
-        return [8,UIScreen.main.bounds.height + 300]
+        return [0,UIScreen.main.bounds.height + 300]
     }
     
     class func scaledDownFrom(rect:CGSize)->CGSize{

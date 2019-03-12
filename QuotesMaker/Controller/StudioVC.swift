@@ -54,9 +54,9 @@ class StudioVC: UIViewController {
         
         baseView.translatesAutoresizingMaskIntoConstraints = false
         let points = Dimensions.originalPanelPoints
-        colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,200])
-        gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,250])
-        imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,250])
+        colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
+        gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])
+        imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
         let size = Dimensions.sizeForAspect(.square)
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),

@@ -99,7 +99,7 @@ class BackingTextView: UITextView {
         //movedInFocus()
         textColor = model.textColor
         font = model.font
-        //backgroundColor = .red
+        backgroundColor = .clear
         isScrollEnabled = true
         tintColor = .black
         text = "Hello"
