@@ -67,7 +67,7 @@
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
-		389B939422276B55009FE9E6 /* QMBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939322276B55009FE9E6 /* QMBaseVC.swift */; };
+		389B939422276B55009FE9E6 /* StudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939322276B55009FE9E6 /* StudioVC.swift */; };
 		389B939622276BAD009FE9E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939522276BAD009FE9E6 /* Extensions.swift */; };
 		389B939822277A77009FE9E6 /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939722277A77009FE9E6 /* CreateButton.swift */; };
 		389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */; };
@@ -164,7 +164,7 @@
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
-		389B939322276B55009FE9E6 /* QMBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMBaseVC.swift; sourceTree = "<group>"; };
+		389B939322276B55009FE9E6 /* StudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioVC.swift; sourceTree = "<group>"; };
 		389B939522276BAD009FE9E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		389B939722277A77009FE9E6 /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
 		389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankImageBackingLayer.swift; sourceTree = "<group>"; };
@@ -321,7 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				38FEDC09222354970005EB60 /* HomeVC.swift */,
-				389B939322276B55009FE9E6 /* QMBaseVC.swift */,
+				389B939322276B55009FE9E6 /* StudioVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -545,7 +545,7 @@
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */,
-				389B939422276B55009FE9E6 /* QMBaseVC.swift in Sources */,
+				389B939422276B55009FE9E6 /* StudioVC.swift in Sources */,
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,
 				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
 				380C78FE2232CA9E006B8F8D /* ImageModel.swift in Sources */,

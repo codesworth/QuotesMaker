@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QMBaseVC: UIViewController {
+class StudioVC: UIViewController {
     
     @IBOutlet weak var studioHeight: NSLayoutConstraint!
     @IBOutlet weak var studioPanel: StudioPanel!
@@ -16,7 +16,7 @@ class QMBaseVC: UIViewController {
     private var gradientPanel:GradientPanel!
     private var imagePanel:ImagePanel!
     @IBOutlet weak var baseView:BaseView!
-    private var textField = BackingTextView(frame: .zero)
+    //private var textField = BackingTextView(frame: .zero)
     private var aspectRatio:Dimensions.AspectRatios = .square
     
     
@@ -158,44 +158,47 @@ class QMBaseVC: UIViewController {
         setupGradientInteractiveView()
     }
     
-    func setTextLayer(){
+    func addText(){
+        let textField = BackingTextView(frame: [0,0,40])
+        baseView.addSubview(textField)
+        textField.center = baseView.center
         textField.delegate = self
         textField.addDoneButtonOnKeyboard()
-        let size = baseView.bounds.size.scaledBy(0.5)
-        //let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-        textField.frame.size = size
-        textField.center = [baseView.bounds.midX,baseView.bounds.midY]
-        baseView.addSubview(textField)
-        NotificationCenter.default.addObserver(self, selector: #selector(resetHeight), name: UITextView.textDidChangeNotification, object: nil)
+//        let size = baseView.bounds.size.scaledBy(0.5)
+//        //let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
+//        textField.frame.size = size
+//        textField.center = [baseView.bounds.midX,baseView.bounds.midY]
+//        baseView.addSubview(textField)
+        //NotificationCenter.default.addObserver(self, selector: #selector(resetHeight), name: UITextView.textDidChangeNotification, object: nil)
     }
     
-    @objc func resetHeight(){
-//       let size = baseView.bounds.size.scaledBy(0.5)
-//
-//        let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-//        textField.frame.size = [size.width,height]
-//        textField.center = [baseView.bounds.midX,baseView.bounds.midY]
-        var size = textField.frame.size
-        let cheight = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-        if cheight > size.height {
-            size.height = cheight
-            if cheight > baseView.bounds.height * 0.8 {
-                size.width = baseView.bounds.width * 0.8
-                size.height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-            }
-            DispatchQueue.main.async {
-                self.textField.frame.size = size
-                self.textField.center = [self.baseView.bounds.midX,self.baseView.bounds.midY]
-            }
-        }
-    }
+//    @objc func resetHeight(){
+////       let size = baseView.bounds.size.scaledBy(0.5)
+////
+////        let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
+////        textField.frame.size = [size.width,height]
+////        textField.center = [baseView.bounds.midX,baseView.bounds.midY]
+//        var size = textField.frame.size
+//        let cheight = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
+//        if cheight > size.height {
+//            size.height = cheight
+//            if cheight > baseView.bounds.height * 0.8 {
+//                size.width = baseView.bounds.width * 0.8
+//                size.height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
+//            }
+//            DispatchQueue.main.async {
+//                self.textField.frame.size = size
+//                self.textField.center = [self.baseView.bounds.midX,self.baseView.bounds.midY]
+//            }
+//        }
+//    }
 
 }
 
 
 
 
-extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -212,7 +215,7 @@ extension QMBaseVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
 }
 
 
-extension QMBaseVC:OptionsSelectedDelegate{
+extension StudioVC:OptionsSelectedDelegate{
     
     func didPressButton(_ id: Int) {
 
@@ -239,7 +242,7 @@ extension QMBaseVC:OptionsSelectedDelegate{
 
 
 
-extension QMBaseVC:PickerColorDelegate{
+extension StudioVC:PickerColorDelegate{
     
     func setupColorPanel(){
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
@@ -258,7 +261,7 @@ extension QMBaseVC:PickerColorDelegate{
 }
 
 
-extension QMBaseVC:GradientOptionsDelegate{
+extension StudioVC:GradientOptionsDelegate{
     
     func modelChanged(_ model: GradientLayerModel) {
         if let current = baseView.currentSubview as? WrapperView{
@@ -269,7 +272,7 @@ extension QMBaseVC:GradientOptionsDelegate{
 }
 
 
-extension QMBaseVC:StudioPanelDelegate{
+extension StudioVC:StudioPanelDelegate{
     
     func moveToProcess(_ process:Processes){
         
@@ -284,7 +287,7 @@ extension QMBaseVC:StudioPanelDelegate{
             blankGradientSelected()
             break
         case .addText:
-            setTextLayer()
+            addText()
             break
         case .addFilter:
             //baseView.transformViewTolayer()
@@ -309,7 +312,7 @@ extension QMBaseVC:StudioPanelDelegate{
 }
 
 
-extension QMBaseVC:ImagePanelDelegate{
+extension StudioVC:ImagePanelDelegate{
     
     func didSelect(_ option: ImagePanel.PanelOptions) {
         if option == .gallery{
@@ -320,7 +323,7 @@ extension QMBaseVC:ImagePanelDelegate{
 
 
 
-extension QMBaseVC:UITextViewDelegate{
+extension StudioVC:UITextViewDelegate{
     
     
 }

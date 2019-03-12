@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func setRootViewContoroller(){
-        window?.rootViewController = QMBaseVC()
+        window?.rootViewController = StudioVC()
     }
 }
 
