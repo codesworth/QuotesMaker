@@ -38,7 +38,7 @@ class BaseView:UIView{
     }
     
     func invalidateLayers(){
-        layer.sublayers?.removeAll()
+        subviews.forEach{$0.removeFromSuperview()}
         current = nil
     }
     
@@ -130,4 +130,12 @@ class BaseView:UIView{
         return image
     }
     
+}
+
+
+extension BaseView{
+    
+    func save(){
+        
+    }
 }
