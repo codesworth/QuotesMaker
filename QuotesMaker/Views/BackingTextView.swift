@@ -15,6 +15,21 @@ class BackingTextView: UITextView {
         case designboard
     }
     
+    lazy var doneToolbar: UIToolbar = {
+        return UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+    }()
+    
+    lazy var flexSpace:UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    }()
+    lazy var  done:UIBarButtonItem = {
+        return  UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
+    }()
+    
+    lazy var textEdits:UIBarButtonItem = {
+        return UIBarButtonItem(title: "Text Effects", style: .plain, target: self, action: #selector(self.remakeInputView))
+    }()
+    
     var id:String{
         return "Text \(id_tag)"
     }
@@ -69,6 +84,8 @@ class BackingTextView: UITextView {
         super.awakeFromNib()
         initialize()
     }
+    
+
     
     func initialize(){
         clipsToBounds = false
@@ -125,13 +142,9 @@ extension BackingTextView{
     
     func addDoneButtonOnKeyboard()
     {
-        let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolbar.barStyle = .default
         
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonAction))
-        let fonts: UIBarButtonItem = UIBarButtonItem(title: "Edits", style: .plain, target: self, action: #selector(self.remakeInputView))
-        let items = [fonts,flexSpace, done]
+        let items = [textEdits,flexSpace, done]
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         
@@ -146,7 +159,7 @@ extension BackingTextView{
             let adjustedFrame = CGRect(origin: inputFrame.origin, size: [inputFrame.size.width,320])
             model.string = text
             let view = TextDesignableInputView(frame: adjustedFrame, model: self.model)
-            
+            doneToolbar.items?.first?.title = "Keyboard"
             view.delegate = self
             view.backgroundColor = .white
             self.inputView = view
@@ -155,6 +168,7 @@ extension BackingTextView{
         }else{
            inputView = nil
             currentInput = .keyboard
+            doneToolbar.items?.first?.title = "Text Effects"
         }
         
     }
