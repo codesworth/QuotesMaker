@@ -159,7 +159,7 @@ class StudioVC: UIViewController {
     }
     
     func addText(){
-        let textField = BackingTextView(frame: [0,0,40])
+        let textField = BackingTextView(frame: [0,0,baseView.bounds.width * 0.7,40])
         baseView.addSubview(textField)
         textField.center = baseView.center
         textField.delegate = self

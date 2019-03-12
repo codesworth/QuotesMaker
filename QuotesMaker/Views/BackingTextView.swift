@@ -73,7 +73,7 @@ class BackingTextView: UITextView {
     func initialize(){
         clipsToBounds = false
         spellCheckingType = .no
-        textContainerInset = UIEdgeInsets.zero
+        //textContainerInset = [2]
         textContainer.lineFragmentPadding = 0
 //        layer.borderColor = UIColor.black.cgColor
 //        layer.borderWidth = 0.5
@@ -82,7 +82,7 @@ class BackingTextView: UITextView {
         //movedInFocus()
         textColor = model.textColor
         font = model.font
-        backgroundColor = .clear
+        backgroundColor = .red
         isScrollEnabled = true
         tintColor = .black
         text = "Hello"
