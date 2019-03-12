@@ -73,16 +73,16 @@ class BackingTextView: UITextView {
     func initialize(){
         clipsToBounds = false
         spellCheckingType = .no
+        autocorrectionType = .no
         //textContainerInset = [2]
-        textContainer.lineFragmentPadding = 0
-//        layer.borderColor = UIColor.black.cgColor
-//        layer.borderWidth = 0.5
+        //isScrollEnabled = false
+        //textContainer.lineFragmentPadding = 0
         setPanGesture()
         setResizableGesture()
         //movedInFocus()
         textColor = model.textColor
         font = model.font
-        backgroundColor = .red
+        //backgroundColor = .red
         isScrollEnabled = true
         tintColor = .black
         text = "Hello"
@@ -164,6 +164,14 @@ extension BackingTextView{
         self.resignFirstResponder()
     }
     
+    @objc func sizeViewToFit(){
+        let currentSize = bounds.size
+        let newHeight = text.height(withConstrainedWidth: currentSize.width, font: font!)
+        if newHeight != currentSize.height{
+            bounds.size = [currentSize.width,newHeight]
+        }
+    }
+    
     
 }
 
@@ -171,11 +179,13 @@ extension BackingTextView{
 extension BackingTextView{
     
     func watchForKeyBoardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(sizeViewToFit), name: UITextView.textDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(respondtoKeyBoard), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     func deregisterNotification(){
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UITextView.textDidChangeNotification, object: nil)
     }
     
     
