@@ -17,6 +17,13 @@ class QPreviewView:UIView {
         return view
     }()
     
+    lazy var signage:BasicLabel = {
+        let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 14, weight: .thin))
+        label.textColor = .darkText
+        label.text = "© Codesworth, 2019"
+        return label
+    }()
+    
     lazy var preview:MaterialView = {
         let view = MaterialView(frame: .zero)
         view.backgroundColor = .white
@@ -39,18 +46,28 @@ class QPreviewView:UIView {
         let but = UIButton(frame: .zero)
         but.backgroundColor = .primary
         but.setTitle("Save To Photos", for: .normal)
+        but.addTarget(self, action: #selector(save), for: .touchUpInside)
         return but
     }()
+    
+    @objc func save(){
+        
+    }
     
     lazy var shareButt:UIButton = {
         let but = UIButton(frame: .zero)
         but.backgroundColor = .acidGreen
         but.setTitle("Share", for: .normal)
+        but.addTarget(self, action: #selector(share), for: .touchUpInside)
         return but
     }()
     
+    @objc func share(){
+        
+    }
+    
     lazy var header:BasicLabel = {
-        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 22, weight: .medium))
+        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 20, weight: .medium))
         lab.text = "PREVIEW"
         lab.textColor = .primary
         return lab
@@ -90,6 +107,7 @@ class QPreviewView:UIView {
         addSubview(header)
         addSubview(saveButt)
         addSubview(shareButt)
+        addSubview(signage)
     }
     
     override func layoutSubviews() {
@@ -125,8 +143,9 @@ class QPreviewView:UIView {
             saveButt.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
             saveButt.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -(.fixedWidth - dimens.width) / 2),
             saveButt.widthAnchor.constraint(equalToConstant: (dimens.width / 2) - 10),
-            saveButt.heightAnchor.constraint(equalToConstant: 40)
-            
+            saveButt.heightAnchor.constraint(equalToConstant: 40),
+            signage.bottomAnchor.constraint(equalTo: preview.bottomAnchor, constant: -16),
+            signage.centerXAnchor.constraint(equalTo: centerXAnchor)
             
         ])
     }
