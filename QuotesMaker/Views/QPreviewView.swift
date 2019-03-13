@@ -35,6 +35,20 @@ class QPreviewView:UIView {
         return imgv
     }()
     
+    lazy var saveButt:UIButton = {
+        let but = UIButton(frame: .zero)
+        but.backgroundColor = .primary
+        but.setTitle("Save To Photos", for: .normal)
+        return but
+    }()
+    
+    lazy var shareButt:UIButton = {
+        let but = UIButton(frame: .zero)
+        but.backgroundColor = .acidGreen
+        but.setTitle("Share", for: .normal)
+        return but
+    }()
+    
     lazy var header:BasicLabel = {
         let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 22, weight: .medium))
         lab.text = "PREVIEW"
@@ -67,16 +81,21 @@ class QPreviewView:UIView {
    
     
     func initialize(){
-        backgroundColor = .white
+        backgroundColor = .clear
+        
         addSubview(overlayView)
         addSubview(preview)
         addSubview(doneButt)
         addSubview(imageView)
         addSubview(header)
+        addSubview(saveButt)
+        addSubview(shareButt)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        shareButt.roundCorners(20)
+        saveButt.roundCorners(20)
         imageView.roundCorners()
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         let dimens = Dimensions.sizeForAspect(.square).scaledBy(0.9)
@@ -98,7 +117,17 @@ class QPreviewView:UIView {
            imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 40),
            imageView.widthAnchor.constraint(equalToConstant: dimens.width),
            imageView.heightAnchor.constraint(equalToConstant: dimens.height),
-           imageView.centerXAnchor.constraint(equalTo: centerXAnchor)
+           imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+           shareButt.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
+           shareButt.leadingAnchor.constraint(equalTo: preview.leadingAnchor, constant: (.fixedWidth - dimens.width) / 2),
+           shareButt.widthAnchor.constraint(equalToConstant: (dimens.width / 2) - 10),
+            shareButt.heightAnchor.constraint(equalToConstant: 40),
+            saveButt.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
+            saveButt.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -(.fixedWidth - dimens.width) / 2),
+            saveButt.widthAnchor.constraint(equalToConstant: (dimens.width / 2) - 10),
+            saveButt.heightAnchor.constraint(equalToConstant: 40)
+            
+            
         ])
     }
     
