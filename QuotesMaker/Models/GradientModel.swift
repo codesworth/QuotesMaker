@@ -45,6 +45,10 @@ extension GradientLayerModel:LayerModel{
         return gframe
     }
     
+    mutating func layerFrame(_ frame: LayerFrame) {
+        gframe = frame
+    }
+    
     var priority: LayerFrame.LayerPriority {
         return .gradient
     }

@@ -9,7 +9,13 @@
 import UIKit
 
 
-struct ImageLayerModel {
+struct ImageLayerModel:LayerModel {
+    
+    var priority: LayerFrame.LayerPriority = .image
+    
+    mutating func layerFrame(_ frame: LayerFrame) {
+        self.frame = frame
+    }
     
     private var _image:UIImage?
     var image:UIImage?{
@@ -22,9 +28,10 @@ struct ImageLayerModel {
         
     }
     
+    
     var frame:LayerFrame?
     
-    init(image:UIImage?) {
+    init(image:UIImage? = nil) {
         _image = image
     }
     

@@ -52,6 +52,7 @@ class BaseView:UIView{
     }
     
     func setup(){
+        backgroundColor = .white
         layer.borderWidth = 1
         layer.cornerRadius = 2
         layer.borderColor = UIColor.primary.cgColor
@@ -137,5 +138,23 @@ extension BaseView{
     
     func save(){
         
+        let savedData = subviews.compactMap { sub -> LayerModel? in
+            if let subview = sub as? WrapperView{
+                subview.model.layerFrame(subview.makeLayerFrame())
+                return subview.model
+            }
+            if let subview = sub as? BackingImageView{
+                subview.model.layerFrame(subview.makeLayerFrame())
+                return subview.model
+            }
+            
+            if let subview = sub as? BackingTextView{
+                subview.model.layerFrame(subview.makeLayerFrame())
+                return subview.model
+            }
+            return nil
+        }
+        
+        print("This is the saved data: \(savedData)")
     }
 }

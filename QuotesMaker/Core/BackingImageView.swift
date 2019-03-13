@@ -15,6 +15,12 @@ class BackingImageView: UIImageView {
         initialize()
     }
     
+    var model:ImageLayerModel!{
+        didSet{
+            
+        }
+    }
+    
     var id:String{
         return "Image \(id_tag)"
     }
@@ -30,6 +36,7 @@ class BackingImageView: UIImageView {
     }
     
     func initialize(){
+        model = ImageLayerModel()
         contentMode = .scaleAspectFill
         isUserInteractionEnabled = true
         setResizableGesture()

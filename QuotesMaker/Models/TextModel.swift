@@ -45,6 +45,12 @@ struct TextLayerModel {
 
 extension TextLayerModel:LayerModel{
     
+    
+    mutating func layerFrame(_ frame: LayerFrame) {
+        self.frame = frame
+    }
+    
+    
 
     
     var priority: LayerFrame.LayerPriority{

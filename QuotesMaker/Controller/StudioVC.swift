@@ -295,6 +295,7 @@ extension StudioVC:StudioPanelDelegate{
         case .preview:
             launchPreview()
         case .save:
+            baseView.save()
             break
         case .startOver:
             baseView.invalidateLayers()
