@@ -8,8 +8,20 @@
 
 import UIKit
 
-class QPreviewView: MaterialView {
+class QPreviewView:UIView {
     
+    lazy var overlayView:UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .darkGray
+        view.alpha = 0.5
+        return view
+    }()
+    
+    lazy var preview:MaterialView = {
+        let view = MaterialView(frame: .zero)
+        view.backgroundColor = .white
+        return view
+    }()
     lazy var doneButt:CloseButton = {
         let butt = CloseButton(type: .roundedRect)
         butt.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
@@ -24,8 +36,9 @@ class QPreviewView: MaterialView {
     }()
     
     lazy var header:BasicLabel = {
-        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 22, weight: .thin))
+        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 22, weight: .medium))
         lab.text = "PREVIEW"
+        lab.textColor = .primary
         return lab
     }()
     
@@ -55,6 +68,8 @@ class QPreviewView: MaterialView {
     
     func initialize(){
         backgroundColor = .white
+        addSubview(overlayView)
+        addSubview(preview)
         addSubview(doneButt)
         addSubview(imageView)
         addSubview(header)
@@ -66,11 +81,19 @@ class QPreviewView: MaterialView {
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         let dimens = Dimensions.sizeForAspect(.square).scaledBy(0.9)
         NSLayoutConstraint.activate([
-           doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-           doneButt.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-           doneButt.widthAnchor.constraint(equalToConstant: 50),
-           doneButt.heightAnchor.constraint(equalToConstant: 50),
-           header.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            overlayView.topAnchor.constraint(equalTo: topAnchor),
+            overlayView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            overlayView.leftAnchor.constraint(equalTo: leftAnchor),
+            overlayView.rightAnchor.constraint(equalTo:     rightAnchor),
+            preview.centerXAnchor.constraint(equalTo: centerXAnchor),
+            preview.centerYAnchor.constraint(equalTo: centerYAnchor),
+            preview.heightAnchor.constraint(equalToConstant: .fixedHeight * 0.8),
+            preview.widthAnchor.constraint(equalToConstant: .fixedWidth),
+           doneButt.topAnchor.constraint(equalTo: preview.topAnchor, constant: 12),
+           doneButt.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -24),
+           doneButt.widthAnchor.constraint(equalToConstant: 40),
+           doneButt.heightAnchor.constraint(equalToConstant: 40),
+           header.topAnchor.constraint(equalTo: preview.topAnchor, constant: 16),
            header.centerXAnchor.constraint(equalTo: centerXAnchor),
            imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 40),
            imageView.widthAnchor.constraint(equalToConstant: dimens.width),

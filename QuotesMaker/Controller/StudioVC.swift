@@ -308,7 +308,7 @@ extension StudioVC:StudioPanelDelegate{
     }
     
     func launchPreview(){
-        let preview = QPreviewView(frame: [0,0,.fixedWidth,.fixedHeight])
+        let preview = QPreviewView(frame: UIScreen.main.bounds)
         preview.center = view.center
         let image = baseView.makeImageFromView()
         preview.setImage(image)

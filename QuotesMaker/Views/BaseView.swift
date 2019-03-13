@@ -124,10 +124,12 @@ class BaseView:UIView{
     }
     
     func makeImageFromView()->UIImage?{
+        layer.borderColor = UIColor.clear.cgColor
         UIGraphicsBeginImageContextWithOptions(bounds.size,isOpaque, UIScreen.main.scale)
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        layer.borderColor = UIColor.primary.cgColor
         return image
     }
     
