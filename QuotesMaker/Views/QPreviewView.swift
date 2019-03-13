@@ -51,7 +51,16 @@ class QPreviewView:UIView {
     }()
     
     @objc func save(){
-        
+        let album = CustomPhotoAlbum()
+        album.save(image: imageView.image!) { (succ) in
+            if succ{
+                let alert = UIAlertController(title: "Success", message: "Photo was successfully saved 🎊🎉🎊🎉", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                OperationQueue.main.addOperation {
+                    UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     lazy var shareButt:UIButton = {
@@ -63,7 +72,11 @@ class QPreviewView:UIView {
     }()
     
     @objc func share(){
-        
+        guard let image = imageView.image else {return}
+        let sheet = UIActivityViewController(activityItems: ["- shared from Quotes Studio",image], applicationActivities: [])
+        OperationQueue.main.addOperation {
+            UIApplication.shared.keyWindow?.rootViewController?.present(sheet, animated: true, completion: nil)
+        }
     }
     
     lazy var header:BasicLabel = {

@@ -60,7 +60,7 @@ struct Processes {
             var p:Process
             switch i{
             case .selectImage:
-                s = "Select Image"
+                s = "Add Image"
                 p = .createImagebackground
                 break
             case .addBlankOverlay:
