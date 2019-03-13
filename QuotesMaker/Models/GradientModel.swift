@@ -41,9 +41,7 @@ struct GradientLayerModel {
 
 extension GradientLayerModel:LayerModel{
     
-    var frame: LayerFrame? {
-        return gframe
-    }
+
     
     mutating func layerFrame(_ frame: LayerFrame) {
         gframe = frame

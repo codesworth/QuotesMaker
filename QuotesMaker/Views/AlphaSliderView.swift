@@ -23,7 +23,7 @@ class AlphaSliderView: UIView {
     lazy var lable:UILabel = {
         let lable = UILabel(frame: .zero)
         lable.font = .systemFont(ofSize: 16, weight: .medium)
-        lable.text = "Set Transparency"
+        lable.text = "Set Opacity"
         lable.textColor = .black
         lable.textAlignment = .center
         return lable

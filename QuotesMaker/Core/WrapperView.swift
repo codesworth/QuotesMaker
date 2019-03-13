@@ -17,7 +17,12 @@ class WrapperView: UIView {
     init(frame: CGRect, layer:CALayer) {
         super.init(frame: frame)
         superlayer = layer
-        if type(of: superlayer) == BackingGradientlayer.self{isGradient = true}
+        if type(of: superlayer) == BackingGradientlayer.self{
+            isGradient = true
+            model = GradientLayerModel.defualt()
+        }else{
+            model = BlankLayerModel()
+        }
         initialize()
     }
     var model:LayerModel!{
@@ -50,6 +55,7 @@ class WrapperView: UIView {
     }
     
     func initialize(){
+        
         layer.addSublayer(superlayer)
         superlayer.bounds = layer.bounds
         superlayer.position = [bounds.midX,bounds.midY]
