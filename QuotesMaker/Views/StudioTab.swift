@@ -77,7 +77,7 @@ class StudioTab: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let width = (bounds.width / 3) - 2
+        let width = (bounds.width / 2) - 1
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
             deleteButt.topAnchor.constraint(equalTo: topAnchor),
@@ -85,7 +85,7 @@ class StudioTab: MaterialView {
             deleteButt.bottomAnchor.constraint(equalTo: bottomAnchor),
             deleteButt.widthAnchor.constraint(equalToConstant: width),
             stackButt.topAnchor.constraint(equalTo: topAnchor),
-            stackButt.centerXAnchor.constraint(equalTo: centerXAnchor),
+            stackButt.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackButt.bottomAnchor.constraint(equalTo: bottomAnchor),
             stackButt.widthAnchor.constraint(equalToConstant: width),
         ])
