@@ -293,27 +293,22 @@
 		389B938922275CA1009FE9E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				38C80FB7223A7ACB00150FD4 /* Panels */,
 				38797C2322309D6B003A9D99 /* TextDesignableView */,
 				388BE2FB2229A458005BF44B /* BaseView.swift */,
 				389B939722277A77009FE9E6 /* CreateButton.swift */,
-				388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */,
 				388BE31E222AC007005BF44B /* OptionsStack.swift */,
 				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
 				388BE327222ADC6F005BF44B /* AlphaSliderView.swift */,
-				388BE337222B369E005BF44B /* GradientPanel.swift */,
 				388BE339222B39D4005BF44B /* BasicLabel.swift */,
 				388BE33B222BB5AD005BF44B /* MaterialView.swift */,
-				388BE33F222C2E7F005BF44B /* StudioPanel.swift */,
 				388BE341222C3188005BF44B /* PanelCell.swift */,
 				388BE342222C3188005BF44B /* PanelCell.xib */,
 				388BE345222C4FB6005BF44B /* DoneButton.swift */,
-				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
-				388BE385222E93D0005BF44B /* PointControlview.swift */,
 				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
 				38732E9622300DE700CDB703 /* FontCells.swift */,
 				38732E9722300DE700CDB703 /* FontCells.xib */,
 				38732E9A2230359500CDB703 /* LineView.swift */,
-				384B9DA322366202007B4BD0 /* ImagePanel.swift */,
 				384B9DA522369908007B4BD0 /* CloseButton.swift */,
 				384B9DA72236E903007B4BD0 /* QPreviewView.swift */,
 			);
@@ -352,6 +347,19 @@
 				38732A4B222EEA9100CDB703 /* String+Ex.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38C80FB7223A7ACB00150FD4 /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */,
+				388BE337222B369E005BF44B /* GradientPanel.swift */,
+				388BE33F222C2E7F005BF44B /* StudioPanel.swift */,
+				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
+				388BE385222E93D0005BF44B /* PointControlview.swift */,
+				384B9DA322366202007B4BD0 /* ImagePanel.swift */,
+			);
+			path = Panels;
 			sourceTree = "<group>";
 		};
 		38FEDBDD222352D90005EB60 = {
