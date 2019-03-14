@@ -17,7 +17,7 @@ class WrapperView: UIView {
     init(frame: CGRect, layer:CALayer) {
         super.init(frame: frame)
         superlayer = layer
-        if type(of: superlayer) == BackingGradientlayer.self{
+        if type(of: layer) == BackingGradientlayer.self{
             isGradient = true
             model = GradientLayerModel.defualt()
         }else{
