@@ -37,6 +37,7 @@ class BackingImageView: UIImageView {
     }
     
     func initialize(){
+        backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         model = ImageLayerModel()
         contentMode = .scaleAspectFill
         isUserInteractionEnabled = true
