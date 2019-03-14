@@ -26,6 +26,23 @@ class ImagePanel: MaterialView {
         let line = LineView(frame: .zero)
         return line
     }()
+    
+    weak var stateDelegate:StateControlDelegate?
+    
+    lazy var stateControl:StateChangeControl = {
+        let view = StateChangeControl(frame: .zero)
+        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
+        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
+        return view
+    }()
+    
+    @objc func undo(){
+        stateDelegate?.stateChanged(.undo)
+    }
+    
+    @objc func redo(){
+        stateDelegate?.stateChanged(.redo)
+    }
 
     
     let height:CGFloat = 450
@@ -111,6 +128,7 @@ class ImagePanel: MaterialView {
     func initialize(){
         backgroundColor = .white
         addSubview(header)
+        addSubview(stateControl)
         addSubview(scrollView)
         addSubview(closeButton)
         scrollView.addSubview(contentView)
@@ -139,11 +157,16 @@ class ImagePanel: MaterialView {
         contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            header.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
+            header.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
             closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             closeButton.widthAnchor.constraint(equalToConstant: 35),
             closeButton.heightAnchor.constraint(equalToConstant: 35),
+            stateControl.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -12),
+            stateControl.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            stateControl.widthAnchor.constraint(equalToConstant: 70),
+            stateControl.heightAnchor.constraint(equalToConstant: 30),
             scrollView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 12),
             scrollView.rightAnchor.constraint(equalTo: rightAnchor),
             scrollView.leftAnchor.constraint(equalTo: leftAnchor),

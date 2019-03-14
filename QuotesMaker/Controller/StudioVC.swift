@@ -61,8 +61,11 @@ class StudioVC: UIViewController {
         studioTab.translatesAutoresizingMaskIntoConstraints = false
         let points = Dimensions.originalPanelPoints
         colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
+        colorPanel.stateDelegate = self
         gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])
+        gradientPanel.stateDelegate = self
         imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
+        imagePanel.stateDelegate = self
         let size = Dimensions.sizeForAspect(.square)
         NSLayoutConstraint.activate([
             baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
@@ -205,6 +208,24 @@ class StudioVC: UIViewController {
 
 }
 
+extension StudioVC:PickerColorDelegate{
+    
+    func setupColorPanel(){
+        if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
+        if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
+        if colorPanel.isInView{return}
+        colorPanel.delegate = self
+        view.addSubview(colorPanel)
+        Utils.animatePanelsIn(colorPanel)
+        colorPanel.isInView = true
+    }
+    
+    func colorDidChange(_ model: BlankLayerModel) {
+        guard let current = baseView.currentSubview as? WrapperView else {return}
+        current.updateModel(model)
+    }
+    
+}
 
 
 
@@ -248,129 +269,4 @@ extension StudioVC:OptionsSelectedDelegate{
 //        optionsView?.removeFromSuperview()
 //        optionsView = nil
     }
-}
-
-
-
-extension StudioVC:PickerColorDelegate{
-    
-    func setupColorPanel(){
-        if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
-        if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
-        if colorPanel.isInView{return}
-        colorPanel.delegate = self
-        view.addSubview(colorPanel)
-        Utils.animatePanelsIn(colorPanel)
-        colorPanel.isInView = true
-    }
-    
-    func colorDidChange(_ model: BlankLayerModel) {
-        guard let current = baseView.currentSubview as? WrapperView else {return}
-        current.updateModel(model)
-    }
-    
-}
-
-
-extension StudioVC:GradientOptionsDelegate{
-    
-    func modelChanged(_ model: GradientLayerModel) {
-        if let current = baseView.currentSubview as? WrapperView{
-            current.updateModel(model)
-        }
-    }
-
-}
-
-
-extension StudioVC:StudioPanelDelegate{
-    
-    func moveToProcess(_ process:Processes){
-        
-        switch process.subProcess {
-        case .selectImage:
-            imageOptionSelected()
-            break
-        case .addBlankOverlay:
-            blankImageSelected()
-            break
-        case .addGradientOverlay:
-            blankGradientSelected()
-            break
-        case .addText:
-            addText()
-            break
-        case .addFilter:
-            //baseView.transformViewTolayer()
-            break
-        case .preview:
-            launchPreview()
-        case .save:
-            baseView.save()
-            break
-        case .startOver:
-            baseView.invalidateLayers()
-            break
-        }
-    }
-    
-    func actionFromPanel(_ process: Processes) {
-        moveToProcess(process)
-    }
-    
-    func launchPreview(){
-        let preview = QPreviewView(frame: UIScreen.main.bounds)
-        preview.center = view.center
-        let image = baseView.makeImageFromView()
-        preview.setImage(image)
-        view.addSubview(preview)
-    }
-}
-
-
-extension StudioVC:ImagePanelDelegate{
-    
-    func didSelect(_ option: ImagePanel.PanelOptions) {
-        if option == .gallery{
-            launchPicker()
-        }
-    }
-}
-
-
-
-extension StudioVC:BaseViewProtocol{
-    
-    func wakePanelForCurrent() {
-        guard let current = baseView.currentSubview else{return}
-        if let wrapper = current as? WrapperView{
-            if wrapper.isGradient{
-                setupGradientInteractiveView()
-            }else{
-                setupColorPanel()
-            }
-        }else if let _ = current as? BackingImageView{
-            setupImageInteractiveView()
-        }
-    }
-    
-}
-
-
-extension StudioVC:StudioTabDelegate{
-    
-    func actiondone(_ action: StudioTab.TabActions) {
-        switch action {
-        case .delete:
-            if let current = baseView.currentSubview{
-                current.removeFromSuperview()
-            }
-            break
-        case .layers:
-            break
-        }
-    }
-    
-    
-    
 }

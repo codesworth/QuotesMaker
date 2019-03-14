@@ -23,6 +23,23 @@ class ColorSliderPanel: MaterialView {
         return butt
     }()
     
+    weak var stateDelegate:StateControlDelegate?
+    
+    lazy var stateControl:StateChangeControl = {
+        let view = StateChangeControl(frame: .zero)
+        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
+        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
+        return view
+    }()
+    
+    @objc func undo(){
+        stateDelegate?.stateChanged(.undo)
+    }
+    
+    @objc func redo(){
+        stateDelegate?.stateChanged(.redo)
+    }
+    
     lazy var header:BasicLabel = {
         let h = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .medium))
         h.textColor = .primary
@@ -72,6 +89,7 @@ class ColorSliderPanel: MaterialView {
     func commonSetup(){
         backgroundColor = .white
         addSubview(header)
+        addSubview(stateControl)
         colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
         addSubview(colorSlider)
         addSubview(doneButt)
@@ -108,11 +126,15 @@ class ColorSliderPanel: MaterialView {
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
             header.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            header.centerXAnchor.constraint(equalTo: centerXAnchor),
+            header.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             doneButt.trailingAnchor.constraint(equalTo:trailingAnchor, constant: -16),
             doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             doneButt.heightAnchor.constraint(equalToConstant: 35),
             doneButt.widthAnchor.constraint(equalToConstant: 35),
+            stateControl.trailingAnchor.constraint(equalTo: doneButt.leadingAnchor, constant: -12),
+            stateControl.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            stateControl.widthAnchor.constraint(equalToConstant: 70),
+            stateControl.heightAnchor.constraint(equalToConstant: 30),
             colorSlider.topAnchor.constraint(equalTo: doneButt.bottomAnchor, constant: 12),
             colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant:12),
             colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-12),
