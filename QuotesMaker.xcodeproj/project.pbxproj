@@ -73,6 +73,7 @@
 		389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */; };
 		38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FB8223A837C00150FD4 /* StudioTab.swift */; };
 		38C80FBD223A904700150FD4 /* StateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FBC223A904700150FD4 /* StateProtocol.swift */; };
+		38C80FBF223A98B900150FD4 /* StateChangeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FBE223A98B900150FD4 /* StateChangeControl.swift */; };
 		38D54E1F223930E3009FCF9A /* CustomAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D54E1E223930E3009FCF9A /* CustomAlbum.swift */; };
 		38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDBE9222352D90005EB60 /* AppDelegate.swift */; };
 		38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBED222352D90005EB60 /* Main.storyboard */; };
@@ -173,6 +174,7 @@
 		389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankImageBackingLayer.swift; sourceTree = "<group>"; };
 		38C80FB8223A837C00150FD4 /* StudioTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTab.swift; sourceTree = "<group>"; };
 		38C80FBC223A904700150FD4 /* StateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateProtocol.swift; sourceTree = "<group>"; };
+		38C80FBE223A98B900150FD4 /* StateChangeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateChangeControl.swift; sourceTree = "<group>"; };
 		38D54E1E223930E3009FCF9A /* CustomAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlbum.swift; sourceTree = "<group>"; };
 		38FEDBE6222352D90005EB60 /* QuotesMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FEDBE9222352D90005EB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				384B9DA522369908007B4BD0 /* CloseButton.swift */,
 				384B9DA72236E903007B4BD0 /* QPreviewView.swift */,
 				38C80FB8223A837C00150FD4 /* StudioTab.swift */,
+				38C80FBE223A98B900150FD4 /* StateChangeControl.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				388BE319222ABBA5005BF44B /* GradientView.swift in Sources */,
 				38797C2922309E83003A9D99 /* Selectors.swift in Sources */,
 				38732E9822300DE700CDB703 /* FontCells.swift in Sources */,
+				38C80FBF223A98B900150FD4 /* StateChangeControl.swift in Sources */,
 				388BE321222AC23C005BF44B /* OptionsButtonView.swift in Sources */,
 				388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */,
 				388BE316222ABBA5005BF44B /* ColorSlider.swift in Sources */,

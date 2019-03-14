@@ -359,9 +359,18 @@ extension StudioVC:BaseViewProtocol{
 
 extension StudioVC:StudioTabDelegate{
     
-    func actionWasUndone() {
-        if let current = baseView.currentSubview as? WrapperView{
-            current.stateUndo()
+    func actiondone(_ action: StudioTab.TabActions) {
+        switch action {
+        case .delete:
+            if let current = baseView.currentSubview{
+                current.removeFromSuperview()
+            }
+            break
+        case .layers:
+            break
         }
     }
+    
+    
+    
 }

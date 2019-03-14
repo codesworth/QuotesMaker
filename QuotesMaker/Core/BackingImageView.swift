@@ -15,7 +15,7 @@ class BackingImageView: UIImageView {
         initialize()
     }
     var previousModels:[ImageLayerModel] = []
-    
+    var redoModels:[ImageLayerModel] = []
     var model:ImageLayerModel!{
         didSet{
             image = model.image
@@ -52,7 +52,9 @@ class BackingImageView: UIImageView {
 extension BackingImageView:StateChangeable{
     
     func stateRedo() {
-        
+        guard !redoModels.isEmpty else {return}
+        let model = redoModels.pop()
+        self.model = model
     }
     
     func stateUndo() {

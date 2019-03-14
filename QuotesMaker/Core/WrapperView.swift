@@ -14,6 +14,7 @@ class WrapperView: UIView {
     var superlayer:CALayer!
     var isGradient = false
     var previousModels:[LayerModel] = []
+    var redoModels:[LayerModel] = []
     init(frame: CGRect, layer:CALayer) {
         super.init(frame: frame)
         superlayer = layer
@@ -73,12 +74,15 @@ class WrapperView: UIView {
 extension WrapperView:StateChangeable{
     
     func stateRedo() {
-        //
+        guard !redoModels.isEmpty else {return}
+        let model = redoModels.pop()
+        self.model = model
     }
     
     func stateUndo() {
         guard !previousModels.isEmpty else{return}
         let model = previousModels.pop()
         self.model = model
+        redoModels.push(model)
     }
 }

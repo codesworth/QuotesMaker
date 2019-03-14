@@ -10,30 +10,22 @@ import UIKit
 
 protocol StudioTabDelegate:class {
     
-    func actionWasUndone()
+    func actiondone(_ action:StudioTab.TabActions)
 }
 
 class StudioTab: MaterialView {
     
-    let undoButt:UIButton = {
-        let butt = UIButton(frame: .zero)
-        butt.setTitle("Undo", for: .normal)
-        butt.setTitleColor(.primary, for: .normal)
-        butt.backgroundColor = .white
-        butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
-        butt.addTarget(self, action: #selector(actionUndone), for: .touchUpInside)
-        return butt
-    }()
-    
-    @objc func actionUndone(){
-        delegate?.actionWasUndone()
+    enum TabActions{
+        case delete
+        case layers
     }
     
-    let redoButt:UIButton = {
+    let deleteButt:UIButton = {
         let butt = UIButton(frame: .zero)
-        butt.setTitle("Redo", for: .normal)
+        butt.setTitle("Delete", for: .normal)
         butt.setTitleColor(.primary, for: .normal)
         butt.backgroundColor = .white
+        butt.addTarget(self, action:#selector(deletetabPressed) , for: .touchUpInside)
         butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         return butt
     }()
@@ -43,6 +35,7 @@ class StudioTab: MaterialView {
         butt.setTitle("Layers", for: .normal)
         butt.setTitleColor(.primary, for: .normal)
         butt.backgroundColor = .white
+        butt.addTarget(self, action:#selector(layertabPressed) , for: .touchUpInside)
         butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         return butt
     }()
@@ -54,16 +47,23 @@ class StudioTab: MaterialView {
         initialize()
     }
     
+    @objc func deletetabPressed(){
+        delegate?.actiondone(.delete)
+    }
+    
+    @objc func layertabPressed(){
+        delegate?.actiondone(.layers)
+    }
+    
     func initialize(){
         backgroundColor = .primary
-        addSubview(undoButt)
+        addSubview(deleteButt)
         addSubview(stackButt)
-        addSubview(redoButt)
         setCorner(20)
-        undoButt.roundCorners(20)
-        undoButt.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
-        redoButt.roundCorners(20)
-        redoButt.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+        deleteButt.roundCorners(20)
+        deleteButt.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
+        stackButt.roundCorners(20)
+        stackButt.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
     }
     
     override func awakeFromNib() {
@@ -80,18 +80,14 @@ class StudioTab: MaterialView {
         let width = (bounds.width / 3) - 2
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
-            undoButt.topAnchor.constraint(equalTo: topAnchor),
-            undoButt.leadingAnchor.constraint(equalTo: leadingAnchor),
-            undoButt.bottomAnchor.constraint(equalTo: bottomAnchor),
-            undoButt.widthAnchor.constraint(equalToConstant: width),
+            deleteButt.topAnchor.constraint(equalTo: topAnchor),
+            deleteButt.leadingAnchor.constraint(equalTo: leadingAnchor),
+            deleteButt.bottomAnchor.constraint(equalTo: bottomAnchor),
+            deleteButt.widthAnchor.constraint(equalToConstant: width),
             stackButt.topAnchor.constraint(equalTo: topAnchor),
             stackButt.centerXAnchor.constraint(equalTo: centerXAnchor),
             stackButt.bottomAnchor.constraint(equalTo: bottomAnchor),
             stackButt.widthAnchor.constraint(equalToConstant: width),
-            redoButt.topAnchor.constraint(equalTo: topAnchor),
-            redoButt.trailingAnchor.constraint(equalTo: trailingAnchor),
-            redoButt.bottomAnchor.constraint(equalTo: bottomAnchor),
-            redoButt.widthAnchor.constraint(equalToConstant: width),
         ])
     }
 }
