@@ -29,7 +29,22 @@ class GradientPanel: MaterialView {
         Utils.animatePanelsOut(self)
     }
     
+    weak var stateDelegate:StateControlDelegate?
     
+    lazy var stateControl:StateChangeControl = {
+        let view = StateChangeControl(frame: .zero)
+        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
+        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
+        return view
+    }()
+    
+    @objc func undo(){
+        stateDelegate?.stateChanged(.undo)
+    }
+    
+    @objc func redo(){
+        stateDelegate?.stateChanged(.redo)
+    }
     
     lazy var controlPadView:PointControlView = {
         let pad = PointControlView(frame: .zero)
@@ -141,9 +156,11 @@ class GradientPanel: MaterialView {
         backgroundColor = .white
         parent.clipsToBounds = true
         addSubview(parent)
+        
         parent.addSubview(scrollView)
         parent.addSubview(titleLable)
         parent.addSubview(doneButt)
+        parent.addSubview(stateControl)
         scrollView.addSubview(contentView)
         contentView.addSubview(gradientSegments)
         contentView.addSubview(stepperTitle)
@@ -228,11 +245,16 @@ class GradientPanel: MaterialView {
             parent.leadingAnchor.constraint(equalTo: leadingAnchor, constant:4),
             parent.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-4),
             titleLable.topAnchor.constraint(equalTo: parent.topAnchor, constant: insets),
-            titleLable.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
+            titleLable.leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: 20),
+            
             doneButt.trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: -verticalMargin),
             doneButt.topAnchor.constraint(equalTo: parent.topAnchor, constant:8),
             doneButt.heightAnchor.constraint(equalToConstant: 35),
             doneButt.widthAnchor.constraint(equalToConstant: 35),
+            stateControl.trailingAnchor.constraint(equalTo: doneButt.leadingAnchor, constant: -12),
+            stateControl.topAnchor.constraint(equalTo: parent.topAnchor, constant: 12),
+            stateControl.widthAnchor.constraint(equalToConstant: 70),
+            stateControl.heightAnchor.constraint(equalToConstant: 30),
             scrollView.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 24),
             scrollView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: parent.trailingAnchor),

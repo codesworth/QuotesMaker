@@ -21,10 +21,8 @@ class StateChangeControl: UIView{
 
     let undoButt:UIButton = {
         let butt = UIButton(frame: .zero)
-        butt.setTitle("Undo", for: .normal)
-        butt.setTitleColor(.primary, for: .normal)
-        butt.backgroundColor = .white
-        butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        butt.setBackgroundImage( #imageLiteral(resourceName: "undo_arrow"), for: .normal)
+        //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         return butt
     }()
     
@@ -33,10 +31,11 @@ class StateChangeControl: UIView{
     
     let redoButt:UIButton = {
         let butt = UIButton(frame: .zero)
-        butt.setTitle("Redo", for: .normal)
-        butt.setTitleColor(.primary, for: .normal)
-        butt.backgroundColor = .white
-        butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+//        butt.setTitle("Redo", for: .normal)
+//        butt.setTitleColor(.primary, for: .normal)
+//        butt.backgroundColor = .white
+//        butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        butt.setBackgroundImage(#imageLiteral(resourceName: "redo_arrow"), for: .normal)
         return butt
     }()
     
@@ -64,18 +63,18 @@ class StateChangeControl: UIView{
     override func layoutSubviews() {
         super.layoutSubviews()
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        undoButt.roundCorners(10)
-        redoButt.roundCorners(10)
+//        undoButt.roundCorners(10)
+//        redoButt.roundCorners(10)
         
         NSLayoutConstraint.activate([
             undoButt.leadingAnchor.constraint(equalTo: leadingAnchor),
             undoButt.topAnchor.constraint(equalTo: topAnchor),
-            undoButt.widthAnchor.constraint(equalToConstant: 20),
-            undoButt.heightAnchor.constraint(equalToConstant: 20),
+            undoButt.widthAnchor.constraint(equalToConstant: 30),
+            undoButt.heightAnchor.constraint(equalToConstant: 30),
             redoButt.trailingAnchor.constraint(equalTo: trailingAnchor),
             redoButt.topAnchor.constraint(equalTo: topAnchor),
-            redoButt.widthAnchor.constraint(equalToConstant: 20),
-            redoButt.heightAnchor.constraint(equalToConstant: 20),
+            redoButt.widthAnchor.constraint(equalToConstant: 30),
+            redoButt.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
 
