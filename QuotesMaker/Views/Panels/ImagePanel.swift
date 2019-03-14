@@ -12,6 +12,9 @@ protocol ImagePanelDelegate :class {
     func didSelect(_ option:ImagePanel.PanelOptions)
 }
 
+//Image Options: Rotate
+//Flip left right up down
+
 class ImagePanel: MaterialView {
     
     enum PanelOptions{

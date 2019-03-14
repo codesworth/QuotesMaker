@@ -31,6 +31,10 @@ class MaterialView: UIView {
         isInView = false
     }
     
+    func setCorner(_ radius:CGFloat){
+        layer.cornerRadius = radius
+    }
+    
     func materialFeel(){
         layer.cornerRadius = 8
         layer.shadowColor = UIColor.black.cgColor

@@ -14,6 +14,7 @@ class StudioVC: UIViewController {
     @IBOutlet weak var studioPanel: StudioPanel!
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!
+    private var studioTab:StudioTab!
     private var imagePanel:ImagePanel!
     @IBOutlet weak var baseView:BaseView!
     //private var textField = BackingTextView(frame: .zero)
@@ -32,6 +33,8 @@ class StudioVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        studioTab = StudioTab(frame: .zero)
+        view.addSubview(studioTab)
         studioPanel.delegate = self
         baseView.delegate = self
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
@@ -54,6 +57,7 @@ class StudioVC: UIViewController {
     func setupViews(){
         
         baseView.translatesAutoresizingMaskIntoConstraints = false
+        studioTab.translatesAutoresizingMaskIntoConstraints = false
         let points = Dimensions.originalPanelPoints
         colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
         gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])
@@ -63,7 +67,11 @@ class StudioVC: UIViewController {
             baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             baseView.widthAnchor.constraint(equalToConstant: size.width),
-            baseView.heightAnchor.constraint(equalToConstant: size.height)
+            baseView.heightAnchor.constraint(equalToConstant: size.height),
+            studioTab.topAnchor.constraint(equalTo: baseView.bottomAnchor, constant: 16),
+            studioTab.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            studioTab.widthAnchor.constraint(equalToConstant: size.width),
+            studioTab.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         let handle = UIScreen.main.screenType()
@@ -95,7 +103,7 @@ class StudioVC: UIViewController {
 //    }
     
     func setupGradientInteractiveView(){
-       
+        if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
          if gradientPanel.isInView{return}
         
@@ -246,6 +254,7 @@ extension StudioVC:OptionsSelectedDelegate{
 extension StudioVC:PickerColorDelegate{
     
     func setupColorPanel(){
+        if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if colorPanel.isInView{return}
         colorPanel.delegate = self
