@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BaseViewProtocol:class {
-    
+    func wakePanelForCurrent()
 }
 
 
@@ -44,16 +44,16 @@ extension UIView{
     func movedInFocus(){
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(wasTapped(_:)))
-        tap.numberOfTapsRequired = 1
+        tap.numberOfTapsRequired = 2
         addGestureRecognizer(tap)
     }
     
     @objc func wasTapped(_ recognizer:UITapGestureRecognizer){
-        if let auto = superview as? BaseView{
-            auto.focusDidChange()
-        }
-        self.layer.borderColor = UIColor.black.cgColor
-        self.layer.borderWidth = 0.5
+        guard let superview = superview as? BaseView, let view = recognizer.view else {return}
+        superview.currentSubview = view
+        superview.delegate?.wakePanelForCurrent()
+//        self.layer.borderColor = UIColor.black.cgColor
+//        self.layer.borderWidth = 0.5
     }
     
     func borderlize(_ borderColor:UIColor = .primary,_ width:CGFloat = 1){
@@ -70,6 +70,8 @@ extension UIView{
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pannedDown(_:)))
         addGestureRecognizer(panGesture)
     }
+    
+    
     
     @objc func pannedDown(_ recognizer:UIPanGestureRecognizer){
         guard let view = recognizer.view else {return}

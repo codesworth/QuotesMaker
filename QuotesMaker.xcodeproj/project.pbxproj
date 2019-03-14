@@ -11,7 +11,7 @@
 		380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380BC9972231C40D007F87FE /* LayerFrame.swift */; };
 		380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78F72232C1BE006B8F8D /* BlankLayerModel.swift */; };
 		380C78FA2232C454006B8F8D /* BackingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78F92232C454006B8F8D /* BackingImageView.swift */; };
-		380C78FC2232C4C4006B8F8D /* ResizingGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78FB2232C4C4006B8F8D /* ResizingGesture.swift */; };
+		380C78FC2232C4C4006B8F8D /* ViewGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78FB2232C4C4006B8F8D /* ViewGesture.swift */; };
 		380C78FE2232CA9E006B8F8D /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78FD2232CA9E006B8F8D /* ImageModel.swift */; };
 		380C79002232D8EB006B8F8D /* WrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78FF2232D8EB006B8F8D /* WrapperView.swift */; };
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
@@ -109,7 +109,7 @@
 		380BC9972231C40D007F87FE /* LayerFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerFrame.swift; sourceTree = "<group>"; };
 		380C78F72232C1BE006B8F8D /* BlankLayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankLayerModel.swift; sourceTree = "<group>"; };
 		380C78F92232C454006B8F8D /* BackingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingImageView.swift; sourceTree = "<group>"; };
-		380C78FB2232C4C4006B8F8D /* ResizingGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizingGesture.swift; sourceTree = "<group>"; };
+		380C78FB2232C4C4006B8F8D /* ViewGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGesture.swift; sourceTree = "<group>"; };
 		380C78FD2232CA9E006B8F8D /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		380C78FF2232D8EB006B8F8D /* WrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperView.swift; sourceTree = "<group>"; };
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
@@ -334,7 +334,7 @@
 				388BE335222B2135005BF44B /* BackingGradientlayer.swift */,
 				388BE387222EB35A005BF44B /* TextBackingLayer.swift */,
 				380C78F92232C454006B8F8D /* BackingImageView.swift */,
-				380C78FB2232C4C4006B8F8D /* ResizingGesture.swift */,
+				380C78FB2232C4C4006B8F8D /* ViewGesture.swift */,
 				380C78FF2232D8EB006B8F8D /* WrapperView.swift */,
 			);
 			path = Core;
@@ -522,7 +522,7 @@
 				384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */,
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
-				380C78FC2232C4C4006B8F8D /* ResizingGesture.swift in Sources */,
+				380C78FC2232C4C4006B8F8D /* ViewGesture.swift in Sources */,
 				388BE319222ABBA5005BF44B /* GradientView.swift in Sources */,
 				38797C2922309E83003A9D99 /* Selectors.swift in Sources */,
 				38732E9822300DE700CDB703 /* FontCells.swift in Sources */,

@@ -33,6 +33,7 @@ class StudioVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         studioPanel.delegate = self
+        baseView.delegate = self
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
 
@@ -162,7 +163,7 @@ class StudioVC: UIViewController {
         let textField = BackingTextView(frame: [0,0,baseView.bounds.width * 0.7,40])
         baseView.addSubview(textField)
         textField.center = baseView.center
-        textField.delegate = self
+//        textField.delegate = self
         textField.addDoneButtonOnKeyboard()
 //        let size = baseView.bounds.size.scaledBy(0.5)
 //        //let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
@@ -328,7 +329,19 @@ extension StudioVC:ImagePanelDelegate{
 
 
 
-extension StudioVC:UITextViewDelegate{
+extension StudioVC:BaseViewProtocol{
     
+    func wakePanelForCurrent() {
+        guard let current = baseView.currentSubview else{return}
+        if let wrapper = current as? WrapperView{
+            if wrapper.isGradient{
+                setupGradientInteractiveView()
+            }else{
+                setupColorPanel()
+            }
+        }else if let _ = current as? BackingImageView{
+            setupImageInteractiveView()
+        }
+    }
     
 }

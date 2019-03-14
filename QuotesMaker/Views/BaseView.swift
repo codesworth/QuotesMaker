@@ -31,6 +31,8 @@ class BaseView:UIView{
         }
     }
     
+    weak var delegate:BaseViewProtocol?
+    
     var currentSubview:UIView?
     
     var subLayers:[CALayer]?{
