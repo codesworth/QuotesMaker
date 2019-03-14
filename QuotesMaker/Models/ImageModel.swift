@@ -26,6 +26,10 @@ struct ImageLayerModel:LayerModel {
             return _image
         }
         
+        set{
+            _image = newValue
+        }
+        
     }
     
     

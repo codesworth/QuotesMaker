@@ -16,10 +16,18 @@ class BackingImageView: UIImageView {
     }
     var previousModels:[ImageLayerModel] = []
     var redoModels:[ImageLayerModel] = []
+    
     var model:ImageLayerModel!{
         didSet{
             image = model.image
         }
+    }
+    
+    func setImage(image:UIImage){
+        var new = model
+        new!.image = image
+        model = new!
+        previousModels.push(model)
     }
     
     var id:String{

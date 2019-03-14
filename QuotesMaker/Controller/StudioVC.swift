@@ -239,7 +239,7 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage, let imageView = baseView.currentSubview as? BackingImageView{
             //baseView.invalidateLayers()
-            imageView.image = image
+            imageView.setImage(image: image)
         }
         picker.dismiss(animated: true, completion: nil)
     }
