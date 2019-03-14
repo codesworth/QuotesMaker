@@ -13,15 +13,15 @@ class WrapperView: UIView {
     
     var superlayer:CALayer!
     var isGradient = false
-    
+    var previousModels:[LayerModel] = []
     init(frame: CGRect, layer:CALayer) {
         super.init(frame: frame)
         superlayer = layer
         if type(of: layer) == BackingGradientlayer.self{
             isGradient = true
-            model = GradientLayerModel.defualt()
+            updateModel(GradientLayerModel.defualt())
         }else{
-            model = BlankLayerModel()
+            updateModel(BlankLayerModel())
         }
         initialize()
     }
@@ -39,6 +39,10 @@ class WrapperView: UIView {
         }
     }
     
+    func updateModel(_ model:LayerModel){
+        self.model = model
+        previousModels.push(model)
+    }
     
     
     var id:String{
@@ -62,5 +66,19 @@ class WrapperView: UIView {
         setPanGesture()
         setResizableGesture()
         movedInFocus()
+    }
+}
+
+
+extension WrapperView:StateChangeable{
+    
+    func stateRedo() {
+        //
+    }
+    
+    func stateUndo() {
+        guard !previousModels.isEmpty else{return}
+        let model = previousModels.pop()
+        self.model = model
     }
 }

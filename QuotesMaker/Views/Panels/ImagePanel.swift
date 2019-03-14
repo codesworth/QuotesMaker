@@ -41,6 +41,8 @@ class ImagePanel: MaterialView {
         return label
     }()
     
+    
+    
     lazy var closeButton:CloseButton = {
         let butt = CloseButton(type: .roundedRect)
         butt.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
@@ -165,3 +167,5 @@ class ImagePanel: MaterialView {
         ])
     }
 }
+
+

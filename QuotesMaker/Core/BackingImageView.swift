@@ -14,10 +14,11 @@ class BackingImageView: UIImageView {
         super.init(frame: frame)
         initialize()
     }
+    var previousModels:[ImageLayerModel] = []
     
     var model:ImageLayerModel!{
         didSet{
-            
+            image = model.image
         }
     }
     
@@ -45,4 +46,18 @@ class BackingImageView: UIImageView {
         clipsToBounds = true
     }
 
+}
+
+
+extension BackingImageView:StateChangeable{
+    
+    func stateRedo() {
+        
+    }
+    
+    func stateUndo() {
+        guard !previousModels.isEmpty else {return}
+        let model = previousModels.pop()
+        self.model = model
+    }
 }

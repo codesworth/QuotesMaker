@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol StudioTabDelegate:class {
+    
+    func actionWasUndone()
+}
+
 class StudioTab: MaterialView {
     
     let undoButt:UIButton = {
@@ -16,8 +21,13 @@ class StudioTab: MaterialView {
         butt.setTitleColor(.primary, for: .normal)
         butt.backgroundColor = .white
         butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        butt.addTarget(self, action: #selector(actionUndone), for: .touchUpInside)
         return butt
     }()
+    
+    @objc func actionUndone(){
+        delegate?.actionWasUndone()
+    }
     
     let redoButt:UIButton = {
         let butt = UIButton(frame: .zero)
@@ -36,6 +46,8 @@ class StudioTab: MaterialView {
         butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         return butt
     }()
+    
+    weak var delegate:StudioTabDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

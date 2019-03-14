@@ -17,9 +17,12 @@ class BlankImageBackingLayer:CALayer{
         setup()
     }
     
+    var previousModels:[BlankLayerModel] = []
+    
     var model:BlankLayerModel = BlankLayerModel(){
         didSet{
             backgroundColor = model.color.cgColor
+            if previousModels.isEmpty{previousModels.push(model)}else{previousModels.push(oldValue)}
         }
     }
     

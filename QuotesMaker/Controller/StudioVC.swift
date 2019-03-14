@@ -34,6 +34,7 @@ class StudioVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         studioTab = StudioTab(frame: .zero)
+        studioTab.delegate = self
         view.addSubview(studioTab)
         studioPanel.delegate = self
         baseView.delegate = self
@@ -265,7 +266,7 @@ extension StudioVC:PickerColorDelegate{
     
     func colorDidChange(_ model: BlankLayerModel) {
         guard let current = baseView.currentSubview as? WrapperView else {return}
-        current.model = model
+        current.updateModel(model)
     }
     
 }
@@ -275,7 +276,7 @@ extension StudioVC:GradientOptionsDelegate{
     
     func modelChanged(_ model: GradientLayerModel) {
         if let current = baseView.currentSubview as? WrapperView{
-            current.model = model
+            current.updateModel(model)
         }
     }
 
@@ -353,4 +354,14 @@ extension StudioVC:BaseViewProtocol{
         }
     }
     
+}
+
+
+extension StudioVC:StudioTabDelegate{
+    
+    func actionWasUndone() {
+        if let current = baseView.currentSubview as? WrapperView{
+            current.stateUndo()
+        }
+    }
 }
