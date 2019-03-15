@@ -63,6 +63,7 @@ class StudioTab: MaterialView {
         butt.setBackgroundImage(#imageLiteral(resourceName: "mdw"), for: .normal)
         butt.addTarget(self, action:#selector(movedDownPressed) , for: .touchUpInside)
         //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        
         return butt
     }()
     
