@@ -28,7 +28,7 @@ class BackingImageView: UIImageView {
         var new = model
         new!.image = image
         model = new!
-        
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.Name.canUndo.rawValue), object: nil)
     }
     
     var id:String{
@@ -71,5 +71,7 @@ extension BackingImageView:StateChangeable{
         guard !previousModels.isEmpty else {return}
         let model = previousModels.pop()
         self.model = model
+        redoModels.append(model)
+        
     }
 }

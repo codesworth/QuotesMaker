@@ -118,6 +118,7 @@ extension StudioVC:StudioTabDelegate{
         case .delete:
             if let current = baseView.currentSubview{
                 current.removeFromSuperview()
+                dismissPanels()
             }
             break
         case .layers:

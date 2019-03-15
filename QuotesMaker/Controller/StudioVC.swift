@@ -205,6 +205,12 @@ class StudioVC: UIViewController {
 //            }
 //        }
 //    }
+    
+    func dismissPanels(){
+        if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
+        if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
+        if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
+    }
 
 }
 

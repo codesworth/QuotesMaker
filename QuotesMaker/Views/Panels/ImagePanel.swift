@@ -130,6 +130,7 @@ class ImagePanel: MaterialView {
         addSubview(header)
         addSubview(stateControl)
         addSubview(scrollView)
+        
         addSubview(closeButton)
         scrollView.addSubview(contentView)
         contentView.addSubview(firstline)

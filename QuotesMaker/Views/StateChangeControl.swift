@@ -58,6 +58,7 @@ class StateChangeControl: UIView{
         backgroundColor = .white
         addSubview(undoButt)
         addSubview(redoButt)
+        undoButt.isEnabled = false
     }
     
     override func layoutSubviews() {
