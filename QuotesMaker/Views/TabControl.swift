@@ -9,13 +9,50 @@
 import UIKit
 
 class TabControl: UIControl {
+    
+    var contentImageView:UIImageView = {
+        let img = UIImageView(frame: .zero)
+        img.clipsToBounds = true
+        img.contentMode = .scaleAspectFill
+        return img
+    }()
 
+    private var image:UIImage?
     init(frame: CGRect,image:UIImage) {
         super.init(frame: frame)
+        self.image = image
+        initialize()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        initialize()
+    }
+    
+    
+    func initialize(){
+        backgroundColor = .white
+        addSubview(contentImageView)
+        contentImageView.image = self.image
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        //We find out which sides is the smallest so we can set a sqaure with min side
+        let minDimension = min(bounds.size.width, bounds.size.height)
+        guard minDimension > 0 else { return}
+        NSLayoutConstraint.activate([
+            contentImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            contentImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            contentImageView.widthAnchor.constraint(equalToConstant: minDimension - 5),
+            contentImageView.heightAnchor.constraint(equalToConstant: minDimension - 5)
+        ])
+    }
 }

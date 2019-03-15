@@ -22,47 +22,29 @@ class StudioTab: MaterialView {
         case moveDown
     }
     
-    let deleteButt:UIButton = {
-        let butt = UIButton(frame: .zero)
-//        butt.setTitle("Delete", for: .normal)
-//        butt.setTitleColor(.primary, for: .normal)
-        butt.backgroundColor = .white
-        butt.setBackgroundImage(#imageLiteral(resourceName: "delete"), for: .normal)
+    let deleteButt:TabControl = {
+        let butt = TabControl(frame: .zero, image: #imageLiteral(resourceName: "delete"))
         butt.addTarget(self, action:#selector(deletetabPressed) , for: .touchUpInside)
-        //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         return butt
     }()
     
-    let stackButt:UIButton = {
-        let butt = UIButton(frame: .zero)
-//        butt.setTitle("Layers", for: .normal)
-//        butt.setTitleColor(.primary, for: .normal)
-        butt.backgroundColor = .white
-        butt.setBackgroundImage(#imageLiteral(resourceName: "stack"), for: .normal)
+    let stackButt:TabControl = {
+        let butt = TabControl(frame: .zero, image: #imageLiteral(resourceName: "stack"))
         butt.addTarget(self, action:#selector(layertabPressed) , for: .touchUpInside)
-        //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        
         return butt
     }()
     
-    let moveupButt:UIButton = {
-        let butt = UIButton(frame: .zero)
-//        butt.setTitle("", for: .normal)
-//        butt.setTitleColor(.primary, for: .normal)
-        butt.backgroundColor = .white
-        butt.setBackgroundImage(#imageLiteral(resourceName: "mup"), for: .normal)
+    let moveupButt:TabControl = {
+       let butt = TabControl(frame: .zero, image: #imageLiteral(resourceName: "mup"))
         butt.addTarget(self, action:#selector(movedUpPressed) , for: .touchUpInside)
-        //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        
         return butt
     }()
     
-    let moveDownButt:UIButton = {
-        let butt = UIButton(frame: .zero)
-        //        butt.setTitle("", for: .normal)
-        //        butt.setTitleColor(.primary, for: .normal)
-        butt.backgroundColor = .white
-        butt.setBackgroundImage(#imageLiteral(resourceName: "mdw"), for: .normal)
+    let moveDownButt:TabControl = {
+        let butt = TabControl(frame: .zero, image: #imageLiteral(resourceName: "mdw"))
         butt.addTarget(self, action:#selector(movedDownPressed) , for: .touchUpInside)
-        //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         
         return butt
     }()
@@ -115,7 +97,7 @@ class StudioTab: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let width = (bounds.width / 4) - 2
+        let width = (bounds.width - 3) / 4
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
             deleteButt.topAnchor.constraint(equalTo: topAnchor),
@@ -123,15 +105,15 @@ class StudioTab: MaterialView {
             deleteButt.bottomAnchor.constraint(equalTo: bottomAnchor),
             deleteButt.widthAnchor.constraint(equalToConstant: width),
             moveupButt.topAnchor.constraint(equalTo: topAnchor),
-            moveupButt.leadingAnchor.constraint(equalTo: deleteButt.trailingAnchor,constant:0.5),
+            moveupButt.leadingAnchor.constraint(equalTo: deleteButt.trailingAnchor,constant:1),
             moveupButt.bottomAnchor.constraint(equalTo: bottomAnchor),
             moveupButt.widthAnchor.constraint(equalToConstant:width),
             moveDownButt.topAnchor.constraint(equalTo: topAnchor),
-            moveDownButt.leadingAnchor.constraint(equalTo: moveupButt.trailingAnchor,constant:0.5),
+            moveDownButt.leadingAnchor.constraint(equalTo: moveupButt.trailingAnchor,constant:1),
             moveDownButt.bottomAnchor.constraint(equalTo: bottomAnchor),
             moveDownButt.widthAnchor.constraint(equalToConstant:width),
             stackButt.topAnchor.constraint(equalTo: topAnchor),
-            stackButt.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackButt.leadingAnchor.constraint(equalTo: moveDownButt.trailingAnchor, constant:1),
             stackButt.bottomAnchor.constraint(equalTo: bottomAnchor),
             stackButt.widthAnchor.constraint(equalToConstant: width),
         ])
