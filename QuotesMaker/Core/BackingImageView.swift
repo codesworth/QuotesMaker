@@ -24,10 +24,11 @@ class BackingImageView: UIImageView {
     }
     
     func setImage(image:UIImage){
+        previousModels.push(model)
         var new = model
         new!.image = image
         model = new!
-        previousModels.push(model)
+        
     }
     
     var id:String{
@@ -53,7 +54,6 @@ class BackingImageView: UIImageView {
         setPanGesture()
         movedInFocus()
         clipsToBounds = true
-        previousModels.push(model)
     }
 
 }
