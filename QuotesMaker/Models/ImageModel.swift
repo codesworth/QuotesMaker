@@ -17,26 +17,21 @@ struct ImageLayerModel:LayerModel {
         self.frame = frame
     }
     
-    private var _image:UIImage?
-    var image:UIImage?{
-        mutating get{
-            if !isKnownUniquelyReferenced(&_image){
-                _image = _image?.mutableCopy() as? UIImage
-            }
-            return _image
-        }
+    //private var _image:UIImage?
+    var image:UIImage?
+
+    
+    mutating func update(withValue value: UIImage) {
         
-        set{
-            _image = newValue
-        }
         
     }
+    
     
     
     var frame:LayerFrame?
     
     init(image:UIImage? = nil) {
-        _image = image
+        self.image = image
     }
     
 }

@@ -53,6 +53,7 @@ class BackingImageView: UIImageView {
         setPanGesture()
         movedInFocus()
         clipsToBounds = true
+        previousModels.push(model)
     }
 
 }
