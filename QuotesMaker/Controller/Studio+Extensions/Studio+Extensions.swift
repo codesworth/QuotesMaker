@@ -123,6 +123,12 @@ extension StudioVC:StudioTabDelegate{
             break
         case .layers:
             break
+        case .moveUp:
+            baseView.moveSubiewForward()
+            break
+        case .moveDown:
+            baseView.moveSubiewBackward()
+            break
         }
     }
     

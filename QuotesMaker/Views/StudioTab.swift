@@ -26,7 +26,7 @@ class StudioTab: MaterialView {
         let butt = UIButton(frame: .zero)
 //        butt.setTitle("Delete", for: .normal)
 //        butt.setTitleColor(.primary, for: .normal)
-//        butt.backgroundColor = .white
+        butt.backgroundColor = .white
         butt.setBackgroundImage(#imageLiteral(resourceName: "delete"), for: .normal)
         butt.addTarget(self, action:#selector(deletetabPressed) , for: .touchUpInside)
         //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
@@ -37,8 +37,8 @@ class StudioTab: MaterialView {
         let butt = UIButton(frame: .zero)
 //        butt.setTitle("Layers", for: .normal)
 //        butt.setTitleColor(.primary, for: .normal)
-//        butt.backgroundColor = .white
-         butt.setBackgroundImage(#imageLiteral(resourceName: "stack"), for: .normal)
+        butt.backgroundColor = .white
+        butt.setBackgroundImage(#imageLiteral(resourceName: "stack"), for: .normal)
         butt.addTarget(self, action:#selector(layertabPressed) , for: .touchUpInside)
         //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         return butt
@@ -48,8 +48,8 @@ class StudioTab: MaterialView {
         let butt = UIButton(frame: .zero)
 //        butt.setTitle("", for: .normal)
 //        butt.setTitleColor(.primary, for: .normal)
-//        butt.backgroundColor = .white
-         butt.setBackgroundImage(#imageLiteral(resourceName: "mup"), for: .normal)
+        butt.backgroundColor = .white
+        butt.setBackgroundImage(#imageLiteral(resourceName: "mup"), for: .normal)
         butt.addTarget(self, action:#selector(movedUpPressed) , for: .touchUpInside)
         //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         return butt
@@ -59,7 +59,7 @@ class StudioTab: MaterialView {
         let butt = UIButton(frame: .zero)
         //        butt.setTitle("", for: .normal)
         //        butt.setTitleColor(.primary, for: .normal)
-        //        butt.backgroundColor = .white
+        butt.backgroundColor = .white
         butt.setBackgroundImage(#imageLiteral(resourceName: "mdw"), for: .normal)
         butt.addTarget(self, action:#selector(movedDownPressed) , for: .touchUpInside)
         //butt.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)

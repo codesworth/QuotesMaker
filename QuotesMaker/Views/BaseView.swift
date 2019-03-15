@@ -111,17 +111,20 @@ class BaseView:UIView{
 //    }
     
     
-    func moveSubiewForward(subview:UIView){
-        guard subviews.contains(subview) else {return}
-        let subViewIndex = subviews.firstIndex(of: subview)!
-        exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex + 1)
+    func moveSubiewForward(){
+        guard let current = currentSubview, let subViewIndex = subviews.firstIndex(of: current) else {return}
+        if subViewIndex + 1 < subviews.endIndex{
+            exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex + 1)
+        }
+        
         
     }
     
-    func moveSubiewBackward(subview:UIView){
-        guard subviews.contains(subview) else {return}
-        let subViewIndex = subviews.firstIndex(of: subview)!
-        exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex - 1)
+    func moveSubiewBackward(){
+        guard let current = currentSubview, let subViewIndex = subviews.firstIndex(of: current) else {return}
+        if subViewIndex > subviews.startIndex{
+            exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex - 1)
+        }
         
     }
     
