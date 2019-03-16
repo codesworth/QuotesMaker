@@ -137,7 +137,8 @@ extension StudioVC:StudioTabDelegate{
     func makeStackTable()->LayerStack?{
         guard stack == nil else {return nil}
         if let datasource = baseView.subviews as? Alias.StackDataSource{
-            stack = LayerStack(frame: baseView.frame, dataSource: datasource)
+            stack = LayerStack(frame: CGRect(origin: .zero, size: baseView.bounds.size.scaledBy(0.9)), dataSource: datasource)
+            stack?.center = baseView.center
             stack?.alpha = 0
             self.view.addSubview(stack!)
             Utils.fadeIn(stack!)
@@ -154,7 +155,9 @@ extension StudioVC:StudioTabDelegate{
 extension StudioVC:StackTableDelegate{
     
     func didDismiss() {
-        Utils.fadeOut(stack!)
+        Utils.fadeOut(stack!) {
+            self.stack = nil
+        }
     }
     
     

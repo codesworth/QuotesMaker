@@ -20,7 +20,7 @@ class LayerStack: MaterialView {
     lazy var stackTable:UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.allowsMultipleSelection = false
-        table.backgroundColor = .lightGray
+        table.backgroundColor = .white
         table.register(UINib(nibName: "\(StackCellTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCellTableViewCell.self)")
         return table
     }()
@@ -76,16 +76,16 @@ class LayerStack: MaterialView {
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         //let tabCons = stackTable.pinAllSides()
         NSLayoutConstraint.activate([
-            headerLable.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            headerLable.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             headerLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             doneButt.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            doneButt.widthAnchor.constraint(equalToConstant: 20),
-            doneButt.heightAnchor.constraint(equalToConstant: 20),
-            stackTable.topAnchor.constraint(equalTo: headerLable.topAnchor, constant:8),
+            doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            doneButt.widthAnchor.constraint(equalToConstant: 30),
+            doneButt.heightAnchor.constraint(equalToConstant: 30),
+            stackTable.topAnchor.constraint(equalTo: headerLable.bottomAnchor, constant:16),
             stackTable.leftAnchor.constraint(equalTo: leftAnchor),
             stackTable.rightAnchor.constraint(equalTo: rightAnchor),
-            stackTable.bottomAnchor.constraint(equalTo:bottomAnchor)
+            stackTable.bottomAnchor.constraint(equalTo:bottomAnchor, constant:-4)
         ])
     }
     

@@ -39,6 +39,7 @@ class StudioVC: UIViewController {
         view.addSubview(studioTab)
         studioPanel.delegate = self
         baseView.delegate = self
+        automaticallyAdjustsScrollViewInsets = false
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
 
