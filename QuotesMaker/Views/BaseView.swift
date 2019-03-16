@@ -62,6 +62,12 @@ class BaseView:UIView{
         layer.masksToBounds = true
     }
     
+    override func willRemoveSubview(_ subview: UIView) {
+        let subs = subviews.filter{$0 != subview}
+        Subscription.main.post(suscription: .layerChanged, object: subs)
+    }
+    
+    
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -76,6 +82,8 @@ class BaseView:UIView{
         
     }
     
+    
+    
     override func didAddSubview(_ subview: UIView) {
         super.didAddSubview(subview)
         if let view = subview as?  BackingImageView{
@@ -89,6 +97,7 @@ class BaseView:UIView{
             view.id_tag = viewTags.ord
         }
         currentSubview = subview
+        Subscription.main.post(suscription: .layerChanged, object: subviews)
     }
     
 //    func transformViewTolayer(){

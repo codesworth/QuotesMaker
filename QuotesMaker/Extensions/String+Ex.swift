@@ -24,4 +24,11 @@ extension String {
         
         return ceil(boundingBox.width)
     }
+    
+    
+}
+
+extension AnyHashable{
+    
+    static let info = "Info"
 }

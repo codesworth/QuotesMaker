@@ -68,8 +68,16 @@ class LayerStack: MaterialView {
         addSubview(doneButt)
         stackTable.delegate = self
         stackTable.dataSource = self
+        subscribeTo(subscription: .layerChanged, selector: #selector(layerChanged(_:)))
     }
 
+    @objc func layerChanged(_ notification:Notification){
+        print(notification)
+        if let data = notification.userInfo?[.info] as? Alias.StackDataSource{
+            dataSource = data
+        }
+        stackTable.reloadData()
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

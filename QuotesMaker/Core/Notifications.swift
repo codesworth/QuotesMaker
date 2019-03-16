@@ -6,25 +6,43 @@
 //  Copyright © 2019 Shadrach Mensah. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
-class Notifications{
+class Subscription{
     
     enum Name:String {
-        case canUndo,canRedo
+        
+        case canUndo,canRedo,layerChanged
     }
+
+    private static let _main = Subscription()
     
-    private static let _main = Notifications()
-    
-    static var main:Notifications{
+    static var main:Subscription{
         return _main
     }
     
-//    func publish(name:Name){
-//        NotificationCenter.default.post(name: name.rawValue, object: <#T##Any?#>)
-//    }
     
+    func post(suscription name:Name, object:Any?){
+        if let object = object{
+            NotificationCenter.default.post(name: NSNotification.Name(name.rawValue), object: nil,userInfo:[.info:object])
+        }else{
+            NotificationCenter.default.post(name: NSNotification.Name(name.rawValue), object: nil)
+        }
+    }
     
     
 }
+
+
+extension NSObject{
+    func subscribeTo(subscription name:Subscription.Name,selector:Selector){
+        NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(name.rawValue), object: nil)
+    }
+    
+    func unsubscribe(){
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+
