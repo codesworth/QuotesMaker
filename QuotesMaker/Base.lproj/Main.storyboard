@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="3552.1739130434785" y="-54.241071428571423"/>
         </scene>
-        <!--Studio Nav-->
+        <!--Navigation Controller-->
         <scene sceneID="w7n-MK-N3Y">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n8B-EA-K5F" customClass="StudioNav" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n8B-EA-K5F" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="TJW-Ss-1DZ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

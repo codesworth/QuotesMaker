@@ -23,6 +23,10 @@ class StudioVCTests: XCTestCase {
     }
 
     func test_StackTableInclusion(){
+        let baseView = BaseView(frame: [20])
+        let wrapper = WrapperView(frame: baseView.bounds, layer: BackingGradientlayer())
+        baseView.addSubview(wrapper)
+        studioVc.baseView = baseView
         let stack = studioVc.makeStackTable()
         XCTAssertNotNil(stack)
     }

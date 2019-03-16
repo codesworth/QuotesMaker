@@ -135,7 +135,6 @@ extension StudioVC:StudioTabDelegate{
     
     @discardableResult
     func makeStackTable()->LayerStack?{
-        let baseView = BaseView(frame: [100])
         
         if let datasource = baseView.subviews as? Alias.StackDataSource{
             let stack = LayerStack(frame: baseView.frame, dataSource: datasource)

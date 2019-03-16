@@ -29,6 +29,7 @@ class LayerStack: UIView {
     init(frame: CGRect, dataSource:Alias.StackDataSource) {
         super.init(frame: frame)
         self.dataSource = dataSource
+        initialize()
     }
     
     weak var delegate:StackTableDelegate?
@@ -59,6 +60,8 @@ class LayerStack: UIView {
 }
 
 
+
+
 extension LayerStack:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,6 +69,14 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dataSource.isEmpty{
+            let empty = UITextField(frame: tableView.frame)
+            empty.text = "No Views Added"
+            empty.textAlignment = .center
+            empty.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+            empty.textColor = .primary
+            tableView.backgroundView = empty
+        }
         return dataSource.count
     }
     
@@ -87,6 +98,8 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
         let view = dataSource[indexPath.row]
         delegate?.didSelectView(with: view.id_tag)
     }
+    
+    
     
 }
 
