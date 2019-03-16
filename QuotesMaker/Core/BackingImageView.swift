@@ -23,6 +23,8 @@ class BackingImageView: UIImageView {
         }
     }
     
+    var uid:UUID = UUID()
+    
     func setImage(image:UIImage){
         previousModels.push(model)
         var new = model

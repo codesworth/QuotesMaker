@@ -10,7 +10,7 @@ import UIKit
 
 protocol StackTableDelegate:class {
     
-    func didSelectView(with tag:Int)
+    func didSelectView(with uid:UUID)
     func didDismiss()
 }
 
@@ -130,7 +130,7 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let view = dataSource[indexPath.row]
-        delegate?.didSelectView(with: view.id_tag)
+        delegate?.didSelectView(with: view.uid)
     }
     
     

@@ -158,9 +158,16 @@ extension StudioVC:StackTableDelegate{
     }
     
     
-    func didSelectView(with tag: Int) {
-        let view = (baseView.subviews as? Alias.StackDataSource)?.first{$0.id_tag == tag}
-        print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource`")
+    func didSelectView(with uid: UUID) {
+        let view = (baseView.subviews as? Alias.StackDataSource)?.first{$0.uid == uid}
+        print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource.self)`")
+        if let sub = view as? WrapperView{
+            baseView.currentSubview = sub
+        }else if let sub = view as? BackingImageView{
+            baseView.currentSubview = sub
+        }else if let sub = view as? BackingTextView{
+            baseView.currentSubview = sub
+        }
     }
     
     

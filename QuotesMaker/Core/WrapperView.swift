@@ -55,6 +55,8 @@ class WrapperView: UIView {
     }
     var id_tag: Int = 0
     
+    let uid:UUID = UUID()
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }

@@ -60,7 +60,7 @@ class BackingTextView: UITextView {
     }
     
     
-    
+    var uid:UUID = UUID()
     var inputFrame:CGRect = .zero
     
     
