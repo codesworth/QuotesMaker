@@ -122,7 +122,7 @@ extension StudioVC:StudioTabDelegate{
             }
             break
         case .layers:
-            
+            makeStackTable()
             break
         case .moveUp:
             baseView.moveSubiewForward()
@@ -135,13 +135,15 @@ extension StudioVC:StudioTabDelegate{
     
     @discardableResult
     func makeStackTable()->LayerStack?{
+        let baseView = BaseView(frame: [100])
+        
         if let datasource = baseView.subviews as? Alias.StackDataSource{
             let stack = LayerStack(frame: baseView.frame, dataSource: datasource)
             stack.alpha = 0
-//            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-//                self.view.addSubview(stack)
-//                stack.alpha = 1
-//            }, completion: nil)
+            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                self.view.addSubview(stack)
+                stack.alpha = 1
+            }, completion: nil)
             stack.delegate = self
             return stack
         }

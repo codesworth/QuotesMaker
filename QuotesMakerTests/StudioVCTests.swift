@@ -23,13 +23,14 @@ class StudioVCTests: XCTestCase {
     }
 
     func test_StackTableInclusion(){
-        studioVc.
+        let stack = studioVc.makeStackTable()
+        XCTAssertNotNil(stack)
     }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+           studioVc.viewDidLoad()
         }
     }
 
