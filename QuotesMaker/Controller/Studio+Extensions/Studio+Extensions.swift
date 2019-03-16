@@ -166,6 +166,7 @@ extension StudioVC:StackTableDelegate{
         print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource.self)`")
         if let sub = view as? WrapperView{
             baseView.currentSubview = sub
+            
         }else if let sub = view as? BackingImageView{
             baseView.currentSubview = sub
         }else if let sub = view as? BackingTextView{

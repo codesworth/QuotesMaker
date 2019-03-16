@@ -47,13 +47,18 @@ class WrapperView: UIView {
     
     
     var id:String{
-        if type(of: superlayer) == BackingGradientlayer.self{
-            return "View \(id_tag):Gradient"
+        if let _ = superlayer as? BackingGradientlayer{
+            return "View \(id_tag): Gradient"
         }else{
-            return "View\(id_tag)"
+            return "View \(id_tag)"
         }
     }
-    var id_tag: Int = 0
+    var grd_tag:Int = 0
+    var blk_tag = 0
+    var id_tag: Int{
+        if let _ = superlayer as? BackingGradientlayer{return grd_tag}
+        return blk_tag
+    }
     
     let uid:UUID = UUID()
     

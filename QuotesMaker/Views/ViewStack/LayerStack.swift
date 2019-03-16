@@ -72,7 +72,7 @@ class LayerStack: MaterialView {
     }
 
     @objc func layerChanged(_ notification:Notification){
-        print(notification)
+        
         if let data = notification.userInfo?[.info] as? Alias.StackDataSource{
             dataSource = data
         }
@@ -98,7 +98,9 @@ class LayerStack: MaterialView {
     }
     
     
-
+    deinit {
+        unsubscribe()
+    }
 }
 
 

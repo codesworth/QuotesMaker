@@ -17,7 +17,7 @@ class BaseView:UIView{
         setup()
     }
     
-    private var viewTags:(imgs:Int,txt:Int,ord:Int) = (0,0,0)
+    private var viewTags:(imgs:Int,txt:Int,blk:Int,grd:Int) = (0,0,0,0)
     
     private var current:CALayer?
     
@@ -65,6 +65,7 @@ class BaseView:UIView{
     override func willRemoveSubview(_ subview: UIView) {
         let subs = subviews.filter{$0 != subview}
         Subscription.main.post(suscription: .layerChanged, object: subs)
+        
     }
     
     
@@ -93,8 +94,15 @@ class BaseView:UIView{
             viewTags.txt += 1
             view.id_tag = viewTags.txt
         }else if let view = subview as? WrapperView{
-            viewTags.ord += 1
-            view.id_tag = viewTags.ord
+            if let _ = view.superlayer as? BackingGradientlayer{
+                viewTags.grd += 1
+                view.grd_tag = viewTags.grd
+            }
+            else{
+                viewTags.blk += 1
+                view.blk_tag = viewTags.blk
+                
+            }
         }
         currentSubview = subview
         Subscription.main.post(suscription: .layerChanged, object: subviews)
