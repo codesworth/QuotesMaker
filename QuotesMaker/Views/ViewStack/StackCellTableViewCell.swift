@@ -9,9 +9,13 @@
 import UIKit
 
 class StackCellTableViewCell: UITableViewCell {
+    
+    
 
+    @IBOutlet weak var titlelabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
     }
 
@@ -19,6 +23,10 @@ class StackCellTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configure(id:String){
+        titlelabel.text = id
     }
     
 }

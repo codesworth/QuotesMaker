@@ -86,3 +86,6 @@ extension WrapperView:StateChangeable{
         redoModels.push(model)
     }
 }
+
+
+extension WrapperView:BaseviewSubViewable{}

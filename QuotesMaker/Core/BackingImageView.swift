@@ -34,6 +34,7 @@ class BackingImageView: UIImageView {
     var id:String{
         return "Image \(id_tag)"
     }
+    
     var id_tag: Int = 0
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,3 +76,5 @@ extension BackingImageView:StateChangeable{
         
     }
 }
+
+extension BackingImageView:BaseviewSubViewable{}

@@ -8,23 +8,30 @@
 
 import UIKit
 
+protocol StackTableDelegate:class {
+    
+    func didSelectView(with tag:Int)
+}
+
+
 class LayerStack: UIView {
     
     lazy var stackTable:UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.allowsMultipleSelection = false
         table.backgroundColor = .lightGray
+        table.register(UINib(nibName: "\(StackCellTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCellTableViewCell.self)")
         return table
     }()
     
-    var dataSource:[UIView] = []
+    var dataSource:Alias.StackDataSource = []
 
-    init(frame: CGRect, dataSource:[UIView]) {
+    init(frame: CGRect, dataSource:Alias.StackDataSource) {
         super.init(frame: frame)
         self.dataSource = dataSource
     }
     
-    
+    weak var delegate:StackTableDelegate?
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,7 +70,13 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "\(StackCellTableViewCell.self)", for: indexPath) as? StackCellTableViewCell{
+            let view = dataSource[indexPath.row]
+           cell.configure(id: view.id)
+            return cell
+        }
         
+        return StackCellTableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -71,7 +84,8 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let view = dataSource[indexPath.row]
+        delegate?.didSelectView(with: view.id_tag)
     }
     
 }

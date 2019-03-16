@@ -17,6 +17,9 @@
 		381865B5223C9972006C0C56 /* LayerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B4223C9972006C0C56 /* LayerStack.swift */; };
 		381865B8223C9E1F006C0C56 /* StackCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */; };
 		381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */; };
+		381865BB223CF457006C0C56 /* Generic+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BA223CF457006C0C56 /* Generic+Protocols.swift */; };
+		381865BD223CF736006C0C56 /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BC223CF736006C0C56 /* Aliases.swift */; };
+		381865BF223CFC5E006C0C56 /* StudioVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BE223CFC5E006C0C56 /* StudioVCTests.swift */; };
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
@@ -124,6 +127,9 @@
 		381865B4223C9972006C0C56 /* LayerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerStack.swift; sourceTree = "<group>"; };
 		381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCellTableViewCell.swift; sourceTree = "<group>"; };
 		381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCellTableViewCell.xib; sourceTree = "<group>"; };
+		381865BA223CF457006C0C56 /* Generic+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Generic+Protocols.swift"; sourceTree = "<group>"; };
+		381865BC223CF736006C0C56 /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
+		381865BE223CFC5E006C0C56 /* StudioVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioVCTests.swift; sourceTree = "<group>"; };
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
@@ -335,7 +341,6 @@
 				388BE341222C3188005BF44B /* PanelCell.swift */,
 				388BE342222C3188005BF44B /* PanelCell.xib */,
 				388BE345222C4FB6005BF44B /* DoneButton.swift */,
-				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
 				38732E9622300DE700CDB703 /* FontCells.swift */,
 				38732E9722300DE700CDB703 /* FontCells.xib */,
 				38732E9A2230359500CDB703 /* LineView.swift */,
@@ -370,6 +375,7 @@
 				380C78FB2232C4C4006B8F8D /* ViewGesture.swift */,
 				380C78FF2232D8EB006B8F8D /* WrapperView.swift */,
 				38C80FC3223BFAA200150FD4 /* Notifications.swift */,
+				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -400,6 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				38C80FBC223A904700150FD4 /* StateProtocol.swift */,
+				381865BA223CF457006C0C56 /* Generic+Protocols.swift */,
+				381865BC223CF736006C0C56 /* Aliases.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -458,6 +466,7 @@
 			children = (
 				38FEDBFE222352DB0005EB60 /* QuotesMakerTests.swift */,
 				38FEDC00222352DB0005EB60 /* Info.plist */,
+				381865BE223CFC5E006C0C56 /* StudioVCTests.swift */,
 			);
 			path = QuotesMakerTests;
 			sourceTree = "<group>";
@@ -618,8 +627,10 @@
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,
 				38C80FC2223B073700150FD4 /* Studio+Extensions.swift in Sources */,
 				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
+				381865BB223CF457006C0C56 /* Generic+Protocols.swift in Sources */,
 				380C78FE2232CA9E006B8F8D /* ImageModel.swift in Sources */,
 				388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */,
+				381865BD223CF736006C0C56 /* Aliases.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
@@ -648,6 +659,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				381865BF223CFC5E006C0C56 /* StudioVCTests.swift in Sources */,
 				38FEDBFF222352DB0005EB60 /* QuotesMakerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

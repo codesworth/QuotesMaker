@@ -222,6 +222,9 @@ extension BackingTextView:TextModelDelegate{
         self.model = model
     }
 }
+
+
+extension BackingTextView:BaseviewSubViewable{}
 //Font Type
 //Font size
 //Font Color

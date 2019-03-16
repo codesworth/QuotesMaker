@@ -122,6 +122,7 @@ extension StudioVC:StudioTabDelegate{
             }
             break
         case .layers:
+            
             break
         case .moveUp:
             baseView.moveSubiewForward()
@@ -132,7 +133,30 @@ extension StudioVC:StudioTabDelegate{
         }
     }
     
+    @discardableResult
+    func makeStackTable()->LayerStack?{
+        if let datasource = baseView.subviews as? Alias.StackDataSource{
+            let stack = LayerStack(frame: baseView.frame, dataSource: datasource)
+            stack.alpha = 0
+//            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+//                self.view.addSubview(stack)
+//                stack.alpha = 1
+//            }, completion: nil)
+            stack.delegate = self
+            return stack
+        }
+        
+      return nil
+    }
     
     
+}
+
+extension StudioVC:StackTableDelegate{
+    
+    func didSelectView(with tag: Int) {
+        let view = (baseView.subviews as? Alias.StackDataSource)?.first{$0.id_tag == tag}
+        print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource`")
+    }
 }
 
