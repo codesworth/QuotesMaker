@@ -17,6 +17,7 @@ class StudioVC: UIViewController {
     private var studioTab:StudioTab!
     private var imagePanel:ImagePanel!
     @IBOutlet weak var baseView:BaseView!
+    var stack:LayerStack?
     //private var textField = BackingTextView(frame: .zero)
     private var aspectRatio:Dimensions.AspectRatios = .square
     

@@ -11,19 +11,37 @@ import UIKit
 protocol StackTableDelegate:class {
     
     func didSelectView(with tag:Int)
+    func didDismiss()
 }
 
 
-class LayerStack: UIView {
+class LayerStack: MaterialView {
     
     lazy var stackTable:UITableView = {
-        let table = UITableView(frame: .zero, style: .plain)
+        let table = UITableView(frame: .zero, style: .grouped)
         table.allowsMultipleSelection = false
         table.backgroundColor = .lightGray
         table.register(UINib(nibName: "\(StackCellTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCellTableViewCell.self)")
         return table
     }()
     
+    lazy var headerLable:BasicLabel = {
+        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .medium))
+        lab.textColor = .primary
+        lab.text = "View Items"
+        return lab
+    }()
+    
+    lazy var doneButt:CloseButton = {
+        let butt = CloseButton(type: .roundedRect)
+        butt.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
+        
+        return butt
+    }()
+    
+    @objc func donePressed(){
+        delegate?.didDismiss()
+    }
     var dataSource:Alias.StackDataSource = []
 
     init(frame: CGRect, dataSource:Alias.StackDataSource) {
@@ -46,16 +64,32 @@ class LayerStack: UIView {
     func initialize(){
         backgroundColor = .white
         addSubview(stackTable)
+        addSubview(headerLable)
+        addSubview(doneButt)
         stackTable.delegate = self
         stackTable.dataSource = self
     }
+
     
     override func layoutSubviews() {
         super.layoutSubviews()
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        let tabCons = stackTable.pinAllSides()
-        NSLayoutConstraint.activate(tabCons)
+        //let tabCons = stackTable.pinAllSides()
+        NSLayoutConstraint.activate([
+            headerLable.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            headerLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            doneButt.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            doneButt.widthAnchor.constraint(equalToConstant: 20),
+            doneButt.heightAnchor.constraint(equalToConstant: 20),
+            stackTable.topAnchor.constraint(equalTo: headerLable.topAnchor, constant:8),
+            stackTable.leftAnchor.constraint(equalTo: leftAnchor),
+            stackTable.rightAnchor.constraint(equalTo: rightAnchor),
+            stackTable.bottomAnchor.constraint(equalTo:bottomAnchor)
+        ])
     }
+    
+    
 
 }
 

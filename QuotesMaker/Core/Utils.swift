@@ -24,6 +24,18 @@ class Utils{
         }, completion:{ _ in view.removeFromSuperview()})
     }
     
+    class func fadeIn(_ view:UIView){
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            view.alpha = 1
+        }, completion: nil)
+    }
+    
+    class func fadeOut(_ view:UIView){
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {view.alpha = 0}, completion: {_ in view.removeFromSuperview()})
+    }
+    
+    
+    
     class func drawAddInRect()->UIBezierPath{
         let bezierPath = UIBezierPath()
         bezierPath.move(to: CGPoint(x: 65.85, y: 15.23))

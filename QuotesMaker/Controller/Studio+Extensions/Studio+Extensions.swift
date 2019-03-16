@@ -133,17 +133,15 @@ extension StudioVC:StudioTabDelegate{
         }
     }
     
-    @discardableResult
+    @discardableResult // ("For Testing")
     func makeStackTable()->LayerStack?{
-        
+        guard stack == nil else {return nil}
         if let datasource = baseView.subviews as? Alias.StackDataSource{
-            let stack = LayerStack(frame: baseView.frame, dataSource: datasource)
-            stack.alpha = 0
-            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-                self.view.addSubview(stack)
-                stack.alpha = 1
-            }, completion: nil)
-            stack.delegate = self
+            stack = LayerStack(frame: baseView.frame, dataSource: datasource)
+            stack?.alpha = 0
+            self.view.addSubview(stack!)
+            Utils.fadeIn(stack!)
+            stack?.delegate = self
             return stack
         }
         
@@ -155,9 +153,16 @@ extension StudioVC:StudioTabDelegate{
 
 extension StudioVC:StackTableDelegate{
     
+    func didDismiss() {
+        Utils.fadeOut(stack!)
+    }
+    
+    
     func didSelectView(with tag: Int) {
         let view = (baseView.subviews as? Alias.StackDataSource)?.first{$0.id_tag == tag}
         print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource`")
     }
+    
+    
 }
 
