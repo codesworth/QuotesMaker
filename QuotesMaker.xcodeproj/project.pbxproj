@@ -14,6 +14,9 @@
 		380C78FC2232C4C4006B8F8D /* ViewGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78FB2232C4C4006B8F8D /* ViewGesture.swift */; };
 		380C78FE2232CA9E006B8F8D /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78FD2232CA9E006B8F8D /* ImageModel.swift */; };
 		380C79002232D8EB006B8F8D /* WrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78FF2232D8EB006B8F8D /* WrapperView.swift */; };
+		381865B5223C9972006C0C56 /* LayerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B4223C9972006C0C56 /* LayerStack.swift */; };
+		381865B8223C9E1F006C0C56 /* StackCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */; };
+		381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */; };
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
@@ -118,6 +121,9 @@
 		380C78FB2232C4C4006B8F8D /* ViewGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGesture.swift; sourceTree = "<group>"; };
 		380C78FD2232CA9E006B8F8D /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		380C78FF2232D8EB006B8F8D /* WrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperView.swift; sourceTree = "<group>"; };
+		381865B4223C9972006C0C56 /* LayerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerStack.swift; sourceTree = "<group>"; };
+		381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCellTableViewCell.swift; sourceTree = "<group>"; };
+		381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCellTableViewCell.xib; sourceTree = "<group>"; };
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
@@ -213,6 +219,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		381865B3223C992C006C0C56 /* ViewStack */ = {
+			isa = PBXGroup;
+			children = (
+				381865B4223C9972006C0C56 /* LayerStack.swift */,
+				381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */,
+				381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */,
+			);
+			path = ViewStack;
+			sourceTree = "<group>";
+		};
 		38797C2322309D6B003A9D99 /* TextDesignableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +321,7 @@
 		389B938922275CA1009FE9E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				381865B3223C992C006C0C56 /* ViewStack */,
 				38C80FB7223A7ACB00150FD4 /* Panels */,
 				38797C2322309D6B003A9D99 /* TextDesignableView */,
 				388BE2FB2229A458005BF44B /* BaseView.swift */,
@@ -533,6 +550,7 @@
 				38FEDBF4222352DB0005EB60 /* LaunchScreen.storyboard in Resources */,
 				38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */,
 				388BE331222B0A16005BF44B /* painter.ttf in Resources */,
+				381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */,
 				38732E9922300DE700CDB703 /* FontCells.xib in Resources */,
 				388BE344222C3188005BF44B /* PanelCell.xib in Resources */,
 				38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */,
@@ -577,6 +595,7 @@
 				388BE323222AC376005BF44B /* CreateOptions.swift in Sources */,
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
 				38797C2522309DAF003A9D99 /* Constraints.swift in Sources */,
+				381865B5223C9972006C0C56 /* LayerStack.swift in Sources */,
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
@@ -610,6 +629,7 @@
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
+				381865B8223C9E1F006C0C56 /* StackCellTableViewCell.swift in Sources */,
 				380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */,
 				380C78FA2232C454006B8F8D /* BackingImageView.swift in Sources */,
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
