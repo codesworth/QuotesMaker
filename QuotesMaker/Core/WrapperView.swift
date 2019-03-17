@@ -82,7 +82,10 @@ class WrapperView: UIView {
 extension WrapperView:StateChangeable{
     
     func stateRedo() {
-        guard !redoModels.isEmpty else {return}
+        guard !redoModels.isEmpty else {
+            Subscription.main.post(suscription: .canRedo, object: false)
+            return
+        }
         let model = redoModels.pop()
         self.model = model
     }
@@ -95,6 +98,7 @@ extension WrapperView:StateChangeable{
         let model = previousModels.pop()
         self.model = model
         redoModels.push(model)
+        Subscription.main.post(suscription: .canRedo, object: true)
     }
 }
 

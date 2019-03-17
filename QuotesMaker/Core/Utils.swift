@@ -25,7 +25,7 @@ class Utils{
     }
     
     class func fadeIn(_ view:UIView){
-        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             view.alpha = 1
         }, completion: nil)
     }

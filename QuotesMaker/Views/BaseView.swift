@@ -142,6 +142,7 @@ class BaseView:UIView{
         guard let current = currentSubview, let subViewIndex = subviews.firstIndex(of: current) else {return}
         if subViewIndex + 1 < subviews.endIndex{
             exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex + 1)
+            Subscription.main.post(suscription: .layerChanged, object: subviews)
         }
         
         
@@ -151,6 +152,7 @@ class BaseView:UIView{
         guard let current = currentSubview, let subViewIndex = subviews.firstIndex(of: current) else {return}
         if subViewIndex > subviews.startIndex{
             exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex - 1)
+            Subscription.main.post(suscription: .layerChanged, object: subviews)
         }
         
     }

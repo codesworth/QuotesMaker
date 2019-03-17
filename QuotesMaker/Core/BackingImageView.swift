@@ -66,7 +66,10 @@ class BackingImageView: UIImageView {
 extension BackingImageView:StateChangeable{
     
     func stateRedo() {
-        guard !redoModels.isEmpty else {return}
+        guard !redoModels.isEmpty else {
+            Subscription.main.post(suscription: .canRedo, object: false)
+            return
+        }
         let model = redoModels.pop()
         self.model = model
     }
@@ -79,6 +82,7 @@ extension BackingImageView:StateChangeable{
         let model = previousModels.pop()
         self.model = model
         redoModels.append(model)
+        Subscription.main.post(suscription: .canRedo, object: true)
         
     }
 }

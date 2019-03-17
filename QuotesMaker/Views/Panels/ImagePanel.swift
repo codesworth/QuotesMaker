@@ -120,11 +120,18 @@ class ImagePanel: MaterialView {
     override func didMoveToWindow() {
         super.didMoveToWindow()
         subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
+        subscribeTo(subscription: .canRedo, selector: #selector(canRedo(_:)))
     }
     
     @objc func canUndo(_ notification:Notification){
         if let canundo = notification.userInfo?[.info] as? Bool{
             stateControl.undoButt.isEnabled = canundo
+        }
+    }
+    
+    @objc func canRedo(_ notification:Notification){
+        if let canundo = notification.userInfo?[.info] as? Bool{
+            stateControl.redoButt.isEnabled = canundo
         }
     }
     

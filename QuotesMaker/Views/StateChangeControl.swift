@@ -59,6 +59,7 @@ class StateChangeControl: UIView{
         addSubview(undoButt)
         addSubview(redoButt)
         undoButt.isEnabled = false
+        redoButt.isEnabled = false
     }
     
     override func layoutSubviews() {

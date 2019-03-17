@@ -75,6 +75,7 @@ class LayerStack: MaterialView {
         stackTable.delegate = self
         stackTable.dataSource = self
         subscribeTo(subscription: .layerChanged, selector: #selector(layerChanged(_:)))
+        setPanGesture()
     }
 
     @objc func layerChanged(_ notification:Notification){
