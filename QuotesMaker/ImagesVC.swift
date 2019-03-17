@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SafariServices
 
 class ImagesVC: UIViewController {
     
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var baseView: UIView!
+    @IBOutlet weak var baseView: UIImageView!
     var imageLayer:CALayer!
     var textlayer:CATextLayer!
     var filterLayer:CALayer!
@@ -38,13 +39,36 @@ class ImagesVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func lauchWebView(){
+        
+        guard let url = URL(string: "https://jberkey78.github.io/floq-beta") else{return}
+        let controller:SFSafariViewController
+        if #available(iOS 11.0, *) {
+            let config = SFSafariViewController.Configuration()
+            config.barCollapsingEnabled = true
+            config.entersReaderIfAvailable = true
+            controller = SFSafariViewController(url: url, configuration: config)
+        } else {
+            // Fallback on earlier versions
+            controller = SFSafariViewController(url: url)
+        }
+        
+        controller.preferredControlTintColor = .seafoamBlue
+        controller.preferredBarTintColor = .charcoal
+        present(controller, animated: true, completion: nil)
+        //        if UIApplication.shared.canOpenURL(url){
+        //            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        //        }
+    }
 
     @IBAction func addImageButt(_ sender: Any) {
-        makeImaheFromView()
-//        switch operationIndex {
-//        case 0:
-//            imageTapped()
-//            break
+        //makeImaheFromView()
+        switch operationIndex {
+        case 0:
+            //imageTapped()
+            lauchWebView()
+            break
 //        case 1:
 //            filterLayer = CALayer()
 //            filterLayer.frame = baseView.bounds
@@ -58,11 +82,11 @@ class ImagesVC: UIViewController {
 //            textlayer.string = NSAttributedString(string: "Hello Warpi Image", attributes: [.font : UIFont.systemFont(ofSize: 20, weight: .bold),.foregroundColor:UIColor.red.cgColor])
 //            baseView.layer.addSublayer(textlayer)
 //            break
-//        default:
-//            turnLayerIntoImage()
-//            break
-//        }
-//         operationIndex += 1
+        default:
+            turnLayerIntoImage()
+            break
+        }
+         //operationIndex += 1
     }
     
     func turnLayerIntoImage(){
@@ -94,14 +118,29 @@ extension ImagesVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage{
-            imageLayer = CALayer()
-            imageLayer.frame = baseView.bounds
-            baseView.layer.addSublayer(imageLayer)
-            imageLayer.contents = image.cgImage
-            imageLayer.masksToBounds = true
-            print("Image Orientation is:\(image.imageOrientation)")
+//            imageLayer = CALayer()
+//            imageLayer.frame = baseView.bounds
+//            baseView.layer.addSublayer(imageLayer)
+//            imageLayer.contents = image.cgImage
+//            imageLayer.masksToBounds = true
+//            print("Image Orientation is:\(image.imageOrientation)")
+            baseView.image = image
+            generateLow(image: image)
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func generateLow(image:UIImage){
+        print("Original image size is: \(image.jpegData(compressionQuality: 1))")
+        
+        let elysium = Elysium(source: image)
+        if let finalImage = elysium.makeScaledImage(.average){
+           print("New image size is: \(finalImage.jpegData(compressionQuality: 1))")
+            imageView.image = finalImage
+        }else{
+            print("Error geerating image")
+        }
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

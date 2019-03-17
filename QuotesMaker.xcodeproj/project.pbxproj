@@ -77,6 +77,8 @@
 		389B939622276BAD009FE9E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939522276BAD009FE9E6 /* Extensions.swift */; };
 		389B939822277A77009FE9E6 /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939722277A77009FE9E6 /* CreateButton.swift */; };
 		389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */; };
+		38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687B223E8E3D00F29F52 /* Elysium.swift */; };
+		38A6687E223EED7C00F29F52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687D223EED7C00F29F52 /* Colors.swift */; };
 		38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FB8223A837C00150FD4 /* StudioTab.swift */; };
 		38C80FBD223A904700150FD4 /* StateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FBC223A904700150FD4 /* StateProtocol.swift */; };
 		38C80FBF223A98B900150FD4 /* StateChangeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FBE223A98B900150FD4 /* StateChangeControl.swift */; };
@@ -187,6 +189,8 @@
 		389B939522276BAD009FE9E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		389B939722277A77009FE9E6 /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
 		389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankImageBackingLayer.swift; sourceTree = "<group>"; };
+		38A6687B223E8E3D00F29F52 /* Elysium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elysium.swift; sourceTree = "<group>"; };
+		38A6687D223EED7C00F29F52 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		38C80FB8223A837C00150FD4 /* StudioTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTab.swift; sourceTree = "<group>"; };
 		38C80FBC223A904700150FD4 /* StateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateProtocol.swift; sourceTree = "<group>"; };
 		38C80FBE223A98B900150FD4 /* StateChangeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateChangeControl.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		387B96472229966F00824498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38A6687A223E8DBF00F29F52 /* Elysium */,
 				38D54E1E223930E3009FCF9A /* CustomAlbum.swift */,
 				388BE30D222ABBA5005BF44B /* Color Slider */,
 				388BE2F022299B01005BF44B /* LiteralExtensions */,
@@ -385,8 +390,17 @@
 			children = (
 				389B939522276BAD009FE9E6 /* Extensions.swift */,
 				38732A4B222EEA9100CDB703 /* String+Ex.swift */,
+				38A6687D223EED7C00F29F52 /* Colors.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38A6687A223E8DBF00F29F52 /* Elysium */ = {
+			isa = PBXGroup;
+			children = (
+				38A6687B223E8E3D00F29F52 /* Elysium.swift */,
+			);
+			path = Elysium;
 			sourceTree = "<group>";
 		};
 		38C80FB7223A7ACB00150FD4 /* Panels */ = {
@@ -583,6 +597,7 @@
 				384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */,
 				38C80FBD223A904700150FD4 /* StateProtocol.swift in Sources */,
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
+				38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
 				380C78FC2232C4C4006B8F8D /* ViewGesture.swift in Sources */,
 				388BE319222ABBA5005BF44B /* GradientView.swift in Sources */,
@@ -606,6 +621,7 @@
 				38797C2522309DAF003A9D99 /* Constraints.swift in Sources */,
 				381865B5223C9972006C0C56 /* LayerStack.swift in Sources */,
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
+				38A6687E223EED7C00F29F52 /* Colors.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
 				38C80FC6223C453D00150FD4 /* TabControl.swift in Sources */,

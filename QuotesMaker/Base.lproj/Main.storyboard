@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="n8B-EA-K5F">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SkS-Wl-SEb">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.47"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="StudioVC" id="0Lq-7j-mSx" customClass="StudioVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pde-jf-DuH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSF-MB-lNu" customClass="BaseView" customModule="QuotesMaker" customModuleProvider="target">
@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdF-Ie-zji" customClass="StudioPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="796" width="414" height="100"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="GVa-L1-YTN"/>
@@ -56,40 +56,11 @@
             <objects>
                 <viewController id="SkS-Wl-SEb" customClass="ImagesVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecE-Bv-QgP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvg-Li-dhV">
-                                <rect key="frame" x="20" y="62" width="335" height="300"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grdico" translatesAutoresizingMaskIntoConstraints="NO" id="MEw-Hg-3CV">
-                                        <rect key="frame" x="8" y="8" width="327" height="128"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="4mB-1N-Vvk"/>
-                                        </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HbL-FP-bUP">
-                                        <rect key="frame" x="36" y="164" width="201" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="MEw-Hg-3CV" firstAttribute="leading" secondItem="Tvg-Li-dhV" secondAttribute="leading" constant="8" id="9Dz-aH-q4J"/>
-                                    <constraint firstAttribute="trailing" secondItem="MEw-Hg-3CV" secondAttribute="trailing" id="Gnb-zh-Ndq"/>
-                                    <constraint firstItem="MEw-Hg-3CV" firstAttribute="top" secondItem="Tvg-Li-dhV" secondAttribute="top" constant="8" id="Uni-Mc-fvp"/>
-                                    <constraint firstItem="HbL-FP-bUP" firstAttribute="top" secondItem="MEw-Hg-3CV" secondAttribute="bottom" constant="28" id="VzB-bm-u4w"/>
-                                    <constraint firstAttribute="trailing" secondItem="HbL-FP-bUP" secondAttribute="trailing" constant="98" id="a6w-0U-f7g"/>
-                                    <constraint firstAttribute="bottom" secondItem="HbL-FP-bUP" secondAttribute="bottom" constant="8" id="fta-nP-zfF"/>
-                                    <constraint firstAttribute="height" constant="300" id="pxG-5Z-NRf"/>
-                                    <constraint firstItem="HbL-FP-bUP" firstAttribute="leading" secondItem="Tvg-Li-dhV" secondAttribute="leading" constant="36" id="sdJ-55-Gyj"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-e8-6gH">
-                                <rect key="frame" x="112.5" y="392" width="150" height="40"/>
+                                <rect key="frame" x="132" y="416" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="m6x-Tv-6qZ"/>
@@ -109,27 +80,33 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xva-Kd-AXh">
-                                <rect key="frame" x="20" y="307" width="335" height="300"/>
+                                <rect key="frame" x="20" y="502" width="374" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="KZn-OS-lgm"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-f8-IPr">
+                                <rect key="frame" x="10" y="104" width="394" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="NaK-cg-ifq"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Cjs-hm-mfA" firstAttribute="trailing" secondItem="Tvg-Li-dhV" secondAttribute="trailing" constant="20" id="45a-c9-xab"/>
+                            <constraint firstItem="Cjs-hm-mfA" firstAttribute="trailing" secondItem="wN1-f8-IPr" secondAttribute="trailing" constant="10" id="3SG-cT-HdM"/>
+                            <constraint firstItem="wN1-f8-IPr" firstAttribute="leading" secondItem="Cjs-hm-mfA" secondAttribute="leading" constant="10" id="8E8-ZS-JY0"/>
                             <constraint firstItem="Cjs-hm-mfA" firstAttribute="bottom" secondItem="xva-Kd-AXh" secondAttribute="bottom" constant="60" id="9EJ-PN-RVe"/>
                             <constraint firstItem="Cjs-hm-mfA" firstAttribute="trailing" secondItem="xva-Kd-AXh" secondAttribute="trailing" constant="20" id="AJF-fr-1Qh"/>
-                            <constraint firstItem="Tvg-Li-dhV" firstAttribute="top" secondItem="Cjs-hm-mfA" secondAttribute="top" constant="42" id="EiO-YN-ddJ"/>
+                            <constraint firstItem="wN1-f8-IPr" firstAttribute="top" secondItem="Cjs-hm-mfA" secondAttribute="top" constant="60" id="Orf-X6-JSE"/>
                             <constraint firstItem="qHC-e8-6gH" firstAttribute="centerX" secondItem="ecE-Bv-QgP" secondAttribute="centerX" id="Oyn-St-xZ9"/>
                             <constraint firstItem="xva-Kd-AXh" firstAttribute="leading" secondItem="Cjs-hm-mfA" secondAttribute="leading" constant="20" id="bke-gp-7MR"/>
-                            <constraint firstItem="qHC-e8-6gH" firstAttribute="top" secondItem="Tvg-Li-dhV" secondAttribute="bottom" constant="30" id="iLE-Sk-dJC"/>
-                            <constraint firstItem="Tvg-Li-dhV" firstAttribute="leading" secondItem="Cjs-hm-mfA" secondAttribute="leading" constant="20" id="knb-40-8cV"/>
+                            <constraint firstItem="qHC-e8-6gH" firstAttribute="top" secondItem="wN1-f8-IPr" secondAttribute="bottom" constant="12" id="jdS-BJ-bmh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cjs-hm-mfA"/>
                     </view>
                     <connections>
-                        <outlet property="baseView" destination="Tvg-Li-dhV" id="FN8-vz-FYY"/>
+                        <outlet property="baseView" destination="wN1-f8-IPr" id="wsg-Lq-AJf"/>
                         <outlet property="imageView" destination="xva-Kd-AXh" id="JFW-7Y-zkB"/>
                     </connections>
                 </viewController>
@@ -142,7 +119,7 @@
             <objects>
                 <viewController id="3ft-VR-sOs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="34s-6j-AyN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kvH-PF-KAI">
@@ -179,7 +156,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n8B-EA-K5F" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="TJW-Ss-1DZ">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.93333333333333335" green="0.0078431372549019607" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -194,10 +171,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFf-B1-3hp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714" y="176"/>
+            <point key="canvasLocation" x="707" y="108"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="grdico" width="96" height="96"/>
-    </resources>
 </document>
