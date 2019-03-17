@@ -60,6 +60,13 @@ class BaseView:UIView{
         layer.borderColor = UIColor.primary.cgColor
         contentMode = .scaleAspectFill
         layer.masksToBounds = true
+        subscribeTo(subscription: .layerReArranged, selector: #selector(layerArranged(_:)))
+    }
+    
+    @objc func layerArranged(_ notification:Notification){
+        if let swap = notification.userInfo?[.info] as? LayerStack.SwapIndice{
+            exchangeSubview(at: swap.initial, withSubviewAt: swap.final)
+        }
     }
     
     override func willRemoveSubview(_ subview: UIView) {
@@ -127,6 +134,9 @@ class BaseView:UIView{
 //
 //    }
     
+    deinit {
+        unsubscribe()
+    }
     
     func moveSubiewForward(){
         guard let current = currentSubview, let subViewIndex = subviews.firstIndex(of: current) else {return}

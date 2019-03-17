@@ -12,18 +12,23 @@ protocol StackTableDelegate:class {
     
     func didSelectView(with uid:UUID)
     func didDismiss()
+    
 }
 
 
 class LayerStack: MaterialView {
     
+    typealias SwapIndice = (initial:Int,final:Int)
     lazy var stackTable:UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.allowsMultipleSelection = false
         table.backgroundColor = .white
+        table.isEditing = true
         table.register(UINib(nibName: "\(StackCellTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCellTableViewCell.self)")
         return table
     }()
+    
+    
     
     lazy var headerLable:BasicLabel = {
         let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .medium))
@@ -120,6 +125,7 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
             empty.font = UIFont.systemFont(ofSize: 20, weight: .medium)
             empty.textColor = .primary
             tableView.backgroundView = empty
+            
         }
         return dataSource.count
     }
@@ -143,6 +149,23 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
         delegate?.didSelectView(with: view.uid)
     }
     
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        moveFrom(sourceIndexPath.row, to: destinationIndexPath.row)
+        tableView.reloadData()
+        let swap:SwapIndice = (sourceIndexPath.row,destinationIndexPath.row)
+        Subscription.main.post(suscription: .layerReArranged, object:swap)
+    }
+    
+    func moveFrom(_ c_index:Int, to index:Int){
+        dataSource.swapAt(c_index, index)
+    }
+    
+    
     
     
 }
@@ -159,4 +182,5 @@ extension UIView{
             bottomAnchor.constraint(equalTo: superview.bottomAnchor)
         ]
     }
+    
 }
