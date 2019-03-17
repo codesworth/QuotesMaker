@@ -43,7 +43,7 @@ class WrapperView: UIView {
     func updateModel(_ model:LayerModel){
         self.model = model
         previousModels.push(model)
-        Subscription.main.post(suscription: .canUndo, object: true)
+        Subscription.main.post(suscription: .canUndo, object: previousModels.isMulti)
     }
     
     

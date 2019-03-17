@@ -58,6 +58,10 @@ extension Array{
     mutating func pop()->Element{
         return popLast()!
     }
+    
+    var isMulti:Bool{
+        return count > 1
+    }
 }
 
 
