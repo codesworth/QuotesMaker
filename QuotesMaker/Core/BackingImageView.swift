@@ -30,6 +30,7 @@ class BackingImageView: UIImageView {
         var new = model
         new!.image = image
         model = new!
+        Subscription.main.post(suscription: .canUndo, object: true)
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.Name.canUndo.rawValue), object: nil)
     }
     
@@ -71,7 +72,10 @@ extension BackingImageView:StateChangeable{
     }
     
     func stateUndo() {
-        guard !previousModels.isEmpty else {return}
+        guard !previousModels.isEmpty else {
+            Subscription.main.post(suscription: .canUndo, object: false)
+            return
+        }
         let model = previousModels.pop()
         self.model = model
         redoModels.append(model)

@@ -43,6 +43,7 @@ class WrapperView: UIView {
     func updateModel(_ model:LayerModel){
         self.model = model
         previousModels.push(model)
+        Subscription.main.post(suscription: .canUndo, object: true)
     }
     
     
@@ -87,7 +88,10 @@ extension WrapperView:StateChangeable{
     }
     
     func stateUndo() {
-        guard !previousModels.isEmpty else{return}
+        guard !previousModels.isEmpty else{
+            Subscription.main.post(suscription: .canUndo, object: false)
+            return
+        }
         let model = previousModels.pop()
         self.model = model
         redoModels.push(model)

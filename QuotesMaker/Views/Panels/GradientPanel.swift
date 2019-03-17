@@ -27,6 +27,18 @@ class GradientPanel: MaterialView {
     
     @objc func donePressed(){
         Utils.animatePanelsOut(self)
+        unsubscribe()
+    }
+    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
+    }
+    
+    @objc func canUndo(_ notification:Notification){
+        if let canundo = notification.userInfo?[.info] as? Bool{
+            stateControl.undoButt.isEnabled = canundo
+        }
     }
     
     weak var stateDelegate:StateControlDelegate?

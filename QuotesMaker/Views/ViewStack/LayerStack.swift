@@ -24,6 +24,7 @@ class LayerStack: MaterialView {
         table.allowsMultipleSelection = false
         table.backgroundColor = .white
         table.isEditing = true
+        table.allowsSelectionDuringEditing = true
         table.register(UINib(nibName: "\(StackCellTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCellTableViewCell.self)")
         return table
     }()
@@ -166,7 +167,13 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
     }
     
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
     
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
     
 }
 
