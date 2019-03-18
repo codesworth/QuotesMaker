@@ -15,7 +15,7 @@ class ResizableView: UIView {
         case topLeft, topRight, bottomLeft, bottomRight, none
     }
     
-    static var edgeSize: CGFloat = 100.0
+    static var edgeSize: CGFloat = 50.0
     private typealias `Self` = ResizableView
     
     var currentEdge: Edge = .none
@@ -23,7 +23,8 @@ class ResizableView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame:frame)
-        setResizableGesture()
+        //setResizableGesture()
+        setPanGesture()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,17 +66,19 @@ class ResizableView: UIView {
             
             switch currentEdge {
             case .topLeft:
-                self.frame = CGRect(x: originX + deltaWidth, y: originY + deltaHeight, width: width - deltaWidth, height: height - deltaHeight).origin.constrained(in: <#T##CGRect#>)
+                
+                self.frame = CGRect(x: originX + deltaWidth, y: originY + deltaHeight, width: width - deltaWidth, height: height - deltaHeight)//.miredInto(superview!.bounds)
             case .topRight:
-                self.frame = CGRect(x: originX, y: originY + deltaHeight, width: width + deltaWidth, height: height - deltaHeight)
+                self.frame = CGRect(x: originX, y: originY + deltaHeight, width: width + deltaWidth, height: height - deltaHeight)//.miredInto(superview!.bounds)
             case .bottomRight:
-                self.frame = CGRect(x: originX, y: originY, width: currentPoint.x + deltaWidth, height: currentPoint.y + deltaWidth)
+                self.frame = CGRect(x: originX, y: originY, width: currentPoint.x + deltaWidth, height: currentPoint.y + deltaWidth)//.miredInto(superview!.bounds)
             case .bottomLeft:
-                self.frame = CGRect(x: originX + deltaWidth, y: originY, width: width - deltaWidth, height: height + deltaHeight)
+                self.frame = CGRect(x: originX + deltaWidth, y: originY, width: width - deltaWidth, height: height + deltaHeight)//.miredInto(superview!.bounds)
             default:
-                // Moving
+                break
+                 //Moving
                 self.center = CGPoint(x: self.center.x + currentPoint.x - touchStart.x,
-                                      y: self.center.y + currentPoint.y - touchStart.y)
+                                      y: self.center.y + currentPoint.y - touchStart.y).constrained(in: superview!.bounds)
             }
         }
     }
@@ -87,10 +90,3 @@ class ResizableView: UIView {
 }
 
 
-extension CGRect{
-    
-    func miredInto(_ rect:CGRect){
-        var origin = rect.origin
-        origin.constrained(in: rect)
-    }
-}

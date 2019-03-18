@@ -59,3 +59,14 @@ extension CGRect:ExpressibleByFloatLiteral{
     
     
 }
+
+
+
+extension CGRect{
+    
+    func miredInto(_ rect:CGRect)-> CGRect{
+        let orig = origin.constrained(in: rect)
+        let sz = size.minimum(in: rect)
+        return CGRect(origin: orig, size: sz)
+    }
+}
