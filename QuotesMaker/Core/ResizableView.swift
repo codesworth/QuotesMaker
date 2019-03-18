@@ -23,6 +23,7 @@ class ResizableView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame:frame)
+        setResizableGesture()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,7 +65,7 @@ class ResizableView: UIView {
             
             switch currentEdge {
             case .topLeft:
-                self.frame = CGRect(x: originX + deltaWidth, y: originY + deltaHeight, width: width - deltaWidth, height: height - deltaHeight)
+                self.frame = CGRect(x: originX + deltaWidth, y: originY + deltaHeight, width: width - deltaWidth, height: height - deltaHeight).origin.constrained(in: <#T##CGRect#>)
             case .topRight:
                 self.frame = CGRect(x: originX, y: originY + deltaHeight, width: width + deltaWidth, height: height - deltaHeight)
             case .bottomRight:
@@ -86,3 +87,10 @@ class ResizableView: UIView {
 }
 
 
+extension CGRect{
+    
+    func miredInto(_ rect:CGRect){
+        var origin = rect.origin
+        origin.constrained(in: rect)
+    }
+}

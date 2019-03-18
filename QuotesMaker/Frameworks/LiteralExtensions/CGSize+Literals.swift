@@ -53,4 +53,11 @@ extension CGSize{
     func scaledBy(_ scaler:CGFloat)->CGSize{
         return [width * scaler, height * scaler]
     }
+    
+    func minimum(in rect:CGRect)->CGSize{
+        var minWidth = rect.width * 0.1
+        var minHeight = rect.height * 0.1
+        
+        return [max(minWidth, self.width), max(minHeight, height)]
+    }
 }

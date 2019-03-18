@@ -147,14 +147,16 @@ class StudioVC: UIViewController {
     }
     
     func imageOptionSelected(){
-        let crop = ResizableView(frame: .zero)
-        crop.backgroundColor = .magenta
-        baseView.addSubview(crop)
-        crop.frame.size = baseView.bounds.size.scaledBy(0.7)
-        crop.center = [baseView.bounds.midX,baseView.bounds.midY]
-//        let imageView = BackingImageView(frame: baseView.bounds)
-//        baseView.addSubview(imageView)
-//        setupImageInteractiveView()
+//        let crop = ResizableView(frame: .zero)
+//        crop.backgroundColor = .magenta
+//        baseView.addSubview(crop)
+//        crop.frame.size = baseView.bounds.size.scaledBy(0.7)
+//        crop.center = [baseView.bounds.midX,baseView.bounds.midY]
+        let imageView = BackingImageView(frame: .zero)
+        imageView.frame.size = baseView.bounds.size.scaledBy(0.8)
+        imageView.center = [baseView.bounds.midX,baseView.bounds.midY]
+        baseView.addSubview(imageView)
+        setupImageInteractiveView()
     }
     
     func launchPicker(){
