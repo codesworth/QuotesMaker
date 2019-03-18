@@ -20,6 +20,7 @@
 		381865BB223CF457006C0C56 /* Generic+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BA223CF457006C0C56 /* Generic+Protocols.swift */; };
 		381865BD223CF736006C0C56 /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BC223CF736006C0C56 /* Aliases.swift */; };
 		381865BF223CFC5E006C0C56 /* StudioVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BE223CFC5E006C0C56 /* StudioVCTests.swift */; };
+		3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823655D223FA6D00078A723 /* GroupWrapperView.swift */; };
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
@@ -132,6 +133,7 @@
 		381865BA223CF457006C0C56 /* Generic+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Generic+Protocols.swift"; sourceTree = "<group>"; };
 		381865BC223CF736006C0C56 /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		381865BE223CFC5E006C0C56 /* StudioVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioVCTests.swift; sourceTree = "<group>"; };
+		3823655D223FA6D00078A723 /* GroupWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupWrapperView.swift; sourceTree = "<group>"; };
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				380C78FF2232D8EB006B8F8D /* WrapperView.swift */,
 				38C80FC3223BFAA200150FD4 /* Subscriptions.swift */,
 				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
+				3823655D223FA6D00078A723 /* GroupWrapperView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
 				38C80FC6223C453D00150FD4 /* TabControl.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
+				3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */,
 				380C79002232D8EB006B8F8D /* WrapperView.swift in Sources */,
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				388BE33E222BBFDE005BF44B /* GradientModel.swift in Sources */,

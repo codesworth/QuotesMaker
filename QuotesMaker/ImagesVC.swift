@@ -54,8 +54,8 @@ class ImagesVC: UIViewController {
             controller = SFSafariViewController(url: url)
         }
         
-        controller.preferredControlTintColor = .seafoamBlue
-        controller.preferredBarTintColor = .charcoal
+        controller.preferredControlTintColor = .white
+        controller.preferredBarTintColor = .seafoamBlue
         present(controller, animated: true, completion: nil)
         //        if UIApplication.shared.canOpenURL(url){
         //            UIApplication.shared.open(url, options: [:], completionHandler: nil)

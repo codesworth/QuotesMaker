@@ -10,6 +10,7 @@ import UIKit
 
 protocol ImagePanelDelegate :class {
     func didSelect(_ option:ImagePanel.PanelOptions)
+    
 }
 
 //Image Options: Rotate
@@ -20,6 +21,41 @@ class ImagePanel: MaterialView {
     enum PanelOptions{
         case gallery
         case online
+        case cropMode
+        case rotate
+        case flipVertical
+        case flipHorizontal
+    }
+    
+    lazy var testActionsSegment:UISegmentedControl = {
+        let seg = UISegmentedControl(frame: .zero)
+        seg.insertSegment(withTitle: "Rotate", at: 0, animated: true)
+        seg.insertSegment(withTitle: "Crop", at: 0, animated: true)
+        seg.insertSegment(withTitle: "flip side", at: 0, animated: true)
+        seg.insertSegment(withTitle: "flip up", at: 0, animated: true)
+        seg.tintColor = .primary
+        seg.addTarget(self, action: #selector(segChanged(_:)), for: .touchUpInside)
+        
+        return seg
+    }()
+    
+    @objc func segChanged(_ control:UISegmentedControl){
+        switch control.selectedSegmentIndex {
+        case 0:
+            delegate?.didSelect(.rotate)
+            break
+        case 1:
+            delegate?.didSelect(.cropMode)
+            break
+        case 2:
+            delegate?.didSelect(.flipVertical)
+            break
+        case 3:
+            delegate?.didSelect(.flipHorizontal)
+            break
+        default:
+            break
+        }
     }
     
     lazy var firstline:LineView = {
@@ -156,6 +192,7 @@ class ImagePanel: MaterialView {
         contentView.addSubview(secondline)
         contentView.addSubview(pickFromGalleryButton)
         contentView.addSubview(pickFromInternetButton)
+        contentView.addSubview(testActionsSegment)
         pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromGallery), for: .touchUpInside)
         pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromInternet), for: .touchUpInside)
     }
@@ -202,10 +239,14 @@ class ImagePanel: MaterialView {
             pickFromGalleryButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             //pickFromGalleryButton.widthAnchor.constraint(equalToConstant: 120),
             pickFromGalleryButton.heightAnchor.constraint(equalToConstant: 40),
-//            pickFromInternetButton.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            pickFromInternetButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-//            pickFromInternetButton.widthAnchor.constraint(equalToConstant: 120),
-//            pickFromInternetButton.heightAnchor.constraint(equalToConstant: 40)
+            pickFromInternetButton.topAnchor.constraint(equalTo: pickFromGalleryButton.bottomAnchor, constant: 12),
+            pickFromInternetButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            pickFromInternetButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            pickFromInternetButton.heightAnchor.constraint(equalToConstant: 40),
+            testActionsSegment.topAnchor.constraint(equalTo: pickFromInternetButton.bottomAnchor, constant: 12),
+            testActionsSegment.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            testActionsSegment.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            testActionsSegment.heightAnchor.constraint(equalToConstant: 30)
             
         ])
     }

@@ -211,11 +211,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/ImagesVC.swift"
-            timestampString = "574548618.88017"
+            timestampString = "574549588.702235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "turnLayerIntoImage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -227,11 +227,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/ImagesVC.swift"
-            timestampString = "574548618.881066"
+            timestampString = "574549588.702835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "turnLayerIntoImage()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1651,7 +1651,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
             endingLineNumber = "82"
-            landmarkName = "stateUndo()"
+            landmarkName = "stateRedo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1667,7 +1667,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
-            landmarkName = "stateUndo()"
+            landmarkName = "stateRedo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1683,8 +1683,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
             endingLineNumber = "29"
-            landmarkName = "setImage(image:)"
-            landmarkType = "7">
+            landmarkName = "croppingRect"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1699,8 +1699,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
             endingLineNumber = "30"
-            landmarkName = "setImage(image:)"
-            landmarkType = "7">
+            landmarkName = "croppingRect"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1715,8 +1715,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
             endingLineNumber = "31"
-            landmarkName = "setImage(image:)"
-            landmarkType = "7">
+            landmarkName = "BackingImageView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -23,6 +23,13 @@ class BackingImageView: UIImageView {
         }
     }
     
+    lazy var croppingRect:UIView = {
+        let v = UIView(frame: bounds)
+        v.backgroundColor = .white
+        v.borderlize(.white,4)
+        return v
+    }()
+    
     var uid:UUID = UUID()
     
     func setImage(image:UIImage){
@@ -59,6 +66,8 @@ class BackingImageView: UIImageView {
         movedInFocus()
         clipsToBounds = true
     }
+    
+    
 
 }
 

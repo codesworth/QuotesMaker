@@ -11,6 +11,7 @@ import UIKit
 
 class BaseView:UIView{
     
+    typealias BaseSubView = UIView & BaseviewSubViewable
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -90,6 +91,14 @@ class BaseView:UIView{
         
     }
     
+    internal override func addSubview(_ view: UIView) {
+        guard let view = view as? BaseSubView else {fatalError("subviews must conform to BaseViewSubViewable")}
+        super.addSubview(view)
+    }
+    
+    func addSubviewable(_ view:BaseSubView){
+        addSubview(view)
+    }
     
     
     override func didAddSubview(_ subview: UIView) {
