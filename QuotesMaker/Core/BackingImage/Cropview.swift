@@ -10,7 +10,13 @@ import UIKit
 
 class Cropview: UIView {
     
+    lazy var topLine:LineView = {
+        let line = LineView(frame: .zero)
+        line.backgroundColor = .white
+        return line
+    }()
     
+    var startingLocation:CGPoint?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,10 +32,16 @@ class Cropview: UIView {
     }
     
     func initialize(){
-        borderlize(.white, 3)
+        //borderlize(.white, 3)
+        addSubview(topLine)
+        backgroundColor = .magenta
         
     }
     
-    @objc func 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        topLine.frame = [0,0,bounds.width,10]
+        
+    }
     
 }

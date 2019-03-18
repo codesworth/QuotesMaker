@@ -66,6 +66,10 @@ extension CGPoint{
         )
     }
     
+    static func -(_ lhs:CGPoint, rhs:CGPoint)->CGPoint{
+        return CGPoint(double2(lhs) - double2(rhs))
+    }
+    
     static func +(_ lhs:CGPoint, rhs:CGPoint)->CGPoint{
         return CGPoint(double2(lhs) + double2(rhs))
     }

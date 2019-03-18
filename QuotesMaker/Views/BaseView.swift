@@ -92,7 +92,7 @@ class BaseView:UIView{
     }
     
     internal override func addSubview(_ view: UIView) {
-        guard let view = view as? BaseSubView else {fatalError("subviews must conform to BaseViewSubViewable")}
+//        guard let view = view as? BaseSubView else {fatalError("subviews must conform to BaseViewSubViewable")}
         super.addSubview(view)
     }
     
