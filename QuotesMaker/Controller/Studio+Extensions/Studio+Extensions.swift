@@ -85,10 +85,34 @@ extension StudioVC:StudioPanelDelegate{
 extension StudioVC:ImagePanelDelegate{
     
     func didSelect(_ option: ImagePanel.PanelOptions) {
-        if option == .gallery{
+        
+        switch option {
+        case .gallery:
             launchPicker()
+            break
+        case .online:
+            break
+        case .rotate:
+            guard let current = baseView.currentSubview as? BackingImageView else {break}
+            current.rotateImage()
+            break
+        case .cropMode:
+            break
+        case .flipHorizontal:
+            flipImage(.horizontal)
+            break
+        case .flipVertical:
+            flipImage(.vertical)
+            break
         }
     }
+    
+    func flipImage(_ side:BackingImageView.FlipSides){
+        if let current = baseView.currentSubview as? BackingImageView{
+            current.flip(side)
+        }
+    }
+    
 }
 
 

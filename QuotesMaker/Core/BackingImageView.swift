@@ -22,6 +22,7 @@ class BackingImageView: UIImageView {
             image = model.image
         }
     }
+    var currentAngle:CGFloat = 0
     
     lazy var croppingRect:UIView = {
         let v = UIView(frame: bounds)
@@ -97,3 +98,62 @@ extension BackingImageView:StateChangeable{
 }
 
 extension BackingImageView:BaseviewSubViewable{}
+
+extension BackingImageView{
+    
+    enum FlipSides {
+        case vertical,horizontal
+    }
+    
+    func flip(_ side:FlipSides){
+        guard let image =  image else {return}
+        if side == .horizontal{
+           let newImage = image.withHorizontallyFlippedOrientation()
+            self.image = newImage
+        }else{
+            guard let newImage = flipImageVertically(image: image)else {return}
+            self.image = newImage
+        }
+        
+    }
+    
+    func rotateImage(){
+        guard let image = image else {return}
+        if let newImage = rotate(image){
+            self.image = newImage
+        }
+        
+    }
+    
+    private func flipImageVertically(image:UIImage)->UIImage?{
+       
+        UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+        let context = UIGraphicsGetCurrentContext()!
+        context.translateBy(x: -image.size.width / 2, y: -image.size.height / 2)
+        context.scaleBy(x: image.scale, y: image.scale)
+        
+        context.translateBy(x: -image.size.width / 2, y: -image.size.height / 2)
+        context.draw(image.cgImage!, in: CGRect(origin: .zero, size: image.size))
+    
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    private func rotate(_ image:UIImage) -> UIImage?{
+        let angle = currentAngle < 361 ? currentAngle + 90 : 0
+        let rotatedSize = CGRect(origin: .zero, size: image.size).applying(CGAffineTransform(rotationAngle: .Angle(angle))).integral.size
+        UIGraphicsBeginImageContext(rotatedSize)
+        guard let context = UIGraphicsGetCurrentContext() else {return nil}
+        let origin = CGPoint(x: rotatedSize.width / 2, y: rotatedSize.height / 2)
+        context.translateBy(x: origin.x, y: origin.y)
+        context.rotate(by: .Angle(angle))
+        image.draw(in: [-origin.x, origin.y,image.size.width,image.size.height])
+        let rotatedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return rotatedImage
+        
+        
+    }
+}

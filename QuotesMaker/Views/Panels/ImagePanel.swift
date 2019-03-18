@@ -30,11 +30,11 @@ class ImagePanel: MaterialView {
     lazy var testActionsSegment:UISegmentedControl = {
         let seg = UISegmentedControl(frame: .zero)
         seg.insertSegment(withTitle: "Rotate", at: 0, animated: true)
-        seg.insertSegment(withTitle: "Crop", at: 0, animated: true)
-        seg.insertSegment(withTitle: "flip side", at: 0, animated: true)
-        seg.insertSegment(withTitle: "flip up", at: 0, animated: true)
+        seg.insertSegment(withTitle: "Crop", at: 1, animated: true)
+        seg.insertSegment(withTitle: "flip side", at: 2, animated: true)
+        seg.insertSegment(withTitle: "flip up", at: 3, animated: true)
         seg.tintColor = .primary
-        seg.addTarget(self, action: #selector(segChanged(_:)), for: .touchUpInside)
+        seg.addTarget(self, action: #selector(segChanged(_:)), for: .valueChanged)
         
         return seg
     }()
@@ -48,10 +48,11 @@ class ImagePanel: MaterialView {
             delegate?.didSelect(.cropMode)
             break
         case 2:
-            delegate?.didSelect(.flipVertical)
+            delegate?.didSelect(.flipHorizontal)
             break
         case 3:
-            delegate?.didSelect(.flipHorizontal)
+             delegate?.didSelect(.flipVertical)
+            
             break
         default:
             break
