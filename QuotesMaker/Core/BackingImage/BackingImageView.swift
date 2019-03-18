@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BackingImageView: UIView {
+class BackingImageView: ResizableView {
     
     
     lazy var baseImageView:UIImageView = {
@@ -86,8 +86,8 @@ class BackingImageView: UIView {
         model = ImageLayerModel()
         contentMode = .scaleAspectFill
         isUserInteractionEnabled = true
-        setResizableGesture()
-        setPanGesture()
+//        setResizableGesture()
+//        setPanGesture()
         movedInFocus()
         
         

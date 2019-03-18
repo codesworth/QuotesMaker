@@ -11,7 +11,7 @@ import UIKit
 
 class BaseView:UIView{
     
-    typealias BaseSubView = UIView & BaseviewSubViewable
+    typealias BaseSubView = ResizableView & BaseviewSubViewable
     
     override init(frame: CGRect) {
         super.init(frame: frame)
