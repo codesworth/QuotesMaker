@@ -14,7 +14,7 @@ class Cropview: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,7 +26,10 @@ class Cropview: UIView {
     }
     
     func initialize(){
-        borderlize(.white, <#T##width: CGFloat##CGFloat#>)
+        borderlize(.white, 3)
+        
     }
+    
+    @objc func 
     
 }

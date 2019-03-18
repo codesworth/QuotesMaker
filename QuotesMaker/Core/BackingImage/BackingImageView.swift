@@ -13,11 +13,18 @@ class BackingImageView: UIView {
     
     lazy var baseImageView:UIImageView = {
         let imageView = UIImageView(frame: .zero)
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.backgroundColor = .clear
         imageView.isUserInteractionEnabled = true
-        imageView.setResizableGesture()
+        
         return imageView
+    }()
+    
+    lazy var cropView:Cropview = {
+        let crop = Cropview(frame: .zero)
+        crop.backgroundColor = .clear
+        return crop
     }()
     
     private var image:UIImage?{
@@ -89,14 +96,15 @@ class BackingImageView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         baseImageView.frame = bounds
+    
     }
 
     func beginCropping(){
         gestureRecognizers?.forEach(removeGestureRecognizer(_:))
-        baseImageView.setResizableGesture()
-        baseImageView.setPanGesture()
-        
-        
+        cropView.frame.size = bounds.size.scaledBy(0.8)
+        cropView.center = [bounds.midX,bounds.midY]
+        cropView.setResizableGesture()
+        addSubview(cropView)
     }
 }
 
