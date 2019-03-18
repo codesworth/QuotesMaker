@@ -97,6 +97,7 @@ extension StudioVC:ImagePanelDelegate{
             current.rotateImage()
             break
         case .cropMode:
+            initCropmode()
             break
         case .flipHorizontal:
             flipImage(.horizontal)
@@ -110,6 +111,12 @@ extension StudioVC:ImagePanelDelegate{
     func flipImage(_ side:BackingImageView.FlipSides){
         if let current = baseView.currentSubview as? BackingImageView{
             current.flip(side)
+        }
+    }
+    
+    func initCropmode(){
+        if let current = baseView.currentSubview as? BackingImageView{
+            current.beginCropping()
         }
     }
     

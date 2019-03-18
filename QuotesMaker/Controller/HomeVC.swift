@@ -63,7 +63,7 @@ class HomeVC:UIViewController{
        imageView.translatesAutoresizingMaskIntoConstraints = false
         filterButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.widthAnchor.constraint(equalToConstant: .photoDimension),
             imageView.heightAnchor.constraint(equalToConstant: .photoDimension),

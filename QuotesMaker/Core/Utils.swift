@@ -19,19 +19,25 @@ class Utils{
     }
     
     class func animatePanelsOut(_ view:UIView){
-        UIView.animate(withDuration: 1,animations: {
-            view.frame.origin.y = UIScreen.main.bounds.height + 300
-        }, completion:{ _ in view.removeFromSuperview()})
+        OperationQueue.main.addOperation {
+            UIView.animate(withDuration: 1,animations: {
+                view.frame.origin.y = UIScreen.main.bounds.height + 300
+            }, completion:{ _ in view.removeFromSuperview()})
+        }
     }
     
     class func fadeIn(_ view:UIView){
-        UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
-            view.alpha = 1
-        }, completion: nil)
+        OperationQueue.main.addOperation {
+            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                view.alpha = 1
+            }, completion: nil)
+        }
     }
     
     class func fadeOut(_ view:UIView, completion:@escaping ()->()){
-        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {view.alpha = 0}, completion: {_ in completion()})
+        OperationQueue.main.addOperation {
+             UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {view.alpha = 0}, completion: {_ in completion()})
+        }
     }
     
     

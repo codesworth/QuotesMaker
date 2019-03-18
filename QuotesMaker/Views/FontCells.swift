@@ -15,10 +15,18 @@ class FontCells: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        nameLabel.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        if #available(iOS 11.0, *) {
+            nameLabel.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        } else {
+            // Fallback on earlier versions
+        }
         nameLabel.layer.cornerRadius = 4
         mainLable.layer.cornerRadius = 4
-        mainLable.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        if #available(iOS 11.0, *) {
+            mainLable.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     

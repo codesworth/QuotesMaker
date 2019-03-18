@@ -73,6 +73,7 @@ class StudioTab: MaterialView {
     }
     
     
+    
     func initialize(){
         backgroundColor = .primary
         addSubview(deleteButt)
@@ -81,9 +82,18 @@ class StudioTab: MaterialView {
         addSubview(moveDownButt)
         setCorner(20)
         deleteButt.roundCorners(20)
-        deleteButt.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
+        if #available(iOS 11.0, *) {
+            deleteButt.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
+        } else {
+            var cornerMask = UIRectCorner()
+            // Fallback on earlier versions
+        }
         stackButt.roundCorners(20)
-        stackButt.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+        if #available(iOS 11.0, *) {
+            stackButt.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func awakeFromNib() {

@@ -21,6 +21,8 @@
 		381865BD223CF736006C0C56 /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BC223CF736006C0C56 /* Aliases.swift */; };
 		381865BF223CFC5E006C0C56 /* StudioVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BE223CFC5E006C0C56 /* StudioVCTests.swift */; };
 		3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823655D223FA6D00078A723 /* GroupWrapperView.swift */; };
+		38236561223FEB640078A723 /* +StateChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236560223FEB640078A723 /* +StateChangeable.swift */; };
+		38236563223FFE260078A723 /* Cropview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236562223FFE260078A723 /* Cropview.swift */; };
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
@@ -134,6 +136,8 @@
 		381865BC223CF736006C0C56 /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		381865BE223CFC5E006C0C56 /* StudioVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioVCTests.swift; sourceTree = "<group>"; };
 		3823655D223FA6D00078A723 /* GroupWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupWrapperView.swift; sourceTree = "<group>"; };
+		38236560223FEB640078A723 /* +StateChangeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+StateChangeable.swift"; sourceTree = "<group>"; };
+		38236562223FFE260078A723 /* Cropview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cropview.swift; sourceTree = "<group>"; };
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
@@ -239,6 +243,16 @@
 				381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */,
 			);
 			path = ViewStack;
+			sourceTree = "<group>";
+		};
+		3823655F223FEB340078A723 /* BackingImage */ = {
+			isa = PBXGroup;
+			children = (
+				380C78F92232C454006B8F8D /* BackingImageView.swift */,
+				38236560223FEB640078A723 /* +StateChangeable.swift */,
+				38236562223FFE260078A723 /* Cropview.swift */,
+			);
+			path = BackingImage;
 			sourceTree = "<group>";
 		};
 		38797C2322309D6B003A9D99 /* TextDesignableView */ = {
@@ -372,13 +386,13 @@
 		389B938B22275CB9009FE9E6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3823655F223FEB340078A723 /* BackingImage */,
 				389B9391222769CD009FE9E6 /* Dimensions.swift */,
 				389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */,
 				389B938E2227689E009FE9E6 /* Utils.swift */,
 				389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */,
 				388BE335222B2135005BF44B /* BackingGradientlayer.swift */,
 				388BE387222EB35A005BF44B /* TextBackingLayer.swift */,
-				380C78F92232C454006B8F8D /* BackingImageView.swift */,
 				380C78FB2232C4C4006B8F8D /* ViewGesture.swift */,
 				380C78FF2232D8EB006B8F8D /* WrapperView.swift */,
 				38C80FC3223BFAA200150FD4 /* Subscriptions.swift */,
@@ -615,6 +629,7 @@
 				38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */,
 				388BE343222C3188005BF44B /* PanelCell.swift in Sources */,
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
+				38236563223FFE260078A723 /* Cropview.swift in Sources */,
 				38C80FC4223BFAA200150FD4 /* Subscriptions.swift in Sources */,
 				388BE38A222EB50B005BF44B /* TextModel.swift in Sources */,
 				388BE33C222BB5AD005BF44B /* MaterialView.swift in Sources */,
@@ -652,6 +667,7 @@
 				388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */,
 				381865BD223CF736006C0C56 /* Aliases.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
+				38236561223FEB640078A723 /* +StateChangeable.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
@@ -837,6 +853,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MB46J93Q7Z;
 				INFOPLIST_FILE = QuotesMaker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -855,6 +872,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MB46J93Q7Z;
 				INFOPLIST_FILE = QuotesMaker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

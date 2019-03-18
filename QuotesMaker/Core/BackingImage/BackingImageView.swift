@@ -8,7 +8,23 @@
 
 import UIKit
 
-class BackingImageView: UIImageView {
+class BackingImageView: UIView {
+    
+    
+    lazy var baseImageView:UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .clear
+        imageView.isUserInteractionEnabled = true
+        imageView.setResizableGesture()
+        return imageView
+    }()
+    
+    private var image:UIImage?{
+        didSet{
+            baseImageView.image = image
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,47 +75,39 @@ class BackingImageView: UIImageView {
     
     func initialize(){
         backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        addSubview(baseImageView)
         model = ImageLayerModel()
         contentMode = .scaleAspectFill
         isUserInteractionEnabled = true
         setResizableGesture()
         setPanGesture()
         movedInFocus()
-        clipsToBounds = true
+        
+        
     }
     
-    
-
-}
-
-
-extension BackingImageView:StateChangeable{
-    
-    func stateRedo() {
-        guard !redoModels.isEmpty else {
-            Subscription.main.post(suscription: .canRedo, object: false)
-            return
-        }
-        let model = redoModels.pop()
-        self.model = model
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        baseImageView.frame = bounds
     }
-    
-    func stateUndo() {
-        guard !previousModels.isEmpty else {
-            Subscription.main.post(suscription: .canUndo, object: false)
-            return
-        }
-        let model = previousModels.pop()
-        self.model = model
-        redoModels.append(model)
-        Subscription.main.post(suscription: .canRedo, object: true)
+
+    func beginCropping(){
+        gestureRecognizers?.forEach(removeGestureRecognizer(_:))
+        baseImageView.setResizableGesture()
+        baseImageView.setPanGesture()
+        
         
     }
 }
 
+
+
+
 extension BackingImageView:BaseviewSubViewable{}
 
 extension BackingImageView{
+    
+   
     
     enum FlipSides {
         case vertical,horizontal
@@ -124,7 +132,8 @@ extension BackingImageView{
         
         if let newImage = rotate(image){
             //image.rotate(radians: Float(CGFloat.Angle(90))){
-            self.image = newImage
+            setImage(image: newImage)
+            
         }
         
     }
@@ -132,8 +141,8 @@ extension BackingImageView{
     private func flipImageVertically(image:UIImage)->UIImage?{
        
         UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
-        let context = UIGraphicsGetCurrentContext()!
-        context.translateBy(x: -image.size.width / 2, y: -image.size.height / 2)
+        guard let context = UIGraphicsGetCurrentContext() else {return nil}
+        context.translateBy(x: image.size.width / 2, y: image.size.height / 2)
         context.scaleBy(x: image.scale, y: image.scale)
         
         context.translateBy(x: -image.size.width / 2, y: -image.size.height / 2)
@@ -187,4 +196,6 @@ extension UIImage {
         
         return newImage
     }
+    
+    
 }

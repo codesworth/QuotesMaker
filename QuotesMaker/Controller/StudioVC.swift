@@ -69,16 +69,30 @@ class StudioVC: UIViewController {
         imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
         imagePanel.stateDelegate = self
         let size = Dimensions.sizeForAspect(.square)
-        NSLayoutConstraint.activate([
-            baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-            baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            baseView.widthAnchor.constraint(equalToConstant: size.width),
-            baseView.heightAnchor.constraint(equalToConstant: size.height),
-            studioTab.topAnchor.constraint(equalTo: baseView.bottomAnchor, constant: 16),
-            studioTab.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            studioTab.widthAnchor.constraint(equalToConstant: size.width),
-            studioTab.heightAnchor.constraint(equalToConstant: 40)
-        ])
+        if #available(iOS 11.0, *) {
+            NSLayoutConstraint.activate([
+                baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+                baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                baseView.widthAnchor.constraint(equalToConstant: size.width),
+                baseView.heightAnchor.constraint(equalToConstant: size.height),
+                studioTab.topAnchor.constraint(equalTo: baseView.bottomAnchor, constant: 16),
+                studioTab.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                studioTab.widthAnchor.constraint(equalToConstant: size.width),
+                studioTab.heightAnchor.constraint(equalToConstant: 40)
+                ])
+        } else {
+            NSLayoutConstraint.activate([
+                baseView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+                baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                baseView.widthAnchor.constraint(equalToConstant: size.width),
+                baseView.heightAnchor.constraint(equalToConstant: size.height),
+                studioTab.topAnchor.constraint(equalTo: baseView.bottomAnchor, constant: 16),
+                studioTab.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                studioTab.widthAnchor.constraint(equalToConstant: size.width),
+                studioTab.heightAnchor.constraint(equalToConstant: 40)
+                ])
+            // Fallback on earlier versions
+        }
         
         let handle = UIScreen.main.screenType()
         switch handle {
