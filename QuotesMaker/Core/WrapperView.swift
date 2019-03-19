@@ -153,6 +153,9 @@ extension WrapperView:SPUserResizableViewDelegate{
     
     func userResizableViewDidEndEditing(_ userResizableView: SPUserResizableView!) {
         self.frame.size = resizerView.frame.size
+        print("The new frame is: \(resizerView.frame)")
+        self.frame.origin = self.frame.origin + resizerView.frame.origin
+        resizerView.frame.origin = .zero
         //resizerView.hideEditingHandles()
     }
 }
