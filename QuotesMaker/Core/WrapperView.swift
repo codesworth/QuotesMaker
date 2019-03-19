@@ -11,13 +11,13 @@ import UIKit
 
 class WrapperView: UIView {
     
-    //var superlayer:CALayer!
+    var superlayer:CALayer!
     var isGradient = false
     var previousModels:[LayerModel] = []
     var redoModels:[LayerModel] = []
     init(frame: CGRect, layer:CALayer) {
         super.init(frame: frame)
-        //superlayer = layer
+        superlayer = layer
         if type(of: layer) == BackingGradientlayer.self{
             isGradient = true
             updateModel(GradientLayerModel.defualt())
@@ -28,15 +28,15 @@ class WrapperView: UIView {
     }
     var model:LayerModel!{
         didSet{
-//            if isGradient{
-//                if let mod = model as? GradientLayerModel{
-//                    (superlayer as! BackingGradientlayer).model = mod
-//                }
-//            }else{
-//                if let mod = model as? BlankLayerModel{
-//                    (superlayer as! BlankImageBackingLayer).model = mod
-//                }
-//            }
+            if isGradient{
+                if let mod = model as? GradientLayerModel{
+                    (superlayer as! BackingGradientlayer).model = mod
+                }
+            }else{
+                if let mod = model as? BlankLayerModel{
+                    (superlayer as! BlankImageBackingLayer).model = mod
+                }
+            }
         }
     }
     
@@ -68,15 +68,21 @@ class WrapperView: UIView {
     }
     
     func initialize(){
-        
-//        layer.addSublayer(superlayer)
-//        superlayer.bounds = layer.bounds
-//        superlayer.position = [bounds.midX,bounds.midY]
-//        setPanGesture()
-//        setResizableGesture()
+        layer.masksToBounds = true
+        layer.addSublayer(superlayer)
+        superlayer.needsDisplayOnBoundsChange = true
+        superlayer.bounds = layer.bounds
+        superlayer.position = [bounds.midX,bounds.midY]
+        setPanGesture()
+        setResizableGesture()
         backgroundColor = .cyan
         movedInFocus()
     }
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        superlayer.frame = bounds
+//    }
 }
 
 
