@@ -53,7 +53,7 @@ extension UIView{
     @objc func wasTapped(_ gesture:UITapGestureRecognizer){
         guard let superview = superview as? BaseView, let view = gesture.view else {return}
         superview.currentSubview = view
-        superview.propagateFocus()
+        
     }
     
     @discardableResult

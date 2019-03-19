@@ -29,6 +29,16 @@ class BaseView:UIView{
     
     private var current:CALayer?
     
+    var selectedView:UIView?{
+        didSet{
+            if oldValue != selectedView {
+                if let new = selectedView as? BaseSubView{
+                    propagateFocus(current: new)
+                    
+                }
+            }
+        }
+    }
     
     var currentSublayer:CALayer?{
         get{
@@ -42,6 +52,8 @@ class BaseView:UIView{
     weak var delegate:BaseViewProtocol?
     
     var currentSubview:UIView?
+    
+    
     
     var subLayers:[CALayer]?{
         return layer.sublayers

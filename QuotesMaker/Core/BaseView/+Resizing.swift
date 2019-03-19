@@ -34,12 +34,14 @@ extension BaseView{
 //        return view
 //    }
     
-    func propagateFocus(){
-        guard currentSubview != nil else { return}
-        subviews.forEach{
-            if let sub = $0 as? BaseSubView{
-                
-                sub == currentSubview! ? sub.focused(true) : sub.focused(false)}
+    func propagateFocus(current:BaseSubView){
+        subviews.forEach{ view in
+            if let view = view as? BaseSubView {
+                if view !== current{
+                    current.focused(false)
+                    
+                }
+            }
         }
     }
     
