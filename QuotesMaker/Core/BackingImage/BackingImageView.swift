@@ -15,17 +15,27 @@ class BackingImageView: UIView{
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .clear
+        imageView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         imageView.isUserInteractionEnabled = true
         
         return imageView
     }()
     
-    lazy var cropView:Cropview = {
-        let crop = Cropview(frame: .zero)
-        crop.backgroundColor = .clear
-        return crop
-    }()
+    lazy var resizerView:SPUserResizableView = { [unowned self] by in
+        let resize = SPUserResizableView(frame: bounds)
+        resize.minHeight = bounds.height * 0.1
+        resize.minWidth = bounds.width * 0.1
+        resize.preventsPositionOutsideSuperview = false
+        resize.delegate = self
+        
+        return resize
+        }(())
+    
+//    lazy var cropView:Cropview = {
+//        let crop = Cropview(frame: .zero)
+//        crop.backgroundColor = .clear
+//        return crop
+//    }()
     
     var image:UIImage?{
         didSet{
@@ -45,14 +55,14 @@ class BackingImageView: UIView{
             image = model.image
         }
     }
-    var currentAngle:CGFloat = 0
+    //var currentAngle:CGFloat = 0
     
-    lazy var croppingRect:UIView = {
-        let v = UIView(frame: bounds)
-        v.backgroundColor = .white
-        v.borderlize(.white,4)
-        return v
-    }()
+//    lazy var croppingRect:UIView = {
+//        let v = UIView(frame: bounds)
+//        v.backgroundColor = .white
+//        v.borderlize(.white,4)
+//        return v
+//    }()
     
     var uid:UUID = UUID()
     
@@ -81,31 +91,33 @@ class BackingImageView: UIView{
     }
     
     func initialize(){
-        backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-        addSubview(baseImageView)
+        backgroundColor = .clear
+        baseImageView.frame = resizerView.bounds
+        resizerView.contentView = baseImageView
+        addSubview(resizerView)
         model = ImageLayerModel()
-        contentMode = .scaleAspectFill
-        isUserInteractionEnabled = true
+        baseImageView.contentMode = .scaleAspectFill
+        baseImageView.isUserInteractionEnabled = true
 //        setResizableGesture()
 //        setPanGesture()
-        movedInFocus()
+        //movedInFocus()
         
         
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        baseImageView.frame = bounds
+        
     
     }
 
-    func beginCropping(){
-        gestureRecognizers?.forEach(removeGestureRecognizer(_:))
-        cropView.frame.size = bounds.size.scaledBy(0.8)
-        cropView.center = [bounds.midX,bounds.midY]
-        cropView.setResizableGesture()
-        addSubview(cropView)
-    }
+//    func beginCropping(){
+//        gestureRecognizers?.forEach(removeGestureRecognizer(_:))
+//        cropView.frame.size = bounds.size.scaledBy(0.8)
+//        cropView.center = [bounds.midX,bounds.midY]
+//        cropView.setResizableGesture()
+//        addSubview(cropView)
+//    }
 }
 
 
@@ -113,7 +125,7 @@ class BackingImageView: UIView{
 
 extension BackingImageView:BaseViewSubViewable{
     func focused(_ bool:Bool){
-        //bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
+        bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
     }
 }
 
@@ -210,4 +222,24 @@ extension UIImage {
     }
     
     
+}
+
+
+
+extension BackingImageView:SPUserResizableViewDelegate{
+    
+    func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
+        if let superview = superview as? BaseView, superview.selectedView != self {
+            superview.selectedView = self
+        }
+        userResizableView.showEditingHandles()
+    }
+    
+    func userResizableViewDidEndEditing(_ userResizableView: SPUserResizableView!) {
+        self.frame.size = resizerView.frame.size
+        //print("The new frame is: \(resizerView.frame)")
+        self.frame.origin = self.frame.origin + resizerView.frame.origin
+        resizerView.frame.origin = .zero
+        //resizerView.hideEditingHandles()
+    }
 }

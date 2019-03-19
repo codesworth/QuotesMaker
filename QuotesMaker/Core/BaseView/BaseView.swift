@@ -34,7 +34,7 @@ class BaseView:UIView{
             if oldValue != selectedView {
                 if let old = oldValue as? BaseViewSubViewable{
                     old.focused(false)
-                    //propagateFocus(current: new)
+                    currentSubview = selectedView
                     
                 }
             }
