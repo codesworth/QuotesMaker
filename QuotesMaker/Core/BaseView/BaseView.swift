@@ -13,10 +13,21 @@ class BaseView:UIView{
     
     typealias BaseSubView = ResizableView & BaseviewSubViewable
     
+    lazy var resizerView:SPUserResizableView = { [unowned self] by in
+        let resize = SPUserResizableView(frame: .zero)
+        resize.minHeight = bounds.height * 0.1
+        resize.minWidth = bounds.width * 0.1
+        resize.preventsPositionOutsideSuperview = true
+        
+        return resize
+        }(())
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
+    
+    var resizingMode:Bool = false
     
     private var viewTags:(imgs:Int,txt:Int,blk:Int,grd:Int) = (0,0,0,0)
     

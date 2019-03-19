@@ -9,7 +9,7 @@
 
 import UIKit
 
-class WrapperView: ResizableView {
+class WrapperView: UIView {
     
     var superlayer:CALayer!
     var isGradient = false
@@ -72,8 +72,8 @@ class WrapperView: ResizableView {
         layer.addSublayer(superlayer)
         superlayer.bounds = layer.bounds
         superlayer.position = [bounds.midX,bounds.midY]
-//        setPanGesture()
-//        setResizableGesture()
+        setPanGesture()
+        setResizableGesture()
         movedInFocus()
     }
 }

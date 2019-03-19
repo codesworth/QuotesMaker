@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BackingImageView: ResizableView {
+class BackingImageView: UIView{
     
     
     lazy var baseImageView:UIImageView = {
