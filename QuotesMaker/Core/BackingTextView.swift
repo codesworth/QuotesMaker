@@ -8,8 +8,27 @@
 
 import UIKit
 
-class BackingTextView: UITextView {
+class BackingTextView: UIView {
+    
+    lazy var textView:UITextView = { [unowned self] by in
+        let view = UITextView(frame: bounds, textContainer: nil)
+        view.adjustsFontForContentSizeCategory = true
+        
+        view.backgroundColor = .clear
+        return view
+    }(())
 
+    lazy var resizerView:SPUserResizableView = { [unowned self] by in
+        let resize = SPUserResizableView(frame: bounds)
+        resize.minHeight = bounds.height * 0.1
+        resize.minWidth = bounds.width * 0.1
+        resize.showEditingHandles()
+        resize.preventsPositionOutsideSuperview = false
+        resize.delegate = self
+        
+        return resize
+    }(())
+    
     enum CurrentInputType{
         case keyboard
         case designboard
@@ -37,8 +56,8 @@ class BackingTextView: UITextView {
     
     var currentInput:CurrentInputType = .keyboard
     
-    init(frame: CGRect) {
-        super.init(frame: frame,textContainer:nil)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         initialize()
         
     }
@@ -46,18 +65,18 @@ class BackingTextView: UITextView {
     var model:TextLayerModel = TextLayerModel(){
         
         didSet{
-            attributedText = model.outPutString()
-            textColor = model.textColor
-            font = model.font
-            model.string = text
+            textView.attributedText = model.outPutString()
+            textView.textColor = model.textColor
+            textView.font = model.font
+            model.string = textView.text
         }
     }
     
-    override var attributedText: NSAttributedString!{
-        didSet{
-            print("I was updated \(String(describing: text))")
-        }
-    }
+//    var attributedText: NSAttributedString!{
+//        didSet{
+//            print("I was updated \(String(describing: text))")
+//        }
+//    }
     
     
     var uid:UUID = UUID()
@@ -65,10 +84,10 @@ class BackingTextView: UITextView {
     
     
     
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: textContainer)
-        initialize()
-    }
+//    override init(frame: CGRect, textContainer: NSTextContainer?) {
+//        super.init(frame: frame, textContainer: textContainer)
+//        initialize()
+//    }
     
     lazy var textlayer:TextBackingLayer = {
         let layer = TextBackingLayer()
@@ -89,21 +108,22 @@ class BackingTextView: UITextView {
     
     func initialize(){
         clipsToBounds = false
-        spellCheckingType = .no
-        autocorrectionType = .no
+        textView.spellCheckingType = .no
+        textView.autocorrectionType = .no
         //textContainerInset = [2]
         //isScrollEnabled = false
         //textContainer.lineFragmentPadding = 0
-        setPanGesture()
-        setResizableGesture()
+//        setPanGesture()
+//        setResizableGesture()
         //movedInFocus()
-        textColor = model.textColor
-        font = model.font
+        textView.textColor = model.textColor
+        textView.font = model.font
         backgroundColor = .clear
-        isScrollEnabled = true
-        tintColor = .black
-        text = "Hello"
-        
+        textView.isScrollEnabled = true
+        textView.tintColor = .black
+        textView.text = "Hello"
+        resizerView.contentView = textView
+        addSubview(resizerView)
         //textAlignment = .center
         
     
@@ -116,8 +136,8 @@ class BackingTextView: UITextView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        textlayer.bounds = bounds
-        textlayer.position = [bounds.midX,bounds.midY]
+//        textlayer.bounds = bounds
+//        textlayer.position = [bounds.midX,bounds.midY]
         watchForKeyBoardNotifications()
         //textlayer.backgroundColor = UIColor.green.cgColor
     }
@@ -148,25 +168,25 @@ extension BackingTextView{
         doneToolbar.items = items
         doneToolbar.sizeToFit()
         
-        self.inputAccessoryView = doneToolbar
+        textView.inputAccessoryView = doneToolbar
         
     }
     
     @objc func remakeInputView(){
-        resignFirstResponder()
-        defer {becomeFirstResponder()}
+        textView.resignFirstResponder()
+        defer {textView.becomeFirstResponder()}
         if currentInput == .keyboard{
             let adjustedFrame = CGRect(origin: inputFrame.origin, size: [inputFrame.size.width,320])
-            model.string = text
+            model.string = textView.text
             let view = TextDesignableInputView(frame: adjustedFrame, model: self.model)
             doneToolbar.items?.first?.title = "Keyboard"
             view.delegate = self
             view.backgroundColor = .white
-            self.inputView = view
+            self.textView.inputView = view
             
             currentInput = .designboard
         }else{
-           inputView = nil
+           textView.inputView = nil
             currentInput = .keyboard
             doneToolbar.items?.first?.title = "Text Effects"
         }
@@ -175,12 +195,12 @@ extension BackingTextView{
     
     @objc func doneButtonAction()
     {
-        self.resignFirstResponder()
+        self.textView.resignFirstResponder()
     }
     
     @objc func sizeViewToFit(){
         let currentSize = bounds.size
-        let newHeight = text.height(withConstrainedWidth: currentSize.width, font: font!)
+        let newHeight = textView.text.height(withConstrainedWidth: currentSize.width, font: textView.font!)
         if newHeight != currentSize.height{
             bounds.size = [currentSize.width,newHeight]
         }
@@ -193,7 +213,7 @@ extension BackingTextView{
 extension BackingTextView{
     
     func watchForKeyBoardNotifications(){
-        NotificationCenter.default.addObserver(self, selector: #selector(sizeViewToFit), name: UITextView.textDidChangeNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(sizeViewToFit), name: UITextView.textDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(respondtoKeyBoard), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
@@ -218,17 +238,45 @@ extension BackingTextView:TextModelDelegate{
     
     func didUpdateModel(_ model: TextLayerModel) {
         var model = model
-        model.string = text
+        model.string = textView.text
         self.model = model
     }
 }
 
 
 extension BackingTextView:BaseViewSubViewable{
+    
     func focused(_ bool: Bool) {
-        
+        if bool{
+            resizerView.showEditingHandles()
+        }else{
+            resizerView.hideEditingHandles()
+            textView.resignFirstResponder()
+        }
     }
 }
+
+
+extension BackingTextView:SPUserResizableViewDelegate{
+    
+    func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
+        if let superview = superview as? BaseView, superview.selectedView != self {
+            superview.selectedView = self
+        }
+        userResizableView.showEditingHandles()
+        textView.becomeFirstResponder()
+    }
+    
+    func userResizableViewDidEndEditing(_ userResizableView: SPUserResizableView!) {
+        self.frame.size = resizerView.frame.size
+        //print("The new frame is: \(resizerView.frame)")
+        self.frame.origin = self.frame.origin + resizerView.frame.origin
+        resizerView.frame.origin = .zero
+        //resizerView.hideEditingHandles()
+    }
+}
+
+
 //Font Type
 //Font size
 //Font Color
