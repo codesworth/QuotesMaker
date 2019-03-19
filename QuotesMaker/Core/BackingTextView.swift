@@ -224,7 +224,11 @@ extension BackingTextView:TextModelDelegate{
 }
 
 
-extension BackingTextView:BaseviewSubViewable{}
+extension BackingTextView:BaseviewSubViewable{
+    func focused(_ bool: Bool) {
+        
+    }
+}
 //Font Type
 //Font size
 //Font Color

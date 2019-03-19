@@ -41,14 +41,30 @@ extension UIView{
         recognizer.setTranslation(.zero, in: view)
     }
     
-    func movedInFocus(){
+    @discardableResult
+    func movedInFocus()->UITapGestureRecognizer{
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(wasTapped(_:)))
-        tap.numberOfTapsRequired = 2
+        tap.numberOfTapsRequired = 1
         addGestureRecognizer(tap)
+        return tap
     }
     
-    @objc func wasTapped(_ recognizer:UITapGestureRecognizer){
+    @objc func wasTapped(_ gesture:UITapGestureRecognizer){
+        guard let superview = superview as? BaseView, let view = gesture.view else {return}
+        superview.currentSubview = view
+        superview.propagateFocus()
+    }
+    
+    @discardableResult
+    func doubleTappedGesture()->UITapGestureRecognizer{
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(_:)))
+        tap.numberOfTapsRequired = 2
+        addGestureRecognizer(tap)
+        return tap
+    }
+    
+    @objc func doubleTapped(_ recognizer:UITapGestureRecognizer){
         guard let superview = superview as? BaseView, let view = recognizer.view else {return}
         superview.currentSubview = view
         superview.delegate?.wakePanelForCurrent()

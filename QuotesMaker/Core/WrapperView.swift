@@ -98,7 +98,8 @@ class WrapperView: UIView {
         superlayer.position = [contentView.bounds.midX,contentView.bounds.midY]
 //        setPanGesture()
 //        setResizableGesture()
-        movedInFocus()
+        
+       // movedInFocus()
     }
     
     override func layoutSubviews() {

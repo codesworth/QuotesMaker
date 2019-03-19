@@ -111,7 +111,11 @@ class BackingImageView: UIView{
 
 
 
-extension BackingImageView:BaseviewSubViewable{}
+extension BackingImageView:BaseviewSubViewable{
+    func focused(_ bool:Bool){
+        //bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
+    }
+}
 
 extension BackingImageView{
     
