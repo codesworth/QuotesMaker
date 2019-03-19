@@ -15,9 +15,9 @@ class BaseView:UIView{
     
     lazy var resizerView:SPUserResizableView = { [unowned self] by in
         let resize = SPUserResizableView(frame: .zero)
-        resize.minHeight = bounds.height * 0.1
-        resize.minWidth = bounds.width * 0.1
-        resize.preventsPositionOutsideSuperview = true
+//        resize.minHeight = bounds.height * 0.1
+//        resize.minWidth = bounds.width * 0.1
+//        resize.preventsPositionOutsideSuperview = true
         
         return resize
         }(())

@@ -20,6 +20,6 @@ extension BaseView{
         resizerView.frame = frame
         resizerView.contentView = current
         addSubview(resizerView)
+        
     }
-    
 }

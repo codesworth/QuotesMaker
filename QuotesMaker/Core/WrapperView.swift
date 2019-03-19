@@ -72,8 +72,8 @@ class WrapperView: UIView {
         layer.addSublayer(superlayer)
         superlayer.bounds = layer.bounds
         superlayer.position = [bounds.midX,bounds.midY]
-        setPanGesture()
-        setResizableGesture()
+//        setPanGesture()
+//        setResizableGesture()
         movedInFocus()
     }
 }
