@@ -13,7 +13,7 @@ class BackingTextView: UIView {
     lazy var textView:UITextView = { [unowned self] by in
         let view = UITextView(frame: bounds, textContainer: nil)
         view.adjustsFontForContentSizeCategory = true
-        
+        view.delegate = self
         view.backgroundColor = .clear
         return view
     }(())
@@ -276,6 +276,18 @@ extension BackingTextView:SPUserResizableViewDelegate{
     }
 }
 
+
+extension BackingTextView:UITextViewDelegate{
+    
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if let superview = superview as? BaseView, superview.selectedView != self {
+            superview.selectedView = self
+        }
+        resizerView.showEditingHandles()
+        return true
+    }
+    
+}
 
 //Font Type
 //Font size
