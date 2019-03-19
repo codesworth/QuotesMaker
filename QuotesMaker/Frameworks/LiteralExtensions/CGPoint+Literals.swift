@@ -60,18 +60,18 @@ extension CGPoint{
         return CGFloat(simd.length(double2(self)))
     }
     
-    func clampedWithin(_ bounds:CGRect)->CGPoint{
-        return CGPoint(
-            clamp(double2(self), min: double2(x:bounds.minX, y:bounds.minY), max: double2(x: bounds.maxX, y: bounds.maxY))
-        )
-    }
+//    func clampedWithin(_ bounds:CGRect)->CGPoint{
+//        return CGPoint(
+//            clamp(double2(self), min: double2(x:bounds.minX, y:bounds.minY), max: double2(x: bounds.maxX, y: bounds.maxY))
+//        )
+//    }
     
     static func -(_ lhs:CGPoint, rhs:CGPoint)->CGPoint{
-        return CGPoint(double2(lhs) - double2(rhs))
+        return lhs -= rhs
     }
     
     static func +(_ lhs:CGPoint, rhs:CGPoint)->CGPoint{
-        return CGPoint(double2(lhs) + double2(rhs))
+        return lhs += rhs
     }
     
     static func +=(_ lhs:CGPoint, rhs:CGPoint)->CGPoint{
@@ -102,11 +102,11 @@ extension CGPoint{
 
 
 extension double2{
-    
+
     init(_ point:CGPoint) {
-        self.init(x: point.x, y: point.y)
+        self.init(x: Double(point.x), y: Double(point.y))
     }
-    init(x:CGFloat, y:CGFloat) {
-        self.init(x: x.native, y: y.native)
-    }
+//    init(x:CGFloat, y:CGFloat) {
+//        self.init(x: x.native, y: y.native)
+//    }
 }

@@ -5,3 +5,5 @@
 
 
 #import "SPUserResizableView.h"
+#import "PhotoTweakView.h"
+#import "PhotoTweaksViewController.h"

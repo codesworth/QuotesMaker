@@ -49,7 +49,14 @@ class BaseView:UIView{
     
     weak var delegate:BaseViewProtocol?
     
-    var currentSubview:UIView?
+    var currentSubview:UIView?{
+        get{
+            return exitResizingModeFromGet()
+        }
+        set{
+            
+        }
+    }
     
     var subLayers:[CALayer]?{
         return layer.sublayers

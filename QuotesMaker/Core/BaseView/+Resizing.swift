@@ -22,4 +22,14 @@ extension BaseView{
         addSubview(resizerView)
         
     }
+    
+    func exitResizingModeFromGet()->UIView?{
+        guard resizingMode else {return subviews.last}
+        let frame = resizerView.frame
+        let view = resizerView.contentView!
+        addSubview(view)
+        view.frame = frame
+        resizerView.removeFromSuperview()
+        return view
+    }
 }

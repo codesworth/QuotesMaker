@@ -79,10 +79,13 @@ class WrapperView: UIView {
         movedInFocus()
     }
     
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        superlayer.frame = bounds
-//    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        superlayer.frame = bounds
+        CATransaction.commit()
+    }
 }
 
 

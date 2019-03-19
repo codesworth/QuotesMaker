@@ -27,7 +27,7 @@ class BackingImageView: UIView{
         return crop
     }()
     
-    private var image:UIImage?{
+    var image:UIImage?{
         didSet{
             baseImageView.image = image
         }

@@ -26,6 +26,9 @@
 		38236565224045390078A723 /* ResizableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236564224045390078A723 /* ResizableView.swift */; };
 		3823656A224059420078A723 /* SPUserResizableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38236569224059420078A723 /* SPUserResizableView.m */; };
 		3823656D2240674F0078A723 /* +Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823656C2240674F0078A723 /* +Resizing.swift */; };
+		382365752240ED9A0078A723 /* UIColor+Tweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 382365722240ED990078A723 /* UIColor+Tweak.m */; };
+		382365762240ED9A0078A723 /* PhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 382365732240ED990078A723 /* PhotoTweakView.m */; };
+		382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382365742240ED990078A723 /* PhotoTweaksViewController.m */; };
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
@@ -146,6 +149,12 @@
 		38236568224059410078A723 /* SPUserResizableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUserResizableView.h; sourceTree = "<group>"; };
 		38236569224059420078A723 /* SPUserResizableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUserResizableView.m; sourceTree = "<group>"; };
 		3823656C2240674F0078A723 /* +Resizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Resizing.swift"; sourceTree = "<group>"; };
+		3823656F2240ED990078A723 /* UIColor+Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tweak.h"; sourceTree = "<group>"; };
+		382365702240ED990078A723 /* PhotoTweakView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweakView.h; sourceTree = "<group>"; };
+		382365712240ED990078A723 /* PhotoTweaksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTweaksViewController.h; sourceTree = "<group>"; };
+		382365722240ED990078A723 /* UIColor+Tweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tweak.m"; sourceTree = "<group>"; };
+		382365732240ED990078A723 /* PhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweakView.m; sourceTree = "<group>"; };
+		382365742240ED990078A723 /* PhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweaksViewController.m; sourceTree = "<group>"; };
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
@@ -282,6 +291,19 @@
 			path = BaseView;
 			sourceTree = "<group>";
 		};
+		3823656E2240ED990078A723 /* PhotoTweaks */ = {
+			isa = PBXGroup;
+			children = (
+				3823656F2240ED990078A723 /* UIColor+Tweak.h */,
+				382365702240ED990078A723 /* PhotoTweakView.h */,
+				382365712240ED990078A723 /* PhotoTweaksViewController.h */,
+				382365722240ED990078A723 /* UIColor+Tweak.m */,
+				382365732240ED990078A723 /* PhotoTweakView.m */,
+				382365742240ED990078A723 /* PhotoTweaksViewController.m */,
+			);
+			path = PhotoTweaks;
+			sourceTree = "<group>";
+		};
 		38797C2322309D6B003A9D99 /* TextDesignableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +318,7 @@
 		387B96472229966F00824498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3823656E2240ED990078A723 /* PhotoTweaks */,
 				382365662240591D0078A723 /* Rexixable */,
 				38A6687A223E8DBF00F29F52 /* Elysium */,
 				38D54E1E223930E3009FCF9A /* CustomAlbum.swift */,
@@ -655,6 +678,8 @@
 				388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */,
 				388BE316222ABBA5005BF44B /* ColorSlider.swift in Sources */,
 				389B939622276BAD009FE9E6 /* Extensions.swift in Sources */,
+				382365762240ED9A0078A723 /* PhotoTweakView.m in Sources */,
+				382365752240ED9A0078A723 /* UIColor+Tweak.m in Sources */,
 				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
 				38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */,
 				388BE343222C3188005BF44B /* PanelCell.swift in Sources */,
@@ -687,6 +712,7 @@
 				38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */,
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */,
+				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
