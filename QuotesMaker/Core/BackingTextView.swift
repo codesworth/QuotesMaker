@@ -224,7 +224,7 @@ extension BackingTextView:TextModelDelegate{
 }
 
 
-extension BackingTextView:BaseviewSubViewable{
+extension BackingTextView:BaseViewSubViewable{
     func focused(_ bool: Bool) {
         
     }

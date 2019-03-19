@@ -9,7 +9,7 @@
 
 import UIKit
 
-class WrapperView: BaseView.BaseSubView{
+class WrapperView: UIView{
     
     var superlayer:CALayer!
     var isGradient = false
@@ -137,7 +137,7 @@ extension WrapperView:StateChangeable{
 }
 
 
-extension WrapperView{
+extension WrapperView:BaseViewSubViewable{
     
     func focused(_ bool:Bool){
         bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
@@ -148,7 +148,7 @@ extension WrapperView{
 extension WrapperView:SPUserResizableViewDelegate{
     
     func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
-        if let superview = superview as? BaseView {
+        if let superview = superview as? BaseView, superview.selectedView != self {
             superview.selectedView = self
         }
         userResizableView.showEditingHandles()

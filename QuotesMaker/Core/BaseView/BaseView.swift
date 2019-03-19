@@ -11,7 +11,7 @@ import UIKit
 
 class BaseView:UIView{
     
-    typealias BaseSubView = ResizableView & BaseviewSubViewable
+    typealias BaseSubView = UIView & BaseViewSubViewable
     
     
     var subBounds:CGRect{
@@ -32,8 +32,9 @@ class BaseView:UIView{
     var selectedView:UIView?{
         didSet{
             if oldValue != selectedView {
-                if let new = selectedView as? BaseSubView{
-                    propagateFocus(current: new)
+                if let old = oldValue as? BaseViewSubViewable{
+                    old.focused(false)
+                    //propagateFocus(current: new)
                     
                 }
             }

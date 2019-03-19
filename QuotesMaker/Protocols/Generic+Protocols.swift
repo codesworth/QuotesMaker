@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol BaseviewSubViewable{
+protocol BaseViewSubViewable{
     
     var id:String {get}
     var id_tag:Int {get}

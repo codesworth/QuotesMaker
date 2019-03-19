@@ -11,5 +11,5 @@ import Foundation
 
 enum Alias{
     
-    typealias StackDataSource = Array<BaseviewSubViewable>
+    typealias StackDataSource = Array<BaseViewSubViewable>
 }

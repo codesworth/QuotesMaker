@@ -111,7 +111,7 @@ class BackingImageView: UIView{
 
 
 
-extension BackingImageView:BaseviewSubViewable{
+extension BackingImageView:BaseViewSubViewable{
     func focused(_ bool:Bool){
         //bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
     }
