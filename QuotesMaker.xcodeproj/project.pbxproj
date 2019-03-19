@@ -85,7 +85,7 @@
 		389B939422276B55009FE9E6 /* StudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939322276B55009FE9E6 /* StudioVC.swift */; };
 		389B939622276BAD009FE9E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939522276BAD009FE9E6 /* Extensions.swift */; };
 		389B939822277A77009FE9E6 /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B939722277A77009FE9E6 /* CreateButton.swift */; };
-		389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */; };
+		389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B93992227834E009FE9E6 /* BlankBackingLayer.swift */; };
 		38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687B223E8E3D00F29F52 /* Elysium.swift */; };
 		38A6687E223EED7C00F29F52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687D223EED7C00F29F52 /* Colors.swift */; };
 		38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FB8223A837C00150FD4 /* StudioTab.swift */; };
@@ -211,7 +211,7 @@
 		389B939322276B55009FE9E6 /* StudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioVC.swift; sourceTree = "<group>"; };
 		389B939522276BAD009FE9E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		389B939722277A77009FE9E6 /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
-		389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankImageBackingLayer.swift; sourceTree = "<group>"; };
+		389B93992227834E009FE9E6 /* BlankBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankBackingLayer.swift; sourceTree = "<group>"; };
 		38A6687B223E8E3D00F29F52 /* Elysium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elysium.swift; sourceTree = "<group>"; };
 		38A6687D223EED7C00F29F52 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		38C80FB8223A837C00150FD4 /* StudioTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTab.swift; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 				389B9391222769CD009FE9E6 /* Dimensions.swift */,
 				389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */,
 				389B938E2227689E009FE9E6 /* Utils.swift */,
-				389B93992227834E009FE9E6 /* BlankImageBackingLayer.swift */,
+				389B93992227834E009FE9E6 /* BlankBackingLayer.swift */,
 				388BE335222B2135005BF44B /* BackingGradientlayer.swift */,
 				388BE387222EB35A005BF44B /* TextBackingLayer.swift */,
 				380C78FB2232C4C4006B8F8D /* ViewGesture.swift */,
@@ -711,7 +711,7 @@
 				388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */,
 				38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */,
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
-				389B939A2227834E009FE9E6 /* BlankImageBackingLayer.swift in Sources */,
+				389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */,
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,

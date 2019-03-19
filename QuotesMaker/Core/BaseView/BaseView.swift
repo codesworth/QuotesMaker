@@ -13,14 +13,6 @@ class BaseView:UIView{
     
     typealias BaseSubView = ResizableView & BaseviewSubViewable
     
-    lazy var resizerView:SPUserResizableView = { [unowned self] by in
-        let resize = SPUserResizableView(frame: .zero)
-//        resize.minHeight = bounds.height * 0.1
-//        resize.minWidth = bounds.width * 0.1
-//        resize.preventsPositionOutsideSuperview = true
-        
-        return resize
-    }(())
     
     var subBounds:CGRect{
         return CGRect(origin: [(bounds.size.width - bounds.size.scaledBy(0.7).width) / 2,(bounds.size.height - bounds.size.scaledBy(0.7).height) / 2 ], size: bounds.size.scaledBy(0.7))
@@ -49,14 +41,7 @@ class BaseView:UIView{
     
     weak var delegate:BaseViewProtocol?
     
-    var currentSubview:UIView?{
-        get{
-            return exitResizingModeFromGet()
-        }
-        set{
-            
-        }
-    }
+    var currentSubview:UIView?
     
     var subLayers:[CALayer]?{
         return layer.sublayers
@@ -133,15 +118,15 @@ class BaseView:UIView{
             viewTags.txt += 1
             view.id_tag = viewTags.txt
         }else if let view = subview as? WrapperView{
-//            if let _ = view.superlayer as? BackingGradientlayer{
-//                viewTags.grd += 1
-//                view.grd_tag = viewTags.grd
-//            }
-//            else{
-//                viewTags.blk += 1
-//                view.blk_tag = viewTags.blk
-//                
-//            }
+            if let _ = view.superlayer as? BackingGradientlayer{
+                viewTags.grd += 1
+                view.grd_tag = viewTags.grd
+            }
+            else{
+                viewTags.blk += 1
+                view.blk_tag = viewTags.blk
+                
+            }
         }
         currentSubview = subview
         Subscription.main.post(suscription: .layerChanged, object: subviews)

@@ -15,6 +15,25 @@ class WrapperView: UIView {
     var isGradient = false
     var previousModels:[LayerModel] = []
     var redoModels:[LayerModel] = []
+    
+    lazy var contentView: UIView = { [unowned self] by in
+        let view = UIView(frame: bounds)
+        view.clipsToBounds = true
+        return view
+    }(())
+    
+    
+    
+    lazy var resizerView:SPUserResizableView = { [unowned self] by in
+        let resize = SPUserResizableView(frame: bounds)
+        //        resize.minHeight = bounds.height * 0.1
+        //        resize.minWidth = bounds.width * 0.1
+        //        resize.preventsPositionOutsideSuperview = true
+        resize.delegate = self
+        
+        return resize
+    }(())
+    
     init(frame: CGRect, layer:CALayer) {
         super.init(frame: frame)
         superlayer = layer
@@ -34,7 +53,7 @@ class WrapperView: UIView {
                 }
             }else{
                 if let mod = model as? BlankLayerModel{
-                    (superlayer as! BlankImageBackingLayer).model = mod
+                    (superlayer as! BlankBackingLayer).model = mod
                 }
             }
         }
@@ -47,19 +66,19 @@ class WrapperView: UIView {
     }
     
     
-//    var id:String{
-//        if let _ = superlayer as? BackingGradientlayer{
-//            return "View \(id_tag): Gradient"
-//        }else{
-//            return "View \(id_tag)"
-//        }
-//    }
+    var id:String{
+        if let _ = superlayer as? BackingGradientlayer{
+            return "View \(id_tag): Gradient"
+        }else{
+            return "View \(id_tag)"
+        }
+    }
     var grd_tag:Int = 0
     var blk_tag = 0
-//    var id_tag: Int{
-//        if let _ = superlayer as? BackingGradientlayer{return grd_tag}
-//        return blk_tag
-//    }
+    var id_tag: Int{
+        if let _ = superlayer as? BackingGradientlayer{return grd_tag}
+        return blk_tag
+    }
     
     let uid:UUID = UUID()
     
@@ -68,14 +87,17 @@ class WrapperView: UIView {
     }
     
     func initialize(){
-        layer.masksToBounds = true
-        layer.addSublayer(superlayer)
+        backgroundColor = .clear
+        resizerView.contentView = contentView
+        resizerView.hideEditingHandles()
+        addSubview(resizerView)
+        contentView.layer.masksToBounds = true
+        contentView.layer.addSublayer(superlayer)
         superlayer.needsDisplayOnBoundsChange = true
-        superlayer.bounds = layer.bounds
-        superlayer.position = [bounds.midX,bounds.midY]
-        setPanGesture()
-        setResizableGesture()
-        backgroundColor = .cyan
+        superlayer.bounds = contentView.layer.bounds
+        superlayer.position = [contentView.bounds.midX,contentView.bounds.midY]
+//        setPanGesture()
+//        setResizableGesture()
         movedInFocus()
     }
     
@@ -83,7 +105,8 @@ class WrapperView: UIView {
         super.layoutSubviews()
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        superlayer.frame = bounds
+        superlayer.frame = contentView.bounds
+        
         CATransaction.commit()
     }
 }
@@ -113,4 +136,17 @@ extension WrapperView:StateChangeable{
 }
 
 
-//extension WrapperView:BaseviewSubViewable{}
+extension WrapperView:BaseviewSubViewable{}
+
+
+extension WrapperView:SPUserResizableViewDelegate{
+    
+    func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
+        userResizableView.showEditingHandles()
+    }
+    
+    func userResizableViewDidEndEditing(_ userResizableView: SPUserResizableView!) {
+        self.frame.size = resizerView.frame.size
+        //resizerView.hideEditingHandles()
+    }
+}

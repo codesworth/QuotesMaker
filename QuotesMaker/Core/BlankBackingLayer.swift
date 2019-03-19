@@ -9,7 +9,7 @@
 import UIKit
 
 
-class BlankImageBackingLayer:CALayer{
+class BlankBackingLayer:CALayer{
     
     
     override init() {

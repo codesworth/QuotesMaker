@@ -172,8 +172,8 @@ extension StudioVC:StudioTabDelegate{
             }
             break
         case .layers:
-            //makeStackTable()
-            baseView.enterResizeMode()
+            makeStackTable()
+//            baseView.enterResizeMode()
             break
         case .moveUp:
             baseView.moveSubiewForward()

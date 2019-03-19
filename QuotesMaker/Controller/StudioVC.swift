@@ -174,7 +174,7 @@ class StudioVC: UIViewController {
 //            blank.bounds.size = baseView.bounds.size
 //            baseView.addLayer(blank)
 //        }
-        let blank = WrapperView(frame: baseView.subBounds, layer: BlankImageBackingLayer())
+        let blank = WrapperView(frame: baseView.subBounds, layer: BlankBackingLayer())
         baseView.addSubview(blank)
         setupColorPanel()
 
