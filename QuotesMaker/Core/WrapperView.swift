@@ -11,13 +11,13 @@ import UIKit
 
 class WrapperView: UIView {
     
-    var superlayer:CALayer!
+    //var superlayer:CALayer!
     var isGradient = false
     var previousModels:[LayerModel] = []
     var redoModels:[LayerModel] = []
     init(frame: CGRect, layer:CALayer) {
         super.init(frame: frame)
-        superlayer = layer
+        //superlayer = layer
         if type(of: layer) == BackingGradientlayer.self{
             isGradient = true
             updateModel(GradientLayerModel.defualt())
@@ -28,15 +28,15 @@ class WrapperView: UIView {
     }
     var model:LayerModel!{
         didSet{
-            if isGradient{
-                if let mod = model as? GradientLayerModel{
-                    (superlayer as! BackingGradientlayer).model = mod
-                }
-            }else{
-                if let mod = model as? BlankLayerModel{
-                    (superlayer as! BlankImageBackingLayer).model = mod
-                }
-            }
+//            if isGradient{
+//                if let mod = model as? GradientLayerModel{
+//                    (superlayer as! BackingGradientlayer).model = mod
+//                }
+//            }else{
+//                if let mod = model as? BlankLayerModel{
+//                    (superlayer as! BlankImageBackingLayer).model = mod
+//                }
+//            }
         }
     }
     
@@ -47,19 +47,19 @@ class WrapperView: UIView {
     }
     
     
-    var id:String{
-        if let _ = superlayer as? BackingGradientlayer{
-            return "View \(id_tag): Gradient"
-        }else{
-            return "View \(id_tag)"
-        }
-    }
+//    var id:String{
+//        if let _ = superlayer as? BackingGradientlayer{
+//            return "View \(id_tag): Gradient"
+//        }else{
+//            return "View \(id_tag)"
+//        }
+//    }
     var grd_tag:Int = 0
     var blk_tag = 0
-    var id_tag: Int{
-        if let _ = superlayer as? BackingGradientlayer{return grd_tag}
-        return blk_tag
-    }
+//    var id_tag: Int{
+//        if let _ = superlayer as? BackingGradientlayer{return grd_tag}
+//        return blk_tag
+//    }
     
     let uid:UUID = UUID()
     
@@ -69,11 +69,12 @@ class WrapperView: UIView {
     
     func initialize(){
         
-        layer.addSublayer(superlayer)
-        superlayer.bounds = layer.bounds
-        superlayer.position = [bounds.midX,bounds.midY]
+//        layer.addSublayer(superlayer)
+//        superlayer.bounds = layer.bounds
+//        superlayer.position = [bounds.midX,bounds.midY]
 //        setPanGesture()
 //        setResizableGesture()
+        backgroundColor = .cyan
         movedInFocus()
     }
 }
@@ -103,4 +104,4 @@ extension WrapperView:StateChangeable{
 }
 
 
-extension WrapperView:BaseviewSubViewable{}
+//extension WrapperView:BaseviewSubViewable{}

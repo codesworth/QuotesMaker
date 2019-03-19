@@ -20,7 +20,11 @@ class BaseView:UIView{
 //        resize.preventsPositionOutsideSuperview = true
         
         return resize
-        }(())
+    }(())
+    
+    var subBounds:CGRect{
+        return CGRect(origin: [(bounds.size.width - bounds.size.scaledBy(0.7).width) / 2,(bounds.size.height - bounds.size.scaledBy(0.7).height) / 2 ], size: bounds.size.scaledBy(0.7))
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -108,6 +112,7 @@ class BaseView:UIView{
     }
     
     func addSubviewable(_ view:BaseSubView){
+        view.center = [bounds.midX,bounds.midY]
         addSubview(view)
     }
     
@@ -121,15 +126,15 @@ class BaseView:UIView{
             viewTags.txt += 1
             view.id_tag = viewTags.txt
         }else if let view = subview as? WrapperView{
-            if let _ = view.superlayer as? BackingGradientlayer{
-                viewTags.grd += 1
-                view.grd_tag = viewTags.grd
-            }
-            else{
-                viewTags.blk += 1
-                view.blk_tag = viewTags.blk
-                
-            }
+//            if let _ = view.superlayer as? BackingGradientlayer{
+//                viewTags.grd += 1
+//                view.grd_tag = viewTags.grd
+//            }
+//            else{
+//                viewTags.blk += 1
+//                view.blk_tag = viewTags.blk
+//                
+//            }
         }
         currentSubview = subview
         Subscription.main.post(suscription: .layerChanged, object: subviews)

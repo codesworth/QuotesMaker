@@ -147,20 +147,16 @@ class StudioVC: UIViewController {
     }
     
     func imageOptionSelected(){
-        let crop = SPUserResizableView(frame: .zero)
-        //crop.backgroundColor = .magenta
-        
-        crop.frame.size = baseView.bounds.size.scaledBy(0.7)
-        crop.center = [baseView.bounds.midX,baseView.bounds.midY]
-        let contentView = UIView(frame: crop.frame)
-        contentView.backgroundColor = .magenta
-        crop.contentView = contentView
-        baseView.addSubview(crop)
-//        let imageView = BackingImageView(frame: .zero)
-//        imageView.frame.size = baseView.bounds.size.scaledBy(0.8)
-//        imageView.center = [baseView.bounds.midX,baseView.bounds.midY]
-//        baseView.addSubview(imageView)
-//        setupImageInteractiveView()
+//        let crop = ResizableView(frame: .zero)
+//        crop.backgroundColor = .magenta
+//        baseView.addSubview(crop)
+//        crop.frame.size = baseView.bounds.size.scaledBy(0.7)
+//        crop.center = [baseView.bounds.midX,baseView.bounds.midY]
+        let imageView = BackingImageView(frame: .zero)
+        imageView.frame.size = baseView.bounds.size.scaledBy(0.8)
+        imageView.center = [baseView.bounds.midX,baseView.bounds.midY]
+        baseView.addSubview(imageView)
+        setupImageInteractiveView()
     }
     
     func launchPicker(){
@@ -179,7 +175,7 @@ class StudioVC: UIViewController {
 //            blank.bounds.size = baseView.bounds.size
 //            baseView.addLayer(blank)
 //        }
-        let blank = WrapperView(frame: baseView.bounds, layer: BlankImageBackingLayer())
+        let blank = WrapperView(frame: baseView.subBounds, layer: BlankImageBackingLayer())
         baseView.addSubview(blank)
         setupColorPanel()
 
@@ -193,7 +189,7 @@ class StudioVC: UIViewController {
 //            blank.bounds.size = baseView.bounds.size
 //            baseView.addLayer(blank)
 //        }
-        let grad = WrapperView(frame: baseView.bounds, layer: BackingGradientlayer())
+        let grad = WrapperView(frame: baseView.subBounds, layer: BackingGradientlayer())
         grad.isGradient = true
         baseView.addSubview(grad)
         setupGradientInteractiveView()
