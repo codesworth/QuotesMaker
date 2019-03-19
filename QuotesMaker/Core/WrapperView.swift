@@ -26,9 +26,9 @@ class WrapperView: UIView {
     
     lazy var resizerView:SPUserResizableView = { [unowned self] by in
         let resize = SPUserResizableView(frame: bounds)
-        //        resize.minHeight = bounds.height * 0.1
-        //        resize.minWidth = bounds.width * 0.1
-        //        resize.preventsPositionOutsideSuperview = true
+                resize.minHeight = bounds.height * 0.1
+                resize.minWidth = bounds.width * 0.1
+                resize.preventsPositionOutsideSuperview = false
         resize.delegate = self
         
         return resize
@@ -136,7 +136,12 @@ extension WrapperView:StateChangeable{
 }
 
 
-extension WrapperView:BaseviewSubViewable{}
+extension WrapperView:BaseviewSubViewable{
+    
+    func focused(_ bool:Bool){
+        bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
+    }
+}
 
 
 extension WrapperView:SPUserResizableViewDelegate{
