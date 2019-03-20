@@ -13,8 +13,10 @@ class WrapperView: UIView{
     
     var superlayer:CALayer!
     var isGradient = false
-    var previousModels:[LayerModel] = []
-    var redoModels:[LayerModel] = []
+    var previousBlankModels = ModelCollection<BlankLayerModel>()
+    var redoBlankModels = ModelCollection<BlankLayerModel>()
+    var previousGradientModels = ModelCollection<BlankLayerModel>()
+    var redoGradientModels = ModelCollection<BlankLayerModel>()
     
     lazy var contentView: UIView = { [unowned self] by in
         let view = UIView(frame: bounds)
@@ -61,7 +63,7 @@ class WrapperView: UIView{
     
     func updateModel(_ model:LayerModel){
         self.model = model
-        previousModels.push(model)
+        if let mod = model as? BlankLayerModel
         Subscription.main.post(suscription: .canUndo, object: previousModels.isMulti)
     }
     
