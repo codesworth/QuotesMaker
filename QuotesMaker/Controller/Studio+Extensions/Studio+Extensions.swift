@@ -46,7 +46,7 @@ extension StudioVC:StudioPanelDelegate{
             imageOptionSelected()
             break
         case .addBlankOverlay:
-            blankImageSelected()
+            blankSelected()
             break
         case .addGradientOverlay:
             blankGradientSelected()

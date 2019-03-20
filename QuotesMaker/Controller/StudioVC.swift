@@ -109,18 +109,11 @@ class StudioVC: UIViewController {
             studioHeight.constant = 100
             return
         }
-//        if optionsView == nil{
-//            setupOverlayOptions()
-//        }
+
         
     }
     
-//    func setupOverlayOptions(){
-//        let size = Dimensions.sizeForAspect(aspectRatio)
-//        optionsView = OptionsStack(frame:[0,0,size.width,size.height])
-//        optionsView!.delegate = self
-//        baseView.addSubview(optionsView!)
-//    }
+
     
     func setupGradientInteractiveView(){
         if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
@@ -147,14 +140,8 @@ class StudioVC: UIViewController {
     }
     
     func imageOptionSelected(){
-//        let crop = ResizableView(frame: .zero)
-//        crop.backgroundColor = .magenta
-//        baseView.addSubview(crop)
-//        crop.frame.size = baseView.bounds.size.scaledBy(0.7)
-//        crop.center = [baseView.bounds.midX,baseView.bounds.midY]
+
         let imageView = BackingImageView(frame: baseView.subBounds)
-//        imageView.frame.size = baseView.bounds.size.scaledBy(0.8)
-//        imageView.center = [baseView.bounds.midX,baseView.bounds.midY]
         baseView.addSubview(imageView)
         setupImageInteractiveView()
     }
@@ -165,15 +152,7 @@ class StudioVC: UIViewController {
         present(picker, animated: true, completion: nil)
     }
     
-    func blankImageSelected(){
-    
-//        if let current = baseView.subLayers?.first(where: {type(of: $0) == BlankImageBackingLayer.self}) {
-//            baseView.currentSublayer = current
-//        }else{
-//            let blank = BlankImageBackingLayer()
-//            blank.bounds.size = baseView.bounds.size
-//            baseView.addLayer(blank)
-//        }
+    func blankSelected(){
         let blank = WrapperView(frame: baseView.subBounds, layer: BlankBackingLayer())
         baseView.addSubview(blank)
         setupColorPanel()
@@ -181,13 +160,7 @@ class StudioVC: UIViewController {
     }
     
     func blankGradientSelected(){
-//        if let current = baseView.subLayers?.first(where: {type(of: $0) == BackingGradientlayer.self}) {
-//            baseView.currentSublayer = current
-//        }else{
-//            let blank = BackingGradientlayer()
-//            blank.bounds.size = baseView.bounds.size
-//            baseView.addLayer(blank)
-//        }
+
         let grad = WrapperView(frame: baseView.subBounds, layer: BackingGradientlayer())
         grad.isGradient = true
         baseView.addSubview(grad)
@@ -196,39 +169,12 @@ class StudioVC: UIViewController {
     
     func addText(){
         let textField = BackingTextView(frame: baseView.subBounds)
-        //[0,0,baseView.bounds.width * 0.7,40]
+        
         baseView.addSubview(textField)
-        //textField.center = baseView.center
-//        textField.delegate = self
         textField.addDoneButtonOnKeyboard()
-//        let size = baseView.bounds.size.scaledBy(0.5)
-//        //let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-//        textField.frame.size = size
-//        textField.center = [baseView.bounds.midX,baseView.bounds.midY]
-//        baseView.addSubview(textField)
-        //NotificationCenter.default.addObserver(self, selector: #selector(resetHeight), name: UITextView.textDidChangeNotification, object: nil)
     }
     
-//    @objc func resetHeight(){
-////       let size = baseView.bounds.size.scaledBy(0.5)
-////
-////        let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-////        textField.frame.size = [size.width,height]
-////        textField.center = [baseView.bounds.midX,baseView.bounds.midY]
-//        var size = textField.frame.size
-//        let cheight = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-//        if cheight > size.height {
-//            size.height = cheight
-//            if cheight > baseView.bounds.height * 0.8 {
-//                size.width = baseView.bounds.width * 0.8
-//                size.height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-//            }
-//            DispatchQueue.main.async {
-//                self.textField.frame.size = size
-//                self.textField.center = [self.baseView.bounds.midX,self.baseView.bounds.midY]
-//            }
-//        }
-//    }
+
     
     func dismissPanels(){
         if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
@@ -287,7 +233,7 @@ extension StudioVC:OptionsSelectedDelegate{
         case 2:
             break
         case 3:
-            blankImageSelected()
+            blankSelected()
             break
         case 4:
             blankGradientSelected()
@@ -296,7 +242,36 @@ extension StudioVC:OptionsSelectedDelegate{
             break
         }
         
-//        optionsView?.removeFromSuperview()
-//        optionsView = nil
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+//    @objc func resetHeight(){
+////       let size = baseView.bounds.size.scaledBy(0.5)
+////
+////        let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
+////        textField.frame.size = [size.width,height]
+////        textField.center = [baseView.bounds.midX,baseView.bounds.midY]
+//        var size = textField.frame.size
+//        let cheight = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
+//        if cheight > size.height {
+//            size.height = cheight
+//            if cheight > baseView.bounds.height * 0.8 {
+//                size.width = baseView.bounds.width * 0.8
+//                size.height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
+//            }
+//            DispatchQueue.main.async {
+//                self.textField.frame.size = size
+//                self.textField.center = [self.baseView.bounds.midX,self.baseView.bounds.midY]
+//            }
+//        }
+//    }

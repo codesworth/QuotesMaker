@@ -11,7 +11,7 @@ import UIKit
 
 struct BlankLayerModel {
     
-    var color:UIColor = .clear
+    var color:UIColor = .lightGray
     var alpha: CGFloat = 1
     
     var layerframe:LayerFrame? = nil

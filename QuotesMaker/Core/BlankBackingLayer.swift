@@ -37,7 +37,7 @@ class BlankBackingLayer:CALayer{
     }
     
     func setup(){
-        backgroundColor = UIColor.blankWhite.cgColor
+        backgroundColor = UIColor.lightGray.cgColor
     }
     
     required init?(coder aDecoder: NSCoder) {
