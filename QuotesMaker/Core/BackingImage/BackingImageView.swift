@@ -31,11 +31,7 @@ class BackingImageView: UIView{
         return resize
         }(())
     
-//    lazy var cropView:Cropview = {
-//        let crop = Cropview(frame: .zero)
-//        crop.backgroundColor = .clear
-//        return crop
-//    }()
+
     
     var image:UIImage?{
         didSet{

@@ -24,7 +24,7 @@ class WrapperView: UIView{
         return view
     }(())
     
-    
+    var prevModel:LayerModel?
     
     lazy var resizerView:SPUserResizableView = { [unowned self] by in
         let resize = SPUserResizableView(frame: bounds)
@@ -62,15 +62,16 @@ class WrapperView: UIView{
     }
     
     func updateModel(_ model:LayerModel){
-        self.model = model
-        if let mod = model as? BlankLayerModel{
-            previousBlankModels.push(mod)
-            Subscription.main.post(suscription: .canUndo, object: previousBlankModels.isMulti)
-        } else if let mod = model as? GradientLayerModel{
-            previousGradientModels.push(mod)
-            Subscription.main.post(suscription: .canUndo, object: previousGradientModels.isMulti)
-        }
         
+        if let mod = self.prevModel as? BlankLayerModel{
+            previousBlankModels.push(mod)
+            Subscription.main.post(suscription: .canUndo, object: !previousBlankModels.isEmpty)
+        } else if let mod = self.prevModel as? GradientLayerModel{
+            previousGradientModels.push(mod)
+            Subscription.main.post(suscription: .canUndo, object: !previousGradientModels.isEmpty)
+        }
+        prevModel = model
+        self.model = model
     }
     
     
@@ -187,7 +188,6 @@ extension WrapperView:SPUserResizableViewDelegate{
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
         model.layerFrame = makeLayerFrame()
-        //print("The model is" ,model.layerFrame)
-        //resizerView.hideEditingHandles()
+
     }
 }
