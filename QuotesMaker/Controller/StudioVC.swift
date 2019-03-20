@@ -202,10 +202,7 @@ extension StudioVC:PickerColorDelegate{
     
     func colorDidChange(_ model: BlankLayerModel) {
         guard let current = baseView.currentSubview as? WrapperView else {return}
-        if let mod = current.model as? BlankLayerModel{
-           if mod != model{current.updateModel(model)}
-        }
-        
+        current.updateModel(model)
     }
     
     func previewingWith(_ model: BlankLayerModel) {

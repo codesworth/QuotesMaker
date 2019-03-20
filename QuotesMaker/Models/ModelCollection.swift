@@ -14,14 +14,22 @@ struct ModelCollection<Element:Equatable>{
     private var container:Array<Element> = []
     
     mutating func push(_ element:Element){
-        guard container.contains(element) else {
+        print(container.contains(element))
+        if !container.contains(element){
             container.append(element)
-            return
         }
     }
     
     mutating func pop()->Element?{
         return container.popLast()
+    }
+    
+    var isMulti:Bool{
+        return container.count > 1
+    }
+    
+    var isEmpty:Bool{
+        return container.isEmpty
     }
     
 }

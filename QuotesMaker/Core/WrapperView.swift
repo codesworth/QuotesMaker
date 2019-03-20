@@ -15,8 +15,8 @@ class WrapperView: UIView{
     var isGradient = false
     var previousBlankModels = ModelCollection<BlankLayerModel>()
     var redoBlankModels = ModelCollection<BlankLayerModel>()
-    var previousGradientModels = ModelCollection<BlankLayerModel>()
-    var redoGradientModels = ModelCollection<BlankLayerModel>()
+    var previousGradientModels = ModelCollection<GradientLayerModel>()
+    var redoGradientModels = ModelCollection<GradientLayerModel>()
     
     lazy var contentView: UIView = { [unowned self] by in
         let view = UIView(frame: bounds)
@@ -63,8 +63,14 @@ class WrapperView: UIView{
     
     func updateModel(_ model:LayerModel){
         self.model = model
-        if let mod = model as? BlankLayerModel
-        Subscription.main.post(suscription: .canUndo, object: previousModels.isMulti)
+        if let mod = model as? BlankLayerModel{
+            previousBlankModels.push(mod)
+            Subscription.main.post(suscription: .canUndo, object: previousBlankModels.isMulti)
+        } else if let mod = model as? GradientLayerModel{
+            previousGradientModels.push(mod)
+            Subscription.main.post(suscription: .canUndo, object: previousGradientModels.isMulti)
+        }
+        
     }
     
     
@@ -118,22 +124,41 @@ class WrapperView: UIView{
 extension WrapperView:StateChangeable{
     
     func stateRedo() {
-        guard !redoModels.isEmpty else {
-            Subscription.main.post(suscription: .canRedo, object: false)
-            return
+        if isGradient{
+            guard !redoGradientModels.isEmpty else {
+                Subscription.main.post(suscription: .canRedo, object: false)
+                return
+            }
+            let model = redoGradientModels.pop()
+            self.model = model
+        }else{
+            guard !redoBlankModels.isEmpty else {
+                Subscription.main.post(suscription: .canRedo, object: false)
+                return
+            }
+            let model = redoBlankModels.pop()
+            self.model = model
         }
-        let model = redoModels.pop()
-        self.model = model
     }
     
     func stateUndo() {
-        guard !previousModels.isEmpty else{
-            Subscription.main.post(suscription: .canUndo, object: false)
-            return
+        if isGradient{
+            guard !previousGradientModels.isEmpty else{
+                Subscription.main.post(suscription: .canUndo, object: false)
+                return
+            }
+            let model = previousGradientModels.pop()
+            self.model = model
+            redoGradientModels.push(model!)
+        }else{
+            guard !previousBlankModels.isEmpty else{
+                Subscription.main.post(suscription: .canUndo, object: false)
+                return
+            }
+            let model = previousBlankModels.pop()
+            self.model = model
+            redoBlankModels.push(model!)
         }
-        let model = previousModels.pop()
-        self.model = model
-        redoModels.push(model)
         Subscription.main.post(suscription: .canRedo, object: true)
     }
 }

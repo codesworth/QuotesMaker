@@ -19,8 +19,9 @@ struct BlankLayerModel {
 }
 
 extension BlankLayerModel:Equatable{
+    
     static func == (lhs: BlankLayerModel, rhs: BlankLayerModel) -> Bool {
-        return lhs.color == lhs.color 
+        return lhs.color == rhs.color
     }
 }
 

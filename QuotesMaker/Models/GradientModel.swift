@@ -40,3 +40,12 @@ struct GradientLayerModel {
 
 
 extension GradientLayerModel:LayerModel{}
+
+extension GradientLayerModel:Equatable{
+    static func == (lhs: GradientLayerModel, rhs: GradientLayerModel) -> Bool {
+        return lhs.colors == rhs.colors && lhs.locations == rhs.locations && lhs.endPoint == rhs.endPoint && lhs.startPoint == rhs.startPoint
+    }
+    
+    
+    
+}
