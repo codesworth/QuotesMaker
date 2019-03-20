@@ -10,7 +10,7 @@ import Foundation
 
 protocol LayerModel {
 
-    var layerFrame:LayerFrame? {get}
+    var layerFrame:LayerFrame? {get set}
 }
 
 

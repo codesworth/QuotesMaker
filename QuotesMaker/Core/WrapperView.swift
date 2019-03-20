@@ -159,8 +159,8 @@ extension WrapperView:SPUserResizableViewDelegate{
         //print("The new frame is: \(resizerView.frame)")
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
-        
-        print("The model is" ,model)
+        model.layerFrame = makeLayerFrame()
+        //print("The model is" ,model.layerFrame)
         //resizerView.hideEditingHandles()
     }
 }
