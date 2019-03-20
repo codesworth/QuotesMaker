@@ -24,6 +24,11 @@ class StudioTab: MaterialView {
         case select
     }
     
+    let paneltab:TabControl = {
+        let butt = TabControl(frame: .zero, image:#imageLiteral(resourceName: "panel") )
+        butt.addTarget(self, action:#selector(wakePanel) , for: .touchUpInside)
+        return butt
+    }()
     let deleteButt:TabControl = {
         let butt = TabControl(frame: .zero, image: #imageLiteral(resourceName: "delete"))
         butt.addTarget(self, action:#selector(deletetabPressed) , for: .touchUpInside)
@@ -74,6 +79,10 @@ class StudioTab: MaterialView {
         delegate?.actiondone(.moveUp)
     }
     
+    @objc func wakePanel(){
+        delegate?.actiondone(.wakePanel)
+    }
+    
     
     
     func initialize(){
@@ -82,6 +91,7 @@ class StudioTab: MaterialView {
         addSubview(stackButt)
         addSubview(moveupButt)
         addSubview(moveDownButt)
+        addSubview(paneltab)
         setCorner(4)
         
         //deleteButt.roundCorners(20)
@@ -110,13 +120,18 @@ class StudioTab: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        deleteButt.roundCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner], radius: 4)
+        paneltab.roundCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner], radius: 4)
         stackButt.roundCorners([.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: 4)
-        let width = (bounds.width - 3) / 4
+        let width = (bounds.width - 4) / 5
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([
+            paneltab.topAnchor.constraint(equalTo: topAnchor),
+            paneltab.leadingAnchor.constraint(equalTo: leadingAnchor),
+            paneltab.bottomAnchor.constraint(equalTo: bottomAnchor),
+            paneltab.widthAnchor.constraint(equalToConstant: width),
+            
             deleteButt.topAnchor.constraint(equalTo: topAnchor),
-            deleteButt.leadingAnchor.constraint(equalTo: leadingAnchor),
+            deleteButt.leadingAnchor.constraint(equalTo: paneltab.trailingAnchor, constant:1),
             deleteButt.bottomAnchor.constraint(equalTo: bottomAnchor),
             deleteButt.widthAnchor.constraint(equalToConstant: width),
             moveupButt.topAnchor.constraint(equalTo: topAnchor),

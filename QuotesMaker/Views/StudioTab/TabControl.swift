@@ -12,7 +12,6 @@ class TabControl: UIControl {
     
     var contentImageView:UIImageView = {
         let img = UIImageView(frame: .zero)
-        img.clipsToBounds = true
         img.contentMode = .scaleAspectFill
         return img
     }()
@@ -40,10 +39,13 @@ class TabControl: UIControl {
         addSubview(contentImageView)
         contentImageView.image = self.image
     }
+    func addtarget(_ target:Any, selector:Selector){
+        addTarget(target, action: selector, for: .touchUpInside)
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        contentImageView.clipsToBounds = true
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         //We find out which sides is the smallest so we can set a sqaure with min side
         let minDimension = min(bounds.size.width, bounds.size.height)
@@ -51,8 +53,8 @@ class TabControl: UIControl {
         NSLayoutConstraint.activate([
             contentImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             contentImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            contentImageView.widthAnchor.constraint(equalToConstant: minDimension - 5),
-            contentImageView.heightAnchor.constraint(equalToConstant: minDimension - 5)
+            contentImageView.widthAnchor.constraint(equalToConstant: minDimension - 10),
+            contentImageView.heightAnchor.constraint(equalToConstant: minDimension - 10)
         ])
     }
 }

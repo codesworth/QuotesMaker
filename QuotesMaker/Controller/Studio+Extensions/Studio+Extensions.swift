@@ -168,6 +168,7 @@ extension StudioVC:StudioTabDelegate{
         case .delete:
             if let current = baseView.currentSubview{
                 current.removeFromSuperview()
+                baseView.currentSubview = nil
                 dismissPanels()
             }
             break
@@ -180,6 +181,9 @@ extension StudioVC:StudioTabDelegate{
             break
         case .moveDown:
             baseView.moveSubiewBackward()
+            break
+        case .wakePanel:
+            wakePanelForCurrent()
             break
         default:
             break

@@ -80,6 +80,8 @@
 		388BE388222EB35A005BF44B /* TextBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE387222EB35A005BF44B /* TextBackingLayer.swift */; };
 		388BE38A222EB50B005BF44B /* TextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE389222EB50B005BF44B /* TextModel.swift */; };
 		388BE38C222EC1C0005BF44B /* BackingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE38B222EC1C0005BF44B /* BackingTextView.swift */; };
+		3896507B2242C154009434B4 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507A2242C154009434B4 /* Layout.swift */; };
+		3896507D2242C193009434B4 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507C2242C193009434B4 /* Actions.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -207,6 +209,8 @@
 		388BE387222EB35A005BF44B /* TextBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBackingLayer.swift; sourceTree = "<group>"; };
 		388BE389222EB50B005BF44B /* TextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModel.swift; sourceTree = "<group>"; };
 		388BE38B222EC1C0005BF44B /* BackingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingTextView.swift; sourceTree = "<group>"; };
+		3896507A2242C154009434B4 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		3896507C2242C193009434B4 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -388,8 +392,19 @@
 			isa = PBXGroup;
 			children = (
 				38C80FB8223A837C00150FD4 /* StudioTab.swift */,
+				38C80FC5223C453D00150FD4 /* TabControl.swift */,
 			);
 			path = StudioTab;
+			sourceTree = "<group>";
+		};
+		389650792242C135009434B4 /* ImagePanel */ = {
+			isa = PBXGroup;
+			children = (
+				384B9DA322366202007B4BD0 /* ImagePanel.swift */,
+				3896507A2242C154009434B4 /* Layout.swift */,
+				3896507C2242C193009434B4 /* Actions.swift */,
+			);
+			path = ImagePanel;
 			sourceTree = "<group>";
 		};
 		389B938822275C88009FE9E6 /* Models */ = {
@@ -415,7 +430,6 @@
 				38797C2322309D6B003A9D99 /* TextDesignableView */,
 				389B939722277A77009FE9E6 /* CreateButton.swift */,
 				388BE31E222AC007005BF44B /* OptionsStack.swift */,
-				38C80FC5223C453D00150FD4 /* TabControl.swift */,
 				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
 				388BE327222ADC6F005BF44B /* AlphaSliderView.swift */,
 				388BE339222B39D4005BF44B /* BasicLabel.swift */,
@@ -486,12 +500,12 @@
 		38C80FB7223A7ACB00150FD4 /* Panels */ = {
 			isa = PBXGroup;
 			children = (
+				389650792242C135009434B4 /* ImagePanel */,
 				388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */,
 				388BE337222B369E005BF44B /* GradientPanel.swift */,
 				388BE33F222C2E7F005BF44B /* StudioPanel.swift */,
 				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
 				388BE385222E93D0005BF44B /* PointControlview.swift */,
-				384B9DA322366202007B4BD0 /* ImagePanel.swift */,
 			);
 			path = Panels;
 			sourceTree = "<group>";
@@ -692,6 +706,7 @@
 				382365762240ED9A0078A723 /* PhotoTweakView.m in Sources */,
 				382365752240ED9A0078A723 /* UIColor+Tweak.m in Sources */,
 				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
+				3896507D2242C193009434B4 /* Actions.swift in Sources */,
 				38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */,
 				388BE343222C3188005BF44B /* PanelCell.swift in Sources */,
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
@@ -727,6 +742,7 @@
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
+				3896507B2242C154009434B4 /* Layout.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */,
 				389B939422276B55009FE9E6 /* StudioVC.swift in Sources */,
