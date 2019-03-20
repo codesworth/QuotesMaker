@@ -42,6 +42,7 @@ class StudioVC: UIViewController {
         //automaticallyAdjustsScrollViewInsets = false
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
+        setupViews()
 
     }
     
@@ -49,7 +50,7 @@ class StudioVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupViews()
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -177,7 +178,10 @@ class StudioVC: UIViewController {
 
     
     func dismissPanels(){
-        if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
+        if imagePanel.isInView{
+            Utils.animatePanelsOut(imagePanel)
+            
+        }
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
     }
@@ -198,7 +202,15 @@ extension StudioVC:PickerColorDelegate{
     
     func colorDidChange(_ model: BlankLayerModel) {
         guard let current = baseView.currentSubview as? WrapperView else {return}
-        current.updateModel(model)
+        if let mod = current.model as? BlankLayerModel{
+           if mod != model{current.updateModel(model)}
+        }
+        
+    }
+    
+    func previewingWith(_ model: BlankLayerModel) {
+        guard let current = baseView.currentSubview as? WrapperView else {return}
+        current.model = model
     }
     
 }
@@ -209,7 +221,7 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        
+        imagePanel.isInView = true
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -218,6 +230,7 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
             imageView.setImage(image: image)
         }
         picker.dismiss(animated: true, completion: nil)
+        imagePanel.isInView = true
     }
 }
 

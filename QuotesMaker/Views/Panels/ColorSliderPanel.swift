@@ -10,7 +10,7 @@ import UIKit
 
 protocol PickerColorDelegate:class {
     func colorDidChange(_ model:BlankLayerModel)
-    
+    func previewingWith(_ model: BlankLayerModel)
     
 }
 
@@ -103,10 +103,12 @@ class ColorSliderPanel: MaterialView {
         backgroundColor = .white
         addSubview(header)
         addSubview(stateControl)
-        colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .valueChanged)
+        colorSlider.addTarget(self, action: #selector(colorIsChanging(_:)), for: .valueChanged)
+        colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .touchUpInside)
         addSubview(colorSlider)
         addSubview(doneButt)
-        alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .valueChanged)
+        alphaSlider.slider.addTarget(self, action: #selector(alphaChanging(_:)), for: .valueChanged)
+        alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .touchUpInside)
         alphaSlider.slider.value = Float(currentAlpha)
         addSubview(alphaSlider)
         addSubview(lable)
@@ -118,19 +120,39 @@ class ColorSliderPanel: MaterialView {
     }
     
     @objc func colorChanged(_ slider:ColorSlider){
+        print("Color is changed Coloris changed")
         currentColor = slider.color
         model.color = slider.color.withAlphaComponent(currentAlpha)
         model.alpha = currentAlpha
         delegate?.colorDidChange(model)
     }
     
+    @objc func colorIsChanging(_ slider:ColorSlider){
+        print("Color is changing Coloris changing")
+        currentColor = slider.color
+        model.color = slider.color.withAlphaComponent(currentAlpha)
+        model.alpha = currentAlpha
+        delegate?.previewingWith(model)
+    }
+    
     @objc func alphaChanged(_ slider:UISlider){
+        print("Alpha is changed Alpha has changed")
         let value = CGFloat(slider.value)
         currentAlpha = value
         model.color = currentColor.withAlphaComponent(value)
         model.alpha = currentAlpha
         delegate?.colorDidChange(model)
         
+        
+    }
+    
+    @objc func alphaChanging(_ slider:UISlider){
+        print("Alpha is chamging Alpha is changing")
+        let value = CGFloat(slider.value)
+        currentAlpha = value
+        model.color = currentColor.withAlphaComponent(value)
+        model.alpha = currentAlpha
+        delegate?.previewingWith(model)
         
     }
     

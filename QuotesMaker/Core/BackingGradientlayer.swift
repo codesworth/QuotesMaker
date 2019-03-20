@@ -40,6 +40,10 @@ class BackingGradientlayer: CAGradientLayer {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func previewingmodels(model:GradientLayerModel){
+        self.model = model
+    }
+    
     func setup(){
         model = GradientLayerModel.defualt()
     }

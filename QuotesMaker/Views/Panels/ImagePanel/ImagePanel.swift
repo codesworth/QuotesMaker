@@ -34,36 +34,44 @@ class ImagePanel: MaterialView {
     }()
     
     lazy var rotateButton:TabControl = {
-        let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "crop"))
+        let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "rotate"))
         tab.addtarget(self, selector: #selector(rotatePressed(_:)))
         return tab
     }()
     
     lazy var flipHorizButton:TabControl = {
-        let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "crop"))
+        let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "hflip"))
         tab.addtarget(self, selector: #selector(flipHPressed(_:)))
         return tab
     }()
     
     lazy var flipvertButton:TabControl = {
-        let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "crop"))
+        let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "vflip"))
         tab.addtarget(self, selector: #selector(flipVPressed(_:)))
         return tab
     }()
     
-    lazy var testActionsSegment:UISegmentedControl = {
-        let seg = UISegmentedControl(frame: .zero)
-        seg.insertSegment(withTitle: "Rotate", at: 0, animated: true)
-        seg.insertSegment(withTitle: "Crop", at: 1, animated: true)
-        seg.insertSegment(withTitle: "flip side", at: 2, animated: true)
-        seg.insertSegment(withTitle: "flip up", at: 3, animated: true)
-        seg.tintColor = .primary
-        seg.addTarget(self, action: #selector(segChanged(_:)), for: .valueChanged)
-        
-        return seg
+//    lazy var testActionsSegment:UISegmentedControl = {
+//        let seg = UISegmentedControl(frame: .zero)
+//        seg.insertSegment(withTitle: "Rotate", at: 0, animated: true)
+//        seg.insertSegment(withTitle: "Crop", at: 1, animated: true)
+//        seg.insertSegment(withTitle: "flip side", at: 2, animated: true)
+//        seg.insertSegment(withTitle: "flip up", at: 3, animated: true)
+//        seg.tintColor = .primary
+//        seg.addTarget(self, action: #selector(segChanged(_:)), for: .valueChanged)
+//
+//        return seg
+//    }()
+    
+    
+    lazy var stack:UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.distribution = .fillEqually
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.spacing = 1
+        return stack
     }()
-    
-    
     
     lazy var firstline:LineView = {
         let line = LineView(frame: .zero)
@@ -161,19 +169,27 @@ class ImagePanel: MaterialView {
         initialize()
     }
     
+    func addStackViews(){
+        stack.addArrangedSubview(rotateButton)
+        stack.addArrangedSubview(cropButton)
+        stack.addArrangedSubview(flipHorizButton)
+        stack.addArrangedSubview(flipvertButton)
+    }
+    
     func initialize(){
         backgroundColor = .white
         addSubview(header)
         addSubview(stateControl)
         addSubview(scrollView)
-        
         addSubview(closeButton)
         scrollView.addSubview(contentView)
         contentView.addSubview(firstline)
         contentView.addSubview(secondline)
         contentView.addSubview(pickFromGalleryButton)
         contentView.addSubview(pickFromInternetButton)
-        contentView.addSubview(testActionsSegment)
+        //contentView.addSubview(testActionsSegment)
+        addStackViews()
+        contentView.addSubview(stack)
         pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromGallery), for: .touchUpInside)
         pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromInternet), for: .touchUpInside)
     }

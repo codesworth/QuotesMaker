@@ -50,10 +50,10 @@ extension ImagePanel{
             pickFromInternetButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             pickFromInternetButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             pickFromInternetButton.heightAnchor.constraint(equalToConstant: 40),
-            //            testActionsSegment.topAnchor.constraint(equalTo: pickFromInternetButton.bottomAnchor, constant: 12),
-            //            testActionsSegment.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            //            testActionsSegment.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            //            testActionsSegment.heightAnchor.constraint(equalToConstant: 30)
+            stack.topAnchor.constraint(equalTo: pickFromInternetButton.bottomAnchor, constant: 12),
+            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            stack.heightAnchor.constraint(equalToConstant: 40)
             
             ])
     }
