@@ -21,7 +21,7 @@ struct TextLayerModel {
     var underlineStyle:Int = 0
     var strokeWidth:Int = 0
     var obliquess:Int = 0
-    var frame:LayerFrame?
+    var layerFrame:LayerFrame?
     
     
     
@@ -43,20 +43,7 @@ struct TextLayerModel {
     }
 }
 
-extension TextLayerModel:LayerModel{
-    
-    
-    mutating func layerFrame(_ frame: LayerFrame) {
-        self.frame = frame
-    }
-    
-    
-
-    
-    var priority: LayerFrame.LayerPriority{
-        return .text
-    }
-}
+extension TextLayerModel:LayerModel{}
 
 
 /*

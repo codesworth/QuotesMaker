@@ -82,7 +82,7 @@ class StudioVC: UIViewController {
                 ])
         } else {
             NSLayoutConstraint.activate([
-                baseView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+                baseView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
                 baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 baseView.widthAnchor.constraint(equalToConstant: size.width),
                 baseView.heightAnchor.constraint(equalToConstant: size.height),

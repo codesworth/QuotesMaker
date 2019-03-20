@@ -384,6 +384,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		38965078224279ED009434B4 /* StudioTab */ = {
+			isa = PBXGroup;
+			children = (
+				38C80FB8223A837C00150FD4 /* StudioTab.swift */,
+			);
+			path = StudioTab;
+			sourceTree = "<group>";
+		};
 		389B938822275C88009FE9E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +409,7 @@
 		389B938922275CA1009FE9E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				38965078224279ED009434B4 /* StudioTab */,
 				381865B3223C992C006C0C56 /* ViewStack */,
 				38C80FB7223A7ACB00150FD4 /* Panels */,
 				38797C2322309D6B003A9D99 /* TextDesignableView */,
@@ -419,7 +428,6 @@
 				38732E9A2230359500CDB703 /* LineView.swift */,
 				384B9DA522369908007B4BD0 /* CloseButton.swift */,
 				384B9DA72236E903007B4BD0 /* QPreviewView.swift */,
-				38C80FB8223A837C00150FD4 /* StudioTab.swift */,
 				38C80FBE223A98B900150FD4 /* StateChangeControl.swift */,
 			);
 			path = Views;

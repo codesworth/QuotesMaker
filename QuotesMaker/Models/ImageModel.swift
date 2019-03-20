@@ -11,7 +11,7 @@ import UIKit
 
 struct ImageLayerModel:LayerModel {
     
-    var priority: LayerFrame.LayerPriority = .image
+    var layerFrame:LayerFrame?
     
     mutating func layerFrame(_ frame: LayerFrame) {
         self.frame = frame

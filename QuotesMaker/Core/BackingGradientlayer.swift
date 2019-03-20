@@ -15,6 +15,8 @@ class BackingGradientlayer: CAGradientLayer {
         setup()
     }
     
+    
+    
     var previousModels:[GradientLayerModel] = []
     
     var model:GradientLayerModel!{

@@ -204,23 +204,23 @@ extension BaseView{
     
     func save(){
         
-        let savedData = subviews.compactMap { sub -> LayerModel? in
-            if let subview = sub as? WrapperView{
-                subview.model.layerFrame(subview.makeLayerFrame())
-                return subview.model
-            }
-            if let subview = sub as? BackingImageView{
-                subview.model.layerFrame(subview.makeLayerFrame())
-                return subview.model
-            }
-            
-            if let subview = sub as? BackingTextView{
-                subview.model.layerFrame(subview.makeLayerFrame())
-                return subview.model
-            }
-            return nil
-        }
+//        let savedData = subviews.compactMap { sub -> LayerModel? in
+//            if let subview = sub as? WrapperView{
+//                subview.model.layerFrame(subview.makeLayerFrame())
+//                return subview.model
+//            }
+//            if let subview = sub as? BackingImageView{
+//                subview.model.layerFrame(subview.makeLayerFrame())
+//                return subview.model
+//            }
+//            
+//            if let subview = sub as? BackingTextView{
+//                subview.model.layerFrame(subview.makeLayerFrame())
+//                return subview.model
+//            }
+//            return nil
+//        }
         
-        print("This is the saved data: \(savedData)")
+        //print("This is the saved data: \(savedData)")
     }
 }

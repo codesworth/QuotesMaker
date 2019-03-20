@@ -12,7 +12,7 @@ import UIKit
 struct GradientLayerModel {
     static var originalColor = UIColor.lightGray.cgColor
     static var reservedLocations = [0, 0.25,0.50,0.75]
-    var gframe: LayerFrame?
+    var layerFrame:LayerFrame?
     
     var colors:[CGColor] = [UIColor.cyan, UIColor.magenta].map{$0.cgColor}
     var locations:[NSNumber] = [0,0.75]
@@ -39,17 +39,4 @@ struct GradientLayerModel {
 }
 
 
-extension GradientLayerModel:LayerModel{
-    
-
-    
-    mutating func layerFrame(_ frame: LayerFrame) {
-        gframe = frame
-    }
-    
-    var priority: LayerFrame.LayerPriority {
-        return .gradient
-    }
-    
-    
-}
+extension GradientLayerModel:LayerModel{}

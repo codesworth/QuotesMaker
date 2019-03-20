@@ -99,7 +99,7 @@ class WrapperView: UIView{
 //        setPanGesture()
 //        setResizableGesture()
         
-       // movedInFocus()
+       doubleTappedGesture()
     }
     
     override func layoutSubviews() {
@@ -159,6 +159,8 @@ extension WrapperView:SPUserResizableViewDelegate{
         //print("The new frame is: \(resizerView.frame)")
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
+        
+        print("The model is" ,model)
         //resizerView.hideEditingHandles()
     }
 }

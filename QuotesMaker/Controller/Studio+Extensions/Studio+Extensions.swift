@@ -181,6 +181,8 @@ extension StudioVC:StudioTabDelegate{
         case .moveDown:
             baseView.moveSubiewBackward()
             break
+        default:
+            break
         }
     }
     

@@ -9,10 +9,8 @@
 import Foundation
 
 protocol LayerModel {
-    
 
-    //var priority:LayerFrame.LayerPriority {get}
-    mutating func layerFrame(_ frame:LayerFrame)
+    var layerFrame:LayerFrame? {get}
 }
 
 

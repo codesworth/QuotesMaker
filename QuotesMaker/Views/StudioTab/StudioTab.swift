@@ -20,6 +20,8 @@ class StudioTab: MaterialView {
         case layers
         case moveUp
         case moveDown
+        case wakePanel
+        case select
     }
     
     let deleteButt:TabControl = {
@@ -80,20 +82,21 @@ class StudioTab: MaterialView {
         addSubview(stackButt)
         addSubview(moveupButt)
         addSubview(moveDownButt)
-        setCorner(20)
-        deleteButt.roundCorners(20)
-        if #available(iOS 11.0, *) {
-            deleteButt.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
-        } else {
-            var cornerMask = UIRectCorner()
-            // Fallback on earlier versions
-        }
-        stackButt.roundCorners(20)
-        if #available(iOS 11.0, *) {
-            stackButt.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
-        } else {
-            // Fallback on earlier versions
-        }
+        setCorner(4)
+        
+        //deleteButt.roundCorners(20)
+//        if #available(iOS 11.0, *) {
+//            deleteButt.layer.maskedCorners = [.layerMinXMinYCorner,.layerMinXMaxYCorner]
+//        } else {
+//            var cornerMask = UIRectCorner()
+//            // Fallback on earlier versions
+//        }
+//        stackButt.roundCorners(20)
+//        if #available(iOS 11.0, *) {
+//            stackButt.layer.maskedCorners = [.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+//        } else {
+//            // Fallback on earlier versions
+//        }
     }
     
     override func awakeFromNib() {
@@ -107,6 +110,8 @@ class StudioTab: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        deleteButt.roundCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner], radius: 4)
+        stackButt.roundCorners([.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: 4)
         let width = (bounds.width - 3) / 4
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         NSLayoutConstraint.activate([

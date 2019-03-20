@@ -14,19 +14,9 @@ struct BlankLayerModel {
     var color:UIColor = .lightGray
     var alpha: CGFloat = 1
     
-    var layerframe:LayerFrame? = nil
+    var layerFrame:LayerFrame? = nil
     
 }
 
 
-extension BlankLayerModel:LayerModel{
-    
-    mutating func layerFrame(_ frame: LayerFrame) {
-        layerframe = frame
-    }
-    
-    
-    var priority: LayerFrame.LayerPriority{
-        return .plainColor
-    }
-}
+extension BlankLayerModel:LayerModel{}
