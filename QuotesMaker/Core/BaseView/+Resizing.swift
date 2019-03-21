@@ -35,7 +35,7 @@ extension BaseView{
 //    }
     
     func propagateFocus(current:BaseSubView){
-        subviews.forEach{ view in
+        contentView.subviews.forEach{ view in
             if let view = view as? BaseSubView {
                 if view !== current{
                     current.focused(false)
