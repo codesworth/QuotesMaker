@@ -143,7 +143,7 @@ class StudioVC: UIViewController {
     func imageOptionSelected(){
 
         let imageView = BackingImageView(frame: baseView.subBounds)
-        baseView.addSubview(imageView)
+        baseView.addSubviewable(imageView)
         setupImageInteractiveView()
     }
     
@@ -155,7 +155,7 @@ class StudioVC: UIViewController {
     
     func blankSelected(){
         let blank = WrapperView(frame: baseView.subBounds, layer: BlankBackingLayer())
-        baseView.addSubview(blank)
+        baseView.addSubviewable(blank)
         setupColorPanel()
 
     }
@@ -164,14 +164,14 @@ class StudioVC: UIViewController {
 
         let grad = WrapperView(frame: baseView.subBounds, layer: BackingGradientlayer())
         grad.isGradient = true
-        baseView.addSubview(grad)
+        baseView.addSubviewable(grad)
         setupGradientInteractiveView()
     }
     
     func addText(){
         let textField = BackingTextView(frame: baseView.subBounds)
         
-        baseView.addSubview(textField)
+        baseView.addSubviewable(textField)
         textField.addDoneButtonOnKeyboard()
     }
     

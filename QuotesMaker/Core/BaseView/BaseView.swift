@@ -13,16 +13,25 @@ class BaseView:UIView{
     
     typealias BaseSubView = UIView & BaseViewSubViewable
     
-    lazy var scrollView:UIScrollView = {
+    enum ZoomScale:CGFloat {
+        case minimum = 0.8
+        case `default` = 1
+        case max = 3
+    }
+    
+    private lazy var scrollView:UIScrollView = {
         let scroll = UIScrollView(frame: .zero)
         scroll.bounces = true
         scroll.isScrollEnabled = true
         scroll.delegate = self
+        scroll.minimumZoomScale = ZoomScale.minimum.rawValue
+        scroll.zoomScale = ZoomScale.default.rawValue
+        scroll.maximumZoomScale = ZoomScale.max.rawValue
         return scroll
         
     }()
     
-    lazy var contentView:BaseContentView = {
+    private lazy var contentView:BaseContentView = {
         let view = BaseContentView(frame: .zero)
         return view
     }()
@@ -70,10 +79,10 @@ class BaseView:UIView{
     
 
     
-//    func invalidateLayers(){
-//        subviews.forEach{$0.removeFromSuperview()}
-//        current = nil
-//    }
+    func invalidateLayers(){
+        contentView.subviews.forEach{$0.removeFromSuperview()}
+        current = nil
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -104,7 +113,7 @@ class BaseView:UIView{
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = bounds
+        contentView.frame = CGRect(origin: .zero, size: bounds.size.scaledBy(3))
     }
     
 
@@ -189,6 +198,17 @@ class BaseView:UIView{
         return image
     }
     
+    func propagateFocus(current:BaseSubView){
+        contentView.subviews.forEach{ view in
+            if let view = view as? BaseSubView {
+                if view !== current{
+                    current.focused(false)
+                    
+                }
+            }
+        }
+    }
+    
 }
 
 
@@ -222,4 +242,15 @@ extension BaseView{
 
 extension BaseView:UIScrollViewDelegate{
     
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return contentView
+    }
+    
+    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+        print("Scrolling with: \(view)")
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        print("Zoom Ended")
+    }
 }

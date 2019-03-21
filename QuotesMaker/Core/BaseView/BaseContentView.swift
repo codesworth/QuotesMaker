@@ -60,7 +60,7 @@ final class BaseContentView:UIView{
                 
             }
         }
-        currentSubview = subview
+        current = subview as? BaseView.BaseSubView
         Subscription.main.post(suscription: .layerChanged, object: subviews)
     }
 }
