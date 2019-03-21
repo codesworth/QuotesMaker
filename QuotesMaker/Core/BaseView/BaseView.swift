@@ -75,6 +75,7 @@ class BaseView:UIView{
     }
     
     func setup(){
+        setResizableGesture()
         backgroundColor = .white
         layer.borderWidth = 1
         layer.cornerRadius = 2
