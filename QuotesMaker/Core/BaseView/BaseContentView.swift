@@ -12,7 +12,7 @@ import UIKit
 
 final class BaseContentView:UIView{
     
-     private var viewTags:(imgs:Int,txt:Int,blk:Int,grd:Int) = (0,0,0,0)
+    var viewTags:(imgs:Int,txt:Int,blk:Int,grd:Int) = (0,0,0,0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +28,7 @@ final class BaseContentView:UIView{
     }
     
     private func initialize(){
-        backgroundColor = .clear
+        backgroundColor = .cyan
         clipsToBounds = true
     }
     

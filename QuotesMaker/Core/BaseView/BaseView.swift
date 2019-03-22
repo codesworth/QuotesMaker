@@ -95,6 +95,7 @@ class BaseView:UIView{
     
     func setup(){
         scrollView.addSubview(contentView)
+        scrollView.backgroundColor = .magenta
         addSubview(scrollView)
         backgroundColor = .white
         layer.borderWidth = 1
