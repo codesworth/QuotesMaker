@@ -39,6 +39,7 @@
 		38732E9822300DE700CDB703 /* FontCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E9622300DE700CDB703 /* FontCells.swift */; };
 		38732E9922300DE700CDB703 /* FontCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38732E9722300DE700CDB703 /* FontCells.xib */; };
 		38732E9B2230359500CDB703 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E9A2230359500CDB703 /* LineView.swift */; };
+		3873738C22452BBE00A1FB7B /* StudioEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873738B22452BBE00A1FB7B /* StudioEditorView.swift */; };
 		38797C2522309DAF003A9D99 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2422309DAF003A9D99 /* Constraints.swift */; };
 		38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */; };
 		38797C2922309E83003A9D99 /* Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2822309E83003A9D99 /* Selectors.swift */; };
@@ -170,6 +171,7 @@
 		38732E9622300DE700CDB703 /* FontCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCells.swift; sourceTree = "<group>"; };
 		38732E9722300DE700CDB703 /* FontCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontCells.xib; sourceTree = "<group>"; };
 		38732E9A2230359500CDB703 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		3873738B22452BBE00A1FB7B /* StudioEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioEditorView.swift; sourceTree = "<group>"; };
 		38797C2422309DAF003A9D99 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegates.swift; sourceTree = "<group>"; };
 		38797C2822309E83003A9D99 /* Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectors.swift; sourceTree = "<group>"; };
@@ -449,6 +451,7 @@
 				384B9DA522369908007B4BD0 /* CloseButton.swift */,
 				384B9DA72236E903007B4BD0 /* QPreviewView.swift */,
 				38C80FBE223A98B900150FD4 /* StateChangeControl.swift */,
+				3873738B22452BBE00A1FB7B /* StudioEditorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */,
 				380C79002232D8EB006B8F8D /* WrapperView.swift in Sources */,
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
+				3873738C22452BBE00A1FB7B /* StudioEditorView.swift in Sources */,
 				388BE33E222BBFDE005BF44B /* GradientModel.swift in Sources */,
 				38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */,
 				386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */,

@@ -2206,29 +2206,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "574958141.248155"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "selectedView"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
             timestampString = "574958141.248786"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "selectedView"
-            landmarkType = "24">
+            landmarkName = "awakeFromNib()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2243,8 +2227,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "selectedView"
-            landmarkType = "24">
+            landmarkName = "BaseView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2259,8 +2243,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
             endingLineNumber = "68"
-            landmarkName = "selectedView"
-            landmarkType = "24">
+            landmarkName = "BaseView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2275,8 +2259,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "selectedView"
-            landmarkType = "24">
+            landmarkName = "BaseView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2291,24 +2275,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
-            landmarkName = "selectedView"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "574958141.250404"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "selectedView"
-            landmarkType = "24">
+            landmarkName = "BaseView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2323,8 +2291,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "selectedView"
-            landmarkType = "24">
+            landmarkName = "awakeFromNib()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2387,8 +2355,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
-            landmarkName = "selectedView"
-            landmarkType = "24">
+            landmarkName = "awakeFromNib()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3362,9 +3330,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "viewForZooming(in:)"
-            landmarkType = "7">
+            endingLineNumber = "239">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3378,9 +3344,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "241"
-            endingLineNumber = "241"
-            landmarkName = "viewForZooming(in:)"
-            landmarkType = "7">
+            endingLineNumber = "241">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3394,9 +3358,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "scrollViewDidEndZooming(_:with:atScale:)"
-            landmarkType = "7">
+            endingLineNumber = "247">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3411,7 +3373,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
             endingLineNumber = "125"
-            landmarkName = "layoutSubviews()"
+            landmarkName = "moveSubiewBackward()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3427,7 +3389,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
             endingLineNumber = "126"
-            landmarkName = "layoutSubviews()"
+            landmarkName = "moveSubiewBackward()"
             landmarkType = "7">
             <Locations>
                <Location

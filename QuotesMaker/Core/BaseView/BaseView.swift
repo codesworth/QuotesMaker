@@ -13,38 +13,12 @@ class BaseView:UIView{
     
     typealias BaseSubView = UIView & BaseViewSubViewable
     
-    var viewTags:BaseContentView.ViewTags{
-        get{
-            return contentView.viewTags
-        }
-        set{
-            contentView.viewTags = newValue
-        }
-    }
-    enum ZoomScale:CGFloat {
-        case minimum = 0.8
-        case `default` = 1
-        case max = 3
-    }
+    typealias ViewTags = (imgs:Int,txt:Int,blk:Int,grd:Int)
+    var viewTags:ViewTags = (0,0,0,0)
+       
     
-    private lazy var scrollView:UIScrollView = {
-        let scroll = UIScrollView(frame: .zero)
-        scroll.bounces = false
-        scroll.showsVerticalScrollIndicator = false
-        scroll.showsHorizontalScrollIndicator = false
-        scroll.isScrollEnabled = true
-        scroll.delegate = self
-        scroll.minimumZoomScale = ZoomScale.minimum.rawValue
-        scroll.zoomScale = ZoomScale.default.rawValue
-        scroll.maximumZoomScale = ZoomScale.max.rawValue
-        return scroll
-        
-    }()
     
-    private lazy var contentView:BaseContentView = {
-        let view = BaseContentView(frame: .zero)
-        return view
-    }()
+   
     var subBounds:CGRect{
         return CGRect(origin: [(bounds.size.width - bounds.size.scaledBy(0.7).width) / 2,(bounds.size.height - bounds.size.scaledBy(0.7).height) / 2 ], size: bounds.size.scaledBy(0.7))
     }
@@ -75,23 +49,16 @@ class BaseView:UIView{
     
     weak var delegate:BaseViewProtocol?
     
-    var currentSubview:BaseSubView?{
-        get{
-            return contentView.current
-        }
-        
-        set{
-            contentView.current = newValue
-        }
-    }
+    var currentSubview:BaseSubView?
+    
     
     
     
 
     
     func invalidateLayers(){
-        contentView.subviews.forEach{$0.removeFromSuperview()}
-        current = nil
+        subviews.forEach{$0.removeFromSuperview()}
+        currentSubview = nil
     }
     
     override func awakeFromNib() {
@@ -104,8 +71,6 @@ class BaseView:UIView{
 //    }
     
     func setup(){
-        scrollView.addSubview(contentView)
-        addSubview(scrollView)
         backgroundColor = .white
         layer.borderWidth = 1
         layer.cornerRadius = 2
@@ -117,28 +82,10 @@ class BaseView:UIView{
     
     @objc func layerArranged(_ notification:Notification){
         if let swap = notification.userInfo?[.info] as? LayerStack.SwapIndice{
-            contentView.exchangeSubview(at: swap.initial, withSubviewAt: swap.final)
+            exchangeSubview(at: swap.initial, withSubviewAt: swap.final)
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        //let scrollCons = scrollView.pinAllSides()
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
-            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
-            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant:bounds.height),
-        ])
-    }
     
 
     
@@ -152,7 +99,7 @@ class BaseView:UIView{
     
     func addSubviewable(_ view:BaseSubView){
         view.center = [bounds.midX,bounds.midY]
-        contentView.addSubview(view)
+        addSubview(view)
     }
     
     
@@ -164,20 +111,20 @@ class BaseView:UIView{
     }
     
     func moveSubiewForward(){
-        guard let current = currentSubview, let subViewIndex = contentView.subviews.firstIndex(of: current) else {return}
-        if subViewIndex + 1 < contentView.subviews.endIndex{
-            contentView.exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex + 1)
-            Subscription.main.post(suscription: .layerChanged, object: contentView.subviews)
+        guard let current = currentSubview, let subViewIndex = subviews.firstIndex(of: current) else {return}
+        if subViewIndex + 1 < subviews.endIndex{
+            exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex + 1)
+            Subscription.main.post(suscription: .layerChanged, object: subviews)
         }
         
         
     }
     
     func moveSubiewBackward(){
-        guard let current = currentSubview, let subViewIndex = contentView.subviews.firstIndex(of: current) else {return}
-        if subViewIndex > contentView.subviews.startIndex{
-            contentView.exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex - 1)
-            Subscription.main.post(suscription: .layerChanged, object: contentView.subviews)
+        guard let current = currentSubview, let subViewIndex = subviews.firstIndex(of: current) else {return}
+        if subViewIndex > subviews.startIndex{
+            exchangeSubview(at: subViewIndex, withSubviewAt: subViewIndex - 1)
+            Subscription.main.post(suscription: .layerChanged, object: subviews)
         }
         
     }
@@ -193,7 +140,7 @@ class BaseView:UIView{
     }
     
     func propagateFocus(current:BaseSubView){
-        contentView.subviews.forEach{ view in
+        subviews.forEach{ view in
             if let view = view as? BaseSubView {
                 if view !== current{
                     current.focused(false)
@@ -201,6 +148,36 @@ class BaseView:UIView{
                 }
             }
         }
+    }
+    
+    override func willRemoveSubview(_ subview: UIView) {
+        let subs = subviews.filter{$0 != subview}
+        Subscription.main.post(suscription: .layerChanged, object: subs)
+        
+    }
+    
+    
+    override func didAddSubview(_ subview: UIView) {
+        super.didAddSubview(subview)
+        if let view = subview as?  BackingImageView{
+            viewTags.imgs += 1
+            view.id_tag = viewTags.imgs
+        }else if let view = subview as? BackingTextView{
+            viewTags.txt += 1
+            view.id_tag = viewTags.txt
+        }else if let view = subview as? WrapperView{
+            if let _ = view.superlayer as? BackingGradientlayer{
+                viewTags.grd += 1
+                view.grd_tag = viewTags.grd
+            }
+            else{
+                viewTags.blk += 1
+                view.blk_tag = viewTags.blk
+                
+            }
+        }
+        currentSubview = subview as? BaseView.BaseSubView
+        Subscription.main.post(suscription: .layerChanged, object: subviews)
     }
     
 }
@@ -234,17 +211,4 @@ extension BaseView{
 
 
 
-extension BaseView:UIScrollViewDelegate{
-    
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return contentView
-    }
-    
-    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-        print("Scrolling with: \(view)")
-    }
-    
-    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        print("Zoom Ended")
-    }
-}
+
