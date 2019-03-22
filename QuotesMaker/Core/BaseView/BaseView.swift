@@ -28,8 +28,10 @@ class BaseView:UIView{
     }
     
     private lazy var scrollView:UIScrollView = {
-        let scroll = UIScrollView()
-        scroll.bounces = true
+        let scroll = UIScrollView(frame: .zero)
+        scroll.bounces = false
+        scroll.showsVerticalScrollIndicator = false
+        scroll.showsHorizontalScrollIndicator = false
         scroll.isScrollEnabled = true
         scroll.delegate = self
         scroll.minimumZoomScale = ZoomScale.minimum.rawValue
@@ -103,7 +105,6 @@ class BaseView:UIView{
     
     func setup(){
         scrollView.addSubview(contentView)
-        scrollView.backgroundColor = .magenta
         addSubview(scrollView)
         backgroundColor = .white
         layer.borderWidth = 1
@@ -130,6 +131,7 @@ class BaseView:UIView{
             scrollView.leftAnchor.constraint(equalTo: leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: rightAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
