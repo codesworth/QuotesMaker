@@ -12,7 +12,7 @@ class StudioVC: UIViewController {
     
     
     lazy var editorView:StudioEditorView = {
-        let editor = StudioEditorView(frame: .zero)
+        let editor = StudioEditorView(frame:[0])//CGRect(origin: [0,100], size: Dimensions.editorSize))
         editor.clipsToBounds = true
         return editor
     }()
@@ -23,7 +23,8 @@ class StudioVC: UIViewController {
     private var gradientPanel:GradientPanel!
     private var studioTab:StudioTab!
     private var imagePanel:ImagePanel!
-    @IBOutlet weak var baseView:BaseView!
+    
+    var baseView:BaseView!
     var stack:LayerStack?
     //private var textField = BackingTextView(frame: .zero)
     private var aspectRatio:Dimensions.AspectRatios = .square
@@ -47,6 +48,7 @@ class StudioVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        baseView = BaseView(frame: .zero)
         studioTab = StudioTab(frame: .zero)
         studioTab.delegate = self
         view.addSubview(studioTab)
@@ -74,7 +76,7 @@ class StudioVC: UIViewController {
     
     func setupViews(){
         
-        view.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = true}
+        view.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         let points = Dimensions.originalPanelPoints
         colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
         colorPanel.stateDelegate = self
@@ -85,17 +87,21 @@ class StudioVC: UIViewController {
         let size = Dimensions.editorSize
         
         NSLayoutConstraint.activate([
-            editorView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
+            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 40),
+            studioTab.heightAnchor.constraint(equalToConstant: 40),
+            studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            studioTab.heightAnchor.constraint(equalToConstant: 40),
+            editorView.topAnchor.constraint(equalTo: studioTab.bottomAnchor, constant: 20),
             editorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             editorView.widthAnchor.constraint(equalToConstant: size.width),
             editorView.heightAnchor.constraint(equalToConstant: size.height),
-            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 0),
-            studioTab.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            studioTab.widthAnchor.constraint(equalToConstant: size.width),
-            studioTab.heightAnchor.constraint(equalToConstant: 40)
+            
         ])
-   
+        
+        setupCanvas()
             // Fallback on earlier versions
+        
         
         
         let handle = UIScreen.main.screenType()

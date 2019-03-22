@@ -59,18 +59,29 @@ class StudioEditorView:UIView{
         backgroundColor = .white
         addSubview(scrollView)
         scrollView.addSubview(contentView)
+        borderlize(.primary, 1)
     }
     
     func addCanvas(_ base:BaseView){
         contentView.addSubview(base)
-        base.center = contentView.center
+        let size = base.frame.size
+        base.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            base.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            base.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            base.widthAnchor.constraint(equalToConstant: size.width),
+            base.heightAnchor.constraint(equalToConstant: size.height)
+        ])
     }
+    
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
         scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         //let scrollCons = scrollView.pinAllSides()
+        if bounds.height == 0 {return}
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.leftAnchor.constraint(equalTo: leftAnchor),
@@ -82,7 +93,9 @@ class StudioEditorView:UIView{
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: widthAnchor),
             contentView.heightAnchor.constraint(equalToConstant:bounds.height),
-            ])
+        ])
+        
+        
     }
     
 }

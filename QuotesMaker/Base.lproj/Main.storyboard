@@ -42,7 +42,6 @@
                     <tabBarItem key="tabBarItem" title="Studio" id="grz-tt-gaQ"/>
                     <navigationItem key="navigationItem" title="Quote Maker" id="mK7-NY-It0"/>
                     <connections>
-                        <outlet property="baseView" destination="TSF-MB-lNu" id="OqC-yR-hrB"/>
                         <outlet property="studioHeight" destination="GVa-L1-YTN" id="BzL-vW-R0n"/>
                         <outlet property="studioPanel" destination="fdF-Ie-zji" id="hx9-gq-ihR"/>
                     </connections>
