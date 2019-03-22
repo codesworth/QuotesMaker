@@ -42,6 +42,7 @@ class StudioEditorView:UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,12 +52,18 @@ class StudioEditorView:UIView{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initialize()
     }
     
     private func initialize(){
         backgroundColor = .white
         addSubview(scrollView)
         scrollView.addSubview(contentView)
+    }
+    
+    func addCanvas(_ base:BaseView){
+        contentView.addSubview(base)
+        base.center = contentView.center
     }
     
     override func layoutSubviews() {
