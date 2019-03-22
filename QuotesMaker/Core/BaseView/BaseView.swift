@@ -13,6 +13,14 @@ class BaseView:UIView{
     
     typealias BaseSubView = UIView & BaseViewSubViewable
     
+    var viewTags:BaseContentView.ViewTags{
+        get{
+            return contentView.viewTags
+        }
+        set{
+            contentView.viewTags = newValue
+        }
+    }
     enum ZoomScale:CGFloat {
         case minimum = 0.8
         case `default` = 1
@@ -20,7 +28,7 @@ class BaseView:UIView{
     }
     
     private lazy var scrollView:UIScrollView = {
-        let scroll = UIScrollView(frame: .zero)
+        let scroll = UIScrollView()
         scroll.bounces = true
         scroll.isScrollEnabled = true
         scroll.delegate = self
@@ -114,7 +122,20 @@ class BaseView:UIView{
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.frame = CGRect(origin: .zero, size: bounds.size.scaledBy(3))
+        scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        //let scrollCons = scrollView.pinAllSides()
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
+            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor),
+            contentView.heightAnchor.constraint(equalToConstant:bounds.height),
+        ])
     }
     
 
@@ -126,18 +147,6 @@ class BaseView:UIView{
         super.init(coder: aDecoder)
     }
     
-//    func addLayer(_ layer:CALayer){
-//        self.layer.addSublayer(layer)
-//        //layer.bounds = bounds
-//        current = layer
-//        layer.position = CGPoint(x: bounds.midX, y: bounds.midY)
-//
-//    }
-    
-//    internal override func addSubview(_ view: UIView) {
-////        guard let view = view as? BaseSubView else {fatalError("subviews must conform to BaseViewSubViewable")}
-//        super.addSubview(view)
-//    }
     
     func addSubviewable(_ view:BaseSubView){
         view.center = [bounds.midX,bounds.midY]
@@ -147,24 +156,6 @@ class BaseView:UIView{
     
 
     
-//    func transformViewTolayer(){
-//        let textViews = subviews.compactMap { (view) -> BackingTextView? in
-//            if type(of: view) == BackingTextView.self{
-//                return view as? BackingTextView
-//            }
-//            return nil
-//        }
-//        textViews.forEach{
-//            let textLayer = TextBackingLayer()
-//            textLayer.frame = $0.frame
-//            textLayer.model = $0.model
-//            self.layer.addSublayer(textLayer)
-//
-//            $0.removeFromSuperview()
-//            $0.frame = [0]
-//        }
-//
-//    }
     
     deinit {
         unsubscribe()

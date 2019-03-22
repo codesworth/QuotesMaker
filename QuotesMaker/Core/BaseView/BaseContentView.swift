@@ -12,7 +12,8 @@ import UIKit
 
 final class BaseContentView:UIView{
     
-    var viewTags:(imgs:Int,txt:Int,blk:Int,grd:Int) = (0,0,0,0)
+    typealias ViewTags = (imgs:Int,txt:Int,blk:Int,grd:Int)
+    var viewTags:ViewTags = (0,0,0,0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
