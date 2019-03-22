@@ -74,6 +74,10 @@ class Dimensions{
         }
     }
     
-    
+    class var editorSize:CGSize{
+        
+        return [UIScreen.main.bounds.width,UIScreen.main.bounds.height * 0.6]
+        
+    }
     
 }

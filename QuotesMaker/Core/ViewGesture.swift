@@ -41,36 +41,36 @@ extension UIView{
         recognizer.setTranslation(.zero, in: view)
     }
     
-    @discardableResult
-    func movedInFocus()->UITapGestureRecognizer{
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(wasTapped(_:)))
-        tap.numberOfTapsRequired = 1
-        addGestureRecognizer(tap)
-        return tap
-    }
+//    @discardableResult
+//    func movedInFocus()->UITapGestureRecognizer{
+//
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(wasTapped(_:)))
+//        tap.numberOfTapsRequired = 1
+//        addGestureRecognizer(tap)
+//        return tap
+//    }
     
-    @objc func wasTapped(_ gesture:UITapGestureRecognizer){
-        guard let superview = superview as? BaseView, let view = gesture.view else {return}
-        superview.currentSubview = view
-        
-    }
-    
-    @discardableResult
-    func doubleTappedGesture()->UITapGestureRecognizer{
-        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(_:)))
-        tap.numberOfTapsRequired = 2
-        addGestureRecognizer(tap)
-        return tap
-    }
-    
-    @objc func doubleTapped(_ recognizer:UITapGestureRecognizer){
-        guard let superview = superview as? BaseView, let view = recognizer.view else {return}
-        superview.currentSubview = view
-        superview.delegate?.wakePanelForCurrent()
-//        self.layer.borderColor = UIColor.black.cgColor
-//        self.layer.borderWidth = 0.5
-    }
+//    @objc func wasTapped(_ gesture:UITapGestureRecognizer){
+//        guard let superview = superview as? BaseView, let view = gesture.view else {return}
+//        superview.currentSubview = view
+//
+//    }
+//
+//    @discardableResult
+//    func doubleTappedGesture()->UITapGestureRecognizer{
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped(_:)))
+//        tap.numberOfTapsRequired = 2
+//        addGestureRecognizer(tap)
+//        return tap
+//    }
+//
+//    @objc func doubleTapped(_ recognizer:UITapGestureRecognizer){
+//        guard let superview = superview as? BaseView, let view = recognizer.view else {return}
+//        superview.currentSubview = view
+//        superview.delegate?.wakePanelForCurrent()
+////        self.layer.borderColor = UIColor.black.cgColor
+////        self.layer.borderWidth = 0.5
+//    }
     
     func borderlize(_ borderColor:UIColor = .primary,_ width:CGFloat = 1){
         layer.borderColor = borderColor.cgColor
@@ -82,16 +82,16 @@ extension UIView{
         layer.cornerRadius = width
     }
     
-    func addPanDowngesture(){
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pannedDown(_:)))
-        addGestureRecognizer(panGesture)
-    }
+//    func addPanDowngesture(){
+//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pannedDown(_:)))
+//        addGestureRecognizer(panGesture)
+//    }
     
     
     
-    @objc func pannedDown(_ recognizer:UIPanGestureRecognizer){
-        guard let view = recognizer.view else {return}
-        
-        //let translation
-    }
+//    @objc func pannedDown(_ recognizer:UIPanGestureRecognizer){
+//        guard let view = recognizer.view else {return}
+//        
+//        //let translation
+//    }
 }

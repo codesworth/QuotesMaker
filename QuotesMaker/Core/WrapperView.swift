@@ -108,7 +108,7 @@ class WrapperView: UIView{
 //        setPanGesture()
 //        setResizableGesture()
         
-       doubleTappedGesture()
+       //doubleTappedGesture()
     }
     
     override func layoutSubviews() {

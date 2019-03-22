@@ -10,13 +10,21 @@ import UIKit
 
 class StudioVC: UIViewController {
     
+    
+    lazy var editorView:StudioEditorView = {
+        let editor = StudioEditorView(frame:[0])//CGRect(origin: [0,100], size: Dimensions.editorSize))
+        editor.clipsToBounds = true
+        return editor
+    }()
+    
     @IBOutlet weak var studioHeight: NSLayoutConstraint!
     @IBOutlet weak var studioPanel: StudioPanel!
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!
     private var studioTab:StudioTab!
     private var imagePanel:ImagePanel!
-    @IBOutlet weak var baseView:BaseView!
+    
+    var baseView:BaseView!
     var stack:LayerStack?
     //private var textField = BackingTextView(frame: .zero)
     private var aspectRatio:Dimensions.AspectRatios = .square
@@ -28,15 +36,23 @@ class StudioVC: UIViewController {
     }
     
     
+    func setupCanvas(){
+        let size = Dimensions.sizeForAspect(.square)
+        baseView.frame = CGRect(origin: .zero, size: size)
+        editorView.addCanvas(baseView)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        baseView = BaseView(frame: .zero)
         studioTab = StudioTab(frame: .zero)
         studioTab.delegate = self
         view.addSubview(studioTab)
+        view.addSubview(editorView)
         studioPanel.delegate = self
         baseView.delegate = self
         //automaticallyAdjustsScrollViewInsets = false
@@ -60,8 +76,7 @@ class StudioVC: UIViewController {
     
     func setupViews(){
         
-        baseView.translatesAutoresizingMaskIntoConstraints = false
-        studioTab.translatesAutoresizingMaskIntoConstraints = false
+        view.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         let points = Dimensions.originalPanelPoints
         colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
         colorPanel.stateDelegate = self
@@ -69,31 +84,25 @@ class StudioVC: UIViewController {
         gradientPanel.stateDelegate = self
         imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
         imagePanel.stateDelegate = self
-        let size = Dimensions.sizeForAspect(.square)
-        if #available(iOS 11.0, *) {
-            NSLayoutConstraint.activate([
-                baseView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-                baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                baseView.widthAnchor.constraint(equalToConstant: size.width),
-                baseView.heightAnchor.constraint(equalToConstant: size.height),
-                studioTab.topAnchor.constraint(equalTo: baseView.bottomAnchor, constant: 16),
-                studioTab.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                studioTab.widthAnchor.constraint(equalToConstant: size.width),
-                studioTab.heightAnchor.constraint(equalToConstant: 40)
-                ])
-        } else {
-            NSLayoutConstraint.activate([
-                baseView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
-                baseView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                baseView.widthAnchor.constraint(equalToConstant: size.width),
-                baseView.heightAnchor.constraint(equalToConstant: size.height),
-                studioTab.topAnchor.constraint(equalTo: baseView.bottomAnchor, constant: 16),
-                studioTab.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                studioTab.widthAnchor.constraint(equalToConstant: size.width),
-                studioTab.heightAnchor.constraint(equalToConstant: 40)
-                ])
+        let size = Dimensions.editorSize
+        
+        NSLayoutConstraint.activate([
+            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 40),
+            studioTab.heightAnchor.constraint(equalToConstant: 40),
+            studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            studioTab.heightAnchor.constraint(equalToConstant: 40),
+            editorView.topAnchor.constraint(equalTo: studioTab.bottomAnchor, constant: 20),
+            editorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            editorView.widthAnchor.constraint(equalToConstant: size.width),
+            editorView.heightAnchor.constraint(equalToConstant: size.height),
+            
+        ])
+        
+        setupCanvas()
             // Fallback on earlier versions
-        }
+        
+        
         
         let handle = UIScreen.main.screenType()
         switch handle {
@@ -143,7 +152,7 @@ class StudioVC: UIViewController {
     func imageOptionSelected(){
 
         let imageView = BackingImageView(frame: baseView.subBounds)
-        baseView.addSubview(imageView)
+        baseView.addSubviewable(imageView)
         setupImageInteractiveView()
     }
     
@@ -155,7 +164,7 @@ class StudioVC: UIViewController {
     
     func blankSelected(){
         let blank = WrapperView(frame: baseView.subBounds, layer: BlankBackingLayer())
-        baseView.addSubview(blank)
+        baseView.addSubviewable(blank)
         setupColorPanel()
 
     }
@@ -164,14 +173,14 @@ class StudioVC: UIViewController {
 
         let grad = WrapperView(frame: baseView.subBounds, layer: BackingGradientlayer())
         grad.isGradient = true
-        baseView.addSubview(grad)
+        baseView.addSubviewable(grad)
         setupGradientInteractiveView()
     }
     
     func addText(){
         let textField = BackingTextView(frame: baseView.subBounds)
         
-        baseView.addSubview(textField)
+        baseView.addSubviewable(textField)
         textField.addDoneButtonOnKeyboard()
     }
     

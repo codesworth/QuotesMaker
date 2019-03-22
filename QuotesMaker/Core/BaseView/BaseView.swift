@@ -13,7 +13,12 @@ class BaseView:UIView{
     
     typealias BaseSubView = UIView & BaseViewSubViewable
     
+    typealias ViewTags = (imgs:Int,txt:Int,blk:Int,grd:Int)
+    var viewTags:ViewTags = (0,0,0,0)
+       
     
+    
+   
     var subBounds:CGRect{
         return CGRect(origin: [(bounds.size.width - bounds.size.scaledBy(0.7).width) / 2,(bounds.size.height - bounds.size.scaledBy(0.7).height) / 2 ], size: bounds.size.scaledBy(0.7))
     }
@@ -25,44 +30,35 @@ class BaseView:UIView{
     
     var resizingMode:Bool = false
     
-    private var viewTags:(imgs:Int,txt:Int,blk:Int,grd:Int) = (0,0,0,0)
+   
     
     private var current:CALayer?
     
     var selectedView:UIView?{
         didSet{
             if oldValue != selectedView {
-                if let old = oldValue as? BaseViewSubViewable{
+                if let old = oldValue as? BaseSubView{
                     old.focused(false)
-                    currentSubview = selectedView
+                    currentSubview = selectedView as? BaseView.BaseSubView
                     
                 }
             }
         }
     }
     
-    var currentSublayer:CALayer?{
-        get{
-            return  current
-        }
-        set{
-            current = newValue
-        }
-    }
     
     weak var delegate:BaseViewProtocol?
     
-    var currentSubview:UIView?
+    var currentSubview:BaseSubView?
     
     
     
-    var subLayers:[CALayer]?{
-        return layer.sublayers
-    }
+    
+
     
     func invalidateLayers(){
         subviews.forEach{$0.removeFromSuperview()}
-        current = nil
+        currentSubview = nil
     }
     
     override func awakeFromNib() {
@@ -70,9 +66,9 @@ class BaseView:UIView{
         setup()
     }
     
-    func focusDidChange(){
-        let _ = subviews.map{$0.layer.borderColor = UIColor.clear.cgColor}
-    }
+//    func focusDidChange(){
+//        let _ = subviews.map{$0.layer.borderColor = UIColor.clear.cgColor}
+//    }
     
     func setup(){
         backgroundColor = .white
@@ -90,11 +86,8 @@ class BaseView:UIView{
         }
     }
     
-    override func willRemoveSubview(_ subview: UIView) {
-        let subs = subviews.filter{$0 != subview}
-        Subscription.main.post(suscription: .layerChanged, object: subs)
-        
-    }
+    
+
     
     
     
@@ -103,18 +96,6 @@ class BaseView:UIView{
         super.init(coder: aDecoder)
     }
     
-    func addLayer(_ layer:CALayer){
-        self.layer.addSublayer(layer)
-        //layer.bounds = bounds
-        current = layer
-        layer.position = CGPoint(x: bounds.midX, y: bounds.midY)
-        
-    }
-    
-    internal override func addSubview(_ view: UIView) {
-//        guard let view = view as? BaseSubView else {fatalError("subviews must conform to BaseViewSubViewable")}
-        super.addSubview(view)
-    }
     
     func addSubviewable(_ view:BaseSubView){
         view.center = [bounds.midX,bounds.midY]
@@ -122,47 +103,8 @@ class BaseView:UIView{
     }
     
     
-    override func didAddSubview(_ subview: UIView) {
-        super.didAddSubview(subview)
-        if let view = subview as?  BackingImageView{
-            viewTags.imgs += 1
-            view.id_tag = viewTags.imgs
-        }else if let view = subview as? BackingTextView{
-            viewTags.txt += 1
-            view.id_tag = viewTags.txt
-        }else if let view = subview as? WrapperView{
-            if let _ = view.superlayer as? BackingGradientlayer{
-                viewTags.grd += 1
-                view.grd_tag = viewTags.grd
-            }
-            else{
-                viewTags.blk += 1
-                view.blk_tag = viewTags.blk
-                
-            }
-        }
-        currentSubview = subview
-        Subscription.main.post(suscription: .layerChanged, object: subviews)
-    }
+
     
-//    func transformViewTolayer(){
-//        let textViews = subviews.compactMap { (view) -> BackingTextView? in
-//            if type(of: view) == BackingTextView.self{
-//                return view as? BackingTextView
-//            }
-//            return nil
-//        }
-//        textViews.forEach{
-//            let textLayer = TextBackingLayer()
-//            textLayer.frame = $0.frame
-//            textLayer.model = $0.model
-//            self.layer.addSublayer(textLayer)
-//
-//            $0.removeFromSuperview()
-//            $0.frame = [0]
-//        }
-//
-//    }
     
     deinit {
         unsubscribe()
@@ -197,6 +139,47 @@ class BaseView:UIView{
         return image
     }
     
+    func propagateFocus(current:BaseSubView){
+        subviews.forEach{ view in
+            if let view = view as? BaseSubView {
+                if view !== current{
+                    current.focused(false)
+                    
+                }
+            }
+        }
+    }
+    
+    override func willRemoveSubview(_ subview: UIView) {
+        let subs = subviews.filter{$0 != subview}
+        Subscription.main.post(suscription: .layerChanged, object: subs)
+        
+    }
+    
+    
+    override func didAddSubview(_ subview: UIView) {
+        super.didAddSubview(subview)
+        if let view = subview as?  BackingImageView{
+            viewTags.imgs += 1
+            view.id_tag = viewTags.imgs
+        }else if let view = subview as? BackingTextView{
+            viewTags.txt += 1
+            view.id_tag = viewTags.txt
+        }else if let view = subview as? WrapperView{
+            if let _ = view.superlayer as? BackingGradientlayer{
+                viewTags.grd += 1
+                view.grd_tag = viewTags.grd
+            }
+            else{
+                viewTags.blk += 1
+                view.blk_tag = viewTags.blk
+                
+            }
+        }
+        currentSubview = subview as? BaseView.BaseSubView
+        Subscription.main.post(suscription: .layerChanged, object: subviews)
+    }
+    
 }
 
 
@@ -224,3 +207,8 @@ extension BaseView{
         //print("This is the saved data: \(savedData)")
     }
 }
+
+
+
+
+
