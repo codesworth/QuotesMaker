@@ -108,7 +108,7 @@ extension StudioEditorView:UIScrollViewDelegate{
     }
     
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-        print("Scrolling with: \(view)")
+        //print("Scrolling with: \(view)")
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {

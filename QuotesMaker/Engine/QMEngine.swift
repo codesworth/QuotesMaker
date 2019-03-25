@@ -31,14 +31,13 @@ class QMEngine:NSObject{
 
 struct Processes {
     enum Process{
-        case createImagebackground,createOverlay,createText, filter, preview, manage
+        case createImagebackground,addShape,createText, filter, preview, manage
         
     }
     
     enum SubProcesses:CaseIterable {
         case selectImage
-        case addBlankOverlay
-        case addGradientOverlay
+        case addShadpe
         //case addClipArt :: Possibly Future
         case addText
         case addFilter
@@ -63,12 +62,9 @@ struct Processes {
                 s = "Add Image"
                 p = .createImagebackground
                 break
-            case .addBlankOverlay:
-                s = "Add Blank"
-                p = .createOverlay
-            case .addGradientOverlay:
-                s = "Add Gradient"
-                p = .createOverlay
+            case .addShadpe:
+                s = "Add Shape"
+                p = .addShape
             case .addText:
                 s = "Add Text"
                 p = .createText

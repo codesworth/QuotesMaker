@@ -1,5 +1,5 @@
 //
-//  StudioPanel.swift
+//  EditorPanel.swift
 //  QuotesMaker
 //
 //  Created by Shadrach Mensah on 03/03/2019.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol StudioPanelDelegate:class {
+protocol EditorPanelDelegate:class {
     
     func actionFromPanel(_ process:Processes)
 }
 
-class StudioPanel: UIView {
+class EditorPanel: UIView {
     
     lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,7 +25,7 @@ class StudioPanel: UIView {
     }()
     
     var processes:[Processes] = Processes.getAllProcesses()
-    weak var delegate:StudioPanelDelegate?
+    weak var delegate:EditorPanelDelegate?
     override init(frame: CGRect) {
         super.init(frame:frame)
         commonInit()
@@ -62,7 +62,7 @@ class StudioPanel: UIView {
 
 
 
-extension StudioPanel:UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource{
+extension EditorPanel:UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDataSource{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

@@ -18,7 +18,7 @@ class StudioVC: UIViewController {
     }()
     
     @IBOutlet weak var studioHeight: NSLayoutConstraint!
-    @IBOutlet weak var studioPanel: StudioPanel!
+    @IBOutlet weak var studioPanel: EditorPanel!
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!
     private var studioTab:StudioTab!
