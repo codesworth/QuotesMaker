@@ -37,7 +37,7 @@ extension StudioVC:GradientOptionsDelegate{
 }
 
 
-extension StudioVC:StudioPanelDelegate{
+extension StudioVC:EditorPanelDelegate{
     
     func moveToProcess(_ process:Processes){
         
