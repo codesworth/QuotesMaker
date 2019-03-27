@@ -42,4 +42,15 @@ class BasicLabel: UILabel {
         return BasicLabel(frame: .zero, font: .systemFont(ofSize: 15, weight: .regular))
     }
     
+    class func basicLabel(_ text:String,_ color:UIColor = .charcoal)->BasicLabel{
+        let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 15, weight: .regular))
+        label.text = text
+        label.textColor = color
+        return label
+    }
+    
+    class func basicHeader()->BasicLabel{
+        return BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .semibold))
+    }
+    
 }
