@@ -28,13 +28,7 @@ class StylingPanel:MaterialView{
         return lab
     }()
     
-    lazy var cornerlable:BasicLabel = {
-        return .basicLabel("Corners")
-    }()
     
-    lazy var cornerRadius:BasicLabel = {
-        return .basicLabel("Radius")
-    }()
     
     
     lazy var firstline:LineView = {

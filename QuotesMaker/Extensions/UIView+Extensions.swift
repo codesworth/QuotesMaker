@@ -46,4 +46,10 @@ extension UIView{
             self.layer.mask = mask
         }
     }
+    
+    
+    func layout(using closure:(LayoutProxy) -> Void){
+        translatesAutoresizingMaskIntoConstraints = false
+        closure(LayoutProxy(view:self))
+    }
 }
