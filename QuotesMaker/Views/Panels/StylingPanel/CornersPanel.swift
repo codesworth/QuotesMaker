@@ -50,11 +50,11 @@ final class CornersPanel:UIView{
             $0.centerX == centerXAnchor
         }
         cornerRadius.layout{
-            $0.top == cornerlable.topAnchor + 12
+            $0.top == cornerlable.bottomAnchor + 16
             $0.leading == leadingAnchor + 12
         }
         slider.layout{
-            $0.leading == cornerRadius.trailingAnchor + 8
+            $0.leading == cornerRadius.trailingAnchor + 16
             $0.top == cornerlable.bottomAnchor + 12
             $0.trailing == trailingAnchor - 12
             $0.height |=| 20

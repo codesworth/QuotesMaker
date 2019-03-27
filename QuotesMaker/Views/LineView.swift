@@ -31,6 +31,16 @@ class LineView: UIView {
         layer.cornerRadius = 3
     }
     
+    class func getShadowedline()->LineView{
+        let line = LineView(frame: .zero)
+        line.layer.shadowColor = UIColor.charcoal.cgColor
+        line.layer.shadowOpacity = 0.5
+        line.layer.shadowRadius = 2
+        line.layer.shadowOffset = [2,0]
+        line.backgroundColor = .primary
+        return line
+    }
+    
     class func getLine()->LineView{
         return LineView(frame: .zero)
     }

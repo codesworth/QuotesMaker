@@ -15,6 +15,20 @@ protocol StylingDelegate:class {
 
 class StylingPanel:MaterialView{
     
+    lazy var stateControl:StateChangeControl = {
+        let view = StateChangeControl(frame: .zero)
+        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
+        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
+        return view
+    }()
+    
+    lazy var closeButton:CloseButton = {
+        let butt = CloseButton(type: .roundedRect)
+        butt.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
+        
+        return butt
+    }()
+    
     lazy var scrollView: UIScrollView = {
         return .panelScrollView()
     }()
@@ -58,15 +72,15 @@ class StylingPanel:MaterialView{
     }
     
     lazy var firstline:LineView = {
-        return .getLine()
+        return .getShadowedline()
     }()
     
     lazy var secondline:LineView = {
-        return .getLine()
+        return .getShadowedline()
     }()
     
     lazy var thirdline:LineView = {
-        return .getLine()
+        return .getShadowedline()
     }()
     
     
@@ -86,10 +100,13 @@ class StylingPanel:MaterialView{
     }
     
     weak var delegate:StylingDelegate?
+    weak var stateDelegate:StateControlDelegate?
     
     func initialize(){
         backgroundColor = .white
         addSubview(header)
+        addSubview(stateControl)
+        addSubview(closeButton)
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(firstline)
@@ -105,11 +122,25 @@ class StylingPanel:MaterialView{
         super.layoutSubviews()
         header.layout{
             $0.top == topAnchor + 8
-            $0.centerX == centerXAnchor
+            $0.leading == leadingAnchor + 20
+        }
+        
+        closeButton.layout{
+            $0.top == topAnchor + 8
+            $0.trailing == trailingAnchor - 20
+            $0.height |=| 35
+            $0.width |=| 35
+        }
+        
+        stateControl.layout{
+            $0.top == topAnchor + 8
+            $0.trailing == closeButton.leadingAnchor - 16
+            $0.height |=| 30
+            $0.width |=| 70
         }
         
         scrollView.layout{
-            $0.top == header.bottomAnchor + 4
+            $0.top == closeButton.bottomAnchor + 12
             $0.leading == leadingAnchor
             $0.bottom == bottomAnchor
             $0.trailing == trailingAnchor
@@ -127,9 +158,9 @@ class StylingPanel:MaterialView{
         
         firstline.layout{
             $0.top == contentView.topAnchor + 4
-            $0.leading == contentView.leadingAnchor + 20
-            $0.trailing == contentView.trailingAnchor - 20
-            $0.height |=| 1
+            $0.leading == contentView.leadingAnchor //+ 20
+            $0.trailing == contentView.trailingAnchor //- 20
+            $0.height |=| 0.5
         }
         
         cornerPanel.layout{
@@ -140,10 +171,10 @@ class StylingPanel:MaterialView{
         }
         
         secondline.layout{
-            $0.top == cornerPanel.bottomAnchor + 4
-            $0.leading == contentView.leadingAnchor + 20
-            $0.trailing == contentView.trailingAnchor - 20
-            $0.height |=| 1
+            $0.top == cornerPanel.bottomAnchor + 30
+            $0.leading == contentView.leadingAnchor - 20
+            $0.trailing == contentView.trailingAnchor +  20
+            $0.height |=| 0.5
         }
         
         borderPanel.layout{
@@ -152,5 +183,23 @@ class StylingPanel:MaterialView{
             $0.trailing == contentView.trailingAnchor
             $0.height |=| 100
         }
+    }
+}
+
+
+extension StylingPanel{
+    
+    @objc func donePressed(){
+        Utils.animatePanelsOut(self)
+        unsubscribe()
+    }
+    
+    
+    @objc func undo(){
+        stateDelegate?.stateChanged(.undo)
+    }
+    
+    @objc func redo(){
+        stateDelegate?.stateChanged(.redo)
     }
 }
