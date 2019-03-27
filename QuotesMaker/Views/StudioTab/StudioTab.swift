@@ -56,6 +56,15 @@ class StudioTab: MaterialView {
         return butt
     }()
     
+    private lazy var collectionview:UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.showsHorizontalScrollIndicator = false
+        view.backgroundColor = .clear
+        return view
+    }()
+    
     weak var delegate:StudioTabDelegate?
     
     override init(frame: CGRect) {
