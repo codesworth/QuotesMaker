@@ -28,8 +28,30 @@ class StylingPanel:MaterialView{
         return lab
     }()
     
+    lazy var cornerPanel: CornersPanel = {
+        let panel = CornersPanel(frame: .zero)
+        panel.slider.addTarget(self, action: #selector(cornerRadiusChanged(_:)), for: .valueChanged)
+        return panel
+    }()
     
+    lazy var borderPanel: BorderPanel = {
+        let panel = BorderPanel(frame: .zero)
+        panel.widthStepper.addTarget(self, action: #selector(borderWidthChanged(_:)), for: .valueChanged)
+        panel.colorSlider.addTarget(self, action: #selector(borderColorChanged(_:)), for: .valueChanged)
+        return panel
+    }()
     
+    @objc func borderColorChanged(_ slider:ColorSlider){
+        
+    }
+    
+    @objc func borderWidthChanged(_ stepper:UIStepper){
+        
+    }
+    
+    @objc func cornerRadiusChanged(_ slider:UISlider){
+        
+    }
     
     lazy var firstline:LineView = {
         return .getLine()
@@ -43,41 +65,6 @@ class StylingPanel:MaterialView{
         return .getLine()
     }()
     
-    lazy var borderText:BasicLabel = {
-        return .basicLabel("Borders")
-    }()
-    
-    lazy var borderWidth:BasicLabel = {
-        return .basicLabel("Width")
-    }()
-    
-    lazy var borderColor:BasicLabel = {
-        return .basicLabel("Color")
-    }()
-    
-    lazy var shadowText:BasicLabel = {
-        return .basicLabel("Shadows")
-    }()
-    
-    lazy var shadowColor:BasicLabel = {
-        return .basicLabel("Color")
-    }()
-    
-    lazy var shadowX:BasicLabel = {
-        return .basicLabel("X")
-    }()
-    
-    lazy var shadowY:BasicLabel = {
-        return .basicLabel("Y")
-    }()
-    
-    lazy var shadowRadius:BasicLabel = {
-        return .basicLabel("Radius")
-    }()
-    
-    lazy var shadowOpacity:BasicLabel = {
-        return .basicLabel("Transparency")
-    }()
     
     
     override init(frame: CGRect) {
@@ -94,32 +81,68 @@ class StylingPanel:MaterialView{
     
     func initialize(){
         backgroundColor = .white
+        addSubview(header)
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(firstline)
         contentView.addSubview(secondline)
         contentView.addSubview(thirdline)
-        contentView.addSubview(cornerlable)
-        contentView.addSubview(cornerRadius)
-        contentView.addSubview(borderText)
-        contentView.addSubview(borderColor)
-        contentView.addSubview(borderWidth)
-        contentView.addSubview(shadowText)
-        contentView.addSubview(shadowColor)
-        contentView.addSubview(shadowOpacity)
-        contentView.addSubview(shadowX)
-        contentView.addSubview(shadowY)
-        contentView.addSubview(shadowRadius)
+        contentView.addSubview(cornerPanel)
+        contentView.addSubview(borderPanel)
+
     }
     
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        NSLayoutConstraint.activate([
-                
-        ])
+        header.layout{
+            $0.top == contentView.topAnchor + 8
+            $0.centerX == centerXAnchor
+        }
+        
+        scrollView.layout{
+            $0.top == header.bottomAnchor + 4
+            $0.leading == leadingAnchor
+            $0.bottom == bottomAnchor
+            $0.trailing == trailingAnchor
+        }
+        
+        contentView.layout{
+            $0.top == scrollView.topAnchor
+            $0.leading == scrollView.leadingAnchor
+            $0.bottom == scrollView.bottomAnchor
+            $0.trailing == scrollView.trailingAnchor
+            $0.width == widthAnchor
+            $0.height |=| 350
+        }
+        
+        
+        firstline.layout{
+            $0.top == contentView.bottomAnchor + 4
+            $0.leading == contentView.leadingAnchor + 20
+            $0.trailing == contentView.trailingAnchor - 20
+            $0.height |=| 1
+        }
+        
+        cornerPanel.layout{
+            $0.top == firstline.bottomAnchor
+            $0.leading == contentView.leadingAnchor
+            $0.trailing == contentView.trailingAnchor
+            $0.height |=| 60
+        }
+        
+        secondline.layout{
+            $0.top == cornerPanel.bottomAnchor + 4
+            $0.leading == contentView.leadingAnchor + 20
+            $0.trailing == contentView.trailingAnchor - 20
+            $0.height |=| 1
+        }
+        
+        borderPanel.layout{
+            $0.top == secondline.bottomAnchor
+            $0.leading == contentView.leadingAnchor
+            $0.trailing == contentView.trailingAnchor
+            $0.height |=| 100
+        }
     }
 }

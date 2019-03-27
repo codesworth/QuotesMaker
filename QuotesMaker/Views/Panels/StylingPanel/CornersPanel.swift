@@ -31,6 +31,7 @@ final class CornersPanel:UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +40,7 @@ final class CornersPanel:UIView{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initialize()
     }
     
     override func layoutSubviews() {
@@ -55,7 +57,7 @@ final class CornersPanel:UIView{
             $0.leading == cornerRadius.trailingAnchor + 8
             $0.top == cornerlable.bottomAnchor + 12
             $0.trailing == trailingAnchor - 12
-            $0.height ==
+            $0.height |=| 20
         }
     }
     
