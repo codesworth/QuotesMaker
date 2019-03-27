@@ -15,7 +15,7 @@ final class CornersPanel:UIView{
     }()
     
     lazy var cornerRadius:BasicLabel = {
-        return .basicLabel("Radius")
+        return .basicLabel("Radius: 0")
     }()
     
     lazy var slider:UISlider = {
@@ -31,6 +31,7 @@ final class CornersPanel:UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,15 +40,33 @@ final class CornersPanel:UIView{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initialize()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        cornerlable.layout {
+            $0.top == topAnchor + 12
+            $0.centerX == centerXAnchor
+        }
+        cornerRadius.layout{
+            $0.top == cornerlable.topAnchor + 12
+            $0.leading == leadingAnchor + 12
+        }
+        slider.layout{
+            $0.leading == cornerRadius.trailingAnchor + 8
+            $0.top == cornerlable.bottomAnchor + 12
+            $0.trailing == trailingAnchor - 12
+            $0.height |=| 20
+        }
     }
     
     
     func initialize(){
-        
-        addSubview(<#T##view: UIView##UIView#>)
+        backgroundColor = .white
+        addSubview(cornerlable)
+        addSubview(cornerRadius)
+        addSubview(slider)
     }
+    
 }

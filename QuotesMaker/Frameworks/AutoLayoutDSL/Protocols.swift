@@ -16,7 +16,19 @@ protocol LayoutAnchor {
                     constant: CGFloat) -> NSLayoutConstraint
     func constraint(lessThanOrEqualTo anchor: Self,
                     constant: CGFloat) -> NSLayoutConstraint
+    func constraint(equalToConstant c: CGFloat) -> NSLayoutConstraint
 }
 
 
-extension NSLayoutAnchor:LayoutAnchor{}
+
+
+extension NSLayoutAnchor:LayoutAnchor{
+    @objc func constraint(equalToConstant c: CGFloat) -> NSLayoutConstraint {
+        guard let dimension = self as? NSLayoutDimension else{
+            fatalError("Unable to cast as NSlayout dimesion")
+        }
+        return dimension.constraint(equalToConstant: c)
+    }
+}
+
+

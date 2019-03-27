@@ -23,6 +23,7 @@ class StudioVC: UIViewController {
     private var gradientPanel:GradientPanel!
     private var studioTab:StudioTab!
     private var imagePanel:ImagePanel!
+    private var stylingPanel:StylingPanel!
     
     var baseView:BaseView!
     var stack:LayerStack?
@@ -83,6 +84,7 @@ class StudioVC: UIViewController {
         gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])
         gradientPanel.stateDelegate = self
         imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
+        stylingPanel = StylingPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
         imagePanel.stateDelegate = self
         let size = Dimensions.editorSize
         
@@ -146,6 +148,18 @@ class StudioVC: UIViewController {
         view.addSubview(imagePanel)
         Utils.animatePanelsIn(imagePanel)
         imagePanel.isInView = true
+        
+    }
+    
+    func setupStyleInteractivePanel(){
+        
+        if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
+        if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
+        if imagePanel.isInView{Utils.animatePanelsOut(gradientPanel)}
+        stylingPanel.delegate = self
+        view.addSubview(stylingPanel)
+        Utils.animatePanelsIn(stylingPanel)
+        stylingPanel.isInView = true
         
     }
     
@@ -264,6 +278,10 @@ extension StudioVC:OptionsSelectedDelegate{
     }
 }
 
+
+extension StudioVC:StylingDelegate{
+    
+}
 
 
 

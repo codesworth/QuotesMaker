@@ -180,7 +180,8 @@ extension StudioVC:StudioTabDelegate{
             baseView.moveSubiewBackward()
             break
         case .wakePanel:
-            wakePanelForCurrent()
+            //wakePanelForCurrent()
+            setupStyleInteractivePanel()
             break
         default:
             break
