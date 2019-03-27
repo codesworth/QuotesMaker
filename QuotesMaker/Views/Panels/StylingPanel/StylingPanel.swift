@@ -9,6 +9,10 @@
 import UIKit
 
 
+protocol StylingDelegate:class {
+    
+}
+
 class StylingPanel:MaterialView{
     
     lazy var scrollView: UIScrollView = {
@@ -69,6 +73,7 @@ class StylingPanel:MaterialView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -77,7 +82,10 @@ class StylingPanel:MaterialView{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initialize()
     }
+    
+    weak var delegate:StylingDelegate?
     
     func initialize(){
         backgroundColor = .white
@@ -96,7 +104,7 @@ class StylingPanel:MaterialView{
     override func layoutSubviews() {
         super.layoutSubviews()
         header.layout{
-            $0.top == contentView.topAnchor + 8
+            $0.top == topAnchor + 8
             $0.centerX == centerXAnchor
         }
         
@@ -118,7 +126,7 @@ class StylingPanel:MaterialView{
         
         
         firstline.layout{
-            $0.top == contentView.bottomAnchor + 4
+            $0.top == contentView.topAnchor + 4
             $0.leading == contentView.leadingAnchor + 20
             $0.trailing == contentView.trailingAnchor - 20
             $0.height |=| 1

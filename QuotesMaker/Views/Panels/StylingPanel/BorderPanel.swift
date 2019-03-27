@@ -43,6 +43,7 @@ final class BorderPanel:UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,6 +52,7 @@ final class BorderPanel:UIView{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initialize()
     }
     
     
