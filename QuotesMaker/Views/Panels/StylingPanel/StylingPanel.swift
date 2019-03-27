@@ -11,6 +11,15 @@ import UIKit
 
 class StylingPanel:MaterialView{
     
+    lazy var scrollView: UIScrollView = {
+        return .panelScrollView()
+    }()
+    
+    lazy var contentView:UIView = {
+        let v = UIView(frame: .zero)
+        v.backgroundColor = .white
+        return v
+    }()
     
     lazy var header:BasicLabel = {
         let lab = BasicLabel.basicHeader()
@@ -20,11 +29,11 @@ class StylingPanel:MaterialView{
     }()
     
     lazy var cornerlable:BasicLabel = {
-        return BasicLabel.basicLabel("Corners")
+        return .basicLabel("Corners")
     }()
     
     lazy var cornerRadius:BasicLabel = {
-        return BasicLabel.basicLabel("Radius")
+        return .basicLabel("Radius")
     }()
     
     
@@ -41,39 +50,39 @@ class StylingPanel:MaterialView{
     }()
     
     lazy var borderText:BasicLabel = {
-        return BasicLabel.basicLabel("Borders")
+        return .basicLabel("Borders")
     }()
     
     lazy var borderWidth:BasicLabel = {
-        return BasicLabel.basicLabel("Width")
+        return .basicLabel("Width")
     }()
     
     lazy var borderColor:BasicLabel = {
-        return BasicLabel.basicLabel("Color")
+        return .basicLabel("Color")
     }()
     
     lazy var shadowText:BasicLabel = {
-        return BasicLabel.basicLabel("Shadows")
+        return .basicLabel("Shadows")
     }()
     
     lazy var shadowColor:BasicLabel = {
-        return BasicLabel.basicLabel("Color")
+        return .basicLabel("Color")
     }()
     
     lazy var shadowX:BasicLabel = {
-        return BasicLabel.basicLabel("X")
+        return .basicLabel("X")
     }()
     
     lazy var shadowY:BasicLabel = {
-        return BasicLabel.basicLabel("Y")
+        return .basicLabel("Y")
     }()
     
     lazy var shadowRadius:BasicLabel = {
-        return BasicLabel.basicLabel("Radius")
+        return .basicLabel("Radius")
     }()
     
     lazy var shadowOpacity:BasicLabel = {
-        return BasicLabel.basicLabel("Transparency")
+        return .basicLabel("Transparency")
     }()
     
     
@@ -90,6 +99,33 @@ class StylingPanel:MaterialView{
     }
     
     func initialize(){
-        
+        backgroundColor = .white
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(firstline)
+        contentView.addSubview(secondline)
+        contentView.addSubview(thirdline)
+        contentView.addSubview(cornerlable)
+        contentView.addSubview(cornerRadius)
+        contentView.addSubview(borderText)
+        contentView.addSubview(borderColor)
+        contentView.addSubview(borderWidth)
+        contentView.addSubview(shadowText)
+        contentView.addSubview(shadowColor)
+        contentView.addSubview(shadowOpacity)
+        contentView.addSubview(shadowX)
+        contentView.addSubview(shadowY)
+        contentView.addSubview(shadowRadius)
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        NSLayoutConstraint.activate([
+                
+        ])
     }
 }

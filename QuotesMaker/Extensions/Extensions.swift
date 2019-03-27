@@ -106,3 +106,14 @@ extension UIScreen{
         return .lowly
     }
 }
+
+
+extension UIScrollView{
+    
+    class func panelScrollView()->UIScrollView{
+        let scroll = UIScrollView(frame: .zero)
+        scroll.bounces = true
+        scroll.isScrollEnabled = true
+        return scroll
+    }
+}

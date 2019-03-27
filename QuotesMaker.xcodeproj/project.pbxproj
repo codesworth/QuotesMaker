@@ -36,6 +36,9 @@
 		38661AFB2249088300440AC7 /* ShapesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661AF92249088300440AC7 /* ShapesCell.swift */; };
 		38661AFC2249088300440AC7 /* ShapesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38661AFA2249088300440AC7 /* ShapesCell.xib */; };
 		38661AFF224B964100440AC7 /* StylingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661AFE224B964100440AC7 /* StylingPanel.swift */; };
+		38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661B00224BE85A00440AC7 /* ShadowView.swift */; };
+		38661B03224BE89E00440AC7 /* BorderPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661B02224BE89E00440AC7 /* BorderPanel.swift */; };
+		38661B05224BE8DB00440AC7 /* CornersPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661B04224BE8DB00440AC7 /* CornersPanel.swift */; };
 		386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */; };
 		38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732A4B222EEA9100CDB703 /* String+Ex.swift */; };
 		38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */; };
@@ -171,6 +174,9 @@
 		38661AF92249088300440AC7 /* ShapesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesCell.swift; sourceTree = "<group>"; };
 		38661AFA2249088300440AC7 /* ShapesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapesCell.xib; sourceTree = "<group>"; };
 		38661AFE224B964100440AC7 /* StylingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingPanel.swift; sourceTree = "<group>"; };
+		38661B00224BE85A00440AC7 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		38661B02224BE89E00440AC7 /* BorderPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderPanel.swift; sourceTree = "<group>"; };
+		38661B04224BE8DB00440AC7 /* CornersPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornersPanel.swift; sourceTree = "<group>"; };
 		386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		38732A4B222EEA9100CDB703 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDesignableInputView.swift; sourceTree = "<group>"; };
@@ -338,6 +344,9 @@
 			isa = PBXGroup;
 			children = (
 				38661AFE224B964100440AC7 /* StylingPanel.swift */,
+				38661B00224BE85A00440AC7 /* ShadowView.swift */,
+				38661B02224BE89E00440AC7 /* BorderPanel.swift */,
+				38661B04224BE8DB00440AC7 /* CornersPanel.swift */,
 			);
 			path = StylingPanel;
 			sourceTree = "<group>";
@@ -741,6 +750,7 @@
 				382365762240ED9A0078A723 /* PhotoTweakView.m in Sources */,
 				382365752240ED9A0078A723 /* UIColor+Tweak.m in Sources */,
 				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
+				38661B05224BE8DB00440AC7 /* CornersPanel.swift in Sources */,
 				3896507D2242C193009434B4 /* Actions.swift in Sources */,
 				38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */,
 				388BE343222C3188005BF44B /* PanelCell.swift in Sources */,
@@ -760,6 +770,7 @@
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
 				3896507F2242DD7F009434B4 /* ModelCollection.swift in Sources */,
+				38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */,
 				3823656D2240674F0078A723 /* +Resizing.swift in Sources */,
 				38C80FC6223C453D00150FD4 /* TabControl.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
@@ -775,6 +786,7 @@
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
 				388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */,
 				38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */,
+				38661B03224BE89E00440AC7 /* BorderPanel.swift in Sources */,
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */,
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,

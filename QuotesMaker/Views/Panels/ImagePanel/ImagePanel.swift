@@ -141,10 +141,7 @@ class ImagePanel: MaterialView {
     }()
     
     lazy var scrollView:UIScrollView = {
-        let scroll = UIScrollView(frame: .zero)
-        scroll.bounces = true
-        scroll.isScrollEnabled = true
-        return scroll
+        return .panelScrollView()
     }()
     
     lazy var contentView:UIView = {
