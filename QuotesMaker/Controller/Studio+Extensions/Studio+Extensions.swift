@@ -45,11 +45,8 @@ extension StudioVC:EditorPanelDelegate{
         case .selectImage:
             imageOptionSelected()
             break
-        case .addBlankOverlay:
+        case .addShadpe:
             blankSelected()
-            break
-        case .addGradientOverlay:
-            blankGradientSelected()
             break
         case .addText:
             addText()
