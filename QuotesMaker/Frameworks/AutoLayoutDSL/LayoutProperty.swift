@@ -21,7 +21,8 @@ class LayoutProxy{
     lazy var bottom = property(with: view.bottomAnchor)
     lazy var width = property(with: view.widthAnchor)
     lazy var height = property(with: view.heightAnchor)
-    
+    lazy var centerX = property(with: view.centerXAnchor)
+    lazy var centerY = property(with: view.centerYAnchor)
     private let view: UIView
     
     init(view: UIView) {
@@ -54,4 +55,10 @@ extension LayoutProperty {
         anchor.constraint(lessThanOrEqualTo: otherAnchor,
                           constant: constant).isActive = true
     }
+    
+    func equal(to constant:CGFloat){
+        anchor.constraint(equalToConstant: constant).isActive = true
+    }
+    
+    
 }

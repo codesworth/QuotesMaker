@@ -45,3 +45,11 @@ func <=<A: LayoutAnchor>(lhs: LayoutProperty<A>,
 func <=<A: LayoutAnchor>(lhs: LayoutProperty<A>, rhs: A) {
     lhs.lessThanOrEqual(to: rhs)
 }
+
+infix operator |=|
+
+func |=|<A:LayoutAnchor>(lhs: LayoutProperty<A>, rhs: CGFloat){
+    lhs.equal(to: rhs)
+}
+
+
