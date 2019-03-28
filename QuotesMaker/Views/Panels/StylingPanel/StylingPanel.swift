@@ -11,7 +11,7 @@ import UIKit
 
 protocol StylingDelegate:class {
     
-    func didFinishStyling(_ style:LayerModel)
+    func didFinishStyling(_ style:Style)
 }
 
 class StylingPanel:MaterialView{
@@ -29,6 +29,8 @@ class StylingPanel:MaterialView{
         
         return butt
     }()
+    
+    var style:Style = Style()
     
     lazy var scrollView: UIScrollView = {
         return .panelScrollView()
@@ -65,17 +67,7 @@ class StylingPanel:MaterialView{
         return panel
     }()
     
-    @objc func borderColorChanged(_ slider:ColorSlider){
-        
-    }
-    
-    @objc func borderWidthChanged(_ stepper:UIStepper){
-        
-    }
-    
-    @objc func cornerRadiusChanged(_ slider:UISlider){
-        
-    }
+
     
     lazy var firstline:LineView = {
         return .getShadowedline()

@@ -12,11 +12,8 @@ import UIKit
 class RectView:UIView{
     
     var superlayer:CALayer!
-    var isGradient = false
     var previousModels = ModelCollection<ShapeModel>()
     var redoModels = ModelCollection<ShapeModel>()
-//    var previousGradientModels = ModelCollection<GradientLayerModel>()
-//    var redoGradientModels = ModelCollection<GradientLayerModel>()
     
     lazy var contentView: UIView = { [unowned self] by in
         let view = UIView(frame: bounds)
@@ -36,41 +33,48 @@ class RectView:UIView{
         return resize
         }(())
     
-    init(frame: CGRect, layer:CALayer) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        superlayer = layer
-        if type(of: layer) == BackingGradientlayer.self{
-            isGradient = true
-            updateModel(GradientLayerModel.defualt())
-        }else{
-            updateModel(BlankLayerModel())
-        }
+        superlayer = BlankBackingLayer()
         initialize()
     }
-    var model:LayerModel!{
+    var model:ShapeModel = ShapeModel.default(){
         didSet{
-            if isGradient{
-                if let mod = model as? GradientLayerModel{
-                    (superlayer as! BackingGradientlayer).model = mod
+            updateShape(model.style)
+            if model.isGradient {
+                guard let grad = model.gradient else {return}
+                if let layer = superlayer as? BackingGradientlayer{
+                    layer.model = grad
+                }else{
+                    superlayer = BackingGradientlayer()
+                    (superlayer as! BackingGradientlayer).model = grad
                 }
+                
             }else{
-                if let mod = model as? BlankLayerModel{
-                    (superlayer as! BlankBackingLayer).model = mod
+                guard let solid = model.solid else {return}
+                if let layer = superlayer as? BlankBackingLayer{
+                    layer.model = solid
+                }else{
+                    superlayer = BlankBackingLayer()
+                    (superlayer as! BlankBackingLayer).model = solid
                 }
             }
         }
     }
     
-    func updateModel(_ model:LayerModel){
+    private func updateShape(_ style:Style){
+        layer.cornerRadius = style.cornerRadius
+        layer.borderWidth = style.borderWidth
+        layer.borderColor = style.borderColor.cgColor
         
-//        if let mod = self.prevModel as? BlankLayerModel{
-//            previousBlankModels.push(mod)
-//            Subscription.main.post(suscription: .canUndo, object: !previousBlankModels.isEmpty)
-//        } else if let mod = self.prevModel as? GradientLayerModel{
-//            previousGradientModels.push(mod)
-//            Subscription.main.post(suscription: .canUndo, object: !previousGradientModels.isEmpty)
-//        }
-        //prevModel = model
+        layer.shadowColor = style.shadowColor.cgColor
+        layer.shadowRadius = style.shadowRadius
+        layer.shadowOpacity = style.shadowOpacity
+        layer.shadowOffset = style.shadowOffset
+    }
+    
+    func updateModel(_ model:ShapeModel){
+
         self.model = model
     }
     

@@ -11,14 +11,20 @@ import Foundation
 
 struct ShapeModel{
     var isGradient:Bool = false
-    var gradient:GradientLayerModel?
-    var solid:BlankLayerModel?
-    var style:Style = Style()
-    var layerFrame:LayerFrame?
+    var gradient:GradientLayerModel?{didSet{update()}}
+    var solid:BlankLayerModel?{didSet{update()}}
+    var style:Style = Style(){didSet{update()}}
+    var layerFrame:LayerFrame?{didSet{update()}}
     var updateTime:TimeInterval = Date().timeIntervalSinceNow
     
     mutating func update(){
         updateTime = Date().timeIntervalSinceNow
+    }
+    
+    static func  `default`()->ShapeModel{
+        var shape = ShapeModel()
+        shape.solid = BlankLayerModel()
+        return shape
     }
 }
 

@@ -46,7 +46,7 @@ extension StudioVC:EditorPanelDelegate{
             imageOptionSelected()
             break
         case .addShadpe:
-            blankSelected()
+            shapeSelected()
             break
         case .addText:
             addText()

@@ -17,6 +17,7 @@
 		38115327224D0AC200DA7D3B /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38115326224D0AC200DA7D3B /* Style.swift */; };
 		38115329224D0CE900DA7D3B /* ShapeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38115328224D0CE900DA7D3B /* ShapeModel.swift */; };
 		3811532C224D0E5B00DA7D3B /* RectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532B224D0E5B00DA7D3B /* RectView.swift */; };
+		3811532E224D17B000DA7D3B /* StyleSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532D224D17B000DA7D3B /* StyleSelectors.swift */; };
 		381865B5223C9972006C0C56 /* LayerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B4223C9972006C0C56 /* LayerStack.swift */; };
 		381865B8223C9E1F006C0C56 /* StackCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */; };
 		381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */; };
@@ -158,6 +159,7 @@
 		38115326224D0AC200DA7D3B /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		38115328224D0CE900DA7D3B /* ShapeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeModel.swift; sourceTree = "<group>"; };
 		3811532B224D0E5B00DA7D3B /* RectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectView.swift; sourceTree = "<group>"; };
+		3811532D224D17B000DA7D3B /* StyleSelectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSelectors.swift; sourceTree = "<group>"; };
 		381865B4223C9972006C0C56 /* LayerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerStack.swift; sourceTree = "<group>"; };
 		381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCellTableViewCell.swift; sourceTree = "<group>"; };
 		381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				38661B00224BE85A00440AC7 /* ShadowView.swift */,
 				38661B02224BE89E00440AC7 /* BorderPanel.swift */,
 				38661B04224BE8DB00440AC7 /* CornersPanel.swift */,
+				3811532D224D17B000DA7D3B /* StyleSelectors.swift */,
 			);
 			path = StylingPanel;
 			sourceTree = "<group>";
@@ -828,6 +831,7 @@
 				386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */,
 				38236565224045390078A723 /* ResizableView.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
+				3811532E224D17B000DA7D3B /* StyleSelectors.swift in Sources */,
 				388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */,
 				38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */,
 				38661B03224BE89E00440AC7 /* BorderPanel.swift in Sources */,

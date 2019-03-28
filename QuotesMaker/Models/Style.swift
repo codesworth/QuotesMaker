@@ -18,7 +18,7 @@ struct Style {
     
     //Shadows
     var shadowColor:UIColor = .clear
-    var shadowOpacity:CGFloat = 0
+    var shadowOpacity:Float = 0
     var shadowRadius:CGFloat = 0
     var shadowOffset:CGSize = .zero
     
