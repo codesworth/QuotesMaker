@@ -132,6 +132,8 @@ class StudioTab: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        collectionview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(collectionview.pinAllSides())
 //        paneltab.roundCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner], radius: 4)
 //        stackButt.roundCorners([.layerMaxXMinYCorner,.layerMaxXMaxYCorner], radius: 4)
 //        let width = (bounds.width - 4) / 5

@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RnZ-iO-AEA" customClass="TabControl" customModule="QuotesMaker" customModuleProvider="target">
-                        <rect key="frame" x="1" y="0.0" width="78" height="40"/>
+                        <rect key="frame" x="1" y="0.0" width="79" height="40"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </subviews>
@@ -28,7 +28,7 @@
             <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="RnZ-iO-AEA" secondAttribute="bottom" id="0SF-Zk-269"/>
-                <constraint firstAttribute="trailing" secondItem="RnZ-iO-AEA" secondAttribute="trailing" constant="1" id="G0O-Vf-lrj"/>
+                <constraint firstAttribute="trailing" secondItem="RnZ-iO-AEA" secondAttribute="trailing" id="G0O-Vf-lrj"/>
                 <constraint firstItem="RnZ-iO-AEA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Xxt-wh-6rG"/>
                 <constraint firstItem="RnZ-iO-AEA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="sEK-yp-xJf"/>
             </constraints>
