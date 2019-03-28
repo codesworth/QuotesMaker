@@ -29,9 +29,10 @@ extension StudioVC:StateControlDelegate{
 extension StudioVC:GradientOptionsDelegate{
     
     func modelChanged(_ model: GradientLayerModel) {
-        if let current = baseView.currentSubview as? WrapperView{
-            current.updateModel(model)
-        }
+        guard let current = baseView.currentSubview as? ShapableView else {return}
+        var mod = current.model
+        mod.gradient = model
+        current.updateModel(mod)
     }
     
 }

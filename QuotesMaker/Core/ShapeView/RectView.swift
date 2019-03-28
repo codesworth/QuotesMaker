@@ -8,8 +8,12 @@
 
 import UIKit
 
+protocol ShapableView {
+    var model:ShapeModel{get set}
+    func updateModel(_ model:ShapeModel)
+}
 
-class RectView:UIView{
+class RectView:SuperRectView{
     
     var superlayer:CALayer!
     var previousModels = ModelCollection<ShapeModel>()
@@ -193,3 +197,5 @@ extension RectView:SPUserResizableViewDelegate{
     }
 }
 
+
+extension RectView:ShapableView{}

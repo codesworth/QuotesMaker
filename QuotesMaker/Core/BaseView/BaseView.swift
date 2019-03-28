@@ -100,6 +100,7 @@ class BaseView:UIView{
     func addSubviewable(_ view:BaseSubView){
         view.center = [bounds.midX,bounds.midY]
         addSubview(view)
+        currentSubview = view
     }
     
     

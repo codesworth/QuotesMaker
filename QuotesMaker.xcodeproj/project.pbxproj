@@ -18,6 +18,7 @@
 		38115329224D0CE900DA7D3B /* ShapeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38115328224D0CE900DA7D3B /* ShapeModel.swift */; };
 		3811532C224D0E5B00DA7D3B /* RectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532B224D0E5B00DA7D3B /* RectView.swift */; };
 		3811532E224D17B000DA7D3B /* StyleSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532D224D17B000DA7D3B /* StyleSelectors.swift */; };
+		38115330224D228400DA7D3B /* SuperRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532F224D228400DA7D3B /* SuperRectView.swift */; };
 		381865B5223C9972006C0C56 /* LayerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B4223C9972006C0C56 /* LayerStack.swift */; };
 		381865B8223C9E1F006C0C56 /* StackCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */; };
 		381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */; };
@@ -160,6 +161,7 @@
 		38115328224D0CE900DA7D3B /* ShapeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeModel.swift; sourceTree = "<group>"; };
 		3811532B224D0E5B00DA7D3B /* RectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectView.swift; sourceTree = "<group>"; };
 		3811532D224D17B000DA7D3B /* StyleSelectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSelectors.swift; sourceTree = "<group>"; };
+		3811532F224D228400DA7D3B /* SuperRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRectView.swift; sourceTree = "<group>"; };
 		381865B4223C9972006C0C56 /* LayerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerStack.swift; sourceTree = "<group>"; };
 		381865B6223C9E1F006C0C56 /* StackCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCellTableViewCell.swift; sourceTree = "<group>"; };
 		381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				3811532B224D0E5B00DA7D3B /* RectView.swift */,
+				3811532F224D228400DA7D3B /* SuperRectView.swift */,
 			);
 			path = ShapeView;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				388BE33E222BBFDE005BF44B /* GradientModel.swift in Sources */,
 				38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */,
 				386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */,
+				38115330224D228400DA7D3B /* SuperRectView.swift in Sources */,
 				38236565224045390078A723 /* ResizableView.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
 				3811532E224D17B000DA7D3B /* StyleSelectors.swift in Sources */,

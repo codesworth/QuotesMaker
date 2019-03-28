@@ -225,13 +225,18 @@ extension StudioVC:PickerColorDelegate{
     }
     
     func colorDidChange(_ model: BlankLayerModel) {
-        guard let current = baseView.currentSubview as? WrapperView else {return}
-        current.updateModel(model)
+        guard let current = baseView.currentSubview as? ShapableView else {return}
+        var mod = current.model
+        mod.solid = model
+        current.updateModel(mod)
     }
     
+    //To visit during State Changeable
     func previewingWith(_ model: BlankLayerModel) {
-        guard let current = baseView.currentSubview as? WrapperView else {return}
-        current.model = model
+        guard let current = baseView.currentSubview as? ShapableView else {return}
+        var mod = current.model
+        mod.solid = model
+        current.updateModel(mod)
     }
     
 }
