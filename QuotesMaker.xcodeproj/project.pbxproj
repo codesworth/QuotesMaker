@@ -42,6 +42,8 @@
 		38661B08224BF44200440AC7 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661B07224BF44200440AC7 /* Protocols.swift */; };
 		38661B0A224BF4E000440AC7 /* LayoutProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661B09224BF4E000440AC7 /* LayoutProperty.swift */; };
 		38661B0C224C06E900440AC7 /* Opereators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661B0B224C06E900440AC7 /* Opereators.swift */; };
+		38661B0F224C42D300440AC7 /* StudioTabCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661B0D224C42D300440AC7 /* StudioTabCells.swift */; };
+		38661B10224C42D300440AC7 /* StudioTabCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38661B0E224C42D300440AC7 /* StudioTabCells.xib */; };
 		386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */; };
 		38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732A4B222EEA9100CDB703 /* String+Ex.swift */; };
 		38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */; };
@@ -183,6 +185,8 @@
 		38661B07224BF44200440AC7 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		38661B09224BF4E000440AC7 /* LayoutProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutProperty.swift; sourceTree = "<group>"; };
 		38661B0B224C06E900440AC7 /* Opereators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opereators.swift; sourceTree = "<group>"; };
+		38661B0D224C42D300440AC7 /* StudioTabCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTabCells.swift; sourceTree = "<group>"; };
+		38661B0E224C42D300440AC7 /* StudioTabCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudioTabCells.xib; sourceTree = "<group>"; };
 		386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		38732A4B222EEA9100CDB703 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDesignableInputView.swift; sourceTree = "<group>"; };
@@ -451,6 +455,8 @@
 			children = (
 				38C80FB8223A837C00150FD4 /* StudioTab.swift */,
 				38C80FC5223C453D00150FD4 /* TabControl.swift */,
+				38661B0D224C42D300440AC7 /* StudioTabCells.swift */,
+				38661B0E224C42D300440AC7 /* StudioTabCells.xib */,
 			);
 			path = StudioTab;
 			sourceTree = "<group>";
@@ -727,6 +733,7 @@
 				388BE333222B0C61005BF44B /* candy.otf in Resources */,
 				388BE334222B0C65005BF44B /* fontjek.ttf in Resources */,
 				38FEDBF4222352DB0005EB60 /* LaunchScreen.storyboard in Resources */,
+				38661B10224C42D300440AC7 /* StudioTabCells.xib in Resources */,
 				38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */,
 				388BE331222B0A16005BF44B /* painter.ttf in Resources */,
 				381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */,
@@ -829,6 +836,7 @@
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,
 				38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */,
+				38661B0F224C42D300440AC7 /* StudioTabCells.swift in Sources */,
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,

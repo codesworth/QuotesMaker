@@ -117,3 +117,26 @@ extension UIScrollView{
         return scroll
     }
 }
+
+
+extension UIImage{
+    
+    class func image(for tab:StudioTab.TabActions)->UIImage{
+        switch tab {
+        case .stylePanel:
+           return #imageLiteral(resourceName: "panel")
+        case .moveUp:
+            return #imageLiteral(resourceName: "mup")
+        case .moveDown:
+            return #imageLiteral(resourceName: "mdw")
+        case .delete:
+            return #imageLiteral(resourceName: "delete")
+        case .layers:
+            return #imageLiteral(resourceName: "stack")
+        case .fill:
+            return #imageLiteral(resourceName: "paint")
+        case .gradient:
+            return #imageLiteral(resourceName: "ic_grad")
+        }
+    }
+}

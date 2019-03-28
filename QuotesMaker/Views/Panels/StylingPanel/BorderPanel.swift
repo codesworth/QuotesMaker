@@ -14,11 +14,13 @@ final class BorderPanel:UIView{
     
     
     lazy var borderText:BasicLabel = {
-        return .basicLabel("Borders")
+        let lab =  BasicLabel.basicLabel("Borders")
+        lab.font = .systemFont(ofSize: 18, weight: .semibold)
+        return lab
     }()
     
     lazy var borderWidth:BasicLabel = {
-        return .basicLabel("Width")
+        return .basicLabel("Width: 0")
     }()
     
     lazy var borderColor:BasicLabel = {
@@ -74,7 +76,7 @@ final class BorderPanel:UIView{
         
         borderWidth.layout{
             $0.top == borderText.bottomAnchor + 8
-            $0.leading == leadingAnchor + 8
+            $0.leading == leadingAnchor + 16
             
         }
         

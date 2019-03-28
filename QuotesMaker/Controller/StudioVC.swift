@@ -91,8 +91,8 @@ class StudioVC: UIViewController {
         NSLayoutConstraint.activate([
             studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 40),
             studioTab.heightAnchor.constraint(equalToConstant: 40),
-            studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
-            studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -0),
             studioTab.heightAnchor.constraint(equalToConstant: 40),
             editorView.topAnchor.constraint(equalTo: studioTab.bottomAnchor, constant: 20),
             editorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
