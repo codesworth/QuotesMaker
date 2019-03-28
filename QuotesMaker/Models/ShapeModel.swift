@@ -15,6 +15,18 @@ struct ShapeModel{
     var solid:BlankLayerModel?
     var style:Style = Style()
     var layerFrame:LayerFrame?
+    var updateTime:TimeInterval = Date().timeIntervalSinceNow
+    
+    mutating func update(){
+        updateTime = Date().timeIntervalSinceNow
+    }
 }
 
 extension ShapeModel:LayerModel{}
+
+
+extension ShapeModel:Equatable{
+    static func == (lhs: ShapeModel, rhs: ShapeModel) -> Bool {
+        return lhs.updateTime == rhs.updateTime
+    }
+}
