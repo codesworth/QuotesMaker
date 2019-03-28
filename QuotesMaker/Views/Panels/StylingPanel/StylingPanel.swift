@@ -59,6 +59,11 @@ class StylingPanel:MaterialView{
         return panel
     }()
     
+    lazy var shadowsPanel:ShadowPanel = {
+        let panel = ShadowPanel(frame: .zero)
+        return panel
+    }()
+    
     @objc func borderColorChanged(_ slider:ColorSlider){
         
     }
@@ -111,6 +116,7 @@ class StylingPanel:MaterialView{
         scrollView.addSubview(contentView)
         contentView.addSubview(firstline)
         contentView.addSubview(secondline)
+        contentView.addSubview(shadowsPanel)
         contentView.addSubview(thirdline)
         contentView.addSubview(cornerPanel)
         contentView.addSubview(borderPanel)
@@ -152,7 +158,7 @@ class StylingPanel:MaterialView{
             $0.bottom == scrollView.bottomAnchor
             $0.trailing == scrollView.trailingAnchor
             $0.width == widthAnchor
-            $0.height |=| 350
+            $0.height |=| 500
         }
         
         
@@ -182,6 +188,20 @@ class StylingPanel:MaterialView{
             $0.leading == contentView.leadingAnchor
             $0.trailing == contentView.trailingAnchor
             $0.height |=| 100
+        }
+        
+        thirdline.layout{
+            $0.top == borderPanel.bottomAnchor + 30
+            $0.leading == contentView.leadingAnchor - 20
+            $0.trailing == contentView.trailingAnchor +  20
+            $0.height |=| 0.5
+        }
+        
+        shadowsPanel.layout{
+            $0.top == thirdline.bottomAnchor
+            $0.leading == contentView.leadingAnchor
+            $0.trailing == contentView.trailingAnchor
+            $0.height |=| 200
         }
     }
 }

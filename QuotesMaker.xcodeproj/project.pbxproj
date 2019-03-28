@@ -497,17 +497,17 @@
 				388BE31E222AC007005BF44B /* OptionsStack.swift */,
 				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
 				388BE327222ADC6F005BF44B /* AlphaSliderView.swift */,
-				388BE339222B39D4005BF44B /* BasicLabel.swift */,
 				388BE33B222BB5AD005BF44B /* MaterialView.swift */,
-				388BE341222C3188005BF44B /* PanelCell.swift */,
 				388BE345222C4FB6005BF44B /* DoneButton.swift */,
 				38732E9622300DE700CDB703 /* FontCells.swift */,
 				38732E9722300DE700CDB703 /* FontCells.xib */,
 				38732E9A2230359500CDB703 /* LineView.swift */,
 				384B9DA522369908007B4BD0 /* CloseButton.swift */,
+				388BE341222C3188005BF44B /* PanelCell.swift */,
 				384B9DA72236E903007B4BD0 /* QPreviewView.swift */,
 				38C80FBE223A98B900150FD4 /* StateChangeControl.swift */,
 				3873738B22452BBE00A1FB7B /* StudioEditorView.swift */,
+				388BE339222B39D4005BF44B /* BasicLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
