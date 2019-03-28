@@ -11,6 +11,7 @@ import UIKit
 
 protocol StylingDelegate:class {
     
+    func didFinishStyling(_ style:LayerModel)
 }
 
 class StylingPanel:MaterialView{
@@ -201,7 +202,7 @@ class StylingPanel:MaterialView{
             $0.top == thirdline.bottomAnchor
             $0.leading == contentView.leadingAnchor
             $0.trailing == contentView.trailingAnchor
-            $0.height |=| 200
+            $0.height |=| 300
         }
     }
 }

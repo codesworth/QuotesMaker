@@ -23,6 +23,7 @@ struct TextLayerModel {
     var obliquess:Int = 0
     var layerFrame:LayerFrame?
     
+    var style:Style = Style()
     
     
     func outPutString()->NSAttributedString{

@@ -45,13 +45,22 @@ final class ShadowPanel:UIView{
         return lab
     }()
     
-    lazy var alphaSlider:AlphaSliderView = {
-        let view = AlphaSliderView(frame: .zero)
-        view.lable.text = "Shadow Opacity"
-        view.slider.tintColor = .primary
-        view.isUserInteractionEnabled = true
-        view.slider.isUserInteractionEnabled = true
-        return view
+    lazy var shadowOpacityslider:UISlider = {
+        let slider = UISlider(frame: .zero)
+        slider.maximumValue = 1
+        slider.minimumValue = 0
+        slider.isContinuous = true
+        slider.tintColor = .primary
+        return slider
+    }()
+    
+    lazy var opacitylable:UILabel = {
+        let lable = UILabel(frame: .zero)
+        lable.font = .systemFont(ofSize: 16, weight: .medium)
+        lable.text = "Opacity"
+        lable.textColor = .primary
+        lable.textAlignment = .center
+        return lable
     }()
     
     lazy var divider:LineView = {
@@ -127,7 +136,8 @@ final class ShadowPanel:UIView{
         addSubview(Xstepper)
         addSubview(Ystepper)
         addSubview(colorSlider)
-        addSubview(alphaSlider)
+        addSubview(shadowOpacityslider)
+        addSubview(opacitylable)
     }
     
     
@@ -201,12 +211,16 @@ final class ShadowPanel:UIView{
             $0.trailing == trailingAnchor - 30
             $0.height |=| 0.5
         }
-        
-        alphaSlider.layout{
+        opacitylable.layout{
             $0.top == divider2.bottomAnchor + 16
             $0.leading == leadingAnchor + 20
+        }
+        
+        shadowOpacityslider.layout{
+            $0.top == divider2.bottomAnchor + 16
+            $0.leading == opacitylable.trailingAnchor + 20
             $0.trailing == trailingAnchor - 20
-            $0.height |=| 40
+            $0.height |=| 20
         }
         
         
