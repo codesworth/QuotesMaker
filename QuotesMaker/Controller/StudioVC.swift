@@ -85,6 +85,7 @@ class StudioVC: UIViewController {
         gradientPanel.stateDelegate = self
         imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
         stylingPanel = StylingPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
+        
         imagePanel.stateDelegate = self
         let size = Dimensions.editorSize
         
@@ -176,9 +177,9 @@ class StudioVC: UIViewController {
         present(picker, animated: true, completion: nil)
     }
     
-    func blankSelected(){
-        let blank = WrapperView(frame: baseView.subBounds, layer: BlankBackingLayer())
-        baseView.addSubviewable(blank)
+    func shapeSelected(){
+        let shape = RectView(frame: baseView.subBounds)
+        baseView.addSubviewable(shape)
         setupColorPanel()
 
     }
@@ -224,13 +225,18 @@ extension StudioVC:PickerColorDelegate{
     }
     
     func colorDidChange(_ model: BlankLayerModel) {
-        guard let current = baseView.currentSubview as? WrapperView else {return}
-        current.updateModel(model)
+        guard let current = baseView.currentSubview as? ShapableView else {return}
+        var mod = current.model
+        mod.solid = model
+        current.updateModel(mod)
     }
     
+    //To visit during State Changeable
     func previewingWith(_ model: BlankLayerModel) {
-        guard let current = baseView.currentSubview as? WrapperView else {return}
-        current.model = model
+        guard let current = baseView.currentSubview as? ShapableView else {return}
+        var mod = current.model
+        mod.solid = model
+        current.updateModel(mod)
     }
     
 }
@@ -266,7 +272,7 @@ extension StudioVC:OptionsSelectedDelegate{
         case 2:
             break
         case 3:
-            blankSelected()
+            //ShapeSelected()
             break
         case 4:
             blankGradientSelected()
@@ -280,6 +286,15 @@ extension StudioVC:OptionsSelectedDelegate{
 
 
 extension StudioVC:StylingDelegate{
+    
+    func didFinishStyling(_ style: Style) {
+        if let current = baseView.currentSubview as? RectView{
+            var model = current.model
+            model.style = style
+            current.updateModel(model)
+        }
+    }
+    
     
 }
 
