@@ -14,11 +14,13 @@ class StudioTabCells: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        control.isUserInteractionEnabled = false
+        isUserInteractionEnabled = true
     }
     
     func configureCell(_ image:UIImage){
         control.contentImageView.image = image
     }
+
 
 }

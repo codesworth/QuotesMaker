@@ -133,6 +133,10 @@ extension UIImage{
             return #imageLiteral(resourceName: "delete")
         case .layers:
             return #imageLiteral(resourceName: "stack")
+        case .fill:
+            return #imageLiteral(resourceName: "paint")
+        case .gradient:
+            return #imageLiteral(resourceName: "ic_grad")
         }
     }
 }

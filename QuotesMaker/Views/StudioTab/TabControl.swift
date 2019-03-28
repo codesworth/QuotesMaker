@@ -44,6 +44,9 @@ class TabControl: UIControl {
         addTarget(target, action: selector, for: .touchUpInside)
     }
     
+    
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         contentImageView.clipsToBounds = true

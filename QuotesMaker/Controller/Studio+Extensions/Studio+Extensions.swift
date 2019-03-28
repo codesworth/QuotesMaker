@@ -183,6 +183,10 @@ extension StudioVC:StudioTabDelegate{
             //wakePanelForCurrent()
             setupStyleInteractivePanel()
             break
+        case .fill:
+            setupColorPanel()
+        case .gradient:
+            setupGradientInteractiveView()
         default:
             break
         }
