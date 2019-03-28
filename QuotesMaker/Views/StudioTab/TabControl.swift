@@ -39,6 +39,7 @@ class TabControl: UIControl {
         addSubview(contentImageView)
         contentImageView.image = self.image
     }
+    
     func addtarget(_ target:Any, selector:Selector){
         addTarget(target, action: selector, for: .touchUpInside)
     }

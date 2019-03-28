@@ -10,9 +10,15 @@ import UIKit
 
 class StudioTabCells: UICollectionViewCell {
 
+    @IBOutlet weak var control: TabControl!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configureCell(_ image:UIImage){
+        control.contentImageView.image = image
     }
 
 }
