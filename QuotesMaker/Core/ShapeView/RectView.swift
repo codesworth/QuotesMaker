@@ -11,6 +11,7 @@ import UIKit
 protocol ShapableView {
     var model:ShapeModel{get set}
     func updateModel(_ model:ShapeModel)
+    func layerChanged(_ isGradient:Bool)
 }
 
 class RectView:SuperRectView{
@@ -67,7 +68,8 @@ class RectView:SuperRectView{
     }
     
     private func updateShape(_ style:Style){
-        layer.cornerRadius = style.cornerRadius
+        superlayer.masksToBounds = true
+        superlayer.cornerRadius = style.cornerRadius
         layer.borderWidth = style.borderWidth
         layer.borderColor = style.borderColor.cgColor
         
@@ -80,6 +82,7 @@ class RectView:SuperRectView{
     func updateModel(_ model:ShapeModel){
 
         self.model = model
+
     }
     
     
@@ -198,4 +201,27 @@ extension RectView:SPUserResizableViewDelegate{
 }
 
 
-extension RectView:ShapableView{}
+extension RectView:ShapableView{
+    
+    func layerChanged(_ isGradient: Bool) {
+        if model.isGradient && isGradient{return}
+        if isGradient && !model.isGradient{
+            let layer = BackingGradientlayer()
+            contentView.layer.replaceSublayer(superlayer, with: layer)
+            superlayer = layer
+            model.isGradient = isGradient
+            layoutSubviews()
+            //superlayer.setNeedsLayout()
+            return
+        }
+        if !isGradient && model.isGradient{
+            let layer = BlankBackingLayer()
+            contentView.layer.replaceSublayer(superlayer, with: layer)
+            superlayer = layer
+            layoutSubviews()
+            model.isGradient = isGradient
+            return
+        }
+        if !isGradient && model.isGradient{return}
+    }
+}
