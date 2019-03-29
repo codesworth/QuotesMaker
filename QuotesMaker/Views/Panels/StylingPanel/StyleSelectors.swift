@@ -13,13 +13,19 @@ extension StylingPanel{
     
     @objc func borderColorChanged(_ slider:ColorSlider){
         style.borderColor = slider.color
+        delegate?.didFinishStyling(style)
     }
     
     @objc func borderWidthChanged(_ stepper:UIStepper){
         style.borderWidth = CGFloat(stepper.value)
+        borderPanel.borderWidth.text = "Width: \(stepper.value)"
+        delegate?.didFinishStyling(style)
+        
     }
     
     @objc func cornerRadiusChanged(_ slider:UISlider){
         style.cornerRadius = CGFloat(slider.value)
+        cornerPanel.cornerlable.text = "Radius: \(slider.value)"
+        delegate?.didFinishStyling(style)
     }
 }
