@@ -30,31 +30,41 @@ extension StylingPanel{
     }
     
     @objc func shadowColorChanged(_ slider:ColorSlider){
-        
+        style.shadowColor = slider.color
+        delegate?.didFinishStyling(style)
     }
     
     @objc func shadowColorChanging(_ slider:ColorSlider){
-        
+        style.shadowColor = slider.color
+        delegate?.didFinishStyling(style)
     }
     
-    @objc func shadowRadiusChanged(_ slider:UIStepper){
-        
+    @objc func shadowRadiusChanged(_ stepper:UIStepper){
+        style.shadowRadius = CGFloat(stepper.value)
+        shadowsPanel.shadowRadius.text = "Radius: \(Int(stepper.value))"
+        delegate?.didFinishStyling(style)
     }
     
-    @objc func shadowXChanged(_ slider:ColorSlider){
-        
+    @objc func shadowXChanged(_ stepper:UIStepper){
+        style.shadowOffset.width = CGFloat(stepper.value)
+        shadowsPanel.shadowX.text = "X: \(Int(stepper.value))"
+        delegate?.didFinishStyling(style)
     }
     
-    @objc func shadowYChanged(_ slider:ColorSlider){
-        
+    @objc func shadowYChanged(_ stepper:UIStepper){
+        style.shadowOffset.height = CGFloat(stepper.value)
+        shadowsPanel.shadowX.text = "Y: \(Int(stepper.value))"
+        delegate?.didFinishStyling(style)
     }
     
-    @objc func shadowOpacityChanged(_ slider:ColorSlider){
-        
+    @objc func shadowOpacityChanged(_ slider:UISlider){
+        style.shadowOpacity = slider.value
+        delegate?.didFinishStyling(style)
     }
     
     @objc func shadowOpacityChanging(_ slider:UISlider){
-        
+        style.shadowOpacity = slider.value
+        delegate?.didFinishStyling(style)
     }
     
 }

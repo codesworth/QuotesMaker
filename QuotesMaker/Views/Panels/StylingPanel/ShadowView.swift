@@ -52,13 +52,14 @@ final class ShadowPanel:UIView{
         slider.minimumValue = 0
         slider.isContinuous = true
         slider.tintColor = .primary
+        slider.value = 1
         return slider
     }()
     
     lazy var opacitylable:UILabel = {
         let lable = UILabel(frame: .zero)
         lable.font = .systemFont(ofSize: 16, weight: .medium)
-        lable.text = "Opacity"
+        lable.text = "Opacity: 1"
         lable.textColor = .primary
         lable.textAlignment = .center
         return lable
