@@ -10,6 +10,7 @@ import UIKit
 
 
 final class ShadowPanel:UIView{
+    typealias Selectors = (color:Selector,radius:Selector,X:Selector,Y:Selector,alpha:Selector,colorChanging:Selector,alphaChanging:Selector)
     lazy var shadowText:BasicLabel = {
         let lab =  BasicLabel.basicLabel("Shadows")
         lab.font = .systemFont(ofSize: 20, weight: .semibold)
@@ -25,22 +26,22 @@ final class ShadowPanel:UIView{
     }()
     
     lazy var shadowX:BasicLabel = {
-        let lab = BasicLabel.basicLabel("X")
-        lab.font = .systemFont(ofSize: 18, weight: .semibold)
+        let lab = BasicLabel.basicLabel("X: 0")
+        lab.font = .systemFont(ofSize: 16, weight: .semibold)
         lab.textColor = .primary
         return lab
     }()
     
     lazy var shadowY:BasicLabel = {
-        let lab = BasicLabel.basicLabel("Y")
-        lab.font = .systemFont(ofSize: 18, weight: .semibold)
+        let lab = BasicLabel.basicLabel("Y: 0")
+        lab.font = .systemFont(ofSize: 16, weight: .semibold)
         lab.textColor = .primary
         return lab
     }()
     
     lazy var shadowRadius:BasicLabel = {
-        let lab = BasicLabel.basicLabel("Radius")
-        lab.font = .systemFont(ofSize: 18, weight: .semibold)
+        let lab = BasicLabel.basicLabel("Radius: 0")
+        lab.font = .systemFont(ofSize: 16, weight: .semibold)
         lab.textColor = .primary
         return lab
     }()
@@ -138,6 +139,18 @@ final class ShadowPanel:UIView{
         addSubview(colorSlider)
         addSubview(shadowOpacityslider)
         addSubview(opacitylable)
+    }
+    
+    func setTargets(object:Any, selectors:Selectors){
+        colorSlider.addTarget(object, action: selectors.color, for: .touchUpInside)
+        radiusStepper.addTarget(object, action: selectors.radius, for: .valueChanged)
+        Xstepper.addTarget(object, action: selectors.X, for: .valueChanged)
+        Ystepper.addTarget(object, action: selectors.Y, for: .valueChanged)
+        shadowOpacityslider.addTarget(object, action: selectors.alpha, for: .touchUpInside)
+        shadowOpacityslider.addTarget(object, action: selectors.alphaChanging, for: .valueChanged)
+        colorSlider.addTarget(object, action: selectors.colorChanging, for: .valueChanged)
+        
+        
     }
     
     

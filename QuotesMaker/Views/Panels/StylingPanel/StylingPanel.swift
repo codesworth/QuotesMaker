@@ -50,12 +50,15 @@ class StylingPanel:MaterialView{
     }()
     
     lazy var cornerPanel: CornersPanel = {
+        
         let panel = CornersPanel(frame: .zero)
         panel.slider.addTarget(self, action: #selector(cornerRadiusChanged(_:)), for: .valueChanged)
+        
         return panel
     }()
     
     lazy var borderPanel: BorderPanel = {
+        
         let panel = BorderPanel(frame: .zero)
         panel.widthStepper.addTarget(self, action: #selector(borderWidthChanged(_:)), for: .valueChanged)
         panel.colorSlider.addTarget(self, action: #selector(borderColorChanged(_:)), for: .valueChanged)
@@ -63,7 +66,16 @@ class StylingPanel:MaterialView{
     }()
     
     lazy var shadowsPanel:ShadowPanel = {
+        let selectors:ShadowPanel.Selectors =
+        (#selector(shadowColorChanged(_:)),
+         #selector(shadowRadiusChanged(_:)),
+         #selector(shadowXChanged(_:)),
+         #selector(shadowYChanged(_:)),
+         #selector(shadowOpacityChanged(_:)),
+         #selector(shadowColorChanging(_:)),
+         #selector(shadowOpacityChanging(_:)))
         let panel = ShadowPanel(frame: .zero)
+        panel.setTargets(object: self, selectors: selectors)
         return panel
     }()
     

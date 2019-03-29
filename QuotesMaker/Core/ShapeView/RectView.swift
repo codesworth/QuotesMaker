@@ -70,13 +70,13 @@ class RectView:SuperRectView{
     private func updateShape(_ style:Style){
         superlayer.masksToBounds = true
         superlayer.cornerRadius = style.cornerRadius
-        layer.borderWidth = style.borderWidth
-        layer.borderColor = style.borderColor.cgColor
+        superlayer.borderWidth = style.borderWidth
+        superlayer.borderColor = style.borderColor.cgColor
         
-        layer.shadowColor = style.shadowColor.cgColor
-        layer.shadowRadius = style.shadowRadius
-        layer.shadowOpacity = style.shadowOpacity
-        layer.shadowOffset = style.shadowOffset
+        contentView.layer.shadowColor = style.shadowColor.cgColor
+        contentView.layer.shadowRadius = style.shadowRadius
+        contentView.layer.shadowOpacity = style.shadowOpacity
+        contentView.layer.shadowOffset = style.shadowOffset
     }
     
     func updateModel(_ model:ShapeModel){
