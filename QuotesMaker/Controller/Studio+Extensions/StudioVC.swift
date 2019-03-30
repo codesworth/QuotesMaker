@@ -131,12 +131,15 @@ class StudioVC: UIViewController {
     func setupGradientInteractiveView(){
         if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
-         if gradientPanel.isInView{return}
+        if gradientPanel.isInView{return}
         
         gradientPanel.delegate = self
         view.addSubview(gradientPanel)
         Utils.animatePanelsIn(gradientPanel)
         gradientPanel.isInView = true
+        if let current = baseView.currentSubview as? ShapableView{
+            current.layerChanged(true)
+        }
         
     }
     
@@ -217,11 +220,15 @@ extension StudioVC:PickerColorDelegate{
     func setupColorPanel(){
         if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
+        if stylingPanel.isInView{Utils.animatePanelsOut(stylingPanel)}
         if colorPanel.isInView{return}
         colorPanel.delegate = self
         view.addSubview(colorPanel)
         Utils.animatePanelsIn(colorPanel)
         colorPanel.isInView = true
+        if let current = baseView.currentSubview as? ShapableView{
+            current.layerChanged(false)
+        }
     }
     
     func colorDidChange(_ model: BlankLayerModel) {
