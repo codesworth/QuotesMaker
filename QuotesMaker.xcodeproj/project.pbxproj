@@ -539,7 +539,6 @@
 			children = (
 				38C80FC0223B070E00150FD4 /* Studio+Extensions */,
 				38FEDC09222354970005EB60 /* HomeVC.swift */,
-				389B939322276B55009FE9E6 /* StudioVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -547,21 +546,15 @@
 		389B938B22275CB9009FE9E6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				38D97D6F224FC0C600B941A0 /* Text */,
+				38D97D6E224FC0B200B941A0 /* Subscriptions */,
+				38D97D6D224FC09700B941A0 /* Gestures */,
+				38D97D6C224FC06400B941A0 /* Layers */,
 				3811532A224D0E3D00DA7D3B /* ShapeView */,
 				3823656B2240671A0078A723 /* BaseView */,
 				3823655F223FEB340078A723 /* BackingImage */,
 				389B9391222769CD009FE9E6 /* Dimensions.swift */,
-				389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */,
 				389B938E2227689E009FE9E6 /* Utils.swift */,
-				389B93992227834E009FE9E6 /* BlankBackingLayer.swift */,
-				388BE335222B2135005BF44B /* BackingGradientlayer.swift */,
-				388BE387222EB35A005BF44B /* TextBackingLayer.swift */,
-				380C78FB2232C4C4006B8F8D /* ViewGesture.swift */,
-				380C78FF2232D8EB006B8F8D /* WrapperView.swift */,
-				38C80FC3223BFAA200150FD4 /* Subscriptions.swift */,
-				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
-				3823655D223FA6D00078A723 /* GroupWrapperView.swift */,
-				38236564224045390078A723 /* ResizableView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -612,9 +605,48 @@
 		38C80FC0223B070E00150FD4 /* Studio+Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				389B939322276B55009FE9E6 /* StudioVC.swift */,
 				38C80FC1223B073700150FD4 /* Studio+Extensions.swift */,
 			);
 			path = "Studio+Extensions";
+			sourceTree = "<group>";
+		};
+		38D97D6C224FC06400B941A0 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */,
+				389B93992227834E009FE9E6 /* BlankBackingLayer.swift */,
+				388BE335222B2135005BF44B /* BackingGradientlayer.swift */,
+				388BE387222EB35A005BF44B /* TextBackingLayer.swift */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		38D97D6D224FC09700B941A0 /* Gestures */ = {
+			isa = PBXGroup;
+			children = (
+				380C78FF2232D8EB006B8F8D /* WrapperView.swift */,
+				3823655D223FA6D00078A723 /* GroupWrapperView.swift */,
+				38236564224045390078A723 /* ResizableView.swift */,
+				380C78FB2232C4C4006B8F8D /* ViewGesture.swift */,
+			);
+			path = Gestures;
+			sourceTree = "<group>";
+		};
+		38D97D6E224FC0B200B941A0 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				38C80FC3223BFAA200150FD4 /* Subscriptions.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
+		38D97D6F224FC0C600B941A0 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				388BE38B222EC1C0005BF44B /* BackingTextView.swift */,
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 		38FEDBDD222352D90005EB60 = {

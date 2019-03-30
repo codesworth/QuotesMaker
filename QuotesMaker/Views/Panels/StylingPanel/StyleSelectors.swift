@@ -53,7 +53,7 @@ extension StylingPanel{
     
     @objc func shadowYChanged(_ stepper:UIStepper){
         style.shadowOffset.height = CGFloat(stepper.value)
-        shadowsPanel.shadowX.text = "Y: \(Int(stepper.value))"
+        shadowsPanel.shadowY.text = "Y: \(Int(stepper.value))"
         delegate?.didFinishStyling(style)
     }
     

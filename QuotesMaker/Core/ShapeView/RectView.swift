@@ -73,10 +73,10 @@ class RectView:SuperRectView{
         superlayer.borderWidth = style.borderWidth
         superlayer.borderColor = style.borderColor.cgColor
         
-        contentView.layer.shadowColor = style.shadowColor.cgColor
-        contentView.layer.shadowRadius = style.shadowRadius
-        contentView.layer.shadowOpacity = style.shadowOpacity
-        contentView.layer.shadowOffset = style.shadowOffset
+        /*contentView.*/layer.shadowColor = style.shadowColor.cgColor
+        /*contentView.*/layer.shadowRadius = style.shadowRadius
+        /*contentView.*/layer.shadowOpacity = style.shadowOpacity
+        /*contentView.*/layer.shadowOffset = style.shadowOffset
     }
     
     func updateModel(_ model:ShapeModel){
@@ -111,7 +111,7 @@ class RectView:SuperRectView{
         resizerView.contentView = contentView
         resizerView.hideEditingHandles()
         addSubview(resizerView)
-        contentView.layer.masksToBounds = true
+        //contentView.layer.masksToBounds = true
         contentView.layer.addSublayer(superlayer)
         superlayer.needsDisplayOnBoundsChange = true
         superlayer.bounds = contentView.layer.bounds
