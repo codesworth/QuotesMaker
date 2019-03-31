@@ -220,6 +220,21 @@ class TextDesignableInputView:UIView{
         return stepper
     }()
     
+    lazy var shadowView:ShadowPanel = {
+        let selectors:ShadowPanel.Selectors =
+            (#selector(shadowColorChanged(_:)),
+             #selector(shadowRadiusChanged(_:)),
+             #selector(shadowXChanged(_:)),
+             #selector(shadowYChanged(_:)),
+             #selector(shadowOpacityChanged(_:)),
+             #selector(shadowColorChanging(_:)),
+             #selector(shadowOpacityChanging(_:)))
+        let panel = ShadowPanel(frame: .zero)
+        panel.setTargets(object: self, selectors: selectors)
+        return panel
+        
+    }()
+    
 
     
     

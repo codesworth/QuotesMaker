@@ -22,6 +22,7 @@ struct TextLayerModel {
     var strokeWidth:Int = 0
     var obliquess:Int = 0
     var layerFrame:LayerFrame?
+    var shadow:NSShadow = nil
     
     var style:Style = Style()
     
