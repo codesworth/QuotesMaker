@@ -92,41 +92,61 @@ extension TextDesignableInputView{
     
     
     @objc func shadowColorChanged(_ slider:ColorSlider){
-        style.shadowColor = slider.color
-        delegate?.didFinishStyling(style)
+        let shadow = model.shadow.mutableCopy() as! NSShadow
+        shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
+        model.shadowColor = slider.color
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
     }
     
     @objc func shadowColorChanging(_ slider:ColorSlider){
-        style.shadowColor = slider.color
-        delegate?.didFinishStyling(style)
+        let shadow = model.shadow.mutableCopy() as! NSShadow
+        shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
+        model.shadowColor = slider.color
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
     }
     
     @objc func shadowRadiusChanged(_ stepper:UIStepper){
-        style.shadowRadius = CGFloat(stepper.value)
-        shadowsPanel.shadowRadius.text = "Radius: \(Int(stepper.value))"
-        delegate?.didFinishStyling(style)
+        let shadow = model.shadow.mutableCopy() as! NSShadow
+        shadow.shadowBlurRadius = CGFloat(stepper.value)
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+        shadowView.shadowRadius.text = "Radius: \(Int(stepper.value))"
+        
     }
     
     @objc func shadowXChanged(_ stepper:UIStepper){
-        style.shadowOffset.width = CGFloat(stepper.value)
-        shadowsPanel.shadowX.text = "X: \(Int(stepper.value))"
-        delegate?.didFinishStyling(style)
+        let shadow = model.shadow.mutableCopy() as! NSShadow
+        shadow.shadowOffset.width = CGFloat(stepper.value)
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+        shadowView.shadowX.text = "X: \(Int(stepper.value))"
+        
     }
     
     @objc func shadowYChanged(_ stepper:UIStepper){
-        style.shadowOffset.height = CGFloat(stepper.value)
-        shadowsPanel.shadowY.text = "Y: \(Int(stepper.value))"
-        delegate?.didFinishStyling(style)
+        let shadow = model.shadow.mutableCopy() as! NSShadow
+        shadow.shadowOffset.height = CGFloat(stepper.value)
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+        shadowView.shadowX.text = "Y: \(Int(stepper.value))"
     }
     
     @objc func shadowOpacityChanged(_ slider:UISlider){
-        style.shadowOpacity = slider.value
-        delegate?.didFinishStyling(style)
+        let shadow = model.shadow.mutableCopy() as! NSShadow
+        model.shadowAlpha = CGFloat(slider.value)
+        shadow.shadowColor = model.shadowColor.withAlphaComponent(CGFloat(slider.value))
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
     }
     
     @objc func shadowOpacityChanging(_ slider:UISlider){
-        style.shadowOpacity = slider.value
-        delegate?.didFinishStyling(style)
+        let shadow = model.shadow.mutableCopy() as! NSShadow
+        model.shadowAlpha = CGFloat(slider.value)
+        shadow.shadowColor = model.shadowColor.withAlphaComponent(CGFloat(slider.value))
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
     }
     
     
