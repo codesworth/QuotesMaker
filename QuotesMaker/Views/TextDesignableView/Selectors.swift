@@ -92,7 +92,7 @@ extension TextDesignableInputView{
     
     
     @objc func shadowColorChanged(_ slider:ColorSlider){
-        let shadow = model.shadow.mutableCopy() as! NSShadow
+        guard let shadow = model.shadow.copy() as? NSShadow else{fatalError("Unable to cast copy NSShadow")}
         shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
         model.shadowColor = slider.color
         model.shadow = shadow
@@ -100,15 +100,15 @@ extension TextDesignableInputView{
     }
     
     @objc func shadowColorChanging(_ slider:ColorSlider){
-        let shadow = model.shadow.mutableCopy() as! NSShadow
-        shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
-        model.shadowColor = slider.color
-        model.shadow = shadow
-        delegate?.didUpdateModel(model)
+//        let shadow = model.shadow.mutableCopy() as! NSShadow
+//        shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
+//        model.shadowColor = slider.color
+//        model.shadow = shadow
+//        delegate?.didUpdateModel(model)
     }
     
     @objc func shadowRadiusChanged(_ stepper:UIStepper){
-        let shadow = model.shadow.mutableCopy() as! NSShadow
+        let shadow = model.shadow.copy() as! NSShadow
         shadow.shadowBlurRadius = CGFloat(stepper.value)
         model.shadow = shadow
         delegate?.didUpdateModel(model)
@@ -117,7 +117,7 @@ extension TextDesignableInputView{
     }
     
     @objc func shadowXChanged(_ stepper:UIStepper){
-        let shadow = model.shadow.mutableCopy() as! NSShadow
+        let shadow = model.shadow.copy() as! NSShadow
         shadow.shadowOffset.width = CGFloat(stepper.value)
         model.shadow = shadow
         delegate?.didUpdateModel(model)
@@ -126,7 +126,7 @@ extension TextDesignableInputView{
     }
     
     @objc func shadowYChanged(_ stepper:UIStepper){
-        let shadow = model.shadow.mutableCopy() as! NSShadow
+        let shadow = model.shadow.copy() as! NSShadow
         shadow.shadowOffset.height = CGFloat(stepper.value)
         model.shadow = shadow
         delegate?.didUpdateModel(model)
@@ -134,7 +134,7 @@ extension TextDesignableInputView{
     }
     
     @objc func shadowOpacityChanged(_ slider:UISlider){
-        let shadow = model.shadow.mutableCopy() as! NSShadow
+        let shadow = model.shadow.copy() as! NSShadow
         model.shadowAlpha = CGFloat(slider.value)
         shadow.shadowColor = model.shadowColor.withAlphaComponent(CGFloat(slider.value))
         model.shadow = shadow
@@ -142,7 +142,7 @@ extension TextDesignableInputView{
     }
     
     @objc func shadowOpacityChanging(_ slider:UISlider){
-        let shadow = model.shadow.mutableCopy() as! NSShadow
+        let shadow = model.shadow.copy() as! NSShadow
         model.shadowAlpha = CGFloat(slider.value)
         shadow.shadowColor = model.shadowColor.withAlphaComponent(CGFloat(slider.value))
         model.shadow = shadow
