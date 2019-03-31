@@ -156,10 +156,14 @@ class StudioVC: UIViewController {
     }
     
     func setupStyleInteractivePanel(){
-        
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{Utils.animatePanelsOut(gradientPanel)}
+        if let current = baseView.currentSubview as? BackingTextView {
+            current.textView.becomeFirstResponder()
+            return
+        }
+        
         stylingPanel.delegate = self
         view.addSubview(stylingPanel)
         Utils.animatePanelsIn(stylingPanel)
@@ -296,6 +300,10 @@ extension StudioVC:StylingDelegate{
     
     func didFinishStyling(_ style: Style) {
         if let current = baseView.currentSubview as? RectView{
+            var model = current.model
+            model.style = style
+            current.updateModel(model)
+        }else if let current = baseView.currentSubview as? BackingImageView{
             var model = current.model
             model.style = style
             current.updateModel(model)

@@ -34,6 +34,12 @@ extension BaseView{
 //        return view
 //    }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        subviews.forEach{
+            if let resizer = $0 as? BaseSubView{resizer.focused(false)}}
+
+    }
+    
     
     
 }

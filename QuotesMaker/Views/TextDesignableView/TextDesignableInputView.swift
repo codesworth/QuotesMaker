@@ -19,7 +19,8 @@ class TextDesignableInputView:UIView{
     var fonts = UIFont.getFeaturedFonts()
     
     lazy var titleLable:BasicLabel = {
-        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .regular))
+        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .semibold))
+        lab.textColor = .primary
         lab.attributedText = NSAttributedString(string: "Fonts", attributes: [:])
         return lab
     }()
