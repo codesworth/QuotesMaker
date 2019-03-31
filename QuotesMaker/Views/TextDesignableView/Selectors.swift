@@ -91,4 +91,63 @@ extension TextDesignableInputView{
     }
     
     
+    @objc func shadowColorChanged(_ slider:ColorSlider){
+        guard let shadow = model.shadow.copy() as? NSShadow else{return}
+        shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
+        model.shadowColor = slider.color
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func shadowColorChanging(_ slider:ColorSlider){
+        guard let shadow = model.shadow.copy() as? NSShadow else{return}
+        shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
+        model.shadowColor = slider.color
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func shadowRadiusChanged(_ stepper:UIStepper){
+        guard let shadow = model.shadow.copy() as? NSShadow else{return}
+        shadow.shadowBlurRadius = CGFloat(stepper.value)
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+        shadowView.shadowRadius.text = "Radius: \(Int(stepper.value))"
+        
+    }
+    
+    @objc func shadowXChanged(_ stepper:UIStepper){
+        guard let shadow = model.shadow.copy() as? NSShadow else{return}
+        shadow.shadowOffset.width = CGFloat(stepper.value)
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+        shadowView.shadowX.text = "X: \(Int(stepper.value))"
+        
+    }
+    
+    @objc func shadowYChanged(_ stepper:UIStepper){
+        guard let shadow = model.shadow.copy() as? NSShadow else{return}
+        shadow.shadowOffset.height = CGFloat(stepper.value)
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+        shadowView.shadowX.text = "Y: \(Int(stepper.value))"
+    }
+    
+    @objc func shadowOpacityChanged(_ slider:UISlider){
+        guard let shadow = model.shadow.copy() as? NSShadow else{return}
+        model.shadowAlpha = CGFloat(slider.value)
+        shadow.shadowColor = model.shadowColor.withAlphaComponent(CGFloat(slider.value))
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+    }
+    
+    @objc func shadowOpacityChanging(_ slider:UISlider){
+        guard let shadow = model.shadow.copy() as? NSShadow else{return}
+        model.shadowAlpha = CGFloat(slider.value)
+        shadow.shadowColor = model.shadowColor.withAlphaComponent(CGFloat(slider.value))
+        model.shadow = shadow
+        delegate?.didUpdateModel(model)
+    }
+    
+    
 }

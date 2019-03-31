@@ -15,4 +15,5 @@ protocol BaseViewSubViewable{
     var id_tag:Int {get}
     var uid:UUID {get}
     func focused(_ bool:Bool)
+    
 }

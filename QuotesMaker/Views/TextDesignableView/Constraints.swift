@@ -21,7 +21,7 @@ extension TextDesignableInputView{
                          contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
                          contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
                          contentView.widthAnchor.constraint(equalTo: widthAnchor),
-                         contentView.heightAnchor.constraint(equalToConstant: 620)]
+                         contentView.heightAnchor.constraint(equalToConstant: 950)]
         let contents1 = [titleLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
                          titleLable.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                          headlineline.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 4),
@@ -108,7 +108,15 @@ extension TextDesignableInputView{
             obliqStyleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             obliqueStepper.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             obliqueStepper.topAnchor.constraint(equalTo: obliqStyleLabel.bottomAnchor, constant: 8),
-            ]
+            sixthline.topAnchor.constraint(equalTo: obliqueStepper.bottomAnchor, constant: 24),
+            sixthline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            sixthline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            sixthline.heightAnchor.constraint(equalToConstant: 1),
+            shadowView.topAnchor.constraint(equalTo: sixthline.bottomAnchor, constant: 16),
+            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            shadowView.heightAnchor.constraint(equalToConstant: 300)
+        ]
         
         NSLayoutConstraint.activate(scrollCon)
         NSLayoutConstraint.activate(contents1)

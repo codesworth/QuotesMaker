@@ -19,7 +19,8 @@ class TextDesignableInputView:UIView{
     var fonts = UIFont.getFeaturedFonts()
     
     lazy var titleLable:BasicLabel = {
-        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .regular))
+        let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .semibold))
+        lab.textColor = .primary
         lab.attributedText = NSAttributedString(string: "Fonts", attributes: [:])
         return lab
     }()
@@ -57,6 +58,10 @@ class TextDesignableInputView:UIView{
     }()
     
     lazy var fifthline:LineView = {
+        return LineView.getLine()
+    }()
+    
+    lazy var sixthline:LineView = {
         return LineView.getLine()
     }()
     
@@ -136,6 +141,8 @@ class TextDesignableInputView:UIView{
         lab.text = "Color"
         return lab
     }()
+    
+    
     
     lazy var scrollView:UIScrollView = {
         let scroll = UIScrollView(frame: .zero)
@@ -220,6 +227,22 @@ class TextDesignableInputView:UIView{
         return stepper
     }()
     
+    lazy var shadowView:ShadowPanel = {
+        let selectors:ShadowPanel.Selectors =
+            (#selector(shadowColorChanged(_:)),
+             #selector(shadowRadiusChanged(_:)),
+             #selector(shadowXChanged(_:)),
+             #selector(shadowYChanged(_:)),
+             #selector(shadowOpacityChanged(_:)),
+             #selector(shadowColorChanging(_:)),
+             #selector(shadowOpacityChanging(_:)))
+        let panel = ShadowPanel(frame: .zero)
+        panel.shadowText.text = "Text Shadows"
+        panel.setTargets(object: self, selectors: selectors)
+        return panel
+        
+    }()
+    
 
     
     
@@ -290,6 +313,8 @@ class TextDesignableInputView:UIView{
         contentView.addSubview(obliqLabel)
         contentView.addSubview(obliqStyleLabel)
         contentView.addSubview(headlineline)
+        contentView.addSubview(sixthline)
+        contentView.addSubview(shadowView)
     }
 }
 

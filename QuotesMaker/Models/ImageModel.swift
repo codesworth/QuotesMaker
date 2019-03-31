@@ -17,17 +17,8 @@ struct ImageLayerModel:LayerModel {
         self.frame = frame
     }
     
-    //private var _image:UIImage?
     var image:UIImage?
-
-    
-    mutating func update(withValue value: UIImage) {
-        
-        
-    }
-    
-    
-    
+    var style:Style = Style()
     var frame:LayerFrame?
     
     init(image:UIImage? = nil) {

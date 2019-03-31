@@ -46,27 +46,38 @@ class BackingImageView: UIView{
     var previousModels:[ImageLayerModel] = []
     var redoModels:[ImageLayerModel] = []
     
-    var model:ImageLayerModel!{
+    var model:ImageLayerModel = ImageLayerModel(){
         didSet{
             image = model.image
+            updateShape(model.style)
         }
     }
-    //var currentAngle:CGFloat = 0
     
-//    lazy var croppingRect:UIView = {
-//        let v = UIView(frame: bounds)
-//        v.backgroundColor = .white
-//        v.borderlize(.white,4)
-//        return v
-//    }()
+    private func updateShape(_ style:Style){
+        baseImageView.clipsToBounds = true
+        baseImageView.layer.cornerRadius = style.cornerRadius
+        baseImageView.layer.borderWidth = style.borderWidth
+        baseImageView.layer.borderColor = style.borderColor.cgColor
+        
+        /*contentView.*/layer.shadowColor = style.shadowColor.cgColor
+        /*contentView.*/layer.shadowRadius = style.shadowRadius
+        /*contentView.*/layer.shadowOpacity = style.shadowOpacity
+        /*contentView.*/layer.shadowOffset = style.shadowOffset
+    }
+    
+    func updateModel(_ model:ImageLayerModel){
+        
+        self.model = model
+        
+    }
     
     var uid:UUID = UUID()
     
     func setImage(image:UIImage){
         previousModels.push(model)
         var new = model
-        new!.image = image
-        model = new!
+        new.image = image
+        model = new
         Subscription.main.post(suscription: .canUndo, object: true)
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.Name.canUndo.rawValue), object: nil)
     }

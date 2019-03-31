@@ -22,9 +22,17 @@ struct TextLayerModel {
     var strokeWidth:Int = 0
     var obliquess:Int = 0
     var layerFrame:LayerFrame?
-    
+    var shadow:NSShadow
+    var shadowAlpha:CGFloat = 0.30
+    var shadowColor:UIColor = .clear
     var style:Style = Style()
     
+    init() {
+        shadow = NSShadow()
+        shadow.shadowColor = UIColor.clear
+        shadow.shadowBlurRadius = 0
+        shadow.shadowOffset = .zero
+    }
     
     func outPutString()->NSAttributedString{
         
@@ -37,7 +45,8 @@ struct TextLayerModel {
             .underlineStyle: underlineStyle.nsNumber(),
             .strokeWidth : strokeWidth.nsNumber(),
             .obliqueness : obliquess.nsNumber(),
-            .underlineColor:underlineColor
+            .underlineColor:underlineColor,
+            .shadow:shadow
         ]
         attributes.forEach{if $0.value == nil{attributes.removeValue(forKey: $0.key)}}
         return NSAttributedString(string: string, attributes: attributes as [NSAttributedString.Key : Any])
