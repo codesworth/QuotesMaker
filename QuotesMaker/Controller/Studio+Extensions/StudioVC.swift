@@ -148,6 +148,7 @@ class StudioVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{return}
+        if baseView.currentSubview == nil {return}
         imagePanel.delegate = self
         view.addSubview(imagePanel)
         Utils.animatePanelsIn(imagePanel)

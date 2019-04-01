@@ -188,6 +188,9 @@ extension StudioVC:StudioTabDelegate{
             setupColorPanel()
         case .gradient:
             setupGradientInteractiveView()
+        case .imgPanel:
+            setupImageInteractiveView()
+            break
         default:
             break
         }
