@@ -18,6 +18,11 @@ final class CornersPanel:UIView{
         return .basicLabel("Radius: 0")
     }()
     
+    lazy var roundCornerView:CornerStack = {
+        let corner = CornerStack(frame: .zero)
+        return corner
+    }()
+    
     lazy var slider:UISlider = {
         let slider = UISlider(frame: .zero)
         slider.isContinuous = true
@@ -59,6 +64,13 @@ final class CornersPanel:UIView{
             $0.trailing == trailingAnchor - 12
             $0.height |=| 20
         }
+        
+        roundCornerView.layout{
+            $0.top == slider.bottomAnchor + 8
+            $0.leading == leadingAnchor
+            $0.trailing == trailingAnchor
+            $0.height |=| 120
+        }
     }
     
     
@@ -67,6 +79,7 @@ final class CornersPanel:UIView{
         addSubview(cornerlable)
         addSubview(cornerRadius)
         addSubview(slider)
+        addSubview(roundCornerView)
     }
     
 }

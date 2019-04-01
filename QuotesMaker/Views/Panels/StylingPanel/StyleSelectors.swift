@@ -67,4 +67,12 @@ extension StylingPanel{
         delegate?.didFinishStyling(style)
     }
     
+    
+    @objc func listenForCornermaskChanges(_ notification:Notification){
+        if let corners = notification.userInfo?[.info] as? CACornerMask{
+            style.maskedCorners = corners
+            delegate?.didFinishStyling(style)
+        }
+    }
+    
 }
