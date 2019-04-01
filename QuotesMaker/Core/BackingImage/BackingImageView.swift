@@ -131,6 +131,14 @@ class BackingImageView: UIView{
 
 
 extension BackingImageView:BaseViewSubViewable{
+    func setIndex(_ index: CGFloat) {
+        model.layerIndex = index
+    }
+    
+    var getIndex:CGFloat{
+        return model.layerIndex
+    }
+    
     func focused(_ bool:Bool){
         bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
     }

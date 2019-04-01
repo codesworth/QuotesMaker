@@ -194,10 +194,10 @@ class StudioVC: UIViewController {
     
     func blankGradientSelected(){
 
-        let grad = WrapperView(frame: baseView.subBounds, layer: BackingGradientlayer())
-        grad.isGradient = true
-        baseView.addSubviewable(grad)
-        setupGradientInteractiveView()
+//        let grad = RectView(frame: baseView.subBounds, layer: BackingGradientlayer())
+//        grad.isGradient = true
+//        baseView.addSubviewable(grad)
+//        setupGradientInteractiveView()
     }
     
     func addText(){

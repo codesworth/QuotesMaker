@@ -13,9 +13,6 @@ struct BlankLayerModel {
     
     var color:UIColor = .lightGray
     var alpha: CGFloat = 1
-    
-    var layerFrame:LayerFrame? = nil
-    
 }
 
 extension BlankLayerModel:Equatable{
@@ -25,5 +22,3 @@ extension BlankLayerModel:Equatable{
     }
 }
 
-
-extension BlankLayerModel:LayerModel{}

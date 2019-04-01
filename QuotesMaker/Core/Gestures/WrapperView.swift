@@ -7,6 +7,8 @@
 //  Copyright © 2019 Shadrach Mensah. All rights reserved.
 //
 
+
+/*
 import UIKit
 
 class WrapperView: UIView{
@@ -191,3 +193,5 @@ extension WrapperView:SPUserResizableViewDelegate{
 
     }
 }
+
+*/

@@ -144,17 +144,22 @@ extension StudioVC:PhotoTweaksViewControllerDelegate{
 extension StudioVC:BaseViewProtocol{
     
     func wakePanelForCurrent() {
-        guard let current = baseView.currentSubview else{return}
-        if let wrapper = current as? WrapperView{
-            if wrapper.isGradient{
-                setupGradientInteractiveView()
-            }else{
-                setupColorPanel()
-            }
-        }else if let _ = current as? BackingImageView{
-            setupImageInteractiveView()
-        }
+        
     }
+    
+    
+//    func wakePanelForCurrent() {
+//        guard let current = baseView.currentSubview else{return}
+//        if let wrapper = current as?RectView{
+//            if wrapper.isGradient{
+//                setupGradientInteractiveView()
+//            }else{
+//                setupColorPanel()
+//            }
+//        }else if let _ = current as? BackingImageView{
+//            setupImageInteractiveView()
+//        }
+//    }
     
 }
 
@@ -227,7 +232,7 @@ extension StudioVC:StackTableDelegate{
     func didSelectView(with uid: UUID) {
         let view = (baseView.subviews as? Alias.StackDataSource)?.first{$0.uid == uid}
         print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource.self)`")
-        if let sub = view as? WrapperView{
+        if let sub = view as? RectView {
             baseView.currentSubview = sub
             
         }else if let sub = view as? BackingImageView{

@@ -245,6 +245,16 @@ extension BackingTextView:TextModelDelegate{
 
 
 extension BackingTextView:BaseViewSubViewable{
+    var getIndex: CGFloat {
+        return model.layerIndex
+    }
+    
+    
+    func setIndex(_ index: CGFloat) {
+        model.layerIndex = index
+    }
+    
+    
     
     func focused(_ bool: Bool) {
         if bool{

@@ -11,6 +11,8 @@ import Foundation
 protocol LayerModel {
 
     var layerFrame:LayerFrame? {get set}
+    var layerIndex:CGFloat {get set}
+    
 }
 
 

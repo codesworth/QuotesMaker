@@ -16,7 +16,7 @@ struct ShapeModel{
     var style:Style = Style(){didSet{update()}}
     var layerFrame:LayerFrame?{didSet{update()}}
     var updateTime:TimeInterval = Date().timeIntervalSinceNow
-    
+    var layerIndex: CGFloat = 0
     mutating func update(){
         updateTime = Date().timeIntervalSinceNow
     }
@@ -26,6 +26,7 @@ struct ShapeModel{
         shape.solid = BlankLayerModel()
         return shape
     }
+    
 }
 
 extension ShapeModel:LayerModel{}

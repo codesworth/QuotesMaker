@@ -496,7 +496,6 @@
 		389B938822275C88009FE9E6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				388BE322222AC376005BF44B /* CreateOptions.swift */,
 				388BE33D222BBFDE005BF44B /* GradientModel.swift */,
 				388BE389222EB50B005BF44B /* TextModel.swift */,
 				380BC9952231C3B5007F87FE /* LayerModel.swift */,
@@ -517,8 +516,6 @@
 				381865B3223C992C006C0C56 /* ViewStack */,
 				38C80FB7223A7ACB00150FD4 /* Panels */,
 				38797C2322309D6B003A9D99 /* TextDesignableView */,
-				389B939722277A77009FE9E6 /* CreateButton.swift */,
-				388BE31E222AC007005BF44B /* OptionsStack.swift */,
 				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
 				388BE33B222BB5AD005BF44B /* MaterialView.swift */,
 				388BE345222C4FB6005BF44B /* DoneButton.swift */,
@@ -676,6 +673,18 @@
 			path = "Solid Fill";
 			sourceTree = "<group>";
 		};
+		38D97D75225215F700B941A0 /* Misch */ = {
+			isa = PBXGroup;
+			children = (
+				388BE31E222AC007005BF44B /* OptionsStack.swift */,
+				388BE322222AC376005BF44B /* CreateOptions.swift */,
+				389B939722277A77009FE9E6 /* CreateButton.swift */,
+				3861A4A2222691B70040D819 /* ImagesVC.swift */,
+				38FEDC0B222356BD0005EB60 /* QMImageEngine.swift */,
+			);
+			path = Misch;
+			sourceTree = "<group>";
+		};
 		38FEDBDD222352D90005EB60 = {
 			isa = PBXGroup;
 			children = (
@@ -706,13 +715,12 @@
 				389B938A22275CAB009FE9E6 /* Controller */,
 				389B938922275CA1009FE9E6 /* Views */,
 				389B938822275C88009FE9E6 /* Models */,
+				38D97D75225215F700B941A0 /* Misch */,
 				38FEDBE9222352D90005EB60 /* AppDelegate.swift */,
 				38FEDBED222352D90005EB60 /* Main.storyboard */,
 				38FEDBF0222352DB0005EB60 /* Assets.xcassets */,
 				38FEDBF2222352DB0005EB60 /* LaunchScreen.storyboard */,
 				38FEDBF5222352DB0005EB60 /* Info.plist */,
-				38FEDC0B222356BD0005EB60 /* QMImageEngine.swift */,
-				3861A4A2222691B70040D819 /* ImagesVC.swift */,
 			);
 			path = QuotesMaker;
 			sourceTree = "<group>";

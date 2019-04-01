@@ -67,8 +67,10 @@ class StudioTab: UIView {
            canSelect = true
             if let _ = data as? BackingImageView{
                 tabActions = TabActions.allCases.filter{$0 != .gradient && $0 != .fill}
-            }else{
+            }else if let _ = data as? RectView{
                 tabActions = TabActions.allCases.filter{$0 != .imgPanel}
+            }else{
+               tabActions = TabActions.allCases.filter{$0 != .gradient && $0 != .fill && $0 != .imgPanel}
             }
         }else{
            canSelect = false

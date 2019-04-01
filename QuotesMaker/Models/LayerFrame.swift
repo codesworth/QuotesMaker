@@ -11,19 +11,11 @@ import UIKit
 
 struct LayerFrame {
     
-//    enum LayerPriority:Int{
-//        case image = 0
-//        case plainColor = 1
-//        case gradient = 2
-//        case text = 3
-//    }
-//
     let xCoordinate:CGFloat
     let yCoordinte:CGFloat
     let width:CGFloat
     let height:CGFloat
     
-    //let containingBounds:CGRect
     
     init(_ axis:CGPoint, sized:CGSize) {
         xCoordinate = axis.x
