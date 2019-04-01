@@ -139,6 +139,10 @@ extension UIImage{
             return #imageLiteral(resourceName: "ic_grad")
         case .imgPanel:
             return #imageLiteral(resourceName: "img_ic")
+        case .undo:
+            return #imageLiteral(resourceName: "undo_arrow")
+        case .redo:
+            return #imageLiteral(resourceName: "redo_arrow")
         }
     }
 }

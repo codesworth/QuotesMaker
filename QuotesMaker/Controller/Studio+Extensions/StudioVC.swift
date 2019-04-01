@@ -312,6 +312,17 @@ extension StudioVC:StylingDelegate{
         }
     }
     
+    func didFinishPreviewing(_ style: Style) {
+        if let current = baseView.currentSubview as? RectView{
+            var model = current.model
+            model.style = style
+            current.model = model
+        }else if let current = baseView.currentSubview as? BackingImageView{
+            var model = current.model
+            model.style = style
+            current.model = model
+        }
+    }
     
 }
 

@@ -29,6 +29,12 @@ extension StylingPanel{
         delegate?.didFinishStyling(style)
     }
     
+    @objc func cornerRadiusChanging(_ slider:UISlider){
+        style.cornerRadius = CGFloat(slider.value)
+        cornerPanel.cornerlable.text = "Radius: \(Int(slider.value))"
+        delegate?.didFinishPreviewing(style)
+    }
+    
     @objc func shadowColorChanged(_ slider:ColorSlider){
         style.shadowColor = slider.color
         delegate?.didFinishStyling(style)
@@ -64,7 +70,7 @@ extension StylingPanel{
     
     @objc func shadowOpacityChanging(_ slider:UISlider){
         style.shadowOpacity = slider.value
-        delegate?.didFinishStyling(style)
+        delegate?.didFinishPreviewing(style)
     }
     
     

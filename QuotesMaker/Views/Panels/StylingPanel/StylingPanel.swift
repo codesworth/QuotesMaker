@@ -53,8 +53,8 @@ class StylingPanel:MaterialView{
     lazy var cornerPanel: CornersPanel = {
         
         let panel = CornersPanel(frame: .zero)
-        panel.slider.addTarget(self, action: #selector(cornerRadiusChanged(_:)), for: .valueChanged)
-        
+        panel.slider.addTarget(self, action: #selector(cornerRadiusChanging(_:)), for: .valueChanged)
+        panel.slider.addTarget(self, action: #selector(cornerRadiusChanged(_:)), for: .touchUpInside)
         return panel
     }()
     

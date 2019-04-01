@@ -23,6 +23,8 @@ class StudioTab: UIView {
         case moveUp
         case moveDown
         case layers
+        case undo
+        case redo
         case delete
     }
 
