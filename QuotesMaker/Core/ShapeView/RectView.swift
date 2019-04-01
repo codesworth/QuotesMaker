@@ -81,7 +81,8 @@ class RectView:SuperRectView{
     }
     
     func updateModel(_ model:ShapeModel){
-
+        let state = State(model: self.model, action: .nothing)
+        Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
 
     }

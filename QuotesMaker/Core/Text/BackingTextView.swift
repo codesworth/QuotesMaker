@@ -65,6 +65,8 @@ class BackingTextView: UIView {
     var model:TextLayerModel = TextLayerModel(){
         
         didSet{
+            let state = State(model: oldValue, action: .nothing)
+            Subscription.main.post(suscription: .stateChange, object: state)
             textView.attributedText = model.outPutString()
             textView.textColor = model.textColor
             textView.font = model.font

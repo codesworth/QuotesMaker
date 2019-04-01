@@ -20,7 +20,11 @@ extension StudioVC:StateControlDelegate{
         }
     }
     
-    
+    @objc func listenForStateChanged(_ notification:Notification){
+        guard let state = notification.userInfo?[.info] as? State else {return}
+        changes.push(state)
+        print(changes)
+    }
     
 }
 

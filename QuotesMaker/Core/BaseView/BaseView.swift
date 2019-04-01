@@ -13,6 +13,7 @@ class BaseView:UIView{
     
     typealias BaseSubView = UIView & BaseViewSubViewable
     
+    
     typealias ViewTags = (imgs:Int,txt:Int,blk:Int,grd:Int)
     var viewTags:ViewTags = (0,0,0,0)
        
@@ -21,6 +22,7 @@ class BaseView:UIView{
     var subBounds:CGRect{
         return CGRect(origin: [(bounds.size.width - bounds.size.scaledBy(0.7).width) / 2,(bounds.size.height - bounds.size.scaledBy(0.7).height) / 2 ], size: bounds.size.scaledBy(0.7))
     }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

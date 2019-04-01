@@ -10,7 +10,7 @@ import UIKit
 
 class StudioVC: UIViewController {
     
-    
+    typealias StateChanges = ModelCollection<State>
     lazy var editorView:StudioEditorView = {
         let editor = StudioEditorView(frame:[0])//CGRect(origin: [0,100], size: Dimensions.editorSize))
         editor.clipsToBounds = true
@@ -18,6 +18,7 @@ class StudioVC: UIViewController {
     }()
     
     @IBOutlet weak var studioHeight: NSLayoutConstraint!
+    var changes:StateChanges = StateChanges()
     @IBOutlet weak var studioPanel: EditorPanel!
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!
@@ -56,7 +57,7 @@ class StudioVC: UIViewController {
         view.addSubview(editorView)
         studioPanel.delegate = self
         baseView.delegate = self
-        //automaticallyAdjustsScrollViewInsets = false
+        subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChanged(_:)))
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         setupViews()
@@ -245,10 +246,10 @@ extension StudioVC:PickerColorDelegate{
     
     //To visit during State Changeable
     func previewingWith(_ model: BlankLayerModel) {
-        guard let current = baseView.currentSubview as? ShapableView else {return}
+        guard var current = baseView.currentSubview as? ShapableView else {return}
         var mod = current.model
         mod.solid = model
-        current.updateModel(mod)
+        current.model = mod
     }
     
 }

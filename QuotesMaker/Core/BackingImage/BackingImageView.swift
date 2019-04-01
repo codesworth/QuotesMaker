@@ -66,19 +66,22 @@ class BackingImageView: UIView{
     }
     
     func updateModel(_ model:ImageLayerModel){
-        
+        let state = State(model: self.model, action: .nothing)
+        Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
+    
         
     }
     
     var uid:UUID = UUID()
     
     func setImage(image:UIImage){
-        previousModels.push(model)
+       
         var new = model
         new.image = image
-        model = new
-        Subscription.main.post(suscription: .canUndo, object: true)
+        updateModel(model)
+        Subscription.main.post(suscription: .stateChange, object: true)
+        //Subscription.main.post(suscription: .canUndo, object: true)
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.Name.canUndo.rawValue), object: nil)
     }
     
@@ -156,10 +159,14 @@ extension BackingImageView{
         guard let image =  image else {return}
         if side == .horizontal{
            let newImage = image.withHorizontallyFlippedOrientation()
-            self.image = newImage
+            var model = self.model
+            model.image = newImage
+            updateModel(model)
         }else{
             guard let newImage = flipImageVertically(image: image)else {return}
-            self.image = newImage
+            var model = self.model
+            model.image = newImage
+            updateModel(model)
         }
         
     }

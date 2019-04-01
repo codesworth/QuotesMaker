@@ -12,7 +12,15 @@ protocol LayerModel {
 
     var layerFrame:LayerFrame? {get set}
     var layerIndex:CGFloat {get set}
+    var type:ModelType {get}
+    var updateTime:TimeInterval {get set}
     
 }
 
+
+enum ModelType {
+    case shape
+    case text
+    case image
+}
 

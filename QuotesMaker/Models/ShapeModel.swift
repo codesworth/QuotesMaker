@@ -15,10 +15,14 @@ struct ShapeModel{
     var solid:BlankLayerModel?{didSet{update()}}
     var style:Style = Style(){didSet{update()}}
     var layerFrame:LayerFrame?{didSet{update()}}
-    var updateTime:TimeInterval = Date().timeIntervalSinceNow
+    var updateTime:TimeInterval = Date().timeIntervalSinceReferenceDate
     var layerIndex: CGFloat = 0
     mutating func update(){
-        updateTime = Date().timeIntervalSinceNow
+        updateTime = Date().timeIntervalSinceReferenceDate
+    }
+    
+    var type: ModelType{
+        return .shape
     }
     
     static func  `default`()->ShapeModel{

@@ -118,6 +118,7 @@
 		38C80FC6223C453D00150FD4 /* TabControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FC5223C453D00150FD4 /* TabControl.swift */; };
 		38D54E1F223930E3009FCF9A /* CustomAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D54E1E223930E3009FCF9A /* CustomAlbum.swift */; };
 		38D97D722251932700B941A0 /* CornersStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D97D712251932700B941A0 /* CornersStack.swift */; };
+		38D97D7822522D3600B941A0 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D97D7722522D3600B941A0 /* State.swift */; };
 		38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDBE9222352D90005EB60 /* AppDelegate.swift */; };
 		38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBED222352D90005EB60 /* Main.storyboard */; };
 		38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBF0222352DB0005EB60 /* Assets.xcassets */; };
@@ -267,6 +268,7 @@
 		38C80FC5223C453D00150FD4 /* TabControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabControl.swift; sourceTree = "<group>"; };
 		38D54E1E223930E3009FCF9A /* CustomAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlbum.swift; sourceTree = "<group>"; };
 		38D97D712251932700B941A0 /* CornersStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornersStack.swift; sourceTree = "<group>"; };
+		38D97D7722522D3600B941A0 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		38FEDBE6222352D90005EB60 /* QuotesMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FEDBE9222352D90005EB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FEDBEE222352D90005EB60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 		389B938B22275CB9009FE9E6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				38D97D7622522CD900B941A0 /* StateChanges */,
 				38D97D6F224FC0C600B941A0 /* Text */,
 				38D97D6E224FC0B200B941A0 /* Subscriptions */,
 				38D97D6D224FC09700B941A0 /* Gestures */,
@@ -591,7 +594,6 @@
 		38C80FBA223A901800150FD4 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				38C80FBC223A904700150FD4 /* StateProtocol.swift */,
 				381865BA223CF457006C0C56 /* Generic+Protocols.swift */,
 				381865BC223CF736006C0C56 /* Aliases.swift */,
 			);
@@ -683,6 +685,15 @@
 				38FEDC0B222356BD0005EB60 /* QMImageEngine.swift */,
 			);
 			path = Misch;
+			sourceTree = "<group>";
+		};
+		38D97D7622522CD900B941A0 /* StateChanges */ = {
+			isa = PBXGroup;
+			children = (
+				38C80FBC223A904700150FD4 /* StateProtocol.swift */,
+				38D97D7722522D3600B941A0 /* State.swift */,
+			);
+			path = StateChanges;
 			sourceTree = "<group>";
 		};
 		38FEDBDD222352D90005EB60 = {
@@ -915,6 +926,7 @@
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
 				3896507B2242C154009434B4 /* Layout.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
+				38D97D7822522D3600B941A0 /* State.swift in Sources */,
 				380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */,
 				389B939422276B55009FE9E6 /* StudioVC.swift in Sources */,
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,

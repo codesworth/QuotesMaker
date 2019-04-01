@@ -12,6 +12,7 @@ import UIKit
 protocol StylingDelegate:class {
     
     func didFinishStyling(_ style:Style)
+    func didFinishPreviewing(_ style:Style)
 }
 
 class StylingPanel:MaterialView{

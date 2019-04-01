@@ -35,6 +35,15 @@ struct TextLayerModel {
         
     }
     
+    var updateTime: TimeInterval = Date().timeIntervalSinceReferenceDate
+    mutating func update(){
+        updateTime = Date().timeIntervalSinceReferenceDate
+    }
+    
+    var type:ModelType{
+        return .text
+    }
+    
     func outPutString()->NSAttributedString{
         
         var attributes:[NSAttributedString.Key:Any?] = [
