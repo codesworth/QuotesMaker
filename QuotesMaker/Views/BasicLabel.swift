@@ -43,7 +43,7 @@ class BasicLabel: UILabel {
     }
     
     class func basicLabel(_ text:String,_ color:UIColor = .charcoal)->BasicLabel{
-        let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 15, weight: .regular))
+        let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .medium))
         label.text = text
         label.textAlignment = .center
         label.textColor = color

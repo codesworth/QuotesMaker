@@ -12,6 +12,7 @@ import UIKit
 protocol StylingDelegate:class {
     
     func didFinishStyling(_ style:Style)
+    func didFinishPreviewing(_ style:Style)
 }
 
 class StylingPanel:MaterialView{
@@ -52,8 +53,8 @@ class StylingPanel:MaterialView{
     lazy var cornerPanel: CornersPanel = {
         
         let panel = CornersPanel(frame: .zero)
-        panel.slider.addTarget(self, action: #selector(cornerRadiusChanged(_:)), for: .valueChanged)
-        
+        panel.slider.addTarget(self, action: #selector(cornerRadiusChanging(_:)), for: .valueChanged)
+        panel.slider.addTarget(self, action: #selector(cornerRadiusChanged(_:)), for: .touchUpInside)
         return panel
     }()
     
@@ -125,7 +126,7 @@ class StylingPanel:MaterialView{
         contentView.addSubview(thirdline)
         contentView.addSubview(cornerPanel)
         contentView.addSubview(borderPanel)
-
+        subscribeTo(subscription: .cornermask, selector: #selector(listenForCornermaskChanges(_:)))
     }
     
     
@@ -178,7 +179,7 @@ class StylingPanel:MaterialView{
             $0.top == firstline.bottomAnchor
             $0.leading == contentView.leadingAnchor
             $0.trailing == contentView.trailingAnchor
-            $0.height |=| 60
+            $0.height |=| 180
         }
         
         secondline.layout{

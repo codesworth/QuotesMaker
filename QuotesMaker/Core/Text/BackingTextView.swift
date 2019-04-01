@@ -65,6 +65,8 @@ class BackingTextView: UIView {
     var model:TextLayerModel = TextLayerModel(){
         
         didSet{
+            let state = State(model: oldValue, action: .nothing)
+            Subscription.main.post(suscription: .stateChange, object: state)
             textView.attributedText = model.outPutString()
             textView.textColor = model.textColor
             textView.font = model.font
@@ -245,6 +247,16 @@ extension BackingTextView:TextModelDelegate{
 
 
 extension BackingTextView:BaseViewSubViewable{
+    var getIndex: CGFloat {
+        return model.layerIndex
+    }
+    
+    
+    func setIndex(_ index: CGFloat) {
+        model.layerIndex = index
+    }
+    
+    
     
     func focused(_ bool: Bool) {
         if bool{
@@ -272,8 +284,10 @@ extension BackingTextView:SPUserResizableViewDelegate{
         //print("The new frame is: \(resizerView.frame)")
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
+        let old = model.layerFrame
+        if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
-        //resizerView.hideEditingHandles()
+        Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
     }
 }
 

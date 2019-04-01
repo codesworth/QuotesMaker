@@ -26,12 +26,22 @@ struct TextLayerModel {
     var shadowAlpha:CGFloat = 0.30
     var shadowColor:UIColor = .clear
     var style:Style = Style()
-    
+    var layerIndex: CGFloat = 0
     init() {
         shadow = NSShadow()
         shadow.shadowColor = UIColor.clear
         shadow.shadowBlurRadius = 0
         shadow.shadowOffset = .zero
+        
+    }
+    
+    var updateTime: TimeInterval = Date().timeIntervalSinceReferenceDate
+    mutating func update(){
+        updateTime = Date().timeIntervalSinceReferenceDate
+    }
+    
+    var type:ModelType{
+        return .text
     }
     
     func outPutString()->NSAttributedString{

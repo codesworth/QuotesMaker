@@ -20,7 +20,11 @@ extension StudioVC:StateControlDelegate{
         }
     }
     
-    
+    @objc func listenForStateChanged(_ notification:Notification){
+        guard let state = notification.userInfo?[.info] as? State else {return}
+        changes.push(state)
+        print(changes)
+    }
     
 }
 
@@ -144,17 +148,22 @@ extension StudioVC:PhotoTweaksViewControllerDelegate{
 extension StudioVC:BaseViewProtocol{
     
     func wakePanelForCurrent() {
-        guard let current = baseView.currentSubview else{return}
-        if let wrapper = current as? WrapperView{
-            if wrapper.isGradient{
-                setupGradientInteractiveView()
-            }else{
-                setupColorPanel()
-            }
-        }else if let _ = current as? BackingImageView{
-            setupImageInteractiveView()
-        }
+        
     }
+    
+    
+//    func wakePanelForCurrent() {
+//        guard let current = baseView.currentSubview else{return}
+//        if let wrapper = current as?RectView{
+//            if wrapper.isGradient{
+//                setupGradientInteractiveView()
+//            }else{
+//                setupColorPanel()
+//            }
+//        }else if let _ = current as? BackingImageView{
+//            setupImageInteractiveView()
+//        }
+//    }
     
 }
 
@@ -188,8 +197,41 @@ extension StudioVC:StudioTabDelegate{
             setupColorPanel()
         case .gradient:
             setupGradientInteractiveView()
+        case .imgPanel:
+            setupImageInteractiveView()
+            break
+        case .undo:
+            undoState()
+            break
+        case .redo:
+            break
         default:
             break
+        }
+    }
+    
+    func undoState(){
+        guard let state = changes.pop() else {return}
+        switch state.model.type {
+        case .shape:
+           shapeUndo(state)
+            break
+        default:
+            break
+        }
+    }
+    
+    func shapeUndo(_ state:State){
+        guard let model = state.model as? ShapeModel else{return}
+        guard let view = (baseView.subviews as? [BaseView.BaseSubView])?.first(where: { (v) -> Bool in
+            return v.getIndex == model.layerIndex
+        }) else {
+            
+            return
+        }
+        if let shapeView = view as? RectView{
+            shapeView.model = model
+            
         }
     }
     
@@ -224,7 +266,7 @@ extension StudioVC:StackTableDelegate{
     func didSelectView(with uid: UUID) {
         let view = (baseView.subviews as? Alias.StackDataSource)?.first{$0.uid == uid}
         print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource.self)`")
-        if let sub = view as? WrapperView{
+        if let sub = view as? RectView {
             baseView.currentSubview = sub
             
         }else if let sub = view as? BackingImageView{

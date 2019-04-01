@@ -55,7 +55,7 @@ class BackingImageView: UIView{
     
     private func updateShape(_ style:Style){
         baseImageView.clipsToBounds = true
-        baseImageView.layer.cornerRadius = style.cornerRadius
+        baseImageView.layer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
         baseImageView.layer.borderWidth = style.borderWidth
         baseImageView.layer.borderColor = style.borderColor.cgColor
         
@@ -66,19 +66,22 @@ class BackingImageView: UIView{
     }
     
     func updateModel(_ model:ImageLayerModel){
-        
+        let state = State(model: self.model, action: .nothing)
+        Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
+    
         
     }
     
     var uid:UUID = UUID()
     
     func setImage(image:UIImage){
-        previousModels.push(model)
+       
         var new = model
         new.image = image
-        model = new
-        Subscription.main.post(suscription: .canUndo, object: true)
+        updateModel(model)
+        Subscription.main.post(suscription: .stateChange, object: true)
+        //Subscription.main.post(suscription: .canUndo, object: true)
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.Name.canUndo.rawValue), object: nil)
     }
     
@@ -131,6 +134,14 @@ class BackingImageView: UIView{
 
 
 extension BackingImageView:BaseViewSubViewable{
+    func setIndex(_ index: CGFloat) {
+        model.layerIndex = index
+    }
+    
+    var getIndex:CGFloat{
+        return model.layerIndex
+    }
+    
     func focused(_ bool:Bool){
         bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
     }
@@ -148,10 +159,14 @@ extension BackingImageView{
         guard let image =  image else {return}
         if side == .horizontal{
            let newImage = image.withHorizontallyFlippedOrientation()
-            self.image = newImage
+            var model = self.model
+            model.image = newImage
+            updateModel(model)
         }else{
             guard let newImage = flipImageVertically(image: image)else {return}
-            self.image = newImage
+            var model = self.model
+            model.image = newImage
+            updateModel(model)
         }
         
     }
@@ -247,7 +262,9 @@ extension BackingImageView:SPUserResizableViewDelegate{
         //print("The new frame is: \(resizerView.frame)")
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
+        let old = model.layerFrame
+        if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
-        //resizerView.hideEditingHandles()
+        Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
     }
 }

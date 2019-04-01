@@ -15,5 +15,7 @@ protocol BaseViewSubViewable{
     var id_tag:Int {get}
     var uid:UUID {get}
     func focused(_ bool:Bool)
+    func setIndex(_ index:CGFloat)
+    var getIndex:CGFloat{get}
     
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class StudioVC: UIViewController {
     
-    
+    typealias StateChanges = ModelCollection<State>
     lazy var editorView:StudioEditorView = {
         let editor = StudioEditorView(frame:[0])//CGRect(origin: [0,100], size: Dimensions.editorSize))
         editor.clipsToBounds = true
@@ -18,6 +18,7 @@ class StudioVC: UIViewController {
     }()
     
     @IBOutlet weak var studioHeight: NSLayoutConstraint!
+    var changes:StateChanges = StateChanges()
     @IBOutlet weak var studioPanel: EditorPanel!
     private var colorPanel:ColorSliderPanel!
     private var gradientPanel:GradientPanel!
@@ -56,7 +57,7 @@ class StudioVC: UIViewController {
         view.addSubview(editorView)
         studioPanel.delegate = self
         baseView.delegate = self
-        //automaticallyAdjustsScrollViewInsets = false
+        subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChanged(_:)))
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         setupViews()
@@ -148,6 +149,7 @@ class StudioVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{return}
+        if baseView.currentSubview == nil {return}
         imagePanel.delegate = self
         view.addSubview(imagePanel)
         Utils.animatePanelsIn(imagePanel)
@@ -175,6 +177,7 @@ class StudioVC: UIViewController {
 
         let imageView = BackingImageView(frame: baseView.subBounds)
         baseView.addSubviewable(imageView)
+        imageView.model.layerFrame = imageView.makeLayerFrame()
         setupImageInteractiveView()
     }
     
@@ -187,22 +190,24 @@ class StudioVC: UIViewController {
     func shapeSelected(){
         let shape = RectView(frame: baseView.subBounds)
         baseView.addSubviewable(shape)
+        shape.model.layerFrame = shape.makeLayerFrame()
         setupColorPanel()
 
     }
     
     func blankGradientSelected(){
 
-        let grad = WrapperView(frame: baseView.subBounds, layer: BackingGradientlayer())
-        grad.isGradient = true
-        baseView.addSubviewable(grad)
-        setupGradientInteractiveView()
+//        let grad = RectView(frame: baseView.subBounds, layer: BackingGradientlayer())
+//        grad.isGradient = true
+//        baseView.addSubviewable(grad)
+//        setupGradientInteractiveView()
     }
     
     func addText(){
         let textField = BackingTextView(frame: baseView.subBounds)
         
         baseView.addSubviewable(textField)
+        textField.model.layerFrame = textField.makeLayerFrame()
         textField.addDoneButtonOnKeyboard()
     }
     
@@ -244,10 +249,10 @@ extension StudioVC:PickerColorDelegate{
     
     //To visit during State Changeable
     func previewingWith(_ model: BlankLayerModel) {
-        guard let current = baseView.currentSubview as? ShapableView else {return}
+        guard var current = baseView.currentSubview as? ShapableView else {return}
         var mod = current.model
         mod.solid = model
-        current.updateModel(mod)
+        current.model = mod
     }
     
 }
@@ -310,6 +315,17 @@ extension StudioVC:StylingDelegate{
         }
     }
     
+    func didFinishPreviewing(_ style: Style) {
+        if let current = baseView.currentSubview as? RectView{
+            var model = current.model
+            model.style = style
+            current.model = model
+        }else if let current = baseView.currentSubview as? BackingImageView{
+            var model = current.model
+            model.style = style
+            current.model = model
+        }
+    }
     
 }
 

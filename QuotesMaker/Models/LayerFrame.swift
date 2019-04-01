@@ -11,25 +11,33 @@ import UIKit
 
 struct LayerFrame {
     
-//    enum LayerPriority:Int{
-//        case image = 0
-//        case plainColor = 1
-//        case gradient = 2
-//        case text = 3
-//    }
-//
     let xCoordinate:CGFloat
-    let yCoordinte:CGFloat
+    let yCoordinate:CGFloat
     let width:CGFloat
     let height:CGFloat
     
-    //let containingBounds:CGRect
     
     init(_ axis:CGPoint, sized:CGSize) {
         xCoordinate = axis.x
-        yCoordinte = axis.y
+        yCoordinate = axis.y
         width = sized.width
         height = sized.height
     }
     
+    func awakeFrom(bounds:CGRect)->CGRect{
+        //let origin:CGPoint = [initialOrigin.x / `super`.bounds.maxX,initialOrigin.y / `super`.bounds.maxY]
+       // let sizedRatio = Dimensions.sizedRatio(of: frame.size, in: `super`.frame.size)
+        let origin:CGPoint = [xCoordinate * bounds.maxX, yCoordinate * bounds.maxY]
+        let size:CGSize = [width * bounds.width, height * bounds.height]
+        return CGRect(origin: origin, size: size)
+    }
+    
+    
+}
+
+
+extension LayerFrame:Equatable{
+    public static func == (lhs: LayerFrame, rhs: LayerFrame) -> Bool{
+        return lhs.xCoordinate == rhs.xCoordinate && lhs.yCoordinate == rhs.yCoordinate && lhs.width == rhs.width && lhs.height == rhs.height
+    }
 }

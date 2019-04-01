@@ -10,6 +10,8 @@ import UIKit
 
 
 struct ImageLayerModel:LayerModel {
+
+    
     
     var layerFrame:LayerFrame?
     
@@ -24,6 +26,17 @@ struct ImageLayerModel:LayerModel {
     init(image:UIImage? = nil) {
         self.image = image
     }
+    
+    var type: ModelType{
+        return .image
+    }
+    
+    var updateTime: TimeInterval = Date().timeIntervalSinceReferenceDate
+    mutating func update(){
+        updateTime = Date().timeIntervalSinceReferenceDate
+    }
+    
+    var layerIndex: CGFloat = 0
     
 }
 

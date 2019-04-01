@@ -37,9 +37,21 @@ extension BaseView{
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         subviews.forEach{
             if let resizer = $0 as? BaseSubView{resizer.focused(false)}}
-
+        
     }
     
     
+    func constructFrom(model:LayerModel){
+        switch model.type {
+        case .shape:
+            let frame = (model.layerFrame != nil) ? model.layerFrame!.awakeFrom(bounds: bounds) : subBounds
+            let shape = RectView(frame: frame)
+            addSubviewable(shape)
+            shape.model = model as! ShapeModel
+            break
+        default:
+            break
+        }
+    }
     
 }

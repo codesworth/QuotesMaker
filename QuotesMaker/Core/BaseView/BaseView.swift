@@ -13,15 +13,16 @@ class BaseView:UIView{
     
     typealias BaseSubView = UIView & BaseViewSubViewable
     
+    
     typealias ViewTags = (imgs:Int,txt:Int,blk:Int,grd:Int)
     var viewTags:ViewTags = (0,0,0,0)
        
+    var subIndex:CGFloat = 0
     
-    
-   
     var subBounds:CGRect{
         return CGRect(origin: [(bounds.size.width - bounds.size.scaledBy(0.7).width) / 2,(bounds.size.height - bounds.size.scaledBy(0.7).height) / 2 ], size: bounds.size.scaledBy(0.7))
     }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,8 +40,9 @@ class BaseView:UIView{
             if oldValue != selectedView {
                 if let old = oldValue as? BaseSubView{
                     old.focused(false)
-                    currentSubview = selectedView as? BaseView.BaseSubView
                     
+                    currentSubview = selectedView as? BaseView.BaseSubView
+                    //Subscription.main.post(suscription: .activatedLayer, object: currentSubview)
                 }
             }
         }
@@ -49,7 +51,11 @@ class BaseView:UIView{
     
     weak var delegate:BaseViewProtocol?
     
-    var currentSubview:BaseSubView?
+    var currentSubview:BaseSubView?{
+        didSet{
+            Subscription.main.post(suscription: .activatedLayer, object: currentSubview)
+        }
+    }
     
     
     
@@ -99,6 +105,8 @@ class BaseView:UIView{
     
     func addSubviewable(_ view:BaseSubView){
         view.center = [bounds.midX,bounds.midY]
+        subIndex += 1
+        view.setIndex(subIndex)
         addSubview(view)
         currentSubview = view
     }
@@ -130,6 +138,7 @@ class BaseView:UIView{
         
     }
     
+    
     func makeImageFromView()->UIImage?{
         layer.borderColor = UIColor.clear.cgColor
         UIGraphicsBeginImageContextWithOptions(bounds.size,isOpaque, UIScreen.main.scale)
@@ -158,6 +167,15 @@ class BaseView:UIView{
     }
     
     
+    override func exchangeSubview(at index1: Int, withSubviewAt index2: Int) {
+        if let subOne = subviews[index1] as? BaseSubView, let subTwo = subviews[index2] as? BaseSubView{
+            let i1 = subOne.getIndex; let i2 = subTwo.getIndex
+            subOne.setIndex(i2)
+            subTwo.setIndex(i1)
+        }
+        super.exchangeSubview(at: index1, withSubviewAt: index2)
+    }
+    
     override func didAddSubview(_ subview: UIView) {
         super.didAddSubview(subview)
         if let view = subview as?  BackingImageView{
@@ -166,7 +184,7 @@ class BaseView:UIView{
         }else if let view = subview as? BackingTextView{
             viewTags.txt += 1
             view.id_tag = viewTags.txt
-        }else if let view = subview as? WrapperView{
+        }else if let view = subview as? RectView{
             if let _ = view.superlayer as? BackingGradientlayer{
                 viewTags.grd += 1
                 view.grd_tag = viewTags.grd

@@ -46,6 +46,7 @@ class RectView:SuperRectView{
     var model:ShapeModel = ShapeModel.default(){
         didSet{
             updateShape(model.style)
+            updateLayerFrame(model: model)
             if model.isGradient {
                 guard let grad = model.gradient else {return}
                 if let layer = superlayer as? BackingGradientlayer{
@@ -67,9 +68,15 @@ class RectView:SuperRectView{
         }
     }
     
+    private func updateLayerFrame(model:ShapeModel){
+        guard let lframe = model.layerFrame, let sup = superview else {return}
+        let frame = lframe.awakeFrom(bounds: sup.bounds)
+        self.frame = frame
+    }
+    
     private func updateShape(_ style:Style){
         superlayer.masksToBounds = true
-        superlayer.cornerRadius = style.cornerRadius
+        superlayer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
         superlayer.borderWidth = style.borderWidth
         superlayer.borderColor = style.borderColor.cgColor
         
@@ -77,10 +84,12 @@ class RectView:SuperRectView{
         /*contentView.*/layer.shadowRadius = style.shadowRadius
         /*contentView.*/layer.shadowOpacity = style.shadowOpacity
         /*contentView.*/layer.shadowOffset = style.shadowOffset
+        
     }
     
     func updateModel(_ model:ShapeModel){
-
+        let state = State(model: self.model, action: .nothing)
+        Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
 
     }
@@ -175,6 +184,14 @@ class RectView:SuperRectView{
 
 extension RectView:BaseViewSubViewable{
     
+    func setIndex(_ index: CGFloat) {
+        model.layerIndex = index
+    }
+    
+    var getIndex:CGFloat{
+        return model.layerIndex
+    }
+    
     func focused(_ bool:Bool){
         bool ? resizerView.showEditingHandles() : resizerView.hideEditingHandles()
     }
@@ -195,7 +212,14 @@ extension RectView:SPUserResizableViewDelegate{
         //print("The new frame is: \(resizerView.frame)")
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
+        let old = model.layerFrame
+        if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
+        Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
+        
+    }
+    
+    func postFrameChange(old:LayerModel,new:LayerModel){
         
     }
 }

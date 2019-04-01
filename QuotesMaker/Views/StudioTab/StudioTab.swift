@@ -19,12 +19,17 @@ class StudioTab: UIView {
         case stylePanel
         case fill
         case gradient
+        case imgPanel
         case moveUp
         case moveDown
         case layers
+        case undo
+        case redo
         case delete
     }
 
+    var tabActions:[TabActions] = TabActions.allCases
+    private var canSelect = false
     
     private lazy var collectionview:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -54,7 +59,25 @@ class StudioTab: UIView {
         collectionview.register(UINib(nibName: "\(StudioTabCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(StudioTabCells.self)")
         collectionview.delegate = self
         collectionview.dataSource = self
+        subscribeTo(subscription: .activatedLayer, selector: #selector(layerActive(_:)))
 
+    }
+    
+    @objc func layerActive(_ notification:Notification){
+        defer {collectionview.reloadData()}
+        if let data = notification.userInfo?[.info] as? BaseView.BaseSubView{
+           canSelect = true
+            if let _ = data as? BackingImageView{
+                tabActions = TabActions.allCases.filter{$0 != .gradient && $0 != .fill}
+            }else if let _ = data as? RectView{
+                tabActions = TabActions.allCases.filter{$0 != .imgPanel}
+            }else{
+               tabActions = TabActions.allCases.filter{$0 != .gradient && $0 != .fill && $0 != .imgPanel}
+            }
+        }else{
+           canSelect = false
+        }
+        
     }
     
     override func awakeFromNib() {
@@ -72,6 +95,10 @@ class StudioTab: UIView {
         NSLayoutConstraint.activate(collectionview.pinAllSides())
 
     }
+    
+    deinit {
+        unsubscribe()
+    }
 }
 
 
@@ -83,12 +110,12 @@ extension StudioTab:UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return TabActions.allCases.count
+        return tabActions.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "\(StudioTabCells.self)", for: indexPath) as? StudioTabCells else {return StudioTabCells()}
-        let tab = TabActions.allCases[indexPath.row]
+        let tab = tabActions[indexPath.row]
         cell.configureCell(.image(for: tab))
         return cell
     }
@@ -99,7 +126,8 @@ extension StudioTab:UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let tab = TabActions.allCases[indexPath.row]
+        if !canSelect{return}
+        let tab = tabActions[indexPath.row]
         delegate?.actiondone(tab)
     }
     
