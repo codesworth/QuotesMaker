@@ -520,7 +520,6 @@
 				389B939722277A77009FE9E6 /* CreateButton.swift */,
 				388BE31E222AC007005BF44B /* OptionsStack.swift */,
 				388BE320222AC23C005BF44B /* OptionsButtonView.swift */,
-				388BE327222ADC6F005BF44B /* AlphaSliderView.swift */,
 				388BE33B222BB5AD005BF44B /* MaterialView.swift */,
 				388BE345222C4FB6005BF44B /* DoneButton.swift */,
 				38732E9622300DE700CDB703 /* FontCells.swift */,
@@ -583,13 +582,11 @@
 		38C80FB7223A7ACB00150FD4 /* Panels */ = {
 			isa = PBXGroup;
 			children = (
+				38D97D7422520D8300B941A0 /* Solid Fill */,
+				38D97D7322520D6800B941A0 /* GradientFill */,
 				38661AFD224B961600440AC7 /* StylingPanel */,
 				38661AF6224907EB00440AC7 /* EditorPanel */,
 				389650792242C135009434B4 /* ImagePanel */,
-				388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */,
-				388BE337222B369E005BF44B /* GradientPanel.swift */,
-				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
-				388BE385222E93D0005BF44B /* PointControlview.swift */,
 			);
 			path = Panels;
 			sourceTree = "<group>";
@@ -658,6 +655,25 @@
 				38D97D712251932700B941A0 /* CornersStack.swift */,
 			);
 			path = Corners;
+			sourceTree = "<group>";
+		};
+		38D97D7322520D6800B941A0 /* GradientFill */ = {
+			isa = PBXGroup;
+			children = (
+				388BE337222B369E005BF44B /* GradientPanel.swift */,
+				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
+				388BE385222E93D0005BF44B /* PointControlview.swift */,
+			);
+			path = GradientFill;
+			sourceTree = "<group>";
+		};
+		38D97D7422520D8300B941A0 /* Solid Fill */ = {
+			isa = PBXGroup;
+			children = (
+				388BE327222ADC6F005BF44B /* AlphaSliderView.swift */,
+				388BE31C222ABC94005BF44B /* ColorSliderPanel.swift */,
+			);
+			path = "Solid Fill";
 			sourceTree = "<group>";
 		};
 		38FEDBDD222352D90005EB60 = {

@@ -69,7 +69,7 @@ final class CornersPanel:UIView{
             $0.top == slider.bottomAnchor + 8
             $0.leading == leadingAnchor
             $0.trailing == trailingAnchor
-            $0.height |=| 120
+            $0.height |=| 100
         }
     }
     

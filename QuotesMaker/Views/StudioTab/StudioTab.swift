@@ -27,6 +27,7 @@ class StudioTab: UIView {
     }
 
     var tabActions:[TabActions] = TabActions.allCases
+    private var canSelect = false
     
     private lazy var collectionview:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -63,11 +64,14 @@ class StudioTab: UIView {
     @objc func layerActive(_ notification:Notification){
         defer {collectionview.reloadData()}
         if let data = notification.userInfo?[.info] as? BaseView.BaseSubView{
+           canSelect = true
             if let _ = data as? BackingImageView{
                 tabActions = TabActions.allCases.filter{$0 != .gradient && $0 != .fill}
             }else{
                 tabActions = TabActions.allCases.filter{$0 != .imgPanel}
             }
+        }else{
+           canSelect = false
         }
         
     }
@@ -86,6 +90,10 @@ class StudioTab: UIView {
         collectionview.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(collectionview.pinAllSides())
 
+    }
+    
+    deinit {
+        unsubscribe()
     }
 }
 
@@ -114,6 +122,7 @@ extension StudioTab:UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if !canSelect{return}
         let tab = tabActions[indexPath.row]
         delegate?.actiondone(tab)
     }

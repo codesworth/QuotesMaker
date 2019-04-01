@@ -159,14 +159,14 @@ class CornerStack:UIView{
         super.layoutSubviews()
         cornerlable.layout{
             $0.leading == leadingAnchor + 8
-            $0.top == topAnchor + 12
+            $0.top == topAnchor + 40
             
         }
         clippingView.layout{
             $0.top == topAnchor + 8
             $0.trailing == trailingAnchor - 16
-            $0.width |=| 200
-            $0.height |=| 100
+            $0.width |=| 180
+            $0.height |=| 80
         }
         
         containerStack.layout{

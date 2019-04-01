@@ -41,7 +41,7 @@ class BaseView:UIView{
                     old.focused(false)
                     
                     currentSubview = selectedView as? BaseView.BaseSubView
-                    Subscription.main.post(suscription: .activatedLayer, object: currentSubview)
+                    //Subscription.main.post(suscription: .activatedLayer, object: currentSubview)
                 }
             }
         }
@@ -50,7 +50,11 @@ class BaseView:UIView{
     
     weak var delegate:BaseViewProtocol?
     
-    var currentSubview:BaseSubView?
+    var currentSubview:BaseSubView?{
+        didSet{
+            Subscription.main.post(suscription: .activatedLayer, object: currentSubview)
+        }
+    }
     
     
     
