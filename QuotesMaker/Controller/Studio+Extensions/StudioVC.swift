@@ -177,6 +177,7 @@ class StudioVC: UIViewController {
 
         let imageView = BackingImageView(frame: baseView.subBounds)
         baseView.addSubviewable(imageView)
+        imageView.model.layerFrame = imageView.makeLayerFrame()
         setupImageInteractiveView()
     }
     
@@ -189,6 +190,7 @@ class StudioVC: UIViewController {
     func shapeSelected(){
         let shape = RectView(frame: baseView.subBounds)
         baseView.addSubviewable(shape)
+        shape.model.layerFrame = shape.makeLayerFrame()
         setupColorPanel()
 
     }
@@ -205,6 +207,7 @@ class StudioVC: UIViewController {
         let textField = BackingTextView(frame: baseView.subBounds)
         
         baseView.addSubviewable(textField)
+        textField.model.layerFrame = textField.makeLayerFrame()
         textField.addDoneButtonOnKeyboard()
     }
     

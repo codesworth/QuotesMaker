@@ -46,6 +46,7 @@ class RectView:SuperRectView{
     var model:ShapeModel = ShapeModel.default(){
         didSet{
             updateShape(model.style)
+            updateLayerFrame(model: model)
             if model.isGradient {
                 guard let grad = model.gradient else {return}
                 if let layer = superlayer as? BackingGradientlayer{
@@ -65,6 +66,12 @@ class RectView:SuperRectView{
                 }
             }
         }
+    }
+    
+    private func updateLayerFrame(model:ShapeModel){
+        guard let lframe = model.layerFrame, let sup = superview else {return}
+        let frame = lframe.awakeFrom(bounds: sup.bounds)
+        self.frame = frame
     }
     
     private func updateShape(_ style:Style){
@@ -205,7 +212,14 @@ extension RectView:SPUserResizableViewDelegate{
         //print("The new frame is: \(resizerView.frame)")
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
+        let old = model.layerFrame
+        if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
+        Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
+        
+    }
+    
+    func postFrameChange(old:LayerModel,new:LayerModel){
         
     }
 }

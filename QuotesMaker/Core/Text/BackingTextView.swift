@@ -284,8 +284,10 @@ extension BackingTextView:SPUserResizableViewDelegate{
         //print("The new frame is: \(resizerView.frame)")
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
+        let old = model.layerFrame
+        if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
-        //resizerView.hideEditingHandles()
+        Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
     }
 }
 

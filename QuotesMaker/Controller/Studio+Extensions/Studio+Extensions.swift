@@ -225,9 +225,13 @@ extension StudioVC:StudioTabDelegate{
         guard let model = state.model as? ShapeModel else{return}
         guard let view = (baseView.subviews as? [BaseView.BaseSubView])?.first(where: { (v) -> Bool in
             return v.getIndex == model.layerIndex
-        }) else {return}
+        }) else {
+            
+            return
+        }
         if let shapeView = view as? RectView{
             shapeView.model = model
+            
         }
     }
     

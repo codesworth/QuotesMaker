@@ -41,5 +41,17 @@ extension BaseView{
     }
     
     
+    func constructFrom(model:LayerModel){
+        switch model.type {
+        case .shape:
+            let frame = (model.layerFrame != nil) ? model.layerFrame!.awakeFrom(bounds: bounds) : subBounds
+            let shape = RectView(frame: frame)
+            addSubviewable(shape)
+            shape.model = model as! ShapeModel
+            break
+        default:
+            break
+        }
+    }
     
 }
