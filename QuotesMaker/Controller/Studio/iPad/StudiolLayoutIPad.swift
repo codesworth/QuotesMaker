@@ -12,6 +12,11 @@ import Foundation
 extension StudioVC{
     
     func iPadLayout(){
-        
+        studioTab.layout{
+            $0.top == view.topAnchor
+            $0.leading == view.leadingAnchor
+            $0.trailing == view.trailingAnchor
+            $0.height |=| 40
+        }
     }
 }

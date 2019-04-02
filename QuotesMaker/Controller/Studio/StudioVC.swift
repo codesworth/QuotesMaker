@@ -106,7 +106,7 @@ class StudioVC: UIViewController {
         if idiom == .phone{
             self.layout()
         }else {
-            
+           self.iPadLayout()
         }
         setupCanvas()
         
