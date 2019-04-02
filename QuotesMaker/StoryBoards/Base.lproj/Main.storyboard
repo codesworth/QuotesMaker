@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Lq-7j-mSx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +15,7 @@
             <objects>
                 <viewController storyboardIdentifier="StudioVC" id="0Lq-7j-mSx" customClass="StudioVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pde-jf-DuH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TSF-MB-lNu" customClass="BaseView" customModule="QuotesMaker" customModuleProvider="target">
@@ -19,28 +23,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdF-Ie-zji" customClass="EditorPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
-                                <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="GVa-L1-YTN"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fdF-Ie-zji" secondAttribute="trailing" id="GJw-dd-6OK"/>
-                            <constraint firstAttribute="bottom" secondItem="fdF-Ie-zji" secondAttribute="bottom" id="d7c-gb-cCW"/>
-                            <constraint firstItem="fdF-Ie-zji" firstAttribute="leading" secondItem="pde-jf-DuH" secondAttribute="leading" id="osO-l3-sBh"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cQk-fv-KES"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Studio" id="grz-tt-gaQ"/>
                     <navigationItem key="navigationItem" title="Quote Maker" id="mK7-NY-It0"/>
-                    <connections>
-                        <outlet property="studioHeight" destination="GVa-L1-YTN" id="BzL-vW-R0n"/>
-                        <outlet property="studioPanel" destination="fdF-Ie-zji" id="hx9-gq-ihR"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBo-Mu-kt0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,11 +38,11 @@
             <objects>
                 <viewController id="SkS-Wl-SEb" customClass="ImagesVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ecE-Bv-QgP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHC-e8-6gH">
-                                <rect key="frame" x="225" y="392" width="150" height="40"/>
+                                <rect key="frame" x="112.5" y="392" width="150" height="40"/>
                                 <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="m6x-Tv-6qZ"/>
@@ -75,13 +62,13 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xva-Kd-AXh">
-                                <rect key="frame" x="20" y="240" width="560" height="300"/>
+                                <rect key="frame" x="20" y="307" width="335" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="KZn-OS-lgm"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-f8-IPr">
-                                <rect key="frame" x="10" y="80" width="580" height="300"/>
+                                <rect key="frame" x="10" y="80" width="355" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="NaK-cg-ifq"/>
                                 </constraints>
@@ -114,7 +101,7 @@
             <objects>
                 <viewController id="3ft-VR-sOs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="34s-6j-AyN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kvH-PF-KAI">
@@ -160,7 +147,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="n8B-EA-K5F" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="TJW-Ss-1DZ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.93333333333333335" green="0.0078431372549019607" blue="0.56470588235294117" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">

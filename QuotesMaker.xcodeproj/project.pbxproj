@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
+		38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCD2253B90900D9E763 /* StudioLayout.swift */; };
+		38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */; };
 		380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380BC9952231C3B5007F87FE /* LayerModel.swift */; };
 		380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380BC9972231C40D007F87FE /* LayerFrame.swift */; };
 		380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78F72232C1BE006B8F8D /* BlankLayerModel.swift */; };
@@ -154,6 +156,8 @@
 
 /* Begin PBXFileReference section */
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
+		38051CCD2253B90900D9E763 /* StudioLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLayout.swift; sourceTree = "<group>"; };
+		38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiolLayoutIPad.swift; sourceTree = "<group>"; };
 		380BC9952231C3B5007F87FE /* LayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerModel.swift; sourceTree = "<group>"; };
 		380BC9972231C40D007F87FE /* LayerFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerFrame.swift; sourceTree = "<group>"; };
 		380C78F72232C1BE006B8F8D /* BlankLayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankLayerModel.swift; sourceTree = "<group>"; };
@@ -713,6 +717,7 @@
 		38D97D7922531E0200B941A0 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */,
 			);
 			path = iPad;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 		38D97D7A22531E1300B941A0 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				38051CCD2253B90900D9E763 /* StudioLayout.swift */,
 			);
 			path = iPhone;
 			sourceTree = "<group>";
@@ -923,6 +929,7 @@
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
 				38A6687E223EED7C00F29F52 /* Colors.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
+				38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
 				3896507F2242DD7F009434B4 /* ModelCollection.swift in Sources */,
 				38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */,
@@ -968,6 +975,7 @@
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38236561223FEB640078A723 /* +StateChangeable.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
+				38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,

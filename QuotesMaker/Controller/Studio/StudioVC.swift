@@ -17,14 +17,14 @@ class StudioVC: UIViewController {
         return editor
     }()
     
-    @IBOutlet weak var studioHeight: NSLayoutConstraint!
+    var studioHeight: CGFloat!
     var changes:StateChanges = StateChanges()
-    @IBOutlet weak var studioPanel: EditorPanel!
-    private var colorPanel:ColorSliderPanel!
-    private var gradientPanel:GradientPanel!
-    private var studioTab:StudioTab!
-    private var imagePanel:ImagePanel!
-    private var stylingPanel:StylingPanel!
+    var studioPanel: EditorPanel!
+    var colorPanel:ColorSliderPanel!
+    var gradientPanel:GradientPanel!
+    var studioTab:StudioTab!
+    var imagePanel:ImagePanel!
+    var stylingPanel:StylingPanel!
     
     var baseView:BaseView!
     var stack:LayerStack?
@@ -52,6 +52,9 @@ class StudioVC: UIViewController {
         super.viewDidLoad()
         baseView = BaseView(frame: .zero)
         studioTab = StudioTab(frame: .zero)
+        studioPanel = EditorPanel(frame: .zero)
+        studioPanel.backgroundColor = .seafoamBlue
+        view.addSubview(studioPanel)
         studioTab.delegate = self
         view.addSubview(studioTab)
         view.addSubview(editorView)
@@ -79,54 +82,34 @@ class StudioVC: UIViewController {
         
     }
     
-    func setupViews(){
-        
-        view.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        let points = Dimensions.originalPanelPoints
-        colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
-        colorPanel.stateDelegate = self
-        gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])
-        gradientPanel.stateDelegate = self
-        imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
-        stylingPanel = StylingPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
-        
-        imagePanel.stateDelegate = self
-        let size = Dimensions.editorSize
-        
-        NSLayoutConstraint.activate([
-            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 40),
-            studioTab.heightAnchor.constraint(equalToConstant: 40),
-            studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -0),
-            studioTab.heightAnchor.constraint(equalToConstant: 40),
-            editorView.topAnchor.constraint(equalTo: studioTab.bottomAnchor, constant: 20),
-            editorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            editorView.widthAnchor.constraint(equalToConstant: size.width),
-            editorView.heightAnchor.constraint(equalToConstant: size.height),
-            
-        ])
-        
-        setupCanvas()
-            // Fallback on earlier versions
-        
-        
-        
+    func setHeight(){
         let handle = UIScreen.main.screenType()
         switch handle {
         case .xmax_xr:
-            studioHeight.constant = 130
+            studioHeight = 130
             return
         case .xs_x:
-            studioHeight.constant = 130
+            studioHeight = 130
             return
         case .pluses:
-            studioHeight.constant = 120
-            return    
+            studioHeight = 120
+            return
         default:
-            studioHeight.constant = 100
+            studioHeight = 100
             return
         }
-
+    }
+    
+    func setupViews(){
+        setHeight()
+        let idiom = UIDevice.current.userInterfaceIdiom
+        if idiom == .phone{
+            self.layout()
+        }else {
+            
+        }
+        setupCanvas()
+        
         
     }
     
