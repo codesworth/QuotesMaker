@@ -72,7 +72,14 @@ extension UIView{
 
 extension UIScreen{
     
+    //ipad Pro 10.5 = 834
+    //ipad Pro 9.7 = 1024.0 scale 2.0
     enum Handle{
+        case pad_mini
+        case pad_norm
+        case pad_pro_min
+        case pad_pro_11
+        case pad_pro_maxx
         case xmax_xr
         case xs_x
         case pluses
@@ -83,7 +90,19 @@ extension UIScreen{
     
     func screenType()->Handle{
         let height = UIScreen.main.bounds.height
+        let interface = UIDevice.current.userInterfaceIdiom
         
+        switch interface {
+        case .phone:
+            return handleFor(height: height)
+        default:
+            return handleFor(height: height)
+        }
+        
+        
+    }
+    
+    func handleFor(height:CGFloat)->Handle{
         if height > 890{
             return .xmax_xr
         }

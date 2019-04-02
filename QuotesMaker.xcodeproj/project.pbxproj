@@ -537,7 +537,7 @@
 		389B938A22275CAB009FE9E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38C80FC0223B070E00150FD4 /* Studio+Extensions */,
+				38C80FC0223B070E00150FD4 /* Studio */,
 				38FEDC09222354970005EB60 /* HomeVC.swift */,
 			);
 			path = Controller;
@@ -600,13 +600,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		38C80FC0223B070E00150FD4 /* Studio+Extensions */ = {
+		38C80FC0223B070E00150FD4 /* Studio */ = {
 			isa = PBXGroup;
 			children = (
+				38D97D7A22531E1300B941A0 /* iPhone */,
+				38D97D7922531E0200B941A0 /* iPad */,
 				389B939322276B55009FE9E6 /* StudioVC.swift */,
 				38C80FC1223B073700150FD4 /* Studio+Extensions.swift */,
 			);
-			path = "Studio+Extensions";
+			path = Studio;
 			sourceTree = "<group>";
 		};
 		38D97D6C224FC06400B941A0 /* Layers */ = {
@@ -694,6 +696,20 @@
 				38D97D7722522D3600B941A0 /* State.swift */,
 			);
 			path = StateChanges;
+			sourceTree = "<group>";
+		};
+		38D97D7922531E0200B941A0 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		38D97D7A22531E1300B941A0 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPhone;
 			sourceTree = "<group>";
 		};
 		38FEDBDD222352D90005EB60 = {
