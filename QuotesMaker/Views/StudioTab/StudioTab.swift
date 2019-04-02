@@ -91,8 +91,15 @@ class StudioTab: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        let width = 60 * tabActions.count
         collectionview.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(collectionview.pinAllSides())
+//        collectionview.layout{
+//            $0.centerX == centerXAnchor
+//            $0.top == topAnchor
+//            $0.bottom == bottomAnchor
+//            $0.width |=| CGFloat(width)
+//        }
 
     }
     

@@ -50,6 +50,9 @@ class StudioVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
+        //setupDevice()
         baseView = BaseView(frame: .zero)
         studioTab = StudioTab(frame: .zero)
         studioPanel = EditorPanel(frame: .zero)
@@ -71,6 +74,19 @@ class StudioVC: UIViewController {
     }
     
     
+    func setupDevice(){
+        let idiom = UIDevice.current.userInterfaceIdiom
+        switch idiom {
+        case .phone:
+            break
+        case .pad:
+            forceInterfaceForlandscape()
+            break
+        default:
+            break
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -85,6 +101,9 @@ class StudioVC: UIViewController {
     func setHeight(){
         let handle = UIScreen.main.screenType()
         switch handle {
+        case .ipad:
+            studioHeight = 130
+            return
         case .xmax_xr:
             studioHeight = 130
             return
