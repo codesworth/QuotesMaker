@@ -50,13 +50,20 @@ class EditorPanel: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        let width:CGFloat = CGFloat(processes.count  * 100) + 100
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 80)
-        ])
+//        NSLayoutConstraint.activate([
+//            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+//            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            collectionView.heightAnchor.constraint(equalToConstant: 80)
+//        ])
+        collectionView.layout{
+            $0.bottom == bottomAnchor - 10
+            $0.centerX == centerXAnchor
+            $0.height |=| 80
+            $0.width |=| width
+        }
     }
 }
 

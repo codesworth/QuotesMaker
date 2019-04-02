@@ -14,7 +14,7 @@ struct ModelCollection<Element:Equatable>{
     private var container:Array<Element> = []
     
     mutating func push(_ element:Element){
-        print(container.contains(element))
+        //print(container.contains(element))
         if !container.contains(element){
             container.append(element)
         }
