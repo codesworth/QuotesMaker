@@ -61,7 +61,9 @@ class StudioVC: UIViewController {
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         setupViews()
+        //print("Orientations: \(UIDevice.current.orientation.rawValue)")
         print("This is Height::: \(UIScreen.main.bounds) and scale:: \(UIScreen.main.scale)")
+        print("This is native bound::: \(UIScreen.main.nativeBounds) and scale:: \(UIScreen.main.nativeScale)")
 
     }
     

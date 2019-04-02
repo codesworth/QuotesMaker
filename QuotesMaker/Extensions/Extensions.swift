@@ -72,12 +72,32 @@ extension UIView{
 
 extension UIScreen{
     
-    //ipad Pro 10.5 = 834
-    //ipad Pro 9.7 = 1024.0 scale 2.0
+    
+    //ipad mini native w1536 x h2048 scale 2
+    //ipad 5 native w1536.0, 2048.0
+    //ipad Pro 10.5 native = w1668.0, h2224.0 scale 2.0 
+    //ipad Pro 9.7 native  = w1536.0, h2048.0 scale 2.0
+    //ipad Pro 11 native = w11668.0, h2388.0 scale 2.0
+    //ipad Pro 12.9 native = w2048.0, h2732.0 scale 2.0
+    //iphone xsmaxx native w1242.0, h2688.0 scale 3.0
+    //iphone xs native w1125.0, h2436.0 scale 3.0
+    //iphone xr native w828.0, h1792.0 scale 2
+    //iphone x native w1125.0, h2436.0 scale 3
+    //iphorn 8plus w1242.0, h2208.0 and scale:: 3.0
+    //iphone 8 native w750.0, h1334.0) and scale:: 2.0
+    // iphone 7plus native 1242.0, 2208.0) and scale:: 3.0
+    // iphone 6plyusn native 1242.0, 2208.0) and scale:: 3.0
+    //iphone 7 750.0, 1334.0) and scale:: 2.0
+    //iphone 6s 750.0, 1334.0) and scale:: 2.0
+    //iphone 6 750.0, 1334.0) and scale:: 2.0
+    //iphone SE 640.0, 1136.0) and scale:: 2.0
+    //iphone 5s 640.0, 1136.0) and scale:: 2.0 =
+    
     enum Handle{
-        case pad_mini
+        
         case pad_norm
-        case pad_pro_min
+        case pad_pro_9_7
+        case pad_pro_10_5
         case pad_pro_11
         case pad_pro_maxx
         case xmax_xr
@@ -86,7 +106,39 @@ extension UIScreen{
         case eight_lower
         case fives
         case lowly
+        
+        case ipad
     }
+    
+
+   /**
+    struct Size {
+        private let x:CGFloat
+        private let y:CGFloat
+        let orientation:UIDeviceOrientation
+        let scale:CGFloat
+        
+        init(bounds:CGSize, orientation:UIDeviceOrientation, scale:CGFloat) {
+            self.orientation = orientation
+            self.scale = scale
+            switch orientation {
+            case .portrait,.portraitUpsideDown:
+                x = bounds.width
+                y = bounds.height
+            case .landscapeLeft,.landscapeRight:
+                x = bounds.height
+                y = bounds.width
+            default:
+                x = bounds.width
+                y = bounds.height
+            }
+        }
+        
+        func getType()->Handle{
+            if (x == )
+        }
+    }
+ */
     
     func screenType()->Handle{
         let height = UIScreen.main.bounds.height
@@ -95,6 +147,8 @@ extension UIScreen{
         switch interface {
         case .phone:
             return handleFor(height: height)
+        case .pad:
+            return .ipad
         default:
             return handleFor(height: height)
         }
