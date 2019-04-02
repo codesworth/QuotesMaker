@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
 		380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380BC9952231C3B5007F87FE /* LayerModel.swift */; };
 		380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380BC9972231C40D007F87FE /* LayerFrame.swift */; };
 		380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380C78F72232C1BE006B8F8D /* BlankLayerModel.swift */; };
@@ -152,6 +153,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		380BC9952231C3B5007F87FE /* LayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerModel.swift; sourceTree = "<group>"; };
 		380BC9972231C40D007F87FE /* LayerFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerFrame.swift; sourceTree = "<group>"; };
 		380C78F72232C1BE006B8F8D /* BlankLayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankLayerModel.swift; sourceTree = "<group>"; };
@@ -300,6 +302,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38051CCA2253B12300D9E763 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				38FEDBF2222352DB0005EB60 /* LaunchScreen.storyboard */,
+				38FEDBED222352D90005EB60 /* Main.storyboard */,
+				38051CCB2253B14F00D9E763 /* iPadMain.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		3811532A224D0E3D00DA7D3B /* ShapeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -733,6 +745,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
+				38051CCA2253B12300D9E763 /* StoryBoards */,
 				38C80FBA223A901800150FD4 /* Protocols */,
 				388BE329222B065A005BF44B /* Resourcres */,
 				388BE324222AD4CD005BF44B /* Engine */,
@@ -744,9 +757,7 @@
 				389B938822275C88009FE9E6 /* Models */,
 				38D97D75225215F700B941A0 /* Misch */,
 				38FEDBE9222352D90005EB60 /* AppDelegate.swift */,
-				38FEDBED222352D90005EB60 /* Main.storyboard */,
 				38FEDBF0222352DB0005EB60 /* Assets.xcassets */,
-				38FEDBF2222352DB0005EB60 /* LaunchScreen.storyboard */,
 				38FEDBF5222352DB0005EB60 /* Info.plist */,
 			);
 			path = QuotesMaker;
@@ -855,6 +866,7 @@
 				388BE331222B0A16005BF44B /* painter.ttf in Resources */,
 				381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */,
 				38732E9922300DE700CDB703 /* FontCells.xib in Resources */,
+				38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */,
 				388BE344222C3188005BF44B /* PanelCell.xib in Resources */,
 				38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */,
 			);
