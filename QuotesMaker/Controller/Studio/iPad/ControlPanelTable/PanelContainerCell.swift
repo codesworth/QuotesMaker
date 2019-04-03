@@ -29,5 +29,12 @@ class PanelContainerCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    init(type:ControlPanelTable.SourcePanels) {
+        
+    }
+    
+    func createPanels(){
+        
+    }
     
 }

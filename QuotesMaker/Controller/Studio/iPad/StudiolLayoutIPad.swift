@@ -9,7 +9,7 @@
 import Foundation
 
 
-extension StudioVC{
+extension iPadStudioVC{
     
     func iPadLayout(){
         studioPanel.layout{
