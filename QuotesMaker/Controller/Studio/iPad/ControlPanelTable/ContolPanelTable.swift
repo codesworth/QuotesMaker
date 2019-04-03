@@ -15,8 +15,8 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
        case img = "Image"
         case fill = "Fill"
         case gradient = "Gradient"
-        case text = "Style"
-        case layout = "Text"
+        case text = "Text"
+        case layout = "Style"
     }
     
     var currentView:BaseView.BaseSubView?
@@ -31,8 +31,10 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
             panels = SourcePanels.allCases.filter{$0 != .text && $0 != .img}
         }else if let _ = currentView as? BackingImageView{
             panels = SourcePanels.allCases.filter{$0 != .fill && $0 != .gradient}
-        }else{
+        }else if let _ = currentView as? BackingTextView{
             panels = [.text]
+        }else{
+            panels = SourcePanels.allCases
         }
     }
     
@@ -44,6 +46,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .groupTableViewBackground
     }
 }
 
@@ -59,7 +62,19 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
     }
     
     func collapsibleTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let type = panels[indexPath.section]
+        let cell = PanelContainerCell(type: type)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let type = panels[indexPath.section]
+        switch type {
+        case .fill:
+            return 250
+        default:
+            return 400
+        }
     }
     
     

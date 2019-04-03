@@ -15,12 +15,24 @@ class iPadStudioVC: UIViewController {
         panel.backgroundColor = .seafoamBlue
         return panel
     }()
+    lazy var controlPanelContainer:UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .groupTableViewBackground
+        return view
+    }()
+    lazy var panelController:ControlPanelTable = {
+        let controller = ControlPanelTable(current: nil)
+        return controller
+    }()
+    
     var studioHeight = 130
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.view.addSubview(controlPanelContainer)
         view.addSubview(studioPanel)
         iPadLayout()
+        add(panelController, to: controlPanelContainer)
         // Do any additional setup after loading the view.
     }
     

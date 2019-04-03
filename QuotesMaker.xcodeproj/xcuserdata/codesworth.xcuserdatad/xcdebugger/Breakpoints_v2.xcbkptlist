@@ -3614,12 +3614,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Controller/Studio/iPad/StudiolLayoutIPad.swift"
-            timestampString = "575984239.413565"
+            timestampString = "575988369.657329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "forceInterfaceForlandscape()"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "iPadLayout()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3630,12 +3630,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Controller/Studio/iPad/StudiolLayoutIPad.swift"
-            timestampString = "575984239.413666"
+            timestampString = "575988369.657505"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "forceInterfaceForlandscape()"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "iPadLayout()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

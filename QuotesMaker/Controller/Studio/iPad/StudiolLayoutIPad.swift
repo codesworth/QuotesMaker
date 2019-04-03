@@ -19,6 +19,13 @@ extension iPadStudioVC{
             $0.height |=| CGFloat(studioHeight)
         }
         
+        controlPanelContainer.layout{
+            $0.top == studioPanel.bottomAnchor
+            $0.trailing == view.trailingAnchor
+            $0.bottom == view.bottomAnchor
+            $0.width |=| Dimensions.iPadContext.controlPanelWidth
+        }
+        
 //        studioPanel.layout{
 //            $0.bottom == view.bottomAnchor
 //            $0.leading == view.leadingAnchor
@@ -40,6 +47,7 @@ extension iPadStudioVC{
     override var shouldAutorotate: Bool {
         return true
     }
+    
     
 //    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
 //        if UIDevice.current.userInterfaceIdiom == .phone{
