@@ -25,12 +25,27 @@ class iPadStudioVC: UIViewController {
         return controller
     }()
     
-    var studioHeight = 130
+    lazy var layerStack:LayerStack = { [unowned self] by in
+        let stack = LayerStack(frame:.zero, dataSource: [])
+        stack.backgroundColor = .groupTableViewBackground
+        return stack
+    }(())
+    
+    lazy var editor:StudioEditorView = {
+        let editor = StudioEditorView(frame: .zero)
+        editor.clipsToBounds = true
+        return editor
+    }()
+    
+    var studioHeight:CGFloat = 130
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        view.addSubview(editor)
         self.view.addSubview(controlPanelContainer)
         view.addSubview(studioPanel)
+        view.addSubview(layerStack)
+        
         iPadLayout()
         add(panelController, to: controlPanelContainer)
         // Do any additional setup after loading the view.

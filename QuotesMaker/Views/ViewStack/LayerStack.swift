@@ -22,7 +22,7 @@ class LayerStack: MaterialView {
     lazy var stackTable:UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.allowsMultipleSelection = false
-        table.backgroundColor = .white
+        table.backgroundColor = .clear
         table.isEditing = true
         table.allowsSelectionDuringEditing = true
         table.register(UINib(nibName: "\(StackCellTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCellTableViewCell.self)")
@@ -121,7 +121,7 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if dataSource.isEmpty{
-            let empty = UITextField(frame: tableView.frame)
+            let empty = UILabel(frame: tableView.frame)
             empty.text = "No Views Added"
             empty.textAlignment = .center
             empty.font = UIFont.systemFont(ofSize: 20, weight: .medium)

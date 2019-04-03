@@ -12,7 +12,7 @@ class MaterialView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        materialFeel()
+        //materialFeel()
     }
     
     var isInView:Bool = false
@@ -23,7 +23,7 @@ class MaterialView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        materialFeel()
+        //materialFeel()
     }
     
     override func removeFromSuperview() {

@@ -26,6 +26,20 @@ extension iPadStudioVC{
             $0.width |=| Dimensions.iPadContext.controlPanelWidth
         }
         
+        layerStack.layout{
+            $0.top == studioPanel.bottomAnchor
+            $0.leading == view.leadingAnchor
+            $0.bottom == view.bottomAnchor
+            $0.width |=| Dimensions.iPadContext.layerStackWidth
+        }
+        
+        editor.layout{
+            $0.top == studioPanel.bottomAnchor
+            $0.leading == layerStack.trailingAnchor
+            $0.trailing == controlPanelContainer.leadingAnchor
+            $0.bottom == view.bottomAnchor - 2
+        }
+        
 //        studioPanel.layout{
 //            $0.bottom == view.bottomAnchor
 //            $0.leading == view.leadingAnchor
