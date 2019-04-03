@@ -9,14 +9,35 @@
 import Foundation
 
 
-extension StudioVC{
+extension iPadStudioVC{
     
     func iPadLayout(){
         studioPanel.layout{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
             $0.trailing == view.trailingAnchor
-            $0.height |=| studioHeight
+            $0.height |=| CGFloat(studioHeight)
+        }
+        
+        controlPanelContainer.layout{
+            $0.top == studioPanel.bottomAnchor
+            $0.trailing == view.trailingAnchor
+            $0.bottom == view.bottomAnchor
+            $0.width |=| Dimensions.iPadContext.controlPanelWidth
+        }
+        
+        layerStack.layout{
+            $0.top == studioPanel.bottomAnchor
+            $0.leading == view.leadingAnchor
+            $0.bottom == view.bottomAnchor
+            $0.width |=| Dimensions.iPadContext.layerStackWidth
+        }
+        
+        editor.layout{
+            $0.top == studioPanel.bottomAnchor
+            $0.leading == layerStack.trailingAnchor
+            $0.trailing == controlPanelContainer.leadingAnchor
+            $0.bottom == view.bottomAnchor - 2
         }
         
 //        studioPanel.layout{
@@ -40,6 +61,7 @@ extension StudioVC{
     override var shouldAutorotate: Bool {
         return true
     }
+    
     
 //    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
 //        if UIDevice.current.userInterfaceIdiom == .phone{

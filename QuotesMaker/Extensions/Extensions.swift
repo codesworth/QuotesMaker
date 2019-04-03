@@ -219,3 +219,29 @@ extension UIImage{
         }
     }
 }
+
+
+
+extension UIViewController {
+        func add(_ child: UIViewController, to parentView:UIView? = nil) {
+            addChild(child)
+            if let v = parentView{
+                v.addSubview(child.view)
+            }else{
+                view.addSubview(child.view)
+            }
+            child.didMove(toParent: self)
+        }
+        
+        func removeFrom() {
+            guard parent != nil else {
+                return
+            }
+            
+            willMove(toParent: nil)
+            removeFromParent()
+            
+            view.removeFromSuperview()
+        }
+        
+}

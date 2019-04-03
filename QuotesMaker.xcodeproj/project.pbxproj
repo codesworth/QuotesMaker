@@ -122,6 +122,12 @@
 		38D54E1F223930E3009FCF9A /* CustomAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D54E1E223930E3009FCF9A /* CustomAlbum.swift */; };
 		38D97D722251932700B941A0 /* CornersStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D97D712251932700B941A0 /* CornersStack.swift */; };
 		38D97D7822522D3600B941A0 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D97D7722522D3600B941A0 /* State.swift */; };
+		38F13A052254360E002C4109 /* CollapsibleTableSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A032254360D002C4109 /* CollapsibleTableSectionViewController.swift */; };
+		38F13A062254360E002C4109 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A042254360E002C4109 /* CollapsibleTableViewHeader.swift */; };
+		38F13A0A225436D9002C4109 /* ContolPanelTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A09225436D9002C4109 /* ContolPanelTable.swift */; };
+		38F13A0D2254B6FF002C4109 /* PanelContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A0B2254B6FF002C4109 /* PanelContainerCell.swift */; };
+		38F13A0E2254B6FF002C4109 /* PanelContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F13A0C2254B6FF002C4109 /* PanelContainerCell.xib */; };
+		38F13A102254C855002C4109 /* iPadStudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A0F2254C855002C4109 /* iPadStudioVC.swift */; };
 		38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDBE9222352D90005EB60 /* AppDelegate.swift */; };
 		38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBED222352D90005EB60 /* Main.storyboard */; };
 		38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBF0222352DB0005EB60 /* Assets.xcassets */; };
@@ -275,6 +281,12 @@
 		38D54E1E223930E3009FCF9A /* CustomAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlbum.swift; sourceTree = "<group>"; };
 		38D97D712251932700B941A0 /* CornersStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornersStack.swift; sourceTree = "<group>"; };
 		38D97D7722522D3600B941A0 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		38F13A032254360D002C4109 /* CollapsibleTableSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableSectionViewController.swift; sourceTree = "<group>"; };
+		38F13A042254360E002C4109 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
+		38F13A09225436D9002C4109 /* ContolPanelTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContolPanelTable.swift; sourceTree = "<group>"; };
+		38F13A0B2254B6FF002C4109 /* PanelContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelContainerCell.swift; sourceTree = "<group>"; };
+		38F13A0C2254B6FF002C4109 /* PanelContainerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PanelContainerCell.xib; sourceTree = "<group>"; };
+		38F13A0F2254C855002C4109 /* iPadStudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadStudioVC.swift; sourceTree = "<group>"; };
 		38FEDBE6222352D90005EB60 /* QuotesMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FEDBE9222352D90005EB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FEDBEE222352D90005EB60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -425,6 +437,7 @@
 		387B96472229966F00824498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38F13A02225435D1002C4109 /* CollapsibleTableViews */,
 				38661B06224BF41300440AC7 /* AutoLayoutDSL */,
 				3823656E2240ED990078A723 /* PhotoTweaks */,
 				382365662240591D0078A723 /* Rexixable */,
@@ -530,6 +543,7 @@
 		389B938922275CA1009FE9E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				38F13A072254366A002C4109 /* iPad */,
 				38965078224279ED009434B4 /* StudioTab */,
 				381865B3223C992C006C0C56 /* ViewStack */,
 				38C80FB7223A7ACB00150FD4 /* Panels */,
@@ -621,8 +635,6 @@
 			children = (
 				38D97D7A22531E1300B941A0 /* iPhone */,
 				38D97D7922531E0200B941A0 /* iPad */,
-				389B939322276B55009FE9E6 /* StudioVC.swift */,
-				38C80FC1223B073700150FD4 /* Studio+Extensions.swift */,
 			);
 			path = Studio;
 			sourceTree = "<group>";
@@ -717,7 +729,9 @@
 		38D97D7922531E0200B941A0 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				38F13A0822543679002C4109 /* ControlPanelTable */,
 				38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */,
+				38F13A0F2254C855002C4109 /* iPadStudioVC.swift */,
 			);
 			path = iPad;
 			sourceTree = "<group>";
@@ -725,9 +739,37 @@
 		38D97D7A22531E1300B941A0 /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				38C80FC1223B073700150FD4 /* Studio+Extensions.swift */,
+				389B939322276B55009FE9E6 /* StudioVC.swift */,
 				38051CCD2253B90900D9E763 /* StudioLayout.swift */,
 			);
 			path = iPhone;
+			sourceTree = "<group>";
+		};
+		38F13A02225435D1002C4109 /* CollapsibleTableViews */ = {
+			isa = PBXGroup;
+			children = (
+				38F13A032254360D002C4109 /* CollapsibleTableSectionViewController.swift */,
+				38F13A042254360E002C4109 /* CollapsibleTableViewHeader.swift */,
+			);
+			path = CollapsibleTableViews;
+			sourceTree = "<group>";
+		};
+		38F13A072254366A002C4109 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iPad;
+			sourceTree = "<group>";
+		};
+		38F13A0822543679002C4109 /* ControlPanelTable */ = {
+			isa = PBXGroup;
+			children = (
+				38F13A09225436D9002C4109 /* ContolPanelTable.swift */,
+				38F13A0B2254B6FF002C4109 /* PanelContainerCell.swift */,
+				38F13A0C2254B6FF002C4109 /* PanelContainerCell.xib */,
+			);
+			path = ControlPanelTable;
 			sourceTree = "<group>";
 		};
 		38FEDBDD222352D90005EB60 = {
@@ -874,6 +916,7 @@
 				38732E9922300DE700CDB703 /* FontCells.xib in Resources */,
 				38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */,
 				388BE344222C3188005BF44B /* PanelCell.xib in Resources */,
+				38F13A0E2254B6FF002C4109 /* PanelContainerCell.xib in Resources */,
 				38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -929,17 +972,20 @@
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
 				38A6687E223EED7C00F29F52 /* Colors.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
+				38F13A062254360E002C4109 /* CollapsibleTableViewHeader.swift in Sources */,
 				38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
 				3896507F2242DD7F009434B4 /* ModelCollection.swift in Sources */,
 				38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */,
 				3823656D2240674F0078A723 /* +Resizing.swift in Sources */,
 				38C80FC6223C453D00150FD4 /* TabControl.swift in Sources */,
+				38F13A102254C855002C4109 /* iPadStudioVC.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
 				3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */,
 				38115327224D0AC200DA7D3B /* Style.swift in Sources */,
 				380C79002232D8EB006B8F8D /* WrapperView.swift in Sources */,
 				38115329224D0CE900DA7D3B /* ShapeModel.swift in Sources */,
+				38F13A052254360E002C4109 /* CollapsibleTableSectionViewController.swift in Sources */,
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				3873738C22452BBE00A1FB7B /* StudioEditorView.swift in Sources */,
 				38661AFF224B964100440AC7 /* StylingPanel.swift in Sources */,
@@ -956,6 +1002,7 @@
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */,
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
+				38F13A0A225436D9002C4109 /* ContolPanelTable.swift in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				38AA311522442AF50050604A /* BaseContentView.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
@@ -979,6 +1026,7 @@
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,
+				38F13A0D2254B6FF002C4109 /* PanelContainerCell.swift in Sources */,
 				38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */,
 				38661B0F224C42D300440AC7 /* StudioTabCells.swift in Sources */,
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,

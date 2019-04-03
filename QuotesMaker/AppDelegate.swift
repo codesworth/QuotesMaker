@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let idiom = UIDevice.current.userInterfaceIdiom
+        if idiom == .pad{
+            window?.rootViewController = iPadStudioVC()
+        }
 //        setRootViewContoroller()
 //        for family: String in UIFont.familyNames
 //        {
