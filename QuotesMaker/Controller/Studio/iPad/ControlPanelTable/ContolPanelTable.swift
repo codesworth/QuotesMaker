@@ -75,6 +75,14 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
         switch type {
         case .fill:
             return 250
+        case .gradient:
+            return 560
+        case .img:
+            return 400
+        case .layout:
+            return 600
+        case .text:
+            return 600
         default:
             return 400
         }
