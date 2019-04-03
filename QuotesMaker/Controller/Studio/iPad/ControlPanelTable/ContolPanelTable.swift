@@ -24,6 +24,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
     init(current:BaseView.BaseSubView?){
         currentView = current
         super.init(nibName: nil, bundle: .main)
+        updatepanels()
     }
     
     func updatepanels(){
@@ -36,6 +37,8 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         }else{
             panels = SourcePanels.allCases
         }
+    
+        self.delegate = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -74,6 +77,22 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
             return 250
         default:
             return 400
+        }
+    }
+    
+    func collapsibleTableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let type = panels[section]
+        switch type {
+        case .fill:
+            return "Fill Color"
+        case .gradient:
+            return "Gradient"
+        case .img:
+            return "Image Options"
+        case .text:
+            return "Text"
+        case .layout:
+            return "Styling"
         }
     }
     
