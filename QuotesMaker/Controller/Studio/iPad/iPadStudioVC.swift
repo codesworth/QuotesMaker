@@ -10,13 +10,23 @@ import UIKit
 
 class iPadStudioVC: UIViewController {
     
-     var studioPanel: EditorPanel!
-
+    lazy var studioPanel: EditorPanel = {
+        let panel = EditorPanel(frame: .zero)
+        panel.backgroundColor = .seafoamBlue
+        return panel
+    }()
+    var studioHeight = 130
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
+        view.addSubview(studioPanel)
+        iPadLayout()
         // Do any additional setup after loading the view.
     }
+    
+    
+    
+    
     
 
     /*

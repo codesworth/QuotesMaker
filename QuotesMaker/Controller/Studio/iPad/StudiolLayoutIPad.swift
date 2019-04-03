@@ -16,7 +16,7 @@ extension iPadStudioVC{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
             $0.trailing == view.trailingAnchor
-            $0.height |=| studioHeight
+            $0.height |=| CGFloat(studioHeight)
         }
         
 //        studioPanel.layout{

@@ -30,7 +30,7 @@ class PanelContainerCell: UITableViewCell {
     }
     
     init(type:ControlPanelTable.SourcePanels) {
-        
+        super.init(style: .default, reuseIdentifier: "\(PanelContainerCell.self)")
     }
     
     func createPanels(){

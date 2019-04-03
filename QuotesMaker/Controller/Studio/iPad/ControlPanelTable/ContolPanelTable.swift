@@ -23,6 +23,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
     
     init(current:BaseView.BaseSubView?){
         currentView = current
+        super.init(nibName: nil, bundle: .main)
     }
     
     func updatepanels(){
@@ -58,7 +59,7 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
     }
     
     func collapsibleTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        return UITableViewCell()
     }
     
     

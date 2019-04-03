@@ -76,19 +76,6 @@ class StudioVC: UIViewController {
     }
     
     
-    func setupDevice(){
-        let idiom = UIDevice.current.userInterfaceIdiom
-        switch idiom {
-        case .phone:
-            break
-        case .pad:
-            forceInterfaceForlandscape()
-            break
-        default:
-            break
-        }
-    }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -103,9 +90,6 @@ class StudioVC: UIViewController {
     func setHeight(){
         let handle = UIScreen.main.screenType()
         switch handle {
-        case .ipad:
-            studioHeight = 130
-            return
         case .xmax_xr:
             studioHeight = 130
             return
@@ -123,12 +107,7 @@ class StudioVC: UIViewController {
     
     func setupViews(){
         setHeight()
-        let idiom = UIDevice.current.userInterfaceIdiom
-        if idiom == .phone{
-            self.layout()
-        }else {
-           self.iPadLayout()
-        }
+        self.layout()
         setupCanvas()
         
         
