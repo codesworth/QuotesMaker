@@ -83,6 +83,7 @@ class StudioEditorView:UIView{
         //let scrollCons = scrollView.pinAllSides()
         if bounds.height == 0 {return}
         NSLayoutConstraint.activate([
+            
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.leftAnchor.constraint(equalTo: leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: rightAnchor),

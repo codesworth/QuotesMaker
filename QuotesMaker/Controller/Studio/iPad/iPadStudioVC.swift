@@ -10,6 +10,8 @@ import UIKit
 
 class iPadStudioVC: UIViewController {
     
+    var baseView:BaseView
+    
     lazy var studioPanel: EditorPanel = {
         let panel = EditorPanel(frame: .zero)
         panel.backgroundColor = .seafoamBlue
