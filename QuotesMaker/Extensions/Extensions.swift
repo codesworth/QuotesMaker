@@ -16,9 +16,23 @@ extension CGRect{
 }
 
 
+extension UIDevice{
+    
+    class var idiom:UIUserInterfaceIdiom{
+        return current.userInterfaceIdiom
+    }
+}
+
+
 extension CGFloat{
     static var fixedWidth:CGFloat{
-        return UIScreen.main.bounds.width * 0.9
+        let idiom = UIDevice.current.userInterfaceIdiom
+        if idiom == .phone{
+            return UIScreen.main.bounds.width * 0.9
+        }else if idiom == .pad{
+            return 500
+        }
+        return 0
     }
     
     static var fixedHeight:CGFloat{

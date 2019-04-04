@@ -18,6 +18,8 @@ protocol StackTableDelegate:class {
 
 class LayerStack: MaterialView {
     
+    let constraintIds = NSLayoutConstraint.makeIdentifiers()
+    
     typealias SwapIndice = (initial:Int,final:Int)
     lazy var stackTable:UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -46,7 +48,17 @@ class LayerStack: MaterialView {
     }()
     
     @objc func donePressed(){
-        delegate?.didDismiss()
+        if UIDevice.idiom == .phone{
+            delegate?.didDismiss()
+        }else{
+            guard let superview = superview else {return}
+            //superview.constraints.forEach{print($0.identifier ?? "No ID")}
+            let constraint = superview.constraints.first{$0.identifier == constraintIds.leading}
+            guard constraint != nil else {return}
+            UIView.animate(withDuration: 4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+                constraint?.constant = -Dimensions.iPadContext.layerStackWidth
+            }, completion: nil)
+        }
     }
     var dataSource:Alias.StackDataSource = []
 
@@ -90,6 +102,7 @@ class LayerStack: MaterialView {
         super.layoutSubviews()
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         //let tabCons = stackTable.pinAllSides()
+        
         NSLayoutConstraint.activate([
             headerLable.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             headerLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -98,6 +111,7 @@ class LayerStack: MaterialView {
             doneButt.widthAnchor.constraint(equalToConstant: 30),
             doneButt.heightAnchor.constraint(equalToConstant: 30),
             stackTable.topAnchor.constraint(equalTo: headerLable.bottomAnchor, constant:16),
+            
             stackTable.leftAnchor.constraint(equalTo: leftAnchor),
             stackTable.rightAnchor.constraint(equalTo: rightAnchor),
             stackTable.bottomAnchor.constraint(equalTo:bottomAnchor, constant:-4)

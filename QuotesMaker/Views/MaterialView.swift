@@ -12,7 +12,7 @@ class MaterialView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //materialFeel()
+        materialFeel()
     }
     
     var isInView:Bool = false
@@ -23,7 +23,7 @@ class MaterialView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //materialFeel()
+        materialFeel()
     }
     
     override func removeFromSuperview() {
@@ -36,11 +36,13 @@ class MaterialView: UIView {
     }
     
     func materialFeel(){
-        layer.cornerRadius = 8
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowRadius = 5
-        layer.shadowOffset = 2
+        if UIDevice.idiom == .phone{
+            layer.cornerRadius = 8
+            layer.shadowColor = UIColor.black.cgColor
+            layer.shadowOpacity = 0.5
+            layer.shadowRadius = 5
+            layer.shadowOffset = 2
+        }
     }
 
 }

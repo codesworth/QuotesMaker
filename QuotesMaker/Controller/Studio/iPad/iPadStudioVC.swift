@@ -10,7 +10,7 @@ import UIKit
 
 class iPadStudioVC: UIViewController {
     
-    var baseView:BaseView
+    var baseView:BaseView!
     
     lazy var studioPanel: EditorPanel = {
         let panel = EditorPanel(frame: .zero)
@@ -42,14 +42,16 @@ class iPadStudioVC: UIViewController {
     var studioHeight:CGFloat = 130
     override func viewDidLoad() {
         super.viewDidLoad()
+        let size = Dimensions.sizeForAspect(.square)
+        baseView = BaseView(frame: [0,0,size.width,size.height])
         view.backgroundColor = .white
         view.addSubview(editor)
         self.view.addSubview(controlPanelContainer)
         view.addSubview(studioPanel)
         view.addSubview(layerStack)
-        
         iPadLayout()
         add(panelController, to: controlPanelContainer)
+        editor.addCanvas(baseView)
         // Do any additional setup after loading the view.
     }
     
