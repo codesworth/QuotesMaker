@@ -39,25 +39,40 @@ class LayoutProxy{
 
 
 extension LayoutProperty {
-    func equal(to otherAnchor: Anchor, offsetBy constant: CGFloat = 0) {
-        anchor.constraint(equalTo: otherAnchor,
-                          constant: constant).isActive = true
+    
+    
+    @discardableResult
+    func equal(to otherAnchor: Anchor, offsetBy constant: CGFloat = 0)->NSLayoutConstraint {
+        let constraint = anchor.constraint(equalTo: otherAnchor,
+                          constant: constant)
+        constraint.isActive = true
+        return constraint
     }
     
+    @discardableResult
     func greaterThanOrEqual(to otherAnchor: Anchor,
-                            offsetBy constant: CGFloat = 0) {
-        anchor.constraint(greaterThanOrEqualTo: otherAnchor,
-                          constant: constant).isActive = true
+                            offsetBy constant: CGFloat = 0)->NSLayoutConstraint {
+        let constraint = anchor.constraint(greaterThanOrEqualTo: otherAnchor,
+                          constant: constant)
+        constraint.isActive = true
+        return constraint
     }
     
+    @discardableResult
     func lessThanOrEqual(to otherAnchor: Anchor,
-                         offsetBy constant: CGFloat = 0) {
-        anchor.constraint(lessThanOrEqualTo: otherAnchor,
-                          constant: constant).isActive = true
+                         offsetBy constant: CGFloat = 0)->NSLayoutConstraint {
+        let constraint = anchor.constraint(lessThanOrEqualTo: otherAnchor,
+                          constant: constant)
+        constraint.isActive = true
+        return constraint
     }
     
-    func equal(to constant:CGFloat){
-        anchor.constraint(equalToConstant: constant).isActive = true
+    @discardableResult
+    func equal(to constant:CGFloat)->NSLayoutConstraint{
+        
+        let constraint = anchor.constraint(equalToConstant: constant)
+        constraint.isActive = true
+        return constraint
     }
     
     

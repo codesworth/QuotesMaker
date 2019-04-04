@@ -28,7 +28,7 @@ extension iPadStudioVC{
         
         layerStack.layout{
             $0.top == studioPanel.bottomAnchor
-            $0.leading == view.leadingAnchor
+            $0.leading == view.leadingAnchor -- layerStack.constraintIds.leading
             $0.bottom == view.bottomAnchor
             $0.width |=| Dimensions.iPadContext.layerStackWidth
         }
