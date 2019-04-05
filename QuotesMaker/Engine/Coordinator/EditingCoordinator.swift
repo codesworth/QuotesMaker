@@ -12,7 +12,7 @@ import UIKit
 class EditingCoordinator{
     
     var baseView:BaseView
-    
+    weak var delegate:EditingCoordinatorDelegate?
     init(){
         baseView = BaseView(frame: .zero)
         let size = Dimensions.sizeForAspect(.square)
@@ -138,7 +138,7 @@ extension EditingCoordinator:ImagePanelDelegate{
         
         switch option {
         case .gallery:
-            launchPicker()
+            delegate?.launchImagePicker()
             break
         case .online:
             break
@@ -147,7 +147,7 @@ extension EditingCoordinator:ImagePanelDelegate{
             current.rotateImage()
             break
         case .cropMode:
-            initCropmode()
+            delegate?.beginCroppingImage()
             break
         case .flipHorizontal:
             flipImage(.horizontal)

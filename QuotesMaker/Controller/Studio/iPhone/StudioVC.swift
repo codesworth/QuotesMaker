@@ -64,8 +64,8 @@ class StudioVC: UIViewController {
         view.addSubview(studioTab)
         view.addSubview(editorView)
         studioPanel.delegate = self
-        coordinator.baseView.delegate = self
-        subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChanged(_:)))
+        coordinator.delegate = self
+        //subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChanged(_:)))
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         setupViews()

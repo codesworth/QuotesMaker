@@ -76,8 +76,15 @@ extension StudioVC:EditorPanelDelegate{
 }
 
 
-extension StudioVC:ImagePanelDelegate{
+extension StudioVC:EditingCoordinatorDelegate{
     
+    func launchImagePicker() {
+        launchPicker()
+    }
+    
+    func beginCroppingImage() {
+        initCropmode()
+    }
     
     func initCropmode(){
         if let current = coordinator.baseView.currentSubview as? BackingImageView{
@@ -108,12 +115,7 @@ extension StudioVC:PhotoTweaksViewControllerDelegate{
 
 
 
-extension StudioVC:BaseViewProtocol{
-    
-    func wakePanelForCurrent() {
-        
-    }
-    
+
     
 //    func wakePanelForCurrent() {
 //        guard let current = baseView.currentSubview else{return}
@@ -128,7 +130,7 @@ extension StudioVC:BaseViewProtocol{
 //        }
 //    }
     
-}
+
 
 
 extension StudioVC:StudioTabDelegate{
