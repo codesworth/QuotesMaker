@@ -63,6 +63,7 @@
 		38743D522257E9E500897B13 /* iPadTabControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743D512257E9E500897B13 /* iPadTabControl.swift */; };
 		38743D542257F59E00897B13 /* TaskBarControlsProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743D532257F59E00897B13 /* TaskBarControlsProxy.swift */; };
 		38743D562258072000897B13 /* EditingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743D552258072000897B13 /* EditingCoordinator.swift */; };
+		38743D592258114500897B13 /* EditingCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743D582258114500897B13 /* EditingCoordinatorDelegate.swift */; };
 		38797C2522309DAF003A9D99 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2422309DAF003A9D99 /* Constraints.swift */; };
 		38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */; };
 		38797C2922309E83003A9D99 /* Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2822309E83003A9D99 /* Selectors.swift */; };
@@ -226,6 +227,7 @@
 		38743D512257E9E500897B13 /* iPadTabControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadTabControl.swift; sourceTree = "<group>"; };
 		38743D532257F59E00897B13 /* TaskBarControlsProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBarControlsProxy.swift; sourceTree = "<group>"; };
 		38743D552258072000897B13 /* EditingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingCoordinator.swift; sourceTree = "<group>"; };
+		38743D582258114500897B13 /* EditingCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		38797C2422309DAF003A9D99 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegates.swift; sourceTree = "<group>"; };
 		38797C2822309E83003A9D99 /* Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectors.swift; sourceTree = "<group>"; };
@@ -431,6 +433,15 @@
 			path = AutoLayoutDSL;
 			sourceTree = "<group>";
 		};
+		38743D5722580BAA00897B13 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				38743D552258072000897B13 /* EditingCoordinator.swift */,
+				38743D582258114500897B13 /* EditingCoordinatorDelegate.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		38797C2322309D6B003A9D99 /* TextDesignableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,8 +497,8 @@
 		388BE324222AD4CD005BF44B /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				38743D5722580BAA00897B13 /* Coordinator */,
 				388BE325222AD4E8005BF44B /* QMEngine.swift */,
-				38743D552258072000897B13 /* EditingCoordinator.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -1038,6 +1049,7 @@
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38236561223FEB640078A723 /* +StateChangeable.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
+				38743D592258114500897B13 /* EditingCoordinatorDelegate.swift in Sources */,
 				38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,

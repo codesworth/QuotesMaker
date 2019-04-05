@@ -9,37 +9,28 @@
 import UIKit
 
 
-extension StudioVC:StateControlDelegate{
-    
-    
-    func stateChanged(_ type: StateChangeControl.ChangeType) {
-        
-        if let current = baseView.currentSubview as? StateChangeable{
-            if type == .undo {current.stateUndo()}
-            else{current.stateRedo()}
-        }
-    }
-    
-    @objc func listenForStateChanged(_ notification:Notification){
-        guard let state = notification.userInfo?[.info] as? State else {return}
-        changes.push(state)
-        print(changes)
-    }
-    
-}
+//extension StudioVC:StateControlDelegate{
+//
+//
+//    func stateChanged(_ type: StateChangeControl.ChangeType) {
+//
+//        if let current = baseView.currentSubview as? StateChangeable{
+//            if type == .undo {current.stateUndo()}
+//            else{current.stateRedo()}
+//        }
+//    }
+//
+//    @objc func listenForStateChanged(_ notification:Notification){
+//        guard let state = notification.userInfo?[.info] as? State else {return}
+//        changes.push(state)
+//        print(changes)
+//    }
+//
+//}
 
 
 
-extension StudioVC:GradientOptionsDelegate{
-    
-    func modelChanged(_ model: GradientLayerModel) {
-        guard let current = baseView.currentSubview as? ShapableView else {return}
-        var mod = current.model
-        mod.gradient = model
-        current.updateModel(mod)
-    }
-    
-}
+
 
 
 extension StudioVC:EditorPanelDelegate{
@@ -60,12 +51,13 @@ extension StudioVC:EditorPanelDelegate{
             //baseView.transformViewTolayer()
             break
         case .preview:
-            launchPreview()
+            //launchPreview()
+            break
         case .save:
-            baseView.save()
+            coordinator.save()
             break
         case .startOver:
-            baseView.invalidateLayers()
+            //baseView.invalidateLayers()
             break
         }
     }
@@ -74,50 +66,21 @@ extension StudioVC:EditorPanelDelegate{
         moveToProcess(process)
     }
     
-    func launchPreview(){
-        let preview = QPreviewView(frame: UIScreen.main.bounds)
-        preview.center = view.center
-        let image = baseView.makeImageFromView()
-        preview.setImage(image)
-        view.addSubview(preview)
-    }
+//    func launchPreview(){
+//        let preview = QPreviewView(frame: UIScreen.main.bounds)
+//        preview.center = view.center
+//        let image = baseView.makeImageFromView()
+//        preview.setImage(image)
+//        view.addSubview(preview)
+//    }
 }
 
 
 extension StudioVC:ImagePanelDelegate{
     
-    func didSelect(_ option: ImagePanel.PanelOptions) {
-        
-        switch option {
-        case .gallery:
-            launchPicker()
-            break
-        case .online:
-            break
-        case .rotate:
-            guard let current = baseView.currentSubview as? BackingImageView else {break}
-            current.rotateImage()
-            break
-        case .cropMode:
-            initCropmode()
-            break
-        case .flipHorizontal:
-            flipImage(.horizontal)
-            break
-        case .flipVertical:
-            flipImage(.vertical)
-            break
-        }
-    }
-    
-    func flipImage(_ side:BackingImageView.FlipSides){
-        if let current = baseView.currentSubview as? BackingImageView{
-            current.flip(side)
-        }
-    }
     
     func initCropmode(){
-        if let current = baseView.currentSubview as? BackingImageView{
+        if let current = coordinator.baseView.currentSubview as? BackingImageView{
             //current.beginCropping()
             guard let image = current.image else {return}
             guard let cropper = PhotoTweaksViewController(image: image) else {return}
@@ -138,7 +101,7 @@ extension StudioVC:PhotoTweaksViewControllerDelegate{
     
     func photoTweaksController(_ controller: PhotoTweaksViewController!, didFinishWithCroppedImage croppedImage: UIImage!) {
         controller.dismiss(animated: true, completion: nil)
-        guard let current = baseView.currentSubview as? BackingImageView else {return}
+        guard let current = coordinator.baseView.currentSubview as? BackingImageView else {return}
         current.setImage(image: croppedImage)
     }
 }
@@ -173,9 +136,9 @@ extension StudioVC:StudioTabDelegate{
     func actiondone(_ action: StudioTab.TabActions) {
         switch action {
         case .delete:
-            if let current = baseView.currentSubview{
+            if let current = coordinator.baseView.currentSubview{
                 current.removeFromSuperview()
-                baseView.currentSubview = nil
+                coordinator.baseView.currentSubview = nil
                 dismissPanels()
             }
             break
@@ -184,10 +147,10 @@ extension StudioVC:StudioTabDelegate{
 //            baseView.enterResizeMode()
             break
         case .moveUp:
-            baseView.moveSubiewForward()
+            coordinator.moveSubiewForward()
             break
         case .moveDown:
-            baseView.moveSubiewBackward()
+            coordinator.moveSubiewBackward()
             break
         case .stylePanel:
             //wakePanelForCurrent()
@@ -222,33 +185,31 @@ extension StudioVC:StudioTabDelegate{
     }
     
     func shapeUndo(_ state:State){
-        guard let model = state.model as? ShapeModel else{return}
-        guard let view = (baseView.subviews as? [BaseView.BaseSubView])?.first(where: { (v) -> Bool in
-            return v.getIndex == model.layerIndex
-        }) else {
-            
-            return
-        }
-        if let shapeView = view as? RectView{
-            shapeView.model = model
-            
-        }
+//        guard let model = state.model as? ShapeModel else{return}
+//        guard let view = (baseView.subviews as? [BaseView.BaseSubView])?.first(where: { (v) -> Bool in
+//            return v.getIndex == model.layerIndex
+//        }) else {
+//
+//            return
+//        }
+//        if let shapeView = view as? RectView{
+//            shapeView.model = model
+//
+//        }
     }
     
     @discardableResult // ("For Testing")
     func makeStackTable()->LayerStack?{
         guard stack == nil else {return nil}
-        if let datasource = baseView.subviews as? Alias.StackDataSource{
-            stack = LayerStack(frame: CGRect(origin: .zero, size: baseView.bounds.size.scaledBy(0.9)), dataSource: datasource)
-            stack?.center = baseView.center
-            stack?.alpha = 0
-            self.view.addSubview(stack!)
-            Utils.fadeIn(stack!)
-            stack?.delegate = self
-            return stack
-        }
+        let datasource = coordinator.layerDatasource
+        stack = LayerStack(frame: CGRect(origin: .zero, size: coordinator.baseView.bounds.size.scaledBy(0.9)), dataSource: datasource)
+        stack?.center = coordinator.baseView.center
+        stack?.alpha = 0
+        self.view.addSubview(stack!)
+        Utils.fadeIn(stack!)
+        stack?.delegate = self
+        return stack
         
-      return nil
     }
     
     
@@ -264,15 +225,15 @@ extension StudioVC:StackTableDelegate{
     
     
     func didSelectView(with uid: UUID) {
-        let view = (baseView.subviews as? Alias.StackDataSource)?.first{$0.uid == uid}
+        let view = coordinator.layerDatasource.first{$0.uid == uid}
         print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource.self)`")
         if let sub = view as? RectView {
-            baseView.currentSubview = sub
+            coordinator.baseView.currentSubview = sub
             
         }else if let sub = view as? BackingImageView{
-            baseView.currentSubview = sub
+            coordinator.baseView.currentSubview = sub
         }else if let sub = view as? BackingTextView{
-            baseView.currentSubview = sub
+            coordinator.baseView.currentSubview = sub
         }
     }
     

@@ -15,13 +15,13 @@ extension StudioVC{
         view.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         let points = Dimensions.originalPanelPoints
         colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
-        colorPanel.stateDelegate = self
+        //colorPanel.stateDelegate = self
         gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])
-        gradientPanel.stateDelegate = self
+        //gradientPanel.stateDelegate = self
         imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
         stylingPanel = StylingPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
         
-        imagePanel.stateDelegate = self
+        //imagePanel.stateDelegate = self
         let size = Dimensions.editorSize
         
         NSLayoutConstraint.activate([
