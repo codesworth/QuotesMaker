@@ -52,20 +52,19 @@ func <=<A: LayoutAnchor>(lhs: LayoutProperty<A>, rhs: A)->NSLayoutConstraint {
     return lhs.lessThanOrEqual(to: rhs)
 }
 
+precedencegroup LexicalArithmeticDisambiguityPrecedence{
+    lowerThan:ComparisonPrecedence
+}
 
-infix operator |=|
+infix operator |=| : DefaultPrecedence
+
+infix operator -- : LexicalArithmeticDisambiguityPrecedence
 
 @discardableResult
 func |=|<A:LayoutAnchor>(lhs: LayoutProperty<A>, rhs: CGFloat)->NSLayoutConstraint{
     return lhs.equal(to: rhs)
     
 }
-
-precedencegroup LexicalArithmeticDisambiguityPrecedence{
-    lowerThan:ComparisonPrecedence
-}
-
-infix operator -- : LexicalArithmeticDisambiguityPrecedence
 
 func --(lhs:NSLayoutConstraint, rhs:String){
     lhs.identifier = rhs
