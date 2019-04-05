@@ -12,17 +12,17 @@ import Foundation
 extension ImagePanel{
     
     
-    @objc func canUndo(_ notification:Notification){
-        if let canundo = notification.userInfo?[.info] as? Bool{
-            stateControl.undoButt.isEnabled = canundo
-        }
-    }
+//    @objc func canUndo(_ notification:Notification){
+//        if let canundo = notification.userInfo?[.info] as? Bool{
+//            stateControl.undoButt.isEnabled = canundo
+//        }
+//    }
     
-    @objc func canRedo(_ notification:Notification){
-        if let canundo = notification.userInfo?[.info] as? Bool{
-            stateControl.redoButt.isEnabled = canundo
-        }
-    }
+//    @objc func canRedo(_ notification:Notification){
+//        if let canundo = notification.userInfo?[.info] as? Bool{
+//            stateControl.redoButt.isEnabled = canundo
+//        }
+//    }
     
     @objc func donePressed(){
         Utils.animatePanelsOut(self)

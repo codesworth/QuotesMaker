@@ -27,10 +27,10 @@ extension ImagePanel{
             closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             closeButton.widthAnchor.constraint(equalToConstant: 35),
             closeButton.heightAnchor.constraint(equalToConstant: 35),
-            stateControl.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -12),
-            stateControl.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            stateControl.widthAnchor.constraint(equalToConstant: 70),
-            stateControl.heightAnchor.constraint(equalToConstant: 30),
+//            stateControl.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: -12),
+//            stateControl.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+//            stateControl.widthAnchor.constraint(equalToConstant: 70),
+//            stateControl.heightAnchor.constraint(equalToConstant: 30),
             scrollView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 12),
             scrollView.rightAnchor.constraint(equalTo: rightAnchor),
             scrollView.leftAnchor.constraint(equalTo: leftAnchor),
@@ -60,8 +60,8 @@ extension ImagePanel{
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
-        subscribeTo(subscription: .canRedo, selector: #selector(canRedo(_:)))
+//        subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
+//        subscribeTo(subscription: .canRedo, selector: #selector(canRedo(_:)))
     }
     
     

@@ -25,12 +25,12 @@ class ColorSliderPanel: MaterialView {
     
     weak var stateDelegate:StateControlDelegate?
     
-    lazy var stateControl:StateChangeControl = {
-        let view = StateChangeControl(frame: .zero)
-        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
-        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
-        return view
-    }()
+//    lazy var stateControl:StateChangeControl = {
+//        let view = StateChangeControl(frame: .zero)
+//        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
+//        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
+//        return view
+//    }()
     
     @objc func undo(){
         stateDelegate?.stateChanged(.undo)
@@ -74,14 +74,14 @@ class ColorSliderPanel: MaterialView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
+        //subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
     }
     
-    @objc func canUndo(_ notification:Notification){
-        if let canundo = notification.userInfo?[.info] as? Bool{
-            stateControl.undoButt.isEnabled = canundo
-        }
-    }
+//    @objc func canUndo(_ notification:Notification){
+//        if let canundo = notification.userInfo?[.info] as? Bool{
+//            stateControl.undoButt.isEnabled = canundo
+//        }
+//    }
     
     private let alphaSlider = AlphaSliderView(frame: .zero)
     private let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
@@ -102,7 +102,7 @@ class ColorSliderPanel: MaterialView {
     func commonSetup(){
         backgroundColor = .white
         addSubview(header)
-        addSubview(stateControl)
+        //addSubview(stateControl)
         colorSlider.addTarget(self, action: #selector(colorIsChanging(_:)), for: .valueChanged)
         colorSlider.addTarget(self, action: #selector(colorChanged(_:)), for: .touchUpInside)
         addSubview(colorSlider)
@@ -166,10 +166,10 @@ class ColorSliderPanel: MaterialView {
             doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             doneButt.heightAnchor.constraint(equalToConstant: 35),
             doneButt.widthAnchor.constraint(equalToConstant: 35),
-            stateControl.trailingAnchor.constraint(equalTo: doneButt.leadingAnchor, constant: -12),
-            stateControl.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            stateControl.widthAnchor.constraint(equalToConstant: 70),
-            stateControl.heightAnchor.constraint(equalToConstant: 30),
+//            stateControl.trailingAnchor.constraint(equalTo: doneButt.leadingAnchor, constant: -12),
+//            stateControl.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+//            stateControl.widthAnchor.constraint(equalToConstant: 70),
+//            stateControl.heightAnchor.constraint(equalToConstant: 30),
             colorSlider.topAnchor.constraint(equalTo: doneButt.bottomAnchor, constant: 12),
             colorSlider.leadingAnchor.constraint(equalTo: leadingAnchor, constant:12),
             colorSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant:-12),

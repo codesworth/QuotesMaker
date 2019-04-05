@@ -80,17 +80,17 @@ class ImagePanel: MaterialView {
     
     weak var stateDelegate:StateControlDelegate?
     
-    lazy var stateControl:StateChangeControl = {
-        let view = StateChangeControl(frame: .zero)
-        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
-        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
-        return view
-    }()
+//    lazy var stateControl:StateChangeControl = {
+//        let view = StateChangeControl(frame: .zero)
+//        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
+//        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
+//        return view
+//    }()
     
     
 
     
-    let height:CGFloat = 450
+    let height:CGFloat = 250
     
     lazy var secondline:LineView = {
         let line = LineView(frame: .zero)
@@ -176,7 +176,7 @@ class ImagePanel: MaterialView {
     func initialize(){
         backgroundColor = .white
         addSubview(header)
-        addSubview(stateControl)
+        //addSubview(stateControl)
         addSubview(scrollView)
         addSubview(closeButton)
         scrollView.addSubview(contentView)

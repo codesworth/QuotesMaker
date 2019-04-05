@@ -78,7 +78,7 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
         case .gradient:
             return 560
         case .img:
-            return 400
+            return 250
         case .layout:
             return 600
         case .text:

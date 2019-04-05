@@ -17,12 +17,12 @@ protocol StylingDelegate:class {
 
 class StylingPanel:MaterialView{
     
-    lazy var stateControl:StateChangeControl = {
-        let view = StateChangeControl(frame: .zero)
-        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
-        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
-        return view
-    }()
+//    lazy var stateControl:StateChangeControl = {
+//        let view = StateChangeControl(frame: .zero)
+//        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
+//        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
+//        return view
+//    }()
     
     lazy var closeButton:CloseButton = {
         let butt = CloseButton(type: .roundedRect)
@@ -116,7 +116,7 @@ class StylingPanel:MaterialView{
     func initialize(){
         backgroundColor = .white
         addSubview(header)
-        addSubview(stateControl)
+        //addSubview(stateControl)
         addSubview(closeButton)
         addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -144,12 +144,12 @@ class StylingPanel:MaterialView{
             $0.width |=| 35
         }
         
-        stateControl.layout{
-            $0.top == topAnchor + 8
-            $0.trailing == closeButton.leadingAnchor - 16
-            $0.height |=| 30
-            $0.width |=| 70
-        }
+//        stateControl.layout{
+//            $0.top == topAnchor + 8
+//            $0.trailing == closeButton.leadingAnchor - 16
+//            $0.height |=| 30
+//            $0.width |=| 70
+//        }
         
         scrollView.layout{
             $0.top == closeButton.bottomAnchor + 12
