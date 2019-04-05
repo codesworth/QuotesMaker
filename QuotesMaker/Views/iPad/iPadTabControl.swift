@@ -1,22 +1,39 @@
 //
-//  TabControl.swift
+//  iPadTabControl.swift
 //  QuotesMaker
 //
-//  Created by Shadrach Mensah on 15/03/2019.
+//  Created by Shadrach Mensah on 05/04/2019.
 //  Copyright © 2019 Shadrach Mensah. All rights reserved.
 //
 
 import UIKit
 
-class TabControl: UIControl {
+@IBDesignable
+class iPadTabControl: UIControl {
     
     var contentImageView:UIImageView = {
         let img = UIImageView(frame: .zero)
         img.contentMode = .scaleAspectFill
         return img
     }()
-
-    private var image:UIImage?
+    
+    @IBInspectable private var image:UIImage?{
+        didSet{
+            contentImageView.image = image
+        }
+    }
+    
+    @IBInspectable var background: UIColor = .white{
+        didSet{
+            backgroundColor = background
+        }
+    }
+    
+    @IBInspectable private var title:BasicLabel = {
+        let lab = BasicLabel(frame: .zero)
+        return lab
+    }()
+    
     init(frame: CGRect,image:UIImage) {
         super.init(frame: frame)
         self.image = image
@@ -35,8 +52,8 @@ class TabControl: UIControl {
     
     
     func initialize(){
-        backgroundColor = .white
         addSubview(contentImageView)
+        addSubview(title)
         contentImageView.image = self.image
     }
     
@@ -55,10 +72,15 @@ class TabControl: UIControl {
         let minDimension = min(bounds.size.width, bounds.size.height)
         guard minDimension > 0 else { return}
         NSLayoutConstraint.activate([
-            contentImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            contentImageView.centerXAnchor.constraint(equalTo: centerXAnchor,constant:-8),
             contentImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             contentImageView.widthAnchor.constraint(equalToConstant: minDimension - 10),
             contentImageView.heightAnchor.constraint(equalToConstant: minDimension - 10)
-        ])
+            
+            ])
+        title.layout{
+            $0.top == contentImageView.bottomAnchor + 8
+            $0.centerX == centerXAnchor
+        }
     }
 }
