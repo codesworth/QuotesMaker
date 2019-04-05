@@ -12,11 +12,18 @@ class iPadStudioVC: UIViewController {
     
     var baseView:BaseView!
     
-    lazy var studioPanel: EditorPanel = {
-        let panel = EditorPanel(frame: .zero)
-        panel.backgroundColor = .seafoamBlue
-        return panel
+//    lazy var studioPanel: EditorPanel = {
+//        let panel = EditorPanel(frame: .zero)
+//        panel.backgroundColor = .seafoamBlue
+//        return panel
+//    }()
+    lazy var taskbarContainer:UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .white
+        view.clipsToBounds = true
+        return view
     }()
+    
     lazy var controlPanelContainer:UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .groupTableViewBackground
@@ -26,6 +33,7 @@ class iPadStudioVC: UIViewController {
         let controller = ControlPanelTable(current: nil)
         return controller
     }()
+    let taskbar = StudioTaskBarController.onlyInstance()
     
     lazy var layerStack:LayerStack = { [unowned self] by in
         let stack = LayerStack(frame:.zero, dataSource: [])
@@ -47,13 +55,21 @@ class iPadStudioVC: UIViewController {
         view.backgroundColor = .white
         view.addSubview(editor)
         self.view.addSubview(controlPanelContainer)
-        view.addSubview(studioPanel)
+        view.addSubview(taskbarContainer)
         view.addSubview(layerStack)
-        iPadLayout()
         add(panelController, to: controlPanelContainer)
+        add(taskbar, to: taskbarContainer)
         editor.addCanvas(baseView)
+        iPadLayout()
         // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
+    }
+    
     
     
     

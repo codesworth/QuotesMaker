@@ -61,6 +61,8 @@
 		3873738C22452BBE00A1FB7B /* StudioEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873738B22452BBE00A1FB7B /* StudioEditorView.swift */; };
 		38743D502257E49A00897B13 /* StudioTaskBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743D4F2257E49A00897B13 /* StudioTaskBarController.swift */; };
 		38743D522257E9E500897B13 /* iPadTabControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743D512257E9E500897B13 /* iPadTabControl.swift */; };
+		38743D542257F59E00897B13 /* TaskBarControlsProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743D532257F59E00897B13 /* TaskBarControlsProxy.swift */; };
+		38743D562258072000897B13 /* EditingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743D552258072000897B13 /* EditingCoordinator.swift */; };
 		38797C2522309DAF003A9D99 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2422309DAF003A9D99 /* Constraints.swift */; };
 		38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */; };
 		38797C2922309E83003A9D99 /* Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38797C2822309E83003A9D99 /* Selectors.swift */; };
@@ -222,6 +224,8 @@
 		3873738B22452BBE00A1FB7B /* StudioEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioEditorView.swift; sourceTree = "<group>"; };
 		38743D4F2257E49A00897B13 /* StudioTaskBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTaskBarController.swift; sourceTree = "<group>"; };
 		38743D512257E9E500897B13 /* iPadTabControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadTabControl.swift; sourceTree = "<group>"; };
+		38743D532257F59E00897B13 /* TaskBarControlsProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBarControlsProxy.swift; sourceTree = "<group>"; };
+		38743D552258072000897B13 /* EditingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingCoordinator.swift; sourceTree = "<group>"; };
 		38797C2422309DAF003A9D99 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegates.swift; sourceTree = "<group>"; };
 		38797C2822309E83003A9D99 /* Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectors.swift; sourceTree = "<group>"; };
@@ -483,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				388BE325222AD4E8005BF44B /* QMEngine.swift */,
+				38743D552258072000897B13 /* EditingCoordinator.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 			children = (
 				38743D4F2257E49A00897B13 /* StudioTaskBarController.swift */,
 				38743D512257E9E500897B13 /* iPadTabControl.swift */,
+				38743D532257F59E00897B13 /* TaskBarControlsProxy.swift */,
 			);
 			path = iPad;
 			sourceTree = "<group>";
@@ -984,6 +990,7 @@
 				3896507F2242DD7F009434B4 /* ModelCollection.swift in Sources */,
 				38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */,
 				3823656D2240674F0078A723 /* +Resizing.swift in Sources */,
+				38743D562258072000897B13 /* EditingCoordinator.swift in Sources */,
 				38C80FC6223C453D00150FD4 /* TabControl.swift in Sources */,
 				38F13A102254C855002C4109 /* iPadStudioVC.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
@@ -1014,6 +1021,7 @@
 				38AA311522442AF50050604A /* BaseContentView.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
 				3896507B2242C154009434B4 /* Layout.swift in Sources */,
+				38743D542257F59E00897B13 /* TaskBarControlsProxy.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				38D97D7822522D3600B941A0 /* State.swift in Sources */,
 				380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */,

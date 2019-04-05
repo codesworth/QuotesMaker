@@ -19,6 +19,7 @@ class StudioVC: UIViewController {
         return editor
     }()
     
+    var coordinator = EditingCoordinator()
     var studioHeight: CGFloat!
     var changes:StateChanges = StateChanges()
     var studioPanel: EditorPanel!
@@ -28,7 +29,7 @@ class StudioVC: UIViewController {
     var imagePanel:ImagePanel!
     var stylingPanel:StylingPanel!
     
-    var baseView:BaseView!
+    
     var stack:LayerStack?
     //private var textField = BackingTextView(frame: .zero)
     private var aspectRatio:Dimensions.AspectRatios = .square
@@ -41,8 +42,7 @@ class StudioVC: UIViewController {
     
     
     func setupCanvas(){
-        let size = Dimensions.sizeForAspect(.square)
-        baseView.frame = CGRect(origin: .zero, size: size)
+        
         editorView.addCanvas(baseView)
     }
     
@@ -55,7 +55,7 @@ class StudioVC: UIViewController {
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         //setupDevice()
-        baseView = BaseView(frame: .zero)
+        
         studioTab = StudioTab(frame: .zero)
         studioPanel = EditorPanel(frame: .zero)
         studioPanel.backgroundColor = .seafoamBlue
@@ -124,7 +124,7 @@ class StudioVC: UIViewController {
         view.addSubview(gradientPanel)
         Utils.animatePanelsIn(gradientPanel)
         gradientPanel.isInView = true
-        if let current = baseView.currentSubview as? ShapableView{
+        if let current = coordinator.baseView.currentSubview as? ShapableView{
             current.layerChanged(true)
         }
         
@@ -135,7 +135,7 @@ class StudioVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{return}
-        if baseView.currentSubview == nil {return}
+        if coordiantor.baseView.currentSubview == nil {return}
         imagePanel.delegate = self
         view.addSubview(imagePanel)
         Utils.animatePanelsIn(imagePanel)
@@ -147,7 +147,7 @@ class StudioVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{Utils.animatePanelsOut(gradientPanel)}
-        if let current = baseView.currentSubview as? BackingTextView {
+        if let current = coordiantor.baseView.currentSubview as? BackingTextView {
             current.textView.becomeFirstResponder()
             return
         }
@@ -181,13 +181,6 @@ class StudioVC: UIViewController {
 
     }
     
-    func blankGradientSelected(){
-
-//        let grad = RectView(frame: baseView.subBounds, layer: BackingGradientlayer())
-//        grad.isGradient = true
-//        baseView.addSubviewable(grad)
-//        setupGradientInteractiveView()
-    }
     
     func addText(){
         let textField = BackingTextView(frame: baseView.subBounds)
