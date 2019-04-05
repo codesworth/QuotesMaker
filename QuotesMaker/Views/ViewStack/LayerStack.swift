@@ -19,6 +19,7 @@ protocol StackTableDelegate:class {
 class LayerStack: MaterialView {
     
     let constraintIds = NSLayoutConstraint.makeIdentifiers()
+    var visible:Bool = false
     
     typealias SwapIndice = (initial:Int,final:Int)
     lazy var stackTable:UITableView = {
@@ -27,7 +28,7 @@ class LayerStack: MaterialView {
         table.backgroundColor = .clear
         table.isEditing = true
         table.allowsSelectionDuringEditing = true
-        table.register(UINib(nibName: "\(StackCellTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCellTableViewCell.self)")
+        table.register(UINib(nibName: "\(StackCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCell.self)")
         return table
     }()
     
@@ -36,7 +37,7 @@ class LayerStack: MaterialView {
     lazy var headerLable:BasicLabel = {
         let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .medium))
         lab.textColor = .primary
-        lab.text = "View Items"
+        lab.text = "Layers"
         return lab
     }()
     
@@ -60,6 +61,27 @@ class LayerStack: MaterialView {
             }, completion: nil)
         }
     }
+    
+    func toggle(){
+        if visible{
+            guard let superview = superview else {return}
+            //superview.constraints.forEach{print($0.identifier ?? "No ID")}
+            let constraint = superview.constraints.first{$0.identifier == constraintIds.leading}
+            guard constraint != nil else {return}
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+                constraint?.constant = -Dimensions.iPadContext.layerStackWidth
+            }, completion: {_ in self.visible = false})
+        }else {
+            guard let superview = superview else {return}
+            //superview.constraints.forEach{print($0.identifier ?? "No ID")}
+            let constraint = superview.constraints.first{$0.identifier == constraintIds.leading}
+            guard constraint != nil else {return}
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+                constraint?.constant = 0
+            }, completion: {_ in self.visible = true})
+        }
+    }
+    
     var dataSource:Alias.StackDataSource = []
 
     init(frame: CGRect, dataSource:Alias.StackDataSource) {
@@ -87,6 +109,7 @@ class LayerStack: MaterialView {
         stackTable.delegate = self
         stackTable.dataSource = self
         subscribeTo(subscription: .layerChanged, selector: #selector(layerChanged(_:)))
+        if UIDevice.idiom == .pad{visible = true}
         
     }
 
@@ -104,8 +127,8 @@ class LayerStack: MaterialView {
         //let tabCons = stackTable.pinAllSides()
         
         NSLayoutConstraint.activate([
-            headerLable.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            headerLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            headerLable.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            headerLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             doneButt.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             doneButt.widthAnchor.constraint(equalToConstant: 30),
@@ -134,26 +157,26 @@ extension LayerStack:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if dataSource.isEmpty{
-            let empty = UILabel(frame: tableView.frame)
-            empty.text = "No Views Added"
-            empty.textAlignment = .center
-            empty.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-            empty.textColor = .primary
-            tableView.backgroundView = empty
-            
-        }
+//        if dataSource.isEmpty{
+//            let empty = UILabel(frame: tableView.frame)
+//            empty.text = "No Views Added"
+//            empty.textAlignment = .center
+//            empty.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+//            empty.textColor = .primary
+//            tableView.backgroundView = empty
+//            
+//        }
         return dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "\(StackCellTableViewCell.self)", for: indexPath) as? StackCellTableViewCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "\(StackCell.self)", for: indexPath) as? StackCell{
             let view = dataSource[indexPath.row]
            cell.configure(id: view.id)
             return cell
         }
         
-        return StackCellTableViewCell()
+        return StackCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

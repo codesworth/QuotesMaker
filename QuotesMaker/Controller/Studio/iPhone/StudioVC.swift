@@ -19,6 +19,7 @@ class StudioVC: UIViewController {
         return editor
     }()
     
+    var coordinator = EditingCoordinator()
     var studioHeight: CGFloat!
     var changes:StateChanges = StateChanges()
     var studioPanel: EditorPanel!
@@ -28,7 +29,7 @@ class StudioVC: UIViewController {
     var imagePanel:ImagePanel!
     var stylingPanel:StylingPanel!
     
-    var baseView:BaseView!
+    
     var stack:LayerStack?
     //private var textField = BackingTextView(frame: .zero)
     private var aspectRatio:Dimensions.AspectRatios = .square
@@ -41,9 +42,8 @@ class StudioVC: UIViewController {
     
     
     func setupCanvas(){
-        let size = Dimensions.sizeForAspect(.square)
-        baseView.frame = CGRect(origin: .zero, size: size)
-        editorView.addCanvas(baseView)
+        
+        editorView.addCanvas(coordinator.baseView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,7 +55,7 @@ class StudioVC: UIViewController {
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
         //setupDevice()
-        baseView = BaseView(frame: .zero)
+        
         studioTab = StudioTab(frame: .zero)
         studioPanel = EditorPanel(frame: .zero)
         studioPanel.backgroundColor = .seafoamBlue
@@ -64,8 +64,8 @@ class StudioVC: UIViewController {
         view.addSubview(studioTab)
         view.addSubview(editorView)
         studioPanel.delegate = self
-        baseView.delegate = self
-        subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChanged(_:)))
+        coordinator.delegate = self
+        //subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChanged(_:)))
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         setupViews()
@@ -120,11 +120,11 @@ class StudioVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{return}
         
-        gradientPanel.delegate = self
+        gradientPanel.delegate = coordinator
         view.addSubview(gradientPanel)
         Utils.animatePanelsIn(gradientPanel)
         gradientPanel.isInView = true
-        if let current = baseView.currentSubview as? ShapableView{
+        if let current = coordinator.baseView.currentSubview as? ShapableView{
             current.layerChanged(true)
         }
         
@@ -135,24 +135,38 @@ class StudioVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{return}
-        if baseView.currentSubview == nil {return}
-        imagePanel.delegate = self
+        if coordinator.baseView.currentSubview == nil {return}
+        imagePanel.delegate = coordinator
         view.addSubview(imagePanel)
         Utils.animatePanelsIn(imagePanel)
         imagePanel.isInView = true
         
     }
     
+    func setupColorPanel(){
+        if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
+        if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
+        if stylingPanel.isInView{Utils.animatePanelsOut(stylingPanel)}
+        if colorPanel.isInView{return}
+        colorPanel.delegate = coordinator
+        view.addSubview(colorPanel)
+        Utils.animatePanelsIn(colorPanel)
+        colorPanel.isInView = true
+        if let current = coordinator.baseView.currentSubview as? ShapableView{
+            current.layerChanged(false)
+        }
+    }
+    
     func setupStyleInteractivePanel(){
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{Utils.animatePanelsOut(gradientPanel)}
-        if let current = baseView.currentSubview as? BackingTextView {
+        if let current = coordinator.baseView.currentSubview as? BackingTextView {
             current.textView.becomeFirstResponder()
             return
         }
         
-        stylingPanel.delegate = self
+        stylingPanel.delegate = coordinator
         view.addSubview(stylingPanel)
         Utils.animatePanelsIn(stylingPanel)
         stylingPanel.isInView = true
@@ -161,9 +175,7 @@ class StudioVC: UIViewController {
     
     func imageOptionSelected(){
 
-        let imageView = BackingImageView(frame: baseView.subBounds)
-        baseView.addSubviewable(imageView)
-        imageView.model.layerFrame = imageView.makeLayerFrame()
+        coordinator.imageOptionSelected()
         setupImageInteractiveView()
     }
     
@@ -174,27 +186,15 @@ class StudioVC: UIViewController {
     }
     
     func shapeSelected(){
-        let shape = RectView(frame: baseView.subBounds)
-        baseView.addSubviewable(shape)
-        shape.model.layerFrame = shape.makeLayerFrame()
+        coordinator.shapeSelected()
         setupColorPanel()
 
     }
     
-    func blankGradientSelected(){
-
-//        let grad = RectView(frame: baseView.subBounds, layer: BackingGradientlayer())
-//        grad.isGradient = true
-//        baseView.addSubviewable(grad)
-//        setupGradientInteractiveView()
-    }
     
     func addText(){
-        let textField = BackingTextView(frame: baseView.subBounds)
+        coordinator.addText()
         
-        baseView.addSubviewable(textField)
-        textField.model.layerFrame = textField.makeLayerFrame()
-        textField.addDoneButtonOnKeyboard()
     }
     
 
@@ -210,38 +210,7 @@ class StudioVC: UIViewController {
 
 }
 
-extension StudioVC:PickerColorDelegate{
-    
-    func setupColorPanel(){
-        if imagePanel.isInView{Utils.animatePanelsOut(imagePanel)}
-        if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
-        if stylingPanel.isInView{Utils.animatePanelsOut(stylingPanel)}
-        if colorPanel.isInView{return}
-        colorPanel.delegate = self
-        view.addSubview(colorPanel)
-        Utils.animatePanelsIn(colorPanel)
-        colorPanel.isInView = true
-        if let current = baseView.currentSubview as? ShapableView{
-            current.layerChanged(false)
-        }
-    }
-    
-    func colorDidChange(_ model: BlankLayerModel) {
-        guard let current = baseView.currentSubview as? ShapableView else {return}
-        var mod = current.model
-        mod.solid = model
-        current.updateModel(mod)
-    }
-    
-    //To visit during State Changeable
-    func previewingWith(_ model: BlankLayerModel) {
-        guard var current = baseView.currentSubview as? ShapableView else {return}
-        var mod = current.model
-        mod.solid = model
-        current.model = mod
-    }
-    
-}
+
 
 
 
@@ -253,7 +222,7 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.originalImage] as? UIImage, let imageView = baseView.currentSubview as? BackingImageView{
+        if let image = info[.originalImage] as? UIImage, let imageView = coordinator.baseView.currentSubview as? BackingImageView{
             //baseView.invalidateLayers()
             imageView.setImage(image: image)
         }
@@ -277,7 +246,6 @@ extension StudioVC:OptionsSelectedDelegate{
             //ShapeSelected()
             break
         case 4:
-            blankGradientSelected()
             break
         default:
             break
@@ -286,34 +254,6 @@ extension StudioVC:OptionsSelectedDelegate{
     }
 }
 
-
-extension StudioVC:StylingDelegate{
-    
-    func didFinishStyling(_ style: Style) {
-        if let current = baseView.currentSubview as? RectView{
-            var model = current.model
-            model.style = style
-            current.updateModel(model)
-        }else if let current = baseView.currentSubview as? BackingImageView{
-            var model = current.model
-            model.style = style
-            current.updateModel(model)
-        }
-    }
-    
-    func didFinishPreviewing(_ style: Style) {
-        if let current = baseView.currentSubview as? RectView{
-            var model = current.model
-            model.style = style
-            current.model = model
-        }else if let current = baseView.currentSubview as? BackingImageView{
-            var model = current.model
-            model.style = style
-            current.model = model
-        }
-    }
-    
-}
 
 
 

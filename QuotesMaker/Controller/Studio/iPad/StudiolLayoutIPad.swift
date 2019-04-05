@@ -12,29 +12,36 @@ import Foundation
 extension iPadStudioVC{
     
     func iPadLayout(){
-        studioPanel.layout{
+        taskbarContainer.layout{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
             $0.trailing == view.trailingAnchor
-            $0.height |=| CGFloat(studioHeight)
+            $0.height |=| 120
+        }
+        
+        taskbar.view.layout{
+            $0.top == taskbarContainer.topAnchor
+            $0.bottom == taskbarContainer.bottomAnchor
+            $0.trailing == taskbarContainer.trailingAnchor
+            $0.leading == taskbarContainer.leadingAnchor
         }
         
         controlPanelContainer.layout{
-            $0.top == studioPanel.bottomAnchor
+            $0.top == taskbarContainer.bottomAnchor
             $0.trailing == view.trailingAnchor
             $0.bottom == view.bottomAnchor
             $0.width |=| Dimensions.iPadContext.controlPanelWidth
         }
         
         layerStack.layout{
-            $0.top == studioPanel.bottomAnchor
+            $0.top == taskbarContainer.bottomAnchor
             $0.leading == view.leadingAnchor -- layerStack.constraintIds.leading
             $0.bottom == view.bottomAnchor
             $0.width |=| Dimensions.iPadContext.layerStackWidth
         }
         
         editor.layout{
-            $0.top == studioPanel.bottomAnchor
+            $0.top == taskbarContainer.bottomAnchor
             $0.leading == layerStack.trailingAnchor
             $0.trailing == controlPanelContainer.leadingAnchor
             $0.bottom == view.bottomAnchor - 2

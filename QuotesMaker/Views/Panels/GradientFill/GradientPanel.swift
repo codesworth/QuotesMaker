@@ -32,23 +32,23 @@ class GradientPanel: MaterialView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
+        //subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
     }
     
-    @objc func canUndo(_ notification:Notification){
-        if let canundo = notification.userInfo?[.info] as? Bool{
-            stateControl.undoButt.isEnabled = canundo
-        }
-    }
+//    @objc func canUndo(_ notification:Notification){
+//        if let canundo = notification.userInfo?[.info] as? Bool{
+//            stateControl.undoButt.isEnabled = canundo
+//        }
+//    }
     
     weak var stateDelegate:StateControlDelegate?
     
-    lazy var stateControl:StateChangeControl = {
-        let view = StateChangeControl(frame: .zero)
-        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
-        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
-        return view
-    }()
+//    lazy var stateControl:StateChangeControl = {
+//        let view = StateChangeControl(frame: .zero)
+//        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
+//        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
+//        return view
+//    }()
     
     @objc func undo(){
         stateDelegate?.stateChanged(.undo)
@@ -172,7 +172,7 @@ class GradientPanel: MaterialView {
         parent.addSubview(scrollView)
         parent.addSubview(titleLable)
         parent.addSubview(doneButt)
-        parent.addSubview(stateControl)
+        //parent.addSubview(stateControl)
         scrollView.addSubview(contentView)
         contentView.addSubview(gradientSegments)
         contentView.addSubview(stepperTitle)
@@ -263,10 +263,10 @@ class GradientPanel: MaterialView {
             doneButt.topAnchor.constraint(equalTo: parent.topAnchor, constant:8),
             doneButt.heightAnchor.constraint(equalToConstant: 35),
             doneButt.widthAnchor.constraint(equalToConstant: 35),
-            stateControl.trailingAnchor.constraint(equalTo: doneButt.leadingAnchor, constant: -12),
-            stateControl.topAnchor.constraint(equalTo: parent.topAnchor, constant: 12),
-            stateControl.widthAnchor.constraint(equalToConstant: 70),
-            stateControl.heightAnchor.constraint(equalToConstant: 30),
+//            stateControl.trailingAnchor.constraint(equalTo: doneButt.leadingAnchor, constant: -12),
+//            stateControl.topAnchor.constraint(equalTo: parent.topAnchor, constant: 12),
+//            stateControl.widthAnchor.constraint(equalToConstant: 70),
+//            stateControl.heightAnchor.constraint(equalToConstant: 30),
             scrollView.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 24),
             scrollView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
