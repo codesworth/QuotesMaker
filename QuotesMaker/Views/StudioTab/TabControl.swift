@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class TabControl: UIControl {
     
     var contentImageView:UIImageView = {
@@ -16,7 +17,23 @@ class TabControl: UIControl {
         return img
     }()
 
-    private var image:UIImage?
+    @IBInspectable private var image:UIImage?{
+        didSet{
+            contentImageView.image = image
+        }
+    }
+    
+    @IBInspectable var background: UIColor = .white{
+        didSet{
+            backgroundColor = background
+        }
+    }
+    
+    @IBInspectable private var title:BasicLabel = {
+        let lab = BasicLabel(frame: .zero)
+        return lab
+    }()
+    
     init(frame: CGRect,image:UIImage) {
         super.init(frame: frame)
         self.image = image
@@ -35,7 +52,6 @@ class TabControl: UIControl {
     
     
     func initialize(){
-        backgroundColor = .white
         addSubview(contentImageView)
         contentImageView.image = self.image
     }

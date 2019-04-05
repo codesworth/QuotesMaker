@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StackCellTableViewCell: UITableViewCell {
+class StackCell: UITableViewCell {
     
     
 
