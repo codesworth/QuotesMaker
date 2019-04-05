@@ -30,6 +30,9 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="txt" translatesAutoresizingMaskIntoConstraints="NO" id="cKb-OA-THa">
                                                         <rect key="frame" x="10" y="8" width="60" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                                        </accessibility>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -48,6 +51,9 @@
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzW-o4-qnP">
                                                 <rect key="frame" x="25" y="60.5" width="30" height="19.5"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                                </accessibility>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -98,6 +104,9 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.85807291669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="1zs-hJ-44W"/>
                                             <constraint firstAttribute="height" constant="80" id="FXS-N2-IwV"/>

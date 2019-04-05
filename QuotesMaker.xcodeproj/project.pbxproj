@@ -563,7 +563,6 @@
 		389B938922275CA1009FE9E6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				38F13A072254366A002C4109 /* iPad */,
 				38965078224279ED009434B4 /* StudioTab */,
 				381865B3223C992C006C0C56 /* ViewStack */,
 				38C80FB7223A7ACB00150FD4 /* Panels */,
@@ -749,6 +748,7 @@
 		38D97D7922531E0200B941A0 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				38F13A072254366A002C4109 /* TaskBar */,
 				38F13A0822543679002C4109 /* ControlPanelTable */,
 				38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */,
 				38F13A0F2254C855002C4109 /* iPadStudioVC.swift */,
@@ -775,14 +775,14 @@
 			path = CollapsibleTableViews;
 			sourceTree = "<group>";
 		};
-		38F13A072254366A002C4109 /* iPad */ = {
+		38F13A072254366A002C4109 /* TaskBar */ = {
 			isa = PBXGroup;
 			children = (
 				38743D4F2257E49A00897B13 /* StudioTaskBarController.swift */,
 				38743D512257E9E500897B13 /* iPadTabControl.swift */,
 				38743D532257F59E00897B13 /* TaskBarControlsProxy.swift */,
 			);
-			path = iPad;
+			path = TaskBar;
 			sourceTree = "<group>";
 		};
 		38F13A0822543679002C4109 /* ControlPanelTable */ = {

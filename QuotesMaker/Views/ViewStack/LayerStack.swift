@@ -19,6 +19,7 @@ protocol StackTableDelegate:class {
 class LayerStack: MaterialView {
     
     let constraintIds = NSLayoutConstraint.makeIdentifiers()
+    var visible:Bool = false
     
     typealias SwapIndice = (initial:Int,final:Int)
     lazy var stackTable:UITableView = {
@@ -60,6 +61,27 @@ class LayerStack: MaterialView {
             }, completion: nil)
         }
     }
+    
+    func toggle(){
+        if visible{
+            guard let superview = superview else {return}
+            //superview.constraints.forEach{print($0.identifier ?? "No ID")}
+            let constraint = superview.constraints.first{$0.identifier == constraintIds.leading}
+            guard constraint != nil else {return}
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+                constraint?.constant = -Dimensions.iPadContext.layerStackWidth
+            }, completion: {_ in self.visible = false})
+        }else {
+            guard let superview = superview else {return}
+            //superview.constraints.forEach{print($0.identifier ?? "No ID")}
+            let constraint = superview.constraints.first{$0.identifier == constraintIds.leading}
+            guard constraint != nil else {return}
+            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
+                constraint?.constant = 0
+            }, completion: {_ in self.visible = true})
+        }
+    }
+    
     var dataSource:Alias.StackDataSource = []
 
     init(frame: CGRect, dataSource:Alias.StackDataSource) {
@@ -87,6 +109,7 @@ class LayerStack: MaterialView {
         stackTable.delegate = self
         stackTable.dataSource = self
         subscribeTo(subscription: .layerChanged, selector: #selector(layerChanged(_:)))
+        if UIDevice.idiom == .pad{visible = true}
         
     }
 

@@ -10,13 +10,14 @@ import UIKit
 
 class iPadStudioVC: UIViewController {
     
-    var baseView:BaseView!
+   
     
 //    lazy var studioPanel: EditorPanel = {
 //        let panel = EditorPanel(frame: .zero)
 //        panel.backgroundColor = .seafoamBlue
 //        return panel
 //    }()
+    let coordinator = EditingCoordinator()
     lazy var taskbarContainer:UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .white
@@ -50,8 +51,7 @@ class iPadStudioVC: UIViewController {
     var studioHeight:CGFloat = 130
     override func viewDidLoad() {
         super.viewDidLoad()
-        let size = Dimensions.sizeForAspect(.square)
-        baseView = BaseView(frame: [0,0,size.width,size.height])
+        coordinator.delegate = self
         view.backgroundColor = .white
         view.addSubview(editor)
         self.view.addSubview(controlPanelContainer)
@@ -59,7 +59,7 @@ class iPadStudioVC: UIViewController {
         view.addSubview(layerStack)
         add(panelController, to: controlPanelContainer)
         add(taskbar, to: taskbarContainer)
-        editor.addCanvas(baseView)
+        editor.addCanvas(coordinator.baseView)
         iPadLayout()
         // Do any additional setup after loading the view.
     }
@@ -69,7 +69,6 @@ class iPadStudioVC: UIViewController {
         super.viewWillAppear(animated)
        
     }
-    
     
     
     
@@ -86,4 +85,16 @@ class iPadStudioVC: UIViewController {
     }
     */
 
+}
+
+
+extension iPadStudioVC:EditingCoordinatorDelegate{
+    
+    func launchImagePicker() {
+        
+    }
+    
+    func beginCroppingImage() {
+        
+    }
 }

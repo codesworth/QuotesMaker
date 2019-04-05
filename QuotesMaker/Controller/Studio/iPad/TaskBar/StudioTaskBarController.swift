@@ -23,6 +23,10 @@ class StudioTaskBarController: UIViewController {
         return vc
     }
     
+    var studio:iPadStudioVC?{
+        guard let parent = parent as? iPadStudioVC else {return nil}
+        return parent
+    }
 
     /*
     // MARK: - Navigation
@@ -35,13 +39,13 @@ class StudioTaskBarController: UIViewController {
     */
 
     @IBAction func addText(_ sender: ControlProxy) {
-        
+        studio?.coordinator.addText()
     }
     @IBAction func addImage(_ sender: ControlProxy) {
-        
+        studio?.coordinator.imageOptionSelected()
     }
     @IBAction func addShape(_ sender: ControlProxy) {
-        
+        studio?.coordinator.shapeSelected()
     }
     @IBAction func addFilter(_ sender: ControlProxy) {
         
@@ -56,15 +60,15 @@ class StudioTaskBarController: UIViewController {
         
     }
     @IBAction func moveUp(_ sender: ControlProxy) {
-        
+        studio?.coordinator.moveSubiewForward()
     }
     
     @IBAction func moveDown(_ sender: ControlProxy) {
-        
+        studio?.coordinator.moveSubiewBackward()
     }
     
     @IBAction func showLayers(_ sender: ControlProxy) {
-        
+        studio?.layerStack.toggle()
     }
     
 }
