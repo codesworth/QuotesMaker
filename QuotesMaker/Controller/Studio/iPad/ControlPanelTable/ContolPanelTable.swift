@@ -20,13 +20,28 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         
     }
     
-    var currentView:BaseView.BaseSubView?
-    
-    init(current:BaseView.BaseSubView?){
-        currentView = current
-        super.init(nibName: nil, bundle: .main)
-        updatepanels()
+    var currentView:BaseView.BaseSubView?{
+        didSet{
+            updatepanels()
+        }
     }
+    
+    init(){
+        super.init(nibName: nil, bundle: .main)
+        self.delegate = self
+        updatepanels()
+        subscribeTo(subscription: .activatedLayer, selector: #selector(currentChanged(_:)))
+        
+    }
+    
+    @objc func currentChanged(_ notification:Notification){
+        if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
+            currentView = view
+        }
+        _tableView.reloadData()
+    }
+    
+    
     
     func updatepanels(){
         if let _ = currentView as? RectView{
@@ -38,8 +53,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         }else{
             panels = SourcePanels.allCases
         }
-    
-        self.delegate = self
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -76,11 +90,11 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
         let type = panels[indexPath.section]
         switch type {
         case .fill:
-            return 250
+            return 170
         case .gradient:
             return 560
         case .img:
-            return 250
+            return 200
         case .layout:
             return 600
         case .text:
