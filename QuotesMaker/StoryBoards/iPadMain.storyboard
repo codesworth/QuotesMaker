@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fT6-Pl-iNt" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBt-w8-vRU">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBt-w8-vRU">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="txt" translatesAutoresizingMaskIntoConstraints="NO" id="cKb-OA-THa">
@@ -59,6 +59,9 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.85807291669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" button="YES"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstItem="GBt-w8-vRU" firstAttribute="leading" secondItem="fT6-Pl-iNt" secondAttribute="leading" id="ERg-Cp-Fkd"/>
                                             <constraint firstAttribute="width" constant="80" id="TDT-Eb-wAr"/>
@@ -75,7 +78,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-3h-Qbv" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="85" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gr9-eb-Ac3">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gr9-eb-Ac3">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_ic" translatesAutoresizingMaskIntoConstraints="NO" id="mkL-uC-2m7">
@@ -116,15 +119,14 @@
                                             <constraint firstItem="tf7-5O-8kW" firstAttribute="centerX" secondItem="nMA-3h-Qbv" secondAttribute="centerX" id="ffL-w8-bDW"/>
                                             <constraint firstAttribute="bottom" secondItem="tf7-5O-8kW" secondAttribute="bottom" id="sEZ-7P-fl9"/>
                                         </constraints>
-                                        <viewLayoutGuide key="safeArea" id="aIl-gI-0EL"/>
                                         <connections>
-                                            <action selector="addImage:" destination="Qqa-jF-RQh" eventType="valueChanged" id="8bm-rh-bbf"/>
+                                            <action selector="addImage:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="mxR-gI-leG"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-L8-B3j" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="170" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAk-90-wPw">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAk-90-wPw">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="NWK-Ca-IJF">
@@ -164,7 +166,7 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="f9n-d0-0ze"/>
                                         <connections>
-                                            <action selector="addShape:" destination="Qqa-jF-RQh" eventType="valueChanged" id="Zt9-ZT-UGr"/>
+                                            <action selector="addShape:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="hKe-oe-M0a"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -175,7 +177,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nR-MS-jgc" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GnB-pc-dJe">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GnB-pc-dJe">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="delete" translatesAutoresizingMaskIntoConstraints="NO" id="VDb-gT-4B5">
@@ -215,13 +217,13 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="IWm-rU-OML"/>
                                         <connections>
-                                            <action selector="thrash:" destination="Qqa-jF-RQh" eventType="valueChanged" id="IS1-eQ-mdA"/>
+                                            <action selector="thrash:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="EAa-AY-s3a"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHi-bC-KIL" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="85" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-SB-WrG">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-SB-WrG">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mup" translatesAutoresizingMaskIntoConstraints="NO" id="37e-OW-dUa">
@@ -260,13 +262,13 @@
                                             <constraint firstAttribute="trailing" secondItem="HUL-SB-WrG" secondAttribute="trailing" id="vUK-HW-cXi"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="moveUp:" destination="Qqa-jF-RQh" eventType="valueChanged" id="egG-4m-AAT"/>
+                                            <action selector="moveUp:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="zdi-5f-W2C"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ar-uK-5TJ" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="170" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1v-G9-D3f">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1v-G9-D3f">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mdw" translatesAutoresizingMaskIntoConstraints="NO" id="Igg-6z-aAs">
@@ -306,13 +308,13 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="PbN-Bs-pJ8"/>
                                         <connections>
-                                            <action selector="moveDown:" destination="Qqa-jF-RQh" eventType="valueChanged" id="Pur-jn-AWb"/>
+                                            <action selector="moveDown:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="dHW-q0-G9F"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAM-JQ-nnv" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="255" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-7Z-gg1">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-7Z-gg1">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="oJA-Kd-0jp">
@@ -352,7 +354,7 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="VK9-no-33X"/>
                                         <connections>
-                                            <action selector="showLayers:" destination="Qqa-jF-RQh" eventType="valueChanged" id="YBJ-Qq-VSa"/>
+                                            <action selector="showLayers:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="g8T-q5-DEp"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -364,7 +366,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZR-5f-pMJ" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOn-cb-8jP">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOn-cb-8jP">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="fpQ-8K-e2u">
@@ -404,13 +406,13 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="c6x-Xw-623"/>
                                         <connections>
-                                            <action selector="addFilter:" destination="Qqa-jF-RQh" eventType="valueChanged" id="2ih-gb-nhR"/>
+                                            <action selector="preview:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="MWK-h5-Tuw"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvT-8D-An8" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="85" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-Pd-yu6">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-Pd-yu6">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="Jfo-TT-f0h">
@@ -450,13 +452,13 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="LS8-Dn-edA"/>
                                         <connections>
-                                            <action selector="preview:" destination="Qqa-jF-RQh" eventType="valueChanged" id="Gry-6L-KbG"/>
+                                            <action selector="preview:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="lCg-97-Eku"/>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpB-vv-L0X" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                         <rect key="frame" x="170" y="0.0" width="80" height="80"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-jN-sNA">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPQ-jN-sNA">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stack" translatesAutoresizingMaskIntoConstraints="NO" id="RKc-cD-lXS">
@@ -496,7 +498,7 @@
                                         </constraints>
                                         <viewLayoutGuide key="safeArea" id="pL5-5e-8RS"/>
                                         <connections>
-                                            <action selector="save:" destination="Qqa-jF-RQh" eventType="valueChanged" id="nR4-Ct-pQg"/>
+                                            <action selector="save:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="Kwr-yN-SKm"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -514,6 +516,7 @@
                         <viewLayoutGuide key="safeArea" id="NFc-DV-0gc"/>
                     </view>
                     <connections>
+                        <outlet property="imageControl" destination="nMA-3h-Qbv" id="Qwe-AG-4ZB"/>
                         <outlet property="textControl" destination="fT6-Pl-iNt" id="VCe-ov-waa"/>
                     </connections>
                 </viewController>

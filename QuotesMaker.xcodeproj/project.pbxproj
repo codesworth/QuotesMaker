@@ -24,7 +24,7 @@
 		38115330224D228400DA7D3B /* SuperRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532F224D228400DA7D3B /* SuperRectView.swift */; };
 		381865B5223C9972006C0C56 /* LayerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B4223C9972006C0C56 /* LayerStack.swift */; };
 		381865B8223C9E1F006C0C56 /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B6223C9E1F006C0C56 /* StackCell.swift */; };
-		381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */; };
+		381865B9223C9E1F006C0C56 /* StackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381865B7223C9E1F006C0C56 /* StackCell.xib */; };
 		381865BB223CF457006C0C56 /* Generic+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BA223CF457006C0C56 /* Generic+Protocols.swift */; };
 		381865BD223CF736006C0C56 /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BC223CF736006C0C56 /* Aliases.swift */; };
 		381865BF223CFC5E006C0C56 /* StudioVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BE223CFC5E006C0C56 /* StudioVCTests.swift */; };
@@ -183,7 +183,7 @@
 		3811532F224D228400DA7D3B /* SuperRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRectView.swift; sourceTree = "<group>"; };
 		381865B4223C9972006C0C56 /* LayerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerStack.swift; sourceTree = "<group>"; };
 		381865B6223C9E1F006C0C56 /* StackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCell.swift; sourceTree = "<group>"; };
-		381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCellTableViewCell.xib; sourceTree = "<group>"; };
+		381865B7223C9E1F006C0C56 /* StackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCell.xib; sourceTree = "<group>"; };
 		381865BA223CF457006C0C56 /* Generic+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Generic+Protocols.swift"; sourceTree = "<group>"; };
 		381865BC223CF736006C0C56 /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		381865BE223CFC5E006C0C56 /* StudioVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioVCTests.swift; sourceTree = "<group>"; };
@@ -352,7 +352,7 @@
 			children = (
 				381865B4223C9972006C0C56 /* LayerStack.swift */,
 				381865B6223C9E1F006C0C56 /* StackCell.swift */,
-				381865B7223C9E1F006C0C56 /* StackCellTableViewCell.xib */,
+				381865B7223C9E1F006C0C56 /* StackCell.xib */,
 			);
 			path = ViewStack;
 			sourceTree = "<group>";
@@ -935,7 +935,7 @@
 				38661B10224C42D300440AC7 /* StudioTabCells.xib in Resources */,
 				38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */,
 				388BE331222B0A16005BF44B /* painter.ttf in Resources */,
-				381865B9223C9E1F006C0C56 /* StackCellTableViewCell.xib in Resources */,
+				381865B9223C9E1F006C0C56 /* StackCell.xib in Resources */,
 				38732E9922300DE700CDB703 /* FontCells.xib in Resources */,
 				38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */,
 				388BE344222C3188005BF44B /* PanelCell.xib in Resources */,
