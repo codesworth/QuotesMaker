@@ -157,8 +157,15 @@ extension BackingImageView{
     
     func flip(_ side:FlipSides){
         guard let image =  image else {return}
+        
         if side == .horizontal{
-           let newImage = image.withHorizontallyFlippedOrientation()
+            let newImage:UIImage?
+            if #available(iOS 10.0, *) {
+                newImage = image.withHorizontallyFlippedOrientation()
+            } else {
+                newImage = rotate(image, degreeAngle: 180)
+                // Fallback on earlier versions
+            }
             var model = self.model
             model.image = newImage
             updateModel(model)
@@ -199,9 +206,9 @@ extension BackingImageView{
         return newImage
     }
     
-    private func rotate(_ image:UIImage) -> UIImage?{
+    private func rotate(_ image:UIImage,degreeAngle:CGFloat = 90) -> UIImage?{
         
-        var rotatedSize = CGRect(origin: .zero, size: image.size).applying(CGAffineTransform(rotationAngle: .Angle(90))).size
+        var rotatedSize = CGRect(origin: .zero, size: image.size).applying(CGAffineTransform(rotationAngle: .Angle(degreeAngle))).size
         rotatedSize.width = floor(rotatedSize.width)
         rotatedSize.height = floor(rotatedSize.height)
         UIGraphicsBeginImageContextWithOptions(rotatedSize, false, image.scale)

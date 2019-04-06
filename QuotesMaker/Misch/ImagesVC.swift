@@ -54,8 +54,16 @@ class ImagesVC: UIViewController {
             controller = SFSafariViewController(url: url)
         }
         
-        controller.preferredControlTintColor = .white
-        controller.preferredBarTintColor = .seafoamBlue
+        if #available(iOS 10.0, *) {
+            controller.preferredControlTintColor = .white
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 10.0, *) {
+            controller.preferredBarTintColor = .seafoamBlue
+        } else {
+            // Fallback on earlier versions
+        }
         present(controller, animated: true, completion: nil)
         //        if UIApplication.shared.canOpenURL(url){
         //            UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -91,14 +99,19 @@ class ImagesVC: UIViewController {
     
     func turnLayerIntoImage(){
         let layer = baseView.layer
-        let renderer = UIGraphicsImageRenderer(size: baseView.bounds.size)
-        DispatchQueue.main.async {
-            let image = renderer.image { (context) in
-                layer.render(in: context.cgContext)
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: baseView.bounds.size)
+            DispatchQueue.main.async {
+                let image = renderer.image { (context) in
+                    layer.render(in: context.cgContext)
+                }
+                self.imageView.image = image
+                print("Image Orientation is:\(image.imageOrientation)")
             }
-            self.imageView.image = image
-            print("Image Orientation is:\(image.imageOrientation)")
+        } else {
+            // Fallback on earlier versions
         }
+        
         
         
     }

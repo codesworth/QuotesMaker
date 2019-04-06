@@ -33,6 +33,13 @@ extension iPadStudioVC{
             $0.width |=| Dimensions.iPadContext.controlPanelWidth
         }
         
+        panelController.view.layout{
+            $0.top == controlPanelContainer.topAnchor
+            $0.trailing == controlPanelContainer.trailingAnchor
+            $0.bottom == controlPanelContainer.bottomAnchor
+            $0.width |=| Dimensions.iPadContext.controlPanelWidth
+        }
+        
         layerStack.layout{
             $0.top == taskbarContainer.bottomAnchor
             $0.leading == view.leadingAnchor -- layerStack.constraintIds.leading

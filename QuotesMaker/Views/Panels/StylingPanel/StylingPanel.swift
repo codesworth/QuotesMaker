@@ -117,6 +117,7 @@ class StylingPanel:MaterialView{
         backgroundColor = .white
         addSubview(header)
         //addSubview(stateControl)
+        
         addSubview(closeButton)
         addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -132,6 +133,7 @@ class StylingPanel:MaterialView{
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        if UIDevice.idiom == .pad{closeButton.isHidden = true}
         header.layout{
             $0.top == topAnchor + 8
             $0.leading == leadingAnchor + 20

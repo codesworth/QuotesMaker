@@ -11,6 +11,7 @@ import UIKit
 class StudioTaskBarController: UIViewController {
     
     
+    @IBOutlet weak var imageControl: ControlProxy!
     @IBOutlet weak var textControl: ControlProxy!
     
     override func viewDidLoad() {

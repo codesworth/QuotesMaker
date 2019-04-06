@@ -63,38 +63,38 @@ class PanelContainerCell: UITableViewCell {
     
     
     func setupGradientInteractiveView(){
-        let gradientPanel = GradientPanel(frame: [0,0,standardWidth,560])
+        let gradientPanel = GradientPanel(frame:.zero) //[0,0,standardWidth,560])
         addSubview(gradientPanel)
-//        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-//        NSLayoutConstraint.activate(gradientPanel.pinAllSides())
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        NSLayoutConstraint.activate(gradientPanel.pinAllSides())
     }
     
     func setupFillInteractiveView(){
-        let panel = ColorSliderPanel(frame: [0,0,standardWidth,250])
+        let panel = ColorSliderPanel(frame:.zero)
         addSubview(panel)
-//        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-//        NSLayoutConstraint.activate(panel.pinAllSides())
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        NSLayoutConstraint.activate(panel.pinAllSides())
     }
     
     func setupImageInteractiveView(){
-        let panel = ImagePanel(frame: [0,0,standardWidth,400])
+        let panel = ImagePanel(frame: .zero)//[0,0,standardWidth,400])
         addSubview(panel)
-//        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-//        NSLayoutConstraint.activate(panel.pinAllSides())
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        NSLayoutConstraint.activate(panel.pinAllSides())
     }
     
     func setupTextInteractiveView(){
-        let panel = TextDesignableInputView(frame: [0,0,standardWidth,600], model: TextLayerModel())
+        let panel = TextDesignableInputView(frame:.zero,model: TextLayerModel()) //[0,0,standardWidth,600], model: TextLayerModel())
         addSubview(panel)
-//        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-//        NSLayoutConstraint.activate(panel.pinAllSides())
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        NSLayoutConstraint.activate(panel.pinAllSides())
     }
     
     func setupStyleInteractiveView(){
-        let panel = StylingPanel(frame: [0,0,standardWidth,600])
+        let panel = StylingPanel(frame:.zero) //[0,0,standardWidth,600])
         addSubview(panel)
-//        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-//        NSLayoutConstraint.activate(panel.pinAllSides())
+        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        NSLayoutConstraint.activate(panel.pinAllSides())
     }
     
 

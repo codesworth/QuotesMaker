@@ -17,15 +17,31 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         case gradient = "Gradient"
         case text = "Text"
         case layout = "Style"
+        
     }
     
-    var currentView:BaseView.BaseSubView?
+    var currentView:BaseView.BaseSubView?{
+        didSet{
+            updatepanels()
+        }
+    }
     
-    init(current:BaseView.BaseSubView?){
-        currentView = current
+    init(){
         super.init(nibName: nil, bundle: .main)
+        self.delegate = self
         updatepanels()
+        subscribeTo(subscription: .activatedLayer, selector: #selector(currentChanged(_:)))
+        
     }
+    
+    @objc func currentChanged(_ notification:Notification){
+        if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
+            currentView = view
+        }
+        _tableView.reloadData()
+    }
+    
+    
     
     func updatepanels(){
         if let _ = currentView as? RectView{
@@ -37,8 +53,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         }else{
             panels = SourcePanels.allCases
         }
-    
-        self.delegate = self
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,6 +66,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         super.viewDidLoad()
         view.backgroundColor = .groupTableViewBackground
     }
+    
 }
 
 
@@ -74,11 +90,11 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
         let type = panels[indexPath.section]
         switch type {
         case .fill:
-            return 250
+            return 170
         case .gradient:
             return 560
         case .img:
-            return 250
+            return 200
         case .layout:
             return 600
         case .text:

@@ -14,6 +14,7 @@ extension ImagePanel{
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        if UIDevice.idiom == .pad{closeButton.isHidden = true}
         pickFromInternetButton.roundCorners()
         pickFromGalleryButton.roundCorners(5)
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}

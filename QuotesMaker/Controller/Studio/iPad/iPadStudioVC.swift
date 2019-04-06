@@ -31,7 +31,7 @@ class iPadStudioVC: UIViewController {
         return view
     }()
     lazy var panelController:ControlPanelTable = {
-        let controller = ControlPanelTable(current: nil)
+        let controller = ControlPanelTable()
         return controller
     }()
     let taskbar = StudioTaskBarController.onlyInstance()

@@ -32,7 +32,7 @@ extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        chosenFont = fonts[indexPath.row].font.fontName
+        chosenFont = fonts[indexPath.row].font?.fontName
         let newFont = UIFont(name: chosenFont, size: CGFloat(fontSizeStepper.value))!
         model.font = newFont
         delegate?.didUpdateModel(model)

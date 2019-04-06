@@ -12,7 +12,7 @@ class BackingTextView: UIView {
     
     lazy var textView:UITextView = { [unowned self] by in
         let view = UITextView(frame: bounds, textContainer: nil)
-        view.adjustsFontForContentSizeCategory = true
+        //view.adjustsFontForContentSizeCategory = true
         view.delegate = self
         view.backgroundColor = .clear
         return view

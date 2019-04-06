@@ -245,6 +245,7 @@ class GradientPanel: MaterialView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        if UIDevice.idiom == .pad{doneButt.isHidden = true}
         parent.translatesAutoresizingMaskIntoConstraints = false
         parent.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
