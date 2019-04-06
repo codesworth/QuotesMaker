@@ -25,7 +25,7 @@ extension UIFont{
     class func getFeaturedFonts()->[Font]{
         var fonts:[Font] = []
         for font in featureFonts{
-            let font = Font(name: font.key, font: UIFont(name: font.value, size: 40)!)
+            let font = Font(name: font.key, font: UIFont(name: font.value, size: 40))
             fonts.append(font)
         }
         return fonts
@@ -33,7 +33,7 @@ extension UIFont{
     
     struct Font{
         let name:String
-        let font:UIFont
+        let font:UIFont?
     }
     
     class var featureFonts:[String:String]{

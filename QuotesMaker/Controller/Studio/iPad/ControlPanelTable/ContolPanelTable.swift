@@ -17,6 +17,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         case gradient = "Gradient"
         case text = "Text"
         case layout = "Style"
+        
     }
     
     var currentView:BaseView.BaseSubView?
@@ -51,6 +52,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         super.viewDidLoad()
         view.backgroundColor = .groupTableViewBackground
     }
+    
 }
 
 
