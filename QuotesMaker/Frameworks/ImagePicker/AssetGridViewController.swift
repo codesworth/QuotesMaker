@@ -16,6 +16,10 @@ private extension UICollectionView {
     }
 }
 
+protocol FetchedAssetDelegate:class {
+    func didPickImage(image:UIImage)
+}
+
 class AssetGridViewController: UICollectionViewController {
     
     var fetchResult: PHFetchResult<PHAsset>!
@@ -23,19 +27,26 @@ class AssetGridViewController: UICollectionViewController {
     var availableWidth: CGFloat = 0
     
     //@IBOutlet var addButtonItem: UIBarButtonItem!
-    lazy var collectionViewFlowLayout: UICollectionViewFlowLayout = {
+    var collectionViewFlowLayout: UICollectionViewFlowLayout!
+    
+    class var flow: UICollectionViewFlowLayout{
         let flow = UICollectionViewFlowLayout()
         flow.scrollDirection = .vertical
         return flow
-    }()
+    }
     
+    weak var delegate:FetchedAssetDelegate?
     fileprivate let imageManager = PHCachingImageManager()
     fileprivate var thumbnailSize: CGSize!
     fileprivate var previousPreheatRect = CGRect.zero
     
     // MARK: UIViewController / Life Cycle
     
-    
+    init() {
+        collectionViewFlowLayout = AssetGridViewController.flow
+        super.init(collectionViewLayout: AssetGridViewController.flow)
+        collectionView.register(UINib(nibName: "\(GridViewCell.self)", bundle: .main), forCellWithReuseIdentifier: "\(GridViewCell.self)")
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -60,6 +71,8 @@ class AssetGridViewController: UICollectionViewController {
             allPhotosOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: true)]
             fetchResult = PHAsset.fetchAssets(with: allPhotosOptions)
         }
+        
+        
     }
     
     deinit {
@@ -115,6 +128,15 @@ class AssetGridViewController: UICollectionViewController {
 //    }
     
     // MARK: UICollectionView
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let asset = fetchResult.object(at: indexPath.item)
+        delegate?.didPickAsset(asset: asset)
+        removeFrom()
+        
+    }
+    
+
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fetchResult.count

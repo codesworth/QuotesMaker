@@ -416,6 +416,13 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
+		385D306C225A32E30054694A /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		38661AF6224907EB00440AC7 /* EditorPanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -765,6 +772,7 @@
 		38D97D7922531E0200B941A0 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				385D306C225A32E30054694A /* ImagePicker */,
 				38F13A072254366A002C4109 /* TaskBar */,
 				38F13A0822543679002C4109 /* ControlPanelTable */,
 				38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */,

@@ -91,7 +91,7 @@ class iPadStudioVC: UIViewController {
 extension iPadStudioVC:EditingCoordinatorDelegate{
     
     func launchImagePicker() {
-        let picker = UIImagePickerController()
+        let picker = AssetGridViewController()
         picker.delegate = coordinator
         add(picker, to: controlPanelContainer)
         picker.view.translatesAutoresizingMaskIntoConstraints = false

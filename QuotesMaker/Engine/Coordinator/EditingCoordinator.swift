@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class EditingCoordinator:NSObject{
     
     var baseView:BaseView
@@ -176,6 +177,15 @@ extension EditingCoordinator:ImagePanelDelegate{
             current.flip(side)
         }
     }
+}
+
+extension EditingCoordinator:FetchedAssetDelegate{
+    
+    func didPickImage(image:UIImage){
+        print("Asset acquired: \(asset.description)")
+        updateStaticImage(asset: asset)
+    }
+
 }
 
 
