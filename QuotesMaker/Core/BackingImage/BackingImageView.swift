@@ -79,7 +79,7 @@ class BackingImageView: UIView{
        
         var new = model
         new.image = image
-        updateModel(model)
+        updateModel(new)
         Subscription.main.post(suscription: .stateChange, object: true)
         //Subscription.main.post(suscription: .canUndo, object: true)
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.Name.canUndo.rawValue), object: nil)

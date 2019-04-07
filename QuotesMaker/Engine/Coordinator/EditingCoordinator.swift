@@ -9,14 +9,16 @@
 import UIKit
 
 
-class EditingCoordinator{
+class EditingCoordinator:NSObject{
     
     var baseView:BaseView
     weak var delegate:EditingCoordinatorDelegate?
-    init(){
+    override init(){
+        
         baseView = BaseView(frame: .zero)
         let size = Dimensions.sizeForAspect(.square)
         baseView.frame = CGRect(origin: .zero, size: size)
+        super.init()
     }
     
     var  layerDatasource:Alias.StackDataSource{
@@ -32,6 +34,14 @@ class EditingCoordinator{
         
     }
     
+    
+    func deleteCurrent(){
+        if let current = baseView.currentSubview{
+            current.removeFromSuperview()
+            baseView.currentSubview = nil
+            
+        }
+    }
    
     
     func shapeSelected(){
@@ -106,6 +116,7 @@ extension EditingCoordinator:PickerColorDelegate{
     func colorDidChange(_ model: BlankLayerModel) {
         guard let current = baseView.currentSubview as? ShapableView else {return}
         var mod = current.model
+        mod.isGradient = false
         mod.solid = model
         current.updateModel(mod)
     }
@@ -114,6 +125,7 @@ extension EditingCoordinator:PickerColorDelegate{
     func previewingWith(_ model: BlankLayerModel) {
         guard var current = baseView.currentSubview as? ShapableView else {return}
         var mod = current.model
+        mod.isGradient = false
         mod.solid = model
         current.model = mod
     }
@@ -126,6 +138,7 @@ extension EditingCoordinator:GradientOptionsDelegate{
         guard let current = baseView.currentSubview as? ShapableView else {return}
         var mod = current.model
         mod.gradient = model
+        mod.isGradient = true
         current.updateModel(mod)
     }
     

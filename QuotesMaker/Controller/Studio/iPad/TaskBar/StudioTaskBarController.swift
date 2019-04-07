@@ -58,7 +58,7 @@ class StudioTaskBarController: UIViewController {
         
     }
     @IBAction func thrash(_ sender: ControlProxy) {
-        
+        studio?.coordinator.deleteCurrent()
     }
     @IBAction func moveUp(_ sender: ControlProxy) {
         studio?.coordinator.moveSubiewForward()

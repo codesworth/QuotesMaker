@@ -52,7 +52,9 @@ class RectView:SuperRectView{
                 if let layer = superlayer as? BackingGradientlayer{
                     layer.model = grad
                 }else{
+                    superlayer.removeFromSuperlayer()
                     superlayer = BackingGradientlayer()
+                    layer.addSublayer(superlayer)
                     (superlayer as! BackingGradientlayer).model = grad
                 }
                 
@@ -61,7 +63,9 @@ class RectView:SuperRectView{
                 if let layer = superlayer as? BlankBackingLayer{
                     layer.model = solid
                 }else{
+                    superlayer.removeFromSuperlayer()
                     superlayer = BlankBackingLayer()
+                    layer.addSublayer(superlayer)
                     (superlayer as! BlankBackingLayer).model = solid
                 }
             }

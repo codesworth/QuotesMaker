@@ -100,7 +100,7 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
         case .img:
             return 200
         case .layout:
-            return 600
+            return 670
 //        case .text:
 //            return 600
         default:
