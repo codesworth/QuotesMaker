@@ -15,7 +15,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
        case img = "Image"
         case fill = "Fill"
         case gradient = "Gradient"
-        case text = "Text"
+//        case text = "Text"
         case layout = "Style"
         
     }
@@ -34,6 +34,10 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         
     }
     
+    var studio:iPadStudioVC?{
+        return parent as? iPadStudioVC
+    }
+    
     @objc func currentChanged(_ notification:Notification){
         if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
             currentView = view
@@ -45,11 +49,11 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
     
     func updatepanels(){
         if let _ = currentView as? RectView{
-            panels = SourcePanels.allCases.filter{$0 != .text && $0 != .img}
+            panels = SourcePanels.allCases.filter{$0 != .img}
         }else if let _ = currentView as? BackingImageView{
-            panels = SourcePanels.allCases.filter{$0 != .fill && $0 != .gradient}
+            panels = [.img,.layout]
         }else if let _ = currentView as? BackingTextView{
-            panels = [.text]
+            panels = []
         }else{
             panels = SourcePanels.allCases
         }
@@ -82,7 +86,7 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
     
     func collapsibleTableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let type = panels[indexPath.section]
-        let cell = PanelContainerCell(type: type)
+        let cell = PanelContainerCell(panel: getPanel(type: type))
         return cell
     }
     
@@ -97,8 +101,8 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
             return 200
         case .layout:
             return 600
-        case .text:
-            return 600
+//        case .text:
+//            return 600
         default:
             return 400
         }
@@ -113,12 +117,76 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
             return "Gradient"
         case .img:
             return "Image Options"
-        case .text:
-            return "Text"
+//        case .text:
+//            return "Text"
         case .layout:
             return "Styling"
         }
     }
     
     
+}
+
+extension ControlPanelTable{
+    
+    func setupGradientInteractiveView()->GradientPanel{
+        let gradientPanel = GradientPanel(frame:.zero) //[0,0,standardWidth,560])
+        gradientPanel.delegate = studio?.coordinator
+        return gradientPanel
+    
+        //addSubview(gradientPanel)
+//        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+//        NSLayoutConstraint.activate(gradientPanel.pinAllSides())
+    }
+    
+    func setupFillInteractiveView()->ColorSliderPanel{
+        let panel = ColorSliderPanel(frame:.zero)
+        panel.delegate =  studio?.coordinator
+        return panel
+        //addSubview(panel)
+        
+        //subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        //NSLayoutConstraint.activate(panel.pinAllSides())
+    }
+    
+    func setupImageInteractiveView()->ImagePanel{
+        let panel = ImagePanel(frame: .zero)//[0,0,standardWidth,400])
+        panel.delegate =  studio?.coordinator
+        return panel
+        //addSubview(panel)
+        //subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        //NSLayoutConstraint.activate(panel.pinAllSides())
+    }
+    
+//    func setupTextInteractiveView()->{
+//        let panel = TextDesignableInputView(frame:.zero,model: TextLayerModel()) //[0,0,standardWidth,600], model: TextLayerModel())
+//        //panel.delegate =  studio?.coordinator
+//        //addSubview(panel)
+//        //subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+//        //NSLayoutConstraint.activate(panel.pinAllSides())
+//    }
+    
+    func setupStyleInteractiveView()->StylingPanel{
+        let panel = StylingPanel(frame:.zero) //[0,0,standardWidth,600])
+        panel.delegate =  studio?.coordinator
+        return panel
+        //addSubview(panel)
+        //subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        //NSLayoutConstraint.activate(panel.pinAllSides())
+    }
+    
+    func getPanel(type:SourcePanels)->UIView{
+            switch type {
+            case .fill:
+                return setupFillInteractiveView()
+            case .gradient:
+                return setupGradientInteractiveView()
+               
+            case .img:
+                return setupImageInteractiveView()
+            case .layout:
+                return setupStyleInteractiveView()
+                
+            }
+        }
 }
