@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Photos
 
 
 class EditingCoordinator:NSObject{
@@ -182,8 +182,9 @@ extension EditingCoordinator:ImagePanelDelegate{
 extension EditingCoordinator:FetchedAssetDelegate{
     
     func didPickImage(image:UIImage){
-        print("Asset acquired: \(asset.description)")
-        updateStaticImage(asset: asset)
+        if let base = baseView.currentSubview as? BackingImageView{
+            base.setImage(image: image)
+        }
     }
 
 }

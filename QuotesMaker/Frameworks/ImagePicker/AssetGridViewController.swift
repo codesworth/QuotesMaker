@@ -75,6 +75,24 @@ class AssetGridViewController: UICollectionViewController {
         
     }
     
+    func updateStaticImage(asset:PHAsset) {
+        let targetSize:CGSize =  [500]
+        // Prepare the options to pass when fetching the (photo, or video preview) image.
+        let options = PHImageRequestOptions()
+        options.deliveryMode = .highQualityFormat
+        options.isNetworkAccessAllowed = true
+        PHImageManager.default().requestImage(for: asset, targetSize: targetSize.scaledBy(UIScreen.main.scale), contentMode: .aspectFit, options: options,resultHandler:
+            { image, _ in
+                
+                guard let image = image else { return }
+                
+                DispatchQueue.main.async {
+                    self.delegate?.didPickImage(image: image)
+                    self.navigationController?.removeFrom()
+                }
+        })
+    }
+    
     deinit {
         PHPhotoLibrary.shared().unregisterChangeObserver(self)
     }
@@ -131,8 +149,7 @@ class AssetGridViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let asset = fetchResult.object(at: indexPath.item)
-        delegate?.didPickAsset(asset: asset)
-        removeFrom()
+        updateStaticImage(asset: asset)
         
     }
     
