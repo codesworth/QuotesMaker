@@ -124,9 +124,9 @@ class StudioVC: UIViewController {
         view.addSubview(gradientPanel)
         Utils.animatePanelsIn(gradientPanel)
         gradientPanel.isInView = true
-        if let current = coordinator.baseView.currentSubview as? ShapableView{
-            current.layerChanged(true)
-        }
+//        if let current = coordinator.baseView.currentSubview as? ShapableView{
+//            current.layerChanged(true)
+//        }
         
     }
     
@@ -152,9 +152,9 @@ class StudioVC: UIViewController {
         view.addSubview(colorPanel)
         Utils.animatePanelsIn(colorPanel)
         colorPanel.isInView = true
-        if let current = coordinator.baseView.currentSubview as? ShapableView{
-            current.layerChanged(false)
-        }
+        //if let current = coordinator.baseView.currentSubview as? ShapableView{
+         //   current.layerChanged(false)
+        //}
     }
     
     func setupStyleInteractivePanel(){

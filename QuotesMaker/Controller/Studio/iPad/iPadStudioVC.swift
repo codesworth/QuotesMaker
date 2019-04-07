@@ -91,7 +91,12 @@ class iPadStudioVC: UIViewController {
 extension iPadStudioVC:EditingCoordinatorDelegate{
     
     func launchImagePicker() {
-        
+        let picker = AssetGridViewController()
+        picker.delegate = coordinator
+        let nav = UINavigationController(rootViewController: picker)
+        add(nav, to: controlPanelContainer)
+        nav.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(nav.view.pinAllSides())
     }
     
     func beginCroppingImage() {
