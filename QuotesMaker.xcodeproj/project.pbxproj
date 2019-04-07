@@ -40,6 +40,9 @@
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
+		385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D3066225A2BBB0054694A /* AssetGridViewController.swift */; };
+		385D306A225A2C9D0054694A /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D3068225A2C9D0054694A /* GridViewCell.swift */; };
+		385D306B225A2C9D0054694A /* GridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385D3069225A2C9D0054694A /* GridViewCell.xib */; };
 		3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861A4A2222691B70040D819 /* ImagesVC.swift */; };
 		38661AFB2249088300440AC7 /* ShapesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661AF92249088300440AC7 /* ShapesCell.swift */; };
 		38661AFC2249088300440AC7 /* ShapesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38661AFA2249088300440AC7 /* ShapesCell.xib */; };
@@ -204,6 +207,9 @@
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
+		385D3066225A2BBB0054694A /* AssetGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetGridViewController.swift; sourceTree = "<group>"; };
+		385D3068225A2C9D0054694A /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
+		385D3069225A2C9D0054694A /* GridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridViewCell.xib; sourceTree = "<group>"; };
 		3861A4A2222691B70040D819 /* ImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesVC.swift; sourceTree = "<group>"; };
 		38661AF92249088300440AC7 /* ShapesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesCell.swift; sourceTree = "<group>"; };
 		38661AFA2249088300440AC7 /* ShapesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShapesCell.xib; sourceTree = "<group>"; };
@@ -400,6 +406,16 @@
 			path = PhotoTweaks;
 			sourceTree = "<group>";
 		};
+		385D3065225A2AE80054694A /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				385D3066225A2BBB0054694A /* AssetGridViewController.swift */,
+				385D3068225A2C9D0054694A /* GridViewCell.swift */,
+				385D3069225A2C9D0054694A /* GridViewCell.xib */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
 		38661AF6224907EB00440AC7 /* EditorPanel */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +472,7 @@
 		387B96472229966F00824498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				385D3065225A2AE80054694A /* ImagePicker */,
 				38F13A02225435D1002C4109 /* CollapsibleTableViews */,
 				38661B06224BF41300440AC7 /* AutoLayoutDSL */,
 				3823656E2240ED990078A723 /* PhotoTweaks */,
@@ -938,6 +955,7 @@
 				381865B9223C9E1F006C0C56 /* StackCell.xib in Resources */,
 				38732E9922300DE700CDB703 /* FontCells.xib in Resources */,
 				38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */,
+				385D306B225A2C9D0054694A /* GridViewCell.xib in Resources */,
 				388BE344222C3188005BF44B /* PanelCell.xib in Resources */,
 				38F13A0E2254B6FF002C4109 /* PanelContainerCell.xib in Resources */,
 				38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */,
@@ -1029,6 +1047,7 @@
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
 				38F13A0A225436D9002C4109 /* ContolPanelTable.swift in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
+				385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */,
 				38AA311522442AF50050604A /* BaseContentView.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
 				3896507B2242C154009434B4 /* Layout.swift in Sources */,
@@ -1042,6 +1061,7 @@
 				3811532C224D0E5B00DA7D3B /* RectView.swift in Sources */,
 				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
 				38743D522257E9E500897B13 /* iPadTabControl.swift in Sources */,
+				385D306A225A2C9D0054694A /* GridViewCell.swift in Sources */,
 				381865BB223CF457006C0C56 /* Generic+Protocols.swift in Sources */,
 				380C78FE2232CA9E006B8F8D /* ImageModel.swift in Sources */,
 				388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */,

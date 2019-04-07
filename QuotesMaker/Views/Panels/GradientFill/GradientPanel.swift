@@ -276,7 +276,7 @@ class GradientPanel: MaterialView {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             contentView.widthAnchor.constraint(equalTo: parent.widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 540),
+            contentView.heightAnchor.constraint(equalToConstant: 670),
             //priorityC,
             gradientSegments.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.heightAnchor.constraint(equalToConstant: frame.height),
