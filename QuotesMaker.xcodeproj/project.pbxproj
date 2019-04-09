@@ -121,6 +121,7 @@
 		38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687B223E8E3D00F29F52 /* Elysium.swift */; };
 		38A6687E223EED7C00F29F52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687D223EED7C00F29F52 /* Colors.swift */; };
 		38AA311522442AF50050604A /* BaseContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA311422442AF50050604A /* BaseContentView.swift */; };
+		38C697F5225D05FA009C8CCD /* PickerNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C697F4225D05FA009C8CCD /* PickerNavController.swift */; };
 		38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FB8223A837C00150FD4 /* StudioTab.swift */; };
 		38C80FBD223A904700150FD4 /* StateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FBC223A904700150FD4 /* StateProtocol.swift */; };
 		38C80FBF223A98B900150FD4 /* StateChangeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FBE223A98B900150FD4 /* StateChangeControl.swift */; };
@@ -288,6 +289,7 @@
 		38A6687B223E8E3D00F29F52 /* Elysium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elysium.swift; sourceTree = "<group>"; };
 		38A6687D223EED7C00F29F52 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		38AA311422442AF50050604A /* BaseContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContentView.swift; sourceTree = "<group>"; };
+		38C697F4225D05FA009C8CCD /* PickerNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerNavController.swift; sourceTree = "<group>"; };
 		38C80FB8223A837C00150FD4 /* StudioTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTab.swift; sourceTree = "<group>"; };
 		38C80FBC223A904700150FD4 /* StateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateProtocol.swift; sourceTree = "<group>"; };
 		38C80FBE223A98B900150FD4 /* StateChangeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateChangeControl.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 		385D306C225A32E30054694A /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				38C697F4225D05FA009C8CCD /* PickerNavController.swift */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -1067,6 +1070,7 @@
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,
 				38C80FC2223B073700150FD4 /* Studio+Extensions.swift in Sources */,
 				3811532C224D0E5B00DA7D3B /* RectView.swift in Sources */,
+				38C697F5225D05FA009C8CCD /* PickerNavController.swift in Sources */,
 				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
 				38743D522257E9E500897B13 /* iPadTabControl.swift in Sources */,
 				385D306A225A2C9D0054694A /* GridViewCell.swift in Sources */,

@@ -114,7 +114,7 @@ class StylingPanel:MaterialView{
     weak var stateDelegate:StateControlDelegate?
     
     func initialize(){
-        backgroundColor = .white
+        backgroundColor = .blue
         addSubview(header)
         //addSubview(stateControl)
         
@@ -166,7 +166,7 @@ class StylingPanel:MaterialView{
             $0.bottom == scrollView.bottomAnchor
             $0.trailing == scrollView.trailingAnchor
             $0.width == widthAnchor
-            $0.height |=| 500
+            $0.height |=| 670
         }
         
         

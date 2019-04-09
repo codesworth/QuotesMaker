@@ -55,7 +55,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         }else if let _ = currentView as? BackingTextView{
             panels = []
         }else{
-            panels = SourcePanels.allCases
+            panels = [.layout]
         }
         
     }
