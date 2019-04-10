@@ -90,7 +90,7 @@ class Dimensions{
         }
         
         static var layerStackWidth:CGFloat{
-            return UIScreen.main.bounds.width * 0.15
+            return UIScreen.main.bounds.width * 0.20
         }
     }
     

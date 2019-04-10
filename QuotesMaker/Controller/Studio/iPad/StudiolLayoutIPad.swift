@@ -119,6 +119,11 @@ extension iPadStudioVC{
         }
     }
     
+    
+    func iPadLayoutLargePotrait(){
+        
+    }
+    
     func forceInterfaceForlandscape(){
         let value = UIInterfaceOrientation.landscapeLeft.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
