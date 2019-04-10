@@ -50,6 +50,8 @@ class StylingPanel:MaterialView{
         return lab
     }()
     
+    
+    
     lazy var cornerPanel: CornersPanel = {
         
         let panel = CornersPanel(frame: .zero)
@@ -114,7 +116,7 @@ class StylingPanel:MaterialView{
     weak var stateDelegate:StateControlDelegate?
     
     func initialize(){
-        backgroundColor = .blue
+        backgroundColor = .white
         addSubview(header)
         //addSubview(stateControl)
         
@@ -134,15 +136,18 @@ class StylingPanel:MaterialView{
     override func layoutSubviews() {
         super.layoutSubviews()
         if UIDevice.idiom == .pad{closeButton.isHidden = true}
+        let height:CGFloat = header.isHidden ? 0 : 35
+        let scrollviewOffset:CGFloat = header.isHidden ? 0 : 12
         header.layout{
             $0.top == topAnchor + 8
             $0.leading == leadingAnchor + 20
+//            $0.height |=| 0
         }
         
         closeButton.layout{
             $0.top == topAnchor + 8
             $0.trailing == trailingAnchor - 20
-            $0.height |=| 35
+            $0.height |=| height
             $0.width |=| 35
         }
         
@@ -154,7 +159,7 @@ class StylingPanel:MaterialView{
 //        }
         
         scrollView.layout{
-            $0.top == closeButton.bottomAnchor + 12
+            $0.top == closeButton.bottomAnchor + scrollviewOffset
             $0.leading == leadingAnchor
             $0.bottom == bottomAnchor
             $0.trailing == trailingAnchor
@@ -166,7 +171,7 @@ class StylingPanel:MaterialView{
             $0.bottom == scrollView.bottomAnchor
             $0.trailing == scrollView.trailingAnchor
             $0.width == widthAnchor
-            $0.height |=| 670
+            $0.height |=| 650
         }
         
         

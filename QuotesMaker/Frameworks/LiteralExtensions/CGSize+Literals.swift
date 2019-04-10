@@ -59,4 +59,8 @@ extension CGSize{
         let minHeight = rect.height * 0.1
         return [max(minWidth, self.width), max(minHeight, height)]
     }
+    
+    var product:Int{
+        return Int(width) * Int (height)
+    }
 }

@@ -12,6 +12,34 @@ import Foundation
 extension iPadStudioVC{
     
     func iPadLayout(){
+        //print(view.constraints)
+        view.removeConstraints(view.constraints)
+        let orientation = UIScreen.orientation
+        let handle = UIScreen.main.screenType()
+        switch orientation {
+        case .landscape:
+            if handle == .pad_norm || handle == .pad_pro_9_7{
+                iPadSmallLayoutLandscape()
+                return
+            }else{
+                iPadlargeLayoutLandscape()
+                return
+            }
+        case .potrait:
+            if handle == .pad_norm || handle == .pad_pro_9_7{
+                iPadlargeLayoutLandscape()
+                return
+            }else{
+                iPadLayoutLargePotrait()
+                return
+            }
+            
+        }
+        //iPadlargeLayoutLandscape()
+    
+    }
+    
+    func iPadSmallLayoutLandscape(){
         taskbarContainer.layout{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
@@ -25,6 +53,53 @@ extension iPadStudioVC{
             $0.trailing == taskbarContainer.trailingAnchor
             $0.leading == taskbarContainer.leadingAnchor
         }
+        taskbar.setContentWidth()
+        
+        controlPanelContainer.layout{
+            $0.top == taskbarContainer.bottomAnchor
+            $0.trailing == view.trailingAnchor
+            $0.bottom == view.bottomAnchor
+            $0.width |=| (Dimensions.iPadContext.controlPanelWidth + 50)
+            
+        }
+        
+        panelController.view.layout{
+            $0.top == controlPanelContainer.topAnchor
+            $0.trailing == controlPanelContainer.trailingAnchor
+            $0.bottom == controlPanelContainer.bottomAnchor
+            $0.width |=| (Dimensions.iPadContext.controlPanelWidth + 50)
+        }
+        
+        layerStack.layout{
+            $0.top == taskbarContainer.bottomAnchor
+            $0.leading == view.leadingAnchor -- layerStack.constraintIds.leading
+            $0.bottom == view.bottomAnchor
+            $0.width |=| Dimensions.iPadContext.layerStackWidth
+        }
+        
+        editor.layout{
+            $0.top == taskbarContainer.bottomAnchor
+            $0.leading == layerStack.trailingAnchor
+            $0.trailing == controlPanelContainer.leadingAnchor
+            $0.bottom == view.bottomAnchor - 2
+        }
+    }
+    
+    func iPadlargeLayoutLandscape(){
+        taskbarContainer.layout{
+            $0.top == view.topAnchor + 30
+            $0.leading == view.leadingAnchor
+            $0.trailing == view.trailingAnchor
+            $0.height |=| 120
+        }
+        
+        taskbar.view.layout{
+            $0.top == taskbarContainer.topAnchor
+            $0.bottom == taskbarContainer.bottomAnchor
+            $0.trailing == taskbarContainer.trailingAnchor
+            $0.leading == taskbarContainer.leadingAnchor
+        }
+        taskbar.setContentWidth()
         
         controlPanelContainer.layout{
             $0.top == taskbarContainer.bottomAnchor
@@ -53,13 +128,54 @@ extension iPadStudioVC{
             $0.trailing == controlPanelContainer.leadingAnchor
             $0.bottom == view.bottomAnchor - 2
         }
+    }
+    
+    
+    func iPadLayoutLargePotrait(){
+        taskbarContainer.layout{
+            $0.top == view.topAnchor + 30
+            $0.leading == view.leadingAnchor
+            $0.trailing == view.trailingAnchor
+            $0.height |=| 120
+        }
         
-//        studioPanel.layout{
-//            $0.bottom == view.bottomAnchor
-//            $0.leading == view.leadingAnchor
-//            $0.trailing == view.trailingAnchor
-//            $0.height |=| studioHeight
-//        }
+        taskbar.view.layout{
+            $0.top == taskbarContainer.topAnchor
+            $0.bottom == taskbarContainer.bottomAnchor
+            $0.trailing == taskbarContainer.trailingAnchor
+            $0.leading == taskbarContainer.leadingAnchor
+        }
+        taskbar.setContentWidth()
+        
+        controlPanelContainer.layout{
+            $0.top == taskbarContainer.bottomAnchor
+            $0.trailing == view.trailingAnchor
+            $0.bottom == view.bottomAnchor
+            $0.width |=| Dimensions.iPadContext.controlPanelWidth
+        }
+        
+        panelController.view.layout{
+            $0.top == controlPanelContainer.topAnchor
+            $0.trailing == controlPanelContainer.trailingAnchor
+            $0.bottom == controlPanelContainer.bottomAnchor
+            $0.leading == controlPanelContainer.leadingAnchor
+            //$0.width |=| Dimensions.iPadContext.controlPanelWidth
+        }
+        
+        
+        layerStack.layout{
+            $0.bottom == view.bottomAnchor
+            $0.trailing == controlPanelContainer.leadingAnchor
+            $0.leading == view.leadingAnchor
+            $0.height |=| (view.frame.height * 0.30)
+        }
+        
+        editor.layout{
+            $0.top == taskbarContainer.bottomAnchor
+            $0.leading == view.leadingAnchor
+            $0.trailing == controlPanelContainer.leadingAnchor - 2
+            $0.bottom == layerStack.topAnchor - 2
+        }
     }
     
     func forceInterfaceForlandscape(){
@@ -76,20 +192,4 @@ extension iPadStudioVC{
         return true
     }
     
-    
-//    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-//        if UIDevice.current.userInterfaceIdiom == .phone{
-//            return .portrait
-//        }else {
-//            return .landscape
-//        }
-//    }
-//    
-//    override var shouldAutorotate: Bool{
-//        if UIDevice.current.userInterfaceIdiom == .phone{
-//            return false
-//        }else {
-//            return true
-//        }
-//    }
 }

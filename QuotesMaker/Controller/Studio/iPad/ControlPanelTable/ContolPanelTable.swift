@@ -168,6 +168,7 @@ extension ControlPanelTable{
     
     func setupStyleInteractiveView()->StylingPanel{
         let panel = StylingPanel(frame:.zero) //[0,0,standardWidth,600])
+        panel.header.isHidden = true
         panel.delegate =  studio?.coordinator
         return panel
         //addSubview(panel)

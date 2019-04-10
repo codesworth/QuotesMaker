@@ -81,13 +81,16 @@ class Dimensions{
     }
     
     struct iPadContext {
-        
+        static var type:UIScreen.Handle{
+            return UIScreen.main.screenType()
+        }
         static var controlPanelWidth:CGFloat{
+            
             return UIScreen.main.bounds.width * 0.30
         }
         
         static var layerStackWidth:CGFloat{
-            return UIScreen.main.bounds.width * 0.15
+            return UIScreen.main.bounds.width * 0.20
         }
     }
     
