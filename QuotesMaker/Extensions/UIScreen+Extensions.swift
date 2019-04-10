@@ -10,6 +10,14 @@ import Foundation
 
 extension UIScreen{
     
+    
+    static var orientation:Orientation{
+        let size = main.bounds
+        if size.width > size.height{
+            return .landscape
+        }
+        return .potrait
+    }
     enum SizeNative:Int{
         case iPad_norm = 3145728
         case pro_10_5 = 3709632
@@ -53,6 +61,10 @@ extension UIScreen{
         case ipad
     }
     
+    enum Orientation{
+        case potrait
+        case landscape
+    }
     
     /**
      struct Size {

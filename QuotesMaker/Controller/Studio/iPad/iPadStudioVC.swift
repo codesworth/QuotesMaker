@@ -51,7 +51,7 @@ class iPadStudioVC: UIViewController {
     var studioHeight:CGFloat = 130
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UIScreen.main.bounds)
+        
         coordinator.delegate = self
         view.backgroundColor = .white
         view.addSubview(editor)
