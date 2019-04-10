@@ -542,6 +542,7 @@
                         <viewLayoutGuide key="safeArea" id="NFc-DV-0gc"/>
                     </view>
                     <connections>
+                        <outlet property="contentViewWidth" destination="fuK-Z3-2MW" id="Miv-YX-bXH"/>
                         <outlet property="imageControl" destination="nMA-3h-Qbv" id="Qwe-AG-4ZB"/>
                         <outlet property="textControl" destination="fT6-Pl-iNt" id="VCe-ov-waa"/>
                     </connections>

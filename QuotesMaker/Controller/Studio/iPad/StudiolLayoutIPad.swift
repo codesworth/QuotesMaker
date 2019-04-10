@@ -44,6 +44,7 @@ extension iPadStudioVC{
             $0.trailing == taskbarContainer.trailingAnchor
             $0.leading == taskbarContainer.leadingAnchor
         }
+        taskbar.setContentWidth()
         
         controlPanelContainer.layout{
             $0.top == taskbarContainer.bottomAnchor
@@ -89,6 +90,7 @@ extension iPadStudioVC{
             $0.trailing == taskbarContainer.trailingAnchor
             $0.leading == taskbarContainer.leadingAnchor
         }
+        taskbar.setContentWidth()
         
         controlPanelContainer.layout{
             $0.top == taskbarContainer.bottomAnchor

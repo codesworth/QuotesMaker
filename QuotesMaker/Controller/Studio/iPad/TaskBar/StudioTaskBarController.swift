@@ -11,12 +11,21 @@ import UIKit
 class StudioTaskBarController: UIViewController {
     
     
+    @IBOutlet weak var contentViewWidth: NSLayoutConstraint!
     @IBOutlet weak var imageControl: ControlProxy!
     @IBOutlet weak var textControl: ControlProxy!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setContentWidth()
     }
+    
+    
+    func setContentWidth(){
+        let width = UIScreen.main.bounds.width
+        contentViewWidth.constant = (width > 1024) ? width : 1024
+    }
+    
     
     class func onlyInstance()->StudioTaskBarController{
         let storyboard = UIStoryboard(name: "iPadMain", bundle: .main)
