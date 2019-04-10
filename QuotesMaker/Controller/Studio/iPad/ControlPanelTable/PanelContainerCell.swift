@@ -46,7 +46,7 @@ class PanelContainerCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         guard panel != nil else {return}
-        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        panel?.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(panel!.pinAllSides())
     }
 
