@@ -40,6 +40,7 @@
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
+		385BB9AE225E20F6009541A3 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BB9AD225E20F6009541A3 /* UIScreen+Extensions.swift */; };
 		385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D3066225A2BBB0054694A /* AssetGridViewController.swift */; };
 		385D306A225A2C9D0054694A /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D3068225A2C9D0054694A /* GridViewCell.swift */; };
 		385D306B225A2C9D0054694A /* GridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385D3069225A2C9D0054694A /* GridViewCell.xib */; };
@@ -208,6 +209,7 @@
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
+		385BB9AD225E20F6009541A3 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		385D3066225A2BBB0054694A /* AssetGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetGridViewController.swift; sourceTree = "<group>"; };
 		385D3068225A2C9D0054694A /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		385D3069225A2C9D0054694A /* GridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridViewCell.xib; sourceTree = "<group>"; };
@@ -643,6 +645,7 @@
 				38732A4B222EEA9100CDB703 /* String+Ex.swift */,
 				38A6687D223EED7C00F29F52 /* Colors.swift */,
 				386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */,
+				385BB9AD225E20F6009541A3 /* UIScreen+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1094,6 +1097,7 @@
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
 				381865B8223C9E1F006C0C56 /* StackCell.swift in Sources */,
 				38661B0A224BF4E000440AC7 /* LayoutProperty.swift in Sources */,
+				385BB9AE225E20F6009541A3 /* UIScreen+Extensions.swift in Sources */,
 				380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */,
 				380C78FA2232C454006B8F8D /* BackingImageView.swift in Sources */,
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
