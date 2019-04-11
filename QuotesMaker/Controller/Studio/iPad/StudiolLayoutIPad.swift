@@ -101,7 +101,7 @@ extension iPadStudioVC{
         }
         taskbar.setContentWidth()
         
-        controlPanelContainer.layout{
+        controlPanelContainer.layout(true){
             $0.top == taskbarContainer.bottomAnchor
             $0.trailing == view.trailingAnchor
             $0.bottom == view.bottomAnchor
@@ -132,6 +132,7 @@ extension iPadStudioVC{
     
     
     func iPadLayoutLargePotrait(){
+        let remHeight = (view.frame.height * 0.40) - 120
         taskbarContainer.layout{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
@@ -147,11 +148,21 @@ extension iPadStudioVC{
         }
         taskbar.setContentWidth()
         
-        controlPanelContainer.layout{
+        editor.layout{
             $0.top == taskbarContainer.bottomAnchor
-            $0.trailing == view.trailingAnchor
+            $0.leading == view.leadingAnchor
+            $0.trailing == view.trailingAnchor//controlPanelContainer.leadingAnchor - 2
+            //$0.bottom == //layerStack.topAnchor - 2
+            $0.height |=| (view.frame.height * 0.60)
+        }
+        
+        controlPanelContainer.layout(true){
+            $0.top == editor.bottomAnchor
+            //$0.width |=| (view.frame.width - Dimensions.iPadContext.controlPanelWidth)
+            $0.trailing == layerStack.leadingAnchor
             $0.bottom == view.bottomAnchor
-            $0.width |=| Dimensions.iPadContext.controlPanelWidth
+            $0.leading == view.leadingAnchor
+            
         }
         
         panelController.view.layout{
@@ -162,20 +173,20 @@ extension iPadStudioVC{
             //$0.width |=| Dimensions.iPadContext.controlPanelWidth
         }
         
-        
-        layerStack.layout{
+        layerStack.layout(true){
+            $0.top == editor.bottomAnchor//taskbarContainer.bottomAnchor
+            $0.trailing == view.trailingAnchor
             $0.bottom == view.bottomAnchor
-            $0.trailing == controlPanelContainer.leadingAnchor
-            $0.leading == view.leadingAnchor
-            $0.height |=| (view.frame.height * 0.30)
+            //$0.leading == controlPanelContainer.trailingAnchor
+            $0.width |=| Dimensions.iPadContext.controlPanelWidth
         }
         
-        editor.layout{
-            $0.top == taskbarContainer.bottomAnchor
-            $0.leading == view.leadingAnchor
-            $0.trailing == controlPanelContainer.leadingAnchor - 2
-            $0.bottom == layerStack.topAnchor - 2
-        }
+        
+        
+        
+        
+        
+        
     }
     
     func forceInterfaceForlandscape(){

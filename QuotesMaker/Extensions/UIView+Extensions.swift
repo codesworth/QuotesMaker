@@ -48,7 +48,8 @@ extension UIView{
     }
     
     
-    func layout(using closure:(LayoutProxy) -> Void){
+    func layout(_ invalidatePrevious:Bool = false,using closure:(LayoutProxy) -> Void){
+        if invalidatePrevious{removeConstraints(self.constraints)}
         translatesAutoresizingMaskIntoConstraints = false
         closure(LayoutProxy(view:self))
     }
