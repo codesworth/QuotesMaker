@@ -209,7 +209,7 @@ extension StudioVC:StudioTabDelegate{
         stack?.alpha = 0
         self.view.addSubview(stack!)
         Utils.fadeIn(stack!)
-        stack?.delegate = self
+        stack?.delegate = coordinator
         return stack
         
     }
@@ -217,28 +217,4 @@ extension StudioVC:StudioTabDelegate{
     
 }
 
-extension StudioVC:StackTableDelegate{
-    
-    func didDismiss() {
-        Utils.fadeOut(stack!) {
-            self.stack = nil
-        }
-    }
-    
-    
-    func didSelectView(with uid: UUID) {
-        let view = coordinator.layerDatasource.first{$0.uid == uid}
-        print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource.self)`")
-        if let sub = view as? RectView {
-            coordinator.baseView.currentSubview = sub
-            
-        }else if let sub = view as? BackingImageView{
-            coordinator.baseView.currentSubview = sub
-        }else if let sub = view as? BackingTextView{
-            coordinator.baseView.currentSubview = sub
-        }
-    }
-    
-    
-}
 
