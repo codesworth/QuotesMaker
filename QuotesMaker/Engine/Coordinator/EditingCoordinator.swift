@@ -187,7 +187,31 @@ extension EditingCoordinator:FetchedAssetDelegate{
         }
     }
 
+
 }
 
+
+extension EditingCoordinator:StackTableDelegate{
+    func didDismiss() {
+        //
+    }
+    
+    
+    
+    func didSelectView(with uid: UUID) {
+        let view = layerDatasource.first{$0.uid == uid}
+        print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource.self)`")
+        if let sub = view as? RectView {
+            baseView.currentSubview = sub
+            
+        }else if let sub = view as? BackingImageView{
+            baseView.currentSubview = sub
+        }else if let sub = view as? BackingTextView{
+            baseView.currentSubview = sub
+        }
+    }
+    
+    
+}
 
 

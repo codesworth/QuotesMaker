@@ -81,16 +81,27 @@ class Dimensions{
     }
     
     struct iPadContext {
+        static var size:CGSize{
+            return UIScreen.main.bounds.size
+        }
         static var type:UIScreen.Handle{
             return UIScreen.main.screenType()
         }
         static var controlPanelWidth:CGFloat{
             
-            return UIScreen.main.bounds.width * 0.30
+            return size.width * 0.30
+        }
+        
+        static var editorHeightPotrait:CGFloat{
+            return size.max * 0.6
+        }
+        
+        static var potraitPanelHeight:CGFloat{
+            return size.max * 0.4
         }
         
         static var layerStackWidth:CGFloat{
-            return UIScreen.main.bounds.width * 0.20
+            return size.width * 0.20
         }
     }
     

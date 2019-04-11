@@ -36,11 +36,14 @@ class iPadStudioVC: UIViewController {
     }()
     let taskbar = StudioTaskBarController.onlyInstance()
     
+    
     lazy var layerStack:LayerStack = { [unowned self] by in
         let stack = LayerStack(frame:.zero, dataSource: [])
         stack.backgroundColor = .groupTableViewBackground
+        stack.delegate = coordinator
         return stack
     }(())
+    
     
     lazy var editor:StudioEditorView = {
         let editor = StudioEditorView(frame: .zero)
@@ -108,4 +111,6 @@ extension iPadStudioVC:EditingCoordinatorDelegate{
         super.viewWillTransition(to: size, with: coordinator)
         iPadLayout()
     }
+    
+
 }

@@ -57,7 +57,15 @@ extension CGSize{
     func minimum(in rect:CGRect)->CGSize{
         let minWidth = rect.width * 0.1
         let minHeight = rect.height * 0.1
-        return [max(minWidth, self.width), max(minHeight, height)]
+        return [Swift.max(minWidth, self.width), Swift.max(minHeight, height)]
+    }
+    
+    var min:CGFloat{
+        return Swift.min(width, height)
+    }
+    
+    var max:CGFloat{
+        return Swift.max(width, height)
     }
     
     var product:Int{

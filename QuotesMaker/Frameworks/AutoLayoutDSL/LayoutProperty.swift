@@ -69,7 +69,6 @@ extension LayoutProperty {
     
     @discardableResult
     func equal(to constant:CGFloat)->NSLayoutConstraint{
-        
         let constraint = anchor.constraint(equalToConstant: constant)
         constraint.isActive = true
         return constraint
