@@ -113,8 +113,8 @@ extension TextDesignableInputView{
             sixthline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             sixthline.heightAnchor.constraint(equalToConstant: 1),
             shadowView.topAnchor.constraint(equalTo: sixthline.bottomAnchor, constant: 16),
-            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            shadowView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            shadowView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             shadowView.heightAnchor.constraint(equalToConstant: 300)
         ]
         

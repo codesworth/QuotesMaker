@@ -15,7 +15,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
        case img = "Image"
         case fill = "Fill"
         case gradient = "Gradient"
-//        case text = "Text"
+        case text = "Text Effects"
         case layout = "Style"
         
     }
@@ -53,7 +53,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         }else if let _ = currentView as? BackingImageView{
             panels = [.img,.layout]
         }else if let _ = currentView as? BackingTextView{
-            panels = []
+            panels = [.text]
         }else{
             panels = [.layout]
         }
@@ -101,8 +101,8 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
             return 200
         case .layout:
             return 670
-//        case .text:
-//            return 600
+        case .text:
+            return 600
         default:
             return 400
         }
@@ -117,8 +117,8 @@ extension ControlPanelTable:CollapsibleTableSectionDelegate{
             return "Gradient"
         case .img:
             return "Image Options"
-//        case .text:
-//            return "Text"
+       case .text:
+           return type.rawValue
         case .layout:
             return "Styling"
         }
@@ -158,13 +158,14 @@ extension ControlPanelTable{
         //NSLayoutConstraint.activate(panel.pinAllSides())
     }
     
-//    func setupTextInteractiveView()->{
-//        let panel = TextDesignableInputView(frame:.zero,model: TextLayerModel()) //[0,0,standardWidth,600], model: TextLayerModel())
-//        //panel.delegate =  studio?.coordinator
-//        //addSubview(panel)
-//        //subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-//        //NSLayoutConstraint.activate(panel.pinAllSides())
-//    }
+    func setupTextInteractiveView()->TextDesignableInputView{
+        let panel = TextDesignableInputView(frame:.zero,model: TextLayerModel()) //[0,0,standardWidth,600], model: TextLayerModel())
+        panel.delegate =  studio?.coordinator
+        return panel
+        //addSubview(panel)
+        //subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
+        //NSLayoutConstraint.activate(panel.pinAllSides())
+    }
     
     func setupStyleInteractiveView()->StylingPanel{
         let panel = StylingPanel(frame:.zero) //[0,0,standardWidth,600])
@@ -182,7 +183,8 @@ extension ControlPanelTable{
                 return setupFillInteractiveView()
             case .gradient:
                 return setupGradientInteractiveView()
-               
+            case .text:
+                return setupTextInteractiveView()
             case .img:
                 return setupImageInteractiveView()
             case .layout:

@@ -38,7 +38,7 @@ class PanelContainerCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: "\(PanelContainerCell.self)")
         self.panel = panel
         addSubview(self.panel!)
-        backgroundColor = .yellow
+        //backgroundColor = .yellow
         clipsToBounds = true
         
     }
