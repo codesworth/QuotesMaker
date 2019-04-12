@@ -31,3 +31,15 @@ extension EditingCoordinator:UIImagePickerControllerDelegate,UINavigationControl
     }
     
 }
+
+
+extension EditingCoordinator:TextModelDelegate{
+    
+    func didUpdateModel(_ model: TextLayerModel) {
+        var model = model
+        guard let current = baseView.currentSubview as? BackingTextView else {return}
+        model.string = current.textView.text
+        current.model = model
+    }
+}
+

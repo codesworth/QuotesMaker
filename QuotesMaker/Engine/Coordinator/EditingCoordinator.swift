@@ -59,9 +59,9 @@ class EditingCoordinator:NSObject{
         
         baseView.addSubviewable(textField)
         textField.model.layerFrame = textField.makeLayerFrame()
-        //if UIDevice.idiom == .phone{
+        if UIDevice.idiom == .phone{
             textField.addDoneButtonOnKeyboard()
-        //}
+        }
     }
     
     func moveSubiewForward(){
