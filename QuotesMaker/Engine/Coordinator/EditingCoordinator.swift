@@ -55,7 +55,7 @@ class EditingCoordinator:NSObject{
     
     
     func addText(){
-        let textField = BackingTextView(frame: baseView.subBounds)
+        let textField = BackingTextView(frame: baseView.textBound)
         
         baseView.addSubviewable(textField)
         textField.model.layerFrame = textField.makeLayerFrame()

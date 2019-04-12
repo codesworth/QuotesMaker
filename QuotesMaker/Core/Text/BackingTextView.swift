@@ -65,31 +65,21 @@ class BackingTextView: UIView {
     var model:TextLayerModel = TextLayerModel(){
         
         didSet{
-            let state = State(model: oldValue, action: .nothing)
-            Subscription.main.post(suscription: .stateChange, object: state)
+            //let state = State(model: oldValue, action: .nothing)
+            //Subscription.main.post(suscription: .stateChange, object: state)
+            model.string = textView.text
             textView.attributedText = model.outPutString()
             textView.textColor = model.textColor
             textView.font = model.font
-            model.string = textView.text
+            
         }
     }
-    
-//    var attributedText: NSAttributedString!{
-//        didSet{
-//            print("I was updated \(String(describing: text))")
-//        }
-//    }
-    
+
     
     var uid:UUID = UUID()
     var inputFrame:CGRect = .zero
     
     
-    
-//    override init(frame: CGRect, textContainer: NSTextContainer?) {
-//        super.init(frame: frame, textContainer: textContainer)
-//        initialize()
-//    }
     
     lazy var textlayer:TextBackingLayer = {
         let layer = TextBackingLayer()
@@ -112,12 +102,6 @@ class BackingTextView: UIView {
         clipsToBounds = false
         textView.spellCheckingType = .no
         textView.autocorrectionType = .no
-        //textContainerInset = [2]
-        //isScrollEnabled = false
-        //textContainer.lineFragmentPadding = 0
-//        setPanGesture()
-//        setResizableGesture()
-        //movedInFocus()
         textView.textColor = model.textColor
         textView.font = model.font
         backgroundColor = .clear
@@ -126,11 +110,15 @@ class BackingTextView: UIView {
         textView.text = "Hello"
         resizerView.contentView = textView
         addSubview(resizerView)
-        //textAlignment = .center
-        
-    
+        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(longTapped(_:)))
+        longTap.minimumPressDuration = 0.8
+        addGestureRecognizer(longTap)
     }
     
+    
+    @objc func longTapped(_ recognizer:UILongPressGestureRecognizer){
+        textView.becomeFirstResponder()
+    }
     
     
     
@@ -272,11 +260,12 @@ extension BackingTextView:BaseViewSubViewable{
 extension BackingTextView:SPUserResizableViewDelegate{
     
     func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
+        if textView.isFirstResponder{return}
         if let superview = superview as? BaseView, superview.selectedView != self {
             superview.selectedView = self
         }
         userResizableView.showEditingHandles()
-        textView.becomeFirstResponder()
+        
     }
     
     func userResizableViewDidEndEditing(_ userResizableView: SPUserResizableView!) {
@@ -287,7 +276,7 @@ extension BackingTextView:SPUserResizableViewDelegate{
         let old = model.layerFrame
         if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
-        Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
+        //Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
     }
 }
 

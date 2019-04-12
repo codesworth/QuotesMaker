@@ -23,6 +23,12 @@ class BaseView:UIView{
         return CGRect(origin: [(bounds.size.width - bounds.size.scaledBy(0.7).width) / 2,(bounds.size.height - bounds.size.scaledBy(0.7).height) / 2 ], size: bounds.size.scaledBy(0.7))
     }
     
+    var textBound:CGRect{
+        let bounds = subBounds
+        return [bounds.origin.x,bounds.origin.y,bounds.width,(bounds.height * 0.5)]
+    }
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
