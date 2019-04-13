@@ -8,6 +8,7 @@
 
 import UIKit
 
+let __IS_IPAD:Bool = UIDevice.idiom == .pad
 
 class Dimensions{
     
@@ -81,6 +82,9 @@ class Dimensions{
     }
     
     struct iPadContext {
+        static var nativeEditorSize:CGSize{
+            return UIScreen.main.nativeBounds.size
+        }
         static var size:CGSize{
             return UIScreen.main.bounds.size
         }

@@ -23,7 +23,7 @@ class StudioEditorView:UIView{
     
     private lazy var scrollView:UIScrollView = {
         let scroll = UIScrollView(frame: .zero)
-        scroll.bounces = false
+        scroll.bounces = true
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
         scroll.isScrollEnabled = true
@@ -37,6 +37,7 @@ class StudioEditorView:UIView{
     
     private lazy var contentView:BaseContentView = {
         let view = BaseContentView(frame: .zero)
+        
         return view
     }()
     
@@ -56,7 +57,7 @@ class StudioEditorView:UIView{
     }
     
     private func initialize(){
-        backgroundColor = .white
+        backgroundColor = .red
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         borderlize(.primary, 1)
@@ -78,17 +79,22 @@ class StudioEditorView:UIView{
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        let size:CGSize
+        if __IS_IPAD{
+            size = Dimensions.editorSize
+        }else{size = .zero}
         scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         //let scrollCons = scrollView.pinAllSides()
         if bounds.height == 0 {return}
+        print("The height is: \(bounds.height)")
         NSLayoutConstraint.activate([
             
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.leftAnchor.constraint(equalTo: leftAnchor),
             scrollView.rightAnchor.constraint(equalTo: rightAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
@@ -113,6 +119,10 @@ extension StudioEditorView:UIScrollViewDelegate{
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        print("Zoom Ended")
+        guard let baseView = contentView.subviews.first(where: { v -> Bool in
+            return type(of: v) == BaseView.self
+        }) else {return}
+        baseView.center = center
+        
     }
 }

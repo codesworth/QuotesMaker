@@ -29,7 +29,7 @@ final class BaseContentView:UIView{
     }
     
     private func initialize(){
-        
+        backgroundColor = .red
         clipsToBounds = true
     }
     
