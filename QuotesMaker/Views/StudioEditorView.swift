@@ -76,12 +76,14 @@ class StudioEditorView:UIView{
     }
     
     func addCanvas(_ base:BaseView){
+        setNeedsLayout()
+        layoutIfNeeded()
         self._baseView =  base
-        
         contentView.addSubview(base)
         //let size = base.frame.size
         base.translatesAutoresizingMaskIntoConstraints = false
-        base.center = [contentView.bounds.midX,contentView.bounds.midY]
+        print(bounds)
+        base.center = [bounds.midX,bounds.midY]
 //        NSLayoutConstraint.activate([
 //            base.centerXAnchor.constraint(equalTo: centerXAnchor),
 //            base.centerYAnchor.constraint(equalTo: centerYAnchor),
