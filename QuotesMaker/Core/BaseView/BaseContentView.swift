@@ -29,8 +29,13 @@ final class BaseContentView:UIView{
     }
     
     private func initialize(){
-        backgroundColor = .red
-        clipsToBounds = true
+        backgroundColor = .orange
+        clipsToBounds = false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("Yayyyy touches began")
+        //scrollValue = true
     }
     
 }
