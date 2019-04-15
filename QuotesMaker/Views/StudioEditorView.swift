@@ -80,16 +80,16 @@ class StudioEditorView:UIView{
         layoutIfNeeded()
         self._baseView =  base
         contentView.addSubview(base)
-        //let size = base.frame.size
+        let size = base.frame.size
         base.translatesAutoresizingMaskIntoConstraints = false
         print(bounds)
-        base.center = [bounds.midX,bounds.midY]
-//        NSLayoutConstraint.activate([
-//            base.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            base.centerYAnchor.constraint(equalTo: centerYAnchor),
-//            base.widthAnchor.constraint(equalToConstant: size.width),
-//            base.heightAnchor.constraint(equalToConstant: size.height)
-//        ])
+        //base.center = [contentView.bounds.midX,contentView.bounds.midY]
+        NSLayoutConstraint.activate([
+            base.centerXAnchor.constraint(equalTo: centerXAnchor),
+            base.centerYAnchor.constraint(equalTo: centerYAnchor),
+            base.widthAnchor.constraint(equalToConstant: size.width),
+            base.heightAnchor.constraint(equalToConstant: size.height)
+        ])
     }
     
     

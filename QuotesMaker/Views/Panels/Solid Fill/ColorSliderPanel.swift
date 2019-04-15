@@ -74,6 +74,7 @@ class ColorSliderPanel: MaterialView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
+        colorSlider.movePreviewTo(touch: model.finalTouch)
         //subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
     }
     
@@ -132,6 +133,7 @@ class ColorSliderPanel: MaterialView {
         currentColor = slider.color
         model.color = slider.color.withAlphaComponent(currentAlpha)
         model.alpha = currentAlpha
+        model.finalTouch = slider.restingLocation
         delegate?.previewingWith(model)
     }
     
