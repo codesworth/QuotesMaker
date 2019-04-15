@@ -80,7 +80,10 @@ class ColorSliderPanel: MaterialView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        colorSlider.movePreviewTo(touch: model.finalTouch)
+        setNeedsLayout()
+        layoutIfNeeded()
+        colorSlider.color = model.color
+        colorSlider.layoutSubviews()
         //subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
     }
     
