@@ -104,7 +104,7 @@ public class ColorSlider: UIControl {
 	
 	/// The background gradient view.
 	public let gradientView: GradientView
-	
+    public var restingLocation:UITouch?
 	/// The preview view, passed in the required initializer.
 	public let previewView: PreviewView?
 	
@@ -274,9 +274,16 @@ extension ColorSlider {
 		update(touch: endTouch, touchInside: isTouchInside)
 		
 		previewView?.transition(to: .inactive)
-		
+		restingLocation = endTouch
 		sendActions(for:.touchUpOutside /*isTouchInside ? .touchUpInside : .touchUpOutside*/)
 	}
+    
+    public func movePreviewTo(touch:UITouch?){
+        guard let touch = touch else {return}
+        update(touch: touch, touchInside: true)
+        let touchLocation = touch.location(in: self)
+        centerPreview(at: touchLocation)
+    }
 	
 	/// Cancels tracking a touch when the user cancels dragging.
 	public override func cancelTracking(with event: UIEvent?) {
@@ -287,9 +294,11 @@ extension ColorSlider {
 /// :nodoc:
 /// MARK: - Internal Calculations
 fileprivate extension ColorSlider {
+    
 	/// Updates the internal color and preview view when a touch event occurs.
 	/// - parameter touch: The touch that triggered the update.
 	/// - parameter touchInside: Whether the touch that triggered the update was inside the control when the event occurred.
+    
 	fileprivate func update(touch: UITouch, touchInside: Bool) {
 		internalColor = gradientView.color(from: internalColor, after: touch, insideSlider: touchInside)
 		previewView?.colorChanged(to: color)

@@ -58,4 +58,6 @@ internal extension UITouch {
 		
 		return (0.0..<1.0).clamp(progress)
 	}
+    
+    
 }

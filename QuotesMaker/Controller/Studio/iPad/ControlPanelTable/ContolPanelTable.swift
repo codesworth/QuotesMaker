@@ -20,11 +20,21 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         
     }
     
+    var solidPanel:ColorSliderPanel!
+    var gradientPanel:GradientPanel!
+    var imagePanel:ImagePanel!
+    var textPanel:TextDesignableInputView!
+    var stylePanel:StylingPanel!
+    
+    
     var currentView:BaseView.BaseSubView?{
         didSet{
+            referencemodel = currentView?.layerModel
             updatepanels()
         }
     }
+    
+    var referencemodel:LayerModel?
     
     init(){
         super.init(nibName: nil, bundle: .main)
@@ -41,6 +51,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
     @objc func currentChanged(_ notification:Notification){
         if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
             currentView = view
+            
         }
         _tableView.reloadData()
     }
@@ -57,6 +68,11 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         }else{
             panels = [.layout]
         }
+        solidPanel = setupFillInteractiveView()
+        gradientPanel = setupGradientInteractiveView()
+        imagePanel = setupImageInteractiveView()
+        stylePanel = setupStyleInteractiveView()
+        textPanel = setupTextInteractiveView()
         
     }
     
@@ -64,7 +80,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         super.init(coder: aDecoder)
     }
     
-    var panels:[SourcePanels] = SourcePanels.allCases
+    var panels:[(SourcePanels)] = SourcePanels.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,15 +148,15 @@ extension ControlPanelTable{
     func setupGradientInteractiveView()->GradientPanel{
         let gradientPanel = GradientPanel(frame:.zero) //[0,0,standardWidth,560])
         gradientPanel.delegate = studio?.coordinator
+        
         return gradientPanel
-    
-        //addSubview(gradientPanel)
-//        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-//        NSLayoutConstraint.activate(gradientPanel.pinAllSides())
     }
     
     func setupFillInteractiveView()->ColorSliderPanel{
         let panel = ColorSliderPanel(frame:.zero)
+        if let ref = referencemodel as? ShapeModel{
+            panel.update(with: ref.solid)
+        }
         panel.delegate =  studio?.coordinator
         return panel
         //addSubview(panel)
@@ -180,15 +196,15 @@ extension ControlPanelTable{
     func getPanel(type:SourcePanels)->UIView{
             switch type {
             case .fill:
-                return setupFillInteractiveView()
+                return solidPanel
             case .gradient:
-                return setupGradientInteractiveView()
+                return gradientPanel
             case .text:
-                return setupTextInteractiveView()
+                return textPanel
             case .img:
-                return setupImageInteractiveView()
+                return imagePanel
             case .layout:
-                return setupStyleInteractiveView()
+                return stylePanel
                 
             }
         }

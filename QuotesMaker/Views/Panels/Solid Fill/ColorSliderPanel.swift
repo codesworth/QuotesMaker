@@ -62,6 +62,12 @@ class ColorSliderPanel: MaterialView {
         return lable
     }()
     
+    func update(with ref: BlankLayerModel?){
+        if let ref = ref{
+            model = ref
+        }
+    }
+    
     var model:BlankLayerModel = BlankLayerModel()
     
     override var isHidden: Bool{
@@ -74,6 +80,10 @@ class ColorSliderPanel: MaterialView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
+        setNeedsLayout()
+        layoutIfNeeded()
+        colorSlider.color = model.color
+        colorSlider.layoutSubviews()
         //subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
     }
     
@@ -124,6 +134,7 @@ class ColorSliderPanel: MaterialView {
         currentColor = slider.color
         model.color = slider.color.withAlphaComponent(currentAlpha)
         model.alpha = currentAlpha
+        model.finalTouch = slider.restingLocation
         delegate?.colorDidChange(model)
     }
     
@@ -132,6 +143,7 @@ class ColorSliderPanel: MaterialView {
         currentColor = slider.color
         model.color = slider.color.withAlphaComponent(currentAlpha)
         model.alpha = currentAlpha
+        
         delegate?.previewingWith(model)
     }
     

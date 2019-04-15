@@ -48,6 +48,8 @@ class PanelContainerCell: UITableViewCell {
         guard panel != nil else {return}
         panel?.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(panel!.pinAllSides())
+        panel?.setNeedsLayout()
+        panel?.layoutIfNeeded()
     }
 
     

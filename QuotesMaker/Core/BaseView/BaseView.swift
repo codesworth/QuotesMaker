@@ -231,6 +231,11 @@ extension BaseView{
         
         //print("This is the saved data: \(savedData)")
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("Nothing happenng here")
+        //scrollValue = true
+    }
 }
 
 

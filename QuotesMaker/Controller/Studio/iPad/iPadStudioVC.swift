@@ -63,8 +63,8 @@ class iPadStudioVC: UIViewController {
         view.addSubview(layerStack)
         add(panelController, to: controlPanelContainer)
         add(taskbar, to: taskbarContainer)
-        editor.addCanvas(coordinator.baseView)
         iPadLayout()
+        editor.addCanvas(coordinator.baseView)
         // Do any additional setup after loading the view.
     }
     

@@ -17,5 +17,6 @@ protocol BaseViewSubViewable{
     func focused(_ bool:Bool)
     func setIndex(_ index:CGFloat)
     var getIndex:CGFloat{get}
+    var layerModel:LayerModel {get}
     
 }

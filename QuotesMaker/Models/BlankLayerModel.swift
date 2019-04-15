@@ -13,6 +13,7 @@ struct BlankLayerModel {
     
     var color:UIColor = .lightGray
     var alpha: CGFloat = 1
+    var finalTouch:UITouch? = nil
 }
 
 extension BlankLayerModel:Equatable{

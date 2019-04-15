@@ -84,6 +84,7 @@ extension iPadStudioVC{
             $0.trailing == controlPanelContainer.leadingAnchor
             $0.bottom == view.bottomAnchor - 2
         }
+        
     }
     
     func iPadlargeLayoutLandscape(){
