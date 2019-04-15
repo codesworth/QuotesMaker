@@ -20,6 +20,13 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         
     }
     
+    var solidPanel:ColorSliderPanel!
+    var gradientPanel:GradientPanel!
+    var imagePanel:ImagePanel!
+    var textPanel:TextDesignableInputView!
+    var stylePanel:StylingPanel!
+    
+    
     var currentView:BaseView.BaseSubView?{
         didSet{
             referencemodel = currentView?.layerModel
@@ -61,6 +68,11 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         }else{
             panels = [.layout]
         }
+        solidPanel = setupFillInteractiveView()
+        gradientPanel = setupGradientInteractiveView()
+        imagePanel = setupImageInteractiveView()
+        stylePanel = setupStyleInteractiveView()
+        textPanel = setupTextInteractiveView()
         
     }
     
@@ -184,15 +196,15 @@ extension ControlPanelTable{
     func getPanel(type:SourcePanels)->UIView{
             switch type {
             case .fill:
-                return setupFillInteractiveView()
+                return solidPanel
             case .gradient:
-                return setupGradientInteractiveView()
+                return gradientPanel
             case .text:
-                return setupTextInteractiveView()
+                return textPanel
             case .img:
-                return setupImageInteractiveView()
+                return imagePanel
             case .layout:
-                return setupStyleInteractiveView()
+                return stylePanel
                 
             }
         }
