@@ -235,6 +235,11 @@ extension BackingTextView:TextModelDelegate{
 
 
 extension BackingTextView:BaseViewSubViewable{
+    
+    var layerModel: LayerModel {
+        return model
+    }
+    
     var getIndex: CGFloat {
         return model.layerIndex
     }

@@ -280,14 +280,9 @@ extension ColorSlider {
     
     public func movePreviewTo(touch:UITouch?){
         guard let touch = touch else {return}
-        update(touch: touch, touchInside: isTouchInside)
-        
-        if isTouchInside {
-            let touchLocation = touch.location(in: self)
-            centerPreview(at: touchLocation)
-        } else {
-            previewView?.transition(to: .activeFixed)
-        }
+        update(touch: touch, touchInside: true)
+        let touchLocation = touch.location(in: self)
+        centerPreview(at: touchLocation)
     }
 	
 	/// Cancels tracking a touch when the user cancels dragging.

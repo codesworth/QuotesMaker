@@ -134,6 +134,10 @@ class BackingImageView: UIView{
 
 
 extension BackingImageView:BaseViewSubViewable{
+    var layerModel: LayerModel {
+        return model
+    }
+    
     func setIndex(_ index: CGFloat) {
         model.layerIndex = index
     }

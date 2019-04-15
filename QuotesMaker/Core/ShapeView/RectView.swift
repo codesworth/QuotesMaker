@@ -189,6 +189,11 @@ class RectView:SuperRectView{
 
 
 extension RectView:BaseViewSubViewable{
+    var layerModel: LayerModel {
+        return model
+    }
+
+    
     
     func setIndex(_ index: CGFloat) {
         model.layerIndex = index

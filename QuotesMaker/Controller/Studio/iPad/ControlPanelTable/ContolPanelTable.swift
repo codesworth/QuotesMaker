@@ -22,9 +22,12 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
     
     var currentView:BaseView.BaseSubView?{
         didSet{
+            referencemodel = currentView?.layerModel
             updatepanels()
         }
     }
+    
+    var referencemodel:LayerModel?
     
     init(){
         super.init(nibName: nil, bundle: .main)
@@ -41,6 +44,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
     @objc func currentChanged(_ notification:Notification){
         if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
             currentView = view
+            
         }
         _tableView.reloadData()
     }
@@ -64,7 +68,7 @@ class ControlPanelTable:CollapsibleTableSectionViewController{
         super.init(coder: aDecoder)
     }
     
-    var panels:[SourcePanels] = SourcePanels.allCases
+    var panels:[(SourcePanels)] = SourcePanels.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,15 +136,15 @@ extension ControlPanelTable{
     func setupGradientInteractiveView()->GradientPanel{
         let gradientPanel = GradientPanel(frame:.zero) //[0,0,standardWidth,560])
         gradientPanel.delegate = studio?.coordinator
+        
         return gradientPanel
-    
-        //addSubview(gradientPanel)
-//        subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-//        NSLayoutConstraint.activate(gradientPanel.pinAllSides())
     }
     
     func setupFillInteractiveView()->ColorSliderPanel{
         let panel = ColorSliderPanel(frame:.zero)
+        if let ref = referencemodel as? ShapeModel{
+            panel.update(with: ref.solid)
+        }
         panel.delegate =  studio?.coordinator
         return panel
         //addSubview(panel)
