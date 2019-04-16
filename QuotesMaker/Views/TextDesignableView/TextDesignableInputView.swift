@@ -25,7 +25,7 @@ class TextDesignableInputView:UIView{
         return lab
     }()
     
-    var model:TextLayerModel!
+    var model:TextLayerModel = TextLayerModel()
     var chosenFont:String!
     weak var delegate:TextModelDelegate?
     
@@ -250,8 +250,7 @@ class TextDesignableInputView:UIView{
     init(frame: CGRect, model:TextLayerModel) {
         super.init(frame:frame)
         initialize()
-        self.model = model
-        chosenFont = model.font.fontName
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -265,6 +264,7 @@ class TextDesignableInputView:UIView{
     }
     
     func initialize(){
+        chosenFont = model.font.fontName
         addsubviews()
         registrationsAndtargetSets()
     }

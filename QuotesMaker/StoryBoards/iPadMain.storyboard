@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Stack PanelVC-->
         <scene sceneID="r6b-Kk-JXO">
             <objects>
-                <viewController id="z8M-4f-QLa" sceneMemberID="viewController">
+                <viewController id="z8M-4f-QLa" customClass="StackPanelVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ONe-pZ-tvq">
                         <rect key="frame" x="0.0" y="0.0" width="410" height="2800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="S3N-v6-ebq">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="227"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvf-06-u2w">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvf-06-u2w" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fill Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHT-0F-S0e">
@@ -45,10 +45,12 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="glP-zm-ikl"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="fillTapped:" destination="z8M-4f-QLa" eventType="touchUpInside" id="2Ws-dT-NZB"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3Z-xv-oph" customClass="ColorSliderPanel" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="57" width="394" height="170"/>
-                                                                <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="170" id="XZN-uX-272"/>
                                                                 </constraints>
@@ -58,7 +60,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="gwr-oZ-G2a">
                                                         <rect key="frame" x="0.0" y="247" width="394" height="617"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4s-KS-mQm">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4s-KS-mQm" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gradients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usd-vB-Czf">
@@ -73,10 +75,12 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="8Ad-Ax-AhC"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="gradientTapped:" destination="z8M-4f-QLa" eventType="touchUpInside" id="lmh-Wk-H28"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJt-8A-DrA" customClass="GradientPanel" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="57" width="394" height="560"/>
-                                                                <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="560" id="ih8-kP-8Jo"/>
                                                                 </constraints>
@@ -87,7 +91,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="8gv-NI-aFv">
                                                         <rect key="frame" x="0.0" y="884" width="394" height="257"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vK4-hn-PZS">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vK4-hn-PZS" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pra-Kf-0Cz" customClass="Image">
@@ -102,10 +106,12 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="YIc-3V-QW1"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="imageTapped:" destination="z8M-4f-QLa" eventType="touchUpInside" id="5dg-Pt-98m"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkJ-wA-ORX" customClass="ImagePanel" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="57" width="394" height="200"/>
-                                                                <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="200" id="Oqz-8L-Cff"/>
                                                                 </constraints>
@@ -116,7 +122,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="exI-tB-Lsz">
                                                         <rect key="frame" x="0.0" y="1161" width="394" height="727"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yih-gC-Cyb">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yih-gC-Cyb" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Styling " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yT-Wk-8rB">
@@ -131,10 +137,12 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="0ZZ-S9-5MY"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="styleTapped:" destination="z8M-4f-QLa" eventType="touchUpInside" id="AOe-md-Ylz"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHR-bP-pZ6" customClass="StylingPanel" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="57" width="394" height="670"/>
-                                                                <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="670" id="THH-E5-Ua8"/>
                                                                 </constraints>
@@ -145,7 +153,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="JAP-eb-rAh">
                                                         <rect key="frame" x="0.0" y="1908" width="394" height="657"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rco-Oe-My7">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rco-Oe-My7" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysn-cN-VgS">
@@ -160,10 +168,12 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="qrK-6r-RQB"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="textTapped:" destination="z8M-4f-QLa" eventType="touchUpInside" id="b28-FQ-kW9"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zyh-ae-Z80" customClass="TextDesignableInputView" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="57" width="394" height="600"/>
-                                                                <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="600" id="MHe-Of-JgZ"/>
                                                                 </constraints>
@@ -206,6 +216,20 @@
                         <viewLayoutGuide key="safeArea" id="oPw-Re-BNz"/>
                     </view>
                     <size key="freeformSize" width="410" height="2800"/>
+                    <connections>
+                        <outlet property="container" destination="Yyr-tS-ReG" id="3xG-bB-omm"/>
+                        <outlet property="fillControl" destination="gvf-06-u2w" id="7J6-gx-7Tt"/>
+                        <outlet property="fillStack" destination="S3N-v6-ebq" id="whk-8K-ikd"/>
+                        <outlet property="gradientStack" destination="gwr-oZ-G2a" id="9R0-Vv-OCN"/>
+                        <outlet property="gradientcontrol" destination="s4s-KS-mQm" id="p6o-lm-5Uz"/>
+                        <outlet property="imagecontrol" destination="vK4-hn-PZS" id="UVI-J9-sMU"/>
+                        <outlet property="imagetack" destination="8gv-NI-aFv" id="9Zh-1i-fgU"/>
+                        <outlet property="parentStack" destination="SQG-0u-ldU" id="vg5-b8-Bxt"/>
+                        <outlet property="styleStack" destination="exI-tB-Lsz" id="eLe-jV-Yxv"/>
+                        <outlet property="stylecontrol" destination="Yih-gC-Cyb" id="ppD-GJ-TnR"/>
+                        <outlet property="textStack" destination="JAP-eb-rAh" id="Ubg-fi-595"/>
+                        <outlet property="textcontrol" destination="Rco-Oe-My7" id="6Di-ej-BaI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4oQ-Ce-CAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

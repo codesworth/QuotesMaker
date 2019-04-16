@@ -12,7 +12,7 @@ import UIKit
 
 class ControlProxy:UIControl{
     
-    
+    var panelHidden = false
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
