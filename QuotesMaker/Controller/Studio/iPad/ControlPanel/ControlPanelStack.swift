@@ -17,7 +17,9 @@ class ControlPanelStackVC:UIViewController{
         stack.alignment = .fill
         stack.axis = .vertical
         stack.distribution = .fillProportionally
+        stack.spacing = 10
         return stack
+        
     }()
     
     lazy var scrollView:UIScrollView = {
@@ -41,6 +43,7 @@ class ControlPanelStackVC:UIViewController{
     
     lazy var stylePanel:StylingPanel = {
         let panel = StylingPanel(frame: [0,0,Dimensions.iPadContext.controlPanelWidth,Dimensions.PanelHeights.layout.rawValue])
+        panel.isHidden = true
         return panel
     }()
     
@@ -57,6 +60,10 @@ class ControlPanelStackVC:UIViewController{
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    var stackHeight:CGFloat{
+        return Dimensions.PanelHeights.allCases.reduce(0){$0 + $1.rawValue}
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -95,8 +102,11 @@ class ControlPanelStackVC:UIViewController{
             $0.bottom == scrollView.bottomAnchor
             $0.trailing == scrollView.trailingAnchor
             $0.width |=| Dimensions.iPadContext.controlPanelWidth
-            $0.height |=| 1000
+            $0.height |=| stackHeight
         }
+        
+        stackView.setNeedsLayout()
+        stackView.layoutIfNeeded()
     }
     
 }
