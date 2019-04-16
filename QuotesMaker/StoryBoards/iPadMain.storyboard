@@ -219,14 +219,20 @@
                     <connections>
                         <outlet property="container" destination="Yyr-tS-ReG" id="3xG-bB-omm"/>
                         <outlet property="fillControl" destination="gvf-06-u2w" id="7J6-gx-7Tt"/>
+                        <outlet property="fillPanel" destination="x3Z-xv-oph" id="SOI-p2-9e2"/>
                         <outlet property="fillStack" destination="S3N-v6-ebq" id="whk-8K-ikd"/>
+                        <outlet property="gradientPanel" destination="iJt-8A-DrA" id="hQf-6s-YxA"/>
                         <outlet property="gradientStack" destination="gwr-oZ-G2a" id="9R0-Vv-OCN"/>
                         <outlet property="gradientcontrol" destination="s4s-KS-mQm" id="p6o-lm-5Uz"/>
+                        <outlet property="imagePanel" destination="TkJ-wA-ORX" id="ZC2-Ko-Uzg"/>
                         <outlet property="imagecontrol" destination="vK4-hn-PZS" id="UVI-J9-sMU"/>
                         <outlet property="imagetack" destination="8gv-NI-aFv" id="9Zh-1i-fgU"/>
                         <outlet property="parentStack" destination="SQG-0u-ldU" id="vg5-b8-Bxt"/>
+                        <outlet property="stackHeight" destination="1Sy-Wo-kwM" id="B8J-xU-Grd"/>
+                        <outlet property="stylePanel" destination="CHR-bP-pZ6" id="OMZ-B4-1dd"/>
                         <outlet property="styleStack" destination="exI-tB-Lsz" id="eLe-jV-Yxv"/>
                         <outlet property="stylecontrol" destination="Yih-gC-Cyb" id="ppD-GJ-TnR"/>
+                        <outlet property="textPanel" destination="Zyh-ae-Z80" id="Khd-NV-0CS"/>
                         <outlet property="textStack" destination="JAP-eb-rAh" id="Ubg-fi-595"/>
                         <outlet property="textcontrol" destination="Rco-Oe-My7" id="6Di-ej-BaI"/>
                     </connections>
