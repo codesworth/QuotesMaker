@@ -16,7 +16,7 @@ class ControlPanelStackVC:UIViewController{
         let stack = UIStackView()
         stack.alignment = .fill
         stack.axis = .vertical
-        stack.distribution = .fillProportionally
+        stack.distribution = .fill
         stack.spacing = 10
         return stack
         
@@ -43,7 +43,7 @@ class ControlPanelStackVC:UIViewController{
     
     lazy var stylePanel:StylingPanel = {
         let panel = StylingPanel(frame: [0,0,Dimensions.iPadContext.controlPanelWidth,Dimensions.PanelHeights.layout.rawValue])
-        panel.isHidden = true
+        
         return panel
     }()
     
@@ -78,12 +78,6 @@ class ControlPanelStackVC:UIViewController{
         stylePanel.delegate = studio?.coordinator
         textPanel.delegate = studio?.coordinator
         view.addSubview(scrollView)
-        scrollView.addSubview(stackView)
-        stackView.addArrangedSubview(solidPanel)
-        stackView.addArrangedSubview(gradientPanel)
-        stackView.addArrangedSubview(imagePanel)
-        stackView.addArrangedSubview(stylePanel)
-        stackView.addArrangedSubview(textPanel)
         layout()
     }
     
@@ -95,6 +89,7 @@ class ControlPanelStackVC:UIViewController{
             $0.bottom == view.bottomAnchor
             $0.trailing == view.trailingAnchor
         }
+        scrollView.addSubview(stackView)
         
         stackView.layout{
             $0.top == scrollView.topAnchor
@@ -105,8 +100,13 @@ class ControlPanelStackVC:UIViewController{
             $0.height |=| stackHeight
         }
         
-        stackView.setNeedsLayout()
-        stackView.layoutIfNeeded()
+        stackView.addArrangedSubview(solidPanel)
+        stackView.addArrangedSubview(gradientPanel)
+        stackView.addArrangedSubview(imagePanel)
+        stackView.addArrangedSubview(stylePanel)
+        stackView.addArrangedSubview(textPanel)
+        //stackView.setNeedsLayout()
+        //stackView.layoutIfNeeded()
     }
     
 }
