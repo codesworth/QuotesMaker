@@ -30,8 +30,8 @@ class iPadStudioVC: UIViewController {
         view.backgroundColor = .groupTableViewBackground
         return view
     }()
-    lazy var panelController:ControlPanelTable = {
-        let controller = ControlPanelTable()
+    lazy var panelController:StackPanelVC = {
+        let controller = UIStoryboard.init(name: "iPadMain", bundle: nil).instantiateViewController(withIdentifier: "\(StackPanelVC.self)") as! StackPanelVC
         return controller
     }()
     let taskbar = StudioTaskBarController.onlyInstance()

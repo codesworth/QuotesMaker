@@ -122,6 +122,8 @@
 		38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687B223E8E3D00F29F52 /* Elysium.swift */; };
 		38A6687E223EED7C00F29F52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687D223EED7C00F29F52 /* Colors.swift */; };
 		38AA311522442AF50050604A /* BaseContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA311422442AF50050604A /* BaseContentView.swift */; };
+		38C2E4022265A39000EE5DEB /* ControlPanelStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */; };
+		38C2E4042266180400EE5DEB /* StackPanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4032266180400EE5DEB /* StackPanelVC.swift */; };
 		38C697F5225D05FA009C8CCD /* PickerNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C697F4225D05FA009C8CCD /* PickerNavController.swift */; };
 		38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FB8223A837C00150FD4 /* StudioTab.swift */; };
 		38C80FBD223A904700150FD4 /* StateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C80FBC223A904700150FD4 /* StateProtocol.swift */; };
@@ -291,6 +293,8 @@
 		38A6687B223E8E3D00F29F52 /* Elysium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elysium.swift; sourceTree = "<group>"; };
 		38A6687D223EED7C00F29F52 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		38AA311422442AF50050604A /* BaseContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContentView.swift; sourceTree = "<group>"; };
+		38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelStack.swift; sourceTree = "<group>"; };
+		38C2E4032266180400EE5DEB /* StackPanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPanelVC.swift; sourceTree = "<group>"; };
 		38C697F4225D05FA009C8CCD /* PickerNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerNavController.swift; sourceTree = "<group>"; };
 		38C80FB8223A837C00150FD4 /* StudioTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTab.swift; sourceTree = "<group>"; };
 		38C80FBC223A904700150FD4 /* StateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateProtocol.swift; sourceTree = "<group>"; };
@@ -780,7 +784,7 @@
 			children = (
 				385D306C225A32E30054694A /* ImagePicker */,
 				38F13A072254366A002C4109 /* TaskBar */,
-				38F13A0822543679002C4109 /* ControlPanelTable */,
+				38F13A0822543679002C4109 /* ControlPanel */,
 				38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */,
 				38F13A0F2254C855002C4109 /* iPadStudioVC.swift */,
 			);
@@ -816,14 +820,16 @@
 			path = TaskBar;
 			sourceTree = "<group>";
 		};
-		38F13A0822543679002C4109 /* ControlPanelTable */ = {
+		38F13A0822543679002C4109 /* ControlPanel */ = {
 			isa = PBXGroup;
 			children = (
 				38F13A09225436D9002C4109 /* ContolPanelTable.swift */,
 				38F13A0B2254B6FF002C4109 /* PanelContainerCell.swift */,
 				38F13A0C2254B6FF002C4109 /* PanelContainerCell.xib */,
+				38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */,
+				38C2E4032266180400EE5DEB /* StackPanelVC.swift */,
 			);
-			path = ControlPanelTable;
+			path = ControlPanel;
 			sourceTree = "<group>";
 		};
 		38FEDBDD222352D90005EB60 = {
@@ -1022,6 +1028,7 @@
 				388BE323222AC376005BF44B /* CreateOptions.swift in Sources */,
 				3823656A224059420078A723 /* SPUserResizableView.m in Sources */,
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
+				38C2E4042266180400EE5DEB /* StackPanelVC.swift in Sources */,
 				38797C2522309DAF003A9D99 /* Constraints.swift in Sources */,
 				381865B5223C9972006C0C56 /* LayerStack.swift in Sources */,
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
@@ -1049,6 +1056,7 @@
 				388BE33E222BBFDE005BF44B /* GradientModel.swift in Sources */,
 				38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */,
 				386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */,
+				38C2E4022265A39000EE5DEB /* ControlPanelStack.swift in Sources */,
 				38115330224D228400DA7D3B /* SuperRectView.swift in Sources */,
 				38236565224045390078A723 /* ResizableView.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,

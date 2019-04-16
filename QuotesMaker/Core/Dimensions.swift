@@ -12,6 +12,14 @@ let __IS_IPAD:Bool = UIDevice.idiom == .pad
 
 class Dimensions{
     
+    enum PanelHeights:CGFloat, CaseIterable{
+        case fill = 170
+        case gradient = 560
+        case img = 200
+        case layout =  670
+        case text = 600
+    }
+    
     class func sizedRectForScale(rectSize:CGSize, scale:CGFloat)->CGSize{
         return [rectSize.width * scale, rectSize.height * scale ]
     }
