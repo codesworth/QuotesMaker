@@ -13,7 +13,7 @@
         <!--Stack PanelVC-->
         <scene sceneID="r6b-Kk-JXO">
             <objects>
-                <viewController id="z8M-4f-QLa" customClass="StackPanelVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StackPanelVC" id="z8M-4f-QLa" customClass="StackPanelVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ONe-pZ-tvq">
                         <rect key="frame" x="0.0" y="0.0" width="410" height="2800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
