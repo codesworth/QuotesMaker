@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum ViewType{
+    case shape
+    case img
+    case text
+}
+
 class Utils{
     
     

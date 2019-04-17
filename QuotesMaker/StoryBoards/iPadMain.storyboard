@@ -15,20 +15,54 @@
             <objects>
                 <viewController storyboardIdentifier="StackPanelVC" id="z8M-4f-QLa" customClass="StackPanelVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ONe-pZ-tvq">
-                        <rect key="frame" x="0.0" y="0.0" width="410" height="2800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="410" height="1912"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4Q-B4-0UA">
-                                <rect key="frame" x="0.0" y="0.0" width="410" height="2800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="410" height="1912"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyr-tS-ReG">
-                                        <rect key="frame" x="0.0" y="0.0" width="410" height="2800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="410" height="1912"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SQG-0u-ldU">
-                                                <rect key="frame" x="8" y="20" width="394" height="2565"/>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JAP-eb-rAh">
+                                                <rect key="frame" x="8" y="20" width="394" height="1008"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="S3N-v6-ebq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="227"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rco-Oe-My7" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysn-cN-VgS">
+                                                                <rect key="frame" x="8" y="5" width="132" height="38"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="qrK-6r-RQB"/>
+                                                        </constraints>
+                                                        <connections>
+                                                            <action selector="textTapped:" destination="z8M-4f-QLa" eventType="touchUpInside" id="b28-FQ-kW9"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zyh-ae-Z80" customClass="TextDesignableInputView" customModule="QuotesMaker" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="48" width="394" height="960"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="960" id="MHe-Of-JgZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1008" id="UHA-j3-iki"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="safeArea" id="LkM-0h-fNe"/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SQG-0u-ldU">
+                                                <rect key="frame" x="8" y="20" width="394" height="1902"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S3N-v6-ebq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="218"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvf-06-u2w" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
@@ -50,15 +84,15 @@
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3Z-xv-oph" customClass="ColorSliderPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="57" width="394" height="170"/>
+                                                                <rect key="frame" x="0.0" y="48" width="394" height="170"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="170" id="XZN-uX-272"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="gwr-oZ-G2a">
-                                                        <rect key="frame" x="0.0" y="247" width="394" height="617"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gwr-oZ-G2a">
+                                                        <rect key="frame" x="0.0" y="244.5" width="394" height="608"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4s-KS-mQm" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
@@ -80,7 +114,7 @@
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJt-8A-DrA" customClass="GradientPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="57" width="394" height="560"/>
+                                                                <rect key="frame" x="0.0" y="48" width="394" height="560"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="560" id="ih8-kP-8Jo"/>
                                                                 </constraints>
@@ -88,8 +122,8 @@
                                                         </subviews>
                                                         <viewLayoutGuide key="safeArea" id="dU3-7r-rlE"/>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="8gv-NI-aFv">
-                                                        <rect key="frame" x="0.0" y="884" width="394" height="257"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8gv-NI-aFv">
+                                                        <rect key="frame" x="0.0" y="879.5" width="394" height="278"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vK4-hn-PZS" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
@@ -111,16 +145,16 @@
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TkJ-wA-ORX" customClass="ImagePanel" customModule="QuotesMaker" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="57" width="394" height="200"/>
+                                                                <rect key="frame" x="0.0" y="48" width="394" height="230"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="200" id="Oqz-8L-Cff"/>
+                                                                    <constraint firstAttribute="height" constant="230" id="Oqz-8L-Cff"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
                                                         <viewLayoutGuide key="safeArea" id="CnO-PE-8LV"/>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="exI-tB-Lsz">
-                                                        <rect key="frame" x="0.0" y="1161" width="394" height="727"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="exI-tB-Lsz">
+                                                        <rect key="frame" x="0.0" y="1184" width="394" height="718"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yih-gC-Cyb" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
@@ -142,7 +176,7 @@
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHR-bP-pZ6" customClass="StylingPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="57" width="394" height="670"/>
+                                                                <rect key="frame" x="0.0" y="48" width="394" height="670"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="670" id="THH-E5-Ua8"/>
                                                                 </constraints>
@@ -150,46 +184,18 @@
                                                         </subviews>
                                                         <viewLayoutGuide key="safeArea" id="Znv-EY-Va1"/>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="JAP-eb-rAh">
-                                                        <rect key="frame" x="0.0" y="1908" width="394" height="657"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rco-Oe-My7" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysn-cN-VgS">
-                                                                        <rect key="frame" x="8" y="5" width="132" height="38"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                                <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="48" id="qrK-6r-RQB"/>
-                                                                </constraints>
-                                                                <connections>
-                                                                    <action selector="textTapped:" destination="z8M-4f-QLa" eventType="touchUpInside" id="b28-FQ-kW9"/>
-                                                                </connections>
-                                                            </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zyh-ae-Z80" customClass="TextDesignableInputView" customModule="QuotesMaker" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="57" width="394" height="600"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="600" id="MHe-Of-JgZ"/>
-                                                                </constraints>
-                                                            </view>
-                                                        </subviews>
-                                                        <viewLayoutGuide key="safeArea" id="LkM-0h-fNe"/>
-                                                    </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="2565" id="DxF-8W-WhA"/>
+                                                    <constraint firstAttribute="height" constant="1902" id="DxF-8W-WhA"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="2800" id="1Sy-Wo-kwM"/>
+                                            <constraint firstAttribute="height" constant="1912" id="1Sy-Wo-kwM"/>
+                                            <constraint firstItem="JAP-eb-rAh" firstAttribute="top" secondItem="Yyr-tS-ReG" secondAttribute="top" constant="20" id="QYk-ie-tac"/>
+                                            <constraint firstItem="JAP-eb-rAh" firstAttribute="leading" secondItem="Yyr-tS-ReG" secondAttribute="leading" constant="8" id="Qf2-62-kuZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="JAP-eb-rAh" secondAttribute="trailing" constant="8" id="Qvt-NR-ny1"/>
                                             <constraint firstAttribute="trailing" secondItem="SQG-0u-ldU" secondAttribute="trailing" constant="8" id="T6T-X3-HjU"/>
                                             <constraint firstItem="SQG-0u-ldU" firstAttribute="leading" secondItem="Yyr-tS-ReG" secondAttribute="leading" constant="8" id="dY6-5N-UWS"/>
                                             <constraint firstItem="SQG-0u-ldU" firstAttribute="top" secondItem="Yyr-tS-ReG" secondAttribute="top" constant="20" id="fg5-br-Hq2"/>
@@ -204,7 +210,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="m4Q-B4-0UA" firstAttribute="trailing" secondItem="oPw-Re-BNz" secondAttribute="trailing" id="2zV-Tv-DGn"/>
                             <constraint firstItem="Yyr-tS-ReG" firstAttribute="leading" secondItem="oPw-Re-BNz" secondAttribute="leading" id="6z8-Rp-LOZ"/>
@@ -215,18 +221,25 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oPw-Re-BNz"/>
                     </view>
-                    <size key="freeformSize" width="410" height="2800"/>
+                    <size key="freeformSize" width="410" height="1912"/>
                     <connections>
                         <outlet property="container" destination="Yyr-tS-ReG" id="3xG-bB-omm"/>
+                        <outlet property="containerHeight" destination="1Sy-Wo-kwM" id="kYj-Gt-vqz"/>
                         <outlet property="fillControl" destination="gvf-06-u2w" id="7J6-gx-7Tt"/>
+                        <outlet property="fillPanel" destination="x3Z-xv-oph" id="SOI-p2-9e2"/>
                         <outlet property="fillStack" destination="S3N-v6-ebq" id="whk-8K-ikd"/>
+                        <outlet property="gradientPanel" destination="iJt-8A-DrA" id="hQf-6s-YxA"/>
                         <outlet property="gradientStack" destination="gwr-oZ-G2a" id="9R0-Vv-OCN"/>
                         <outlet property="gradientcontrol" destination="s4s-KS-mQm" id="p6o-lm-5Uz"/>
+                        <outlet property="imagePanel" destination="TkJ-wA-ORX" id="ZC2-Ko-Uzg"/>
                         <outlet property="imagecontrol" destination="vK4-hn-PZS" id="UVI-J9-sMU"/>
                         <outlet property="imagetack" destination="8gv-NI-aFv" id="9Zh-1i-fgU"/>
                         <outlet property="parentStack" destination="SQG-0u-ldU" id="vg5-b8-Bxt"/>
+                        <outlet property="stackHeight" destination="DxF-8W-WhA" id="bjF-bP-mSa"/>
+                        <outlet property="stylePanel" destination="CHR-bP-pZ6" id="OMZ-B4-1dd"/>
                         <outlet property="styleStack" destination="exI-tB-Lsz" id="eLe-jV-Yxv"/>
                         <outlet property="stylecontrol" destination="Yih-gC-Cyb" id="ppD-GJ-TnR"/>
+                        <outlet property="textPanel" destination="Zyh-ae-Z80" id="Khd-NV-0CS"/>
                         <outlet property="textStack" destination="JAP-eb-rAh" id="Ubg-fi-595"/>
                         <outlet property="textcontrol" destination="Rco-Oe-My7" id="6Di-ej-BaI"/>
                     </connections>
