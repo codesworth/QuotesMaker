@@ -13,7 +13,7 @@ class StackPanelVC: UIViewController {
     enum TypeHeights:CGFloat{
          case shape = 1600
         case image = 1050
-        case text = 1818
+        case text = 1308
     }
 
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
@@ -105,6 +105,7 @@ class StackPanelVC: UIViewController {
         //First hide all unwanted
         imagetack.isHidden = true
         textStack.isHidden = true
+        parentStack.isHidden = false
         fillStack.isHidden = false
         gradientStack.isHidden = false
         styleStack.isHidden = false
@@ -115,7 +116,9 @@ class StackPanelVC: UIViewController {
         guard let model = model as? ImageLayerModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
+        
         textStack.isHidden = true
+        parentStack.isHidden = false
         fillStack.isHidden = true
         gradientStack.isHidden = true
         imagetack.isHidden = false
@@ -128,10 +131,7 @@ class StackPanelVC: UIViewController {
         //Set Solid, Gradient && Style
         //First hide all unwanted
         
-        imagetack.isHidden = true
-        fillStack.isHidden = true
-        gradientStack.isHidden = true
-        styleStack.isHidden = false
+        parentStack.isHidden = true
         textStack.isHidden = false
         
     }
