@@ -11,11 +11,12 @@ import UIKit
 class StackPanelVC: UIViewController {
     
     enum TypeHeights:CGFloat{
-         case shape = 1544
-        case image = 996
-        case text = 1008
+         case shape = 1600
+        case image = 1050
+        case text = 1818
     }
 
+    @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var fillStack: UIStackView!
     @IBOutlet weak var gradientStack: UIStackView!
     @IBOutlet weak var imagetack: UIStackView!
@@ -80,18 +81,22 @@ class StackPanelVC: UIViewController {
         
         switch type {
         case .shape:
+            containerHeight.constant = TypeHeights.shape.rawValue
             stackHeight.constant = TypeHeights.shape.rawValue
             switchToShape(model)
             break
         case .img:
+            containerHeight.constant = TypeHeights.image.rawValue
             stackHeight.constant = TypeHeights.image.rawValue
             switchToImage(model)
             break
         case .text:
+            containerHeight.constant = TypeHeights.text.rawValue
             stackHeight.constant = TypeHeights.text.rawValue
             switchToText(model)
             break
         }
+        parentStack.distribution = .fillProportionally
     }
     
     func switchToShape(_ model:LayerModel){
@@ -110,10 +115,10 @@ class StackPanelVC: UIViewController {
         guard let model = model as? ImageLayerModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
-        imagetack.isHidden = false
         textStack.isHidden = true
         fillStack.isHidden = true
         gradientStack.isHidden = true
+        imagetack.isHidden = false
         styleStack.isHidden = false
         
     }
@@ -122,11 +127,12 @@ class StackPanelVC: UIViewController {
         guard let model = model as? TextLayerModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
+        
         imagetack.isHidden = true
-        textStack.isHidden = false
         fillStack.isHidden = true
         gradientStack.isHidden = true
-        styleStack.isHidden = true
+        styleStack.isHidden = false
+        textStack.isHidden = false
         
     }
     

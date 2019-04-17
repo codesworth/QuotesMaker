@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yyr-tS-ReG">
                                         <rect key="frame" x="0.0" y="0.0" width="410" height="2920"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SQG-0u-ldU">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SQG-0u-ldU">
                                                 <rect key="frame" x="8" y="20" width="394" height="2910"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S3N-v6-ebq">
@@ -218,6 +218,7 @@
                     <size key="freeformSize" width="410" height="2800"/>
                     <connections>
                         <outlet property="container" destination="Yyr-tS-ReG" id="3xG-bB-omm"/>
+                        <outlet property="containerHeight" destination="1Sy-Wo-kwM" id="kYj-Gt-vqz"/>
                         <outlet property="fillControl" destination="gvf-06-u2w" id="7J6-gx-7Tt"/>
                         <outlet property="fillPanel" destination="x3Z-xv-oph" id="SOI-p2-9e2"/>
                         <outlet property="fillStack" destination="S3N-v6-ebq" id="whk-8K-ikd"/>
@@ -228,7 +229,7 @@
                         <outlet property="imagecontrol" destination="vK4-hn-PZS" id="UVI-J9-sMU"/>
                         <outlet property="imagetack" destination="8gv-NI-aFv" id="9Zh-1i-fgU"/>
                         <outlet property="parentStack" destination="SQG-0u-ldU" id="vg5-b8-Bxt"/>
-                        <outlet property="stackHeight" destination="1Sy-Wo-kwM" id="B8J-xU-Grd"/>
+                        <outlet property="stackHeight" destination="DxF-8W-WhA" id="bjF-bP-mSa"/>
                         <outlet property="stylePanel" destination="CHR-bP-pZ6" id="OMZ-B4-1dd"/>
                         <outlet property="styleStack" destination="exI-tB-Lsz" id="eLe-jV-Yxv"/>
                         <outlet property="stylecontrol" destination="Yih-gC-Cyb" id="ppD-GJ-TnR"/>
