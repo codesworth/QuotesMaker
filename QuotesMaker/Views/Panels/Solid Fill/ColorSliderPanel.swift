@@ -65,6 +65,10 @@ class ColorSliderPanel: MaterialView {
     func update(with ref: BlankLayerModel?){
         if let ref = ref{
             model = ref
+            colorSlider.color = model.color
+            colorSlider.seekToColor(model.color)
+            currentAlpha = model.alpha
+            alphaSlider.slider.setValue(Float(model.alpha), animated: true)
         }
     }
     
@@ -82,8 +86,8 @@ class ColorSliderPanel: MaterialView {
         super.didMoveToWindow()
         setNeedsLayout()
         layoutIfNeeded()
-        colorSlider.color = model.color
-        colorSlider.layoutSubviews()
+       // colorSlider.color = model.color
+       // colorSlider.layoutSubviews()
         //subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
     }
     
