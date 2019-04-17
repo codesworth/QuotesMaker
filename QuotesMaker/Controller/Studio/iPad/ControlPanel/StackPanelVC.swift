@@ -38,28 +38,49 @@ class StackPanelVC: UIViewController {
         fillControl.roundCorners(5)
         gradientcontrol.roundCorners(5)
         imagecontrol.roundCorners(5)
-        stylePanel.roundCorners(5)
-        textPanel.roundCorners(5)
-        fillStack.isHidden = true
-        fillPanel.isHidden = fillControl.panelHidden
-        gradientPanel.isHidden = gradientcontrol.panelHidden
-        gradientStack.isHidden = true
-        imagetack.isHidden = true
-        imagePanel.isHidden = imagecontrol.panelHidden
-        styleStack.isHidden = stylecontrol.panelHidden
-        stylePanel.isHidden = stylecontrol.panelHidden
-        textStack.isHidden = true
-        textPanel.isHidden = textcontrol.panelHidden
+        stylecontrol.roundCorners(5)
+        textcontrol.roundCorners(5)
+//        fillStack.isHidden = true
+//        fillPanel.isHidden = fillControl.panelHidden
+//        gradientPanel.isHidden = gradientcontrol.panelHidden
+//        gradientStack.isHidden = true
+//        imagetack.isHidden = true
+//        imagePanel.isHidden = imagecontrol.panelHidden
+//        styleStack.isHidden = true
+//        stylePanel.isHidden = stylecontrol.panelHidden
+//        textStack.isHidden = true
+//        textPanel.isHidden = textcontrol.panelHidden
+//        subscribeTo(subscription: .activatedLayer, selector: #selector(layerChanged(_:)))
         // Do any additional setup after loading the view.
     }
     
     
+    @objc func layerChanged(_ notification:Notification){
+        if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
+            if type(of: view) == RectView.self{
+                panelForCurrent(.shape, model: view.layerModel)
+            }
+            if type(of: view) == BackingImageView.self{
+                panelForCurrent(.img, model: view.layerModel)
+            }
+            if type(of: view) == BackingTextView.self{
+                panelForCurrent(.text, model: view.layerModel)
+            }
+        }
+    }
+    
+    
     func panelForCurrent(_ type:ViewType, model:LayerModel){
-        switch current {
-        case <#pattern#>:
-            <#code#>
-        default:
-            <#code#>
+        switch type {
+        case .shape:
+            switchToShape(model)
+            break
+        case .img:
+            switchToImage(model)
+            break
+        case .text:
+            switchToText(model)
+            break
         }
     }
     
@@ -75,6 +96,30 @@ class StackPanelVC: UIViewController {
         
     }
     
+    func switchToImage(_ model:LayerModel){
+        guard let model = model as? ImageLayerModel else {return}
+        //Set Solid, Gradient && Style
+        //First hide all unwanted
+        imagetack.isHidden = false
+        textStack.isHidden = true
+        fillStack.isHidden = true
+        gradientStack.isHidden = true
+        styleStack.isHidden = false
+        
+    }
+    
+    func switchToText(_ model:LayerModel){
+        guard let model = model as? TextLayerModel else {return}
+        //Set Solid, Gradient && Style
+        //First hide all unwanted
+        imagetack.isHidden = true
+        textStack.isHidden = false
+        fillStack.isHidden = true
+        gradientStack.isHidden = true
+        styleStack.isHidden = true
+        
+    }
+    
     
     @IBAction func fillTapped(_ sender: ControlProxy) {
         fillControl.panelHidden = !fillControl.panelHidden
@@ -82,14 +127,14 @@ class StackPanelVC: UIViewController {
     }
     
     @IBAction func gradientTapped(_ sender: ControlProxy) {
-        gradientcontrol.panelHidden = !fillControl.panelHidden
+        gradientcontrol.panelHidden = !gradientcontrol.panelHidden
         gradientPanel.isHidden = gradientcontrol.panelHidden
     }
     
     
     
     @IBAction func imageTapped(_ sender: ControlProxy) {
-        imagecontrol.panelHidden = !fillControl.panelHidden
+        imagecontrol.panelHidden = !imagecontrol.panelHidden
         imagePanel.isHidden = imagecontrol.panelHidden
     }
     
@@ -100,7 +145,7 @@ class StackPanelVC: UIViewController {
     
     @IBAction func textTapped(_ sender: ControlProxy) {
         textcontrol.panelHidden = !textcontrol.panelHidden
-        stylePanel.isHidden = true
+        textPanel.isHidden = textcontrol.panelHidden
     }
     
     
