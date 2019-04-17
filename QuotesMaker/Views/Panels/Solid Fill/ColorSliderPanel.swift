@@ -64,11 +64,11 @@ class ColorSliderPanel: MaterialView {
     
     func update(with ref: BlankLayerModel?){
         if let ref = ref{
+            colorSlider.color = ref.color
+            colorSlider.seekToColor(ref.color)
+            alphaSlider.slider.setValue(Float(ref.alpha), animated: true)
+            currentAlpha = ref.alpha
             model = ref
-            colorSlider.color = model.color
-            colorSlider.seekToColor(model.color)
-            currentAlpha = model.alpha
-            alphaSlider.slider.setValue(Float(model.alpha), animated: true)
         }
     }
     
@@ -146,7 +146,7 @@ class ColorSliderPanel: MaterialView {
         print("Color is changing Coloris changing")
         currentColor = slider.color
         model.color = slider.color.withAlphaComponent(currentAlpha)
-        model.alpha = currentAlpha
+        //model.alpha = currentAlpha
         
         delegate?.previewingWith(model)
     }
