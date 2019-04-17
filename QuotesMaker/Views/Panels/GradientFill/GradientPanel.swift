@@ -181,7 +181,7 @@ class GradientPanel: MaterialView {
         contentView.addSubview(locationTitle)
         contentView.addSubview(locationSlider)
         contentView.addSubview(alphaSlider)
-        scrollView.addSubview(controlPadView)
+        contentView.addSubview(controlPadView)
         gradientSegments.addTarget(self, action: #selector(gradSegmentChanged(_:)), for: .valueChanged)
         colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
         stepper.addTarget(self, action: #selector(stepperChanged(_:)), for: .valueChanged)
@@ -250,8 +250,8 @@ class GradientPanel: MaterialView {
         parent.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         contentView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        let priorityC = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
-        priorityC.priority = .defaultLow
+        //let priorityC = contentView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor)
+        //priorityC.priority = .defaultLow
         NSLayoutConstraint.activate([
             parent.topAnchor.constraint(equalTo: topAnchor, constant:4),
             parent.bottomAnchor.constraint(equalTo: bottomAnchor, constant:-4),
@@ -271,6 +271,7 @@ class GradientPanel: MaterialView {
             scrollView.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 24),
             scrollView.leadingAnchor.constraint(equalTo: parent.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: parent.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: 0),
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
@@ -279,7 +280,6 @@ class GradientPanel: MaterialView {
             contentView.heightAnchor.constraint(equalToConstant: 650),
             //priorityC,
             gradientSegments.topAnchor.constraint(equalTo: contentView.topAnchor),
-            scrollView.heightAnchor.constraint(equalToConstant: frame.height),
             gradientSegments.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),
             gradientSegments.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -insets),
             gradientSegments.heightAnchor.constraint(equalToConstant: 28),

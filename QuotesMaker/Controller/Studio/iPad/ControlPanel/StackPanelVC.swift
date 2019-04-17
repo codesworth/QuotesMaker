@@ -9,6 +9,12 @@
 import UIKit
 
 class StackPanelVC: UIViewController {
+    
+    enum TypeHeights:CGFloat{
+         case shape = 1544
+        case image = 996
+        case text = 1008
+    }
 
     @IBOutlet weak var fillStack: UIStackView!
     @IBOutlet weak var gradientStack: UIStackView!
@@ -50,7 +56,7 @@ class StackPanelVC: UIViewController {
 //        stylePanel.isHidden = stylecontrol.panelHidden
 //        textStack.isHidden = true
 //        textPanel.isHidden = textcontrol.panelHidden
-//        subscribeTo(subscription: .activatedLayer, selector: #selector(layerChanged(_:)))
+        subscribeTo(subscription: .activatedLayer, selector: #selector(layerChanged(_:)))
         // Do any additional setup after loading the view.
     }
     
@@ -71,14 +77,18 @@ class StackPanelVC: UIViewController {
     
     
     func panelForCurrent(_ type:ViewType, model:LayerModel){
+        
         switch type {
         case .shape:
+            stackHeight.constant = TypeHeights.shape.rawValue
             switchToShape(model)
             break
         case .img:
+            stackHeight.constant = TypeHeights.image.rawValue
             switchToImage(model)
             break
         case .text:
+            stackHeight.constant = TypeHeights.text.rawValue
             switchToText(model)
             break
         }
@@ -122,30 +132,30 @@ class StackPanelVC: UIViewController {
     
     
     @IBAction func fillTapped(_ sender: ControlProxy) {
-        fillControl.panelHidden = !fillControl.panelHidden
-        fillPanel.isHidden = fillControl.panelHidden
+//        fillControl.panelHidden = !fillControl.panelHidden
+       // fillPanel.isHidden = fillControl.panelHidden
     }
     
     @IBAction func gradientTapped(_ sender: ControlProxy) {
-        gradientcontrol.panelHidden = !gradientcontrol.panelHidden
-        gradientPanel.isHidden = gradientcontrol.panelHidden
+//        gradientcontrol.panelHidden = !gradientcontrol.panelHidden
+//        gradientPanel.isHidden = gradientcontrol.panelHidden
     }
     
     
     
     @IBAction func imageTapped(_ sender: ControlProxy) {
-        imagecontrol.panelHidden = !imagecontrol.panelHidden
-        imagePanel.isHidden = imagecontrol.panelHidden
+//        imagecontrol.panelHidden = !imagecontrol.panelHidden
+//        imagePanel.isHidden = imagecontrol.panelHidden
     }
     
     @IBAction func styleTapped(_ sender: ControlProxy) {
-        stylecontrol.panelHidden = !stylecontrol.panelHidden
-        stylePanel.isHidden = stylecontrol.panelHidden
+//        stylecontrol.panelHidden = !stylecontrol.panelHidden
+//        stylePanel.isHidden = stylecontrol.panelHidden
     }
     
     @IBAction func textTapped(_ sender: ControlProxy) {
-        textcontrol.panelHidden = !textcontrol.panelHidden
-        textPanel.isHidden = textcontrol.panelHidden
+//        textcontrol.panelHidden = !textcontrol.panelHidden
+//        textPanel.isHidden = textcontrol.panelHidden
     }
     
     
