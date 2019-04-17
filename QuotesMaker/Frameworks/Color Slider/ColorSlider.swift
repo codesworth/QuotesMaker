@@ -208,6 +208,12 @@ extension ColorSlider {
 			}
 		}
 	}
+    
+    func seekToColor(_ color:UIColor){
+        let color = HSBColor(color: color)
+        let sliderProgress = gradientView.calculateSliderProgress(for: color)
+        centerPreview(at: CGPoint(x: sliderProgress * bounds.width, y: sliderProgress * bounds.height))
+    }
 	
 	/// Center the preview view at a particular point, given the orientation.
 	///

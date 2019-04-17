@@ -46,10 +46,8 @@ class BaseView:UIView{
             if oldValue != selectedView {
                 if let old = oldValue as? BaseSubView{
                     old.focused(false)
-                    
-                    currentSubview = selectedView as? BaseView.BaseSubView
-                    //Subscription.main.post(suscription: .activatedLayer, object: currentSubview)
                 }
+                currentSubview = selectedView as? BaseView.BaseSubView
             }
         }
     }
@@ -114,7 +112,7 @@ class BaseView:UIView{
         subIndex += 1
         view.setIndex(subIndex)
         addSubview(view)
-        currentSubview = view
+        selectedView = view
     }
     
     
@@ -201,7 +199,7 @@ class BaseView:UIView{
                 
             }
         }
-        currentSubview = subview as? BaseView.BaseSubView
+        //currentSubview = subview as? BaseView.BaseSubView
         Subscription.main.post(suscription: .layerChanged, object: subviews)
     }
     

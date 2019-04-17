@@ -47,6 +47,12 @@ class StackPanelVC: UIViewController {
         imagecontrol.roundCorners(5)
         stylecontrol.roundCorners(5)
         textcontrol.roundCorners(5)
+        parentStack.isHidden = true
+        fillPanel.delegate = studio.coordinator
+        gradientPanel.delegate = studio.coordinator
+        imagePanel.delegate = studio.coordinator
+        stylePanel.delegate = studio.coordinator
+        textPanel.delegate = studio.coordinator
 //        fillStack.isHidden = true
 //        fillPanel.isHidden = fillControl.panelHidden
 //        gradientPanel.isHidden = gradientcontrol.panelHidden
@@ -59,6 +65,11 @@ class StackPanelVC: UIViewController {
 //        textPanel.isHidden = textcontrol.panelHidden
         subscribeTo(subscription: .activatedLayer, selector: #selector(layerChanged(_:)))
         // Do any additional setup after loading the view.
+    }
+    
+    
+    private var studio:iPadStudioVC{
+        return parent as! iPadStudioVC
     }
     
     
@@ -109,6 +120,7 @@ class StackPanelVC: UIViewController {
         fillStack.isHidden = false
         gradientStack.isHidden = false
         styleStack.isHidden = false
+        fillPanel.update(with: model.solid)
         
     }
     

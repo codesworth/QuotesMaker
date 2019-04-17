@@ -23,6 +23,8 @@ class ColorSliderPanel: MaterialView {
         return butt
     }()
     
+    private var fireColorPreviewDelegation = true
+    
     weak var stateDelegate:StateControlDelegate?
     
 //    lazy var stateControl:StateChangeControl = {
@@ -64,7 +66,13 @@ class ColorSliderPanel: MaterialView {
     
     func update(with ref: BlankLayerModel?){
         if let ref = ref{
+            fireColorPreviewDelegation = false
+            colorSlider.color = ref.color
+            colorSlider.seekToColor(ref.color)
+            alphaSlider.slider.setValue(Float(ref.alpha), animated: true)
+            currentAlpha = ref.alpha
             model = ref
+            fireColorPreviewDelegation = true
         }
     }
     
@@ -80,10 +88,10 @@ class ColorSliderPanel: MaterialView {
     
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        setNeedsLayout()
-        layoutIfNeeded()
-        colorSlider.color = model.color
-        colorSlider.layoutSubviews()
+//        setNeedsLayout()
+//        layoutIfNeeded()
+       // colorSlider.color = model.color
+       // colorSlider.layoutSubviews()
         //subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
     }
     
@@ -140,9 +148,10 @@ class ColorSliderPanel: MaterialView {
     
     @objc func colorIsChanging(_ slider:ColorSlider){
         print("Color is changing Coloris changing")
+        if !fireColorPreviewDelegation{return}
         currentColor = slider.color
         model.color = slider.color.withAlphaComponent(currentAlpha)
-        model.alpha = currentAlpha
+        //model.alpha = currentAlpha
         
         delegate?.previewingWith(model)
     }
