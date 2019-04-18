@@ -109,6 +109,7 @@
 		388BE388222EB35A005BF44B /* TextBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE387222EB35A005BF44B /* TextBackingLayer.swift */; };
 		388BE38A222EB50B005BF44B /* TextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE389222EB50B005BF44B /* TextModel.swift */; };
 		388BE38C222EC1C0005BF44B /* BackingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE38B222EC1C0005BF44B /* BackingTextView.swift */; };
+		389537CB2268AC37000B4E9D /* StateUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389537CA2268AC37000B4E9D /* StateUpdate.swift */; };
 		3896507B2242C154009434B4 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507A2242C154009434B4 /* Layout.swift */; };
 		3896507D2242C193009434B4 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507C2242C193009434B4 /* Actions.swift */; };
 		3896507F2242DD7F009434B4 /* ModelCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507E2242DD7F009434B4 /* ModelCollection.swift */; };
@@ -280,6 +281,7 @@
 		388BE387222EB35A005BF44B /* TextBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBackingLayer.swift; sourceTree = "<group>"; };
 		388BE389222EB50B005BF44B /* TextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModel.swift; sourceTree = "<group>"; };
 		388BE38B222EC1C0005BF44B /* BackingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingTextView.swift; sourceTree = "<group>"; };
+		389537CA2268AC37000B4E9D /* StateUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUpdate.swift; sourceTree = "<group>"; };
 		3896507A2242C154009434B4 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		3896507C2242C193009434B4 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		3896507E2242DD7F009434B4 /* ModelCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCollection.swift; sourceTree = "<group>"; };
@@ -745,6 +747,7 @@
 				388BE337222B369E005BF44B /* GradientPanel.swift */,
 				388BE383222E7AD8005BF44B /* PointControlPad.swift */,
 				388BE385222E93D0005BF44B /* PointControlview.swift */,
+				389537CA2268AC37000B4E9D /* StateUpdate.swift */,
 			);
 			path = GradientFill;
 			sourceTree = "<group>";
@@ -1097,6 +1100,7 @@
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,
+				389537CB2268AC37000B4E9D /* StateUpdate.swift in Sources */,
 				38F13A0D2254B6FF002C4109 /* PanelContainerCell.swift in Sources */,
 				38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */,
 				38661B0F224C42D300440AC7 /* StudioTabCells.swift in Sources */,

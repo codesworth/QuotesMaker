@@ -28,6 +28,7 @@ class GradientPanel: MaterialView {
     @objc func donePressed(){
         Utils.animatePanelsOut(self)
         unsubscribe()
+        
     }
     
     override func didMoveToWindow() {
