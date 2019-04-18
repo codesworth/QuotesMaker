@@ -22,7 +22,7 @@ class BlankBackingLayer:CALayer{
     var model:BlankLayerModel = BlankLayerModel(){
         didSet{
             backgroundColor = model.color.cgColor
-            if previousModels.isEmpty{previousModels.push(model)}else{previousModels.push(oldValue)}
+            //if previousModels.isEmpty{previousModels.push(model)}else{previousModels.push(oldValue)}
         }
     }
     

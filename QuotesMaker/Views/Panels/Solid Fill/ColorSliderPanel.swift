@@ -67,10 +67,10 @@ class ColorSliderPanel: MaterialView {
     func update(with ref: BlankLayerModel?){
         if let ref = ref{
             fireColorPreviewDelegation = false
-            colorSlider.color = ref.color
-            colorSlider.seekToColor(ref.color)
+            colorSlider.color = ref.rawColor
+            colorSlider.seekToColor(ref.rawColor)
             alphaSlider.slider.setValue(Float(ref.alpha), animated: true)
-            currentAlpha = ref.alpha
+            //currentAlpha = ref.alpha
             model = ref
             fireColorPreviewDelegation = true
         }
@@ -104,7 +104,7 @@ class ColorSliderPanel: MaterialView {
     private let alphaSlider = AlphaSliderView(frame: .zero)
     private let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
     var currentColor:UIColor = .clear
-    var currentAlpha:CGFloat = 0.5
+    //var currentAlpha:CGFloat = 0.5
     weak var delegate:PickerColorDelegate?
     
     override init(frame: CGRect) {
@@ -127,7 +127,7 @@ class ColorSliderPanel: MaterialView {
         addSubview(doneButt)
         alphaSlider.slider.addTarget(self, action: #selector(alphaChanging(_:)), for: .valueChanged)
         alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .touchUpInside)
-        alphaSlider.slider.value = Float(currentAlpha)
+        alphaSlider.slider.value = Float(model.alpha)
         addSubview(alphaSlider)
         addSubview(lable)
         //clipsToBounds = true
@@ -140,9 +140,10 @@ class ColorSliderPanel: MaterialView {
     @objc func colorChanged(_ slider:ColorSlider){
         print("Color is changed Coloris changed")
         currentColor = slider.color
-        model.color = slider.color.withAlphaComponent(currentAlpha)
-        model.alpha = currentAlpha
-        model.finalTouch = slider.restingLocation
+        model.updateCcolor(currentColor)
+        //model.color = slider.color.withAlphaComponent(currentAlpha)
+        //model.alpha = currentAlpha
+       // model.finalTouch = slider.restingLocation
         delegate?.colorDidChange(model)
     }
     
@@ -150,7 +151,7 @@ class ColorSliderPanel: MaterialView {
         print("Color is changing Coloris changing")
         if !fireColorPreviewDelegation{return}
         currentColor = slider.color
-        model.color = slider.color.withAlphaComponent(currentAlpha)
+        model.updateCcolor(slider.color)
         //model.alpha = currentAlpha
         
         delegate?.previewingWith(model)
@@ -159,9 +160,9 @@ class ColorSliderPanel: MaterialView {
     @objc func alphaChanged(_ slider:UISlider){
         print("Alpha is changed Alpha has changed")
         let value = CGFloat(slider.value)
-        currentAlpha = value
-        model.color = currentColor.withAlphaComponent(value)
-        model.alpha = currentAlpha
+        //currentAlpha = value
+        //model.updateCcolor(currentColor)
+        model.alpha = value
         delegate?.colorDidChange(model)
         
         
@@ -170,9 +171,8 @@ class ColorSliderPanel: MaterialView {
     @objc func alphaChanging(_ slider:UISlider){
         print("Alpha is chamging Alpha is changing")
         let value = CGFloat(slider.value)
-        currentAlpha = value
-        model.color = currentColor.withAlphaComponent(value)
-        model.alpha = currentAlpha
+        //currentAlpha = value
+        model.alpha = value
         delegate?.previewingWith(model)
         
     }

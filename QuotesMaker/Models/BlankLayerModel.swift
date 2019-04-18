@@ -11,9 +11,18 @@ import UIKit
 
 struct BlankLayerModel {
     
-    var color:UIColor = .lightGray
+    private var _internalColor:UIColor = .lightGray
+    var color:UIColor{
+        return _internalColor.withAlphaComponent(alpha)
+    }
+    var rawColor:UIColor{
+        return _internalColor
+    }
     var alpha: CGFloat = 1
-    var finalTouch:UITouch? = nil
+    //var finalTouch:UITouch? = nil
+    mutating func updateCcolor(_ color:UIColor){
+        _internalColor = color
+    }
 }
 
 extension BlankLayerModel:Equatable{
