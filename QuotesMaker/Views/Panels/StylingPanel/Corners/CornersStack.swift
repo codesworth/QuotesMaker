@@ -115,6 +115,37 @@ class CornerStack:UIView{
         
     }
     
+    func layoutCorners(corner:CACornerMask){
+        if corner.contains(.layerMinXMinYCorner){
+            topRButt.backgroundColor = .primary
+            topRButt.setTitleColor(.white, for: .normal)
+        }else{
+            topRButt.backgroundColor = .groupTableViewBackground
+            topRButt.setTitleColor(.primary, for: .normal)
+        }
+        if corner.contains(.layerMinXMaxYCorner){
+            bottomRButt.backgroundColor = .primary
+            bottomRButt.setTitleColor(.white, for: .normal)
+        }else{
+            bottomRButt.backgroundColor = .groupTableViewBackground
+            bottomRButt.setTitleColor(.primary, for: .normal)
+        }
+        if corner.contains(.layerMaxXMinYCorner){
+            topLButt.backgroundColor = .primary
+            topLButt.setTitleColor(.white, for: .normal)
+        }else{
+            topLButt.backgroundColor = .groupTableViewBackground
+            topLButt.setTitleColor(.primary, for: .normal)
+        }
+        if corner.contains(.layerMaxXMaxYCorner){
+            bottomLButt.backgroundColor = .primary
+            bottomLButt.setTitleColor(.white, for: .normal)
+        }else{
+            bottomLButt.backgroundColor = .groupTableViewBackground
+            bottomLButt.setTitleColor(.primary, for: .normal)
+        }
+    }
+    
     func updateCorner(corner:CACornerMask, sender:UIButton){
         if corners.contains(corner){
             corners.remove(corner)

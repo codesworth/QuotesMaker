@@ -33,7 +33,7 @@ class StackPanelVC: UIViewController {
     @IBOutlet weak var imagePanel:ImagePanel!
     @IBOutlet weak var stylePanel:StylingPanel!
     @IBOutlet weak var textPanel:TextDesignableInputView!
-
+    var viewSize:CGSize = [200]
     @IBOutlet weak var parentStack: UIStackView!
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
@@ -75,6 +75,7 @@ class StackPanelVC: UIViewController {
     
     @objc func layerChanged(_ notification:Notification){
         if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
+            viewSize = view.bounds.size
             if type(of: view) == RectView.self{
                 panelForCurrent(.shape, model: view.layerModel)
             }
@@ -124,6 +125,7 @@ class StackPanelVC: UIViewController {
         if let gradient = model.gradient{
             gradientPanel.updatepanel(gradient)
         }
+        stylePanel.updatePanel(model.style, size: viewSize)
         
     }
     
