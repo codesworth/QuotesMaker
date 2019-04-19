@@ -151,3 +151,15 @@ extension UIViewController {
         }
         
 }
+
+func toSignficant(x:Double)->String{
+   return String(format: "%.1f", x)
+}
+
+func toSignficant(x:Float)->String{
+    return String(format: "%.1f", x)
+}
+
+func toSignficant(x:CGFloat)->String{
+    return String(format: "%.1f", x)
+}

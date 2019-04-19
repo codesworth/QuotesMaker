@@ -62,7 +62,7 @@ class PointControlPad: UIView {
     }
     
     func setControlTo(_ point:CGPoint){
-        
+       pointControl.center = point.extrapulateIn(bounds)
     }
     
     override func layoutSubviews() {
@@ -83,7 +83,7 @@ class PointControlPad: UIView {
             return
         }
        
-        print("The controlPoint is: \(controlPoints!)")
+        //print("The controlPoint is: \(controlPoints!)")
         
     }
     

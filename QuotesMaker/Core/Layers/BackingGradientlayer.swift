@@ -26,7 +26,7 @@ class BackingGradientlayer: CAGradientLayer {
             startPoint = model.startPoint
             endPoint = model.endPoint
             locations = model.locations
-            colors = model.colors
+            colors = model.gradientColors()
         }
     }
     

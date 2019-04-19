@@ -18,6 +18,8 @@ protocol GradientOptionsDelegate:class {
 
 class GradientPanel: MaterialView {
     
+    var blockDelegation =  false
+    
     lazy var doneButt:CloseButton = {
         let butt = CloseButton(type: .roundedRect)
         butt.addTarget(self, action: #selector(donePressed), for: .touchUpInside)
@@ -28,6 +30,7 @@ class GradientPanel: MaterialView {
     @objc func donePressed(){
         Utils.animatePanelsOut(self)
         unsubscribe()
+        
     }
     
     override func didMoveToWindow() {
@@ -87,7 +90,7 @@ class GradientPanel: MaterialView {
     }()
     
     var workingIndex = 0
-    private var model:GradientLayerModel!
+    var model:GradientLayerModel!
     weak var delegate:GradientOptionsDelegate?
     private let insets:CGFloat = 12
     private let horizontalmargin:CGFloat = 8
@@ -190,14 +193,15 @@ class GradientPanel: MaterialView {
     }
     
     @objc func alphaChanged(_ sender:UISlider){
+        if blockDelegation{return}
         let newAlpha:CGFloat = CGFloat(sender.value)
         designtedAlphas[workingIndex] = newAlpha
-        let currentColor = model.colors[workingIndex]
-        model.colors[workingIndex] = UIColor(cgColor: currentColor).withAlphaComponent(newAlpha).cgColor
+        model.alphas[workingIndex] = newAlpha
         delegate?.modelChanged(model)
     }
     
     @objc func gradSegmentChanged(_ sender:UISegmentedControl){
+        if blockDelegation{return}
         workingIndex = sender.selectedSegmentIndex
         alphaSlider.slider.setValue(Float(designtedAlphas[workingIndex]), animated: true)
         locationSlider.setValue(Float(truncating: model.locations[workingIndex]), animated: true)
@@ -205,36 +209,38 @@ class GradientPanel: MaterialView {
     }
     
     @objc func colorSliderChanged(_ slider:ColorSlider){
-        
+        if blockDelegation{return}
         let color = slider.color
-        model.colors[workingIndex] =  color.withAlphaComponent(designtedAlphas[workingIndex]).cgColor
+        model.setColor(color, at: workingIndex)
         //gradientSegments.tintColor = UIColor(cgColor: model.colors[workingIndex])
         delegate?.modelChanged(model)
     }
     
     @objc func stepperChanged(_ sender:UIStepper){
-        
+        if blockDelegation{return}
         let newIndex = Int(sender.value)
         guard newIndex < 5 else{return}
         if newIndex < gradientSegments.numberOfSegments{
             gradientSegments.removeSegment(at: newIndex, animated: true)
-            model.colors.removeLast()
-            model.locations.removeLast()
+            model.removeLast()
             updateWorkingIndex(newIndex: newIndex)
         }else{
             gradientSegments.insertSegment(withTitle: "\(newIndex)", at: newIndex - 1, animated: true)
-            model.colors.append(GradientLayerModel.originalColor)
+            model.setColor(.cyan, at: newIndex)
             model.addLocation(at: newIndex)
+            model.alphas.append(1)
         }
         delegate?.modelChanged(model)
         
     }
     
     func updateWorkingIndex(newIndex:Int){
+        if blockDelegation{return}
         if workingIndex >= newIndex{workingIndex = newIndex - 1}
     }
     
     @objc func locationSliderChanged(_ slider:UISlider){
+        if blockDelegation{return}
         model.locations[workingIndex] =  NSNumber(value: slider.value)
         delegate?.modelChanged(model)
     }

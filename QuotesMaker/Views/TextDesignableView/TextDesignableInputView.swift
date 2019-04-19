@@ -16,6 +16,8 @@ protocol TextModelDelegate:class {
 
 class TextDesignableInputView:UIView{
     
+    var blockDelegation = false
+    
     var fonts = UIFont.getFeaturedFonts()
     
     lazy var titleLable:BasicLabel = {

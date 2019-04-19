@@ -17,6 +17,8 @@ protocol StylingDelegate:class {
 
 class StylingPanel:MaterialView{
     
+    var blockDelegation = false
+    
 //    lazy var stateControl:StateChangeControl = {
 //        let view = StateChangeControl(frame: .zero)
 //        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)

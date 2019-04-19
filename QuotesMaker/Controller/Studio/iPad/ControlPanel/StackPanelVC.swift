@@ -33,7 +33,7 @@ class StackPanelVC: UIViewController {
     @IBOutlet weak var imagePanel:ImagePanel!
     @IBOutlet weak var stylePanel:StylingPanel!
     @IBOutlet weak var textPanel:TextDesignableInputView!
-
+    var viewSize:CGSize = [200]
     @IBOutlet weak var parentStack: UIStackView!
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
@@ -75,6 +75,7 @@ class StackPanelVC: UIViewController {
     
     @objc func layerChanged(_ notification:Notification){
         if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
+            viewSize = view.bounds.size
             if type(of: view) == RectView.self{
                 panelForCurrent(.shape, model: view.layerModel)
             }
@@ -121,6 +122,10 @@ class StackPanelVC: UIViewController {
         gradientStack.isHidden = false
         styleStack.isHidden = false
         fillPanel.update(with: model.solid)
+        if let gradient = model.gradient{
+            gradientPanel.updatepanel(gradient)
+        }
+        stylePanel.updatePanel(model.style, size: viewSize)
         
     }
     
@@ -128,13 +133,13 @@ class StackPanelVC: UIViewController {
         guard let model = model as? ImageLayerModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
-        
         textStack.isHidden = true
         parentStack.isHidden = false
         fillStack.isHidden = true
         gradientStack.isHidden = true
         imagetack.isHidden = false
         styleStack.isHidden = false
+        stylePanel.updatePanel(model.style, size: viewSize)
         
     }
     
@@ -142,9 +147,10 @@ class StackPanelVC: UIViewController {
         guard let model = model as? TextLayerModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
-        
         parentStack.isHidden = true
         textStack.isHidden = false
+        textPanel.updatePanle(model)
+        
         
     }
     
