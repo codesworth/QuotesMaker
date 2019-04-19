@@ -28,14 +28,14 @@ extension StylingPanel{
     @objc func cornerRadiusChanged(_ slider:UISlider){
         if blockDelegation{return}
         style.cornerRadius = CGFloat(slider.value)
-        cornerPanel.cornerlable.text = "Radius: \(Int(slider.value))"
+        cornerPanel.cornerRadius.text = "Radius: \(Int(slider.value))"
         delegate?.didFinishStyling(style)
     }
     
     @objc func cornerRadiusChanging(_ slider:UISlider){
         if blockDelegation{return}
         style.cornerRadius = CGFloat(slider.value)
-        cornerPanel.cornerlable.text = "Radius: \(Int(slider.value))"
+        cornerPanel.cornerRadius.text = "Radius: \(Int(slider.value))"
         delegate?.didFinishPreviewing(style)
     }
     
@@ -97,9 +97,11 @@ extension StylingPanel{
         blockDelegation = true
         cornerPanel.slider.setValue(Float(style.cornerRadius), animated: true)
         cornerPanel.slider.maximumValue = Float(size.min)
-        cornerPanel.cornerlable.text = "Radius: \(style.cornerRadius)"
+        cornerPanel.cornerlable.text = "Radius: \(Int(style.cornerRadius))"
         if let corners = style.maskedCorners{
             cornerPanel.roundCornerView.layoutCorners(corner:corners)
+        }else{
+            cornerPanel.roundCornerView.layoutCorners(corner: [])
         }
         borderPanel.colorSlider.color = style.borderColor
         borderPanel.colorSlider.seekToColor(style.borderColor)

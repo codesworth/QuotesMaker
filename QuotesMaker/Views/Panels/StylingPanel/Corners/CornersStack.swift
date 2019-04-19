@@ -116,6 +116,7 @@ class CornerStack:UIView{
     }
     
     func layoutCorners(corner:CACornerMask){
+        self.corners = corner
         if corner.contains(.layerMinXMinYCorner){
             topRButt.backgroundColor = .primary
             topRButt.setTitleColor(.white, for: .normal)
