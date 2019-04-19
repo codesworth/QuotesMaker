@@ -133,13 +133,13 @@ class StackPanelVC: UIViewController {
         guard let model = model as? ImageLayerModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
-        
         textStack.isHidden = true
         parentStack.isHidden = false
         fillStack.isHidden = true
         gradientStack.isHidden = true
         imagetack.isHidden = false
         styleStack.isHidden = false
+        stylePanel.updatePanel(model.style, size: viewSize)
         
     }
     
@@ -147,9 +147,10 @@ class StackPanelVC: UIViewController {
         guard let model = model as? TextLayerModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
-        
         parentStack.isHidden = true
         textStack.isHidden = false
+        textPanel.updatePanle(model)
+        
         
     }
     
