@@ -121,6 +121,9 @@ class StackPanelVC: UIViewController {
         gradientStack.isHidden = false
         styleStack.isHidden = false
         fillPanel.update(with: model.solid)
+        if let gradient = model.gradient{
+            gradientPanel.updatepanel(gradient)
+        }
         
     }
     

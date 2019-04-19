@@ -13,12 +13,19 @@ import UIKit
 extension GradientPanel{
     
     func updatepanel(_ model:GradientLayerModel){
+        blockDelegation = true
         gradientSegments.removeAllSegments()
-        for (index,_) in model.colors.enumerated(){
+        for (index,_) in model.gradientColors().enumerated(){
             gradientSegments.insertSegment(withTitle: "\(index + 1)", at: index, animated: true)
         }
-        colorSlider.color = UIColor(cgColor: model.colors.first!)
-        colorSlider.seekToColor(UIColor(cgColor: model.colors.first!))
-        alphaSlider.slider.setValue(model.alph, animated: <#T##Bool#>)
+        gradientSegments.selectedSegmentIndex = 0
+        colorSlider.color = model.getRawColorAt(0)
+        colorSlider.seekToColor(model.getRawColorAt(0))
+        alphaSlider.slider.setValue(Float(model.alphas.first!), animated: true)
+        locationSlider.setValue(model.locations.first!.floatValue, animated: true)
+        controlPadView.pad.setControlTo(model.startPoint)
+        self.model = model
+        blockDelegation = false
+        //stepperTitle.text = "\()"
     }
 }

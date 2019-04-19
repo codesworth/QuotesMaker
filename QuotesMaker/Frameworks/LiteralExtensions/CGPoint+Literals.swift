@@ -97,6 +97,10 @@ extension CGPoint{
     func maxRatio(in rect:CGRect)-> CGPoint{
         return [x / rect.maxX , y / rect.maxY]
     }
+    
+    func extrapulateIn(_ rect:CGRect) -> CGPoint{
+        return [rect.maxX * x, rect.maxY * y]
+    }
 
 }
 
