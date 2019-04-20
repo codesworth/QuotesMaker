@@ -15,7 +15,9 @@ class StackPanelVC: UIViewController {
         case image = 1050
         case text = 1308
     }
-
+    @IBOutlet weak var canvaspanelStack: UIStackView!
+    
+    @IBOutlet weak var canvasBackgoundColorPanel: ColorSliderPanel!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var fillStack: UIStackView!
     @IBOutlet weak var gradientStack: UIStackView!
@@ -48,6 +50,7 @@ class StackPanelVC: UIViewController {
         stylecontrol.roundCorners(5)
         textcontrol.roundCorners(5)
         parentStack.isHidden = true
+        canvasBackgoundColorPanel.delegate = self
         fillPanel.delegate = studio.coordinator
         gradientPanel.delegate = studio.coordinator
         imagePanel.delegate = studio.coordinator
@@ -75,6 +78,7 @@ class StackPanelVC: UIViewController {
     
     @objc func layerChanged(_ notification:Notification){
         if let view = notification.userInfo?[.info] as? BaseView.BaseSubView{
+            canvaspanelStack.isHidden = true
             viewSize = view.bounds.size
             if type(of: view) == RectView.self{
                 panelForCurrent(.shape, model: view.layerModel)
@@ -195,6 +199,22 @@ class StackPanelVC: UIViewController {
     }
     */
 
+}
+
+
+extension StackPanelVC:PickerColorDelegate{
+    func colorDidChange(_ model: BlankLayerModel) {
+        //
+        studio.coordinator.baseView.backgroundColor = model.color
+    }
+    
+    func previewingWith(_ model: BlankLayerModel) {
+        //
+        studio.coordinator.baseView.backgroundColor = model.color
+    }
+    
+    
+    
 }
 
 
