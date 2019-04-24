@@ -23,8 +23,9 @@ class Persistence{
         let encoder = JSONEncoder()
         do{
             let data = try encoder.encode(model)
-            let url = FileManager.modelDir.appendingPathComponent(model.id).addExtension(.json)
+            let url = URL(fileURLWithPath: model.id, relativeTo: FileManager.modelDir).addExtension(.json) //FileManager.modelDir.appendingPathComponent(model.id).addExtension(.json)
             try data.write(to: url)
+            print("This is the url to file: \(url)")
         }catch let err{
             print("Error Occurred with sig: \(err.localizedDescription)")
         }

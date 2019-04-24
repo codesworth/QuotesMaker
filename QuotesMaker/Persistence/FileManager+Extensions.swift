@@ -23,7 +23,7 @@ extension FileManager{
     }
     
     static var modelDir:URL{
-        return homeDir.appendingPathComponent(Directories.savedModels.rawValue, isDirectory:true)
+        return homeDir.appendingPathComponent(Directories.savedModels.rawValue)
     }
     
     enum Extensions:String{

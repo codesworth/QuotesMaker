@@ -11,6 +11,7 @@ import Foundation
 
 struct StudioModel:Codable{
     
+    //public private (set) var thumbImage:UIImage
     public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval

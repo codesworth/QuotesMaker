@@ -64,7 +64,7 @@ class StudioTaskBarController: UIViewController {
         
     }
     @IBAction func save(_ sender: ControlProxy) {
-        
+        studio?.coordinator.save()
     }
     @IBAction func thrash(_ sender: ControlProxy) {
         studio?.coordinator.deleteCurrent()
