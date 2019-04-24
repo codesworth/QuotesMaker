@@ -14,6 +14,7 @@ class BaseView:UIView{
     typealias BaseSubView = UIView & BaseViewSubViewable
     
     
+    
     typealias ViewTags = (imgs:Int,txt:Int,blk:Int,grd:Int)
     var viewTags:ViewTags = (0,0,0,0)
        

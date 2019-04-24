@@ -49,6 +49,13 @@ struct BaseModelCollection<T:EquaCodable>{
     var isEmpty:Bool{
         return _container.isEmpty
     }
+    
+    init(models:[T]) {
+        var collecton = BaseModelCollection()
+        models.forEach{
+            collecton.append($0)
+        }
+    }
 }
 
 extension BaseModelCollection:Codable{}
@@ -58,9 +65,10 @@ extension BaseModelCollection:ExpressibleByArrayLiteral{
     
     
     init(arrayLiteral elements: T...) {
-        var collecton = BaseModelCollection()
         elements.forEach{
-            collecton.append($0)
+            if !_container.contains($0){
+                _container.append($0)
+            }
         }
         
     }

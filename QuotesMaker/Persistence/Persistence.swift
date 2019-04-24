@@ -9,37 +9,6 @@
 import Foundation
 
 
-extension FileManager{
-    
-    static var homeDir:URL{
-        return `default`.urls(for: .documentDirectory, in: .userDomainMask).first!
-    }
-    
-    enum Directories:String {
-        case savedModels
-        case temp
-        case userAccount
-        case userData
-    }
-    
-    static var modelDir:URL{
-        return homeDir.appendingPathComponent(Directories.savedModels.rawValue, isDirectory:true)
-    }
-    
-    enum Extensions:String{
-        case json, txt, plist,isdm
-    }
-    
-    
-}
-
-extension URL{
-    
-    func addExtension(_ ex:FileManager.Extensions) -> URL{
-       return self.appendingPathExtension(ex.rawValue)
-    }
-}
-
 class Persistence{
     
     
