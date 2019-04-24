@@ -18,9 +18,9 @@ protocol LayerModel:Codable {
 }
 
 
-enum ModelType {
-    case shape
-    case text
-    case image
+enum ModelType:Int {
+    case shape = 1
+    case text = 2
+    case image = 3
 }
 

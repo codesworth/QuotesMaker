@@ -23,6 +23,8 @@ struct TextLayerModel {
         }
     }
 
+    private  var shadowBlur:CGFloat = 0
+    private var shadowOffset:CGSize = .zero
     var strikeThrough:Int = 0
     private var _strikeThroughColor:StudioColor?
     private var _strokeColor:StudioColor?
@@ -34,10 +36,15 @@ struct TextLayerModel {
     var shadow:NSShadow{
         get{
             let shadow = NSShadow()
-            shadow.shadowColor = UIColor.clear
-            shadow.shadowBlurRadius = 0
-            shadow.shadowOffset = .zero
+            shadow.shadowColor = shadowColor
+            shadow.shadowBlurRadius = shadowBlur
+            shadow.shadowOffset = shadowOffset
             return shadow
+        }
+        set{
+            shadowColor = newValue.shadowColor as? UIColor ?? shadowColor
+            shadowBlur = newValue.shadowBlurRadius
+            shadowOffset = newValue.shadowOffset
         }
     }
     var shadowAlpha:CGFloat = 0.30

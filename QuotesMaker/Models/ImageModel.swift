@@ -19,7 +19,16 @@ struct ImageLayerModel:LayerModel {
         self.frame = frame
     }
     
-    var image:UIImage?
+    var image:UIImage?{
+        get{
+            return (_data != nil) ?  UIImage(data: _data!) : nil
+        }
+        set{
+            _data = newValue?.pngData()
+        }
+    }
+    private var _data:Data?
+    
     var style:Style = Style()
     var frame:LayerFrame?
     
@@ -40,4 +49,6 @@ struct ImageLayerModel:LayerModel {
     
 }
 
+
+extension ImageLayerModel:Codable{}
 

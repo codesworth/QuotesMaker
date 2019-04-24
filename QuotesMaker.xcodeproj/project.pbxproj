@@ -31,6 +31,7 @@
 		3818DACF227087B800202C14 /* StudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DACE227087B800202C14 /* StudioModel.swift */; };
 		3818DAD1227091C200202C14 /* StudioColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD0227091C200202C14 /* StudioColor.swift */; };
 		3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD22270D2AF00202C14 /* StudioFont.swift */; };
+		3818DAD62270EAFB00202C14 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD52270EAFB00202C14 /* Persistence.swift */; };
 		3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823655D223FA6D00078A723 /* GroupWrapperView.swift */; };
 		38236561223FEB640078A723 /* +StateChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236560223FEB640078A723 /* +StateChangeable.swift */; };
 		38236563223FFE260078A723 /* Cropview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236562223FFE260078A723 /* Cropview.swift */; };
@@ -201,6 +202,7 @@
 		3818DACE227087B800202C14 /* StudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioModel.swift; sourceTree = "<group>"; };
 		3818DAD0227091C200202C14 /* StudioColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioColor.swift; sourceTree = "<group>"; };
 		3818DAD22270D2AF00202C14 /* StudioFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioFont.swift; sourceTree = "<group>"; };
+		3818DAD52270EAFB00202C14 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3823655D223FA6D00078A723 /* GroupWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupWrapperView.swift; sourceTree = "<group>"; };
 		38236560223FEB640078A723 /* +StateChangeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+StateChangeable.swift"; sourceTree = "<group>"; };
 		38236562223FFE260078A723 /* Cropview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cropview.swift; sourceTree = "<group>"; };
@@ -377,6 +379,14 @@
 				381865B7223C9E1F006C0C56 /* StackCell.xib */,
 			);
 			path = ViewStack;
+			sourceTree = "<group>";
+		};
+		3818DAD42270E31700202C14 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				3818DAD52270EAFB00202C14 /* Persistence.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		3823655F223FEB340078A723 /* BackingImage */ = {
@@ -865,6 +875,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
+				3818DAD42270E31700202C14 /* Persistence */,
 				38051CCA2253B12300D9E763 /* StoryBoards */,
 				38C80FBA223A901800150FD4 /* Protocols */,
 				388BE329222B065A005BF44B /* Resourcres */,
@@ -1121,6 +1132,7 @@
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
 				381865B8223C9E1F006C0C56 /* StackCell.swift in Sources */,
 				38661B0A224BF4E000440AC7 /* LayoutProperty.swift in Sources */,
+				3818DAD62270EAFB00202C14 /* Persistence.swift in Sources */,
 				385BB9AE225E20F6009541A3 /* UIScreen+Extensions.swift in Sources */,
 				380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */,
 				380C78FA2232C454006B8F8D /* BackingImageView.swift in Sources */,

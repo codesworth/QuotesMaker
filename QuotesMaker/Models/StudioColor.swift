@@ -14,6 +14,10 @@ class StudioColor:Codable{
        return StudioColor(color: .magenta)
     }
     
+    class var lightGray:StudioColor{
+        return StudioColor(color: .lightGray)
+    }
+    
     class var cyan:StudioColor{
         return StudioColor(color: .cyan)
     }
@@ -26,10 +30,10 @@ class StudioColor:Codable{
         return StudioColor(color: .black)
     }
     
-    private var _green:CGFloat
-    private var _blue:CGFloat
-    private var _red:CGFloat
-    private var alpha:CGFloat
+    private var _green:CGFloat = 0
+    private var _blue:CGFloat = 0
+    private var _red:CGFloat = 0
+    private var alpha:CGFloat = 0
     
     init(color:UIColor) {
         color.getRed(&_red, green: &_green, blue: &_blue, alpha: &alpha)

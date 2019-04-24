@@ -9,10 +9,53 @@
 import Foundation
 
 
-public struct StudioModel:Codable{
+struct StudioModel<Model:LayerModel>:Codable{
     
-    private var id:String
+    private var id:UUID
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
-    private var models:[LayerModel]
+    private var models:[Model] = []
+    
+}
+
+
+class Image{
+    
+    public private (set) var rawData:[[[UInt8]]] = [
+        [
+            [0x4F, 0x6B, 153,109, 0b0101_0001, 0b1110_0010],
+            [0xFF, 0xBA, 100, 255, 0b1001_1000, 0b0001_0101],
+            [0x12, 0x1C, 192, 10, 0b1111_0001, 0b0110_0100],
+        ],
+        [
+            [0x4F, 0x6B, 153,109, 0b0101_0001, 0b1110_0010],
+            [0xFF, 0xBA, 100, 255, 0b1001_1000, 0b0001_0101],
+            [0x12, 0x1C, 192, 10, 0b1111_0001, 0b0110_0100],
+        ],
+        [
+            [0x4F, 0x6B, 153,109, 0b0101_0001, 0b1110_0010],
+            [0xFF, 0xBA, 100, 255, 0b1001_1000, 0b0001_0101],
+            [0x12, 0x1C, 192, 10, 0b1111_0001, 0b0110_0100],
+        ],
+        [
+            [0x4F, 0x6B, 153,109, 0b0101_0001, 0b1110_0010],
+            [0xFF, 0xBA, 100, 255, 0b1001_1000, 0b0001_0101],
+            [0x12, 0x1C, 192, 10, 0b1111_0001, 0b0110_0100],
+        ],
+        [
+            [0b1110_0010, 0b0101_0001, 0x4F, 109, 153, 0x6B],
+            [0b0001_0101, 0b1001_1000, 0xFF, 255, 100, 0xBA],
+            [0b0110_0100, 0b1111_0001, 0x12, 10, 192, 0x1C],
+        ],
+        [
+            [0x4F, 0x6B, 153,109, 0b0101_0001, 0b1110_0010],
+            [0xFF, 0xBA, 100, 255, 0b1001_1000, 0b0001_0101],
+            [0x12, 0x1C, 192, 10, 0b1111_0001, 0b0110_0100],
+            ],
+        [
+            [0b1110_0010, 0b0101_0001, 0x4F, 109, 153, 0x6B],
+            [0b0001_0101, 0b1001_1000, 0xFF, 255, 100, 0xBA],
+            [0b0110_0100, 0b1111_0001, 0x12, 10, 192, 0x1C],
+            ]
+    ]
 }
