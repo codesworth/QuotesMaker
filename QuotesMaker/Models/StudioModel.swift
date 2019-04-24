@@ -9,12 +9,18 @@
 import Foundation
 
 
-struct StudioModel<Model:LayerModel>:Codable{
+struct StudioModel:Codable{
     
-    private var id:UUID
+    private var id:UUID = UUID()
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
-    private var models:[Model] = []
+    private var models:[BaseModel] = []
+    
+    init(models:[BaseModel]) {
+        self.models = models
+        dateCreated = Date().timeIntervalSinceReferenceDate
+        lastModified = Date().timeIntervalSinceReferenceDate
+    }
     
 }
 

@@ -31,8 +31,6 @@ class Persistence{
         return _main
     }
     
-    func save(model:StudioModel<LayerModel>){
-        
-    }
+    func save(model:StudioModel){}
     
 }

@@ -32,6 +32,8 @@
 		3818DAD1227091C200202C14 /* StudioColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD0227091C200202C14 /* StudioColor.swift */; };
 		3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD22270D2AF00202C14 /* StudioFont.swift */; };
 		3818DAD62270EAFB00202C14 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD52270EAFB00202C14 /* Persistence.swift */; };
+		3818DAD82270F63F00202C14 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD72270F63F00202C14 /* BaseModel.swift */; };
+		3818DADA2270FCF000202C14 /* BaseModelCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD92270FCF000202C14 /* BaseModelCollection.swift */; };
 		3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823655D223FA6D00078A723 /* GroupWrapperView.swift */; };
 		38236561223FEB640078A723 /* +StateChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236560223FEB640078A723 /* +StateChangeable.swift */; };
 		38236563223FFE260078A723 /* Cropview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236562223FFE260078A723 /* Cropview.swift */; };
@@ -203,6 +205,8 @@
 		3818DAD0227091C200202C14 /* StudioColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioColor.swift; sourceTree = "<group>"; };
 		3818DAD22270D2AF00202C14 /* StudioFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioFont.swift; sourceTree = "<group>"; };
 		3818DAD52270EAFB00202C14 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3818DAD72270F63F00202C14 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		3818DAD92270FCF000202C14 /* BaseModelCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModelCollection.swift; sourceTree = "<group>"; };
 		3823655D223FA6D00078A723 /* GroupWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupWrapperView.swift; sourceTree = "<group>"; };
 		38236560223FEB640078A723 /* +StateChangeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+StateChangeable.swift"; sourceTree = "<group>"; };
 		38236562223FFE260078A723 /* Cropview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cropview.swift; sourceTree = "<group>"; };
@@ -610,6 +614,8 @@
 				3818DACE227087B800202C14 /* StudioModel.swift */,
 				3818DAD0227091C200202C14 /* StudioColor.swift */,
 				3818DAD22270D2AF00202C14 /* StudioFont.swift */,
+				3818DAD72270F63F00202C14 /* BaseModel.swift */,
+				3818DAD92270FCF000202C14 /* BaseModelCollection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1119,6 +1125,7 @@
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
 				38743D592258114500897B13 /* EditingCoordinatorDelegate.swift in Sources */,
 				38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */,
+				3818DADA2270FCF000202C14 /* BaseModelCollection.swift in Sources */,
 				3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
@@ -1139,6 +1146,7 @@
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
 				38661B08224BF44200440AC7 /* Protocols.swift in Sources */,
 				388BE388222EB35A005BF44B /* TextBackingLayer.swift in Sources */,
+				3818DAD82270F63F00202C14 /* BaseModel.swift in Sources */,
 				388BE340222C2E7F005BF44B /* EditorPanel.swift in Sources */,
 				384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */,
 				38732E9B2230359500CDB703 /* LineView.swift in Sources */,

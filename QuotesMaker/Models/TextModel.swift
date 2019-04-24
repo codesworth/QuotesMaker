@@ -9,7 +9,7 @@
 import UIKit
 
 
-struct TextLayerModel {
+struct TextLayerModel:Codable {
     
     var string:String = "Hello"
     private var _textColor:StudioColor = .black
