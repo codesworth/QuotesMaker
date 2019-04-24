@@ -11,16 +11,21 @@ import Foundation
 
 struct StudioModel:Codable{
     
-    private var id:UUID = UUID()
+    public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
-    private var models:[BaseModel] = []
+    private var models:BaseModelCollection<BaseModel> = []
     
-    init(models:[BaseModel]) {
+    init(models:BaseModelCollection<BaseModel>) {
         self.models = models
         dateCreated = Date().timeIntervalSinceReferenceDate
         lastModified = Date().timeIntervalSinceReferenceDate
     }
+    
+    mutating func modified(){
+      lastModified = Date().timeIntervalSinceReferenceDate
+    }
+    
     
 }
 

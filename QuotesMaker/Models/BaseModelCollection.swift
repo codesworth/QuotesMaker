@@ -9,7 +9,9 @@
 import Foundation
 
 
-struct BaseModelCollection<T:Equatable> {
+typealias EquaCodable = Codable & Equatable
+
+struct BaseModelCollection<T:EquaCodable>{
     
     private var _container:[T] = []
     
@@ -46,5 +48,20 @@ struct BaseModelCollection<T:Equatable> {
     
     var isEmpty:Bool{
         return _container.isEmpty
+    }
+}
+
+extension BaseModelCollection:Codable{}
+
+
+extension BaseModelCollection:ExpressibleByArrayLiteral{
+    
+    
+    init(arrayLiteral elements: T...) {
+        var collecton = BaseModelCollection()
+        elements.forEach{
+            collecton.append($0)
+        }
+        
     }
 }
