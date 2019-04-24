@@ -13,8 +13,16 @@ struct TextLayerModel {
     
     var string:String = "Hello"
     private var _textColor:StudioColor = .black
-    
-    var font:UIFont = UIFont.font(.painter, size: 27)
+    var _font:StudioFont = StudioFont(font: UIFont.font(.painter, size: 27))
+    var font:UIFont{
+        get{
+            return _font.font ?? UIFont.font(.painter, size: 27)
+        }
+        set{
+            _font = StudioFont(font: newValue)
+        }
+    }
+
     var strikeThrough:Int = 0
     private var _strikeThroughColor:StudioColor?
     private var _strokeColor:StudioColor?

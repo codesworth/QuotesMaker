@@ -30,6 +30,7 @@
 		381865BF223CFC5E006C0C56 /* StudioVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865BE223CFC5E006C0C56 /* StudioVCTests.swift */; };
 		3818DACF227087B800202C14 /* StudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DACE227087B800202C14 /* StudioModel.swift */; };
 		3818DAD1227091C200202C14 /* StudioColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD0227091C200202C14 /* StudioColor.swift */; };
+		3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818DAD22270D2AF00202C14 /* StudioFont.swift */; };
 		3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823655D223FA6D00078A723 /* GroupWrapperView.swift */; };
 		38236561223FEB640078A723 /* +StateChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236560223FEB640078A723 /* +StateChangeable.swift */; };
 		38236563223FFE260078A723 /* Cropview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38236562223FFE260078A723 /* Cropview.swift */; };
@@ -199,6 +200,7 @@
 		381865BE223CFC5E006C0C56 /* StudioVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioVCTests.swift; sourceTree = "<group>"; };
 		3818DACE227087B800202C14 /* StudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioModel.swift; sourceTree = "<group>"; };
 		3818DAD0227091C200202C14 /* StudioColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioColor.swift; sourceTree = "<group>"; };
+		3818DAD22270D2AF00202C14 /* StudioFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioFont.swift; sourceTree = "<group>"; };
 		3823655D223FA6D00078A723 /* GroupWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupWrapperView.swift; sourceTree = "<group>"; };
 		38236560223FEB640078A723 /* +StateChangeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+StateChangeable.swift"; sourceTree = "<group>"; };
 		38236562223FFE260078A723 /* Cropview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cropview.swift; sourceTree = "<group>"; };
@@ -597,6 +599,7 @@
 				38115328224D0CE900DA7D3B /* ShapeModel.swift */,
 				3818DACE227087B800202C14 /* StudioModel.swift */,
 				3818DAD0227091C200202C14 /* StudioColor.swift */,
+				3818DAD22270D2AF00202C14 /* StudioFont.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1105,6 +1108,7 @@
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
 				38743D592258114500897B13 /* EditingCoordinatorDelegate.swift in Sources */,
 				38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */,
+				3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,
