@@ -9,29 +9,98 @@
 import UIKit
 
 
-struct TextLayerModel {
+struct TextLayerModel:Codable {
     
     var string:String = "Hello"
-    var textColor:UIColor = .black
-    var font:UIFont = UIFont.font(.painter, size: 27)
+    private var _textColor:StudioColor = .black
+    var _font:StudioFont = StudioFont(font: UIFont.font(.painter, size: 27))
+    var font:UIFont{
+        get{
+            return _font.font ?? UIFont.font(.painter, size: 27)
+        }
+        set{
+            _font = StudioFont(font: newValue)
+        }
+    }
+
+    private  var shadowBlur:CGFloat = 0
+    private var shadowOffset:CGSize = .zero
     var strikeThrough:Int = 0
-    var strikeThroughColor:UIColor?
-    var strokeColor:UIColor?
-    var underlineColor:UIColor?
+    private var _strikeThroughColor:StudioColor?
+    private var _strokeColor:StudioColor?
     var underlineStyle:Int = 0
     var strokeWidth:Int = 0
     var obliquess:Int = 0
     var layerFrame:LayerFrame?
-    var shadow:NSShadow
+    
+    var shadow:NSShadow{
+        get{
+            let shadow = NSShadow()
+            shadow.shadowColor = shadowColor
+            shadow.shadowBlurRadius = shadowBlur
+            shadow.shadowOffset = shadowOffset
+            return shadow
+        }
+        set{
+            shadowColor = newValue.shadowColor as? UIColor ?? shadowColor
+            shadowBlur = newValue.shadowBlurRadius
+            shadowOffset = newValue.shadowOffset
+        }
+    }
     var shadowAlpha:CGFloat = 0.30
-    var shadowColor:UIColor = .clear
+    private var _shadowColor:StudioColor = .clear
+    
+    var textColor:UIColor{
+        get{
+            return _textColor.color
+        }
+        set{
+            _textColor = StudioColor(color: newValue)
+        }
+    }
+    
+    
+    var strikeThroughColor:UIColor?{
+        get{
+            return _strikeThroughColor?.color
+        }
+        set{
+            _strikeThroughColor = (newValue != nil) ? StudioColor(color: newValue!):nil
+        }
+    }
+    
+    
+    var strokeColor:UIColor?{
+        get{
+            return _strikeThroughColor?.color
+        }
+        set{
+            _strikeThroughColor = (newValue != nil) ? StudioColor(color: newValue!) : nil
+        }
+    }
+    
+    private var _underlineColor:StudioColor?
+    var underlineColor:UIColor?{
+        get{
+            return _underlineColor?.color
+        }
+        set{
+            _underlineColor = (newValue != nil) ? StudioColor(color: newValue!) : nil
+        }
+    }
+
+    var shadowColor:UIColor{
+        get{
+            return _shadowColor.color
+        }
+        set{
+            _shadowColor = StudioColor(color: newValue)
+        }
+    }
     var style:Style = Style()
     var layerIndex: CGFloat = 0
     init() {
-        shadow = NSShadow()
-        shadow.shadowColor = UIColor.clear
-        shadow.shadowBlurRadius = 0
-        shadow.shadowOffset = .zero
+        
         
     }
     

@@ -33,7 +33,7 @@ struct ShapeModel{
     
 }
 
-extension ShapeModel:LayerModel{}
+extension ShapeModel:LayerModel,Codable{}
 
 
 extension ShapeModel:Equatable{

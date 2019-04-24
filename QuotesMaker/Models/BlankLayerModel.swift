@@ -9,19 +9,19 @@
 import UIKit
 
 
-struct BlankLayerModel {
+struct BlankLayerModel:Codable {
     
-    private var _internalColor:UIColor = .lightGray
+    private var _internalColor:StudioColor = .lightGray
     var color:UIColor{
-        return _internalColor.withAlphaComponent(alpha)
+        return _internalColor.color.withAlphaComponent(alpha)
     }
     var rawColor:UIColor{
-        return _internalColor
+        return _internalColor.color
     }
     var alpha: CGFloat = 1
     //var finalTouch:UITouch? = nil
     mutating func updateCcolor(_ color:UIColor){
-        _internalColor = color
+        _internalColor.color = color
     }
 }
 
