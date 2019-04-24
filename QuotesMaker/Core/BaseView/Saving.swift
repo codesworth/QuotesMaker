@@ -11,7 +11,7 @@ import Foundation
 
 extension BaseView{
     
-    func generatebaseModels()->BaseModelCollection<BaseModel>{
+    func generatebaseModels()->[BaseModel]{
         
         let largeModel = subviews.compactMap { (subview) -> BaseModel? in
             guard let baseSub = subview as? BaseSubView else {return nil}
@@ -35,6 +35,7 @@ extension BaseView{
         }
         
         
-        return BaseModelCollection(models: largeModel)
+        //let basemodels =  BaseModelCollection(models: largeModel)
+        return largeModel
     }
 }

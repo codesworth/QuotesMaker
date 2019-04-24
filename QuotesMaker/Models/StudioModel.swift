@@ -15,9 +15,9 @@ struct StudioModel:Codable{
     public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
-    private var models:BaseModelCollection<BaseModel> = []
+    private var models:[BaseModel] = []
     
-    init(models:BaseModelCollection<BaseModel>) {
+    init(models:[BaseModel]) {
         self.models = models
         dateCreated = Date().timeIntervalSinceReferenceDate
         lastModified = Date().timeIntervalSinceReferenceDate
