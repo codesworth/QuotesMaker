@@ -188,6 +188,13 @@ extension BackingTextView{
         self.textView.resignFirstResponder()
     }
     
+    func addTextViewAccesory(){
+        let textView = UITextView(frame: [0,0,inputFrame.width,200])
+        textView.allowsEditingTextAttributes = true
+        textView.text = model.string
+        self.textView.inputAccessoryView = textView
+    }
+    
     @objc func sizeViewToFit(){
         let currentSize = bounds.size
         let newHeight = textView.text.height(withConstrainedWidth: currentSize.width, font: textView.font!)
@@ -218,6 +225,10 @@ extension BackingTextView{
         
         let keyBoardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.inputFrame = keyBoardFrame
+        
+        if UIDevice.idiom == .pad{
+            addTextViewAccesory()
+        }
     }
 }
 

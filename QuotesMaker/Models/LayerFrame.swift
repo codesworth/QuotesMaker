@@ -9,7 +9,7 @@
 import UIKit
 
 
-struct LayerFrame {
+struct LayerFrame:Codable {
     
     let xCoordinate:CGFloat
     let yCoordinate:CGFloat
@@ -25,8 +25,6 @@ struct LayerFrame {
     }
     
     func awakeFrom(bounds:CGRect)->CGRect{
-        //let origin:CGPoint = [initialOrigin.x / `super`.bounds.maxX,initialOrigin.y / `super`.bounds.maxY]
-       // let sizedRatio = Dimensions.sizedRatio(of: frame.size, in: `super`.frame.size)
         let origin:CGPoint = [xCoordinate * bounds.maxX, yCoordinate * bounds.maxY]
         let size:CGSize = [width * bounds.width, height * bounds.height]
         return CGRect(origin: origin, size: size)

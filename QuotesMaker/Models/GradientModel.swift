@@ -9,15 +9,25 @@
 import UIKit
 
 
-struct GradientLayerModel {
+struct GradientLayerModel{
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(_internalcolors.compactMap{UIColor(cgColor: $0)}, forKey: CodingKeys.internalcolors)
+        
+    }
+    
+    enum CodingKeys:String,CodingKey {
+        case internalcolors
+        case ic
+    }
+    
     static var originalColor = UIColor.lightGray.cgColor
     static var reservedLocations = [0, 0.25,0.50,0.75]
     var layerFrame:LayerFrame?
     var alphas:[CGFloat] = [1,1]
     private var _internalcolors:[CGColor] = [UIColor.cyan, UIColor.magenta].map{$0.cgColor}
-//    var colors:[CGColor]{
-//        return _internalcolors.compactMap{UIColor(cgColor: $0).withAlphaComponent(CGFloat)}
-//    }
+
     func getColorAt(_ index:Int)->UIColor{
         guard index < _internalcolors.endIndex else {return UIColor(cgColor: _internalcolors.last!).withAlphaComponent(alphas.last!)}
         return UIColor(cgColor: _internalcolors[index]).withAlphaComponent(alphas[index])
@@ -77,7 +87,20 @@ struct GradientLayerModel {
     
 }
 
+extension UIColor:Encodable{
+    public func encode(to encoder: Encoder) throws {
+        
+    }
+}
 
+
+extension GradientLayerModel:Codable{
+
+    
+    init(from decoder: Decoder) throws {
+        <#code#>
+    }
+}
 
 
 extension GradientLayerModel:Equatable{

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol LayerModel {
+protocol LayerModel:Codable {
 
     var layerFrame:LayerFrame? {get set}
     var layerIndex:CGFloat {get set}
