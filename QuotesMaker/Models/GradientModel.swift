@@ -11,49 +11,54 @@ import UIKit
 
 struct GradientLayerModel{
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(_internalcolors.compactMap{UIColor(cgColor: $0)}, forKey: CodingKeys.internalcolors)
-        
-    }
     
-    enum CodingKeys:String,CodingKey {
-        case internalcolors
-        case ic
-    }
     
     static var originalColor = UIColor.lightGray.cgColor
     static var reservedLocations = [0, 0.25,0.50,0.75]
+    
     var layerFrame:LayerFrame?
     var alphas:[CGFloat] = [1,1]
-    private var _internalcolors:[CGColor] = [UIColor.cyan, UIColor.magenta].map{$0.cgColor}
+    var _locations:[CGFloat] = [0,0.75]
+    var startPoint:CGPoint = 0
+    var endPoint:CGPoint = 1
+    
+    private var _internalcolors:[StudioColor] = [StudioColor.cyan, StudioColor.magenta]
 
     func getColorAt(_ index:Int)->UIColor{
-        guard index < _internalcolors.endIndex else {return UIColor(cgColor: _internalcolors.last!).withAlphaComponent(alphas.last!)}
-        return UIColor(cgColor: _internalcolors[index]).withAlphaComponent(alphas[index])
+        guard index < _internalcolors.endIndex else {return  _internalcolors.last!.color.withAlphaComponent(alphas.last!)}
+        return  _internalcolors[index].color.withAlphaComponent(alphas[index])
     }
     
     func gradientColors()->[CGColor]{
         var colors:[CGColor] = []
         for (index, color) in _internalcolors.enumerated(){
-            let alpheredColor = UIColor(cgColor: color).withAlphaComponent(alphas[index]).cgColor
+            let alpheredColor =  color.color.withAlphaComponent(alphas[index]).cgColor
             colors.append(alpheredColor)
         }
         return colors
     }
     
     func getRawColorAt(_ index:Int)->UIColor{
-        guard index < _internalcolors.endIndex else {return UIColor(cgColor: _internalcolors.last!)}
-        return UIColor(cgColor: _internalcolors[index])
+        guard index < _internalcolors.endIndex else {return  _internalcolors.last!.color}
+        return _internalcolors[index].color
     }
     
     mutating func setColor(_ color:UIColor, at index:Int){
         if index < _internalcolors.endIndex{
-            _internalcolors[index] = color.cgColor
+            _internalcolors[index].color = color
         }else{
-            _internalcolors.append(color.cgColor)
+            _internalcolors.append(StudioColor(color: color))
         }
         
+    }
+    
+    var locations:[NSNumber]{
+        get{
+            return _locations.compactMap{NSNumber(value: Float($0))}
+        }
+        set{
+            _locations = newValue.compactMap{CGFloat($0.floatValue)}
+        }
     }
     
     mutating func removeLast(){
@@ -64,9 +69,7 @@ struct GradientLayerModel{
     
     
     
-    var locations:[NSNumber] = [0,0.75]
-    var startPoint:CGPoint = 0
-    var endPoint:CGPoint = 1
+    
     
     static func defualt()->GradientLayerModel{
         return GradientLayerModel()
@@ -87,20 +90,10 @@ struct GradientLayerModel{
     
 }
 
-extension UIColor:Encodable{
-    public func encode(to encoder: Encoder) throws {
-        
-    }
-}
 
 
-extension GradientLayerModel:Codable{
 
-    
-    init(from decoder: Decoder) throws {
-        <#code#>
-    }
-}
+extension GradientLayerModel:Codable{}
 
 
 extension GradientLayerModel:Equatable{
