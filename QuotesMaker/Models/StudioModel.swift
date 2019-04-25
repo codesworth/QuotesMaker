@@ -11,16 +11,19 @@ import Foundation
 
 struct StudioModel:Codable{
     
-    //public private (set) var thumbImage:UIImage
+    public private (set) var thumbImageSrc:URL?
+    private var name:String
     public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
     private var models:[BaseModel] = []
     
-    init(models:[BaseModel]) {
+    init(models:[BaseModel],name:String = "untitled", url:URL? = nil) {
         self.models = models
         dateCreated = Date().timeIntervalSinceReferenceDate
         lastModified = Date().timeIntervalSinceReferenceDate
+        self.name = name
+        thumbImageSrc = url
     }
     
     mutating func modified(){

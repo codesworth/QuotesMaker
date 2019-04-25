@@ -19,6 +19,38 @@ class Persistence{
         return _main
     }
     
+    func createDirectories(){
+//        do {
+//            //try FileManager.default.createDirectory(at: FileManager.modelDir, withIntermediateDirectories: true, attributes: nil)
+//            //try FileManager.default.createDirectory(at: FileManager.modelImagesDir, withIntermediateDirectories: true, attributes: nil)
+//            //try FileManager.default.createDirectory(at: FileManager.previewthumbDir, withIntermediateDirectories: true, attributes: nil)
+//        } catch let err {
+//            print("Error Creating Files: \(err)")
+//        }
+    }
+    
+    func fetchAllModels()->[StudioModel]{
+
+        do {
+            var files = try FileManager.default.contentsOfDirectory(atPath: FileManager.modelDir.path)
+            //print("These are all the files: \(files)")
+            files.removeAll{!$0.hasSuffix(FileManager.Extensions.json.rawValue)}
+            //print("The trimmed files: \(files)")
+            let models = try files.compactMap{ file -> StudioModel in
+                let decoder = JSONDecoder()
+                let url = URL(fileURLWithPath: file, relativeTo: FileManager.modelDir)
+                let data = try Data(contentsOf: url)
+                let model = try decoder.decode(StudioModel.self, from: data)
+                return model
+            }
+            return models
+            
+        } catch let err {
+            print("Error Occurred gettting files: \(err)")
+        }
+        return []
+    }
+    
     func save(model:StudioModel){
         let encoder = JSONEncoder()
         do{

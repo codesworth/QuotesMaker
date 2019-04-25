@@ -48,7 +48,6 @@ class BackingImageView: UIView{
     
     var model:ImageLayerModel = ImageLayerModel(){
         didSet{
-            image = model.image
             updateShape(model.style)
         }
     }
@@ -76,11 +75,9 @@ class BackingImageView: UIView{
     var uid:UUID = UUID()
     
     func setImage(image:UIImage){
-       
-        var new = model
-        new.image = image
-        updateModel(new)
-        Subscription.main.post(suscription: .stateChange, object: true)
+       self.image = image
+        //updateModel(new)
+        //Subscription.main.post(suscription: .stateChange, object: true)
         //Subscription.main.post(suscription: .canUndo, object: true)
 //        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notifications.Name.canUndo.rawValue), object: nil)
     }
@@ -88,6 +85,7 @@ class BackingImageView: UIView{
     var id:String{
         return "Image \(id_tag)"
     }
+    
     
     var id_tag: Int = 0
     
@@ -120,14 +118,27 @@ class BackingImageView: UIView{
         
     
     }
-
-//    func beginCropping(){
-//        gestureRecognizers?.forEach(removeGestureRecognizer(_:))
-//        cropView.frame.size = bounds.size.scaledBy(0.8)
-//        cropView.center = [bounds.midX,bounds.midY]
-//        cropView.setResizableGesture()
-//        addSubview(cropView)
-//    }
+    
+    func generateImageSource(){
+        guard let image = self.image else {return}
+        if let url = model.imageSrc{
+            let data = image.pngData()
+            do{
+                try data?.write(to: url)
+                return
+            }catch let err{
+                print("Error occurred with sig: \(err.localizedDescription)")
+            }
+        }
+        let url = URL(fileURLWithPath: UUID().uuidString, relativeTo: FileManager.modelImagesDir).addExtension(.png)
+        let data = image.pngData()
+        do {
+            try data?.write(to: url)
+            model.imageSrc = url
+        } catch let err {
+            print("Error occurred with sig: \(err.localizedDescription)")
+        }
+    }
 }
 
 
@@ -170,14 +181,14 @@ extension BackingImageView{
                 newImage = rotate(image, degreeAngle: 180)
                 // Fallback on earlier versions
             }
-            var model = self.model
-            model.image = newImage
-            updateModel(model)
+            
+           self.image = newImage
+            //updateModel(model)
         }else{
             guard let newImage = flipImageVertically(image: image)else {return}
-            var model = self.model
-            model.image = newImage
-            updateModel(model)
+            //var model = self.model
+            self.image = newImage
+            //updateModel(model)
         }
         
     }

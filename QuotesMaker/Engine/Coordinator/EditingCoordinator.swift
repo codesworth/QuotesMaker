@@ -75,7 +75,8 @@ class EditingCoordinator:NSObject{
     func save(){
         //TODO: Verify pais user or throw alert to buy app
         let mods = baseView.generatebaseModels()
-        let stdmodel = StudioModel(models: mods)
+        let thumb = baseView.getThumbnailSrc()
+        let stdmodel = StudioModel(models: mods,url:thumb)
         Persistence.main.save(model: stdmodel)
         
     }

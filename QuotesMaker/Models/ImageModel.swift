@@ -19,21 +19,13 @@ struct ImageLayerModel:LayerModel {
         self.frame = frame
     }
     
-    var image:UIImage?{
-        get{
-            return (_data != nil) ?  UIImage(data: _data!) : nil
-        }
-        set{
-            _data = newValue?.pngData()
-        }
-    }
-    private var _data:Data?
+    var imageSrc:URL?
     
     var style:Style = Style()
     var frame:LayerFrame?
     
-    init(image:UIImage? = nil) {
-        self.image = image
+    init() {
+        
     }
     
     var type: ModelType{
