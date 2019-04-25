@@ -54,7 +54,8 @@ class iPadStudioVC: UIViewController {
     var studioHeight:CGFloat = 130
     override func viewDidLoad() {
         super.viewDidLoad()
-        Persistence.main.fetchAllModels()
+        let mods  = Persistence.main.fetchAllModels()
+        print("Models are: \(mods)")
         coordinator.delegate = self
         view.backgroundColor = .white
         view.addSubview(editor)

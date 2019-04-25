@@ -28,18 +28,26 @@ class Persistence{
         }
     }
     
-    func fetchAllModels(){
-        var models:[StudioModel] = []
+    func fetchAllModels()->[StudioModel]{
+
         do {
-            var files = try FileManager.default.contentsOfDirectory(atPath: FileManager.homeDir.absoluteString)
-            print("These are all the files: \(files)")
+            var files = try FileManager.default.contentsOfDirectory(atPath: FileManager.modelDir.path)
+            //print("These are all the files: \(files)")
             files.removeAll{!$0.hasSuffix(FileManager.Extensions.json.rawValue)}
-            print("The trimmed files: \(files)")
+            //print("The trimmed files: \(files)")
+            let models = try files.compactMap{ file -> StudioModel in
+                let decoder = JSONDecoder()
+                let url = URL(fileURLWithPath: file, relativeTo: FileManager.modelDir)
+                let data = try Data(contentsOf: url)
+                let model = try decoder.decode(StudioModel.self, from: data)
+                return model
+            }
+            return models
             
         } catch let err {
             print("Error Occurred gettting files: \(err)")
         }
-        
+        return []
     }
     
     func save(model:StudioModel){
