@@ -24,11 +24,11 @@ extension FileManager{
     }
     
     static var modelDir:URL{
-        return homeDir.appendingPathComponent(Directories.savedModels.rawValue)
+        return homeDir.appendingPathComponent(Directories.savedModels.rawValue, isDirectory:true)
     }
     
     static var modelImagesDir:URL{
-        return homeDir.appendingPathComponent(Directories.modelImages.rawValue)
+        return homeDir.appendingPathComponent(Directories.modelImages.rawValue,isDirectory:true)
     }
     
     enum Extensions:String{
