@@ -27,6 +27,8 @@ extension BaseView{
             }
             
             if let image = baseSub as? BackingImageView{
+                image.generateImageSource()
+                print(image.model.imageSrc)
                 let imgMod = image.model
                 let baseModel = BaseModel(type: .image, model: imgMod)
                 return baseModel

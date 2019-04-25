@@ -20,14 +20,19 @@ extension FileManager{
         case temp
         case userAccount
         case userData
+        case modelImages
     }
     
     static var modelDir:URL{
         return homeDir.appendingPathComponent(Directories.savedModels.rawValue)
     }
     
+    static var modelImagesDir:URL{
+        return homeDir.appendingPathComponent(Directories.modelImages.rawValue)
+    }
+    
     enum Extensions:String{
-        case json, txt, plist,isdm
+        case json, txt, plist,isdm, png, jpg, jpeg
     }
     
     
