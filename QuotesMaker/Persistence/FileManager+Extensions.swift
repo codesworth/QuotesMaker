@@ -21,6 +21,7 @@ extension FileManager{
         case userAccount
         case userData
         case modelImages
+        case previewThumbnails
     }
     
     static var modelDir:URL{
@@ -29,6 +30,10 @@ extension FileManager{
     
     static var modelImagesDir:URL{
         return homeDir.appendingPathComponent(Directories.modelImages.rawValue,isDirectory:true)
+    }
+    
+    static var previewthumbDir:URL{
+        return homeDir.appendingPathComponent(Directories.previewThumbnails.rawValue,isDirectory:true)
     }
     
     enum Extensions:String{

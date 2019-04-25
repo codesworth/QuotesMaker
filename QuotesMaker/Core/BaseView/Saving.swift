@@ -40,4 +40,28 @@ extension BaseView{
         //let basemodels =  BaseModelCollection(models: largeModel)
         return largeModel
     }
+    
+    func constructFrom(model:[StudioModel]){
+        
+    }
+    
+    func duplicateLayer(id:UUID){
+        
+    }
+    
+    func getThumbnailSrc()->URL?{
+        guard let image = makeImageFromView(size: nil) else {return nil}
+        let id = UUID().uuidString
+        let url = URL(fileURLWithPath: id, relativeTo: FileManager.previewthumbDir).addExtension(.jpg)
+        let data = image.jpegData(compressionQuality: 0.5)
+        do{
+            try data?.write(to: url)
+            return url
+        }catch  let err {
+            print(":Error Occurred: \(err.localizedDescription)")
+        }
+        
+        return nil
+    }
+    
 }

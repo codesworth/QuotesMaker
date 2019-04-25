@@ -20,12 +20,13 @@ class Persistence{
     }
     
     func createDirectories(){
-        do {
-            try FileManager.default.createDirectory(at: FileManager.modelDir, withIntermediateDirectories: true, attributes: nil)
-            try FileManager.default.createDirectory(at: FileManager.modelImagesDir, withIntermediateDirectories: true, attributes: nil)
-        } catch let err {
-            print("Error Creating Files: \(err)")
-        }
+//        do {
+//            //try FileManager.default.createDirectory(at: FileManager.modelDir, withIntermediateDirectories: true, attributes: nil)
+//            //try FileManager.default.createDirectory(at: FileManager.modelImagesDir, withIntermediateDirectories: true, attributes: nil)
+//            //try FileManager.default.createDirectory(at: FileManager.previewthumbDir, withIntermediateDirectories: true, attributes: nil)
+//        } catch let err {
+//            print("Error Creating Files: \(err)")
+//        }
     }
     
     func fetchAllModels()->[StudioModel]{

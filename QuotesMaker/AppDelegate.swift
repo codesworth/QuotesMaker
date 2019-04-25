@@ -24,11 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let alreadyRun = UserDefaults.standard.bool(forKey: "first")
-        if !alreadyRun{
+        //let alreadyRun = UserDefaults.standard.bool(forKey: "first")
+        //if !alreadyRun{
             Persistence.main.createDirectories()
-            UserDefaults.standard.set(true, forKey: "first")
-        }
+          //  UserDefaults.standard.set(true, forKey: "first")
+        //}
         let idiom = UIDevice.current.userInterfaceIdiom
         if idiom == .pad{
             window?.rootViewController = iPadStudioVC()

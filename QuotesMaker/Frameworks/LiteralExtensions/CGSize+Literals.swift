@@ -71,4 +71,11 @@ extension CGSize{
     var product:Int{
         return Int(width) * Int (height)
     }
+    
+    struct ImageSizes {
+        
+        static var thumbnail:CGSize{
+            return [120]
+        }
+    }
 }
