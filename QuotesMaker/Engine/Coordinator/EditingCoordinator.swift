@@ -95,6 +95,11 @@ class EditingCoordinator:NSObject{
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
             UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        }else{
+            let mods = baseView.generatebaseModels()
+            let thumb = baseView.getThumbnailSrc()
+            existingModel?.update(models: mods, src: thumb, bg: baseView.backgroundColor)
+            Persistence.main.save(model: existingModel!)
         }
         
 
@@ -104,17 +109,21 @@ class EditingCoordinator:NSObject{
         if title == ""{save(message: "Enter a valid name for project")}
         if Persistence.main.fileExists(name: title, with: .json, in: .savedModels){
             save(message: "Project already exists with name \(title), choose a new project name")
-        }
-        let mods = baseView.generatebaseModels()
-        let thumb = baseView.getThumbnailSrc()
-        if existingModel == nil{
+        }else{
+            let mods = baseView.generatebaseModels()
+            let thumb = baseView.getThumbnailSrc()
             existingModel = StudioModel(models: mods,name:title, url:thumb)
+            Persistence.main.save(model: existingModel!)
+        }
+       
+        if existingModel == nil{
+            
             
         }else{
-            existingModel?.update(models: mods, src: thumb, bg: baseView.backgroundColor)
+            
         }
         
-        Persistence.main.save(model: existingModel!)
+        
     }
     
 }
