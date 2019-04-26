@@ -11,7 +11,7 @@ import UIKit
 
 class BaseView:UIView{
     
-    typealias BaseSubView = UIView & BaseViewSubViewable
+    typealias BaseSubView = UIView & BaseViewSubViewable & NSCopying
     
     
     
@@ -146,7 +146,7 @@ class BaseView:UIView{
     
     func makeImageFromView(scale:CGFloat = UIScreen.main.scale)->UIImage?{
         layer.borderColor = UIColor.clear.cgColor
-        UIGraphicsBeginImageContextWithOptions(size,isOpaque,scale)
+        UIGraphicsBeginImageContextWithOptions(bounds.size,isOpaque,scale)
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

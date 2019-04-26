@@ -41,16 +41,69 @@ extension BaseView{
         return largeModel
     }
     
-    func constructFrom(model:[StudioModel]){
-        
+    func constructFrom(model:StudioModel){
+        let models = model.models.sorted{$0.layerIndex > $1.layerIndex}
+        models.forEach{
+            if $0.modelType == ModelType.shape.rawValue{
+                let rect = RectView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
+                rect.model = $0.shape!
+                addSubviewable(rect)
+            }else if $0.modelType == ModelType.image.rawValue{
+                let rect = BackingImageView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
+                rect.model = $0.image!
+                if let src = $0.image?.imageSrc{
+                    do{
+                        
+                        let image = try UIImage(data: Data(contentsOf:src))
+                        rect.image = image
+                    }catch let err {
+                        print("Error occurred fetching image: \(err.localizedDescription)")
+                        
+                    }
+                }
+                addSubviewable(rect)
+            }else if $0.modelType == ModelType.text.rawValue{
+                let rect = BackingTextView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
+                rect.model = $0.text!
+                addSubviewable(rect)
+            }
+        }
     }
     
-    func duplicateLayer(id:UUID){
+    func offsetLayer(){
+        guard let layer = currentSubview else {return}
+        layer.center = [layer.center.x + 10,layer.center.y + 10]
+    }
+    
+    func duplicateLayer(){
         
+        guard let original = selectedView as? BaseSubView else {return}
+        let newlayer:BaseSubView
+        if let original = original as? RectView{
+            let frame = original.model.layerFrame?.awakeFrom(bounds: bounds)
+            let rect = RectView(frame: frame ?? subBounds)
+            rect.model = original.model
+            newlayer = rect
+        }
+        else if let original = original as? BackingImageView{
+            let frame = original.model.layerFrame?.awakeFrom(bounds: bounds)
+            let img = BackingImageView(frame: frame ?? subBounds)
+            img.model = original.model
+            img.image = original.image
+            newlayer = img
+        }else{
+            
+            let frame = (original as? BackingTextView)?.model.layerFrame?.awakeFrom(bounds: bounds)
+            let text = BackingTextView(frame: frame ?? textBound)
+            text.model = (original as? BackingTextView)?.model ?? TextLayerModel()
+            newlayer = text
+        }
+        addSubviewable(newlayer)
+        offsetLayer()
     }
     
     func getThumbnailSrc()->URL?{
-        guard let image = makeImageFromView(size: nil) else {return nil}
+        guard let image = makeImageFromView() else {return nil}
         let id = UUID().uuidString
         let url = URL(fileURLWithPath: id, relativeTo: FileManager.previewthumbDir).addExtension(.jpg)
         let data = image.jpegData(compressionQuality: 0.5)

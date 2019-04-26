@@ -142,6 +142,21 @@ class RectView:SuperRectView{
         
         CATransaction.commit()
     }
+    
+    
+}
+
+extension RectView:NSCopying{
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = RectView(frame: frame)
+        copy.contentView = contentView
+        copy.model = model
+        return copy
+    }
+    
+    
+    
 }
 
 
