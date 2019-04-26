@@ -64,4 +64,12 @@ class Persistence{
     
     }
     
+    func deleteFile(src: URL,in directory:FileManager.Directories? = nil){
+        do {
+            try FileManager.default.removeItem(at: src)
+        } catch let err {
+            print("Error Occurred with sig: \(err.localizedDescription)")
+        }
+    }
+    
 }

@@ -14,7 +14,8 @@ struct StudioModel:Codable{
     public private (set) var thumbImageSrc:URL?{
         didSet{
             if oldValue != nil{
-                //Release the previous thumbimage from persistence
+                //Release the previous thumbImage from persistence to avoid memory hogging
+                Persistence.main.deleteFile(src: oldValue!)
             }
         }
     }

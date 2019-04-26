@@ -85,7 +85,8 @@ class EditingCoordinator:NSObject{
     func save(){
         //TODO: Verify pais user or throw alert to buy app
         //TODO: Verify name does not exist before saving
-        persistModel()
+        //persistModel()
+        baseView.duplicateLayer()
 
     }
     

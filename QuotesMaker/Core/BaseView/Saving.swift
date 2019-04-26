@@ -45,8 +45,17 @@ extension BaseView{
         
     }
     
-    func duplicateLayer(id:UUID){
+    func offsetLayer(){
+        guard let layer = currentSubview else {return}
+        layer.center = [layer.center.x + 10,layer.center.y + 10]
+    }
+    
+    func duplicateLayer(){
         
+        guard let original = selectedView as? BaseSubView else {return}
+        guard let newlayer = original.mutableCopy() as? BaseSubView else {fatalError("Error Casting with mutable copy")}
+        addSubviewable(newlayer)
+        offsetLayer()
     }
     
     func getThumbnailSrc()->URL?{
