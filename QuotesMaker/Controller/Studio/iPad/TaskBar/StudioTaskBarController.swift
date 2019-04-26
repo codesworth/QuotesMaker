@@ -23,7 +23,7 @@ class StudioTaskBarController: UIViewController {
     
     func setContentWidth(){
         let width = UIScreen.main.bounds.width
-        contentViewWidth.constant = (width > 1024) ? width : 1024
+        contentViewWidth.constant = (width > 1200) ? width : 1200
     }
     
     
@@ -62,6 +62,7 @@ class StudioTaskBarController: UIViewController {
     }
     @IBAction func preview(_ sender: ControlProxy) {
         
+        
     }
     @IBAction func save(_ sender: ControlProxy) {
         studio?.coordinator.save()
@@ -79,6 +80,14 @@ class StudioTaskBarController: UIViewController {
     
     @IBAction func showLayers(_ sender: ControlProxy) {
         studio?.layerStack.toggle()
+    }
+    
+    @IBAction func exportItem(_ sender: ControlProxy) {
+        
+    }
+    
+    @IBAction func duplicateLayer(_ sender: ControlProxy) {
+        studio?.coordinator.baseView.duplicateLayer()
     }
     
 }

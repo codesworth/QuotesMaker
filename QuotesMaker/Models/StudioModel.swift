@@ -19,7 +19,7 @@ struct StudioModel:Codable{
             }
         }
     }
-    private var name:String
+    public private(set) var name:String
     public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval

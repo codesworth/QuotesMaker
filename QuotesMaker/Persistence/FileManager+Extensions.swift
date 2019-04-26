@@ -22,10 +22,15 @@ extension FileManager{
         case userData
         case modelImages
         case previewThumbnails
+        case exported
     }
     
     static var modelDir:URL{
         return homeDir.appendingPathComponent(Directories.savedModels.rawValue, isDirectory:true)
+    }
+    
+    static var exportedDir:URL{
+        return homeDir.appendingPathComponent(Directories.exported.rawValue, isDirectory:true)
     }
     
     static var modelImagesDir:URL{

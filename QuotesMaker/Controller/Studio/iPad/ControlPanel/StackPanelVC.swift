@@ -17,6 +17,8 @@ class StackPanelVC: UIViewController {
     }
     @IBOutlet weak var canvaspanelStack: UIStackView!
     
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textInputStack: UIStackView!
     @IBOutlet weak var canvasBackgoundColorPanel: ColorSliderPanel!
     @IBOutlet weak var containerHeight: NSLayoutConstraint!
     @IBOutlet weak var fillStack: UIStackView!
@@ -40,10 +42,12 @@ class StackPanelVC: UIViewController {
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         gradientPanel.scrollView.isScrollEnabled = false
         imagePanel.scrollView.isScrollEnabled = false
         stylePanel.scrollView.isScrollEnabled = false
         textPanel.scrollView.isScrollEnabled = false
+        textInputStack.isHidden = true
         fillControl.roundCorners(5)
         gradientcontrol.roundCorners(5)
         imagecontrol.roundCorners(5)
@@ -56,6 +60,7 @@ class StackPanelVC: UIViewController {
         imagePanel.delegate = studio.coordinator
         stylePanel.delegate = studio.coordinator
         textPanel.delegate = studio.coordinator
+        textView.delegate = self
 //        fillStack.isHidden = true
 //        fillPanel.isHidden = fillControl.panelHidden
 //        gradientPanel.isHidden = gradientcontrol.panelHidden
@@ -69,6 +74,8 @@ class StackPanelVC: UIViewController {
         subscribeTo(subscription: .activatedLayer, selector: #selector(layerChanged(_:)))
         // Do any additional setup after loading the view.
     }
+    
+   
     
     
     private var studio:iPadStudioVC{
@@ -119,6 +126,7 @@ class StackPanelVC: UIViewController {
         guard let model = model as? ShapeModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
+        textInputStack.isHidden = true
         imagetack.isHidden = true
         textStack.isHidden = true
         parentStack.isHidden = false
@@ -137,6 +145,7 @@ class StackPanelVC: UIViewController {
         guard let model = model as? ImageLayerModel else {return}
         //Set Solid, Gradient && Style
         //First hide all unwanted
+        textInputStack.isHidden = true
         textStack.isHidden = true
         parentStack.isHidden = false
         fillStack.isHidden = true
@@ -153,6 +162,8 @@ class StackPanelVC: UIViewController {
         //First hide all unwanted
         parentStack.isHidden = true
         textStack.isHidden = false
+        textInputStack.isHidden = false
+        textView.text = model.string
         textPanel.updatePanle(model)
         
         
@@ -219,3 +230,13 @@ extension StackPanelVC:PickerColorDelegate{
 
 
 
+
+
+
+extension StackPanelVC:UITextViewDelegate{
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let text = textView.text!
+        studio.coordinator.textChanged(text:text)
+    }
+}

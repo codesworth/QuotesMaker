@@ -15,6 +15,7 @@ class BackingTextView: UIView {
         //view.adjustsFontForContentSizeCategory = true
         view.delegate = self
         view.backgroundColor = .clear
+        view.isUserInteractionEnabled = false
         return view
     }(())
 
@@ -67,7 +68,7 @@ class BackingTextView: UIView {
         didSet{
             //let state = State(model: oldValue, action: .nothing)
             //Subscription.main.post(suscription: .stateChange, object: state)
-            model.string = textView.text
+            textView.text = model.string
             textView.attributedText = model.outPutString()
             textView.textColor = model.textColor
             textView.font = model.font
@@ -110,9 +111,7 @@ class BackingTextView: UIView {
         textView.text = "Hello"
         resizerView.contentView = textView
         addSubview(resizerView)
-        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(longTapped(_:)))
-        longTap.minimumPressDuration = 0.8
-        addGestureRecognizer(longTap)
+        
     }
     
     
@@ -188,12 +187,12 @@ extension BackingTextView{
         self.textView.resignFirstResponder()
     }
     
-    func addTextViewAccesory(){
-        let textView = UITextView(frame: [0,0,inputFrame.width,200])
-        textView.allowsEditingTextAttributes = true
-        textView.text = model.string
-        self.textView.inputAccessoryView = textView
-    }
+//    func addTextViewAccesory(){
+//        let textView = UITextView(frame: [0,0,inputFrame.width,200])
+//        textView.allowsEditingTextAttributes = true
+//        textView.text = model.string
+//        self.textView.inputAccessoryView = textView
+//    }
     
     @objc func sizeViewToFit(){
         let currentSize = bounds.size
@@ -226,9 +225,7 @@ extension BackingTextView{
         let keyBoardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         self.inputFrame = keyBoardFrame
         
-        if UIDevice.idiom == .pad{
-            addTextViewAccesory()
-        }
+        
     }
 }
 

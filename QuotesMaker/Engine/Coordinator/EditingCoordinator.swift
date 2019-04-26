@@ -83,25 +83,49 @@ class EditingCoordinator:NSObject{
         baseView.moveSubiewBackward()
     }
     
-    func save(){
+    func textChanged(text:String){
+        guard let current = baseView.currentSubview as? BackingTextView else {return}
+        current.model.string = text
+    }
+    
+    func save(message:String = "Enter project name"){
         //TODO: Verify pais user or throw alert to buy app
         //TODO: Verify name does not exist before saving
-        //persistModel()
-        baseView.duplicateLayer()
+        if existingModel == nil{
+            let alert = UIAlertController(title:"Save Project", message:message, preferredStyle: .alert)
+            alert.addTextField(configurationHandler: nil)
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (ac) in
+                let text = alert.textFields?.first!.text
+                self.persistModel(title: text ?? "untitled")
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        }else{
+            let mods = baseView.generatebaseModels()
+            let thumb = baseView.getThumbnailSrc()
+            existingModel?.update(models: mods, src: thumb, bg: baseView.backgroundColor)
+            Persistence.main.save(model: existingModel!)
+        }
+        
 
     }
     
-    func persistModel(){
-        let mods = baseView.generatebaseModels()
-        let thumb = baseView.getThumbnailSrc()
-        if existingModel == nil{
-            existingModel = StudioModel(models: mods,url:thumb)
-            
-        }else{
-            existingModel?.update(models: mods, src: thumb, bg: baseView.backgroundColor)
+    func persistModel(title:String){
+        if title == ""{
+            save(message: "Enter a valid name for project")
+            return
         }
+        if Persistence.main.fileExists(name: title, with: .json, in: .savedModels){
+            save(message: "Project already exists with name \(title), choose a new project name")
+        }else{
+            let mods = baseView.generatebaseModels()
+            let thumb = baseView.getThumbnailSrc()
+            existingModel = StudioModel(models: mods,name:title, url:thumb)
+            Persistence.main.save(model: existingModel!)
+        }
+    
         
-        Persistence.main.save(model: existingModel!)
+        
     }
     
 }
