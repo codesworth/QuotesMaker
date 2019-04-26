@@ -50,7 +50,7 @@ extension BaseView{
     }
     
     func getThumbnailSrc()->URL?{
-        guard let image = makeImageFromView(size: nil) else {return nil}
+        guard let image = makeImageFromView() else {return nil}
         let id = UUID().uuidString
         let url = URL(fileURLWithPath: id, relativeTo: FileManager.previewthumbDir).addExtension(.jpg)
         let data = image.jpegData(compressionQuality: 0.5)

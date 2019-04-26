@@ -14,11 +14,21 @@ class EditingCoordinator:NSObject{
     
     var baseView:BaseView
     weak var delegate:EditingCoordinatorDelegate?
+    var existingModel:StudioModel?
+    
     override init(){
         
         baseView = BaseView(frame: .zero)
         let size = Dimensions.sizeForAspect(.square)
         baseView.frame = CGRect(origin: .zero, size: size)
+        super.init()
+    }
+    
+    init(model:StudioModel){
+        baseView = BaseView(frame: .zero)
+        let size = Dimensions.sizeForAspect(.square)
+        baseView.frame = CGRect(origin: .zero, size: size)
+        existingModel = model
         super.init()
     }
     
@@ -74,13 +84,23 @@ class EditingCoordinator:NSObject{
     
     func save(){
         //TODO: Verify pais user or throw alert to buy app
-        let mods = baseView.generatebaseModels()
-        let thumb = baseView.getThumbnailSrc()
-        let stdmodel = StudioModel(models: mods,url:thumb)
-        Persistence.main.save(model: stdmodel)
-        
+        //TODO: Verify name does not exist before saving
+        persistModel()
+
     }
     
+    func persistModel(){
+        let mods = baseView.generatebaseModels()
+        let thumb = baseView.getThumbnailSrc()
+        if existingModel == nil{
+            existingModel = StudioModel(models: mods,url:thumb)
+            
+        }else{
+            existingModel?.update(models: mods, src: thumb, bg: baseView.backgroundColor)
+        }
+        
+        Persistence.main.save(model: existingModel!)
+    }
     
 }
 

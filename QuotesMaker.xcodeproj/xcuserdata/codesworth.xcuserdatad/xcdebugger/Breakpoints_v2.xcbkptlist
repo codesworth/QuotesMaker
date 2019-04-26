@@ -2722,9 +2722,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            endingLineNumber = "244">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2738,9 +2736,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            endingLineNumber = "244">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2754,9 +2750,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            endingLineNumber = "244">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5251,8 +5245,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "init(models:name:)"
-            landmarkType = "7">
+            landmarkName = "StudioModel"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5267,8 +5261,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "init(models:name:)"
-            landmarkType = "7">
+            landmarkName = "StudioModel"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5283,8 +5277,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
             endingLineNumber = "24"
-            landmarkName = "init(models:name:)"
-            landmarkType = "7">
+            landmarkName = "StudioModel"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5299,8 +5293,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
-            landmarkName = "save()"
-            landmarkType = "7">
+            landmarkName = "EditingCoordinator"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5315,7 +5309,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
             endingLineNumber = "79"
-            landmarkName = "save()"
+            landmarkName = "moveSubiewForward()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5331,7 +5325,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
-            landmarkName = "save()"
+            landmarkName = "moveSubiewForward()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

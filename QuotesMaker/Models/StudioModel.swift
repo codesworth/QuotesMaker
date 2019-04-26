@@ -11,13 +11,19 @@ import Foundation
 
 struct StudioModel:Codable{
     
-    public private (set) var thumbImageSrc:URL?
+    public private (set) var thumbImageSrc:URL?{
+        didSet{
+            if oldValue != nil{
+                //Release the previous thumbimage from persistence
+            }
+        }
+    }
     private var name:String
     public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
     private var models:[BaseModel] = []
-    
+    var backgroundColor:StudioColor?
     init(models:[BaseModel],name:String = "untitled", url:URL? = nil) {
         self.models = models
         dateCreated = Date().timeIntervalSinceReferenceDate
@@ -26,6 +32,13 @@ struct StudioModel:Codable{
         thumbImageSrc = url
     }
     
+    mutating func update(models:[BaseModel],src:URL? = nil, bg:UIColor? = nil){
+        self.models = models
+        backgroundColor = (bg != nil) ? StudioColor(color: bg!) : nil
+        thumbImageSrc = src
+        modified()
+        
+    }
     mutating func modified(){
       lastModified = Date().timeIntervalSinceReferenceDate
     }
