@@ -43,6 +43,7 @@ extension BaseView{
     
     func constructFrom(model:StudioModel){
         let models = model.models.sorted{$0.layerIndex > $1.layerIndex}
+        backgroundColor = model.backgroundColor?.color
         models.forEach{
             if $0.modelType == ModelType.shape.rawValue{
                 let rect = RectView(frame: $0.layerFrame.awakeFrom(bounds: bounds))

@@ -20,13 +20,15 @@ class Persistence{
     }
     
     func createDirectories(){
-//        do {
-//            //try FileManager.default.createDirectory(at: FileManager.modelDir, withIntermediateDirectories: true, attributes: nil)
-//            //try FileManager.default.createDirectory(at: FileManager.modelImagesDir, withIntermediateDirectories: true, attributes: nil)
-//            //try FileManager.default.createDirectory(at: FileManager.previewthumbDir, withIntermediateDirectories: true, attributes: nil)
-//        } catch let err {
-//            print("Error Creating Files: \(err)")
-//        }
+        do {
+            //try FileManager.default.createDirectory(at: FileManager.modelDir, withIntermediateDirectories: true, attributes: nil)
+            //try FileManager.default.createDirectory(at: FileManager.modelImagesDir, withIntermediateDirectories: true, attributes: nil)
+            //try FileManager.default.createDirectory(at: FileManager.previewthumbDir, withIntermediateDirectories: true, attributes: nil)
+            try FileManager.default.createDirectory(at: FileManager.exportedDir, withIntermediateDirectories: true, attributes: nil)
+        } catch let err {
+            print("Error Creating Files: \(err)")
+        
+        }
     }
     
     func fetchAllModels()->[StudioModel]{
@@ -55,7 +57,7 @@ class Persistence{
         let encoder = JSONEncoder()
         do{
             let data = try encoder.encode(model)
-            let url = URL(fileURLWithPath: model.id, relativeTo: FileManager.modelDir).addExtension(.json) //FileManager.modelDir.appendingPathComponent(model.id).addExtension(.json)
+            let url = URL(fileURLWithPath: model.name, relativeTo: FileManager.modelDir).addExtension(.json) //FileManager.modelDir.appendingPathComponent(model.id).addExtension(.json)
             try data.write(to: url)
             print("This is the url to file: \(url)")
         }catch let err{
@@ -70,6 +72,13 @@ class Persistence{
         } catch let err {
             print("Error Occurred with sig: \(err.localizedDescription)")
         }
+    }
+    
+    func fileExists(name:String, with extension:FileManager.Extensions, in directory:FileManager.Directories)->Bool{
+        let directory = FileManager.homeDir.appendingPathComponent(directory.rawValue, isDirectory: true)
+        let file = URL(fileURLWithPath: name, relativeTo: directory).addExtension(`extension`)
+        return FileManager.default.fileExists(atPath: file.path)
+        
     }
     
 }

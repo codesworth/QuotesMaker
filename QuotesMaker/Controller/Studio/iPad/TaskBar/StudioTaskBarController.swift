@@ -62,6 +62,7 @@ class StudioTaskBarController: UIViewController {
     }
     @IBAction func preview(_ sender: ControlProxy) {
         
+        
     }
     @IBAction func save(_ sender: ControlProxy) {
         studio?.coordinator.save()
@@ -79,6 +80,14 @@ class StudioTaskBarController: UIViewController {
     
     @IBAction func showLayers(_ sender: ControlProxy) {
         studio?.layerStack.toggle()
+    }
+    
+    @IBAction func exportItem(_ sender: ControlProxy) {
+        
+    }
+    
+    @IBAction func duplicateLayer(_ sender: ControlProxy) {
+        studio?.coordinator.baseView.duplicateLayer()
     }
     
 }

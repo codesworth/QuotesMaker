@@ -83,19 +83,32 @@ class EditingCoordinator:NSObject{
         baseView.moveSubiewBackward()
     }
     
-    func save(){
+    func save(message:String = "Enter project name"){
         //TODO: Verify pais user or throw alert to buy app
         //TODO: Verify name does not exist before saving
-        //persistModel()
-        baseView.duplicateLayer()
+        if existingModel == nil{
+            let alert = UIAlertController(title:"Save Project", message:message, preferredStyle: .alert)
+            alert.addTextField(configurationHandler: nil)
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (ac) in
+                let text = alert.textFields?.first!.text
+                self.persistModel(title: text ?? "untitled")
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+        }
+        
 
     }
     
-    func persistModel(){
+    func persistModel(title:String){
+        if title == ""{save(message: "Enter a valid name for project")}
+        if Persistence.main.fileExists(name: title, with: .json, in: .savedModels){
+            save(message: "Project already exists with name \(title), choose a new project name")
+        }
         let mods = baseView.generatebaseModels()
         let thumb = baseView.getThumbnailSrc()
         if existingModel == nil{
-            existingModel = StudioModel(models: mods,url:thumb)
+            existingModel = StudioModel(models: mods,name:title, url:thumb)
             
         }else{
             existingModel?.update(models: mods, src: thumb, bg: baseView.backgroundColor)
