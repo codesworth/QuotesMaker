@@ -53,7 +53,7 @@ extension BaseView{
     func duplicateLayer(){
         
         guard let original = selectedView as? BaseSubView else {return}
-        guard let newlayer = original.mutableCopy() as? BaseSubView else {fatalError("Error Casting with mutable copy")}
+        guard let newlayer = original.copy() as? BaseSubView else {fatalError("Error Casting with mutable copy")}
         addSubviewable(newlayer)
         offsetLayer()
     }

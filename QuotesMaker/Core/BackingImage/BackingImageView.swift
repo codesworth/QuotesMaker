@@ -290,3 +290,14 @@ extension BackingImageView:SPUserResizableViewDelegate{
         Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
     }
 }
+
+
+extension BackingImageView:NSCopying{
+    func copy(with zone: NSZone? = nil) -> Any {
+        let image = BackingImageView(frame: frame)
+        image.model = model
+        return image
+    }
+    
+
+}

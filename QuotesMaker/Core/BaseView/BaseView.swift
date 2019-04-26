@@ -11,7 +11,7 @@ import UIKit
 
 class BaseView:UIView{
     
-    typealias BaseSubView = UIView & BaseViewSubViewable
+    typealias BaseSubView = UIView & BaseViewSubViewable & NSCopying
     
     
     

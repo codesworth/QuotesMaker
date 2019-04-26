@@ -309,6 +309,16 @@ extension BackingTextView:UITextViewDelegate{
     
 }
 
+extension BackingTextView:NSCopying{
+    func copy(with zone: NSZone? = nil) -> Any {
+        let text = BackingTextView(frame: frame)
+        text.model = model
+        return text
+    }
+    
+
+}
+
 //Font Type
 //Font size
 //Font Color
