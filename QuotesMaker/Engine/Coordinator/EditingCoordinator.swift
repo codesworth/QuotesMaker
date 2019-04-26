@@ -30,6 +30,7 @@ class EditingCoordinator:NSObject{
         baseView.frame = CGRect(origin: .zero, size: size)
         existingModel = model
         super.init()
+        baseView.constructFrom(model: model)
     }
     
     var  layerDatasource:Alias.StackDataSource{

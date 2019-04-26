@@ -41,8 +41,33 @@ extension BaseView{
         return largeModel
     }
     
-    func constructFrom(model:[StudioModel]){
-        
+    func constructFrom(model:StudioModel){
+        let models = model.models.sorted{$0.layerIndex > $1.layerIndex}
+        models.forEach{
+            if $0.modelType == ModelType.shape.rawValue{
+                let rect = RectView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
+                rect.model = $0.shape!
+                addSubviewable(rect)
+            }else if $0.modelType == ModelType.image.rawValue{
+                let rect = BackingImageView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
+                rect.model = $0.image!
+                if let src = $0.image?.imageSrc{
+                    do{
+                        
+                        let image = try UIImage(data: Data(contentsOf:src))
+                        rect.image = image
+                    }catch let err {
+                        print("Error occurred fetching image: \(err.localizedDescription)")
+                        
+                    }
+                }
+                addSubviewable(rect)
+            }else if $0.modelType == ModelType.text.rawValue{
+                let rect = BackingTextView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
+                rect.model = $0.text!
+                addSubviewable(rect)
+            }
+        }
     }
     
     func offsetLayer(){

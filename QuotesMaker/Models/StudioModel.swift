@@ -23,7 +23,7 @@ struct StudioModel:Codable{
     public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
-    private var models:[BaseModel] = []
+    public private (set) var models:[BaseModel] = []
     var backgroundColor:StudioColor?
     init(models:[BaseModel],name:String = "untitled", url:URL? = nil) {
         self.models = models
