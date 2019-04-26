@@ -83,6 +83,11 @@ class EditingCoordinator:NSObject{
         baseView.moveSubiewBackward()
     }
     
+    func textChanged(text:String){
+        guard let current = baseView.currentSubview as? BackingTextView else {return}
+        current.model.string = text
+    }
+    
     func save(message:String = "Enter project name"){
         //TODO: Verify pais user or throw alert to buy app
         //TODO: Verify name does not exist before saving
@@ -106,7 +111,10 @@ class EditingCoordinator:NSObject{
     }
     
     func persistModel(title:String){
-        if title == ""{save(message: "Enter a valid name for project")}
+        if title == ""{
+            save(message: "Enter a valid name for project")
+            return
+        }
         if Persistence.main.fileExists(name: title, with: .json, in: .savedModels){
             save(message: "Project already exists with name \(title), choose a new project name")
         }else{
@@ -115,13 +123,7 @@ class EditingCoordinator:NSObject{
             existingModel = StudioModel(models: mods,name:title, url:thumb)
             Persistence.main.save(model: existingModel!)
         }
-       
-        if existingModel == nil{
-            
-            
-        }else{
-            
-        }
+    
         
         
     }

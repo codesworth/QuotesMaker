@@ -23,7 +23,7 @@ class StudioTaskBarController: UIViewController {
     
     func setContentWidth(){
         let width = UIScreen.main.bounds.width
-        contentViewWidth.constant = (width > 1024) ? width : 1024
+        contentViewWidth.constant = (width > 1200) ? width : 1200
     }
     
     
