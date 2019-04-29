@@ -17,10 +17,10 @@ struct State{
         case nothing
     }
     
-    var model:LayerModel
+    var model:LayerModel?
     var action:StateActions
     
-    init(model:LayerModel,action:StateActions) {
+    init(model:LayerModel?,action:StateActions) {
         self.model = model
         self.action = action
     }
@@ -31,7 +31,7 @@ struct State{
 extension State:Equatable{
     
     static func == (lhs: State, rhs: State) -> Bool {
-        return lhs.model.updateTime == rhs.model.updateTime
+        return lhs.model?.updateTime == rhs.model?.updateTime
     }
     
 }

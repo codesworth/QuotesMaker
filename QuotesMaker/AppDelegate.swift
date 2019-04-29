@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Persistence.main.createDirectories()
           //  UserDefaults.standard.set(true, forKey: "first")
         //}
-        let idiom = UIDevice.current.userInterfaceIdiom
-        if idiom == .pad{
-            window?.rootViewController = iPadStudioVC()
-        }
+//        let idiom = UIDevice.current.userInterfaceIdiom
+//        if idiom == .pad{
+//            window?.rootViewController = iPadStudioVC()
+//        }
 //        setRootViewContoroller()
 //        for family: String in UIFont.familyNames
 //        {

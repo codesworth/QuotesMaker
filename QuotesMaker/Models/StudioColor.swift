@@ -8,25 +8,25 @@
 
 import UIKit
 
-class StudioColor:Codable{
+struct StudioColor:Codable{
     
-    class var magenta:StudioColor{
+    static var magenta:StudioColor{
        return StudioColor(color: .magenta)
     }
     
-    class var lightGray:StudioColor{
+    static var lightGray:StudioColor{
         return StudioColor(color: .lightGray)
     }
     
-    class var cyan:StudioColor{
+    static var cyan:StudioColor{
         return StudioColor(color: .cyan)
     }
     
-    class var clear:StudioColor{
+    static var clear:StudioColor{
         return StudioColor(color: .clear)
     }
     
-    class var black:StudioColor{
+    static var black:StudioColor{
         return StudioColor(color: .black)
     }
     
