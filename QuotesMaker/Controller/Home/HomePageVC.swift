@@ -19,12 +19,15 @@ class HomePageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
+        allModels = Persistence.main.fetchAllModels()
+        print("These are stored modles: \(allModels)")
         // Do any additional setup after loading the view.
     }
     
     func setup(){
         recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
+        recentCollectionVIew.delegate = self
+        recentCollectionVIew.dataSource = self
         //recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
     }
 
@@ -48,6 +51,7 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TemplateCell.self)", for: indexPath) as! TemplateCell
         let mod = allModels[indexPath.row]
         cell.configureView(src: mod.thumbImageSrc!, name: mod.name)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

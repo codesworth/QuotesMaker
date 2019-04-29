@@ -177,8 +177,8 @@ extension StudioVC:StudioTabDelegate{
     
     func undoState(){
         guard let state = changes.pop() else {return}
-        switch state.model.type {
-        case .shape:
+        switch state.model?.type {
+        case .shape?:
            shapeUndo(state)
             break
         default:
