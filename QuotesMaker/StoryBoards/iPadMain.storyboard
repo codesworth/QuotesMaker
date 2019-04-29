@@ -343,10 +343,10 @@
             </objects>
             <point key="canvasLocation" x="-3229.1015625" y="-345.3125"/>
         </scene>
-        <!--View Controller-->
+        <!--Home PageVC-->
         <scene sceneID="wpc-Iv-uD5">
             <objects>
-                <viewController id="RbE-Bc-U9E" sceneMemberID="viewController">
+                <viewController id="RbE-Bc-U9E" customClass="HomePageVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h3u-4M-jch">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -364,17 +364,17 @@
                                                     <constraint firstAttribute="height" constant="200" id="mld-fj-B0X"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mAi-UW-zmx">
-                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="itemSize" width="194" height="205"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1Wp-O3-HrB">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="194" height="205"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="194" height="205"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </view>
                                                     </collectionViewCell>
@@ -545,6 +545,11 @@
                             <constraint firstItem="9SB-eW-nXR" firstAttribute="leading" secondItem="h3u-4M-jch" secondAttribute="leading" id="ycW-Xq-bW1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dimensionsProjectCollection" destination="KhN-fk-mBK" id="euD-js-pUA"/>
+                        <outlet property="recentCollectionVIew" destination="gSe-bR-xF7" id="KNf-FQ-HYa"/>
+                        <outlet property="templatesCollection" destination="LYT-aq-qzk" id="GIv-QI-pbc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBV-W5-YwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

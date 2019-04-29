@@ -65,6 +65,8 @@
 		38661B0F224C42D300440AC7 /* StudioTabCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38661B0D224C42D300440AC7 /* StudioTabCells.swift */; };
 		38661B10224C42D300440AC7 /* StudioTabCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38661B0E224C42D300440AC7 /* StudioTabCells.xib */; };
 		38686D2522771F5000349E02 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38686D2422771F5000349E02 /* HomePageVC.swift */; };
+		38686D2A2277406000349E02 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38686D282277406000349E02 /* TemplateCell.swift */; };
+		38686D2B2277406000349E02 /* TemplateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38686D292277406000349E02 /* TemplateCell.xib */; };
 		386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */; };
 		38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732A4B222EEA9100CDB703 /* String+Ex.swift */; };
 		38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */; };
@@ -246,6 +248,8 @@
 		38661B0D224C42D300440AC7 /* StudioTabCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioTabCells.swift; sourceTree = "<group>"; };
 		38661B0E224C42D300440AC7 /* StudioTabCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudioTabCells.xib; sourceTree = "<group>"; };
 		38686D2422771F5000349E02 /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
+		38686D282277406000349E02 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
+		38686D292277406000349E02 /* TemplateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateCell.xib; sourceTree = "<group>"; };
 		386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		38732A4B222EEA9100CDB703 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDesignableInputView.swift; sourceTree = "<group>"; };
@@ -499,6 +503,8 @@
 			isa = PBXGroup;
 			children = (
 				38686D2422771F5000349E02 /* HomePageVC.swift */,
+				38686D282277406000349E02 /* TemplateCell.swift */,
+				38686D292277406000349E02 /* TemplateCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1023,6 +1029,7 @@
 				38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */,
 				385D306B225A2C9D0054694A /* GridViewCell.xib in Resources */,
 				388BE344222C3188005BF44B /* PanelCell.xib in Resources */,
+				38686D2B2277406000349E02 /* TemplateCell.xib in Resources */,
 				38F13A0E2254B6FF002C4109 /* PanelContainerCell.xib in Resources */,
 				38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */,
 			);
@@ -1143,6 +1150,7 @@
 				38236561223FEB640078A723 /* +StateChangeable.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
 				38743D592258114500897B13 /* EditingCoordinatorDelegate.swift in Sources */,
+				38686D2A2277406000349E02 /* TemplateCell.swift in Sources */,
 				38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */,
 				3818DADA2270FCF000202C14 /* BaseModelCollection.swift in Sources */,
 				3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */,

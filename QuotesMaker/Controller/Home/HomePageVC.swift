@@ -9,22 +9,48 @@
 import UIKit
 
 class HomePageVC: UIViewController {
-
+    
+    @IBOutlet weak var recentCollectionVIew: UICollectionView!
+    @IBOutlet weak var templatesCollection: UICollectionView!
+    @IBOutlet weak var dimensionsProjectCollection: UICollectionView!
+    
+    private var allModels:[StudioModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setup()
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setup(){
+        recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
+        //recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
     }
-    */
 
+}
+
+
+extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return allModels.count
+    }
+    
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TemplateCell.self)", for: indexPath) as! TemplateCell
+        let mod = allModels[indexPath.row]
+        cell.configureView(src: mod.thumbImageSrc!, name: mod.name)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return [200]
+    }
 }
