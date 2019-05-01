@@ -111,6 +111,7 @@ class BackingTextView: UIView {
         textView.text = "Hello"
         resizerView.contentView = textView
         addSubview(resizerView)
+        model.layerFrame = makeLayerFrame()
         
     }
     

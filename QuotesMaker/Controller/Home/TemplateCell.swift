@@ -19,6 +19,9 @@ class TemplateCell: UICollectionViewCell {
         imageVIew.clipsToBounds = true
         // Initialization code
     }
+    func configureView(name:String){
+        titleLabel.text = name
+    }
     
     func configureView(src:URL,name:String){
         print(src.path)

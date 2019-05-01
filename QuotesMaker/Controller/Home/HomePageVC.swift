@@ -28,6 +28,9 @@ class HomePageVC: UIViewController {
         recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
         recentCollectionVIew.delegate = self
         recentCollectionVIew.dataSource = self
+        dimensionsProjectCollection.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
+        dimensionsProjectCollection.delegate = self
+        dimensionsProjectCollection.dataSource = self
         //recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
     }
 
@@ -37,7 +40,10 @@ class HomePageVC: UIViewController {
 extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return allModels.count
+        if collectionView == recentCollectionVIew{
+            return allModels.count
+        }
+        return 4
     }
     
     
@@ -49,8 +55,12 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TemplateCell.self)", for: indexPath) as! TemplateCell
-        let mod = allModels[indexPath.row]
-        cell.configureView(src: mod.thumbImageSrc!, name: mod.name)
+        if collectionView == recentCollectionVIew{
+            let mod = allModels[indexPath.row]
+            cell.configureView(src: mod.thumbImageSrc!, name: mod.name)
+            return cell
+        }
+        cell.configureView(name: "Instagram")
         return cell
     }
     
@@ -59,8 +69,14 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let model = allModels[indexPath.row]
-        let studio = iPadStudioVC(model: model)
-        present(studio, animated: true, completion: nil)
+        if collectionView ==  recentCollectionVIew{
+            let model = allModels[indexPath.row]
+            let studio = iPadStudioVC(model: model)
+            present(studio, animated: true, completion: nil)
+        }else{
+            
+            let studio = iPadStudioVC()
+            present(studio, animated: true, completion: nil)
+        }
     }
 }
