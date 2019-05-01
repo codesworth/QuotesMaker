@@ -11,32 +11,25 @@ import Foundation
 
 struct StudioModel:Codable{
     
-    public private (set) var thumbImageSrc:URL?{
-        didSet{
-            if oldValue != nil{
-                //Release the previous thumbImage from persistence to avoid memory hogging
-                Persistence.main.deleteFile(src: oldValue!)
-            }
-        }
-    }
+
     public private(set) var name:String
     public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
     public private (set) var models:[BaseModel] = []
     var backgroundColor:StudioColor?
-    init(models:[BaseModel],name:String = "untitled", url:URL? = nil) {
+    init(models:[BaseModel],name:String = "untitled") {
         self.models = models
         dateCreated = Date().timeIntervalSinceReferenceDate
         lastModified = Date().timeIntervalSinceReferenceDate
         self.name = name
-        thumbImageSrc = url
+        
     }
     
-    mutating func update(models:[BaseModel],src:URL? = nil, bg:UIColor? = nil){
+    mutating func update(models:[BaseModel], bg:UIColor? = nil){
         self.models = models
         backgroundColor = (bg != nil) ? StudioColor(color: bg!) : nil
-        thumbImageSrc = src
+        //thumbImageSrc = src
         modified()
         
     }

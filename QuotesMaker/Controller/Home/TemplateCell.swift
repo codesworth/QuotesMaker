@@ -32,7 +32,7 @@ class TemplateCell: UICollectionViewCell {
         print("The path is: \(src.path)")
         print(exist)
         do {
-            print(src.path)
+            
             let data = try Data(contentsOf: src)
             let image = UIImage(data: data)
             imageVIew.image = image

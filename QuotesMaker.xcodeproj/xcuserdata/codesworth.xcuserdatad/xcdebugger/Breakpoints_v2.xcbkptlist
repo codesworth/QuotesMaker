@@ -4765,7 +4765,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "fetchAllModels()"
+            landmarkName = "save(model:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4781,7 +4781,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
-            landmarkName = "fetchAllModels()"
+            landmarkName = "save(model:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4797,7 +4797,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
             endingLineNumber = "69"
-            landmarkName = "fetchAllModels()"
+            landmarkName = "save(model:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4813,7 +4813,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
-            landmarkName = "fetchAllModels()"
+            landmarkName = "save(model:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -4829,8 +4829,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
             endingLineNumber = "71"
-            landmarkName = "Persistence"
-            landmarkType = "3">
+            landmarkName = "save(model:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5373,7 +5373,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
             endingLineNumber = "45"
-            landmarkName = "getThumbImageFor(name:)"
+            landmarkName = "fetchAllModels()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5389,7 +5389,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
             endingLineNumber = "47"
-            landmarkName = "getThumbImageFor(name:)"
+            landmarkName = "fetchAllModels()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -5405,7 +5405,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
-            landmarkName = "getThumbImageFor(name:)"
+            landmarkName = "fetchAllModels()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -5453,8 +5453,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
-            landmarkName = "Persistence"
-            landmarkType = "3">
+            landmarkName = "fetchAllModels()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"

@@ -103,21 +103,20 @@ extension BaseView{
         offsetLayer()
     }
     
-    func getThumbnailSrc()->URL?{
+    func getThumbnailSrc(name:String){
         
-        guard let image = makeImageFromView() else {return nil}
-        let id = UUID().uuidString
-        let url = URL(fileURLWithPath: id, relativeTo: FileManager.previewthumbDir).addExtension(.jpg)
+        guard let image = makeImageFromView() else {return }
+        let url = URL(fileURLWithPath: name, relativeTo: FileManager.previewthumbDir).addExtension(.jpg)
         let data = image.jpegData(compressionQuality: 0.5)
         do{
             try data?.write(to: url)
             print("The url is: \(url)")
-            return url
+            
         }catch  let err {
             print(":Error Occurred: \(err.localizedDescription)")
         }
         
-        return nil
+        
     }
     
 }
