@@ -17,6 +17,14 @@ class iPadStudioVC: UIViewController {
 //        panel.backgroundColor = .seafoamBlue
 //        return panel
 //    }()
+    init(model:StudioModel? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        coordinator.existingModel = model
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     let coordinator = EditingCoordinator()
     lazy var taskbarContainer:UIView = {
         let view = UIView(frame: .zero)

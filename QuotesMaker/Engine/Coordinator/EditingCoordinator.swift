@@ -14,7 +14,13 @@ class EditingCoordinator:NSObject{
     
     var baseView:BaseView
     weak var delegate:EditingCoordinatorDelegate?
-    var existingModel:StudioModel?
+    var existingModel:StudioModel?{
+        didSet{
+            if existingModel != nil{
+                baseView.constructFrom(model: existingModel!)
+            }
+        }
+    }
     
     override init(){
         
@@ -30,8 +36,8 @@ class EditingCoordinator:NSObject{
         baseView.frame = CGRect(origin: .zero, size: size)
         existingModel = model
         super.init()
-        baseView.constructFrom(model: model)
     }
+    
     
     var  layerDatasource:Alias.StackDataSource{
         guard let layers = baseView.subviews as? Alias.StackDataSource else {return []}

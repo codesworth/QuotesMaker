@@ -57,4 +57,10 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return [200]
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let model = allModels[indexPath.row]
+        let studio = iPadStudioVC(model: model)
+        present(studio, animated: true, completion: nil)
+    }
 }
