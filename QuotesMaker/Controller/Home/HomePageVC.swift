@@ -20,6 +20,7 @@ class HomePageVC: UIViewController {
         super.viewDidLoad()
         setup()
         allModels = Persistence.main.fetchAllModels()
+        Persistence.main.getThumbImageFor(name:"")
         print("These are stored modles: \(allModels)")
         // Do any additional setup after loading the view.
     }
