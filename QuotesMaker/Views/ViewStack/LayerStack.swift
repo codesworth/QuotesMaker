@@ -102,7 +102,7 @@ class LayerStack: MaterialView {
     }
     
     func initialize(){
-        backgroundColor = .white
+        backgroundColor = .groupTableViewBackground
         addSubview(stackTable)
         addSubview(headerLable)
         addSubview(doneButt)

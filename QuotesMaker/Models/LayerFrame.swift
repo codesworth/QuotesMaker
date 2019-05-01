@@ -24,11 +24,14 @@ struct LayerFrame:Codable {
         height = sized.height
     }
     
+    
+    
     func awakeFrom(bounds:CGRect)->CGRect{
         let origin:CGPoint = [xCoordinate * bounds.maxX, yCoordinate * bounds.maxY]
         let size:CGSize = [width * bounds.width, height * bounds.height]
         return CGRect(origin: origin, size: size)
     }
+    
     
     
 }

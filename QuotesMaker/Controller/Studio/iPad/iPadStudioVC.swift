@@ -17,6 +17,15 @@ class iPadStudioVC: UIViewController {
 //        panel.backgroundColor = .seafoamBlue
 //        return panel
 //    }()
+    init(model:StudioModel? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        coordinator.existingModel = model
+        coordinator.constructFromModel()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     let coordinator = EditingCoordinator()
     lazy var taskbarContainer:UIView = {
         let view = UIView(frame: .zero)
@@ -37,12 +46,7 @@ class iPadStudioVC: UIViewController {
     let taskbar = StudioTaskBarController.onlyInstance()
     
     
-    lazy var layerStack:LayerStack = { [unowned self] by in
-        let stack = LayerStack(frame:.zero, dataSource: [])
-        stack.backgroundColor = .groupTableViewBackground
-        stack.delegate = coordinator
-        return stack
-    }(())
+    var layerStack:LayerStack = LayerStack(frame:.zero, dataSource: [])
     
     
     lazy var editor:StudioEditorView = {
@@ -54,17 +58,19 @@ class iPadStudioVC: UIViewController {
     var studioHeight:CGFloat = 130
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mods  = Persistence.main.fetchAllModels()
-        print("Models are: \(mods)")
-        coordinator.delegate = self
         view.backgroundColor = .white
         view.addSubview(editor)
         self.view.addSubview(controlPanelContainer)
         view.addSubview(taskbarContainer)
         view.addSubview(layerStack)
+        layerStack.delegate = coordinator
         add(panelController, to: controlPanelContainer)
         add(taskbar, to: taskbarContainer)
         iPadLayout()
+        coordinator.controller = self
+        let mods  = Persistence.main.fetchAllModels()
+        print("Models are: \(mods)")
+        coordinator.delegate = self
         editor.addCanvas(coordinator.baseView)
         // Do any additional setup after loading the view.
     }

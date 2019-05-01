@@ -12,9 +12,15 @@ import Photos
 
 class EditingCoordinator:NSObject{
     
+    weak var controller:UIViewController?
+    
     var baseView:BaseView
     weak var delegate:EditingCoordinatorDelegate?
     var existingModel:StudioModel?
+    
+    func constructFromModel(){
+        baseView.constructFrom(model: existingModel!)
+    }
     
     override init(){
         
@@ -30,8 +36,8 @@ class EditingCoordinator:NSObject{
         baseView.frame = CGRect(origin: .zero, size: size)
         existingModel = model
         super.init()
-        baseView.constructFrom(model: model)
     }
+    
     
     var  layerDatasource:Alias.StackDataSource{
         guard let layers = baseView.subviews as? Alias.StackDataSource else {return []}
@@ -99,7 +105,7 @@ class EditingCoordinator:NSObject{
                 self.persistModel(title: text ?? "untitled")
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            controller?.present(alert, animated: true, completion: nil)
         }else{
             let mods = baseView.generatebaseModels()
             let thumb = baseView.getThumbnailSrc()
