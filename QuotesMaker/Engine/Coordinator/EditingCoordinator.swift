@@ -19,7 +19,9 @@ class EditingCoordinator:NSObject{
     var existingModel:StudioModel?
     
     func constructFromModel(){
-        baseView.constructFrom(model: existingModel!)
+        if let model = existingModel{
+            baseView.constructFrom(model: model)
+        }
     }
     
     override init(){

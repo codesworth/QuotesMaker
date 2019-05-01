@@ -115,8 +115,11 @@ class BackingTextView: UIView {
         
     }
     
+
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
+        guard let _ = superview else {return}
         model.layerFrame = makeLayerFrame()
     }
     
