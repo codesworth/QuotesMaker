@@ -111,10 +111,14 @@ class BackingTextView: UIView {
         textView.text = "Hello"
         resizerView.contentView = textView
         addSubview(resizerView)
-        model.layerFrame = makeLayerFrame()
+        
         
     }
     
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        model.layerFrame = makeLayerFrame()
+    }
     
     @objc func longTapped(_ recognizer:UILongPressGestureRecognizer){
         textView.becomeFirstResponder()

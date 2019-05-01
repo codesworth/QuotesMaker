@@ -12,14 +12,14 @@ import Photos
 
 class EditingCoordinator:NSObject{
     
+    weak var controller:UIViewController?
+    
     var baseView:BaseView
     weak var delegate:EditingCoordinatorDelegate?
-    var existingModel:StudioModel?{
-        didSet{
-            if existingModel != nil{
-                baseView.constructFrom(model: existingModel!)
-            }
-        }
+    var existingModel:StudioModel?
+    
+    func constructFromModel(){
+        baseView.constructFrom(model: existingModel!)
     }
     
     override init(){
@@ -105,7 +105,7 @@ class EditingCoordinator:NSObject{
                 self.persistModel(title: text ?? "untitled")
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
-            UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+            controller?.present(alert, animated: true, completion: nil)
         }else{
             let mods = baseView.generatebaseModels()
             let thumb = baseView.getThumbnailSrc()
