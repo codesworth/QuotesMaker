@@ -31,6 +31,16 @@ class Persistence{
         }
     }
     
+    func getThumbImageFor(name:String)->UIImage?{
+        do{
+            var files = try FileManager.default.contentsOfDirectory(atPath: FileManager.previewthumbDir.path)
+            print(files)
+            let file = files.first{$0 == name.append(FileManager.Extensions.png)}
+        }catch let err{
+            print("Error Occurred gettting files: \(err)")
+        }
+    }
+    
     func fetchAllModels()->[StudioModel]{
 
         do {

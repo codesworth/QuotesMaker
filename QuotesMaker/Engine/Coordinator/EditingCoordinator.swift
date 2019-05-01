@@ -19,7 +19,9 @@ class EditingCoordinator:NSObject{
     var existingModel:StudioModel?
     
     func constructFromModel(){
-        baseView.constructFrom(model: existingModel!)
+        if let model = existingModel{
+            baseView.constructFrom(model: model)
+        }
     }
     
     override init(){
@@ -108,8 +110,8 @@ class EditingCoordinator:NSObject{
             controller?.present(alert, animated: true, completion: nil)
         }else{
             let mods = baseView.generatebaseModels()
-            let thumb = baseView.getThumbnailSrc()
-            existingModel?.update(models: mods, src: thumb, bg: baseView.backgroundColor)
+            baseView.getThumbnailSrc(name:existingModel!.name)
+            existingModel?.update(models: mods, bg: baseView.backgroundColor)
             Persistence.main.save(model: existingModel!)
         }
         
@@ -125,8 +127,8 @@ class EditingCoordinator:NSObject{
             save(message: "Project already exists with name \(title), choose a new project name")
         }else{
             let mods = baseView.generatebaseModels()
-            let thumb = baseView.getThumbnailSrc()
-            existingModel = StudioModel(models: mods,name:title, url:thumb)
+            baseView.getThumbnailSrc(name:title)
+            existingModel = StudioModel(models: mods,name:title)
             Persistence.main.save(model: existingModel!)
         }
     
