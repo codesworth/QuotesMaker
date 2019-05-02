@@ -20,7 +20,8 @@ class HomePageVC: UIViewController {
         super.viewDidLoad()
         setup()
         allModels = Persistence.main.fetchAllModels()
-        Persistence.main.getThumbImageFor(name:"")
+        recentCollectionVIew.reloadData()
+        //Persistence.main.getThumbImageFor(name:"")
         print("These are stored modles: \(allModels)")
         // Do any additional setup after loading the view.
     }
@@ -58,7 +59,7 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TemplateCell.self)", for: indexPath) as! TemplateCell
         if collectionView == recentCollectionVIew{
             let mod = allModels[indexPath.row]
-            cell.configureView(src: mod.thumbImageSrc!, name: mod.name)
+            cell.configureViewAndIamge(name: mod.name)
             return cell
         }
         cell.configureView(name: "Instagram")

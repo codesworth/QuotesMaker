@@ -32,13 +32,19 @@ class Persistence{
     }
     
     func getThumbImageFor(name:String)->UIImage?{
+        let  expectedName = name.appending(".").appending(FileManager.Extensions.jpg.rawValue)
         do{
-            var files = try FileManager.default.contentsOfDirectory(atPath: FileManager.previewthumbDir.path)
+            let files = try FileManager.default.contentsOfDirectory(atPath: FileManager.previewthumbDir.path)
             print(files)
-            let file = files.first{$0 == name.append(FileManager.Extensions.png)}
+            print(expectedName)
+            let file = files.first{$0 == expectedName}
+            guard let exFile = file else {throw NSError(domain: "Persistence", code: 0, userInfo: ["message":"Cannot Locate file"])}
+            let image = UIImage(contentsOfFile: exFile)
+            return image
         }catch let err{
             print("Error Occurred gettting files: \(err)")
         }
+        return nil
     }
     
     func fetchAllModels()->[StudioModel]{

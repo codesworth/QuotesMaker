@@ -23,23 +23,24 @@ class TemplateCell: UICollectionViewCell {
         titleLabel.text = name
     }
     
-    func configureView(src:URL,name:String){
-        print(src.path)
+    func configureViewAndIamge(name:String?){
+        //print(src.path)
         titleLabel.text = name
+        imageVIew.image = Persistence.main.getThumbImageFor(name: name!)
         //let image = UIImage(contentsOfFile: src.path)
         //imageVIew.image = image
-        let exist = FileManager.default.fileExists(atPath: src.path)
-        print("The path is: \(src.path)")
-        print(exist)
-        do {
-            
-            let data = try Data(contentsOf: src)
-            let image = UIImage(data: data)
-            imageVIew.image = image
-        } catch let err {
-            print(err.localizedDescription)
-        }
-        
+//        let exist = FileManager.default.fileExists(atPath: src.path)
+//        print("The path is: \(src.path)")
+//        print(exist)
+//        do {
+//
+//            let data = try Data(contentsOf: src)
+//            let image = UIImage(data: data)
+//            imageVIew.image = image
+//        } catch let err {
+//            print(err.localizedDescription)
+//        }
+//
     }
 
 }
