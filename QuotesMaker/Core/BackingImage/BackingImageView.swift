@@ -32,13 +32,12 @@ class BackingImageView: UIView{
         }(())
     
     
-    
-    var imageSrc:String?
+
     
     var image:UIImage?{
         didSet{
             baseImageView.image = image
-            imageSrc = UUID().uuidString.appending(".\(FileManager.Extensions.png)")
+            //imageSrc = UUID().uuidString.appending(".\(FileManager.Extensions.png)")
         }
     }
 
@@ -143,18 +142,18 @@ class BackingImageView: UIView{
     
     func generateImageSource(){
         guard let image = self.image else {return}
-        let name = UUID().uuidString.appending(".\(FileManager.Extensions.png)")
-//        if let name = model.imageSrc{
-//            let data = image.pngData()
-//            do{
-//                let url = URL(fileURLWithPath: name, relativeTo: FileManager.modelImagesDir)
-//                try data?.write(to: url)
-//                return
-//            }catch let err{
-//                print("Error occurred with sig: \(err.localizedDescription)")
-//            }
-//        }
-//        
+       
+        if let name = model.imageSrc{
+            let data = image.pngData()
+            do{
+                let url = URL(fileURLWithPath: name, relativeTo: FileManager.modelImagesDir)
+                try data?.write(to: url)
+                return
+            }catch let err{
+                print("Error occurred with sig: \(err.localizedDescription)")
+            }
+        }
+         let name = UUID().uuidString.appending(".\(FileManager.Extensions.png)")
         let url = URL(fileURLWithPath:name , relativeTo: FileManager.modelImagesDir)
         let data = image.jpegData(compressionQuality: 0.3)
         do {
