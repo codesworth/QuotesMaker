@@ -1054,7 +1054,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Models/ImageModel.swift"
-            timestampString = "578614632.469856"
+            timestampString = "578617539.455843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -1070,7 +1070,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Models/ImageModel.swift"
-            timestampString = "578614632.469943"
+            timestampString = "578617539.455936"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -1086,7 +1086,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Models/ImageModel.swift"
-            timestampString = "578614632.470015"
+            timestampString = "578617539.455999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -1742,7 +1742,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BackingImage/BackingImageView.swift"
-            timestampString = "578614632.470844"
+            timestampString = "578617539.456903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "242"
@@ -1950,7 +1950,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BackingImage/BackingImageView.swift"
-            timestampString = "578614632.471161"
+            timestampString = "578617539.457233"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "173"
@@ -2654,11 +2654,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.4724571"
+            timestampString = "578617539.458232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246">
+            startingLineNumber = "250"
+            endingLineNumber = "250">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2668,11 +2668,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.4731441"
+            timestampString = "578617539.458307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246">
+            startingLineNumber = "250"
+            endingLineNumber = "250">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2682,11 +2682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.47374"
+            timestampString = "578617539.458376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246">
+            startingLineNumber = "250"
+            endingLineNumber = "250">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2696,11 +2696,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.474475"
+            timestampString = "578617539.458445"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "BaseView"
             landmarkType = "3">
          </BreakpointContent>
@@ -2712,11 +2712,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.474952"
+            timestampString = "578617539.458514"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "BaseView"
             landmarkType = "3">
          </BreakpointContent>
@@ -2792,11 +2792,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.981513"
+            timestampString = "578617539.458667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "layerChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2808,11 +2808,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.982167"
+            timestampString = "578617539.459147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "layerChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2824,39 +2824,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.982592"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "layerChanged(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.982969"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
-            landmarkName = "layerChanged(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.983346"
+            timestampString = "578617539.459469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "270"
@@ -2872,11 +2840,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.983705"
+            timestampString = "578617539.4597991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "layerChanged(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
+            timestampString = "578617539.460111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "layerChanged(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
+            timestampString = "578617539.46042"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "layerChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2952,7 +2952,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.984296"
+            timestampString = "578617539.460819"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
@@ -2968,55 +2968,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.475898"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "exchangeSubview(at:withSubviewAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.4765739"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "exchangeSubview(at:withSubviewAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.477102"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "exchangeSubview(at:withSubviewAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.477515"
+            timestampString = "578617539.4611419"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "183"
@@ -3032,11 +2984,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.477911"
+            timestampString = "578617539.461212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "184"
             endingLineNumber = "184"
+            landmarkName = "exchangeSubview(at:withSubviewAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
+            timestampString = "578617539.461279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "exchangeSubview(at:withSubviewAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
+            timestampString = "578617539.461344"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "exchangeSubview(at:withSubviewAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
+            timestampString = "578617539.46141"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "exchangeSubview(at:withSubviewAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3144,11 +3144,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.985783"
+            timestampString = "578617539.461603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "userResizableViewDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3224,11 +3224,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.986214"
+            timestampString = "578617539.462003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "userResizableViewDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3240,11 +3240,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.986346"
+            timestampString = "578617539.462315"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
             landmarkName = "userResizableViewDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3256,11 +3256,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
-            timestampString = "578014646.986464"
+            timestampString = "578617539.462622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "userResizableViewDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3304,7 +3304,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Controller/Studio/iPad/TaskBar/StudioTaskBarController.swift"
-            timestampString = "578614632.478646"
+            timestampString = "578617539.462981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -3320,7 +3320,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Controller/Studio/iPad/TaskBar/StudioTaskBarController.swift"
-            timestampString = "578614632.478719"
+            timestampString = "578617539.463044"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -3336,7 +3336,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Controller/Studio/iPad/TaskBar/StudioTaskBarController.swift"
-            timestampString = "578614632.478786"
+            timestampString = "578617539.463102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
@@ -3416,7 +3416,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/StyleSelectors.swift"
-            timestampString = "577398213.613539"
+            timestampString = "578617539.463249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -3432,7 +3432,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/StyleSelectors.swift"
-            timestampString = "577398213.613922"
+            timestampString = "578617539.463309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -3448,7 +3448,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/StyleSelectors.swift"
-            timestampString = "577398213.614012"
+            timestampString = "578617539.463366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -4680,7 +4680,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Persistence/Persistence.swift"
-            timestampString = "578614632.480484"
+            timestampString = "578617539.464929"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -4696,7 +4696,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Persistence/Persistence.swift"
-            timestampString = "578614632.4805731"
+            timestampString = "578617539.464995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -4712,7 +4712,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Persistence/Persistence.swift"
-            timestampString = "578614632.480646"
+            timestampString = "578617539.465057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
@@ -4728,7 +4728,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Persistence/Persistence.swift"
-            timestampString = "578614632.480718"
+            timestampString = "578617539.465119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -4744,7 +4744,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Persistence/Persistence.swift"
-            timestampString = "578614632.4807889"
+            timestampString = "578617539.465179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -4760,7 +4760,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Persistence/Persistence.swift"
-            timestampString = "578614632.480859"
+            timestampString = "578617539.46524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -4776,7 +4776,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.480932"
+            timestampString = "578617539.465306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
@@ -4792,7 +4792,7 @@
                   moduleName = "QuotesMaker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Core/BaseView/Saving.swift"
-                  timestampString = "578613065.762679"
+                  timestampString = "578618146.3285201"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "16"
@@ -4807,7 +4807,7 @@
                   moduleName = "QuotesMaker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Core/BaseView/Saving.swift"
-                  timestampString = "578613065.765164"
+                  timestampString = "578618146.331104"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "17"
@@ -4824,7 +4824,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.481016"
+            timestampString = "578617539.465409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -4840,7 +4840,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.481092"
+            timestampString = "578617539.4655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -4856,7 +4856,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.481168"
+            timestampString = "578617539.465571"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
@@ -4872,7 +4872,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.481245"
+            timestampString = "578617539.465641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -4888,7 +4888,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.481323"
+            timestampString = "578617539.465711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -4904,7 +4904,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.4814"
+            timestampString = "578617539.46578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -4920,7 +4920,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.4814759"
+            timestampString = "578617539.46585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -4936,7 +4936,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.4815561"
+            timestampString = "578617539.465917"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -4952,7 +4952,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.481649"
+            timestampString = "578617539.465987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -4968,7 +4968,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.481727"
+            timestampString = "578617539.4660569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -5000,7 +5000,7 @@
                   moduleName = "QuotesMaker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Models/BaseModelCollection.swift"
-                  timestampString = "578613065.820204"
+                  timestampString = "578618146.389514"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
@@ -5015,7 +5015,7 @@
                   moduleName = "QuotesMaker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Models/BaseModelCollection.swift"
-                  timestampString = "578613065.8227201"
+                  timestampString = "578618146.392113"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
@@ -5160,13 +5160,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Engine/Coordinator/EditingCoordinator.swift"
-            timestampString = "578614632.48199"
+            timestampString = "578617539.466323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "persistModel(title:)"
-            landmarkType = "7">
+            landmarkName = "EditingCoordinator"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5176,13 +5176,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Engine/Coordinator/EditingCoordinator.swift"
-            timestampString = "578614632.482067"
+            timestampString = "578617539.46639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "persistModel(title:)"
-            landmarkType = "7">
+            landmarkName = "EditingCoordinator"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5192,13 +5192,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Engine/Coordinator/EditingCoordinator.swift"
-            timestampString = "578614632.482141"
+            timestampString = "578617539.466453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "persistModel(title:)"
-            landmarkType = "7">
+            landmarkName = "EditingCoordinator"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5208,7 +5208,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.4822119"
+            timestampString = "578617539.466516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -5224,7 +5224,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Persistence/Persistence.swift"
-            timestampString = "578614632.482289"
+            timestampString = "578617539.466585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -5320,11 +5320,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.482465"
+            timestampString = "578617539.466758"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "didAddSubview(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5336,11 +5336,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/BaseView.swift"
-            timestampString = "578614632.482919"
+            timestampString = "578617539.4668241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "didAddSubview(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -5352,7 +5352,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/ViewStack/LayerStack.swift"
-            timestampString = "578614632.4833111"
+            timestampString = "578617539.466894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
@@ -5368,7 +5368,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/ViewStack/LayerStack.swift"
-            timestampString = "578614632.483384"
+            timestampString = "578617539.466957"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -5384,7 +5384,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.483454"
+            timestampString = "578617539.4670171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
@@ -5400,7 +5400,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.48356"
+            timestampString = "578617539.467087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -5416,7 +5416,7 @@
                   moduleName = "QuotesMaker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Core/BaseView/Saving.swift"
-                  timestampString = "578613065.94182"
+                  timestampString = "578618146.520388"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "47"
@@ -5431,7 +5431,7 @@
                   moduleName = "QuotesMaker"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Core/BaseView/Saving.swift"
-                  timestampString = "578613065.944334"
+                  timestampString = "578618146.523083"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
@@ -5448,7 +5448,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BackingImage/BackingImageView.swift"
-            timestampString = "578614632.483664"
+            timestampString = "578617539.467159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
@@ -5464,7 +5464,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BackingImage/BackingImageView.swift"
-            timestampString = "578614632.48375"
+            timestampString = "578617539.467229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -5480,7 +5480,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BackingImage/BackingImageView.swift"
-            timestampString = "578614632.483831"
+            timestampString = "578617539.467298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -5496,7 +5496,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BackingImage/BackingImageView.swift"
-            timestampString = "578614632.483909"
+            timestampString = "578617539.467366"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
@@ -5512,7 +5512,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.483986"
+            timestampString = "578617539.467433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -5528,7 +5528,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.48406"
+            timestampString = "578617539.467545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "56"
@@ -5544,7 +5544,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.484134"
+            timestampString = "578617539.467635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -5560,7 +5560,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.484207"
+            timestampString = "578617539.467702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
@@ -5576,7 +5576,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.48428"
+            timestampString = "578617539.467769"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -5592,7 +5592,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BackingImage/BackingImageView.swift"
-            timestampString = "578614632.484356"
+            timestampString = "578617539.4678349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "171"
@@ -5608,7 +5608,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BaseView/Saving.swift"
-            timestampString = "578614632.484428"
+            timestampString = "578617539.467898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -5624,12 +5624,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Core/BackingImage/BackingImageView.swift"
-            timestampString = "578614632.484501"
+            timestampString = "578617539.467961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
             endingLineNumber = "158"
             landmarkName = "generateImageSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
+            timestampString = "578617539.468021"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "userResizableViewDidEndEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
+            timestampString = "578618134.926832"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "layoutSubviews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
+            timestampString = "578618176.662853"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "layoutSubviews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Core/ShapeView/RectView.swift"
+            timestampString = "578618177.558585"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "layoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

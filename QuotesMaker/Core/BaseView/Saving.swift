@@ -48,7 +48,7 @@ extension BaseView{
             if $0.modelType == ModelType.shape.rawValue{
                 let rect = RectView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
                 rect.model = $0.shape!
-                addSubviewable(rect)
+                addSubviewable(rect,center:false)
             }else if $0.modelType == ModelType.image.rawValue{
                 let rect = BackingImageView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
                 rect.model = $0.image!
@@ -58,11 +58,11 @@ extension BaseView{
                     let image = UIImage(contentsOfFile: url.path)
                     rect.image = image
                 }
-                addSubviewable(rect)
+                addSubviewable(rect,center:false)
             }else if $0.modelType == ModelType.text.rawValue{
                 let rect = BackingTextView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
                 rect.model = $0.text!
-                addSubviewable(rect)
+                addSubviewable(rect,center:false)
             }
         }
     }

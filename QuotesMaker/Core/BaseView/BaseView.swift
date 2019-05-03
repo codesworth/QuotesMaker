@@ -58,7 +58,9 @@ class BaseView:UIView{
     
     var currentSubview:BaseSubView?{
         didSet{
-            
+            if currentSubview != nil{
+                currentSubview?.focused(true)
+            }
             Subscription.main.post(suscription: .activatedLayer, object: currentSubview)
         }
     }
@@ -109,8 +111,10 @@ class BaseView:UIView{
     }
     
     
-    func addSubviewable(_ view:BaseSubView){
-        view.center = [bounds.midX,bounds.midY]
+    func addSubviewable(_ view:BaseSubView, center:Bool = true){
+        if center{
+            view.center = [bounds.midX,bounds.midY]
+        }
         subIndex += 1
         view.setIndex(subIndex)
         addSubview(view)
