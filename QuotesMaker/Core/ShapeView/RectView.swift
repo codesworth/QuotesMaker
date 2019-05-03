@@ -254,7 +254,8 @@ extension RectView:SPUserResizableViewDelegate{
         if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
         Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
-       
+        
+       Subscription.main.post(suscription: .roundedCornerRadiusValueChanged, object: contentView.bounds.size.min)
         
     }
     
