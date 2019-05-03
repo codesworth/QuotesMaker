@@ -140,6 +140,13 @@ class BackingImageView: UIView{
 //
 //    }
     
+    func releaseImage(){
+        if let name = model.imageSrc{
+            let url = URL(fileURLWithPath: name, relativeTo: FileManager.modelImagesDir)
+            Persistence.main.deleteFile(src: url)
+        }
+    }
+    
     func generateImageSource(){
         guard let image = self.image else {return}
        

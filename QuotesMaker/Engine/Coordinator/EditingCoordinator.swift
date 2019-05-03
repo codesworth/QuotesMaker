@@ -56,9 +56,12 @@ class EditingCoordinator:NSObject{
     
     
     func deleteCurrent(){
-        if var current = baseView.currentSubview{
+        if let current = baseView.currentSubview{
             //print("is uniquely referenced: \(isKnownUniquelyReferenced)")
             current.removeFromSuperview()
+            if let image = current as? BackingImageView{
+                image.releaseImage()
+            }
             baseView.currentSubview = nil
             
         }
@@ -263,12 +266,12 @@ extension EditingCoordinator:StackTableDelegate{
         let view = layerDatasource.first{$0.uid == uid}
         print(view ?? "No view Found. Casting error || Use LLDB `po assert(type(of:baseView.subviews) == Alias.StackDataSource.self)`")
         if let sub = view as? RectView {
-            baseView.currentSubview = sub
+            baseView.selectedView = sub
             
         }else if let sub = view as? BackingImageView{
-            baseView.currentSubview = sub
+            baseView.selectedView = sub
         }else if let sub = view as? BackingTextView{
-            baseView.currentSubview = sub
+            baseView.selectedView = sub
         }
     }
     

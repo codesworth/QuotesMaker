@@ -58,6 +58,7 @@ class BaseView:UIView{
     
     var currentSubview:BaseSubView?{
         didSet{
+            
             Subscription.main.post(suscription: .activatedLayer, object: currentSubview)
         }
     }
@@ -145,6 +146,7 @@ class BaseView:UIView{
     
     
     func makeImageFromView(scale:CGFloat = UIScreen.main.scale)->UIImage?{
+        currentSubview?.focused(false)
         layer.borderColor = UIColor.clear.cgColor
         UIGraphicsBeginImageContextWithOptions(bounds.size,isOpaque,scale)
         layer.render(in: UIGraphicsGetCurrentContext()!)
