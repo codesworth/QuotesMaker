@@ -144,7 +144,13 @@ class RectView:SuperRectView{
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         superlayer.frame = contentView.bounds
-        
+        if model.style.cornerRadius > self.contentView.bounds.size.min{
+            var style = model.style
+            style.cornerRadius = self.contentView.bounds.size.min
+            updateShape(style)
+        }else{
+           updateShape(model.style)
+        }
         CATransaction.commit()
     }
     
@@ -235,10 +241,7 @@ extension RectView:SPUserResizableViewDelegate{
         if let superview = superview as? BaseView, superview.selectedView != self {
             superview.selectedView = self
         }
-        if model.style.cornerRadius > self.frame.size.min{
-            model.style.cornerRadius = self.frame.size.min
-            updateShape(model.style)
-        }
+        
         userResizableView.showEditingHandles()
     }
     
