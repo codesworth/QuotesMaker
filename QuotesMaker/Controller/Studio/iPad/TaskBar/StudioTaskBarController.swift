@@ -83,7 +83,7 @@ class StudioTaskBarController: UIViewController {
     }
     
     @IBAction func exportItem(_ sender: ControlProxy) {
-        
+       dismiss(animated: true, completion: nil)
     }
     
     @IBAction func duplicateLayer(_ sender: ControlProxy) {

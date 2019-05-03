@@ -28,7 +28,7 @@ extension BaseView{
             
             if let image = baseSub as? BackingImageView{
                 image.generateImageSource()
-                print(image.model.imageSrc)
+                //print(image.model.imageSrc)
                 let imgMod = image.model
                 let baseModel = BaseModel(type: .image, model: imgMod)
                 return baseModel
@@ -42,8 +42,8 @@ extension BaseView{
     }
     
     func constructFrom(model:StudioModel){
-        let models = model.models.sorted{$0.layerIndex > $1.layerIndex}
-        backgroundColor = model.backgroundColor?.color
+        let models = model.models.sorted{$0.layerIndex < $1.layerIndex}
+        backgroundColor = model.backgroundColor?.color ?? .white
         models.forEach{
             if $0.modelType == ModelType.shape.rawValue{
                 let rect = RectView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
@@ -53,14 +53,10 @@ extension BaseView{
                 let rect = BackingImageView(frame: $0.layerFrame.awakeFrom(bounds: bounds))
                 rect.model = $0.image!
                 if let src = $0.image?.imageSrc{
-                    do{
-                        
-                        let image = try UIImage(data: Data(contentsOf:src))
-                        rect.image = image
-                    }catch let err {
-                        print("Error occurred fetching image: \(err.localizedDescription)")
-                        
-                    }
+                    let url = URL(fileURLWithPath: src, relativeTo: FileManager.modelImagesDir)
+                    print("Image source directory is:\(url.path)")
+                    let image = UIImage(contentsOfFile: url.path)
+                    rect.image = image
                 }
                 addSubviewable(rect)
             }else if $0.modelType == ModelType.text.rawValue{

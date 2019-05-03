@@ -19,11 +19,15 @@ class HomePageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        //Persistence.main.getThumbImageFor(name:"")
+        //print("These are stored modles: \(allModels)")
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         allModels = Persistence.main.fetchAllModels()
         recentCollectionVIew.reloadData()
-        //Persistence.main.getThumbImageFor(name:"")
-        print("These are stored modles: \(allModels)")
-        // Do any additional setup after loading the view.
     }
     
     func setup(){
