@@ -238,7 +238,7 @@ extension RectView:BaseViewSubViewable{
 extension RectView:SPUserResizableViewDelegate{
     
     func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
-        if let superview = superview as? BaseView, superview.selectedView != self {
+        if let superview = superview as? BaseView {
             superview.selectedView = self
         }
         

@@ -282,7 +282,7 @@ extension BackingTextView:SPUserResizableViewDelegate{
     
     func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
         if textView.isFirstResponder{return}
-        if let superview = superview as? BaseView, superview.selectedView != self {
+        if let superview = superview as? BaseView {
             superview.selectedView = self
         }
         userResizableView.showEditingHandles()

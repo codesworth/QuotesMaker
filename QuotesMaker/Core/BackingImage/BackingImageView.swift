@@ -304,7 +304,7 @@ extension UIImage {
 extension BackingImageView:SPUserResizableViewDelegate{
     
     func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
-        if let superview = superview as? BaseView, superview.selectedView != self {
+        if let superview = superview as? BaseView {
             superview.selectedView = self
         }
         userResizableView.showEditingHandles()
