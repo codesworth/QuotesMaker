@@ -113,19 +113,21 @@ extension iPadStudioVC:EditingCoordinatorDelegate{
     
     func beginCroppingImage() {
         if let current = coordinator.baseView.currentSubview as? BackingImageView{
-           let view = UIView(frame: [0,0,500,500])
-            self.view.addSubview(view)
-            view.backgroundColor = .magenta
-            view.center = self.view.center
-//            guard let image = current.image else {
-//                view.removeFromSuperview()
-//                return
-//            }
-//            guard let cropper = PhotoTweaksViewController(image: image) else {return}
-//            cropper.delegate = coordinator
-//            cropper.autoSaveToLibray = false
-//            cropper.maxRotationAngle = CGFloat(Double.pi / 4)
-//            add(cropper,to: view)
+//           let view = UIView(frame: [0,0,500,500])
+//            self.view.addSubview(view)
+//            view.backgroundColor = .magenta
+//            view.center = self.view.center
+//            view.clipsToBounds = true
+            guard let image = current.image else {
+                //view.removeFromSuperview()
+                return
+            }
+            guard let cropper = PhotoTweaksViewController(image: image) else {return}
+            cropper.delegate = coordinator
+            cropper.autoSaveToLibray = false
+            cropper.maxRotationAngle = CGFloat(Double.pi / 4)
+            //add(cropper,to: view)
+            present(cropper, animated: true, completion: nil)
         }
     }
     
