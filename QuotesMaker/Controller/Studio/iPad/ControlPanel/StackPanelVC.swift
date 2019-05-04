@@ -61,6 +61,7 @@ class StackPanelVC: UIViewController {
         stylePanel.delegate = studio.coordinator
         textPanel.delegate = studio.coordinator
         textView.delegate = self
+        subscribeTo(subscription: .roundedCornerRadiusValueChanged, selector: #selector(changeCornerRadius(_ :)))
 //        fillStack.isHidden = true
 //        fillPanel.isHidden = fillControl.panelHidden
 //        gradientPanel.isHidden = gradientcontrol.panelHidden
@@ -80,6 +81,10 @@ class StackPanelVC: UIViewController {
     
     private var studio:iPadStudioVC{
         return parent as! iPadStudioVC
+    }
+    
+    @objc func changeCornerRadius(_ notification:Notification){
+        
     }
     
     

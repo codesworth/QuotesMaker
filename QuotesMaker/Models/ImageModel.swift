@@ -19,7 +19,7 @@ struct ImageLayerModel:LayerModel {
         self.frame = frame
     }
     
-    var imageSrc:URL?
+    var imageSrc:String?
     
     var style:Style = Style()
     var frame:LayerFrame?

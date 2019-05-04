@@ -31,11 +31,13 @@ class BackingImageView: UIView{
         return resize
         }(())
     
+    
 
     
     var image:UIImage?{
         didSet{
             baseImageView.image = image
+            //imageSrc = UUID().uuidString.appending(".\(FileManager.Extensions.png)")
         }
     }
 
@@ -69,6 +71,10 @@ class BackingImageView: UIView{
         Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
     
+        
+    }
+    
+    func generateImgFileName(){
         
     }
     
@@ -119,22 +125,47 @@ class BackingImageView: UIView{
     
     }
     
+    
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        print("is unique: \(isKnownUniquelyReferenced(&baseImageView))")
+    }
+    
+//    deinit {
+//        if let name = model.imageSrc{
+//            let url = URL(fileURLWithPath: name, relativeTo: FileManager.modelImagesDir)
+//            Persistence.main.deleteFile(src: url)
+//        }
+//
+//    }
+    
+    func releaseImage(){
+        if let name = model.imageSrc{
+            let url = URL(fileURLWithPath: name, relativeTo: FileManager.modelImagesDir)
+            Persistence.main.deleteFile(src: url)
+        }
+    }
+    
     func generateImageSource(){
         guard let image = self.image else {return}
-        if let url = model.imageSrc{
+       
+        if let name = model.imageSrc{
             let data = image.pngData()
             do{
+                let url = URL(fileURLWithPath: name, relativeTo: FileManager.modelImagesDir)
                 try data?.write(to: url)
                 return
             }catch let err{
                 print("Error occurred with sig: \(err.localizedDescription)")
             }
         }
-        let url = URL(fileURLWithPath: UUID().uuidString, relativeTo: FileManager.modelImagesDir).addExtension(.png)
-        let data = image.pngData()
+         let name = UUID().uuidString.appending(".\(FileManager.Extensions.png)")
+        let url = URL(fileURLWithPath:name , relativeTo: FileManager.modelImagesDir)
+        let data = image.jpegData(compressionQuality: 0.3)
         do {
             try data?.write(to: url)
-            model.imageSrc = url
+            model.imageSrc = name
         } catch let err {
             print("Error occurred with sig: \(err.localizedDescription)")
         }

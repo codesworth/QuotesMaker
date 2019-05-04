@@ -39,7 +39,8 @@ class Persistence{
             print(expectedName)
             let file = files.first{$0 == expectedName}
             guard let exFile = file else {throw NSError(domain: "Persistence", code: 0, userInfo: ["message":"Cannot Locate file"])}
-            let image = UIImage(contentsOfFile: exFile)
+            let url = URL(fileURLWithPath: exFile, relativeTo: FileManager.previewthumbDir)
+            let image = UIImage(contentsOfFile: url.path)
             return image
         }catch let err{
             print("Error Occurred gettting files: \(err)")

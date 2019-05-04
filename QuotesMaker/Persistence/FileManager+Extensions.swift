@@ -53,4 +53,6 @@ extension URL{
     func addExtension(_ ex:FileManager.Extensions) -> URL{
         return self.appendingPathExtension(ex.rawValue)
     }
+    
+    //static func filePath(_ name:String `in`:)
 }

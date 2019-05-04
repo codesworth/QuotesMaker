@@ -80,6 +80,8 @@ class RectView:SuperRectView{
         self.frame = frame
     }
     
+    
+    
     private func updateShape(_ style:Style){
         superlayer.masksToBounds = true
         superlayer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
@@ -131,15 +133,24 @@ class RectView:SuperRectView{
         superlayer.needsDisplayOnBoundsChange = true
         superlayer.bounds = contentView.layer.bounds
         superlayer.position = [contentView.bounds.midX,contentView.bounds.midY]
-
+        
     }
+    
+
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         superlayer.frame = contentView.bounds
-        
+        if model.style.cornerRadius > self.contentView.bounds.size.min{
+            var style = model.style
+            style.cornerRadius = self.contentView.bounds.size.min
+            updateShape(style)
+        }else{
+           updateShape(model.style)
+        }
         CATransaction.commit()
     }
     
@@ -230,6 +241,7 @@ extension RectView:SPUserResizableViewDelegate{
         if let superview = superview as? BaseView, superview.selectedView != self {
             superview.selectedView = self
         }
+        
         userResizableView.showEditingHandles()
     }
     
@@ -242,6 +254,8 @@ extension RectView:SPUserResizableViewDelegate{
         if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
         Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
+        
+       Subscription.main.post(suscription: .roundedCornerRadiusValueChanged, object: contentView.bounds.size.min)
         
     }
     

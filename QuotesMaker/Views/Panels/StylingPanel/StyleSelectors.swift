@@ -96,7 +96,7 @@ extension StylingPanel{
     func updatePanel(_ style:Style,size:CGSize){
         blockDelegation = true
         cornerPanel.slider.setValue(Float(style.cornerRadius), animated: true)
-        cornerPanel.slider.maximumValue = Float(size.min)
+        cornerPanel.slider.maximumValue = Float(size.min / 2)
         cornerPanel.cornerlable.text = "Radius: \(Int(style.cornerRadius))"
         if let corners = style.maskedCorners{
             cornerPanel.roundCornerView.layoutCorners(corner:corners)

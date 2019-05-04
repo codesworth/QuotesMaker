@@ -14,7 +14,7 @@ class Subscription{
     enum Name:String {
         
         case canUndo,canRedo,layerChanged,layerReArranged,activatedLayer,cornermask,
-        noSub,stateChange
+        noSub,stateChange,roundedCornerRadiusValueChanged
     }
 
     private static let _main = Subscription()
