@@ -21,6 +21,7 @@ class iPadStudioVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
         coordinator.existingModel = model
         coordinator.constructFromModel()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

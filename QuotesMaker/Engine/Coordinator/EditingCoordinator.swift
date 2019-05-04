@@ -21,6 +21,7 @@ class EditingCoordinator:NSObject{
     func constructFromModel(){
         if let model = existingModel{
             baseView.constructFrom(model: model)
+            Subscription.main.post(suscription: .layerChanged, object: baseView.currentSubview)
         }
     }
     

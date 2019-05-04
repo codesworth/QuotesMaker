@@ -44,11 +44,12 @@ class BaseView:UIView{
     
     var selectedView:UIView?{
         didSet{
+            currentSubview = selectedView as? BaseView.BaseSubView
             if oldValue != selectedView {
                 if let old = oldValue as? BaseSubView{
                     old.focused(false)
                 }
-                currentSubview = selectedView as? BaseView.BaseSubView
+                
             }
         }
     }
