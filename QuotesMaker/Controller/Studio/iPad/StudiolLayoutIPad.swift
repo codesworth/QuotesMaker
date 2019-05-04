@@ -244,7 +244,7 @@ extension iPadStudioVC{
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscapeLeft
+        return [.landscape]
     }
     
     override var shouldAutorotate: Bool {

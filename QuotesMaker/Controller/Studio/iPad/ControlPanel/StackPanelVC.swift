@@ -42,7 +42,7 @@ class StackPanelVC: UIViewController {
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        canvaspanelStack.isHidden = true
         gradientPanel.scrollView.isScrollEnabled = false
         imagePanel.scrollView.isScrollEnabled = false
         stylePanel.scrollView.isScrollEnabled = false
@@ -84,7 +84,10 @@ class StackPanelVC: UIViewController {
     }
     
     @objc func changeCornerRadius(_ notification:Notification){
-        
+//        if let value = notification.userInfo?[.info] as? CGFloat{
+//            stylePanel.cornerPanel.slider.maximumValue = Float(value)
+//            
+//        }
     }
     
     
@@ -102,6 +105,16 @@ class StackPanelVC: UIViewController {
                 panelForCurrent(.text, model: view.layerModel)
             }
         }
+//        }else{
+//            canvaspanelStack.isHidden = false
+//            textInputStack.isHidden = true
+//            imagetack.isHidden = true
+//            textStack.isHidden = true
+//            parentStack.isHidden = true
+//            fillStack.isHidden = true
+//            gradientStack.isHidden = true
+//            styleStack.isHidden = true
+//        }
     }
     
     

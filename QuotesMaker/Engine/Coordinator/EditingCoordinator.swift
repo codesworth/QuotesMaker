@@ -21,6 +21,7 @@ class EditingCoordinator:NSObject{
     func constructFromModel(){
         if let model = existingModel{
             baseView.constructFrom(model: model)
+            Subscription.main.post(suscription: .layerChanged, object: baseView.currentSubview)
         }
     }
     
@@ -278,4 +279,17 @@ extension EditingCoordinator:StackTableDelegate{
     
 }
 
+
+extension EditingCoordinator:PhotoTweaksViewControllerDelegate{
+    func photoTweaksControllerDidCancel(_ controller: PhotoTweaksViewController!) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func photoTweaksController(_ controller: PhotoTweaksViewController!, didFinishWithCroppedImage croppedImage: UIImage!) {
+        controller.dismiss(animated: true, completion: nil)
+        guard let current = baseView.currentSubview as? BackingImageView else {return}
+        current.setImage(image: croppedImage)
+    }
+}
 

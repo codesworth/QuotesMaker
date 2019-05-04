@@ -91,7 +91,7 @@ extension StudioVC:EditingCoordinatorDelegate{
             //current.beginCropping()
             guard let image = current.image else {return}
             guard let cropper = PhotoTweaksViewController(image: image) else {return}
-            cropper.delegate = self
+            cropper.delegate = coordinator
             cropper.autoSaveToLibray = false
             cropper.maxRotationAngle = CGFloat(Double.pi / 4)
             present(cropper, animated: true, completion: nil)
@@ -100,18 +100,7 @@ extension StudioVC:EditingCoordinatorDelegate{
     
 }
 
-extension StudioVC:PhotoTweaksViewControllerDelegate{
-    func photoTweaksControllerDidCancel(_ controller: PhotoTweaksViewController!) {
-        controller.dismiss(animated: true, completion: nil)
-    }
-    
-    
-    func photoTweaksController(_ controller: PhotoTweaksViewController!, didFinishWithCroppedImage croppedImage: UIImage!) {
-        controller.dismiss(animated: true, completion: nil)
-        guard let current = coordinator.baseView.currentSubview as? BackingImageView else {return}
-        current.setImage(image: croppedImage)
-    }
-}
+
 
 
 

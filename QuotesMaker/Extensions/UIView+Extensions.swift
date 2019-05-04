@@ -61,7 +61,7 @@ extension CALayer{
     
     func roundCorners(_ corners: CACornerMask?, radius:CGFloat) {
         guard let corners = corners else{
-            cornerRadius = radius
+            //cornerRadius = radius
             return
         }
 //        if #available(iOS 11, *) {
