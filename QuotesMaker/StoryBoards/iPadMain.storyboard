@@ -59,7 +59,7 @@
                                                 <viewLayoutGuide key="safeArea" id="5QD-vH-NoI"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SQG-0u-ldU">
-                                                <rect key="frame" x="8" y="20" width="394" height="1902"/>
+                                                <rect key="frame" x="8" y="20" width="394" height="1962"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="S3N-v6-ebq">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="218"/>
@@ -154,7 +154,7 @@
                                                         <viewLayoutGuide key="safeArea" id="CnO-PE-8LV"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="exI-tB-Lsz">
-                                                        <rect key="frame" x="0.0" y="1184" width="394" height="718"/>
+                                                        <rect key="frame" x="0.0" y="1184" width="394" height="778"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yih-gC-Cyb" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="48"/>
@@ -176,9 +176,9 @@
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHR-bP-pZ6" customClass="StylingPanel" customModule="QuotesMaker" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="48" width="394" height="670"/>
+                                                                <rect key="frame" x="0.0" y="48" width="394" height="730"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="670" id="THH-E5-Ua8"/>
+                                                                    <constraint firstAttribute="height" constant="730" id="THH-E5-Ua8"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -186,7 +186,7 @@
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1902" id="DxF-8W-WhA"/>
+                                                    <constraint firstAttribute="height" constant="1962" id="DxF-8W-WhA"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fnT-jf-a4W">
@@ -544,6 +544,7 @@
                             <constraint firstAttribute="bottom" secondItem="NG9-CX-MdU" secondAttribute="bottom" id="oED-qc-z3R"/>
                             <constraint firstItem="9SB-eW-nXR" firstAttribute="leading" secondItem="h3u-4M-jch" secondAttribute="leading" id="ycW-Xq-bW1"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="HUG-3L-zBY"/>
                     </view>
                     <connections>
                         <outlet property="dimensionsProjectCollection" destination="KhN-fk-mBK" id="euD-js-pUA"/>

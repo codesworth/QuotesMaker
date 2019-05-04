@@ -11,9 +11,11 @@ import Foundation
 
 struct Style:Codable {
     
+    var rotationAngle:CGFloat = 0
     var cornerRadius:CGFloat = 0
     var maskedCorners:CACornerMask?{
         get{
+            
             return (_maskedCorners != nil) ? CACornerMask(rawValue: _maskedCorners!) : nil
         }
         set{

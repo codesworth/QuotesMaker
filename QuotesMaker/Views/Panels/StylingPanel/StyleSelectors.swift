@@ -93,6 +93,17 @@ extension StylingPanel{
         }
     }
     
+    @objc func rotationAngleChanging(_ slider:UISlider){
+        if blockDelegation{return}
+        style.rotationAngle = CGFloat(slider.value)
+        delegate?.didFinishPreviewing(style)
+    }
+    @objc func rotationAngleChanged(_ slider:UISlider){
+        if blockDelegation{return}
+        style.rotationAngle = CGFloat(slider.value)
+        delegate?.didFinishStyling(style)
+    }
+    
     func updatePanel(_ style:Style,size:CGSize){
         blockDelegation = true
         cornerPanel.slider.setValue(Float(style.cornerRadius), animated: true)
@@ -121,5 +132,7 @@ extension StylingPanel{
         blockDelegation = false
         
     }
+    
+    
     
 }

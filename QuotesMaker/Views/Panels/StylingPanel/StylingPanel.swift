@@ -52,7 +52,12 @@ class StylingPanel:MaterialView{
         return lab
     }()
     
-    
+    lazy var rotationpanel:RotationView = { [unowned self] by in
+        let rotation = RotationView(frame: .zero)
+        rotation.angleSlider.addTarget(self, action: #selector(rotationAngleChanging(_:)), for: .valueChanged)
+        rotation.angleSlider.addTarget(self, action: #selector(rotationAngleChanged(_:)), for: .touchUpInside)
+        return rotation
+    }(())
     
     lazy var cornerPanel: CornersPanel = {
         
@@ -131,6 +136,7 @@ class StylingPanel:MaterialView{
         contentView.addSubview(thirdline)
         contentView.addSubview(cornerPanel)
         contentView.addSubview(borderPanel)
+        contentView.addSubview(rotationpanel)
         subscribeTo(subscription: .cornermask, selector: #selector(listenForCornermaskChanges(_:)))
     }
     
@@ -184,8 +190,15 @@ class StylingPanel:MaterialView{
             $0.height |=| 0.5
         }
         
-        cornerPanel.layout{
+        rotationpanel.layout{
             $0.top == firstline.bottomAnchor
+            $0.leading == contentView.leadingAnchor
+            $0.trailing == contentView.trailingAnchor
+            $0.height |=| 60
+        }
+        
+        cornerPanel.layout{
+            $0.top == rotationpanel.bottomAnchor
             $0.leading == contentView.leadingAnchor
             $0.trailing == contentView.trailingAnchor
             $0.height |=| 180

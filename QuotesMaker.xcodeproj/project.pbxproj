@@ -45,6 +45,7 @@
 		382365752240ED9A0078A723 /* UIColor+Tweak.m in Sources */ = {isa = PBXBuildFile; fileRef = 382365722240ED990078A723 /* UIColor+Tweak.m */; };
 		382365762240ED9A0078A723 /* PhotoTweakView.m in Sources */ = {isa = PBXBuildFile; fileRef = 382365732240ED990078A723 /* PhotoTweakView.m */; };
 		382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382365742240ED990078A723 /* PhotoTweaksViewController.m */; };
+		3826512D227E4A78003D2E19 /* RotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3826512C227E4A78003D2E19 /* RotationView.swift */; };
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
@@ -228,6 +229,7 @@
 		382365722240ED990078A723 /* UIColor+Tweak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tweak.m"; sourceTree = "<group>"; };
 		382365732240ED990078A723 /* PhotoTweakView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweakView.m; sourceTree = "<group>"; };
 		382365742240ED990078A723 /* PhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweaksViewController.m; sourceTree = "<group>"; };
+		3826512C227E4A78003D2E19 /* RotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationView.swift; sourceTree = "<group>"; };
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				38661B00224BE85A00440AC7 /* ShadowView.swift */,
 				38661B02224BE89E00440AC7 /* BorderPanel.swift */,
 				3811532D224D17B000DA7D3B /* StyleSelectors.swift */,
+				3826512C227E4A78003D2E19 /* RotationView.swift */,
 			);
 			path = StylingPanel;
 			sourceTree = "<group>";
@@ -1123,6 +1126,7 @@
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */,
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
+				3826512D227E4A78003D2E19 /* RotationView.swift in Sources */,
 				38F13A0A225436D9002C4109 /* ContolPanelTable.swift in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */,

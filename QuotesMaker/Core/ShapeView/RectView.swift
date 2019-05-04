@@ -87,7 +87,7 @@ class RectView:SuperRectView{
         superlayer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
         superlayer.borderWidth = style.borderWidth
         superlayer.borderColor = style.borderColor.cgColor
-        
+        self.transform = transform.rotated(by: .Angle(style.rotationAngle))
         /*contentView.*/layer.shadowColor = style.shadowColor.cgColor
         /*contentView.*/layer.shadowRadius = style.shadowRadius
         /*contentView.*/layer.shadowOpacity = style.shadowOpacity

@@ -59,7 +59,7 @@ class BackingImageView: UIView{
         baseImageView.layer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
         baseImageView.layer.borderWidth = style.borderWidth
         baseImageView.layer.borderColor = style.borderColor.cgColor
-        
+        transform = transform.rotated(by: .Angle(style.rotationAngle))
         /*contentView.*/layer.shadowColor = style.shadowColor.cgColor
         /*contentView.*/layer.shadowRadius = style.shadowRadius
         /*contentView.*/layer.shadowOpacity = style.shadowOpacity
