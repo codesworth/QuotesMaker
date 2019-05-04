@@ -139,7 +139,7 @@ extension TextDesignableInputView{
         shadow.shadowOffset.height = CGFloat(stepper.value)
         model.shadow = shadow
         delegate?.didUpdateModel(model)
-        shadowView.shadowX.text = "Y: \(Int(stepper.value))"
+        shadowView.shadowY.text = "Y: \(Int(stepper.value))"
     }
     
     @objc func shadowOpacityChanged(_ slider:UISlider){

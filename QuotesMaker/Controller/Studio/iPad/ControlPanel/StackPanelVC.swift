@@ -84,7 +84,10 @@ class StackPanelVC: UIViewController {
     }
     
     @objc func changeCornerRadius(_ notification:Notification){
-        
+//        if let value = notification.userInfo?[.info] as? CGFloat{
+//            stylePanel.cornerPanel.slider.maximumValue = Float(value)
+//            
+//        }
     }
     
     
