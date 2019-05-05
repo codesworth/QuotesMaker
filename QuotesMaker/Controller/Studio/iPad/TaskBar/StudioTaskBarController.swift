@@ -23,7 +23,7 @@ class StudioTaskBarController: UIViewController {
     
     func setContentWidth(){
         let width = UIScreen.main.bounds.width
-        contentViewWidth.constant = (width > 1200) ? width : 1200
+        contentViewWidth.constant = (width > 1000) ? width : 1000
     }
     
     
@@ -48,6 +48,9 @@ class StudioTaskBarController: UIViewController {
     }
     */
 
+    @IBAction func backHome(_ sender: ControlProxy) {
+       dismiss(animated: true, completion: nil)
+    }
     @IBAction func addText(_ sender: ControlProxy) {
         studio?.coordinator.addText()
     }
@@ -83,7 +86,7 @@ class StudioTaskBarController: UIViewController {
     }
     
     @IBAction func exportItem(_ sender: ControlProxy) {
-       dismiss(animated: true, completion: nil)
+      
     }
     
     @IBAction func duplicateLayer(_ sender: ControlProxy) {

@@ -45,7 +45,7 @@ extension iPadStudioVC{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
             $0.trailing == view.trailingAnchor
-            $0.height |=| 120
+            $0.height |=| 100
         }
         
         taskbar.view.layout{
@@ -92,7 +92,7 @@ extension iPadStudioVC{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
             $0.trailing == view.trailingAnchor
-            $0.height |=| 120
+            $0.height |=| 100
         }
         
         taskbar.view.layout{
@@ -139,7 +139,7 @@ extension iPadStudioVC{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
             $0.trailing == view.trailingAnchor
-            $0.height |=| 120
+            $0.height |=| 100
         }
         
         taskbar.view.layout{
@@ -192,7 +192,7 @@ extension iPadStudioVC{
             $0.top == view.topAnchor + 30
             $0.leading == view.leadingAnchor
             $0.trailing == view.trailingAnchor
-            $0.height |=| 120
+            $0.height |=| 100
         }
         
         taskbar.view.layout{

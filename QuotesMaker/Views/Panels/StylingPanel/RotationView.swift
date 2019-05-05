@@ -15,8 +15,8 @@ class RotationView: UIView {
         slider.isContinuous = true
         slider.maximumValue = 360
         slider.minimumValue = 0
-        slider.minimumTrackTintColor = .white
-        slider.maximumTrackTintColor = .primary
+        slider.minimumTrackTintColor = .primary
+        slider.maximumTrackTintColor = .white
         
         return slider
     }()
@@ -39,6 +39,7 @@ class RotationView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initialize()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,6 +48,7 @@ class RotationView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initialize()
     }
     
     func initialize(){
