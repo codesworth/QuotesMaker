@@ -32,7 +32,7 @@ class RectView:SuperRectView{
         let resize = SPUserResizableView(frame: bounds)
         resize.minHeight = bounds.height * 0.1
         resize.minWidth = bounds.width * 0.1
-        resize.preventsPositionOutsideSuperview = true
+        resize.preventsPositionOutsideSuperview = false
         resize.delegate = self
         
         return resize
