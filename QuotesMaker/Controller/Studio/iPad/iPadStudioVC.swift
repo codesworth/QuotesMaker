@@ -17,17 +17,17 @@ class iPadStudioVC: UIViewController {
 //        panel.backgroundColor = .seafoamBlue
 //        return panel
 //    }()
-    init(model:StudioModel? = nil) {
+    init(model:StudioModel? = nil, canvas:Canvas) {
+        self.canvas = canvas
+        self.coordinator = EditingCoordinator(model: model, canvas: canvas)
         super.init(nibName: nil, bundle: nil)
-        coordinator.existingModel = model
-        coordinator.constructFromModel()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("Not implemented")
     }
-    let coordinator = EditingCoordinator()
+    private var canvas:Canvas!
+    let coordinator:EditingCoordinator!
     lazy var taskbarContainer:UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .white

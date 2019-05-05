@@ -11,19 +11,19 @@ import Foundation
 
 struct StudioModel:Codable{
     
-
+    public private (set) var canvasType:Canvas.AspectRatios
     public private(set) var name:String
     public private (set) var id:String = UUID().uuidString
     private var dateCreated:TimeInterval
     private var lastModified:TimeInterval
     public private (set) var models:[BaseModel] = []
     var backgroundColor:StudioColor?
-    init(models:[BaseModel],name:String = "untitled") {
+    init(models:[BaseModel],name:String = "untitled",type:Canvas.AspectRatios) {
         self.models = models
         dateCreated = Date().timeIntervalSinceReferenceDate
         lastModified = Date().timeIntervalSinceReferenceDate
         self.name = name
-        
+        canvasType = type
     }
     
     mutating func update(models:[BaseModel], bg:UIColor? = nil){

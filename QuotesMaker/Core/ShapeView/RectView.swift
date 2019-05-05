@@ -87,6 +87,9 @@ class RectView:SuperRectView{
         superlayer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
         superlayer.borderWidth = style.borderWidth
         superlayer.borderColor = style.borderColor.cgColor
+        //print("The angle is: \(CGFloat.Angle(style.rotationAngle))")
+//        let transform = CGAffineTransform(rotationAngle: .Angle(style.rotationAngle))
+//        resizerView.transform = transform
         
         /*contentView.*/layer.shadowColor = style.shadowColor.cgColor
         /*contentView.*/layer.shadowRadius = style.shadowRadius
@@ -124,6 +127,7 @@ class RectView:SuperRectView{
     }
     
     func initialize(){
+        //setPanGesture()
         backgroundColor = .clear
         resizerView.contentView = contentView
         resizerView.hideEditingHandles()

@@ -15,13 +15,20 @@ class HomePageVC: UIViewController {
     @IBOutlet weak var dimensionsProjectCollection: UICollectionView!
     
     private var allModels:[StudioModel] = []
+    private var sizes:[Canvas] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        makeSizes()
+        
         //Persistence.main.getThumbImageFor(name:"")
         //print("These are stored modles: \(allModels)")
         // Do any additional setup after loading the view.
+    }
+    
+    func makeSizes(){
+        sizes = Canvas.AspectRatios.allCases.compactMap{Canvas(aspect: $0)}
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +56,7 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         if collectionView == recentCollectionVIew{
             return allModels.count
         }
-        return 4
+        return sizes.count
     }
     
     
@@ -65,9 +72,12 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             let mod = allModels[indexPath.row]
             cell.configureViewAndIamge(name: mod.name)
             return cell
+        }else {
+            let canvas = sizes[indexPath.row]
+            cell.configureView(name: canvas.name, icon:canvas.icon)
+            return cell
         }
-        cell.configureView(name: "Instagram")
-        return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -77,11 +87,11 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView ==  recentCollectionVIew{
             let model = allModels[indexPath.row]
-            let studio = iPadStudioVC(model: model)
+            let studio = iPadStudioVC(model: model, canvas:Canvas(aspect: model.canvasType))
             present(studio, animated: true, completion: nil)
         }else{
-            
-            let studio = iPadStudioVC()
+            let canvas = sizes[indexPath.row]
+            let studio = iPadStudioVC(canvas: canvas)
             present(studio, animated: true, completion: nil)
         }
     }
