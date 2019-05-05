@@ -69,20 +69,18 @@ class Dimensions{
         return [rect.width / supeRect.width,rect.height / supeRect.height]
     }
     
-    enum AspectRatios{
-        case `default`
-        case square
-        case facebook
-    }
+    
     
     class func sizeForAspect(_ ratio:AspectRatios)-> CGSize{
         switch ratio {
         case .default:
             return [.fixedWidth, .fixedWidth * (9 / 16)]
-        case .square:
+        case .instagram:
             return [.fixedWidth]
         case .facebook:
-            return [.fixedWidth, .fixedWidth * ()]
+            return [.fixedWidth, .fixedWidth * (628 / 1200)]
+        case .facebook_stories:
+            return [.fixedWidth, .fixedWidth * (628 / 1200)]
         }
     }
     
