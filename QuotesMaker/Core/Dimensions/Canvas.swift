@@ -19,7 +19,7 @@ struct Canvas {
         case twitter_header = 1500
     }
     
-    enum AspectRatios:CaseIterable{
+    enum AspectRatios:Int,CaseIterable,Codable{
         case `default`
         case instagram
         case facebook
@@ -45,6 +45,7 @@ struct Canvas {
         
     }
     
+    public private (set) var icon:String
     public private (set)  var name:String
     public private (set) var aspectRatio:AspectRatios
     public private (set) var size:CGSize
@@ -57,66 +58,77 @@ struct Canvas {
             aspectRatio = aspect
             size = [.fixedWidth]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
+            icon = "ig"
             break
         case .facebook:
             name = "Facebook Post"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.facebook.rawValue)]
             scale = WidthSizes.facebook_twitter.rawValue / size.width
+            icon = "fb"
             break
         case .facebook_stories:
             name = "Facebook Story"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
+            icon = "fb"
             break
         case .ig_stories:
             name = "Instagram Story"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
+            icon = "ig"
             break
         case .snapchat:
             name = "Snapchat"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
+            icon = "sn"
             break
         case .ig_vertical:
             name = "Instagram Vertical"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.ig_vertical.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
+            icon = "ig"
             break
         case .ig_horizontal:
             name = "Instagram Horizontal"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.ig_horizontal.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
+            icon = "ig"
             break
         case .pinterest:
             name = "Pinterest"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.pinterest.rawValue)]
             scale = WidthSizes.pinterest.rawValue / size.width
+            icon = "pn"
             break
         case .twitter:
             name = "Twitter Post"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter.rawValue)]
             scale = WidthSizes.facebook_twitter.rawValue / size.width
+            icon = "tw"
             break
         case .twitter_header:
             name = "Twitter Header"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter_header.rawValue)]
             scale = WidthSizes.twitter_header.rawValue / size.width
+            icon = "tw"
             break
         default:
             name = "Regular"
             aspectRatio = aspect
             size = [.fixedWidth]
             scale = WidthSizes.default.rawValue / size.width
+            icon = "rg"
             break
         }
     }

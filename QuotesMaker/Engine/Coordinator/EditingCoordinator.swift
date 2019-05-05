@@ -15,6 +15,7 @@ class EditingCoordinator:NSObject{
     weak var controller:UIViewController?
     
     var baseView:BaseView
+    private var canvas:Canvas!
     weak var delegate:EditingCoordinatorDelegate?
     var existingModel:StudioModel?
     
@@ -26,19 +27,17 @@ class EditingCoordinator:NSObject{
     }
     
     override init(){
-        
-        baseView = BaseView(frame: .zero)
-        let size = Dimensions.sizeForAspect(.square)
-        baseView.frame = CGRect(origin: .zero, size: size)
-        super.init()
+        fatalError("Cannot instantiate object: Call Designated init(model:StudioModel?, canvas:Canvas)")
     }
     
-    init(model:StudioModel){
+    init(model:StudioModel? = nil, canvas:Canvas){
         baseView = BaseView(frame: .zero)
-        let size = Dimensions.sizeForAspect(.square)
+        self.canvas = canvas
+        let size = canvas.size
         baseView.frame = CGRect(origin: .zero, size: size)
         existingModel = model
         super.init()
+        constructFromModel()
     }
     
     
@@ -133,7 +132,7 @@ class EditingCoordinator:NSObject{
         }else{
             let mods = baseView.generatebaseModels()
             baseView.getThumbnailSrc(name:title)
-            existingModel = StudioModel(models: mods,name:title)
+            existingModel = StudioModel(models: mods,name:title,type: canvas.aspectRatio)
             existingModel?.backgroundColor?.color = baseView.backgroundColor ?? .white
             Persistence.main.save(model: existingModel!)
         }

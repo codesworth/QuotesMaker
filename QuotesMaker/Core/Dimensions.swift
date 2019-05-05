@@ -71,19 +71,19 @@ class Dimensions{
     
     
     
-    class func sizeForAspect(_ ratio:AspectRatios)-> CGSize{
-        switch ratio {
-        case .default:
-            return [.fixedWidth, .fixedWidth * (9 / 16)]
-        case .instagram:
-            return [.fixedWidth]
-        case .facebook:
-            return [.fixedWidth, .fixedWidth * (628 / 1200)]
-        case .facebook_stories:
-            return [.fixedWidth, .fixedWidth * (628 / 1200)]
-        }
-    }
-    
+//    class func sizeForAspect(_ ratio:AspectRatios)-> CGSize{
+//        switch ratio {
+//        case .default:
+//            return [.fixedWidth, .fixedWidth * (9 / 16)]
+//        case .instagram:
+//            return [.fixedWidth]
+//        case .facebook:
+//            return [.fixedWidth, .fixedWidth * (628 / 1200)]
+//        case .facebook_stories:
+//            return [.fixedWidth, .fixedWidth * (628 / 1200)]
+//        }
+//    }
+//    
     class var editorSize:CGSize{
         
         return [UIScreen.main.bounds.width,UIScreen.main.bounds.height * 0.6]

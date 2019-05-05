@@ -129,38 +129,38 @@ class QPreviewView:UIView {
         saveButt.roundCorners(20)
         imageView.roundCorners()
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
-        let dimens = Dimensions.sizeForAspect(.square).scaledBy(0.9)
-        NSLayoutConstraint.activate([
-            overlayView.topAnchor.constraint(equalTo: topAnchor),
-            overlayView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            overlayView.leftAnchor.constraint(equalTo: leftAnchor),
-            overlayView.rightAnchor.constraint(equalTo:     rightAnchor),
-            preview.centerXAnchor.constraint(equalTo: centerXAnchor),
-            preview.centerYAnchor.constraint(equalTo: centerYAnchor),
-            preview.heightAnchor.constraint(equalToConstant: .fixedHeight * 0.8),
-            preview.widthAnchor.constraint(equalToConstant: .fixedWidth),
-           doneButt.topAnchor.constraint(equalTo: preview.topAnchor, constant: 12),
-           doneButt.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -24),
-           doneButt.widthAnchor.constraint(equalToConstant: 40),
-           doneButt.heightAnchor.constraint(equalToConstant: 40),
-           header.topAnchor.constraint(equalTo: preview.topAnchor, constant: 16),
-           header.centerXAnchor.constraint(equalTo: centerXAnchor),
-           imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 40),
-           imageView.widthAnchor.constraint(equalToConstant: dimens.width),
-           imageView.heightAnchor.constraint(equalToConstant: dimens.height),
-           imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-           shareButt.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
-           shareButt.leadingAnchor.constraint(equalTo: preview.leadingAnchor, constant: (.fixedWidth - dimens.width) / 2),
-           shareButt.widthAnchor.constraint(equalToConstant: (dimens.width / 2) - 10),
-            shareButt.heightAnchor.constraint(equalToConstant: 40),
-            saveButt.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
-            saveButt.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -(.fixedWidth - dimens.width) / 2),
-            saveButt.widthAnchor.constraint(equalToConstant: (dimens.width / 2) - 10),
-            saveButt.heightAnchor.constraint(equalToConstant: 40),
-            signage.bottomAnchor.constraint(equalTo: preview.bottomAnchor, constant: -16),
-            signage.centerXAnchor.constraint(equalTo: centerXAnchor)
-            
-        ])
+//        let dimens:CGSize = [500]//Dimensions.sizeForAspect(.square).scaledBy(0.9)
+//        NSLayoutConstraint.activate([
+//            overlayView.topAnchor.constraint(equalTo: topAnchor),
+//            overlayView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            overlayView.leftAnchor.constraint(equalTo: leftAnchor),
+//            overlayView.rightAnchor.constraint(equalTo:     rightAnchor),
+//            preview.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            preview.centerYAnchor.constraint(equalTo: centerYAnchor),
+//            preview.heightAnchor.constraint(equalToConstant: .fixedHeight * 0.8),
+//            preview.widthAnchor.constraint(equalToConstant: .fixedWidth),
+//           doneButt.topAnchor.constraint(equalTo: preview.topAnchor, constant: 12),
+//           doneButt.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -24),
+//           doneButt.widthAnchor.constraint(equalToConstant: 40),
+//           doneButt.heightAnchor.constraint(equalToConstant: 40),
+//           header.topAnchor.constraint(equalTo: preview.topAnchor, constant: 16),
+//           header.centerXAnchor.constraint(equalTo: centerXAnchor),
+//           imageView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 40),
+//           imageView.widthAnchor.constraint(equalToConstant: dimens.width),
+//           imageView.heightAnchor.constraint(equalToConstant: dimens.height),
+//           imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+//           shareButt.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
+//           shareButt.leadingAnchor.constraint(equalTo: preview.leadingAnchor, constant: (.fixedWidth - dimens.width) / 2),
+//           shareButt.widthAnchor.constraint(equalToConstant: (dimens.width / 2) - 10),
+//            shareButt.heightAnchor.constraint(equalToConstant: 40),
+//            saveButt.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
+//            saveButt.trailingAnchor.constraint(equalTo: preview.trailingAnchor, constant: -(.fixedWidth - dimens.width) / 2),
+//            saveButt.widthAnchor.constraint(equalToConstant: (dimens.width / 2) - 10),
+//            saveButt.heightAnchor.constraint(equalToConstant: 40),
+//            signage.bottomAnchor.constraint(equalTo: preview.bottomAnchor, constant: -16),
+//            signage.centerXAnchor.constraint(equalTo: centerXAnchor)
+//            
+//        ])
     }
     
 

@@ -19,8 +19,9 @@ class TemplateCell: UICollectionViewCell {
         imageVIew.clipsToBounds = true
         // Initialization code
     }
-    func configureView(name:String){
+    func configureView(name:String, icon:String){
         titleLabel.text = name
+        imageVIew.image = UIImage(named: icon)
     }
     
     func configureViewAndIamge(name:String?){

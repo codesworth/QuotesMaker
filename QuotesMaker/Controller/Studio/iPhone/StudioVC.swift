@@ -32,7 +32,7 @@ class StudioVC: UIViewController {
     
     var stack:LayerStack?
     //private var textField = BackingTextView(frame: .zero)
-    private var aspectRatio:Dimensions.AspectRatios = .square
+    //private var aspectRatio:Dimensions.AspectRatios = .square
     
     
     init() {
