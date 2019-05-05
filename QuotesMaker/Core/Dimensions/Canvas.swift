@@ -17,6 +17,7 @@ struct Canvas {
         case ig_and_snap_stories = 1080
         case pinterest = 800
         case twitter_header = 1500
+        case facebook_header = 640
     }
     
     enum AspectRatios:Int,CaseIterable,Codable{
@@ -31,6 +32,7 @@ struct Canvas {
         case snapchat
         case twitter
         case twitter_header
+        case facebook_header
         
     }
     private enum Ratios:CGFloat{
@@ -70,21 +72,21 @@ struct Canvas {
         case .facebook_stories:
             name = "Facebook Story"
             aspectRatio = aspect
-            size = [.fixedWidth, .fixedWidth * (1 / Ratios.stories.rawValue)]
+            size = [.fixedWidthHG, .fixedWidthHG * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "fb"
             break
         case .ig_stories:
             name = "Instagram Story"
             aspectRatio = aspect
-            size = [.fixedWidth, .fixedWidth * (1 / Ratios.stories.rawValue)]
+            size = [.fixedWidthHG, .fixedWidthHG * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "ig"
             break
         case .snapchat:
             name = "Snapchat"
             aspectRatio = aspect
-            size = [.fixedWidth, .fixedWidth * (1 / Ratios.stories.rawValue)]
+            size = [.fixedWidthHG, .fixedWidthHG * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "sn"
             break
@@ -123,6 +125,12 @@ struct Canvas {
             scale = WidthSizes.twitter_header.rawValue / size.width
             icon = "tw"
             break
+        case .facebook_header:
+            name = "Facebook Header"
+            aspectRatio = aspect
+            size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter.rawValue)]
+            scale = WidthSizes.facebook_header.rawValue / size.width
+            icon = "fb"
         default:
             name = "Regular"
             aspectRatio = aspect

@@ -35,6 +35,17 @@ extension CGFloat{
         return 0
     }
     
+    static var fixedWidthHG:CGFloat{
+        
+        let idiom = UIDevice.current.userInterfaceIdiom
+        if idiom == .phone{
+            return UIScreen.main.bounds.width * 0.7
+        }else if idiom == .pad{
+            return 350
+        }
+        return 0
+    }
+    
     static var fixedHeight:CGFloat{
         return UIScreen.main.bounds.height * 0.8
     }
