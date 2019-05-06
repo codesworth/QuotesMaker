@@ -611,7 +611,6 @@
                                                     <constraint firstAttribute="width" constant="80" id="m9n-DN-oKr"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="addText:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="NMR-SZ-1P8"/>
                                                     <action selector="backHome:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="fAA-wJ-8Cc"/>
                                                 </connections>
                                             </view>

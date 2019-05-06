@@ -83,7 +83,10 @@ class iPadStudioVC: UIViewController {
     }
     
     
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        coordinator.unsubscribe()
+    }
     
     
 

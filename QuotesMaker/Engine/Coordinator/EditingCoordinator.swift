@@ -40,6 +40,7 @@ class EditingCoordinator:NSObject{
         existingModel = model
         super.init()
         constructFromModel()
+        subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChange(_ :)))
     }
     
     
@@ -151,6 +152,7 @@ class EditingCoordinator:NSObject{
         
     }
     
+
 }
 
 

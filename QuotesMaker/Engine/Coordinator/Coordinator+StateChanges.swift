@@ -12,25 +12,35 @@ import Foundation
 extension EditingCoordinator:StateChangeable{
     
     func stateRedo() {
-        
+        if let state = redostates.popLast(){
+            switch state.action{
+            case .add:
+                undoDelete(state)
+                undostates.append(state)
+                break
+            case .delete:
+                removeAddedonUndo()
+                break
+            case .nothing:
+                break
+            }
+            undostates.append(state)
+        }
     }
     
     func stateUndo() {
         if let state = undostates.popLast(){
             switch state.action{
             case .add:
-                baseView.currentSubview?.removeFromSuperview()
-                let state = State(model: state.model, action: .delete)
-                redostates.append(state)
+                removeAddedonUndo()
                 break
             case .delete:
                 undoDelete(state)
-                let state = State(model: state.model, action: .add)
-                redostates.append(state)
                 break
             case .nothing:
                 break
             }
+            redostates.append(state)
         }
     }
     
@@ -48,6 +58,23 @@ extension EditingCoordinator:StateChangeable{
             let text = BackingTextView(frame: model.layerFrame!.awakeFrom(bounds: baseView.bounds))
             baseView.addSubviewable(text, center: false)
             text.model = model
+        }
+    }
+    
+    func removeAddedonUndo(){
+        if let current = baseView.currentSubview{
+            current.removeFromSuperview()
+            baseView.currentSubview = nil
+            return
+        }
+        if let first = baseView.subviews.last{
+            first.removeFromSuperview()
+        }
+    }
+    
+    @objc func listenForStateChange(_ notification: Notification){
+        if let state = notification.userInfo?[.info] as? State{
+            undostates.append(state)
         }
     }
     
