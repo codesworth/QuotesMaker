@@ -32,7 +32,12 @@ class BackingImageView: UIView{
         }(())
     
     
-
+    private func updateLayerFrame(model:ImageLayerModel){
+        guard let lframe = model.layerFrame, let sup = superview else {return}
+        let frame = lframe.awakeFrom(bounds: sup.bounds)
+        self.frame = frame
+        resizerView.frame = bounds
+    }
     
     var image:UIImage?{
         didSet{
@@ -45,17 +50,17 @@ class BackingImageView: UIView{
         super.init(frame: frame)
         initialize()
     }
-    var previousModels:[ImageLayerModel] = []
-    var redoModels:[ImageLayerModel] = []
+    
+    var oldmodel:ImageLayerModel = ImageLayerModel()
     
     var model:ImageLayerModel = ImageLayerModel(){
         didSet{
+            updateLayerFrame(model: model)
             updateShape(model.style)
         }
     }
     
     private func updateShape(_ style:Style){
-        baseImageView.clipsToBounds = true
         baseImageView.layer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
         baseImageView.layer.borderWidth = style.borderWidth
         baseImageView.layer.borderColor = style.borderColor.cgColor
@@ -67,7 +72,8 @@ class BackingImageView: UIView{
     }
     
     func updateModel(_ model:ImageLayerModel){
-        let state = State(model: self.model, action: .nothing)
+        oldmodel = self.model
+        let state = State(model:oldmodel, action: .nothing)
         Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
     
@@ -106,6 +112,7 @@ class BackingImageView: UIView{
     
     func initialize(){
         backgroundColor = .clear
+        baseImageView.clipsToBounds = true
         baseImageView.frame = resizerView.bounds
         resizerView.contentView = baseImageView
         addSubview(resizerView)
@@ -127,9 +134,12 @@ class BackingImageView: UIView{
     
     
     
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        print("is unique: \(isKnownUniquelyReferenced(&baseImageView))")
+        if let _ = superview{
+            oldmodel.layerFrame = makeLayerFrame()
+        }
     }
     
 //    deinit {
@@ -318,7 +328,9 @@ extension BackingImageView:SPUserResizableViewDelegate{
         let old = model.layerFrame
         if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
-        Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
+        if model.layerFrame != oldmodel.layerFrame{
+            Subscription.main.post(suscription: .stateChange, object: State(model: oldmodel, action: .nothing))
+        }
     }
 }
 

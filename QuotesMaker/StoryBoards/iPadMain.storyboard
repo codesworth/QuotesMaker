@@ -568,7 +568,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jr-nc-41K">
-                                        <rect key="frame" x="0.0" y="0.0" width="1000" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1150" height="100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvA-EC-gTR" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10" width="80" height="80"/>
@@ -611,7 +611,6 @@
                                                     <constraint firstAttribute="width" constant="80" id="m9n-DN-oKr"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="addText:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="NMR-SZ-1P8"/>
                                                     <action selector="backHome:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="fAA-wJ-8Cc"/>
                                                 </connections>
                                             </view>
@@ -769,10 +768,102 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TBu-c7-gF8">
-                                                <rect key="frame" x="340" y="20" width="340" height="60"/>
+                                                <rect key="frame" x="340" y="20" width="480" height="60"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nR-MS-jgc" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZ5-Rs-XiW" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                        <subviews>
+                                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTc-jB-SFW">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="undo_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="c0n-T5-pbv">
+                                                                        <rect key="frame" x="10" y="8" width="40" height="24"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="c0n-T5-pbv" secondAttribute="bottom" constant="8" id="8ij-Rw-D4j"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="LBf-wz-Fmg"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="c0n-T5-pbv" secondAttribute="trailing" constant="10" id="W7D-jC-30u"/>
+                                                                    <constraint firstItem="c0n-T5-pbv" firstAttribute="leading" secondItem="RTc-jB-SFW" secondAttribute="leading" constant="10" id="mYw-ce-Tj0"/>
+                                                                    <constraint firstItem="c0n-T5-pbv" firstAttribute="top" secondItem="RTc-jB-SFW" secondAttribute="top" constant="8" id="omI-gJ-Oph"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Undo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcM-eQ-N7Y">
+                                                                <rect key="frame" x="12.5" y="43" width="35" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.85807291669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="dcM-eQ-N7Y" firstAttribute="centerX" secondItem="lZ5-Rs-XiW" secondAttribute="centerX" id="EHn-bC-4SC"/>
+                                                            <constraint firstAttribute="trailing" secondItem="RTc-jB-SFW" secondAttribute="trailing" id="QPf-YR-94G"/>
+                                                            <constraint firstAttribute="bottom" secondItem="dcM-eQ-N7Y" secondAttribute="bottom" id="Qlc-8w-bxj"/>
+                                                            <constraint firstItem="RTc-jB-SFW" firstAttribute="leading" secondItem="lZ5-Rs-XiW" secondAttribute="leading" id="dpU-OD-bfu"/>
+                                                            <constraint firstAttribute="width" constant="60" id="eLM-Eu-4vS"/>
+                                                            <constraint firstAttribute="height" constant="60" id="mUg-Nv-aFy"/>
+                                                            <constraint firstItem="RTc-jB-SFW" firstAttribute="top" secondItem="lZ5-Rs-XiW" secondAttribute="top" id="zXD-Op-gQf"/>
+                                                        </constraints>
+                                                        <viewLayoutGuide key="safeArea" id="u2U-3h-CXp"/>
+                                                        <connections>
+                                                            <action selector="undoPressed:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="hLa-gR-hYO"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nba-Ak-fnu" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
+                                                        <rect key="frame" x="70" y="0.0" width="60" height="60"/>
+                                                        <subviews>
+                                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNQ-u7-Gbz">
+                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="redo_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="x3c-1w-pzF">
+                                                                        <rect key="frame" x="10" y="8" width="40" height="24"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="x3c-1w-pzF" secondAttribute="bottom" constant="8" id="3zI-Tu-jp5"/>
+                                                                    <constraint firstItem="x3c-1w-pzF" firstAttribute="leading" secondItem="fNQ-u7-Gbz" secondAttribute="leading" constant="10" id="6eI-nP-eZ0"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="x3c-1w-pzF" secondAttribute="trailing" constant="10" id="6ji-Z0-E9Y"/>
+                                                                    <constraint firstItem="x3c-1w-pzF" firstAttribute="top" secondItem="fNQ-u7-Gbz" secondAttribute="top" constant="8" id="7jh-T4-l03"/>
+                                                                    <constraint firstAttribute="height" constant="40" id="q8v-i7-cUn"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="8"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Redo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feQ-CU-Wmr">
+                                                                <rect key="frame" x="13.5" y="43" width="33" height="17"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.85807291669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="1Pl-2X-pwD"/>
+                                                            <constraint firstItem="feQ-CU-Wmr" firstAttribute="centerX" secondItem="Nba-Ak-fnu" secondAttribute="centerX" id="BGp-Te-fWf"/>
+                                                            <constraint firstAttribute="trailing" secondItem="fNQ-u7-Gbz" secondAttribute="trailing" id="NqS-Ob-b4C"/>
+                                                            <constraint firstItem="fNQ-u7-Gbz" firstAttribute="leading" secondItem="Nba-Ak-fnu" secondAttribute="leading" id="ZuV-mE-t9w"/>
+                                                            <constraint firstAttribute="bottom" secondItem="feQ-CU-Wmr" secondAttribute="bottom" id="jiT-GE-Ccl"/>
+                                                            <constraint firstAttribute="height" constant="60" id="lXO-t9-FDH"/>
+                                                            <constraint firstItem="fNQ-u7-Gbz" firstAttribute="top" secondItem="Nba-Ak-fnu" secondAttribute="top" id="s3D-hn-0qi"/>
+                                                        </constraints>
+                                                        <viewLayoutGuide key="safeArea" id="6IG-w9-ruz"/>
+                                                        <connections>
+                                                            <action selector="redoPressed:" destination="Qqa-jF-RQh" eventType="touchUpInside" id="XPA-mA-bN2"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8nR-MS-jgc" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
+                                                        <rect key="frame" x="140" y="0.0" width="60" height="60"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GnB-pc-dJe">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
@@ -818,7 +909,7 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHi-bC-KIL" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
-                                                        <rect key="frame" x="70" y="0.0" width="60" height="60"/>
+                                                        <rect key="frame" x="210" y="0.0" width="60" height="60"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUL-SB-WrG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
@@ -863,7 +954,7 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4ar-uK-5TJ" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
-                                                        <rect key="frame" x="140" y="0.0" width="60" height="60"/>
+                                                        <rect key="frame" x="280" y="0.0" width="60" height="60"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1v-G9-D3f">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
@@ -909,7 +1000,7 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAM-JQ-nnv" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
-                                                        <rect key="frame" x="210" y="0.0" width="60" height="60"/>
+                                                        <rect key="frame" x="350" y="0.0" width="60" height="60"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNe-7Z-gg1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
@@ -955,7 +1046,7 @@
                                                         </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjO-wG-v4M" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
-                                                        <rect key="frame" x="280" y="0.0" width="60" height="60"/>
+                                                        <rect key="frame" x="420" y="0.0" width="60" height="60"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eam-b3-IdG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
@@ -1004,7 +1095,7 @@
                                                 <viewLayoutGuide key="safeArea" id="9xz-HD-S3Y"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VcI-ZY-sdW">
-                                                <rect key="frame" x="725" y="20" width="255" height="60"/>
+                                                <rect key="frame" x="875" y="20" width="255" height="60"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZR-5f-pMJ" customClass="ControlProxy" customModule="QuotesMaker" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -1201,7 +1292,7 @@
                                             <constraint firstItem="0zY-hj-wOR" firstAttribute="leading" secondItem="BvA-EC-gTR" secondAttribute="trailing" constant="20" id="Dh7-qW-bDh"/>
                                             <constraint firstItem="TBu-c7-gF8" firstAttribute="leading" secondItem="0zY-hj-wOR" secondAttribute="trailing" constant="30" id="afF-6a-ZvN"/>
                                             <constraint firstItem="BvA-EC-gTR" firstAttribute="centerY" secondItem="8jr-nc-41K" secondAttribute="centerY" id="e5x-pe-doX"/>
-                                            <constraint firstAttribute="width" constant="1000" id="fuK-Z3-2MW"/>
+                                            <constraint firstAttribute="width" constant="1150" id="fuK-Z3-2MW"/>
                                             <constraint firstItem="TBu-c7-gF8" firstAttribute="centerY" secondItem="8jr-nc-41K" secondAttribute="centerY" id="jtJ-IF-5TK"/>
                                             <constraint firstItem="TBu-c7-gF8" firstAttribute="top" secondItem="VcI-ZY-sdW" secondAttribute="top" id="l9K-sR-eFq"/>
                                             <constraint firstItem="TBu-c7-gF8" firstAttribute="top" secondItem="0zY-hj-wOR" secondAttribute="top" id="vtz-na-g43"/>
@@ -1242,7 +1333,9 @@
         <image name="img_ic" width="96" height="96"/>
         <image name="mdw" width="96" height="96"/>
         <image name="mup" width="96" height="96"/>
+        <image name="redo_arrow" width="48" height="48"/>
         <image name="stack" width="96" height="96"/>
         <image name="txt" width="96" height="96"/>
+        <image name="undo_arrow" width="48" height="48"/>
     </resources>
 </document>
