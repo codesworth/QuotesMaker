@@ -13,6 +13,7 @@ import Photos
 class EditingCoordinator:NSObject{
     
     weak var controller:UIViewController?
+    var states:[State] = []
     
     var baseView:BaseView
     private var canvas:Canvas!
@@ -46,6 +47,7 @@ class EditingCoordinator:NSObject{
         return layers
     }
     
+    //@stateChangeable
     func imageOptionSelected(){
         
         let imageView = BackingImageView(frame: baseView.subBounds)
@@ -54,7 +56,7 @@ class EditingCoordinator:NSObject{
         
     }
     
-    
+    //@stateChangeable
     func deleteCurrent(){
         if let current = baseView.currentSubview{
             //print("is uniquely referenced: \(isKnownUniquelyReferenced)")
@@ -66,17 +68,18 @@ class EditingCoordinator:NSObject{
             
         }
     }
-   
     
+   
+    //@stateChangeable
     func shapeSelected(){
         let shape = RectView(frame: baseView.subBounds)
         baseView.addSubviewable(shape)
         shape.model.layerFrame = shape.makeLayerFrame()
-       
-        
+        let state = State(model: shape.model, action: .add)
+        states.append(state)
     }
     
-    
+    //@stateChangeable
     func addText(){
         let textField = BackingTextView(frame: baseView.textBound)
         
@@ -94,6 +97,8 @@ class EditingCoordinator:NSObject{
     func moveSubiewBackward(){
         baseView.moveSubiewBackward()
     }
+    
+    //@stateChangeable
     
     func textChanged(text:String){
         guard let current = baseView.currentSubview as? BackingTextView else {return}
@@ -146,6 +151,7 @@ class EditingCoordinator:NSObject{
 
 extension EditingCoordinator:StylingDelegate{
     
+    //@stateChangeable
     func didFinishStyling(_ style: Style) {
         if let current = baseView.currentSubview as? RectView{
             var model = current.model
@@ -177,7 +183,7 @@ extension EditingCoordinator:StylingDelegate{
 extension EditingCoordinator:PickerColorDelegate{
     
     
-    
+    //@stateChangeable
     func colorDidChange(_ model: BlankLayerModel) {
         guard let current = baseView.currentSubview as? ShapableView else {return}
         var mod = current.model
@@ -199,6 +205,7 @@ extension EditingCoordinator:PickerColorDelegate{
 
 extension EditingCoordinator:GradientOptionsDelegate{
     
+    //@stateChangeable
     func modelChanged(_ model: GradientLayerModel) {
         guard let current = baseView.currentSubview as? ShapableView else {return}
         var mod = current.model
@@ -212,6 +219,7 @@ extension EditingCoordinator:GradientOptionsDelegate{
 
 extension EditingCoordinator:ImagePanelDelegate{
     
+    //@stateChangeable
     func didSelect(_ option: ImagePanel.PanelOptions) {
         
         switch option {
@@ -244,7 +252,7 @@ extension EditingCoordinator:ImagePanelDelegate{
 }
 
 extension EditingCoordinator:FetchedAssetDelegate{
-    
+    //@stateChangeable
     func didPickImage(image:UIImage){
         if let base = baseView.currentSubview as? BackingImageView{
             base.setImage(image: image)

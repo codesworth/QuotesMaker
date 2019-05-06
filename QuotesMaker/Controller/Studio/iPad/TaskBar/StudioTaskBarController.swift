@@ -23,7 +23,7 @@ class StudioTaskBarController: UIViewController {
     
     func setContentWidth(){
         let width = UIScreen.main.bounds.width
-        contentViewWidth.constant = (width > 1000) ? width : 1000
+        contentViewWidth.constant = (width > 1150) ? width : 1150
     }
     
     
@@ -93,4 +93,10 @@ class StudioTaskBarController: UIViewController {
         studio?.coordinator.baseView.duplicateLayer()
     }
     
+    @IBAction func undoPressed(_ sender: ControlProxy) {
+        studio?.coordinator.stateUndo()
+    }
+    @IBAction func redoPressed(_ sender: ControlProxy) {
+        studio?.coordinator.stateRedo()
+    }
 }
