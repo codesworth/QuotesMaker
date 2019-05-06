@@ -63,11 +63,19 @@ class BackingTextView: UIView {
         
     }
     
+    var oldModel:TextLayerModel = TextLayerModel()
+    
+    private func updateLayerFrame(model:TextLayerModel){
+        guard let lframe = model.layerFrame, let sup = superview else {return}
+        let frame = lframe.awakeFrom(bounds: sup.bounds)
+        self.frame = frame
+        resizerView.frame = bounds
+    }
+    
     var model:TextLayerModel = TextLayerModel(){
         
         didSet{
-            //let state = State(model: oldValue, action: .nothing)
-            //Subscription.main.post(suscription: .stateChange, object: state)
+            updateLayerFrame(model: model)
             textView.text = model.string
             textView.attributedText = model.outPutString()
             textView.textColor = model.textColor
@@ -121,12 +129,12 @@ class BackingTextView: UIView {
         super.didMoveToSuperview()
         guard let _ = superview else {return}
         model.layerFrame = makeLayerFrame()
+        oldModel.layerFrame = makeLayerFrame()
     }
     
     @objc func longTapped(_ recognizer:UILongPressGestureRecognizer){
         textView.becomeFirstResponder()
     }
-    
     
     
     
@@ -243,6 +251,8 @@ extension BackingTextView{
 extension BackingTextView:TextModelDelegate{
     
     func didUpdateModel(_ model: TextLayerModel) {
+        oldModel = model
+        Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
         var model = model
         model.string = textView.text
         self.model = model
@@ -297,6 +307,9 @@ extension BackingTextView:SPUserResizableViewDelegate{
         let old = model.layerFrame
         if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
+        if oldModel.layerFrame != model.layerFrame{
+           Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
+        }
         //Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
     }
 }

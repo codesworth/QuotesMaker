@@ -9,28 +9,28 @@
 import UIKit
 
 
-extension BackingImageView:StateChangeable{
-    
-    func stateRedo() {
-        guard !redoModels.isEmpty else {
-            Subscription.main.post(suscription: .canRedo, object: false)
-            return
-        }
-        let model = redoModels.pop()
-        self.model = model
-        previousModels.append(model)
-        Subscription.main.post(suscription: .canUndo, object: true)
-    }
-    
-    func stateUndo() {
-        guard !previousModels.isEmpty else {
-            Subscription.main.post(suscription: .canUndo, object: false)
-            return
-        }
-        let model = previousModels.pop()
-        self.model = model
-        redoModels.append(model)
-        Subscription.main.post(suscription: .canRedo, object: true)
-        
-    }
-}
+//extension BackingImageView:StateChangeable{
+//    
+//    func stateRedo() {
+//        guard !redoModels.isEmpty else {
+//            Subscription.main.post(suscription: .canRedo, object: false)
+//            return
+//        }
+//        let model = redoModels.pop()
+//        self.model = model
+//        previousModels.append(model)
+//        Subscription.main.post(suscription: .canUndo, object: true)
+//    }
+//    
+//    func stateUndo() {
+//        guard !previousModels.isEmpty else {
+//            Subscription.main.post(suscription: .canUndo, object: false)
+//            return
+//        }
+//        let model = previousModels.pop()
+//        self.model = model
+//        redoModels.append(model)
+//        Subscription.main.post(suscription: .canRedo, object: true)
+//        
+//    }
+//}

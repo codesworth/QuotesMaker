@@ -84,11 +84,15 @@ extension EditingCoordinator:StateChangeable{
     func changeModel(state:State){
         if let model = state.model as? ShapeModel{
             if let current = baseView.currentSubview as? RectView{
-                DispatchQueue.main.async {
-                    current.model = model
-                   
-                }
-                
+                DispatchQueue.main.async {current.model = model}
+            }
+        }else if let model = state.model as? ImageLayerModel{
+            if let current = baseView.currentSubview as? BackingImageView{
+                DispatchQueue.main.async {current.model = model}
+            }
+        }else if let model = state.model as? TextLayerModel{
+            if let current = baseView.currentSubview as? BackingTextView{
+                DispatchQueue.main.async {current.model = model}
             }
         }
     }
