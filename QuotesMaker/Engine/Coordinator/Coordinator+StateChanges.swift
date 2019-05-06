@@ -22,6 +22,7 @@ extension EditingCoordinator:StateChangeable{
                 removeAddedonUndo()
                 break
             case .nothing:
+                //changeModel(state: state)
                 break
             }
             undostates.append(state)
@@ -38,7 +39,9 @@ extension EditingCoordinator:StateChangeable{
                 undoDelete(state)
                 break
             case .nothing:
+                changeModel(state: state)
                 break
+                
             }
             redostates.append(state)
         }
@@ -75,6 +78,18 @@ extension EditingCoordinator:StateChangeable{
     @objc func listenForStateChange(_ notification: Notification){
         if let state = notification.userInfo?[.info] as? State{
             undostates.append(state)
+        }
+    }
+    
+    func changeModel(state:State){
+        if let model = state.model as? ShapeModel{
+            if let current = baseView.currentSubview as? RectView{
+                DispatchQueue.main.async {
+                    current.model = model
+                   
+                }
+                
+            }
         }
     }
     

@@ -17,8 +17,7 @@ protocol ShapableView {
 class RectView:SuperRectView{
     
     var superlayer:CALayer!
-    var previousModels = ModelCollection<ShapeModel>()
-    var redoModels = ModelCollection<ShapeModel>()
+    var oldModel:ShapeModel = .default()
     
     lazy var contentView: UIView = { [unowned self] by in
         let view = UIView(frame: bounds)
@@ -78,6 +77,7 @@ class RectView:SuperRectView{
         guard let lframe = model.layerFrame, let sup = superview else {return}
         let frame = lframe.awakeFrom(bounds: sup.bounds)
         self.frame = frame
+        resizerView.frame = bounds
     }
     
     
@@ -99,7 +99,8 @@ class RectView:SuperRectView{
     }
     
     func updateModel(_ model:ShapeModel){
-        let state = State(model: self.model, action: .nothing)
+        oldModel = self.model
+        let state = State(model: oldModel, action: .nothing)
         Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
 
@@ -138,6 +139,13 @@ class RectView:SuperRectView{
         superlayer.bounds = contentView.layer.bounds
         superlayer.position = [contentView.bounds.midX,contentView.bounds.midY]
         
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        if let _ = superview{
+            oldModel.layerFrame = makeLayerFrame()
+        }
     }
     
 
@@ -257,7 +265,9 @@ extension RectView:SPUserResizableViewDelegate{
         let old = model.layerFrame
         if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
-        Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
+        if model.layerFrame != oldModel.layerFrame{
+            Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
+        }
         
        Subscription.main.post(suscription: .roundedCornerRadiusValueChanged, object: contentView.bounds.size.min)
         
