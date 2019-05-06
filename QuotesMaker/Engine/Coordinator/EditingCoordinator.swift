@@ -13,7 +13,8 @@ import Photos
 class EditingCoordinator:NSObject{
     
     weak var controller:UIViewController?
-    var states:[State] = []
+    var undostates:[State] = []
+    var redostates:[State] = []
     
     var baseView:BaseView
     private var canvas:Canvas!
@@ -53,7 +54,8 @@ class EditingCoordinator:NSObject{
         let imageView = BackingImageView(frame: baseView.subBounds)
         baseView.addSubviewable(imageView)
         imageView.model.layerFrame = imageView.makeLayerFrame()
-        
+        let state = State(model: imageView.model, action: .add)
+        undostates.append(state)
     }
     
     //@stateChangeable
@@ -65,7 +67,8 @@ class EditingCoordinator:NSObject{
                 image.releaseImage()
             }
             baseView.currentSubview = nil
-            
+            let state = State(model: current.layerModel, action: .delete)
+            undostates.append(state)
         }
     }
     
@@ -76,7 +79,7 @@ class EditingCoordinator:NSObject{
         baseView.addSubviewable(shape)
         shape.model.layerFrame = shape.makeLayerFrame()
         let state = State(model: shape.model, action: .add)
-        states.append(state)
+        undostates.append(state)
     }
     
     //@stateChangeable
@@ -88,6 +91,8 @@ class EditingCoordinator:NSObject{
         if UIDevice.idiom == .phone{
             textField.addDoneButtonOnKeyboard()
         }
+        let state = State(model: textField.model, action: .add)
+        undostates.append(state)
     }
     
     func moveSubiewForward(){
