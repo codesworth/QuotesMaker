@@ -22,7 +22,7 @@ extension EditingCoordinator:StateChangeable{
                 removeAddedonUndo()
                 break
             case .nothing:
-                //changeModel(state: state)
+                changeModel(state: state)
                 break
             }
             undostates.append(state)
@@ -84,15 +84,24 @@ extension EditingCoordinator:StateChangeable{
     func changeModel(state:State){
         if let model = state.model as? ShapeModel{
             if let current = baseView.currentSubview as? RectView{
-                DispatchQueue.main.async {current.model = model}
+                DispatchQueue.main.async {
+                    current.model = model
+                    current.updateLayerFrame(model: model)
+                }
             }
         }else if let model = state.model as? ImageLayerModel{
             if let current = baseView.currentSubview as? BackingImageView{
-                DispatchQueue.main.async {current.model = model}
+                DispatchQueue.main.async {
+                    current.model = model
+                    current.updateLayerFrame(model: model)
+                }
             }
         }else if let model = state.model as? TextLayerModel{
             if let current = baseView.currentSubview as? BackingTextView{
-                DispatchQueue.main.async {current.model = model}
+                DispatchQueue.main.async {
+                    current.model = model
+                    current.updateLayerFrame(model: model)
+                }
             }
         }
     }

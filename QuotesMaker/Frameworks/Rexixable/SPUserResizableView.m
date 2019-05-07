@@ -60,8 +60,8 @@ static SPUserResizableViewAnchorPoint SPUserResizableViewLowerMiddleAnchorPoint 
     CGRect middleRight = CGRectMake(self.bounds.size.width - kSPUserResizableViewInteractiveBorderSize, (self.bounds.size.height - kSPUserResizableViewInteractiveBorderSize)/2, kSPUserResizableViewInteractiveBorderSize, kSPUserResizableViewInteractiveBorderSize);
     
     // (3) Create the gradient to paint the anchor points.
-    CGFloat colors [] = { 
-        0.4, 0.8, 1.0, 1.0, 
+    CGFloat colors [] = {
+        0.4, 0.8, 1.0, 1.0,
         0.0, 0.0, 1.0, 1.0
     };
     CGColorSpaceRef baseSpace = CGColorSpaceCreateDeviceRGB();

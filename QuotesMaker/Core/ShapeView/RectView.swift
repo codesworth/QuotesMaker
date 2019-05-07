@@ -39,13 +39,13 @@ class RectView:SuperRectView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        superlayer = BlankBackingLayer()
+        superlayer = BackingGradientlayer()
         initialize()
     }
     var model:ShapeModel = ShapeModel.default(){
         didSet{
             updateShape(model.style)
-            updateLayerFrame(model: model)
+            //updateLayerFrame(model: model)
             if model.isGradient {
                 guard let grad = model.gradient else {return}
                 if let layer = superlayer as? BackingGradientlayer{
@@ -73,7 +73,7 @@ class RectView:SuperRectView{
         }
     }
     
-    private func updateLayerFrame(model:ShapeModel){
+    func updateLayerFrame(model:ShapeModel){
         guard let lframe = model.layerFrame, let sup = superview else {return}
         let frame = lframe.awakeFrom(bounds: sup.bounds)
         self.frame = frame
@@ -88,9 +88,12 @@ class RectView:SuperRectView{
         superlayer.borderWidth = style.borderWidth
         superlayer.borderColor = style.borderColor.cgColor
         //print("The angle is: \(CGFloat.Angle(style.rotationAngle))")
+//        print("The frame before \(contentView.frame)")
 //        let transform = CGAffineTransform(rotationAngle: .Angle(style.rotationAngle))
 //        resizerView.transform = transform
-        
+//
+//        print("The frame after \(contentView.frame)")
+        //resizerView.sizeToFit()
         /*contentView.*/layer.shadowColor = style.shadowColor.cgColor
         /*contentView.*/layer.shadowRadius = style.shadowRadius
         /*contentView.*/layer.shadowOpacity = style.shadowOpacity
@@ -100,8 +103,8 @@ class RectView:SuperRectView{
     
     func updateModel(_ model:ShapeModel){
         oldModel = self.model
-        let state = State(model: oldModel, action: .nothing)
-        Subscription.main.post(suscription: .stateChange, object: state)
+        //let state = State(model: oldModel, action: .nothing)
+        //Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
 
     }

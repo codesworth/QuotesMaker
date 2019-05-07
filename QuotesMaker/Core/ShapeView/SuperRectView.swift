@@ -11,6 +11,10 @@ import Foundation
 
 class SuperRectView: UIView {
     
+    enum shapeTypes{
+        case triangle, rectangle, polygone, circle
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
