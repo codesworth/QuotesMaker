@@ -197,6 +197,8 @@ extension EditingCoordinator:PickerColorDelegate{
         mod.isGradient = false
         mod.solid = model
         current.updateModel(mod)
+        let state = State(model: mod, action: .nothing)
+        undostates.append(state)
     }
     
     //To visit during State Changeable

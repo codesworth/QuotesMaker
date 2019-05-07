@@ -6,6 +6,8 @@
 //  Copyright © 2019 Shadrach Mensah. All rights reserved.
 //
 
+
+
 import UIKit
 
 class BackingGradientlayer: CAGradientLayer {
@@ -15,7 +17,8 @@ class BackingGradientlayer: CAGradientLayer {
         setup()
     }
     
-    
+//    private var gradientLayer:CAGradientLayer = CAGradientLayer()
+//    private var pathLayer =  CAShapeLayer()
     
     var previousModels:[GradientLayerModel] = []
     
@@ -36,6 +39,12 @@ class BackingGradientlayer: CAGradientLayer {
         
     }
     
+    init(shape:SuperRectView.shapeTypes){
+        super.init()
+        setup()
+        
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -45,6 +54,14 @@ class BackingGradientlayer: CAGradientLayer {
     }
     
     func setup(){
+//        addSublayer(pathLayer)
+//        let path = UIBezierPath(ovalIn: [10,10,200,200])
+//        pathLayer.path = path.cgPath
+//        pathLayer.fillColor = UIColor.magenta.cgColor
+//        pathLayer.strokeColor = UIColor.orangeRed.cgColor
+//        gradientLayer = CAGradientLayer(layer: pathLayer)
+//        pathLayer.insertSublayer(gradientLayer, at: 100)
+//        //pathLayer.masksToBounds = true
         model = GradientLayerModel.defualt()
     }
 }

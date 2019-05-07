@@ -52,12 +52,12 @@ class StylingPanel:MaterialView{
         return lab
     }()
     
-//    lazy var rotationpanel:RotationView = { [unowned self] by in
-//        let rotation = RotationView(frame: .zero)
-//        rotation.angleSlider.addTarget(self, action: #selector(rotationAngleChanging(_:)), for: .valueChanged)
-//        rotation.angleSlider.addTarget(self, action: #selector(rotationAngleChanged(_:)), for: .touchUpInside)
-//        return rotation
-//    }(())
+    lazy var rotationpanel:RotationView = { [unowned self] by in
+        let rotation = RotationView(frame: .zero)
+        rotation.angleSlider.addTarget(self, action: #selector(rotationAngleChanging(_:)), for: .valueChanged)
+        rotation.angleSlider.addTarget(self, action: #selector(rotationAngleChanged(_:)), for: .touchUpInside)
+        return rotation
+    }(())
     
     lazy var cornerPanel: CornersPanel = {
         
@@ -136,7 +136,7 @@ class StylingPanel:MaterialView{
         contentView.addSubview(thirdline)
         contentView.addSubview(cornerPanel)
         contentView.addSubview(borderPanel)
-        //contentView.addSubview(rotationpanel)
+        contentView.addSubview(rotationpanel)
         subscribeTo(subscription: .cornermask, selector: #selector(listenForCornermaskChanges(_:)))
     }
     

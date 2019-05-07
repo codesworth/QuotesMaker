@@ -65,7 +65,7 @@ class BackingTextView: UIView {
     
     var oldModel:TextLayerModel = TextLayerModel()
     
-    private func updateLayerFrame(model:TextLayerModel){
+    func updateLayerFrame(model:TextLayerModel){
         guard let lframe = model.layerFrame, let sup = superview else {return}
         let frame = lframe.awakeFrom(bounds: sup.bounds)
         self.frame = frame
@@ -75,7 +75,7 @@ class BackingTextView: UIView {
     var model:TextLayerModel = TextLayerModel(){
         
         didSet{
-            updateLayerFrame(model: model)
+            //updateLayerFrame(model: model)
             textView.text = model.string
             textView.attributedText = model.outPutString()
             textView.textColor = model.textColor

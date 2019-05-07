@@ -32,7 +32,7 @@ class BackingImageView: UIView{
         }(())
     
     
-    private func updateLayerFrame(model:ImageLayerModel){
+    func updateLayerFrame(model:ImageLayerModel){
         guard let lframe = model.layerFrame, let sup = superview else {return}
         let frame = lframe.awakeFrom(bounds: sup.bounds)
         self.frame = frame
@@ -55,7 +55,7 @@ class BackingImageView: UIView{
     
     var model:ImageLayerModel = ImageLayerModel(){
         didSet{
-            updateLayerFrame(model: model)
+            //updateLayerFrame(model: model)
             updateShape(model.style)
         }
     }
