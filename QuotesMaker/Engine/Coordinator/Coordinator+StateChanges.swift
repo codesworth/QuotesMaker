@@ -12,7 +12,7 @@ import Foundation
 extension EditingCoordinator:StateChangeable{
     
     func stateRedo() {
-        if let state = redostates.popLast(){
+        if let state = redostates.pop(){
             switch state.action{
             case .add:
                 undoDelete(state)
@@ -30,7 +30,7 @@ extension EditingCoordinator:StateChangeable{
     }
     
     func stateUndo() {
-        if let state = undostates.popLast(){
+        if let state = undostates.pop(){
             switch state.action{
             case .add:
                 removeAddedonUndo()

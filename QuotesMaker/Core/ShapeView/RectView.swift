@@ -84,7 +84,8 @@ class RectView:SuperRectView{
     
     private func updateShape(_ style:Style){
         superlayer.masksToBounds = true
-        superlayer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
+        let radius = (style.cornerRadius > bounds.size.min) ? bounds.size.min : style.cornerRadius
+        superlayer.roundCorners(style.maskedCorners, radius: radius)
         superlayer.borderWidth = style.borderWidth
         superlayer.borderColor = style.borderColor.cgColor
         //print("The angle is: \(CGFloat.Angle(style.rotationAngle))")

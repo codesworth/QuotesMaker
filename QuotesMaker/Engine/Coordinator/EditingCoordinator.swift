@@ -13,14 +13,9 @@ import Photos
 class EditingCoordinator:NSObject{
     
     weak var controller:UIViewController?
-    var undostates:[State] = []{
-        
-        didSet{
-            print(undostates.map{$0.action})
-        }
-    }
+    var undostates:States = States()
     
-    var redostates:[State] = []
+    var redostates = States()
     
     var baseView:BaseView
     private var canvas:Canvas!
