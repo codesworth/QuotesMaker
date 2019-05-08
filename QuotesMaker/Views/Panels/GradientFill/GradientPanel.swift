@@ -13,6 +13,7 @@ import UIKit
 protocol GradientOptionsDelegate:class {
     
     func modelChanged(_ model:GradientLayerModel)
+    func previewingModel(_ model:GradientLayerModel)
     
 }
 
@@ -187,12 +188,23 @@ class GradientPanel: MaterialView {
         contentView.addSubview(controlPadView)
         gradientSegments.addTarget(self, action: #selector(gradSegmentChanged(_:)), for: .valueChanged)
         colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
+        colorSlider.addTarget(self, action: #selector(colorSliderDidChanged(_:)), for: .touchUpInside)
         stepper.addTarget(self, action: #selector(stepperChanged(_:)), for: .valueChanged)
         locationSlider.addTarget(self, action: #selector(locationSliderChanged(_:)), for: .valueChanged)
+                locationSlider.addTarget(self, action: #selector(locationSliderDidChanged(_:)), for: .touchUpInside)
         alphaSlider.slider.addTarget(self, action: #selector(alphaChanged(_:)), for: .valueChanged)
+         alphaSlider.slider.addTarget(self, action: #selector(alphaDidChanged(_:)), for: .touchUpInside)
     }
     
     @objc func alphaChanged(_ sender:UISlider){
+        if blockDelegation{return}
+        let newAlpha:CGFloat = CGFloat(sender.value)
+        designtedAlphas[workingIndex] = newAlpha
+        model.alphas[workingIndex] = newAlpha
+        delegate?.previewingModel(model)
+    }
+    
+    @objc func alphaDidChanged(_ sender:UISlider){
         if blockDelegation{return}
         let newAlpha:CGFloat = CGFloat(sender.value)
         designtedAlphas[workingIndex] = newAlpha
@@ -212,8 +224,16 @@ class GradientPanel: MaterialView {
         if blockDelegation{return}
         let color = slider.color
         model.setColor(color, at: workingIndex)
-        //gradientSegments.tintColor = UIColor(cgColor: model.colors[workingIndex])
+        delegate?.previewingModel(model)
+        
+    }
+    
+    @objc func colorSliderDidChanged(_ slider:ColorSlider){
+        if blockDelegation{return}
+        let color = slider.color
+        model.setColor(color, at: workingIndex)
         delegate?.modelChanged(model)
+        
     }
     
     @objc func stepperChanged(_ sender:UIStepper){
@@ -240,6 +260,12 @@ class GradientPanel: MaterialView {
     }
     
     @objc func locationSliderChanged(_ slider:UISlider){
+        if blockDelegation{return}
+        model.locations[workingIndex] =  NSNumber(value: slider.value)
+        delegate?.previewingModel(model)
+    }
+    
+    @objc func locationSliderDidChanged(_ slider:UISlider){
         if blockDelegation{return}
         model.locations[workingIndex] =  NSNumber(value: slider.value)
         delegate?.modelChanged(model)
@@ -324,6 +350,16 @@ class GradientPanel: MaterialView {
 extension GradientPanel:IntemediaryPadDelegate{
     
     func receivedControlUpdate(_ point: CGPoint, at: Int) {
+        if at == 0{
+            model.startPoint = point
+            delegate?.previewingModel(model)
+        }else{
+            model.endPoint = point
+            delegate?.previewingModel(model)
+        }
+    }
+    
+    func final(_ point:CGPoint, at:Int){
         if at == 0{
             model.startPoint = point
             delegate?.modelChanged(model)

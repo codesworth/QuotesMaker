@@ -27,7 +27,7 @@ struct ShapeModel{
     
     static func  `default`()->ShapeModel{
         var shape = ShapeModel()
-        //shape.solid = BlankLayerModel()
+        shape.solid = BlankLayerModel()
         return shape
     }
     

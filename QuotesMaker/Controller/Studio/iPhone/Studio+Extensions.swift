@@ -155,7 +155,7 @@ extension StudioVC:StudioTabDelegate{
             setupImageInteractiveView()
             break
         case .undo:
-            undoState()
+            //undoState()
             break
         case .redo:
             break
@@ -164,30 +164,9 @@ extension StudioVC:StudioTabDelegate{
         }
     }
     
-    func undoState(){
-        guard let state = changes.pop() else {return}
-        switch state.model?.type {
-        case .shape?:
-           shapeUndo(state)
-            break
-        default:
-            break
-        }
-    }
+
     
-    func shapeUndo(_ state:State){
-//        guard let model = state.model as? ShapeModel else{return}
-//        guard let view = (baseView.subviews as? [BaseView.BaseSubView])?.first(where: { (v) -> Bool in
-//            return v.getIndex == model.layerIndex
-//        }) else {
-//
-//            return
-//        }
-//        if let shapeView = view as? RectView{
-//            shapeView.model = model
-//
-//        }
-    }
+
     
     @discardableResult // ("For Testing")
     func makeStackTable()->LayerStack?{

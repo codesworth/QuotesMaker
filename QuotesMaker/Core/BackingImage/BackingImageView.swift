@@ -73,8 +73,8 @@ class BackingImageView: UIView{
     
     func updateModel(_ model:ImageLayerModel){
         oldmodel = self.model
-        let state = State(model:oldmodel, action: .nothing)
-        Subscription.main.post(suscription: .stateChange, object: state)
+//        let state = State(model:oldmodel, action: .nothing)
+//        Subscription.main.post(suscription: .stateChange, object: state)
         self.model = model
     
         

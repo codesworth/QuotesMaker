@@ -12,7 +12,7 @@ import UIKit
 
 class StudioVC: UIViewController {
     
-    typealias StateChanges = ModelCollection<State>
+    
     lazy var editorView:StudioEditorView = {
         let editor = StudioEditorView(frame:[0])//CGRect(origin: [0,100], size: Dimensions.editorSize))
         editor.clipsToBounds = true
@@ -21,7 +21,6 @@ class StudioVC: UIViewController {
     
     var coordinator = EditingCoordinator()
     var studioHeight: CGFloat!
-    var changes:StateChanges = StateChanges()
     var studioPanel: EditorPanel!
     var colorPanel:ColorSliderPanel!
     var gradientPanel:GradientPanel!

@@ -10,6 +10,7 @@ import UIKit
 
 protocol IntemediaryPadDelegate:class {
     func receivedControlUpdate(_ point:CGPoint, at:Int)
+    func final(_ point:CGPoint, at:Int)
 }
 
 class PointControlView: UIView {
@@ -59,6 +60,7 @@ class PointControlView: UIView {
         addSubview(label)
         pad.delegate = self
         segments.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+        
     }
     
     @objc func segmentChanged(_ segment:UISegmentedControl){
@@ -89,5 +91,9 @@ extension PointControlView:PadControlDelegate{
     
     func didUpdateControl(_ point: CGPoint) {
         delegate?.receivedControlUpdate(point, at: currentIndex)
+    }
+    
+    func finalPoint(_ point: CGPoint) {
+        delegate?.final(point, at: currentIndex)
     }
 }

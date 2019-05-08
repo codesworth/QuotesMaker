@@ -10,6 +10,7 @@ import UIKit
 
 protocol PadControlDelegate:class {
     func didUpdateControl(_ point:CGPoint)
+    func finalPoint(_ point:CGPoint)
 }
 
 class PointControlPad: UIView {
@@ -80,6 +81,7 @@ class PointControlPad: UIView {
         recognizer.setTranslation(.zero, in: view)
          controlPoints = view.center.maxRatio(in:bounds)
         guard recognizer.state == .ended else{
+            delegate?.finalPoint(controlPoints!)
             return
         }
        

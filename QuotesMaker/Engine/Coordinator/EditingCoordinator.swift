@@ -13,8 +13,9 @@ import Photos
 class EditingCoordinator:NSObject{
     
     weak var controller:UIViewController?
-    var undostates:[State] = []
-    var redostates:[State] = []
+    var undostates:States = States()
+    
+    var redostates = States()
     
     var baseView:BaseView
     private var canvas:Canvas!
@@ -164,10 +165,14 @@ extension EditingCoordinator:StylingDelegate{
             var model = current.model
             model.style = style
             current.updateModel(model)
+            let state = State(model: model, action: .nothing)
+            undostates.append(state)
         }else if let current = baseView.currentSubview as? BackingImageView{
             var model = current.model
             model.style = style
             current.updateModel(model)
+            let state = State(model: model, action: .nothing)
+            undostates.append(state)
         }
     }
     
@@ -216,6 +221,16 @@ extension EditingCoordinator:GradientOptionsDelegate{
     
     //@stateChangeable
     func modelChanged(_ model: GradientLayerModel) {
+        guard var current = baseView.currentSubview as? ShapableView else {return}
+        var mod = current.model
+        mod.gradient = model
+        mod.isGradient = true
+        current.model = mod
+        let state = State(model: mod, action: .nothing)
+        undostates.append(state)
+    }
+    
+    func previewingModel(_ model: GradientLayerModel) {
         guard let current = baseView.currentSubview as? ShapableView else {return}
         var mod = current.model
         mod.gradient = model
