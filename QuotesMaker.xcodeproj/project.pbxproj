@@ -126,7 +126,7 @@
 		389537CB2268AC37000B4E9D /* StateUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389537CA2268AC37000B4E9D /* StateUpdate.swift */; };
 		3896507B2242C154009434B4 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507A2242C154009434B4 /* Layout.swift */; };
 		3896507D2242C193009434B4 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507C2242C193009434B4 /* Actions.swift */; };
-		3896507F2242DD7F009434B4 /* ModelCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507E2242DD7F009434B4 /* ModelCollection.swift */; };
+		3896507F2242DD7F009434B4 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507E2242DD7F009434B4 /* States.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -312,7 +312,7 @@
 		389537CA2268AC37000B4E9D /* StateUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUpdate.swift; sourceTree = "<group>"; };
 		3896507A2242C154009434B4 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		3896507C2242C193009434B4 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
-		3896507E2242DD7F009434B4 /* ModelCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelCollection.swift; sourceTree = "<group>"; };
+		3896507E2242DD7F009434B4 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -646,7 +646,7 @@
 				380BC9972231C40D007F87FE /* LayerFrame.swift */,
 				380C78F72232C1BE006B8F8D /* BlankLayerModel.swift */,
 				380C78FD2232CA9E006B8F8D /* ImageModel.swift */,
-				3896507E2242DD7F009434B4 /* ModelCollection.swift */,
+				3896507E2242DD7F009434B4 /* States.swift */,
 				38115326224D0AC200DA7D3B /* Style.swift */,
 				38115328224D0CE900DA7D3B /* ShapeModel.swift */,
 				3818DACE227087B800202C14 /* StudioModel.swift */,
@@ -1108,7 +1108,7 @@
 				38F13A062254360E002C4109 /* CollapsibleTableViewHeader.swift in Sources */,
 				38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
-				3896507F2242DD7F009434B4 /* ModelCollection.swift in Sources */,
+				3896507F2242DD7F009434B4 /* States.swift in Sources */,
 				38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */,
 				3823656D2240674F0078A723 /* +Resizing.swift in Sources */,
 				38743D562258072000897B13 /* EditingCoordinator.swift in Sources */,

@@ -9,19 +9,32 @@
 import Foundation
 
 
-struct ModelCollection<Element:Equatable>{
+struct States{
     
-    private var container:Array<Element> = []
+    private var container:Array<State> = []
     
-    mutating func push(_ element:Element){
-        //print(container.contains(element))
+    mutating func push(_ element:State){
         if !container.contains(element){
             container.append(element)
         }
     }
     
-    mutating func pop()->Element?{
+    mutating func append(_ element: State){
+        if exceeds{
+            container = container.reversed()
+            container.removeLast()
+            container = container.reversed()
+        }
+        container.append(element)
+    }
+    
+    @discardableResult
+    mutating func pop()->State?{
         return container.popLast()
+    }
+    
+    var exceeds:Bool{
+        return container.count > 50
     }
     
     var isMulti:Bool{
