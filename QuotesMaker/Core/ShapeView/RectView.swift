@@ -39,7 +39,7 @@ class RectView:SuperRectView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        superlayer = BackingGradientlayer()
+        superlayer = BlankBackingLayer()
         initialize()
     }
     var model:ShapeModel = ShapeModel.default(){
