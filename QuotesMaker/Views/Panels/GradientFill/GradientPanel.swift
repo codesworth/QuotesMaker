@@ -352,6 +352,16 @@ extension GradientPanel:IntemediaryPadDelegate{
     func receivedControlUpdate(_ point: CGPoint, at: Int) {
         if at == 0{
             model.startPoint = point
+            delegate?.previewingModel(model)
+        }else{
+            model.endPoint = point
+            delegate?.previewingModel(model)
+        }
+    }
+    
+    func final(_ point:CGPoint, at:Int){
+        if at == 0{
+            model.startPoint = point
             delegate?.modelChanged(model)
         }else{
             model.endPoint = point
