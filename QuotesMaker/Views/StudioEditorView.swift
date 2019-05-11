@@ -73,6 +73,8 @@ class StudioEditorView:UIView{
         addSubview(contentView)
         //scrollView.addSubview(contentView)
         borderlize(.primary, 1)
+        self.setZoomable(true)
+        
     }
     
     func addCanvas(_ base:BaseView){
@@ -173,6 +175,14 @@ extension StudioEditorView:UIScrollViewDelegate{
 
 
 extension StudioEditorView:ZoomableUIView{
+    func viewForZooming() -> UIView {
+        return contentView
+    }
+    
+    func optionsForZooming() -> ZoomableViewOptions {
+        return ZoomableViewOptions(minZoom: ZoomScale.default.rawValue, maxZoom: ZoomScale.max.rawValue)
+    }
+    
     
 }
 
