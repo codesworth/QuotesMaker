@@ -70,8 +70,8 @@ class StudioEditorView:UIView{
     
     private func initialize(){
         backgroundColor = .red
-        addSubview(scrollView)
-        scrollView.addSubview(contentView)
+        addSubview(contentView)
+        //scrollView.addSubview(contentView)
         borderlize(.primary, 1)
     }
     
@@ -105,19 +105,26 @@ class StudioEditorView:UIView{
         //let scrollCons = scrollView.pinAllSides()
         if bounds.height == 0 {return}
         print("The height is: \(bounds.height)")
-        NSLayoutConstraint.activate([
+        contentView.layout{
+            $0.top == topAnchor
+            $0.leading == leadingAnchor
+            $0.trailing == trailingAnchor
+            $0.bottom == bottomAnchor
             
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
-            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
-            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant:bounds.height),
-        ])
+        }
+//        NSLayoutConstraint.activate([
+//
+//            scrollView.topAnchor.constraint(equalTo: topAnchor),
+//            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
+//            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+//            contentView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+//            contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+//            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+//            contentView.widthAnchor.constraint(equalTo: widthAnchor),
+//            contentView.heightAnchor.constraint(equalToConstant:bounds.height),
+//        ])
         
         
     }
@@ -162,6 +169,11 @@ extension StudioEditorView:UIScrollViewDelegate{
 //        baseView.center = center
         
     }
+}
+
+
+extension StudioEditorView:ZoomableUIView{
+    
 }
 
 

@@ -12,7 +12,7 @@ class StackPanelVC: UIViewController {
     
     enum TypeHeights:CGFloat{
          case shape = 1600
-        case image = 1050
+        case image = 1000
         case text = 1308
     }
     @IBOutlet weak var canvaspanelStack: UIStackView!
