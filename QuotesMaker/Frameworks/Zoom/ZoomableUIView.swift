@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias EditorExpandableView = UIView & UIGestureRecognizerDelegate
+
 public struct ZoomableViewOptions {
    var minZoom: CGFloat
    var maxZoom: CGFloat
@@ -24,9 +26,9 @@ public protocol ZoomableUIView {
    func optionsForZooming() -> ZoomableViewOptions
 }
 
-extension ZoomableUIView where Self: UIView {
+extension ZoomableUIView where Self:EditorExpandableView  {
    
-   public func reset() {
+    internal func reset() {
       UIView.animate(withDuration: 0.3) {
          self.viewForZooming().transform = .identity
       }
@@ -36,17 +38,19 @@ extension ZoomableUIView where Self: UIView {
       }
    }
    
-   public func setZoomable(_ zoomable: Bool) {
+    internal func setZoomable(_ zoomable: Bool) {
       viewForZooming().transform = .identity
       isUserInteractionEnabled = zoomable
       gestureRecognizers = nil
       layer.masksToBounds = zoomable
       
       if zoomable {
-         addGestureRecognizer(UIPinchGestureRecognizer(target: self, action: #selector(didPinchZoomableView(_:))))
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(didPinchZoomableView(_:)))
+         addGestureRecognizer(pinch)
          let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTappedZoomableView))
          tap.numberOfTapsRequired = 2
          addGestureRecognizer(tap)
+        pinch.delegate = self
       }
    }
    
@@ -96,4 +100,5 @@ private extension UIView {
    }
    
 }
+
 

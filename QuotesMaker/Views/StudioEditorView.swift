@@ -186,6 +186,18 @@ extension StudioEditorView:ZoomableUIView{
     
 }
 
+extension StudioEditorView:UIGestureRecognizerDelegate{
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        guard let view = touch.view else {return false}
+        if view != viewForZooming(){
+            return false
+        }
+        return true
+    }
+    
+}
+
 
 ///Ideas ---  1. addsubview just before scrolling and remove after
 // 2. translate any changes from the zooming to base viww

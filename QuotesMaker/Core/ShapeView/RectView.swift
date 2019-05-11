@@ -254,6 +254,7 @@ extension RectView:BaseViewSubViewable{
 extension RectView:SPUserResizableViewDelegate{
     
     func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
+        self.gestureRecognizers?.forEach{$0.cancelsTouchesInView = true}
         if let superview = superview as? BaseView {
             superview.selectedView = self
         }
@@ -264,6 +265,7 @@ extension RectView:SPUserResizableViewDelegate{
     func userResizableViewDidEndEditing(_ userResizableView: SPUserResizableView!) {
         self.frame.size = resizerView.frame.size
         //print("The new frame is: \(resizerView.frame)")
+        
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
         let old = model.layerFrame
