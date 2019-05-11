@@ -574,7 +574,7 @@
                                                 <rect key="frame" x="20" y="10" width="80" height="80"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2g-qL-RkE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
+                                                        <rect key="frame" x="0.0" y="12" width="80" height="60"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="9l2-Fg-QbQ">
                                                                 <rect key="frame" x="10" y="8" width="60" height="44"/>
@@ -605,7 +605,7 @@
                                                 </accessibility>
                                                 <constraints>
                                                     <constraint firstItem="b2g-qL-RkE" firstAttribute="leading" secondItem="BvA-EC-gTR" secondAttribute="leading" id="5h9-sS-mLJ"/>
-                                                    <constraint firstItem="b2g-qL-RkE" firstAttribute="top" secondItem="BvA-EC-gTR" secondAttribute="top" id="729-ay-Al1"/>
+                                                    <constraint firstItem="b2g-qL-RkE" firstAttribute="top" secondItem="BvA-EC-gTR" secondAttribute="top" constant="12" id="729-ay-Al1"/>
                                                     <constraint firstAttribute="height" constant="80" id="C7L-Vb-lv6"/>
                                                     <constraint firstAttribute="trailing" secondItem="b2g-qL-RkE" secondAttribute="trailing" id="ba5-cR-MFO"/>
                                                     <constraint firstAttribute="width" constant="80" id="m9n-DN-oKr"/>

@@ -183,7 +183,7 @@ class ImagePanel: MaterialView {
         contentView.addSubview(firstline)
         contentView.addSubview(secondline)
         contentView.addSubview(pickFromGalleryButton)
-        contentView.addSubview(pickFromInternetButton)
+        //contentView.addSubview(pickFromInternetButton)
         //contentView.addSubview(testActionsSegment)
         addStackViews()
         contentView.addSubview(stack)
