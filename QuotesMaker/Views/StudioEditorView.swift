@@ -186,13 +186,14 @@ extension StudioEditorView:ZoomableUIView{
     
 }
 
-extension StudioEditorView:UIGestureRecognizerDelegate{
+extension StudioEditorView{
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        guard let view = touch.view else {return false}
-        if view != viewForZooming(){
+        if let view = touch.view?.superview as? SPUserResizableView {
             return false
+            
         }
+        
         return true
     }
     
