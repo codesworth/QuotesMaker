@@ -56,7 +56,7 @@ extension ZoomableUIView where Self:EditorExpandableView  {
    
 }
 
-private extension UIView {
+extension UIView:UIGestureRecognizerDelegate {
    
    @objc func didPinchZoomableView(_ pinch: UIPinchGestureRecognizer) {
       if let view = (self as? ZoomableUIView)?.viewForZooming(), let options = (self as? ZoomableUIView)?.optionsForZooming() {
@@ -65,6 +65,7 @@ private extension UIView {
             if view.transform.currentScale > options.minZoom && gestureRecognizers?.filter({$0 is UIPanGestureRecognizer}).count == 0 {
                let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanZoomableView(_:)))
                addGestureRecognizer(panGestureRecognizer)
+                panGestureRecognizer.delegate = self
             } else if view.transform.currentScale <= options.minZoom  {
                (self as? ZoomableUIView)?.reset()
             }

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol BaseViewSubViewable{
     
     var id:String {get}
