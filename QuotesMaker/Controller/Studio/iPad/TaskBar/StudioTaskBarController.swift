@@ -86,7 +86,14 @@ class StudioTaskBarController: UIViewController {
     }
     
     @IBAction func exportItem(_ sender: ControlProxy) {
-      
+        guard let image  = studio?.coordinator.exportImage() else {return}
+        let alert = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        alert.modalPresentationStyle = .popover
+        let presentation = alert.popoverPresentationController
+        presentation?.sourceView = sender
+        presentation?.sourceRect = sender.frame
+        present(alert, animated: true){}
+        
     }
     
     @IBAction func duplicateLayer(_ sender: ControlProxy) {
