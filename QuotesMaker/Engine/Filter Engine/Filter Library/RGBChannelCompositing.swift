@@ -20,7 +20,7 @@
 
 import CoreImage
 
-let tau = CGFloat(M_PI * 2)
+let tau = CGFloat(Double.pi * 2)
 
 /// `RGBChannelCompositing` filter takes three input images and composites them together
 /// by their color channels, the output RGB is `(inputRed.r, inputGreen.g, inputBlue.b)`
@@ -31,14 +31,14 @@ class RGBChannelCompositing: CIFilter
     var inputGreenImage : CIImage?
     var inputBlueImage : CIImage?
     
-    let rgbChannelCompositingKernel = CIColorKernel(string:
+    let rgbChannelCompositingKernel = CIColorKernel(source:
         "kernel vec4 rgbChannelCompositing(__sample red, __sample green, __sample blue)" +
         "{" +
         "   return vec4(red.r, green.g, blue.b, 1.0);" +
         "}"
     )
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "RGB Compositing",
@@ -103,7 +103,7 @@ class RGBChannelToneCurve: CIFilter
         inputBlueValues = CIVector(values: [0.0, 0.25, 0.5, 0.75, 1.0], count: 5)
     }
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "RGB Tone Curve",
@@ -207,7 +207,7 @@ class RGBChannelBrightnessAndContrast: CIFilter
         inputBlueContrast = 1
     }
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "RGB Brightness And Contrast",
@@ -322,7 +322,7 @@ class ChromaticAberration: CIFilter
         inputRadius = 2
     }
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Chromatic Abberation",
@@ -408,7 +408,7 @@ class RGBChannelGaussianBlur: CIFilter
         inputBlueRadius = 8
     }
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "RGB Channel Gaussian Blur",
@@ -455,16 +455,16 @@ class RGBChannelGaussianBlur: CIFilter
         }
         
         let red = inputImage
-            .imageByApplyingFilter("CIGaussianBlur", withInputParameters: [kCIInputRadiusKey: inputRedRadius])
-            .imageByClampingToExtent()
+            .applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: inputRedRadius])
+            .clampedToExtent()
         
         let green = inputImage
-            .imageByApplyingFilter("CIGaussianBlur", withInputParameters: [kCIInputRadiusKey: inputGreenRadius])
-            .imageByClampingToExtent()
+            .applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: inputGreenRadius])
+            .clampedToExtent()
         
         let blue = inputImage
-            .imageByApplyingFilter("CIGaussianBlur", withInputParameters: [kCIInputRadiusKey: inputBlueRadius])
-            .imageByClampingToExtent()
+            .applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: inputBlueRadius])
+            .clampedToExtent()
         
         rgbChannelCompositing.inputRedImage = red
         rgbChannelCompositing.inputGreenImage = green

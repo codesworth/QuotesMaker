@@ -80,15 +80,13 @@ class SobelEdgeDetection5x5: SobelEdgeDetectionBase
 
 class SobelEdgeDetectionBase: CIFilter
 {
-    let makeOpaqueKernel = CIColorKernel(string: "kernel vec4 xyz(__sample pixel) { return vec4(pixel.rgb, 1.0); }")
+    let makeOpaqueKernel = CIColorKernel(source: "kernel vec4 xyz(__sample pixel) { return vec4(pixel.rgb, 1.0); }")
     
     private func sobel(sourceImage: CIImage, filterName: String, horizontalWeights: CIVector, verticalWeights: CIVector) -> CIImage
     {
-        return sourceImage
-            .imageByApplyingFilter(filterName,
-                withInputParameters: [
-                    kCIInputWeightsKey: horizontalWeights.multiply(inputWeight),
-                    kCIInputBiasKey: inputBias])
+        return sourceImage.applyingFilter(filterName, parameters: [
+            kCIInputWeightsKey: horizontalWeights.multiply(value: inputWeight),
+            kCIInputBiasKey: inputBias])
             .imageByApplyingFilter(filterName,
                 withInputParameters: [
                     kCIInputWeightsKey: verticalWeights.multiply(inputWeight),
@@ -111,7 +109,7 @@ class SobelEdgeDetectionBase: CIFilter
         fatalError("SobelEdgeDetectionBase must be sublassed")
     }
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: displayName(),

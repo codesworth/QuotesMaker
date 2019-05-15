@@ -48,7 +48,7 @@ class CircularBokeh: CIFilter, VImageFilter
     
     private var probe: [UInt8]?
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Circular Bokeh",
@@ -170,7 +170,7 @@ class HistogramEqualization: CIFilter, VImageFilter
 {
     var inputImage: CIImage?
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Histogram Equalization",
@@ -243,7 +243,7 @@ class EndsInContrastStretch: CIFilter, VImageFilter
     var inputPercentHiGreen: CGFloat = 0
     var inputPercentHiBlue: CGFloat = 0
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Ends In Contrast Stretch",
@@ -366,7 +366,7 @@ class ContrastStretch: CIFilter, VImageFilter
 {
     var inputImage: CIImage?
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Contrast Stretch",
@@ -431,7 +431,7 @@ class HistogramSpecification: CIFilter, VImageFilter
     var inputImage: CIImage?
     var inputHistogramSource: CIImage?
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Histogram Specification",

@@ -27,7 +27,7 @@ class ScatterWarp: CIFilter
     var inputImage: CIImage?
     var inputScatterRadius: CGFloat = 25
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Scatter (Warp Kernel)",
@@ -92,7 +92,7 @@ class Scatter: CIFilter
     var inputScatterRadius: CGFloat = 25
     var inputScatterSmoothness: CGFloat = 1.0
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Scatter",
@@ -122,7 +122,7 @@ class Scatter: CIFilter
         ]
     }
     
-    let kernel = CIKernel(string:
+    let kernel = CIKernel(source:
         "kernel vec4 scatter(sampler image, sampler noise, float radius)" +
         "{" +
         "   vec2 workingSpaceCoord = destCoord() + -radius + sample(noise, samplerCoord(noise)).xy * radius * 2.0; " +
@@ -132,19 +132,19 @@ class Scatter: CIFilter
     
     override var outputImage: CIImage?
     {
-        guard let kernel = kernel, inputImage = inputImage else
+        guard let kernel = kernel, let inputImage = inputImage else
         {
             return nil
         }
         
         let noise = CIFilter(name: "CIRandomGenerator")!.outputImage!
-            .imageByApplyingFilter("CIGaussianBlur", withInputParameters: [kCIInputRadiusKey: inputScatterSmoothness])
-            .imageByCroppingToRect(inputImage.extent)
+            .applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: inputScatterSmoothness])
+            .cropped(to: inputImage.extent)
         
-        let arguments = [inputImage, noise, inputScatterRadius]
+        let arguments = [inputImage, noise, inputScatterRadius] as [Any]
 
-        return kernel.applyWithExtent(
-            inputImage.extent,
+        return kernel.apply(
+            extent: inputImage.extent,
             roiCallback:
             {
                 (index, rect) in
