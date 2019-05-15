@@ -939,7 +939,7 @@ class DifferenceOfGaussians: CIFilter
     {
         let variance = max(sigma * sigma, 0.00001)
         
-        return (1.0 / sqrt(CGFloat(M_PI) * 2 * variance)) * pow(CGFloat(M_E), -pow(x, 2) / (2 * variance))
+        return (1.0 / sqrt(CGFloat(Double.pi) * 2 * variance)) * pow(CGFloat(M_E), -pow(x, 2) / (2 * variance))
     }
 }
 
@@ -989,7 +989,7 @@ class StarBurstFilter: CIFilter
                 kCIAttributeDisplayName: "Angle",
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
-                kCIAttributeSliderMax: M_PI,
+                kCIAttributeSliderMax: Double.pi,
                 kCIAttributeType: kCIAttributeTypeScalar],
             
             "inputStarburstBrightness": [kCIAttributeIdentity: 0,
@@ -1029,10 +1029,10 @@ class StarBurstFilter: CIFilter
         
         for i in 0 ..< inputBeamCount
         {
-            let angle = CGFloat((M_PI / Double(inputBeamCount)) * Double(i))
+            let angle = CGFloat((Double.pi / Double(inputBeamCount)) * Double(i))
             
-            let starburst = thresholdImage.imageByApplyingFilter("CIMotionBlur",
-                    withInputParameters: [
+            let starburst = thresholdImage.applyingFilter("CIMotionBlur",
+                                                          parameters: [
                         kCIInputRadiusKey: inputRadius,
                         kCIInputAngleKey: inputAngle + angle])
                 .cropped(to: thresholdImage.extent)
@@ -1297,9 +1297,9 @@ class ThresholdFilter: CIFilter
         }
         
         let extent = inputImage.extent
-        let arguments = [inputImage, inputThreshold]
+        let arguments = [inputImage, inputThreshold] as [Any]
         
-        return thresholdKernel.applyWithExtent(extent, arguments: arguments)
+        return thresholdKernel.apply(extent: extent, arguments: arguments)
     }
 }
 
@@ -1311,7 +1311,7 @@ class PolarPixellate: CIFilter
     var inputImage : CIImage?
     var inputCenter = CIVector(x: 320, y: 320)
     
-    var inputPixelArc = CGFloat(M_PI / 15)
+    var inputPixelArc = CGFloat(Double.pi / 15)
     var inputPixelLength = CGFloat(50)
     
     override var attributes: [String : Any]
@@ -1325,11 +1325,11 @@ class PolarPixellate: CIFilter
             
             "inputPixelArc": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
-                kCIAttributeDefault: CGFloat(M_PI / 15),
+                kCIAttributeDefault: CGFloat(Double.pi / 15),
                 kCIAttributeDisplayName: "Pixel Arc",
                 kCIAttributeMin: 0,
                 kCIAttributeSliderMin: 0,
-                kCIAttributeSliderMax: CGFloat(M_PI),
+                kCIAttributeSliderMax: CGFloat(Double.pi),
                 kCIAttributeType: kCIAttributeTypeScalar],
             
             "inputPixelLength": [kCIAttributeIdentity: 0,
@@ -1351,7 +1351,7 @@ class PolarPixellate: CIFilter
     
     override func setDefaults()
     {
-        inputPixelArc = CGFloat(M_PI / 15)
+        inputPixelArc = CGFloat(Double.pi / 15)
         inputPixelLength = 50
         inputCenter = CIVector(x: 320, y: 320)
     }
