@@ -64,7 +64,11 @@ class StudioTaskBarController: UIViewController {
         
     }
     @IBAction func preview(_ sender: ControlProxy) {
-        
+        guard let image  = studio?.coordinator.exportImage() else {return}
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "\(PreviewVC.self)") as? PreviewVC{
+            vc.inputImage = image
+            studio?.present(vc, animated: true, completion: nil)
+        }
         
     }
     @IBAction func save(_ sender: ControlProxy) {
@@ -86,7 +90,15 @@ class StudioTaskBarController: UIViewController {
     }
     
     @IBAction func exportItem(_ sender: ControlProxy) {
-      
+        guard let image  = studio?.coordinator.exportImage() else {return}
+        let alert = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        alert.modalPresentationStyle = .currentContext
+        let presentation = alert.popoverPresentationController
+        presentation?.permittedArrowDirections = .any
+        presentation?.sourceView = sender
+        presentation?.sourceRect = sender.frame
+        present(alert, animated: true){}
+        
     }
     
     @IBAction func duplicateLayer(_ sender: ControlProxy) {

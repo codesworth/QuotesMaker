@@ -153,6 +153,10 @@ class EditingCoordinator:NSObject{
         
     }
     
+    func exportImage()->UIImage?{
+        return baseView.makeImageFromView(scale: canvas.scale)
+    }
+    
 
 }
 

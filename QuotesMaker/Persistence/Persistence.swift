@@ -55,13 +55,26 @@ class Persistence{
             //print("These are all the files: \(files)")
             files.removeAll{!$0.hasSuffix(FileManager.Extensions.json.rawValue)}
             //print("The trimmed files: \(files)")
-            let models = try files.compactMap{ file -> StudioModel in
-                let decoder = JSONDecoder()
-                let url = URL(fileURLWithPath: file, relativeTo: FileManager.modelDir)
-                let data = try Data(contentsOf: url)
-                let model = try decoder.decode(StudioModel.self, from: data)
-                return model
+            var models:[StudioModel] = []
+            files.forEach{
+                do{
+                    let decoder = JSONDecoder()
+                    let url = URL(fileURLWithPath: $0, relativeTo: FileManager.modelDir)
+                    let data = try Data(contentsOf: url)
+                    let model = try decoder.decode(StudioModel.self, from: data)
+                    models.append(model)
+                }catch let err{
+                    print("Error Occurred gettting files: \(err)")
+                    //continue
+                }
             }
+//            let models = try files.compactMap{ file -> StudioModel in
+//                let decoder = JSONDecoder()
+//                let url = URL(fileURLWithPath: file, relativeTo: FileManager.modelDir)
+//                let data = try Data(contentsOf: url)
+//                let model = try decoder.decode(StudioModel.self, from: data)
+//                return model
+//            }
             return models
             
         } catch let err {

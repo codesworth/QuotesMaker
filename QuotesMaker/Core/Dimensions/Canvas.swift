@@ -8,6 +8,25 @@
 
 import Foundation
 
+/*
+ enum AspectRatios:Int,CaseIterable,Codable{
+ case `default`
+ case instagram
+ case facebook
+ case facebook_stories
+ case ig_horizontal
+ case ig_vertical
+ case ig_stories
+ case pinterest
+ case snapchat
+ case twitter
+ case twitter_header
+ case facebook_header
+ 
+ }
+ 
+ */
+
 
 struct Canvas {
     
@@ -21,16 +40,16 @@ struct Canvas {
     }
     
     enum AspectRatios:Int,CaseIterable,Codable{
-        case `default`
+        
         case instagram
         case facebook
-        case facebook_stories
         case ig_horizontal
-        case ig_vertical
-        case ig_stories
+        
         case pinterest
         case snapchat
-        case twitter
+        case ig_vertical
+        case facebook_stories
+        case ig_stories
         case twitter_header
         case facebook_header
         
@@ -107,17 +126,17 @@ struct Canvas {
         case .pinterest:
             name = "Pinterest"
             aspectRatio = aspect
-            size = [.fixedWidth, .fixedWidth * (1 / Ratios.pinterest.rawValue)]
+            size = [.fixedWidth * 0.80, (.fixedWidth * 0.80) * (1 / Ratios.pinterest.rawValue)]
             scale = WidthSizes.pinterest.rawValue / size.width
             icon = "pn"
             break
-        case .twitter:
-            name = "Twitter Post"
-            aspectRatio = aspect
-            size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter.rawValue)]
-            scale = WidthSizes.facebook_twitter.rawValue / size.width
-            icon = "tw"
-            break
+//        case .twitter:
+//            name = "Twitter Post"
+//            aspectRatio = aspect
+//            size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter.rawValue)]
+//            scale = WidthSizes.facebook_twitter.rawValue / size.width
+//            icon = "tw"
+//            break
         case .twitter_header:
             name = "Twitter Header"
             aspectRatio = aspect
@@ -131,13 +150,14 @@ struct Canvas {
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter.rawValue)]
             scale = WidthSizes.facebook_header.rawValue / size.width
             icon = "fb"
-        default:
-            name = "Regular"
-            aspectRatio = aspect
-            size = [.fixedWidth]
-            scale = WidthSizes.default.rawValue / size.width
-            icon = "rg"
             break
+//        default:
+//            name = "Regular"
+//            aspectRatio = aspect
+//            size = [.fixedWidth]
+//            scale = WidthSizes.default.rawValue / size.width
+//            icon = "rg"
+//            break
         }
     }
     
