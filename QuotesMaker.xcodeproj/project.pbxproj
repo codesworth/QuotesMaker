@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38012FEF228C41AB00372516 /* PreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FEE228C41AB00372516 /* PreviewVC.swift */; };
 		3802749C2280541C00E7E5AC /* Coordinator+StateChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */; };
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
 		38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCD2253B90900D9E763 /* StudioLayout.swift */; };
@@ -190,6 +191,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38012FEE228C41AB00372516 /* PreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVC.swift; sourceTree = "<group>"; };
 		3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator+StateChanges.swift"; sourceTree = "<group>"; };
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		38051CCD2253B90900D9E763 /* StudioLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLayout.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 		38012FED228C1E5100372516 /* Preview */ = {
 			isa = PBXGroup;
 			children = (
+				38012FEE228C41AB00372516 /* PreviewVC.swift */,
 			);
 			path = Preview;
 			sourceTree = "<group>";
@@ -1145,6 +1148,7 @@
 				38115329224D0CE900DA7D3B /* ShapeModel.swift in Sources */,
 				38743D502257E49A00897B13 /* StudioTaskBarController.swift in Sources */,
 				38F13A052254360E002C4109 /* CollapsibleTableSectionViewController.swift in Sources */,
+				38012FEF228C41AB00372516 /* PreviewVC.swift in Sources */,
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				3873738C22452BBE00A1FB7B /* StudioEditorView.swift in Sources */,
 				3818DAD1227091C200202C14 /* StudioColor.swift in Sources */,

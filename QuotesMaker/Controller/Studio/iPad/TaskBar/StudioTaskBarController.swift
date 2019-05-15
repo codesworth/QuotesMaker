@@ -64,7 +64,11 @@ class StudioTaskBarController: UIViewController {
         
     }
     @IBAction func preview(_ sender: ControlProxy) {
-        
+        guard let image  = studio?.coordinator.exportImage() else {return}
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "\(PreviewVC.self)") as? PreviewVC{
+            vc.inputImage = image
+            studio?.present(vc, animated: true, completion: nil)
+        }
         
     }
     @IBAction func save(_ sender: ControlProxy) {
