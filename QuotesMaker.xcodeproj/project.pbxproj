@@ -376,6 +376,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38012FED228C1E5100372516 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
 		38051CCA2253B12300D9E763 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
@@ -864,6 +871,7 @@
 		38D97D7922531E0200B941A0 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				38012FED228C1E5100372516 /* Preview */,
 				385D306C225A32E30054694A /* ImagePicker */,
 				38F13A072254366A002C4109 /* TaskBar */,
 				38F13A0822543679002C4109 /* ControlPanel */,

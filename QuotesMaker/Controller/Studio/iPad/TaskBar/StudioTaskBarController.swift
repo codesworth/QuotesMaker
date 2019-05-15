@@ -88,8 +88,9 @@ class StudioTaskBarController: UIViewController {
     @IBAction func exportItem(_ sender: ControlProxy) {
         guard let image  = studio?.coordinator.exportImage() else {return}
         let alert = UIActivityViewController(activityItems: [image], applicationActivities: [])
-        alert.modalPresentationStyle = .popover
+        alert.modalPresentationStyle = .currentContext
         let presentation = alert.popoverPresentationController
+        presentation?.permittedArrowDirections = .any
         presentation?.sourceView = sender
         presentation?.sourceRect = sender.frame
         present(alert, animated: true){}
