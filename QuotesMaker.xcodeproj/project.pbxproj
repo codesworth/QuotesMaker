@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		38012FEF228C41AB00372516 /* PreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FEE228C41AB00372516 /* PreviewVC.swift */; };
+		38012FF2228CCC9100372516 /* FilterEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF1228CCC9100372516 /* FilterEngine.swift */; };
+		38012FF4228CCD2700372516 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF3228CCD2700372516 /* Filter.swift */; };
+		38012FF6228CCDA600372516 /* CustomFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF5228CCDA500372516 /* CustomFilters.swift */; };
 		3802749C2280541C00E7E5AC /* Coordinator+StateChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */; };
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
 		38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCD2253B90900D9E763 /* StudioLayout.swift */; };
@@ -192,6 +195,9 @@
 
 /* Begin PBXFileReference section */
 		38012FEE228C41AB00372516 /* PreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVC.swift; sourceTree = "<group>"; };
+		38012FF1228CCC9100372516 /* FilterEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEngine.swift; sourceTree = "<group>"; };
+		38012FF3228CCD2700372516 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		38012FF5228CCDA500372516 /* CustomFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFilters.swift; sourceTree = "<group>"; };
 		3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator+StateChanges.swift"; sourceTree = "<group>"; };
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		38051CCD2253B90900D9E763 /* StudioLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLayout.swift; sourceTree = "<group>"; };
@@ -384,6 +390,16 @@
 				38012FEE228C41AB00372516 /* PreviewVC.swift */,
 			);
 			path = Preview;
+			sourceTree = "<group>";
+		};
+		38012FF0228CCC3B00372516 /* Filter Engine */ = {
+			isa = PBXGroup;
+			children = (
+				38012FF5228CCDA500372516 /* CustomFilters.swift */,
+				38012FF1228CCC9100372516 /* FilterEngine.swift */,
+				38012FF3228CCD2700372516 /* Filter.swift */,
+			);
+			path = "Filter Engine";
 			sourceTree = "<group>";
 		};
 		38051CCA2253B12300D9E763 /* StoryBoards */ = {
@@ -605,6 +621,7 @@
 		388BE324222AD4CD005BF44B /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				38012FF0228CCC3B00372516 /* Filter Engine */,
 				38743D5722580BAA00897B13 /* Coordinator */,
 				388BE325222AD4E8005BF44B /* QMEngine.swift */,
 			);
@@ -1117,6 +1134,7 @@
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
 				38661B0C224C06E900440AC7 /* Opereators.swift in Sources */,
 				38236563223FFE260078A723 /* Cropview.swift in Sources */,
+				38012FF2228CCC9100372516 /* FilterEngine.swift in Sources */,
 				38CFAAB322878CCD00D40330 /* CGAffineTransform.swift in Sources */,
 				38C80FC4223BFAA200150FD4 /* Subscriptions.swift in Sources */,
 				388BE38A222EB50B005BF44B /* TextModel.swift in Sources */,
@@ -1135,6 +1153,7 @@
 				38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
 				3896507F2242DD7F009434B4 /* States.swift in Sources */,
+				38012FF4228CCD2700372516 /* Filter.swift in Sources */,
 				38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */,
 				3823656D2240674F0078A723 /* +Resizing.swift in Sources */,
 				38743D562258072000897B13 /* EditingCoordinator.swift in Sources */,
@@ -1172,6 +1191,7 @@
 				38F13A0A225436D9002C4109 /* ContolPanelTable.swift in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */,
+				38012FF6228CCDA600372516 /* CustomFilters.swift in Sources */,
 				38AA311522442AF50050604A /* BaseContentView.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
 				3896507B2242C154009434B4 /* Layout.swift in Sources */,
