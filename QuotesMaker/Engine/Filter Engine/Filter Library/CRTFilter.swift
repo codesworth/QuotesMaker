@@ -25,7 +25,7 @@ class VHSTrackingLines: CIFilter
         inputBackgroundNoise = 0.05
     }
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "VHS Tracking Lines",
@@ -114,7 +114,7 @@ class CRTFilter: CIFilter
     var inputPixelHeight: CGFloat = 12
     var inputBend: CGFloat = 3.2
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "CRT Filter",
@@ -153,7 +153,7 @@ class CRTFilter: CIFilter
     let crtColorFilter = CRTColorFilter()
     
     let vignette = CIFilter(name: "CIVignette",
-        withInputParameters: [
+                            parameters: [
             kCIInputIntensityKey: 1.5,
             kCIInputRadiusKey: 2])!
     
@@ -190,7 +190,7 @@ class CRTFilter: CIFilter
         var pixelWidth: CGFloat = 8.0
         var pixelHeight: CGFloat = 12.0
         
-        let crtColorKernel = CIColorKernel(string:
+        let crtColorKernel = CIColorKernel(source:
             "kernel vec4 crtColor(__sample image, float pixelWidth, float pixelHeight) \n" +
                 "{ \n" +
                 
@@ -211,11 +211,11 @@ class CRTFilter: CIFilter
         override var outputImage: CIImage!
         {
             if let inputImage = inputImage,
-                crtColorKernel = crtColorKernel
+                let crtColorKernel = crtColorKernel
             {
                 let dod = inputImage.extent
-                let args = [inputImage, pixelWidth, pixelHeight]
-                return crtColorKernel.applyWithExtent(dod, arguments: args)
+                let args = [inputImage, pixelWidth, pixelHeight] as [Any]
+                return crtColorKernel.apply(extent: dod, arguments: args)
             }
             return nil
         }
@@ -226,7 +226,7 @@ class CRTFilter: CIFilter
         var inputImage : CIImage?
         var bend: CGFloat = 3.2
         
-        let crtWarpKernel = CIWarpKernel(string:
+        let crtWarpKernel = CIWarpKernel(source:
             "kernel vec2 crtWarp(vec2 extent, float bend)" +
                 "{" +
                 "   vec2 coord = ((destCoord() / extent) - 0.5) * 2.0;" +
@@ -243,18 +243,18 @@ class CRTFilter: CIFilter
         override var outputImage : CIImage!
             {
                 if let inputImage = inputImage,
-                    crtWarpKernel = crtWarpKernel
+                    let crtWarpKernel = crtWarpKernel
                 {
-                    let arguments = [CIVector(x: inputImage.extent.size.width, y: inputImage.extent.size.height), bend]
+                    let arguments = [CIVector(x: inputImage.extent.size.width, y: inputImage.extent.size.height), bend] as [Any]
                     let extent = inputImage.extent.insetBy(dx: -1, dy: -1)
                     
-                    return crtWarpKernel.applyWithExtent(extent,
-                        roiCallback:
+                    return crtWarpKernel.apply(extent: extent,
+                                               roiCallback:
                         {
                             (index, rect) in
                             return rect
-                        },
-                        inputImage: inputImage,
+                    },
+                                               image: inputImage,
                         arguments: arguments)
                 }
                 return nil

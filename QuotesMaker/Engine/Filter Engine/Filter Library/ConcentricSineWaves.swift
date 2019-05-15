@@ -37,7 +37,7 @@ class ConcentricSineWaves: CIFilter
         inputCenter = CIVector(x: 320, y: 320)
     }
     
-    override var attributes: [String : AnyObject]
+    override var attributes: [String : Any]
     {
         return [
             kCIAttributeFilterDisplayName: "Concentric Sine Waves",
@@ -95,7 +95,7 @@ class ConcentricSineWaves: CIFilter
         ]
     }
     
-    let kernel = CIColorKernel(string:
+    let kernel = CIColorKernel(source:
         "kernel vec4 concentricSineWaves(float ringWidth, vec2 center, float amplitude, float frequency, vec4 color0, vec4 color1)" +
             "{" +
 
@@ -117,11 +117,11 @@ class ConcentricSineWaves: CIFilter
         }
         
         let extent = CGRect(
-            origin: CGPointZero,
-            size: CGSize(width: inputSize.X, height: inputSize.Y))
+            origin: .zero,
+            size: CGSize(width: inputSize.x, height: inputSize.y))
 
-        return kernel.applyWithExtent(
-            extent,
+        return kernel.apply(
+            extent: extent,
             arguments: [inputWidth, inputCenter, inputAmplitude, Int(inputFrequency), inputColor0, inputColor1])
     }
 }
