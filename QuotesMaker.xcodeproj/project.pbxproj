@@ -43,6 +43,7 @@
 		38013036228CD34700372516 /* FilmicEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013016228CD34600372516 /* FilmicEffects.swift */; };
 		38013037228CD34700372516 /* flame.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 38013017228CD34700372516 /* flame.cikernel */; };
 		38013038228CD34700372516 /* Voronoi.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 38013018228CD34700372516 /* Voronoi.cikernel */; };
+		3801303A228CDA1D00372516 /* FilterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013039228CDA1D00372516 /* FilterExtensions.swift */; };
 		3802749C2280541C00E7E5AC /* Coordinator+StateChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */; };
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
 		38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCD2253B90900D9E763 /* StudioLayout.swift */; };
@@ -262,6 +263,7 @@
 		38013016228CD34600372516 /* FilmicEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmicEffects.swift; sourceTree = "<group>"; };
 		38013017228CD34700372516 /* flame.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flame.cikernel; sourceTree = "<group>"; };
 		38013018228CD34700372516 /* Voronoi.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Voronoi.cikernel; sourceTree = "<group>"; };
+		38013039228CDA1D00372516 /* FilterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtensions.swift; sourceTree = "<group>"; };
 		3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator+StateChanges.swift"; sourceTree = "<group>"; };
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		38051CCD2253B90900D9E763 /* StudioLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLayout.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 				38012FF5228CCDA500372516 /* CustomFilters.swift */,
 				38012FF1228CCC9100372516 /* FilterEngine.swift */,
 				38012FF3228CCD2700372516 /* Filter.swift */,
+				38013039228CDA1D00372516 /* FilterExtensions.swift */,
 			);
 			path = "Filter Engine";
 			sourceTree = "<group>";
@@ -1311,6 +1314,7 @@
 				3801302C228CD34700372516 /* KuwaharaFilter.swift in Sources */,
 				38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */,
 				38661B03224BE89E00440AC7 /* BorderPanel.swift in Sources */,
+				3801303A228CDA1D00372516 /* FilterExtensions.swift in Sources */,
 				3801302E228CD34700372516 /* RefractedTextFilter.swift in Sources */,
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */,
