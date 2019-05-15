@@ -1392,6 +1392,18 @@
                                             <action selector="saveToPhotos:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="d2K-Wy-Ytn"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aja-Ka-LpB">
+                                        <rect key="frame" x="20" y="140" width="200" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="7Fk-zx-fIF"/>
+                                            <action selector="saveToPhotos:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="PpB-Ik-O8e"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
