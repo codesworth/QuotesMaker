@@ -24,7 +24,7 @@ class BayerDitherFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Bayer Dither Filter",
+            kCIAttributeFilterDisplayName: "Bayer Dither Filter" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",

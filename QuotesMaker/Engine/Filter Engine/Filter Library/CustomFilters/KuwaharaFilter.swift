@@ -28,7 +28,7 @@ class KuwaharaFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Kuwahara Filter",
+            kCIAttributeFilterDisplayName: "Kuwahara Filter" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",

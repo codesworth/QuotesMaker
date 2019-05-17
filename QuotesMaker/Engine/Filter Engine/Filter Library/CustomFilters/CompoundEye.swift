@@ -34,7 +34,7 @@ class CompoundEye: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Compound Eye",
+            kCIAttributeFilterDisplayName: "Compound Eye" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -130,12 +130,12 @@ class CompoundEye: CIFilter
             let extent = inputImage.extent
             
             let warpedImage = warpKernel.apply(extent: extent,
-                                               roiCallback:
+                roiCallback:
                 {
                     (index, rect) in
                     return rect
-            },
-                                               image: inputImage,
+                },
+                image: inputImage,
                 arguments: [inputWidth, halfWidth, height, diameter, inputBend])!
             
             let maskImage =  colorKernel.apply(extent: extent,
@@ -145,7 +145,7 @@ class CompoundEye: CIFilter
                 .cropped(to: extent)
             
             return CIFilter(name: "CIBlendWithMask",
-                            parameters: [
+                parameters: [
                 kCIInputBackgroundImageKey: warpedImage,
                 kCIInputImageKey: backgroundImage,
                 kCIInputMaskImageKey: maskImage])?.outputImage

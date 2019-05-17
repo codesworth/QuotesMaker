@@ -195,7 +195,7 @@ class LensFlare: CIFilter
         ]
         
         let attributes: [String : Any] = [
-            kCIAttributeFilterDisplayName: "Lens Flare",
+            kCIAttributeFilterDisplayName: "Lens Flare" as Any,
             
             "inputOrigin": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIVector",
@@ -284,15 +284,15 @@ class LensFlare: CIFilter
             reflectionZero, reflectionOne, reflectionTwo, reflectionThree, reflectionFour, reflectionFive, reflectionSix, reflectionSeven,
             inputReflectionSizeZero, inputReflectionSizeOne, inputReflectionSizeTwo, inputReflectionSizeThree, inputReflectionSizeFour,
             inputReflectionSizeFive, inputReflectionSizeSix, inputReflectionSizeSeven,
-            inputColor, inputReflectionBrightness]
+            inputColor, inputReflectionBrightness] as [Any] 
         
-        let lensFlareImage = colorKernel.applyWithExtent(
-            extent,
-            arguments: arguments)?.imageByApplyingFilter("CIGaussianBlur", withInputParameters: [kCIInputRadiusKey: 2])
+        let lensFlareImage = colorKernel.apply(
+            extent: extent,
+            arguments: arguments)?.applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: 2])
         
-        return lensFlareImage?.imageByApplyingFilter(
+        return lensFlareImage?.applyingFilter(
             "CIAdditionCompositing",
-            withInputParameters: [kCIInputBackgroundImageKey: sunbeamsImage]).imageByCroppingToRect(extent)
+            parameters: [kCIInputBackgroundImageKey: sunbeamsImage]).cropped(to: extent)
     }
 }
 

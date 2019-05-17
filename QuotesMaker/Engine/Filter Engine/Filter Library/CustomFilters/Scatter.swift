@@ -30,7 +30,7 @@ class ScatterWarp: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Scatter (Warp Kernel)",
+            kCIAttributeFilterDisplayName: "Scatter (Warp Kernel)" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -48,7 +48,7 @@ class ScatterWarp: CIFilter
         ]
     }
     
-    let kernel = CIWarpKernel(string:
+    let kernel = CIWarpKernel(source:
         // based on https://www.shadertoy.com/view/ltB3zD - the additional seed
         // calculation prevents repetition when using destCoord() as the seed.
         "float noise(vec2 co)" +
@@ -67,19 +67,19 @@ class ScatterWarp: CIFilter
     
     override var outputImage: CIImage?
     {
-        guard let kernel = kernel, inputImage = inputImage else
+        guard let kernel = kernel, let inputImage = inputImage else
         {
             return nil
         }
         
-        return  kernel.applyWithExtent(
-            inputImage.extent,
+        return  kernel.apply(
+            extent: inputImage.extent,
             roiCallback:
             {
                 (index, rect) in
                 return rect
             },
-            inputImage: inputImage,
+            image: inputImage,
             arguments: [inputScatterRadius])
     }
 }
@@ -95,7 +95,7 @@ class Scatter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Scatter",
+            kCIAttributeFilterDisplayName: "Scatter" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",

@@ -21,7 +21,7 @@ class SimplePlasma: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Simple Plasma",
+            kCIAttributeFilterDisplayName: "Simple Plasma" as Any,
             
             "inputSize": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIVector",
@@ -94,7 +94,7 @@ class SimplePlasma: CIFilter
             return nil
         }
         
-        let extent = CGRect(origin: .zero, size: CGSize(width: inputSize.x, height: inputSize.y))
+        let extent = CGRect(origin: CGPoint.zero, size: CGSize(width: inputSize.x, height: inputSize.y))
         
         return kernel.apply(
             extent: extent,

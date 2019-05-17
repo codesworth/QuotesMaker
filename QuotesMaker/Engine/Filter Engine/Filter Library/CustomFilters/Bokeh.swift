@@ -47,7 +47,7 @@ class MaskedVariableCircularBokeh: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: displayName(),
+            kCIAttributeFilterDisplayName: displayName() as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -81,38 +81,37 @@ class MaskedVariableCircularBokeh: CIFilter
     
     lazy var maskedVariableBokeh: CIKernel =
     {
-        return CIKernel(source:"""
-                kernel vec4 lumaVariableBlur(sampler image, sampler bokehMask, float maxBokehRadius)
-                {
-                    vec2 d = destCoord();
-                    vec3 bokehMaskPixel = sample(bokehMask, samplerCoord(bokehMask)).rgb;
-                   float bokehMaskPixelLuma = dot(bokehMaskPixel, vec3(0.2126, 0.7152, 0.0722));
-                   int radius = int(bokehMaskPixelLuma * maxBokehRadius);
-                   vec3 brightestPixel = sample(image, samplerCoord(image)).rgb;
-                    float brightestLuma = 0.0;
+        return CIKernel(source:
+            "kernel vec4 lumaVariableBlur(sampler image, sampler bokehMask, float maxBokehRadius) " +
+                "{ " +
+                "    vec2 d = destCoord(); " +
+                "    vec3 bokehMaskPixel = sample(bokehMask, samplerCoord(bokehMask)).rgb; " +
+                "    float bokehMaskPixelLuma = dot(bokehMaskPixel, vec3(0.2126, 0.7152, 0.0722)); " +
+                "    int radius = int(bokehMaskPixelLuma * maxBokehRadius); " +
+                "    vec3 brightestPixel = sample(image, samplerCoord(image)).rgb; " +
+                "    float brightestLuma = 0.0;" +
                 
-                    float v = float(radius) / 2.0;
-                    float h = v * sqrt(3.0);" +
+                "    float v = float(radius) / 2.0;" +
+                "    float h = v * sqrt(3.0);" +
                 
-                    for (int x = -radius; x <= radius; x++)
-                    { " +
-                        for (int y = -radius; y <= radius; y++)
-                        { " +
-                            float xx = abs(float(x));
-                            float yy = abs(float(y));
-                """.appending(self.withinProbe()).appending("""
-            
+                "    for (int x = -radius; x <= radius; x++)" +
+                "    { " +
+                "        for (int y = -radius; y <= radius; y++)" +
+                "        { " +
+                "            float xx = abs(float(x));" +
+                "            float yy = abs(float(y));" +
                 
-                            vec2 workingSpaceCoordinate = d + vec2(x,y);
-                            vec2 imageSpaceCoordinate = samplerTransform(image, workingSpaceCoordinate);
-                            vec3 color = sample(image, imageSpaceCoordinate).rgb;
-                            float luma = dot(color, vec3(0.2126, 0.7152, 0.0722));
-                            if (withinProbe == 0.0 && luma > brightestLuma) {brightestLuma = luma; brightestPixel = color; }
-                       }
-                    }
-                    return vec4(brightestPixel, 1.0);
-            }
-            """))!
+                self.withinProbe() +
+                
+                "            vec2 workingSpaceCoordinate = d + vec2(x,y);" +
+                "            vec2 imageSpaceCoordinate = samplerTransform(image, workingSpaceCoordinate); " +
+                "            vec3 color = sample(image, imageSpaceCoordinate).rgb; " +
+                "            float luma = dot(color, vec3(0.2126, 0.7152, 0.0722)); " +
+                "            if (withinProbe == 0.0 && luma > brightestLuma) {brightestLuma = luma; brightestPixel = color; } "  +
+                "        } " +
+                "    } " +
+                "    return vec4(brightestPixel, 1.0); " +
+            "} ")!
     }()
     
     func displayName() -> String
@@ -158,7 +157,7 @@ class MaskedVariableCircularBokeh: CIFilter
     
     class HexagonalBokehFilter: CIFilter, MetalRenderable
     {
-        override var attributes: [String : AnyObject]
+        override var attributes: [String : Any]
         {
             return [
                 kCIAttributeFilterDisplayName: "Hexagonal Bokeh",

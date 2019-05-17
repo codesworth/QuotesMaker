@@ -32,7 +32,7 @@ class BleachBypassFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Bleach Bypass Filter",
+            kCIAttributeFilterDisplayName: "Bleach Bypass Filter" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -95,7 +95,7 @@ class TechnicolorFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Technicolor Filter",
+            kCIAttributeFilterDisplayName: "Technicolor Filter" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",

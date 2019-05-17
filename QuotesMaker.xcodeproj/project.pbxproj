@@ -10,39 +10,6 @@
 		38012FEF228C41AB00372516 /* PreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FEE228C41AB00372516 /* PreviewVC.swift */; };
 		38012FF2228CCC9100372516 /* FilterEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF1228CCC9100372516 /* FilterEngine.swift */; };
 		38012FF4228CCD2700372516 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF3228CCD2700372516 /* Filter.swift */; };
-		38012FF6228CCDA600372516 /* CustomFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF5228CCDA500372516 /* CustomFilters.swift */; };
-		38013019228CD34700372516 /* ModelIOGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF8228CD33F00372516 /* ModelIOGenerators.swift */; };
-		3801301A228CD34700372516 /* VImageFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF9228CD33F00372516 /* VImageFilters.swift */; };
-		3801301B228CD34700372516 /* SobelEdgeDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FFA228CD34000372516 /* SobelEdgeDetection.swift */; };
-		3801301C228CD34700372516 /* SimplePlasma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FFB228CD34000372516 /* SimplePlasma.swift */; };
-		3801301D228CD34700372516 /* TransverseChromaticAberration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FFC228CD34000372516 /* TransverseChromaticAberration.swift */; };
-		3801301E228CD34700372516 /* DitherBayer.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 38012FFD228CD34000372516 /* DitherBayer.cikernel */; };
-		3801301F228CD34700372516 /* LensFlare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FFE228CD34000372516 /* LensFlare.swift */; };
-		38013020228CD34700372516 /* ColorDirectedBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FFF228CD34000372516 /* ColorDirectedBlur.swift */; };
-		38013021228CD34700372516 /* CompoundEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013000228CD34100372516 /* CompoundEye.swift */; };
-		38013022228CD34700372516 /* Flame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013001228CD34100372516 /* Flame.swift */; };
-		38013023228CD34700372516 /* ThirdPartyFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013002228CD34100372516 /* ThirdPartyFilters.swift */; };
-		38013024228CD34700372516 /* MultiBandHSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013003228CD34200372516 /* MultiBandHSV.swift */; };
-		38013025228CD34700372516 /* cikl_sky.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 38013004228CD34200372516 /* cikl_sky.cikernel */; };
-		38013026228CD34700372516 /* CRTFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013005228CD34200372516 /* CRTFilter.swift */; };
-		38013027228CD34700372516 /* MercurializeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013006228CD34200372516 /* MercurializeFilter.swift */; };
-		38013028228CD34700372516 /* ConcentricSineWaves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013007228CD34200372516 /* ConcentricSineWaves.swift */; };
-		38013029228CD34700372516 /* MetalFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013009228CD34300372516 /* MetalFilters.swift */; };
-		3801302A228CD34700372516 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3801300A228CD34300372516 /* Shaders.metal */; };
-		3801302B228CD34700372516 /* RGBChannelCompositing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3801300B228CD34300372516 /* RGBChannelCompositing.swift */; };
-		3801302C228CD34700372516 /* KuwaharaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3801300C228CD34300372516 /* KuwaharaFilter.swift */; };
-		3801302D228CD34700372516 /* CausticRefraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3801300D228CD34300372516 /* CausticRefraction.swift */; };
-		3801302E228CD34700372516 /* RefractedTextFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3801300E228CD34400372516 /* RefractedTextFilter.swift */; };
-		3801302F228CD34700372516 /* Bokeh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3801300F228CD34400372516 /* Bokeh.swift */; };
-		38013030228CD34700372516 /* CIKL_Sky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013010228CD34400372516 /* CIKL_Sky.swift */; };
-		38013031228CD34700372516 /* Scatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013011228CD34500372516 /* Scatter.swift */; };
-		38013032228CD34700372516 /* CMYKRegistrationMismatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013012228CD34500372516 /* CMYKRegistrationMismatch.swift */; };
-		38013033228CD34700372516 /* CarnivalMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013013228CD34500372516 /* CarnivalMirror.swift */; };
-		38013034228CD34700372516 /* VoronoiNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013014228CD34600372516 /* VoronoiNoise.swift */; };
-		38013035228CD34700372516 /* EightBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013015228CD34600372516 /* EightBit.swift */; };
-		38013036228CD34700372516 /* FilmicEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013016228CD34600372516 /* FilmicEffects.swift */; };
-		38013037228CD34700372516 /* flame.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 38013017228CD34700372516 /* flame.cikernel */; };
-		38013038228CD34700372516 /* Voronoi.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 38013018228CD34700372516 /* Voronoi.cikernel */; };
 		3801303A228CDA1D00372516 /* FilterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013039228CDA1D00372516 /* FilterExtensions.swift */; };
 		3802749C2280541C00E7E5AC /* Coordinator+StateChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */; };
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
@@ -88,6 +55,39 @@
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
 		384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA72236E903007B4BD0 /* QPreviewView.swift */; };
+		385A1ED5228F4A5900185D48 /* EightBit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EB3228F4A5300185D48 /* EightBit.swift */; };
+		385A1ED6228F4A5900185D48 /* CarnivalMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EB4228F4A5300185D48 /* CarnivalMirror.swift */; };
+		385A1ED7228F4A5900185D48 /* CompoundEye.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EB5228F4A5300185D48 /* CompoundEye.swift */; };
+		385A1ED8228F4A5900185D48 /* ConcentricSineWaves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EB6228F4A5300185D48 /* ConcentricSineWaves.swift */; };
+		385A1ED9228F4A5900185D48 /* MercurializeFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EB7228F4A5400185D48 /* MercurializeFilter.swift */; };
+		385A1EDA228F4A5900185D48 /* Flame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EB8228F4A5400185D48 /* Flame.swift */; };
+		385A1EDB228F4A5900185D48 /* RGBChannelCompositing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EB9228F4A5400185D48 /* RGBChannelCompositing.swift */; };
+		385A1EDC228F4A5900185D48 /* TransverseChromaticAberration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EBA228F4A5400185D48 /* TransverseChromaticAberration.swift */; };
+		385A1EDD228F4A5900185D48 /* Voronoi.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 385A1EBB228F4A5400185D48 /* Voronoi.cikernel */; };
+		385A1EDE228F4A5900185D48 /* CausticRefraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EBC228F4A5400185D48 /* CausticRefraction.swift */; };
+		385A1EDF228F4A5900185D48 /* MultiBandHSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EBD228F4A5400185D48 /* MultiBandHSV.swift */; };
+		385A1EE0228F4A5900185D48 /* cikl_sky.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 385A1EBE228F4A5500185D48 /* cikl_sky.cikernel */; };
+		385A1EE1228F4A5900185D48 /* CRTFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EBF228F4A5500185D48 /* CRTFilter.swift */; };
+		385A1EE2228F4A5900185D48 /* RefractedTextFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC0228F4A5500185D48 /* RefractedTextFilter.swift */; };
+		385A1EE3228F4A5900185D48 /* LensFlare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC1228F4A5500185D48 /* LensFlare.swift */; };
+		385A1EE4228F4A5900185D48 /* KuwaharaFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC2228F4A5500185D48 /* KuwaharaFilter.swift */; };
+		385A1EE5228F4A5900185D48 /* VImageFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC3228F4A5500185D48 /* VImageFilters.swift */; };
+		385A1EE6228F4A5900185D48 /* CIKL_Sky.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC4228F4A5500185D48 /* CIKL_Sky.swift */; };
+		385A1EE7228F4A5900185D48 /* ColorDirectedBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC5228F4A5600185D48 /* ColorDirectedBlur.swift */; };
+		385A1EE8228F4A5900185D48 /* Scatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC6228F4A5600185D48 /* Scatter.swift */; };
+		385A1EE9228F4A5900185D48 /* DitherBayer.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 385A1EC7228F4A5600185D48 /* DitherBayer.cikernel */; };
+		385A1EEA228F4A5900185D48 /* FilmicEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC8228F4A5600185D48 /* FilmicEffects.swift */; };
+		385A1EEB228F4A5900185D48 /* CMYKRegistrationMismatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EC9228F4A5600185D48 /* CMYKRegistrationMismatch.swift */; };
+		385A1EEC228F4A5900185D48 /* VoronoiNoise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ECA228F4A5600185D48 /* VoronoiNoise.swift */; };
+		385A1EED228F4A5900185D48 /* CustomFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ECB228F4A5700185D48 /* CustomFilters.swift */; };
+		385A1EEE228F4A5900185D48 /* SimplePlasma.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ECC228F4A5700185D48 /* SimplePlasma.swift */; };
+		385A1EEF228F4A5900185D48 /* SobelEdgeDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ECD228F4A5700185D48 /* SobelEdgeDetection.swift */; };
+		385A1EF0228F4A5900185D48 /* ThirdPartyFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ECE228F4A5700185D48 /* ThirdPartyFilters.swift */; };
+		385A1EF1228F4A5900185D48 /* ModelIOGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ECF228F4A5800185D48 /* ModelIOGenerators.swift */; };
+		385A1EF2228F4A5900185D48 /* flame.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 385A1ED0228F4A5800185D48 /* flame.cikernel */; };
+		385A1EF3228F4A5900185D48 /* Bokeh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ED1228F4A5800185D48 /* Bokeh.swift */; };
+		385A1EF4228F4A5900185D48 /* MetalFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ED3228F4A5900185D48 /* MetalFilters.swift */; };
+		385A1EF5228F4A5900185D48 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ED4228F4A5900185D48 /* Shaders.metal */; };
 		385BB9AE225E20F6009541A3 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BB9AD225E20F6009541A3 /* UIScreen+Extensions.swift */; };
 		385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D3066225A2BBB0054694A /* AssetGridViewController.swift */; };
 		385D306A225A2C9D0054694A /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D3068225A2C9D0054694A /* GridViewCell.swift */; };
@@ -230,39 +230,6 @@
 		38012FEE228C41AB00372516 /* PreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewVC.swift; sourceTree = "<group>"; };
 		38012FF1228CCC9100372516 /* FilterEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEngine.swift; sourceTree = "<group>"; };
 		38012FF3228CCD2700372516 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
-		38012FF5228CCDA500372516 /* CustomFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFilters.swift; sourceTree = "<group>"; };
-		38012FF8228CD33F00372516 /* ModelIOGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelIOGenerators.swift; sourceTree = "<group>"; };
-		38012FF9228CD33F00372516 /* VImageFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VImageFilters.swift; sourceTree = "<group>"; };
-		38012FFA228CD34000372516 /* SobelEdgeDetection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobelEdgeDetection.swift; sourceTree = "<group>"; };
-		38012FFB228CD34000372516 /* SimplePlasma.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePlasma.swift; sourceTree = "<group>"; };
-		38012FFC228CD34000372516 /* TransverseChromaticAberration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransverseChromaticAberration.swift; sourceTree = "<group>"; };
-		38012FFD228CD34000372516 /* DitherBayer.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DitherBayer.cikernel; sourceTree = "<group>"; };
-		38012FFE228CD34000372516 /* LensFlare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensFlare.swift; sourceTree = "<group>"; };
-		38012FFF228CD34000372516 /* ColorDirectedBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDirectedBlur.swift; sourceTree = "<group>"; };
-		38013000228CD34100372516 /* CompoundEye.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompoundEye.swift; sourceTree = "<group>"; };
-		38013001228CD34100372516 /* Flame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flame.swift; sourceTree = "<group>"; };
-		38013002228CD34100372516 /* ThirdPartyFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartyFilters.swift; sourceTree = "<group>"; };
-		38013003228CD34200372516 /* MultiBandHSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiBandHSV.swift; sourceTree = "<group>"; };
-		38013004228CD34200372516 /* cikl_sky.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cikl_sky.cikernel; sourceTree = "<group>"; };
-		38013005228CD34200372516 /* CRTFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRTFilter.swift; sourceTree = "<group>"; };
-		38013006228CD34200372516 /* MercurializeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercurializeFilter.swift; sourceTree = "<group>"; };
-		38013007228CD34200372516 /* ConcentricSineWaves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcentricSineWaves.swift; sourceTree = "<group>"; };
-		38013009228CD34300372516 /* MetalFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilters.swift; sourceTree = "<group>"; };
-		3801300A228CD34300372516 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		3801300B228CD34300372516 /* RGBChannelCompositing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBChannelCompositing.swift; sourceTree = "<group>"; };
-		3801300C228CD34300372516 /* KuwaharaFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuwaharaFilter.swift; sourceTree = "<group>"; };
-		3801300D228CD34300372516 /* CausticRefraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CausticRefraction.swift; sourceTree = "<group>"; };
-		3801300E228CD34400372516 /* RefractedTextFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefractedTextFilter.swift; sourceTree = "<group>"; };
-		3801300F228CD34400372516 /* Bokeh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bokeh.swift; sourceTree = "<group>"; };
-		38013010228CD34400372516 /* CIKL_Sky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIKL_Sky.swift; sourceTree = "<group>"; };
-		38013011228CD34500372516 /* Scatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scatter.swift; sourceTree = "<group>"; };
-		38013012228CD34500372516 /* CMYKRegistrationMismatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMYKRegistrationMismatch.swift; sourceTree = "<group>"; };
-		38013013228CD34500372516 /* CarnivalMirror.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarnivalMirror.swift; sourceTree = "<group>"; };
-		38013014228CD34600372516 /* VoronoiNoise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoronoiNoise.swift; sourceTree = "<group>"; };
-		38013015228CD34600372516 /* EightBit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightBit.swift; sourceTree = "<group>"; };
-		38013016228CD34600372516 /* FilmicEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmicEffects.swift; sourceTree = "<group>"; };
-		38013017228CD34700372516 /* flame.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flame.cikernel; sourceTree = "<group>"; };
-		38013018228CD34700372516 /* Voronoi.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Voronoi.cikernel; sourceTree = "<group>"; };
 		38013039228CDA1D00372516 /* FilterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtensions.swift; sourceTree = "<group>"; };
 		3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator+StateChanges.swift"; sourceTree = "<group>"; };
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
@@ -313,6 +280,39 @@
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
 		384B9DA522369908007B4BD0 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		384B9DA72236E903007B4BD0 /* QPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QPreviewView.swift; sourceTree = "<group>"; };
+		385A1EB3228F4A5300185D48 /* EightBit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EightBit.swift; sourceTree = "<group>"; };
+		385A1EB4228F4A5300185D48 /* CarnivalMirror.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarnivalMirror.swift; sourceTree = "<group>"; };
+		385A1EB5228F4A5300185D48 /* CompoundEye.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompoundEye.swift; sourceTree = "<group>"; };
+		385A1EB6228F4A5300185D48 /* ConcentricSineWaves.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcentricSineWaves.swift; sourceTree = "<group>"; };
+		385A1EB7228F4A5400185D48 /* MercurializeFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MercurializeFilter.swift; sourceTree = "<group>"; };
+		385A1EB8228F4A5400185D48 /* Flame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flame.swift; sourceTree = "<group>"; };
+		385A1EB9228F4A5400185D48 /* RGBChannelCompositing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBChannelCompositing.swift; sourceTree = "<group>"; };
+		385A1EBA228F4A5400185D48 /* TransverseChromaticAberration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransverseChromaticAberration.swift; sourceTree = "<group>"; };
+		385A1EBB228F4A5400185D48 /* Voronoi.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Voronoi.cikernel; sourceTree = "<group>"; };
+		385A1EBC228F4A5400185D48 /* CausticRefraction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CausticRefraction.swift; sourceTree = "<group>"; };
+		385A1EBD228F4A5400185D48 /* MultiBandHSV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiBandHSV.swift; sourceTree = "<group>"; };
+		385A1EBE228F4A5500185D48 /* cikl_sky.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cikl_sky.cikernel; sourceTree = "<group>"; };
+		385A1EBF228F4A5500185D48 /* CRTFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRTFilter.swift; sourceTree = "<group>"; };
+		385A1EC0228F4A5500185D48 /* RefractedTextFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefractedTextFilter.swift; sourceTree = "<group>"; };
+		385A1EC1228F4A5500185D48 /* LensFlare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensFlare.swift; sourceTree = "<group>"; };
+		385A1EC2228F4A5500185D48 /* KuwaharaFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuwaharaFilter.swift; sourceTree = "<group>"; };
+		385A1EC3228F4A5500185D48 /* VImageFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VImageFilters.swift; sourceTree = "<group>"; };
+		385A1EC4228F4A5500185D48 /* CIKL_Sky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CIKL_Sky.swift; sourceTree = "<group>"; };
+		385A1EC5228F4A5600185D48 /* ColorDirectedBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDirectedBlur.swift; sourceTree = "<group>"; };
+		385A1EC6228F4A5600185D48 /* Scatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scatter.swift; sourceTree = "<group>"; };
+		385A1EC7228F4A5600185D48 /* DitherBayer.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DitherBayer.cikernel; sourceTree = "<group>"; };
+		385A1EC8228F4A5600185D48 /* FilmicEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmicEffects.swift; sourceTree = "<group>"; };
+		385A1EC9228F4A5600185D48 /* CMYKRegistrationMismatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMYKRegistrationMismatch.swift; sourceTree = "<group>"; };
+		385A1ECA228F4A5600185D48 /* VoronoiNoise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoronoiNoise.swift; sourceTree = "<group>"; };
+		385A1ECB228F4A5700185D48 /* CustomFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFilters.swift; sourceTree = "<group>"; };
+		385A1ECC228F4A5700185D48 /* SimplePlasma.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimplePlasma.swift; sourceTree = "<group>"; };
+		385A1ECD228F4A5700185D48 /* SobelEdgeDetection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SobelEdgeDetection.swift; sourceTree = "<group>"; };
+		385A1ECE228F4A5700185D48 /* ThirdPartyFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdPartyFilters.swift; sourceTree = "<group>"; };
+		385A1ECF228F4A5800185D48 /* ModelIOGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelIOGenerators.swift; sourceTree = "<group>"; };
+		385A1ED0228F4A5800185D48 /* flame.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flame.cikernel; sourceTree = "<group>"; };
+		385A1ED1228F4A5800185D48 /* Bokeh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bokeh.swift; sourceTree = "<group>"; };
+		385A1ED3228F4A5900185D48 /* MetalFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilters.swift; sourceTree = "<group>"; };
+		385A1ED4228F4A5900185D48 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		385BB9AD225E20F6009541A3 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		385D3066225A2BBB0054694A /* AssetGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetGridViewController.swift; sourceTree = "<group>"; };
 		385D3068225A2C9D0054694A /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
@@ -462,7 +462,6 @@
 			isa = PBXGroup;
 			children = (
 				38012FF7228CD2E200372516 /* Filter Library */,
-				38012FF5228CCDA500372516 /* CustomFilters.swift */,
 				38012FF1228CCC9100372516 /* FilterEngine.swift */,
 				38012FF3228CCD2700372516 /* Filter.swift */,
 				38013039228CDA1D00372516 /* FilterExtensions.swift */,
@@ -473,48 +472,10 @@
 		38012FF7228CD2E200372516 /* Filter Library */ = {
 			isa = PBXGroup;
 			children = (
-				3801300F228CD34400372516 /* Bokeh.swift */,
-				38013013228CD34500372516 /* CarnivalMirror.swift */,
-				3801300D228CD34300372516 /* CausticRefraction.swift */,
-				38013004228CD34200372516 /* cikl_sky.cikernel */,
-				38013010228CD34400372516 /* CIKL_Sky.swift */,
-				38013012228CD34500372516 /* CMYKRegistrationMismatch.swift */,
-				38012FFF228CD34000372516 /* ColorDirectedBlur.swift */,
-				38013000228CD34100372516 /* CompoundEye.swift */,
-				38013007228CD34200372516 /* ConcentricSineWaves.swift */,
-				38013005228CD34200372516 /* CRTFilter.swift */,
-				38012FFD228CD34000372516 /* DitherBayer.cikernel */,
-				38013015228CD34600372516 /* EightBit.swift */,
-				38013016228CD34600372516 /* FilmicEffects.swift */,
-				38013017228CD34700372516 /* flame.cikernel */,
-				38013001228CD34100372516 /* Flame.swift */,
-				3801300C228CD34300372516 /* KuwaharaFilter.swift */,
-				38012FFE228CD34000372516 /* LensFlare.swift */,
-				38013006228CD34200372516 /* MercurializeFilter.swift */,
-				38013008228CD34300372516 /* metalFilters */,
-				38012FF8228CD33F00372516 /* ModelIOGenerators.swift */,
-				38013003228CD34200372516 /* MultiBandHSV.swift */,
-				3801300E228CD34400372516 /* RefractedTextFilter.swift */,
-				3801300B228CD34300372516 /* RGBChannelCompositing.swift */,
-				38013011228CD34500372516 /* Scatter.swift */,
-				38012FFB228CD34000372516 /* SimplePlasma.swift */,
-				38012FFA228CD34000372516 /* SobelEdgeDetection.swift */,
-				38013002228CD34100372516 /* ThirdPartyFilters.swift */,
-				38012FFC228CD34000372516 /* TransverseChromaticAberration.swift */,
-				38012FF9228CD33F00372516 /* VImageFilters.swift */,
-				38013018228CD34700372516 /* Voronoi.cikernel */,
-				38013014228CD34600372516 /* VoronoiNoise.swift */,
+				385A1ECB228F4A5700185D48 /* CustomFilters.swift */,
+				385A1EB2228F4A3B00185D48 /* CustomFilters */,
 			);
 			path = "Filter Library";
-			sourceTree = "<group>";
-		};
-		38013008228CD34300372516 /* metalFilters */ = {
-			isa = PBXGroup;
-			children = (
-				38013009228CD34300372516 /* MetalFilters.swift */,
-				3801300A228CD34300372516 /* Shaders.metal */,
-			);
-			path = metalFilters;
 			sourceTree = "<group>";
 		};
 		38051CCA2253B12300D9E763 /* StoryBoards */ = {
@@ -605,6 +566,53 @@
 				3826512F227EF703003D2E19 /* Canvas.swift */,
 			);
 			path = Dimensions;
+			sourceTree = "<group>";
+		};
+		385A1EB2228F4A3B00185D48 /* CustomFilters */ = {
+			isa = PBXGroup;
+			children = (
+				385A1ED1228F4A5800185D48 /* Bokeh.swift */,
+				385A1EB4228F4A5300185D48 /* CarnivalMirror.swift */,
+				385A1EBC228F4A5400185D48 /* CausticRefraction.swift */,
+				385A1EBE228F4A5500185D48 /* cikl_sky.cikernel */,
+				385A1EC4228F4A5500185D48 /* CIKL_Sky.swift */,
+				385A1EC9228F4A5600185D48 /* CMYKRegistrationMismatch.swift */,
+				385A1EC5228F4A5600185D48 /* ColorDirectedBlur.swift */,
+				385A1EB5228F4A5300185D48 /* CompoundEye.swift */,
+				385A1EB6228F4A5300185D48 /* ConcentricSineWaves.swift */,
+				385A1EBF228F4A5500185D48 /* CRTFilter.swift */,
+				385A1EC7228F4A5600185D48 /* DitherBayer.cikernel */,
+				385A1EB3228F4A5300185D48 /* EightBit.swift */,
+				385A1EC8228F4A5600185D48 /* FilmicEffects.swift */,
+				385A1ED0228F4A5800185D48 /* flame.cikernel */,
+				385A1EB8228F4A5400185D48 /* Flame.swift */,
+				385A1EC2228F4A5500185D48 /* KuwaharaFilter.swift */,
+				385A1EC1228F4A5500185D48 /* LensFlare.swift */,
+				385A1EB7228F4A5400185D48 /* MercurializeFilter.swift */,
+				385A1ED2228F4A5900185D48 /* metalFilters */,
+				385A1ECF228F4A5800185D48 /* ModelIOGenerators.swift */,
+				385A1EBD228F4A5400185D48 /* MultiBandHSV.swift */,
+				385A1EC0228F4A5500185D48 /* RefractedTextFilter.swift */,
+				385A1EB9228F4A5400185D48 /* RGBChannelCompositing.swift */,
+				385A1EC6228F4A5600185D48 /* Scatter.swift */,
+				385A1ECC228F4A5700185D48 /* SimplePlasma.swift */,
+				385A1ECD228F4A5700185D48 /* SobelEdgeDetection.swift */,
+				385A1ECE228F4A5700185D48 /* ThirdPartyFilters.swift */,
+				385A1EBA228F4A5400185D48 /* TransverseChromaticAberration.swift */,
+				385A1EC3228F4A5500185D48 /* VImageFilters.swift */,
+				385A1EBB228F4A5400185D48 /* Voronoi.cikernel */,
+				385A1ECA228F4A5600185D48 /* VoronoiNoise.swift */,
+			);
+			path = CustomFilters;
+			sourceTree = "<group>";
+		};
+		385A1ED2228F4A5900185D48 /* metalFilters */ = {
+			isa = PBXGroup;
+			children = (
+				385A1ED3228F4A5900185D48 /* MetalFilters.swift */,
+				385A1ED4228F4A5900185D48 /* Shaders.metal */,
+			);
+			path = metalFilters;
 			sourceTree = "<group>";
 		};
 		385D3065225A2AE80054694A /* ImagePicker */ = {
@@ -1192,9 +1200,10 @@
 			files = (
 				38661AFC2249088300440AC7 /* ShapesCell.xib in Resources */,
 				388BE332222B0C5D005BF44B /* snow.ttf in Resources */,
+				385A1EF2228F4A5900185D48 /* flame.cikernel in Resources */,
 				388BE333222B0C61005BF44B /* candy.otf in Resources */,
+				385A1EE9228F4A5900185D48 /* DitherBayer.cikernel in Resources */,
 				388BE334222B0C65005BF44B /* fontjek.ttf in Resources */,
-				3801301E228CD34700372516 /* DitherBayer.cikernel in Resources */,
 				38FEDBF4222352DB0005EB60 /* LaunchScreen.storyboard in Resources */,
 				38661B10224C42D300440AC7 /* StudioTabCells.xib in Resources */,
 				38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */,
@@ -1203,13 +1212,12 @@
 				38732E9922300DE700CDB703 /* FontCells.xib in Resources */,
 				38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */,
 				385D306B225A2C9D0054694A /* GridViewCell.xib in Resources */,
-				38013025228CD34700372516 /* cikl_sky.cikernel in Resources */,
 				388BE344222C3188005BF44B /* PanelCell.xib in Resources */,
-				38013038228CD34700372516 /* Voronoi.cikernel in Resources */,
-				38013037228CD34700372516 /* flame.cikernel in Resources */,
+				385A1EE0228F4A5900185D48 /* cikl_sky.cikernel in Resources */,
 				38686D2B2277406000349E02 /* TemplateCell.xib in Resources */,
 				38F13A0E2254B6FF002C4109 /* PanelContainerCell.xib in Resources */,
 				38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */,
+				385A1EDD228F4A5900185D48 /* Voronoi.cikernel in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1232,28 +1240,35 @@
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */,
 				389B939822277A77009FE9E6 /* CreateButton.swift in Sources */,
+				385A1EF3228F4A5900185D48 /* Bokeh.swift in Sources */,
 				380C78FC2232C4C4006B8F8D /* ViewGesture.swift in Sources */,
 				388BE319222ABBA5005BF44B /* GradientView.swift in Sources */,
+				385A1EDA228F4A5900185D48 /* Flame.swift in Sources */,
 				38797C2922309E83003A9D99 /* Selectors.swift in Sources */,
 				38732E9822300DE700CDB703 /* FontCells.swift in Sources */,
 				38C80FBF223A98B900150FD4 /* StateChangeControl.swift in Sources */,
+				385A1EDE228F4A5900185D48 /* CausticRefraction.swift in Sources */,
 				388BE321222AC23C005BF44B /* OptionsButtonView.swift in Sources */,
+				385A1EF1228F4A5900185D48 /* ModelIOGenerators.swift in Sources */,
 				388BE31F222AC007005BF44B /* OptionsStack.swift in Sources */,
 				388BE316222ABBA5005BF44B /* ColorSlider.swift in Sources */,
+				385A1EE8228F4A5900185D48 /* Scatter.swift in Sources */,
 				389B939622276BAD009FE9E6 /* Extensions.swift in Sources */,
-				38013031228CD34700372516 /* Scatter.swift in Sources */,
 				382365762240ED9A0078A723 /* PhotoTweakView.m in Sources */,
 				38D97D722251932700B941A0 /* CornersStack.swift in Sources */,
+				385A1EEE228F4A5900185D48 /* SimplePlasma.swift in Sources */,
 				382365752240ED9A0078A723 /* UIColor+Tweak.m in Sources */,
 				3818DACF227087B800202C14 /* StudioModel.swift in Sources */,
+				385A1EEF228F4A5900185D48 /* SobelEdgeDetection.swift in Sources */,
 				388BE2FC2229A458005BF44B /* BaseView.swift in Sources */,
 				38661B05224BE8DB00440AC7 /* CornersPanel.swift in Sources */,
 				3896507D2242C193009434B4 /* Actions.swift in Sources */,
 				38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */,
-				38013036228CD34700372516 /* FilmicEffects.swift in Sources */,
 				388BE343222C3188005BF44B /* PanelCell.swift in Sources */,
 				388BE2FA22299B01005BF44B /* CGRect+Literals.swift in Sources */,
+				385A1EE5228F4A5900185D48 /* VImageFilters.swift in Sources */,
 				38661B0C224C06E900440AC7 /* Opereators.swift in Sources */,
+				385A1ED5228F4A5900185D48 /* EightBit.swift in Sources */,
 				38236563223FFE260078A723 /* Cropview.swift in Sources */,
 				38012FF2228CCC9100372516 /* FilterEngine.swift in Sources */,
 				38CFAAB322878CCD00D40330 /* CGAffineTransform.swift in Sources */,
@@ -1261,81 +1276,80 @@
 				388BE38A222EB50B005BF44B /* TextModel.swift in Sources */,
 				388BE33C222BB5AD005BF44B /* MaterialView.swift in Sources */,
 				38FEDC0C222356BD0005EB60 /* QMImageEngine.swift in Sources */,
+				385A1EE2228F4A5900185D48 /* RefractedTextFilter.swift in Sources */,
 				388BE323222AC376005BF44B /* CreateOptions.swift in Sources */,
-				38013030228CD34700372516 /* CIKL_Sky.swift in Sources */,
 				388BE2F722299B01005BF44B /* CGSize+Literals.swift in Sources */,
 				38C2E4042266180400EE5DEB /* StackPanelVC.swift in Sources */,
 				38797C2522309DAF003A9D99 /* Constraints.swift in Sources */,
 				38265130227EF703003D2E19 /* Canvas.swift in Sources */,
-				38013019228CD34700372516 /* ModelIOGenerators.swift in Sources */,
+				385A1EE7228F4A5900185D48 /* ColorDirectedBlur.swift in Sources */,
+				385A1EE6228F4A5900185D48 /* CIKL_Sky.swift in Sources */,
 				381865B5223C9972006C0C56 /* LayerStack.swift in Sources */,
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,
 				38A6687E223EED7C00F29F52 /* Colors.swift in Sources */,
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
-				38013023228CD34700372516 /* ThirdPartyFilters.swift in Sources */,
 				38F13A062254360E002C4109 /* CollapsibleTableViewHeader.swift in Sources */,
+				385A1EDF228F4A5900185D48 /* MultiBandHSV.swift in Sources */,
+				385A1EEC228F4A5900185D48 /* VoronoiNoise.swift in Sources */,
+				385A1EF0228F4A5900185D48 /* ThirdPartyFilters.swift in Sources */,
 				38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */,
 				388BE384222E7AD8005BF44B /* PointControlPad.swift in Sources */,
 				3896507F2242DD7F009434B4 /* States.swift in Sources */,
 				38012FF4228CCD2700372516 /* Filter.swift in Sources */,
-				38013033228CD34700372516 /* CarnivalMirror.swift in Sources */,
+				385A1EEB228F4A5900185D48 /* CMYKRegistrationMismatch.swift in Sources */,
 				38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */,
 				3823656D2240674F0078A723 /* +Resizing.swift in Sources */,
 				38743D562258072000897B13 /* EditingCoordinator.swift in Sources */,
-				3801302A228CD34700372516 /* Shaders.metal in Sources */,
 				38686D2522771F5000349E02 /* HomePageVC.swift in Sources */,
 				38C80FC6223C453D00150FD4 /* TabControl.swift in Sources */,
+				385A1ED8228F4A5900185D48 /* ConcentricSineWaves.swift in Sources */,
 				38F13A102254C855002C4109 /* iPadStudioVC.swift in Sources */,
 				388BE2F822299B01005BF44B /* UIEdgeInsets+Literals.swift in Sources */,
 				3823655E223FA6D00078A723 /* GroupWrapperView.swift in Sources */,
-				38013021228CD34700372516 /* CompoundEye.swift in Sources */,
 				38115327224D0AC200DA7D3B /* Style.swift in Sources */,
 				380C79002232D8EB006B8F8D /* WrapperView.swift in Sources */,
 				38115329224D0CE900DA7D3B /* ShapeModel.swift in Sources */,
 				38743D502257E49A00897B13 /* StudioTaskBarController.swift in Sources */,
 				38F13A052254360E002C4109 /* CollapsibleTableSectionViewController.swift in Sources */,
 				38012FEF228C41AB00372516 /* PreviewVC.swift in Sources */,
+				385A1EED228F4A5900185D48 /* CustomFilters.swift in Sources */,
 				388BE318222ABBA5005BF44B /* ColorSliderExtensions.swift in Sources */,
 				3873738C22452BBE00A1FB7B /* StudioEditorView.swift in Sources */,
 				3818DAD1227091C200202C14 /* StudioColor.swift in Sources */,
 				3833521F22819CF800DA6857 /* SPUserResizableView.m in Sources */,
 				38661AFF224B964100440AC7 /* StylingPanel.swift in Sources */,
+				385A1EDB228F4A5900185D48 /* RGBChannelCompositing.swift in Sources */,
 				388BE33E222BBFDE005BF44B /* GradientModel.swift in Sources */,
 				38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */,
+				385A1ED7228F4A5900185D48 /* CompoundEye.swift in Sources */,
 				386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */,
 				38C2E4022265A39000EE5DEB /* ControlPanelStack.swift in Sources */,
 				38115330224D228400DA7D3B /* SuperRectView.swift in Sources */,
-				3801301F228CD34700372516 /* LensFlare.swift in Sources */,
 				38236565224045390078A723 /* ResizableView.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
 				3811532E224D17B000DA7D3B /* StyleSelectors.swift in Sources */,
-				38013028228CD34700372516 /* ConcentricSineWaves.swift in Sources */,
 				388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */,
-				3801302C228CD34700372516 /* KuwaharaFilter.swift in Sources */,
 				38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */,
 				38661B03224BE89E00440AC7 /* BorderPanel.swift in Sources */,
 				3801303A228CDA1D00372516 /* FilterExtensions.swift in Sources */,
-				3801302E228CD34700372516 /* RefractedTextFilter.swift in Sources */,
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */,
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
 				3826512D227E4A78003D2E19 /* RotationView.swift in Sources */,
-				38013020228CD34700372516 /* ColorDirectedBlur.swift in Sources */,
 				38F13A0A225436D9002C4109 /* ContolPanelTable.swift in Sources */,
+				385A1EDC228F4A5900185D48 /* TransverseChromaticAberration.swift in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */,
-				38012FF6228CCDA600372516 /* CustomFilters.swift in Sources */,
+				385A1EF4228F4A5900185D48 /* MetalFilters.swift in Sources */,
 				38AA311522442AF50050604A /* BaseContentView.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
+				385A1EF5228F4A5900185D48 /* Shaders.metal in Sources */,
 				3896507B2242C154009434B4 /* Layout.swift in Sources */,
-				3801302D228CD34700372516 /* CausticRefraction.swift in Sources */,
-				3801301D228CD34700372516 /* TransverseChromaticAberration.swift in Sources */,
-				38013027228CD34700372516 /* MercurializeFilter.swift in Sources */,
-				38013029228CD34700372516 /* MetalFilters.swift in Sources */,
 				38743D542257F59E00897B13 /* TaskBarControlsProxy.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				38D97D7822522D3600B941A0 /* State.swift in Sources */,
 				380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */,
+				385A1EEA228F4A5900185D48 /* FilmicEffects.swift in Sources */,
 				389B939422276B55009FE9E6 /* StudioVC.swift in Sources */,
 				388BE2F922299B01005BF44B /* UIOffset+Literals.swift in Sources */,
 				38C80FC2223B073700150FD4 /* Studio+Extensions.swift in Sources */,
@@ -1343,22 +1357,20 @@
 				3818DADE227112DE00202C14 /* Saving.swift in Sources */,
 				38C697F5225D05FA009C8CCD /* PickerNavController.swift in Sources */,
 				388BE317222ABBA5005BF44B /* Gradient.swift in Sources */,
-				3801302F228CD34700372516 /* Bokeh.swift in Sources */,
 				38743D522257E9E500897B13 /* iPadTabControl.swift in Sources */,
+				385A1EE1228F4A5900185D48 /* CRTFilter.swift in Sources */,
 				385D306A225A2C9D0054694A /* GridViewCell.swift in Sources */,
 				381865BB223CF457006C0C56 /* Generic+Protocols.swift in Sources */,
 				380C78FE2232CA9E006B8F8D /* ImageModel.swift in Sources */,
-				38013022228CD34700372516 /* Flame.swift in Sources */,
 				388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */,
-				38013024228CD34700372516 /* MultiBandHSV.swift in Sources */,
 				381865BD223CF736006C0C56 /* Aliases.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38236561223FEB640078A723 /* +StateChangeable.swift in Sources */,
-				3801302B228CD34700372516 /* RGBChannelCompositing.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
 				38743D592258114500897B13 /* EditingCoordinatorDelegate.swift in Sources */,
 				38686D2A2277406000349E02 /* TemplateCell.swift in Sources */,
 				38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */,
+				385A1ED9228F4A5900185D48 /* MercurializeFilter.swift in Sources */,
 				3818DADA2270FCF000202C14 /* BaseModelCollection.swift in Sources */,
 				3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
@@ -1366,9 +1378,7 @@
 				3802749C2280541C00E7E5AC /* Coordinator+StateChanges.swift in Sources */,
 				3818DADC2271127900202C14 /* FileManager+Extensions.swift in Sources */,
 				388BE386222E93D0005BF44B /* PointControlview.swift in Sources */,
-				3801301B228CD34700372516 /* SobelEdgeDetection.swift in Sources */,
 				389537CB2268AC37000B4E9D /* StateUpdate.swift in Sources */,
-				38013035228CD34700372516 /* EightBit.swift in Sources */,
 				38F13A0D2254B6FF002C4109 /* PanelContainerCell.swift in Sources */,
 				38797C2722309E5A003A9D99 /* CollectionViewDelegates.swift in Sources */,
 				38661B0F224C42D300440AC7 /* StudioTabCells.swift in Sources */,
@@ -1379,26 +1389,24 @@
 				381865B8223C9E1F006C0C56 /* StackCell.swift in Sources */,
 				38661B0A224BF4E000440AC7 /* LayoutProperty.swift in Sources */,
 				3818DAD62270EAFB00202C14 /* Persistence.swift in Sources */,
-				3801301C228CD34700372516 /* SimplePlasma.swift in Sources */,
 				385BB9AE225E20F6009541A3 /* UIScreen+Extensions.swift in Sources */,
 				380BC9982231C40D007F87FE /* LayerFrame.swift in Sources */,
 				380C78FA2232C454006B8F8D /* BackingImageView.swift in Sources */,
 				388BE31B222ABBA5005BF44B /* DefaultPreviewView.swift in Sources */,
+				385A1ED6228F4A5900185D48 /* CarnivalMirror.swift in Sources */,
 				38661B08224BF44200440AC7 /* Protocols.swift in Sources */,
 				388BE388222EB35A005BF44B /* TextBackingLayer.swift in Sources */,
+				385A1EE3228F4A5900185D48 /* LensFlare.swift in Sources */,
 				3818DAD82270F63F00202C14 /* BaseModel.swift in Sources */,
-				38013032228CD34700372516 /* CMYKRegistrationMismatch.swift in Sources */,
 				388BE340222C2E7F005BF44B /* EditorPanel.swift in Sources */,
 				384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */,
 				38732E9B2230359500CDB703 /* LineView.swift in Sources */,
+				385A1EE4228F4A5900185D48 /* KuwaharaFilter.swift in Sources */,
 				388BE38C222EC1C0005BF44B /* BackingTextView.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
-				38013034228CD34700372516 /* VoronoiNoise.swift in Sources */,
-				3801301A228CD34700372516 /* VImageFilters.swift in Sources */,
 				38D54E1F223930E3009FCF9A /* CustomAlbum.swift in Sources */,
 				389B938F2227689E009FE9E6 /* Utils.swift in Sources */,
 				38661AFB2249088300440AC7 /* ShapesCell.swift in Sources */,
-				38013026228CD34700372516 /* CRTFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

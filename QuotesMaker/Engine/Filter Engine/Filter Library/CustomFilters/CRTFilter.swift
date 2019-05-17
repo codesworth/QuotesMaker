@@ -28,7 +28,7 @@ class VHSTrackingLines: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "VHS Tracking Lines",
+            kCIAttributeFilterDisplayName: "VHS Tracking Lines" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -75,17 +75,17 @@ class VHSTrackingLines: CIFilter
             return nil
         }
         
-        let tx = NSValue(CGAffineTransform: CGAffineTransformMakeTranslation(CGFloat(drand48() * 100), CGFloat(drand48() * 100)))
+        let tx = NSValue(cgAffineTransform: CGAffineTransform(translationX: CGFloat(drand48() * 100), y: CGFloat(drand48() * 100)))
         
         let noise = CIFilter(name: "CIRandomGenerator")!.outputImage!
-            .imageByApplyingFilter("CIAffineTransform",
-                withInputParameters: [kCIInputTransformKey: tx])
-            .imageByApplyingFilter("CILanczosScaleTransform",
-                withInputParameters: [kCIInputAspectRatioKey: 5])
-            .imageByCroppingToRect(inputImage.extent)
+            .applyingFilter("CIAffineTransform",
+                parameters: [kCIInputTransformKey: tx])
+            .applyingFilter("CILanczosScaleTransform",
+                parameters: [kCIInputAspectRatioKey: 5])
+            .cropped(to: inputImage.extent)
         
         
-        let kernel = CIColorKernel(string:
+        let kernel = CIColorKernel(source:
             "kernel vec4 thresholdFilter(__sample image, __sample noise, float time, float spacing, float stripeHeight, float backgroundNoise)" +
                 "{" +
                 "   vec2 uv = destCoord();" +
@@ -98,10 +98,10 @@ class VHSTrackingLines: CIFilter
         
         
         let extent = inputImage.extent
-        let arguments = [inputImage, noise, inputTime, inputSpacing, inputStripeHeight, inputBackgroundNoise]
+        let arguments = [inputImage, noise, inputTime, inputSpacing, inputStripeHeight, inputBackgroundNoise] as [Any]
         
-        let final = kernel.applyWithExtent(extent, arguments: arguments)?
-            .imageByApplyingFilter("CIPhotoEffectNoir", withInputParameters: nil)
+        let final = kernel.apply(extent: extent, arguments: arguments)?
+            .applyingFilter("CIPhotoEffectNoir", parameters: [:])
         
         return final
     }
@@ -117,7 +117,7 @@ class CRTFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "CRT Filter",
+            kCIAttributeFilterDisplayName: "CRT Filter" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -153,7 +153,7 @@ class CRTFilter: CIFilter
     let crtColorFilter = CRTColorFilter()
     
     let vignette = CIFilter(name: "CIVignette",
-                            parameters: [
+        parameters: [
             kCIInputIntensityKey: 1.5,
             kCIInputRadiusKey: 2])!
     
@@ -249,12 +249,12 @@ class CRTFilter: CIFilter
                     let extent = inputImage.extent.insetBy(dx: -1, dy: -1)
                     
                     return crtWarpKernel.apply(extent: extent,
-                                               roiCallback:
+                        roiCallback:
                         {
                             (index, rect) in
                             return rect
-                    },
-                                               image: inputImage,
+                        },
+                        image: inputImage,
                         arguments: arguments)
                 }
                 return nil

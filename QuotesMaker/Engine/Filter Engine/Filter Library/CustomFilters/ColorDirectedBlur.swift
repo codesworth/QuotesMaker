@@ -37,7 +37,7 @@ class HomogeneousColorBlur: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Homogeneous Color Blur",
+            kCIAttributeFilterDisplayName: "Homogeneous Color Blur" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -129,7 +129,7 @@ class ColorDirectedBlur: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Color Directed Blur",
+            kCIAttributeFilterDisplayName: "Color Directed Blur" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",

@@ -22,7 +22,7 @@ class SimpleSky: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Simple Sky",
+            kCIAttributeFilterDisplayName: "Simple Sky" as Any,
             
             "inputSunDiameter": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
