@@ -60,13 +60,13 @@ class RefractedTextFilter: CIFilter
         }
     }
     
-    private var refractingImage: CIImage?
-    private var rawTextImage: CIImage?
+    fileprivate var refractingImage: CIImage?
+    fileprivate var rawTextImage: CIImage?
     
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Refracted Text",
+            kCIAttributeFilterDisplayName: "Refracted Text" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -208,7 +208,7 @@ class RefractedTextFilter: CIFilter
         rawTextImage = CIImage(image: textImage!)!
 
         refractingImage = CIFilter(name: "CIHeightFieldFromMask",
-                                   parameters: [
+            parameters: [
                 kCIInputRadiusKey: inputRadius,
                 kCIInputImageKey: rawTextImage!])?.outputImage?
             .cropped(to: inputImage!.extent)

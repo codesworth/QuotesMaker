@@ -91,7 +91,7 @@ class MercurializeFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Mercurialize Filter",
+            kCIAttributeFilterDisplayName: "Mercurialize Filter" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -185,16 +185,16 @@ class MercurializeFilter: CIFilter
         }
         
         let edgeWork = CIFilter(name: "CIEdgeWork",
-                                parameters: [kCIInputImageKey: inputImage,
+            parameters: [kCIInputImageKey: inputImage,
             kCIInputRadiusKey: inputEdgeThickness])!
         
         let heightField = CIFilter(name: "CIHeightFieldFromMask",
-                                   parameters: [
+                parameters: [
                 kCIInputRadiusKey: inputScale,
                 kCIInputImageKey: edgeWork.outputImage!])!
         
         let shadedMaterial = CIFilter(name: "CIShadedMaterial",
-                                      parameters: [
+                parameters: [
                 kCIInputScaleKey: inputScale,
                 kCIInputImageKey: heightField.outputImage!,
                 kCIInputShadingImageKey: sphereImage!])!
@@ -208,7 +208,7 @@ class MercurializeFilter: CIFilter
     {
         sceneKitView.frame = CGRect(x: 0, y: 0, width: 320, height: 320)
         
-        sceneKitView.backgroundColor = UIColor.blackColor
+        sceneKitView.backgroundColor = UIColor.black
         
         let scene = SCNScene()
         

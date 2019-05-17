@@ -40,7 +40,7 @@ class ConcentricSineWaves: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Concentric Sine Waves",
+            kCIAttributeFilterDisplayName: "Concentric Sine Waves" as Any,
             
             "inputWidth": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
@@ -117,7 +117,7 @@ class ConcentricSineWaves: CIFilter
         }
         
         let extent = CGRect(
-            origin: .zero,
+            origin: CGPoint.zero,
             size: CGSize(width: inputSize.x, height: inputSize.y))
 
         return kernel.apply(

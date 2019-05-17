@@ -33,7 +33,7 @@ class ModelIOColorFromTemperature: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "ModelIO Color From Temperature",
+            kCIAttributeFilterDisplayName: "ModelIO Color From Temperature" as Any,
 
             "inputSize": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIVector",
@@ -82,7 +82,7 @@ class ModelIOColorScalarNoise: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "ModelIO Color Scalar Noise",
+            kCIAttributeFilterDisplayName: "ModelIO Color Scalar Noise" as Any,
 
             "inputSize": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIVector",
@@ -136,8 +136,8 @@ class ModelIOSkyGenerator: CIFilter
         else
         {
             sky = MDLSkyCubeTexture(name: nil,
-                                    channelEncoding: MDLTextureChannelEncoding.uInt8,
-                                    textureDimensions: [Int32(inputSize.x), Int32(inputSize.y)],
+                channelEncoding: MDLTextureChannelEncoding.uInt8,
+                textureDimensions: [Int32(inputSize.x), Int32(inputSize.y)],
                 turbidity: inputTurbidity.toFloat(),
                 sunElevation: inputSunElevation.toFloat(),
                 upperAtmosphereScattering: inputUpperAtmosphereScattering.toFloat(),
@@ -160,7 +160,7 @@ class ModelIOSkyGenerator: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "ModelIO Sky Generator",
+            kCIAttributeFilterDisplayName: "ModelIO Sky Generator" as Any,
 
             "inputSize": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIVector",

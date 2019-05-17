@@ -96,7 +96,7 @@ class MultiBandHSV: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "MultiBandHSV",
+            kCIAttributeFilterDisplayName: "MultiBandHSV" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",

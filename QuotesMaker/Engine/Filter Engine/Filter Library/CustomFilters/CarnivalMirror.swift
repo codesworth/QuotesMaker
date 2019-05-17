@@ -42,7 +42,7 @@ class CarnivalMirror: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Carnival Mirror",
+            kCIAttributeFilterDisplayName: "Carnival Mirror" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -110,12 +110,12 @@ class CarnivalMirror: CIFilter
             let extent = inputImage.extent
             
             return kernel.apply(extent: extent,
-                                roiCallback:
+                roiCallback:
                 {
                     (index, rect) in
                     return rect
-            },
-                                image: inputImage,
+                },
+                image: inputImage,
                 arguments: arguments)
         }
         return nil

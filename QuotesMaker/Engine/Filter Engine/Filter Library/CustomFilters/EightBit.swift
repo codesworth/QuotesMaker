@@ -35,7 +35,7 @@ class EightBit: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Eight Bit",
+            kCIAttributeFilterDisplayName: "Eight Bit" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -101,7 +101,7 @@ class EightBit: CIFilter
         
         
         let final = kernel.apply(extent: extent,
-                                           arguments: [inputImage.applyingFilter("CIPixellate", parameters: [kCIInputScaleKey: inputScale])])
+            arguments: [inputImage.applyingFilter("CIPixellate", parameters: [kCIInputScaleKey: inputScale])])
         
         return final
     }

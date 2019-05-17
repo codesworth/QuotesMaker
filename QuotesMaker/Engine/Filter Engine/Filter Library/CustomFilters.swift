@@ -22,7 +22,7 @@ import CoreImage
 
 let CategoryCustomFilters = "Custom Filters"
 
-class CustomFiltersVendor: NSObject
+class CustomFiltersVendor: NSObject, CIFilterConstructor
 {
     static func registerFilters()
     {
@@ -447,7 +447,7 @@ class CustomFiltersVendor: NSObject
             ])
     }
   
-    func filterWithName(name: String) -> CIFilter?
+    func filter(withName name: String) -> CIFilter?
     {
         switch name
         {
@@ -653,15 +653,6 @@ class CustomFiltersVendor: NSObject
     }
 }
 
-
-extension CustomFiltersVendor:CIFilterConstructor{
-    func filter(withName name: String) -> CIFilter? {
-        <#code#>
-    }
-    
-    
-}
-
 // MARK: PseudoColor
 
 /// This filter isn't dissimilar to Core Image's own False Color filter
@@ -685,7 +676,7 @@ class PseudoColor: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Pseudo Color Filter",
+            kCIAttributeFilterDisplayName: "Pseudo Color Filter" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
@@ -791,7 +782,7 @@ class VintageVignette: CIFilter
 override var attributes: [String : Any]
 {
     return [
-        kCIAttributeFilterDisplayName: "Vintage Vignette",
+        kCIAttributeFilterDisplayName: "Vintage Vignette" as Any,
         
         "inputImage": [kCIAttributeIdentity: 0,
             kCIAttributeClass: "CIImage",
@@ -843,11 +834,11 @@ override var attributes: [String : Any]
         
         let finalImage = inputImage
             .applyingFilter("CIVignette",
-                            parameters: [
+                parameters: [
                     kCIInputIntensityKey: inputVignetteIntensity,
                     kCIInputRadiusKey: inputVignetteRadius])
             .applyingFilter("CISepiaTone",
-                            parameters: [
+                parameters: [
                     kCIInputIntensityKey: inputSepiaToneIntensity])
         
         return finalImage
@@ -866,7 +857,7 @@ class DifferenceOfGaussians: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Difference of Gaussians",
+            kCIAttributeFilterDisplayName: "Difference of Gaussians" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -899,22 +890,22 @@ class DifferenceOfGaussians: CIFilter
             return nil
         }
         
-        let blurred0 = DifferenceOfGaussians.gaussianBlurWithSigma(sigma: inputSigma0, image: inputImage)
+        let blurred0 = DifferenceOfGaussians.gaussianBlurWithSigma(inputSigma0, image: inputImage)
             .cropped(to: inputImage.extent)
-        let blurred1 = DifferenceOfGaussians.gaussianBlurWithSigma(sigma: inputSigma1, image: inputImage)
+        let blurred1 = DifferenceOfGaussians.gaussianBlurWithSigma(inputSigma1, image: inputImage)
             .cropped(to: inputImage.extent)
 
         return blurred0
             .applyingFilter("CISubtractBlendMode",
-                            parameters: ["inputBackgroundImage": blurred1])
+                parameters: ["inputBackgroundImage": blurred1])
             .applyingFilter("CIColorMatrix",
-                            parameters: ["inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 1)])
+                parameters: ["inputBiasVector": CIVector(x: 0, y: 0, z: 0, w: 1)])
             .cropped(to: inputImage.extent)
     }
     
-    static func gaussianBlurWithSigma(sigma: CGFloat, image: CIImage) -> CIImage
+    static func gaussianBlurWithSigma(_ sigma: CGFloat, image: CIImage) -> CIImage
     {
-        let weightsArray: [CGFloat] = (-4).stride(through: 4, by: 1).map
+        let weightsArray: [CGFloat] = stride(from: (-4), through: 4, by: 1).map
         {
             CGFloat(DifferenceOfGaussians.gaussian(CGFloat($0), sigma: sigma))
         }
@@ -923,19 +914,19 @@ class DifferenceOfGaussians: CIFilter
                                      count: weightsArray.count).normalize()
         
         let horizontalBluredImage = CIFilter(name: "CIConvolution9Horizontal",
-                                                withInputParameters: [
+                                                parameters: [
                                                     kCIInputWeightsKey: weightsVector,
                                                     kCIInputImageKey: image])!.outputImage!
         
         let verticalBlurredImage = CIFilter(name: "CIConvolution9Vertical",
-                                               withInputParameters: [
+                                               parameters: [
                                                 kCIInputWeightsKey: weightsVector,
                                                 kCIInputImageKey: horizontalBluredImage])!.outputImage!
         
         return verticalBlurredImage
     }
     
-    static func gaussian(x: CGFloat, sigma: CGFloat) -> CGFloat
+    static func gaussian(_ x: CGFloat, sigma: CGFloat) -> CGFloat
     {
         let variance = max(sigma * sigma, 0.00001)
         
@@ -959,7 +950,7 @@ class StarBurstFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Starburst Filter",
+            kCIAttributeFilterDisplayName: "Starburst Filter" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -1025,19 +1016,19 @@ class StarBurstFilter: CIFilter
         let thresholdImage = thresholdFilter.outputImage!
      
         let starBurstAccumulator = CIImageAccumulator(extent: thresholdImage.extent,
-                                                      format: CIFormat.ARGB8)
+            format: CIFormat.ARGB8)
         
         for i in 0 ..< inputBeamCount
         {
             let angle = CGFloat((Double.pi / Double(inputBeamCount)) * Double(i))
             
             let starburst = thresholdImage.applyingFilter("CIMotionBlur",
-                                                          parameters: [
+                    parameters: [
                         kCIInputRadiusKey: inputRadius,
                         kCIInputAngleKey: inputAngle + angle])
                 .cropped(to: thresholdImage.extent)
                 .applyingFilter("CIAdditionCompositing",
-                                parameters: [
+                    parameters: [
                         kCIInputBackgroundImageKey: starBurstAccumulator?.image()])
             
             starBurstAccumulator?.setImage(starburst)
@@ -1045,10 +1036,10 @@ class StarBurstFilter: CIFilter
         
         let adjustedStarBurst = starBurstAccumulator?.image()
             .applyingFilter("CIColorControls",
-                            parameters: [kCIInputBrightnessKey: inputStarburstBrightness])
+                parameters: [kCIInputBrightnessKey: inputStarburstBrightness])
 
         let final = inputImage.applyingFilter("CIAdditionCompositing",
-                                              parameters: [kCIInputBackgroundImageKey: adjustedStarBurst])
+            parameters: [kCIInputBackgroundImageKey: adjustedStarBurst])
         
         return final
     }
@@ -1063,7 +1054,7 @@ class ThresholdToAlphaFilter: ThresholdFilter
     {
         var superAttributes = super.attributes
         
-        superAttributes[kCIAttributeFilterDisplayName] = "Threshold To Alpha Filter"
+        superAttributes[kCIAttributeFilterDisplayName] = "Threshold To Alpha Filter" as Any
         
         return superAttributes
     }
@@ -1102,7 +1093,7 @@ class AdvancedMonochrome: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Advanced Monochrome",
+            kCIAttributeFilterDisplayName: "Advanced Monochrome" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -1184,7 +1175,7 @@ class SmoothThreshold: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Smooth Threshold Filter",
+            kCIAttributeFilterDisplayName: "Smooth Threshold Filter" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -1245,7 +1236,7 @@ class ThresholdFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Threshold Filter",
+            kCIAttributeFilterDisplayName: "Threshold Filter" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -1317,7 +1308,7 @@ class PolarPixellate: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Polar Pixellate",
+            kCIAttributeFilterDisplayName: "Polar Pixellate" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -1381,12 +1372,12 @@ class PolarPixellate: CIFilter
             let pixelSize = CIVector(x: inputPixelLength, y: inputPixelArc)
             
             return kernel.apply(extent: extent,
-                                roiCallback:
+                roiCallback:
                 {
                     (index, rect) in
                     return rect
-            },
-                                image: inputImage,
+                },
+                image: inputImage,
                 arguments: [inputCenter, pixelSize])
         }
         return nil
@@ -1405,7 +1396,7 @@ class VignetteNoirFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Vignette Noir Filter",
+            kCIAttributeFilterDisplayName: "Vignette Noir Filter" as Any,
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "Image",
@@ -1457,8 +1448,10 @@ class VignetteNoirFilter: CIFilter
                 kCIInputRadiusKey: inputRadius,
                 kCIInputIntensityKey: inputIntensity])
         
-        let noir = inputImage.applyingFilter("CIPhotoEffectNoir", parameters: [:]).applyingFilter("CIColorControls", parameters: [
-            kCIInputBrightnessKey: inputEdgeBrightness])
+        let noir = inputImage
+            .applyingFilter("CIPhotoEffectNoir",parameters: [:])
+            .applyingFilter("CIColorControls", parameters: [
+                kCIInputBrightnessKey: inputEdgeBrightness])
         
         let blendWithMaskFilter = CIFilter(name: "CIBlendWithMask", parameters: [
             kCIInputImageKey: inputImage,
@@ -1480,7 +1473,7 @@ class NormalMapFilter: CIFilter
     override var attributes: [String : Any]
     {
         return [
-            kCIAttributeFilterDisplayName: "Normal Map",
+            kCIAttributeFilterDisplayName: "Normal Map" as Any,
             
             "inputImage": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIImage",

@@ -195,7 +195,7 @@ class LensFlare: CIFilter
         ]
         
         let attributes: [String : Any] = [
-            kCIAttributeFilterDisplayName: "Lens Flare",
+            kCIAttributeFilterDisplayName: "Lens Flare" as Any,
             
             "inputOrigin": [kCIAttributeIdentity: 0,
                 kCIAttributeClass: "CIVector",
@@ -267,13 +267,13 @@ class LensFlare: CIFilter
         let localOrigin = CIVector(x: center.x - inputOrigin.x, y: center.y - inputOrigin.y)
         let reflectionZero = CIVector(x: center.x + localOrigin.x, y: center.y + localOrigin.y)
 
-        let reflectionOne = inputOrigin.interpolateTo(reflectionZero, value: inputPositionOne)
-        let reflectionTwo = inputOrigin.interpolateTo(reflectionZero, value: inputPositionTwo)
-        let reflectionThree = inputOrigin.interpolateTo(reflectionZero, value: inputPositionThree)
-        let reflectionFour = inputOrigin.interpolateTo(reflectionZero, value: inputPositionFour)
-        let reflectionFive = inputOrigin.interpolateTo(reflectionZero, value: inputPositionFive)
-        let reflectionSix = inputOrigin.interpolateTo(reflectionZero, value: inputPositionSix)
-        let reflectionSeven = inputOrigin.interpolateTo(reflectionZero, value: inputPositionSeven)
+        let reflectionOne = inputOrigin.interpolateTo(target: reflectionZero, value: inputPositionOne)
+        let reflectionTwo = inputOrigin.interpolateTo(target: reflectionZero, value: inputPositionTwo)
+        let reflectionThree = inputOrigin.interpolateTo(target: reflectionZero, value: inputPositionThree)
+        let reflectionFour = inputOrigin.interpolateTo(target: reflectionZero, value: inputPositionFour)
+        let reflectionFive = inputOrigin.interpolateTo(target: reflectionZero, value: inputPositionFive)
+        let reflectionSix = inputOrigin.interpolateTo(target: reflectionZero, value: inputPositionSix)
+        let reflectionSeven = inputOrigin.interpolateTo(target: reflectionZero, value: inputPositionSeven)
         
         sunbeamsFilter?.setValue(inputOrigin, forKeyPath: kCIInputCenterKey)
         sunbeamsFilter?.setValue(inputColor, forKey: kCIInputColorKey)
@@ -284,15 +284,15 @@ class LensFlare: CIFilter
             reflectionZero, reflectionOne, reflectionTwo, reflectionThree, reflectionFour, reflectionFive, reflectionSix, reflectionSeven,
             inputReflectionSizeZero, inputReflectionSizeOne, inputReflectionSizeTwo, inputReflectionSizeThree, inputReflectionSizeFour,
             inputReflectionSizeFive, inputReflectionSizeSix, inputReflectionSizeSeven,
-            inputColor, inputReflectionBrightness]
+            inputColor, inputReflectionBrightness] as [Any] 
         
-        let lensFlareImage = colorKernel.applyWithExtent(
-            extent,
-            arguments: arguments)?.imageByApplyingFilter("CIGaussianBlur", withInputParameters: [kCIInputRadiusKey: 2])
+        let lensFlareImage = colorKernel.apply(
+            extent: extent,
+            arguments: arguments)?.applyingFilter("CIGaussianBlur", parameters: [kCIInputRadiusKey: 2])
         
-        return lensFlareImage?.imageByApplyingFilter(
+        return lensFlareImage?.applyingFilter(
             "CIAdditionCompositing",
-            withInputParameters: [kCIInputBackgroundImageKey: sunbeamsImage]).imageByCroppingToRect(extent)
+            parameters: [kCIInputBackgroundImageKey: sunbeamsImage]).cropped(to: extent)
     }
 }
 

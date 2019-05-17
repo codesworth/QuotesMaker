@@ -1340,24 +1340,50 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8kM-JJ-N8r">
                                 <rect key="frame" x="0.0" y="588" width="1024" height="160"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="Rf8-rQ-tiw"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0qv-gt-E0j">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0qv-gt-E0j">
+                                    <size key="itemSize" width="167" height="157"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="T9i-p6-zsH">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilterCollectionCell" id="T9i-p6-zsH" customClass="FilterCollectionCell" customModule="QuotesMaker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1.5" width="167" height="157"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="167" height="157"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-ZC-ebo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="120"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="120" id="PwU-UG-Xgo"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFo-G5-jqN">
+                                                    <rect key="frame" x="63" y="124" width="41.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="pFo-G5-jqN" firstAttribute="top" secondItem="Gup-ZC-ebo" secondAttribute="bottom" constant="4" id="ETm-rS-qTw"/>
+                                            <constraint firstItem="Gup-ZC-ebo" firstAttribute="leading" secondItem="T9i-p6-zsH" secondAttribute="leading" id="eCU-HU-GU5"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gup-ZC-ebo" secondAttribute="trailing" id="fdG-Kb-SKb"/>
+                                            <constraint firstItem="pFo-G5-jqN" firstAttribute="centerX" secondItem="T9i-p6-zsH" secondAttribute="centerX" id="t0E-eY-bx5"/>
+                                            <constraint firstItem="Gup-ZC-ebo" firstAttribute="top" secondItem="T9i-p6-zsH" secondAttribute="top" id="wM9-l6-oTL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="Gup-ZC-ebo" id="OrL-3N-kfb"/>
+                                            <outlet property="titleLabel" destination="pFo-G5-jqN" id="wbe-Kn-I7H"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
