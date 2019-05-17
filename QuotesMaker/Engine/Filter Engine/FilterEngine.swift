@@ -12,6 +12,7 @@ class FilterEngine:NSObject{
     
     var inputImage:UIImage?
     private var supportedFilterCategories = [
+        //NoFilter.Category,
         kCICategoryColorEffect,
         kCICategoryColorAdjustment,
         /*kCICategoryHalftoneEffect,
@@ -34,6 +35,7 @@ class FilterEngine:NSObject{
     
     override init() {
         super.init()
+        //CIFilter.registerName("0NoFilter", constructor: NoFilterConstructor(), classAttributes: [kCIAttributeFilterCategories:NoFilter.Category])
         stabilizedFilters = CIFilter.filterNames(inCategory: kCICategoryColorEffect)
     }
     
@@ -53,5 +55,43 @@ class FilterEngine:NSObject{
     }
 }
 
+class NoFilter:CIFilter{
+    
+    static let Category = "0NoFilter"
+    
+    override var attributes: [String : Any]{
+        return [
+            kCIAttributeFilterDisplayName: "No Filter" as Any,
+            
+            "inputImage": [kCIAttributeIdentity: 0,
+                           kCIAttributeClass: "CIImage",
+                           kCIAttributeDisplayName: "Image",
+                           kCIAttributeType: kCIAttributeTypeImage]
+        ]
+    }
+    
+    override init() {
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override var outputImage: CIImage?{
+        guard let image = attributes[kCIInputImageKey] as? CIImage else {fatalError("Input Image Not Set")}
+        return image
+    }
+}
+
+class NoFilterConstructor:NSObject, CIFilterConstructor{
+    
+    func filter(withName name: String) -> CIFilter? {
+        if name == "\(NoFilter.self)"{
+            return NoFilter()
+        }
+        return nil
+    }
+}
 
 
