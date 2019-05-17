@@ -476,7 +476,7 @@ class HistogramSpecification: CIFilter, VImageFilter
         let greenMutablePointer = UnsafeMutablePointer<vImagePixelCount>(mutating: green)
         let blueMutablePointer = UnsafeMutablePointer<vImagePixelCount>(mutating: blue)
         
-        let rgba = [redMutablePointer, greenMutablePointer, blueMutablePointer, alphaMutablePointer]
+        //let rgba = [redMutablePointer, greenMutablePointer, blueMutablePointer, alphaMutablePointer]
         
         let histogram = UnsafeMutablePointer<UnsafeMutablePointer<vImagePixelCount>?>(mutating: [redMutablePointer, greenMutablePointer, blueMutablePointer, alphaMutablePointer])
         

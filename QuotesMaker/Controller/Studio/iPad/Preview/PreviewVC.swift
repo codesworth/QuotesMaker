@@ -9,8 +9,10 @@
 import UIKit
 
 class PreviewVC: UIViewController {
+    
+    var filterEngine = FilterEngine()
 
-    var inputImage:UIImage?
+    var inputImage:UIImage!
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var filterView: UICollectionView!
@@ -35,7 +37,7 @@ class PreviewVC: UIViewController {
     */
 
     @IBAction func shareImage(_ sender: UIButton) {
-        guard let image  = inputImage else {return}
+        let image  = inputImage
         let alert = UIActivityViewController(activityItems: [image], applicationActivities: [])
         alert.modalPresentationStyle = .currentContext
         let presentation = alert.popoverPresentationController
@@ -61,15 +63,18 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return filterEngine.stabilizedFilters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
+        let filter = filterEngine.stabilizedFilters[indexPath.row]
+        cell.configureView(name: filter, image: inputImage)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [0]
+        return [180]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

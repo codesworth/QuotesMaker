@@ -10,16 +10,16 @@ import UIKit
 
 class FilterEngine:NSObject{
     
-    
+    var inputImage:UIImage?
     private var supportedFilterCategories = [
         kCICategoryColorEffect,
         kCICategoryColorAdjustment,
-        kCICategoryHalftoneEffect,
+        /*kCICategoryHalftoneEffect,
         kCICategoryReduction,
         kCICategorySharpen,
         kCICategoryStylize,
         kCICategoryTileEffect,
-        kCICategoryTransition
+        kCICategoryTransition*/
     ].sorted()
     
     func supportedFilterNamesInCategories(_ category:String) -> [String]{
@@ -30,11 +30,25 @@ class FilterEngine:NSObject{
         return CIFilter.filterNames(inCategories: supportedFilterCategories)
     }
     
+    var stabilizedFilters:[String] = []
+    
     override init() {
         super.init()
+        stabilizedFilters = CIFilter.filterNames(inCategory: kCICategoryColorEffect)
     }
     
     func filterFor(_ name:String)->CIFilter?{
         return CIFilter(name: name)
     }
+    
+    class func applyFilter(name:String,image:UIImage)->UIImage?{
+        guard let filter = CIFilter(name: name), let ciimage = CIImage(image: image) else {return nil}
+        
+        filter.setValue(ciimage, forKey: kCIInputImageKey)
+        guard let output = filter.outputImage else {return nil}
+        return UIImage(ciImage: output)
+    }
 }
+
+
+
