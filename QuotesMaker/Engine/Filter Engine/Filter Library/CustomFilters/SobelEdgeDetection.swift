@@ -87,11 +87,11 @@ class SobelEdgeDetectionBase: CIFilter
         return sourceImage
             .applyingFilter(filterName,
                 parameters: [
-                    kCIInputWeightsKey: horizontalWeights.multiply(inputWeight),
+                    kCIInputWeightsKey: horizontalWeights.multiply(value: inputWeight),
                     kCIInputBiasKey: inputBias])
             .applyingFilter(filterName,
                 parameters: [
-                    kCIInputWeightsKey: verticalWeights.multiply(inputWeight),
+                    kCIInputWeightsKey: verticalWeights.multiply(value: inputWeight),
                     kCIInputBiasKey: inputBias])
             .cropped(to: sourceImage.extent)
     }

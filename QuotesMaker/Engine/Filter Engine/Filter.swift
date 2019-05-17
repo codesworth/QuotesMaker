@@ -10,6 +10,6 @@ import Foundation
 
 struct Filter {
     
-    var name:String
-    var 
+//    var name:String
+//    var 
 }
