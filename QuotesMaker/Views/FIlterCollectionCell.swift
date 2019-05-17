@@ -17,7 +17,7 @@ class FilterCollectionCell: UICollectionViewCell {
     
     
     func configureView(name:String,image:UIImage){
-        titleLabel.text = name
+        titleLabel.text = CIFilter.localizedName(forFilterName: name)
         DispatchQueue.main.async {
             let filteredImage = FilterEngine.applyFilter(name: name, image: image)
             self.imageView.image = filteredImage

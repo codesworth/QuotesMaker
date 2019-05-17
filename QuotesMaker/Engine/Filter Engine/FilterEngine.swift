@@ -45,6 +45,9 @@ class FilterEngine:NSObject{
         guard let filter = CIFilter(name: name), let ciimage = CIImage(image: image) else {return nil}
         
         filter.setValue(ciimage, forKey: kCIInputImageKey)
+        if (filter.name == "CIColorCubesMixedWithMask"){
+            filter.setValue(ciimage, forKey: kCIInputMaskImageKey)
+        }
         guard let output = filter.outputImage else {return nil}
         return UIImage(ciImage: output)
     }
