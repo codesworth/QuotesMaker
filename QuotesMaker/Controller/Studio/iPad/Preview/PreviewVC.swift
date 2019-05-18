@@ -10,7 +10,7 @@ import UIKit
 
 class PreviewVC: UIViewController {
     
-    var filterEngine = FilterEngine()
+    var filterEngine = FilterEngine.globalInstance
 
     var inputImage:UIImage!
     @IBOutlet weak var imageView: UIImageView!
@@ -63,12 +63,12 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filterEngine.stabilizedFilters.count
+        return filterEngine.availableFilters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
-        let filter = filterEngine.stabilizedFilters[indexPath.row]
+        let filter = filterEngine.availableFilters[indexPath.row]
         cell.configureView(name: filter, image: inputImage)
         return cell
     }
