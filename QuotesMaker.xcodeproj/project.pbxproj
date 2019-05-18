@@ -86,8 +86,6 @@
 		385A1EF1228F4A5900185D48 /* ModelIOGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ECF228F4A5800185D48 /* ModelIOGenerators.swift */; };
 		385A1EF2228F4A5900185D48 /* flame.cikernel in Resources */ = {isa = PBXBuildFile; fileRef = 385A1ED0228F4A5800185D48 /* flame.cikernel */; };
 		385A1EF3228F4A5900185D48 /* Bokeh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ED1228F4A5800185D48 /* Bokeh.swift */; };
-		385A1EF4228F4A5900185D48 /* MetalFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ED3228F4A5900185D48 /* MetalFilters.swift */; };
-		385A1EF5228F4A5900185D48 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 385A1ED4228F4A5900185D48 /* Shaders.metal */; };
 		385A1EF7228F582300185D48 /* FIlterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385A1EF6228F582300185D48 /* FIlterCollectionCell.swift */; };
 		385BB9AE225E20F6009541A3 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385BB9AD225E20F6009541A3 /* UIScreen+Extensions.swift */; };
 		385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385D3066225A2BBB0054694A /* AssetGridViewController.swift */; };
@@ -312,8 +310,6 @@
 		385A1ECF228F4A5800185D48 /* ModelIOGenerators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelIOGenerators.swift; sourceTree = "<group>"; };
 		385A1ED0228F4A5800185D48 /* flame.cikernel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = flame.cikernel; sourceTree = "<group>"; };
 		385A1ED1228F4A5800185D48 /* Bokeh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bokeh.swift; sourceTree = "<group>"; };
-		385A1ED3228F4A5900185D48 /* MetalFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalFilters.swift; sourceTree = "<group>"; };
-		385A1ED4228F4A5900185D48 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 		385A1EF6228F582300185D48 /* FIlterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIlterCollectionCell.swift; sourceTree = "<group>"; };
 		385BB9AD225E20F6009541A3 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		385D3066225A2BBB0054694A /* AssetGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetGridViewController.swift; sourceTree = "<group>"; };
@@ -591,7 +587,6 @@
 				385A1EC2228F4A5500185D48 /* KuwaharaFilter.swift */,
 				385A1EC1228F4A5500185D48 /* LensFlare.swift */,
 				385A1EB7228F4A5400185D48 /* MercurializeFilter.swift */,
-				385A1ED2228F4A5900185D48 /* metalFilters */,
 				385A1ECF228F4A5800185D48 /* ModelIOGenerators.swift */,
 				385A1EBD228F4A5400185D48 /* MultiBandHSV.swift */,
 				385A1EC0228F4A5500185D48 /* RefractedTextFilter.swift */,
@@ -606,15 +601,6 @@
 				385A1ECA228F4A5600185D48 /* VoronoiNoise.swift */,
 			);
 			path = CustomFilters;
-			sourceTree = "<group>";
-		};
-		385A1ED2228F4A5900185D48 /* metalFilters */ = {
-			isa = PBXGroup;
-			children = (
-				385A1ED3228F4A5900185D48 /* MetalFilters.swift */,
-				385A1ED4228F4A5900185D48 /* Shaders.metal */,
-			);
-			path = metalFilters;
 			sourceTree = "<group>";
 		};
 		385D3065225A2AE80054694A /* ImagePicker */ = {
@@ -1344,10 +1330,8 @@
 				385A1EDC228F4A5900185D48 /* TransverseChromaticAberration.swift in Sources */,
 				388BE338222B369E005BF44B /* GradientPanel.swift in Sources */,
 				385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */,
-				385A1EF4228F4A5900185D48 /* MetalFilters.swift in Sources */,
 				38AA311522442AF50050604A /* BaseContentView.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
-				385A1EF5228F4A5900185D48 /* Shaders.metal in Sources */,
 				3896507B2242C154009434B4 /* Layout.swift in Sources */,
 				38743D542257F59E00897B13 /* TaskBarControlsProxy.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,

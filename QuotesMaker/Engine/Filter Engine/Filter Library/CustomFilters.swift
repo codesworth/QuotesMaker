@@ -618,7 +618,7 @@ class CustomFiltersVendor: NSObject, CIFilterConstructor
             
         case "Flame":
             return Flame()
-            
+          /*
         case "MetalPixellateFilter":
             #if !arch(i386) && !arch(x86_64)
                 return MetalPixellateFilter()
@@ -639,6 +639,7 @@ class CustomFiltersVendor: NSObject, CIFilterConstructor
             #else
                 return nil
             #endif
+            */
 
         case "HexagonalBokehFilter":
             #if !arch(i386) && !arch(x86_64)

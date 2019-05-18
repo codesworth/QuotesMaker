@@ -26,7 +26,7 @@ class iPadStudioVC: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("Not implemented")
     }
-    private var canvas:Canvas!
+    var canvas:Canvas!
     let coordinator:EditingCoordinator!
     lazy var taskbarContainer:UIView = {
         let view = UIView(frame: .zero)

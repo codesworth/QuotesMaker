@@ -20,6 +20,7 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 import CoreImage
+import MetalKit
 
 // MARK: Core Image Kernel Languag based bokeh
 
@@ -155,7 +156,8 @@ class MaskedVariableCircularBokeh: CIFilter
     
     import MetalPerformanceShaders
     
-    class HexagonalBokehFilter: CIFilter, MetalRenderable
+    
+    class HexagonalBokehFilter: CIFilter
     {
         override var attributes: [String : Any]
         {
@@ -193,15 +195,15 @@ class MaskedVariableCircularBokeh: CIFilter
             {
                 if let inputImage = inputImage
                 {
-                    let textureDescriptor = MTLTextureDescriptor.texture2DDescriptorWithPixelFormat(
-                        .RGBA8Unorm,
+                    let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(
+                        pixelFormat: .rgba8Unorm,
                         width: Int(inputImage.extent.width),
                         height: Int(inputImage.extent.height),
                         mipmapped: false)
                     
-                    sourceTexture = device.newTextureWithDescriptor(textureDescriptor)
-                    destinationTexture = device.newTextureWithDescriptor(textureDescriptor)
-                    intermediateTexture = device.newTextureWithDescriptor(textureDescriptor)
+                    sourceTexture = device.makeTexture(descriptor: textureDescriptor)
+                    destinationTexture = device.makeTexture(descriptor: textureDescriptor)
+                    intermediateTexture = device.makeTexture(descriptor: textureDescriptor)
                 }
             }
         }
@@ -237,10 +239,10 @@ class MaskedVariableCircularBokeh: CIFilter
         {
             [unowned self] in
             
-            return CIContext(MTLDevice: self.device)
+            return CIContext(mtlDevice: self.device)
         }()
         
-        let colorSpace = CGColorSpaceCreateDeviceRGB()!
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
         
         private var probe = [Float]()
         
@@ -271,32 +273,32 @@ class MaskedVariableCircularBokeh: CIFilter
                 createBlur()
             }
             
-            let commandQueue = device.newCommandQueue()
+            let commandQueue = device.makeCommandQueue()!
             
-            let commandBuffer = commandQueue.commandBuffer()
+            let commandBuffer = commandQueue.makeCommandBuffer()
             
             ciContext.render(
                 inputImage,
-                toMTLTexture: inputTexture,
+                to: inputTexture,
                 commandBuffer: commandBuffer,
                 bounds: inputImage.extent,
                 colorSpace: colorSpace)
             
-            dilate!.encodeToCommandBuffer(
-                commandBuffer,
+            dilate!.encode(
+                commandBuffer: commandBuffer!,
                 sourceTexture: inputTexture,
                 destinationTexture: intermediateTexture)
             
-            blur!.encodeToCommandBuffer(
-                commandBuffer,
+            blur!.encode(
+                commandBuffer: commandBuffer!,
                 sourceTexture: intermediateTexture,
                 destinationTexture: outputTexture)
             
-            commandBuffer.commit()
+            commandBuffer!.commit()
             
             return CIImage(
-                MTLTexture: outputTexture,
-                options: [kCIImageColorSpace: colorSpace])
+                mtlTexture: outputTexture,
+                options: [CIImageOption.colorSpace: colorSpace])
         }
         
         func createDilate()
@@ -329,7 +331,7 @@ class MaskedVariableCircularBokeh: CIFilter
                 kernelHeight: size,
                 values: probe)
             
-            dilate.edgeMode = .Clamp
+            dilate.edgeMode = .clamp
             
             self.dilate = dilate
         }

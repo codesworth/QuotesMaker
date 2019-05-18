@@ -11,9 +11,17 @@ import UIKit
 class PreviewVC: UIViewController {
     
     var filterEngine = FilterEngine.globalInstance
-
+    
+    lazy var imageView:UIImageView = {
+        let imv = UIImageView(frame: .zero)
+        imv.clipsToBounds = true
+        imv.contentMode = .center
+        return imv
+    }()
+    
     var inputImage:UIImage!
-    @IBOutlet weak var imageView: UIImageView!
+    var canvas:Canvas!
+    @IBOutlet weak var imageContainerView: UIView!
     
     @IBOutlet weak var filterView: UICollectionView!
     
@@ -23,6 +31,15 @@ class PreviewVC: UIViewController {
         filterView.delegate = self
         filterView.dataSource = self
         // Do any additional setup after loading the view.
+        setupImageView()
+    }
+    
+    
+    func setupImageView(){
+        //let maxSide = imageContainerView.frame.size.max
+        imageView.frame.size = canvas.size
+        imageContainerView.addSubview(imageView)
+        imageView.center = imageContainerView.center
     }
     
 
@@ -38,7 +55,7 @@ class PreviewVC: UIViewController {
 
     @IBAction func shareImage(_ sender: UIButton) {
         let image  = inputImage
-        let alert = UIActivityViewController(activityItems: [image], applicationActivities: [])
+        let alert = UIActivityViewController(activityItems: [image as Any], applicationActivities: [])
         alert.modalPresentationStyle = .currentContext
         let presentation = alert.popoverPresentationController
         presentation?.permittedArrowDirections = .any
@@ -79,14 +96,16 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [180]
+        return [140,180]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let name = filterEngine.availableFilters[indexPath.row]
         if let image = filterEngine.imageFor(name){
             imageView.image = image
+            imageView.contentMode = .scaleAspectFit
         }else{
+            imageView.contentMode = .scaleAspectFit
             imageView.image = inputImage
         }
     }
