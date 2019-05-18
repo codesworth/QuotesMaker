@@ -36,10 +36,31 @@ class PreviewVC: UIViewController {
     
     
     func setupImageView(){
-        //let maxSide = imageContainerView.frame.size.max
-        imageView.frame.size = canvas.size
+        let width = imageContainerView.frame.width
+        let height = imageContainerView.frame.height
+        let originX:CGFloat
+        let originY:CGFloat
+        let newWidth:CGFloat
+        let newHeight:CGFloat
+        if canvas.ratio > 1{
+            newWidth = (canvas.size.width > width) ? width : canvas.size.width
+            newHeight = (canvas.size.width > width) ? canvas.size.height * (width / canvas.size.width) : canvas.size.height
+            originX = (imageContainerView.bounds.maxX - width) / 2
+            originY = (imageContainerView.bounds.maxY - height) / 2
+        }else if canvas.ratio < 1{
+            newHeight = (canvas.size.height > height) ? height : canvas.size.height
+            newWidth = (canvas.size.height > height) ? canvas.size.width * (height / canvas.size.height) : canvas.size.width
+            originX = (imageContainerView.bounds.maxX - width) / 2
+            originY = 0
+        }else{
+            newWidth = imageContainerView.frame.size.min
+            newHeight = imageContainerView.frame.size.min
+            originX = (imageContainerView.bounds.maxX - width) / 2
+            originY = (imageContainerView.bounds.maxY - height) / 2
+        }
+        imageView.frame = [originX,originY, newWidth,newHeight]
         imageContainerView.addSubview(imageView)
-        imageView.center = imageContainerView.center
+        imageView.center = [imageContainerView.bounds.midX,imageContainerView.bounds.midX]
     }
     
 
