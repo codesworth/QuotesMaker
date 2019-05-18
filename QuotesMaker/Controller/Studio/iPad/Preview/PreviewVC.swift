@@ -31,44 +31,45 @@ class PreviewVC: UIViewController {
         filterView.delegate = self
         filterView.dataSource = self
         // Do any additional setup after loading the view.
-        setupImageView()
+        
     }
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        setupImageView()
     }
     
     func setupImageView(){
         let width = imageContainerView.frame.width
         let height = imageContainerView.frame.height
-        let originX:CGFloat
-        let originY:CGFloat
+        
         let newWidth:CGFloat
         let newHeight:CGFloat
         if canvas.ratio > 1{
-            newWidth = (canvas.size.width > width) ? width : canvas.size.width
+            newWidth = (canvas.size.width > width) ? width - 30 : canvas.size.width
             newHeight = (canvas.size.width > width) ? canvas.size.height * (width / canvas.size.width) : canvas.size.height
-            originX = (imageContainerView.bounds.maxX - width) / 2
-            originY = (imageContainerView.bounds.maxY - height) / 2
+            //originX = (imageContainerView.bounds.maxX - width) / 2
+            //originY = (imageContainerView.bounds.maxY - height) / 2
         }else if canvas.ratio < 1{
-            newHeight = (canvas.size.height > height) ? height : canvas.size.height
+            newHeight = (canvas.size.height > height) ? height - 30 : canvas.size.height
             newWidth = (canvas.size.height > height) ? canvas.size.width * (height / canvas.size.height) : canvas.size.width
-            originX = (imageContainerView.bounds.maxX - width) / 2
-            originY = 0
+            //originX = (imageContainerView.bounds.maxX - width) / 2
+            //originY = 0
         }else{
-            newWidth = imageContainerView.frame.size.min
-            newHeight = imageContainerView.frame.size.min
-            originX = (imageContainerView.bounds.maxX - width) / 2
-            originY = (imageContainerView.bounds.maxY - height) / 2
+            newWidth = imageContainerView.frame.size.min - 30
+            newHeight = imageContainerView.frame.size.min - 30
+            //originX = (imageContainerView.bounds.maxX - width) / 2
+            //originY = (imageContainerView.bounds.maxY - height) / 2
         }
-         imageView.frame.size = [originX,originY, newWidth,newHeight]
+         //imageView.frame.size = [originX,originY, newWidth,newHeight]
         imageContainerView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layout{
             $0.centerX == imageContainerView.centerXAnchor
             $0.centerY == imageContainerView.centerYAnchor
+            $0.width |=| newWidth
+            $0.height |=| newHeight
         }
     }
     
