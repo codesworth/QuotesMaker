@@ -15,7 +15,7 @@ class PreviewVC: UIViewController {
     lazy var imageView:UIImageView = {
         let imv = UIImageView(frame: .zero)
         imv.clipsToBounds = true
-        imv.contentMode = .center
+        imv.contentMode = .scaleAspectFit
         return imv
     }()
     
@@ -34,6 +34,11 @@ class PreviewVC: UIViewController {
         setupImageView()
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+    }
     
     func setupImageView(){
         let width = imageContainerView.frame.width
@@ -58,9 +63,13 @@ class PreviewVC: UIViewController {
             originX = (imageContainerView.bounds.maxX - width) / 2
             originY = (imageContainerView.bounds.maxY - height) / 2
         }
-        imageView.frame = [originX,originY, newWidth,newHeight]
+         imageView.frame.size = [originX,originY, newWidth,newHeight]
         imageContainerView.addSubview(imageView)
-        imageView.center = [imageContainerView.bounds.midX,imageContainerView.bounds.midX]
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layout{
+            $0.centerX == imageContainerView.centerXAnchor
+            $0.centerY == imageContainerView.centerYAnchor
+        }
     }
     
 
@@ -124,10 +133,10 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         let name = filterEngine.availableFilters[indexPath.row]
         if let image = filterEngine.imageFor(name){
             imageView.image = image
-            imageView.contentMode = .scaleAspectFit
+            //imageView.contentMode =
         }else{
             imageView.contentMode = .scaleAspectFit
-            imageView.image = inputImage
+            //imageView.image = inputImage
         }
     }
 }
