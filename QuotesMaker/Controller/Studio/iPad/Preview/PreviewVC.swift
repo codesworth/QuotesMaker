@@ -19,6 +19,7 @@ class PreviewVC: UIViewController {
         return imv
     }()
     
+    
     var inputImage:UIImage!
     var canvas:Canvas!
     @IBOutlet weak var imageContainerView: UIView!
@@ -122,7 +123,7 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
         let filter = filterEngine.availableFilters[indexPath.row]
-        cell.configureView(name: filter, image: inputImage)
+        cell.configureView(name: filter, image: inputImage, size: canvas.size)
         return cell
     }
     

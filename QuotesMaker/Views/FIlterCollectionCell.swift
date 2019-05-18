@@ -24,6 +24,7 @@ class FilterCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        containerView.addSubview(imageView)
         loadingIndicator = UIActivityIndicatorView(frame: frame)
         loadingIndicator.hidesWhenStopped = true
         self.addSubview(self.loadingIndicator!)
@@ -32,14 +33,14 @@ class FilterCollectionCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        containerView.addSubview(imageView)
+        
         imageView.image = nil
     }
     
     func configureView(name:String,image:UIImage,size:CGSize){
         if !isSet{
             let ratio = size.width/size.height
-            let newSize:CGSize = (size.width > size.height) ? [140,140 * ratio] : [140 * (1/ratio),140]
+            let newSize:CGSize = (size.width > size.height) ? [140,140 * ratio] : [140 * ratio,140]
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.layout{
                 $0.width |=| newSize.width
