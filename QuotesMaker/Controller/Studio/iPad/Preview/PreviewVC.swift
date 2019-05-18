@@ -53,6 +53,11 @@ class PreviewVC: UIViewController {
     @IBAction func cancelPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        filterEngine.purge()
+    }
 }
 
 
@@ -78,6 +83,11 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let name = filterEngine.availableFilters[indexPath.row]
+        if let image = filterEngine.imageFor(name){
+            imageView.image = image
+        }else{
+            imageView.image = inputImage
+        }
     }
 }

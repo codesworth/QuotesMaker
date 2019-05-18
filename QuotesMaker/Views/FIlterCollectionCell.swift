@@ -24,6 +24,10 @@ class FilterCollectionCell: UICollectionViewCell {
         loadingIndicator.stopAnimating()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
+    }
     
     func configureView(name:String,image:UIImage){
         
@@ -32,12 +36,16 @@ class FilterCollectionCell: UICollectionViewCell {
             imageView.image = filteredImage
             return
         }
-        DispatchQueue.main.async { [unowned self] in
-            self.loadingIndicator.startAnimating()
+        self.loadingIndicator.startAnimating()
+        let queue = DispatchQueue(label: "Filter", qos: .default, attributes: .concurrent)
+        queue.async {
             let filteredImage = FilterEngine.applyFilter(name: name, image: image)
-            self.imageView.image = filteredImage
-            self.loadingIndicator.stopAnimating()
-            FilterEngine.globalInstance.saveFiltered(filteredImage, for:name)
+            DispatchQueue.main.async { [unowned self] in
+                self.imageView.image = filteredImage
+                self.loadingIndicator.stopAnimating()
+                FilterEngine.globalInstance.saveFiltered(filteredImage, for:name)
+            }
         }
+        
     }
 }
