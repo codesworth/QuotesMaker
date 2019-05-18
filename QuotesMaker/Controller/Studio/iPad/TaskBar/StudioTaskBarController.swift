@@ -67,6 +67,7 @@ class StudioTaskBarController: UIViewController {
         guard let image  = studio?.coordinator.exportImage() else {return}
         if let vc = storyboard?.instantiateViewController(withIdentifier: "\(PreviewVC.self)") as? PreviewVC{
             vc.inputImage = image
+            vc.canvas = studio?.canvas
             studio?.present(vc, animated: true, completion: nil)
         }
         

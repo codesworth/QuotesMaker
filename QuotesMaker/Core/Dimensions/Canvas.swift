@@ -71,6 +71,7 @@ struct Canvas {
     public private (set) var aspectRatio:AspectRatios
     public private (set) var size:CGSize
     public private (set) var scale:CGFloat
+    public private (set) var ratio:CGFloat
     
     init(aspect:AspectRatios) {
         switch aspect {
@@ -80,6 +81,7 @@ struct Canvas {
             size = [.fixedWidth]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "ig"
+            ratio = Ratios.instagram.rawValue
             break
         case .facebook:
             name = "Facebook Post"
@@ -87,6 +89,7 @@ struct Canvas {
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.facebook.rawValue)]
             scale = WidthSizes.facebook_twitter.rawValue / size.width
             icon = "fb"
+            ratio = Ratios.facebook.rawValue
             break
         case .facebook_stories:
             name = "Facebook Story"
@@ -94,6 +97,7 @@ struct Canvas {
             size = [.fixedWidthHG, .fixedWidthHG * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "fb"
+            ratio = Ratios.stories.rawValue
             break
         case .ig_stories:
             name = "Instagram Story"
@@ -101,6 +105,7 @@ struct Canvas {
             size = [.fixedWidthHG, .fixedWidthHG * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "ig"
+            ratio = Ratios.stories.rawValue
             break
         case .snapchat:
             name = "Snapchat"
@@ -108,6 +113,7 @@ struct Canvas {
             size = [.fixedWidthHG, .fixedWidthHG * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "sn"
+            ratio = Ratios.stories.rawValue
             break
         case .ig_vertical:
             name = "Instagram Vertical"
@@ -115,6 +121,7 @@ struct Canvas {
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.ig_vertical.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "ig"
+            ratio = Ratios.ig_vertical.rawValue
             break
         case .ig_horizontal:
             name = "Instagram Horizontal"
@@ -122,6 +129,7 @@ struct Canvas {
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.ig_horizontal.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
             icon = "ig"
+            ratio = Ratios.ig_horizontal.rawValue
             break
         case .pinterest:
             name = "Pinterest"
@@ -129,6 +137,7 @@ struct Canvas {
             size = [.fixedWidth * 0.80, (.fixedWidth * 0.80) * (1 / Ratios.pinterest.rawValue)]
             scale = WidthSizes.pinterest.rawValue / size.width
             icon = "pn"
+            ratio = Ratios.pinterest.rawValue
             break
 //        case .twitter:
 //            name = "Twitter Post"
@@ -143,6 +152,7 @@ struct Canvas {
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter_header.rawValue)]
             scale = WidthSizes.twitter_header.rawValue / size.width
             icon = "tw"
+            ratio = Ratios.twitter_header.rawValue
             break
         case .facebook_header:
             name = "Facebook Header"
@@ -150,6 +160,7 @@ struct Canvas {
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter.rawValue)]
             scale = WidthSizes.facebook_header.rawValue / size.width
             icon = "fb"
+            ratio = Ratios.twitter.rawValue
             break
 //        default:
 //            name = "Regular"
