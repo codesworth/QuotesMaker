@@ -1354,12 +1354,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="167" height="168"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-ZC-ebo">
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gup-ZC-ebo" userLabel="imageContainer">
                                                     <rect key="frame" x="0.0" y="0.0" width="167" height="140"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="140" id="PwU-UG-Xgo"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFo-G5-jqN">
                                                     <rect key="frame" x="63" y="144" width="41.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
@@ -1377,7 +1377,7 @@
                                             <constraint firstItem="Gup-ZC-ebo" firstAttribute="top" secondItem="T9i-p6-zsH" secondAttribute="top" id="wM9-l6-oTL"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="imageView" destination="Gup-ZC-ebo" id="OrL-3N-kfb"/>
+                                            <outlet property="containerView" destination="Gup-ZC-ebo" id="M9x-jS-2VH"/>
                                             <outlet property="titleLabel" destination="pFo-G5-jqN" id="wbe-Kn-I7H"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1442,7 +1442,7 @@
                             </label>
                             <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3b-rk-2fs">
                                 <rect key="frame" x="60" y="50" width="644" height="458"/>
-                                <color key="backgroundColor" red="0.93333333330000001" green="0.0078431372550000003" blue="0.56470588239999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
