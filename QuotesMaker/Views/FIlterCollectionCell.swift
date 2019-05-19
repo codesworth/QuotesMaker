@@ -40,7 +40,7 @@ class FilterCollectionCell: UICollectionViewCell {
     func configureView(name:String,image:UIImage,size:CGSize){
         if !isSet{
             let ratio = size.width/size.height
-            let newSize:CGSize = (size.width > size.height) ? [140,140 * ratio] : [140 * ratio,140]
+            let newSize:CGSize = (size.width > size.height) ? [140,140 * (1/ratio)] : [140 * ratio,140]
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.layout{
                 $0.width |=| newSize.width

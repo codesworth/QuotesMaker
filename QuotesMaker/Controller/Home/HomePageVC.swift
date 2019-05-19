@@ -70,11 +70,12 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TemplateCell.self)", for: indexPath) as! TemplateCell
         if collectionView == recentCollectionVIew{
             let mod = allModels[indexPath.row]
-            cell.configureViewAndIamge(name: mod.name)
+            let canvas = Canvas(aspect: mod.canvasType)
+            cell.configureViewAndIamge(name: mod.name, size: canvas.size)
             return cell
         }else {
             let canvas = sizes[indexPath.row]
-            cell.configureView(name: canvas.name, icon:canvas.icon)
+            cell.configureView(name: canvas.name, icon:canvas.icon, size: canvas.size)
             return cell
         }
         
