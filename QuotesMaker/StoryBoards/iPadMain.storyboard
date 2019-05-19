@@ -346,7 +346,7 @@
         <!--iPad FontsVC-->
         <scene sceneID="gqA-sU-ZOk">
             <objects>
-                <viewController storyboardIdentifier="FontsVC" id="9I4-pK-gvQ" customClass="iPadFontsVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="iPadFontsVC" id="9I4-pK-gvQ" customClass="iPadFontsVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DP1-hs-9VV">
                         <rect key="frame" x="0.0" y="0.0" width="410" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

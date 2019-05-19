@@ -11,6 +11,8 @@ import UIKit
 class iPadFontsVC: UIViewController {
     private var engine = FontEngine()
     private var fonts:[UIFont] = []
+    var model:TextLayerModel!
+    weak var delegate:TextModelDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,5 +58,11 @@ extension iPadFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return [80,80]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let chosenFont = fonts[indexPath.row]
+        model.font = chosenFont
+        delegate?.didUpdateModel(model)
     }
 }

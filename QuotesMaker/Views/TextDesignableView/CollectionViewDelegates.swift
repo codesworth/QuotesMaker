@@ -37,6 +37,7 @@ extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard indexPath.row < fonts.count else {
+            Subscription.main.post(suscription: .moreFonts, object: nil)
             return
         }
         chosenFont = fonts[indexPath.row].font?.fontName

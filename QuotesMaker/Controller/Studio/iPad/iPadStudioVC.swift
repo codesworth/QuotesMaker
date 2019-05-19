@@ -89,7 +89,15 @@ class iPadStudioVC: UIViewController {
     }
     
     
-    
+    @objc func launchMoreFonts(_ notifcation:Notification){
+        if let fonts = storyboard?.instantiateViewController(withIdentifier: "\(iPadFontsVC.self)") as? iPadFontsVC {
+            fonts.delegate = coordinator
+            fonts.model = coordinator.getCurrentModel() as? TextLayerModel ?? TextLayerModel()
+            add(fonts, to: controlPanelContainer)
+            fonts.view.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate(fonts.view.pinAllSides())
+        }
+    }
     
 
     /*
