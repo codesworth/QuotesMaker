@@ -569,6 +569,10 @@
 		388BE38A222EB50B005BF44B /* TextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE389222EB50B005BF44B /* TextModel.swift */; };
 		388BE38C222EC1C0005BF44B /* BackingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388BE38B222EC1C0005BF44B /* BackingTextView.swift */; };
 		389537CB2268AC37000B4E9D /* StateUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389537CA2268AC37000B4E9D /* StateUpdate.swift */; };
+		3895492922917D9900B3075B /* FontEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895492822917D9900B3075B /* FontEngine.swift */; };
+		3895492B2291835900B3075B /* iPadFontsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895492A2291835900B3075B /* iPadFontsVC.swift */; };
+		3895492E22918BD800B3075B /* MoreFontCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895492C22918BD800B3075B /* MoreFontCells.swift */; };
+		3895492F22918BD800B3075B /* MoreFontCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3895492D22918BD800B3075B /* MoreFontCells.xib */; };
 		3896507B2242C154009434B4 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507A2242C154009434B4 /* Layout.swift */; };
 		3896507D2242C193009434B4 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507C2242C193009434B4 /* Actions.swift */; };
 		3896507F2242DD7F009434B4 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507E2242DD7F009434B4 /* States.swift */; };
@@ -1202,6 +1206,10 @@
 		388BE389222EB50B005BF44B /* TextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModel.swift; sourceTree = "<group>"; };
 		388BE38B222EC1C0005BF44B /* BackingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingTextView.swift; sourceTree = "<group>"; };
 		389537CA2268AC37000B4E9D /* StateUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUpdate.swift; sourceTree = "<group>"; };
+		3895492822917D9900B3075B /* FontEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEngine.swift; sourceTree = "<group>"; };
+		3895492A2291835900B3075B /* iPadFontsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadFontsVC.swift; sourceTree = "<group>"; };
+		3895492C22918BD800B3075B /* MoreFontCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFontCells.swift; sourceTree = "<group>"; };
+		3895492D22918BD800B3075B /* MoreFontCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreFontCells.xib; sourceTree = "<group>"; };
 		3896507A2242C154009434B4 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		3896507C2242C193009434B4 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		3896507E2242DD7F009434B4 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
@@ -2518,6 +2526,8 @@
 				38797C2422309DAF003A9D99 /* Constraints.swift */,
 				38797C2622309E5A003A9D99 /* CollectionViewDelegates.swift */,
 				38797C2822309E83003A9D99 /* Selectors.swift */,
+				3895492C22918BD800B3075B /* MoreFontCells.swift */,
+				3895492D22918BD800B3075B /* MoreFontCells.xib */,
 			);
 			path = TextDesignableView;
 			sourceTree = "<group>";
@@ -2568,6 +2578,7 @@
 		388BE324222AD4CD005BF44B /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				3895492722917D7300B3075B /* Font Engine */,
 				38012FF0228CCC3B00372516 /* Filter Engine */,
 				38743D5722580BAA00897B13 /* Coordinator */,
 				388BE325222AD4E8005BF44B /* QMEngine.swift */,
@@ -2680,6 +2691,14 @@
 				388BE32F222B0771005BF44B /* Fonts.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3895492722917D7300B3075B /* Font Engine */ = {
+			isa = PBXGroup;
+			children = (
+				3895492822917D9900B3075B /* FontEngine.swift */,
+			);
+			path = "Font Engine";
 			sourceTree = "<group>";
 		};
 		38965078224279ED009434B4 /* StudioTab */ = {
@@ -2822,6 +2841,7 @@
 			children = (
 				38D97D7A22531E1300B941A0 /* iPhone */,
 				38D97D7922531E0200B941A0 /* iPad */,
+				3895492A2291835900B3075B /* iPadFontsVC.swift */,
 			);
 			path = Studio;
 			sourceTree = "<group>";
@@ -3179,6 +3199,7 @@
 				380827B32291698200B351DB /* FiraSans-Thin.ttf in Resources */,
 				380827342291698200B351DB /* Kalam-Regular.ttf in Resources */,
 				3808274B2291698200B351DB /* Ubuntu-Bold.ttf in Resources */,
+				3895492F22918BD800B3075B /* MoreFontCells.xib in Resources */,
 				380828012291698200B351DB /* Raleway-Medium.ttf in Resources */,
 				380827E02291698200B351DB /* Kodchasan-ExtraLight.ttf in Resources */,
 				380827A92291698200B351DB /* MaidenOrange-Regular.ttf in Resources */,
@@ -3557,6 +3578,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */,
+				3895492E22918BD800B3075B /* MoreFontCells.swift in Sources */,
 				38C80FBD223A904700150FD4 /* StateProtocol.swift in Sources */,
 				3861A4A3222691B70040D819 /* ImagesVC.swift in Sources */,
 				38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */,
@@ -3655,6 +3677,7 @@
 				38661B03224BE89E00440AC7 /* BorderPanel.swift in Sources */,
 				3801303A228CDA1D00372516 /* FilterExtensions.swift in Sources */,
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
+				3895492B2291835900B3075B /* iPadFontsVC.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */,
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
 				3826512D227E4A78003D2E19 /* RotationView.swift in Sources */,
@@ -3668,6 +3691,7 @@
 				38743D542257F59E00897B13 /* TaskBarControlsProxy.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
 				38D97D7822522D3600B941A0 /* State.swift in Sources */,
+				3895492922917D9900B3075B /* FontEngine.swift in Sources */,
 				380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */,
 				385A1EEA228F4A5900185D48 /* FilmicEffects.swift in Sources */,
 				389B939422276B55009FE9E6 /* StudioVC.swift in Sources */,
