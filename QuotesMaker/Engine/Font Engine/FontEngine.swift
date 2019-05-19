@@ -21,6 +21,7 @@ class FontEngine: NSObject {
     
     @discardableResult
     func getAvailableFonts()->[UIFont]{
+        guard availableFonts.isEmpty else { return availableFonts}
         var fontNames:[String] = []
         let familyNames = UIFont.familyNames
         let allFonts = familyNames.compactMap{
@@ -33,6 +34,11 @@ class FontEngine: NSObject {
         return availableFonts
     }
     
+    
+    func filterFonts(search string:String)->[UIFont]{
+        if availableFonts.isEmpty{getAvailableFonts()}
+        return availableFonts.filter{$0.fontName.contains(string)}
+    }
     
 
 }

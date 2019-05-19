@@ -13,9 +13,12 @@ class iPadFontsVC: UIViewController {
     private var fonts:[UIFont] = []
     var model:TextLayerModel!
     weak var delegate:TextModelDelegate?
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         fonts = engine.getAvailableFonts()
         collectionView.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
         collectionView.delegate = self
@@ -23,6 +26,16 @@ class iPadFontsVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    func updateFonts(with name:String){
+        defer {collectionView.reloadData()}
+        if name == ""{
+            fonts = engine.getAvailableFonts()
+        }else{
+            fonts = engine.filterFonts(search: name)
+        }
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -34,6 +47,9 @@ class iPadFontsVC: UIViewController {
     }
     */
 
+    @IBAction func donePressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 
@@ -66,5 +82,18 @@ extension iPadFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         let chosenFont = fonts[indexPath.row]
         model.font = chosenFont
         delegate?.didUpdateModel(model)
+    }
+}
+
+
+extension iPadFontsVC:UISearchBarDelegate{
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        let text =  searchBar.text
+        updateFonts(with: text ?? "")
     }
 }
