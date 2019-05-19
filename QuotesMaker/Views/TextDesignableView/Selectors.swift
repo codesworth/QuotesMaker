@@ -82,6 +82,7 @@ extension TextDesignableInputView{
     
     func registrationsAndtargetSets(){
         fontCollectionview.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
+        fontCollectionview.register(UINib(nibName: "\(MoreFontCells.self)", bundle: .main), forCellWithReuseIdentifier: "\(MoreFontCells.self)")
         colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
         fontSizeStepper.addTarget(self, action: #selector(fontSizeXhanged(_:)), for: .valueChanged)
         fontCollectionview.delegate = self

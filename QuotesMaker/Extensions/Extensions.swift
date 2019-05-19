@@ -174,3 +174,13 @@ func toSignficant(x:Float)->String{
 func toSignficant(x:CGFloat)->String{
     return String(format: "%.1f", x)
 }
+
+
+extension UIStoryboard{
+    class var storyboard:UIStoryboard{
+        if UIDevice.idiom == .pad{
+            return UIStoryboard(name: "iPadMain", bundle: .main)
+        }
+        return UIStoryboard(name: "Main", bundle: .main)
+    }
+}

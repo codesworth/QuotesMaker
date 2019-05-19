@@ -30,6 +30,10 @@
 		<string>snow.ttf</string>
 		<string>candy.otf</string>
 		<string>fontjek.ttf</string>
+        <string>Viga-Regular.ttf</string>
+        <string>WorkSans-Regular.ttf</string>
+        <string>WorkSans-Light.ttf</string>
+        <string>WorkSans-ExtraBold.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

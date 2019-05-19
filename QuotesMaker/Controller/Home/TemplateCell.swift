@@ -9,25 +9,49 @@
 import UIKit
 
 class TemplateCell: UICollectionViewCell {
-
+    private let width:CGFloat = 200
+    private let height:CGFloat = 160
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var imageVIew: UIImageView!
+    @IBOutlet weak var containerView: UIView!
+    lazy var imageView:UIImageView = {
+        let view = UIImageView(frame: .zero)
+        view.clipsToBounds = true
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageVIew.clipsToBounds = true
+        containerView.addSubview(imageView)
+        
         // Initialization code
     }
-    func configureView(name:String, icon:String){
-        titleLabel.text = name
-        imageVIew.image = UIImage(named: icon)
+    
+    func layoutImageView(size:CGSize){
+        let ratio = size.width/size.height
+        let newSize:CGSize = (size.width > size.height) ? [width,height * (1/ratio)] : [width * ratio,height]
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layout{
+            $0.width |=| newSize.width
+            $0.height |=| newSize.height
+            $0.centerY == containerView.centerYAnchor
+            $0.centerX == containerView.centerXAnchor
+        }
     }
     
-    func configureViewAndIamge(name:String?){
+    
+    func configureView(name:String, icon:String,size:CGSize){
+        layoutImageView(size: size)
+        titleLabel.text = name
+        imageView.image = UIImage(named: icon)
+    }
+    
+    func configureViewAndIamge(name:String?,size:CGSize){
+        layoutImageView(size: size)
         //print(src.path)
         titleLabel.text = name
-        imageVIew.image = Persistence.main.getThumbImageFor(name: name!)
+        imageView.image = Persistence.main.getThumbImageFor(name: name!)
         //let image = UIImage(contentsOfFile: src.path)
         //imageVIew.image = image
 //        let exist = FileManager.default.fileExists(atPath: src.path)

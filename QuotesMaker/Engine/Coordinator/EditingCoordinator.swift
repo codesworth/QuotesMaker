@@ -74,6 +74,10 @@ class EditingCoordinator:NSObject{
         }
     }
     
+    
+    func getCurrentModel()->LayerModel?{
+        return baseView.currentSubview?.layerModel
+    }
    
     //@stateChangeable
     func shapeSelected(){

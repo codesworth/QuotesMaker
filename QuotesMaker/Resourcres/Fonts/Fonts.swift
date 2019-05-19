@@ -37,7 +37,7 @@ extension UIFont{
     }
     
     class var featureFonts:[String:String]{
-        return ["fontjek" : "Fontjek", "candy" : "CANDY INC.", "snow" : "Snowpersons", "painter" : "Painter PERSONAL USE ONLY"]
+        return ["fontjek" : "Fontjek", "candy" : "CANDY INC.", "snow" : "Snowpersons", "painter" : "Painter PERSONAL USE ONLY","Work_Sans":"Work_Sans","Viga":"Viga"]
     }
 }
 

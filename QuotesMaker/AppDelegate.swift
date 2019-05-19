@@ -74,3 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+func printFonts(){
+    //print("The fonts are: \(UIFont)")
+}
+

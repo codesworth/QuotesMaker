@@ -15,10 +15,14 @@ extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fonts.count
+        return fonts.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard indexPath.row < fonts.count else {
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(MoreFontCells.self)", for: indexPath) as! MoreFontCells
+            return cell
+        }
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FontCells.self)", for: indexPath) as? FontCells{
             let font = fonts[indexPath.row]
             cell.configure(font: font)
@@ -32,6 +36,10 @@ extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard indexPath.row < fonts.count else {
+            Subscription.main.post(suscription: .moreFonts, object: nil)
+            return
+        }
         chosenFont = fonts[indexPath.row].font?.fontName
         let newFont = UIFont(name: chosenFont, size: CGFloat(fontSizeStepper.value))!
         model.font = newFont
