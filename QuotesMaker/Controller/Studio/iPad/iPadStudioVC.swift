@@ -73,6 +73,7 @@ class iPadStudioVC: UIViewController {
         print("Models are: \(mods)")
         coordinator.delegate = self
         editor.addCanvas(coordinator.baseView)
+        subscribeTo(subscription: .moreFonts, selector: #selector(launchMoreFonts(_:)))
         // Do any additional setup after loading the view.
     }
     
@@ -90,7 +91,7 @@ class iPadStudioVC: UIViewController {
     
     
     @objc func launchMoreFonts(_ notifcation:Notification){
-        if let fonts = storyboard?.instantiateViewController(withIdentifier: "\(iPadFontsVC.self)") as? iPadFontsVC {
+        if let fonts = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "\(iPadFontsVC.self)") as? iPadFontsVC {
             fonts.delegate = coordinator
             fonts.model = coordinator.getCurrentModel() as? TextLayerModel ?? TextLayerModel()
             add(fonts, to: controlPanelContainer)

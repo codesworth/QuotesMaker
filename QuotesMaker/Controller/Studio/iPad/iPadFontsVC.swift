@@ -18,6 +18,8 @@ class iPadFontsVC: UIViewController {
         super.viewDidLoad()
         fonts = engine.getAvailableFonts()
         collectionView.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
+        collectionView.delegate = self
+        collectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
     

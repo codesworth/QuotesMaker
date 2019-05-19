@@ -2841,7 +2841,6 @@
 			children = (
 				38D97D7A22531E1300B941A0 /* iPhone */,
 				38D97D7922531E0200B941A0 /* iPad */,
-				3895492A2291835900B3075B /* iPadFontsVC.swift */,
 			);
 			path = Studio;
 			sourceTree = "<group>";
@@ -2952,6 +2951,7 @@
 				38F13A0822543679002C4109 /* ControlPanel */,
 				38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */,
 				38F13A0F2254C855002C4109 /* iPadStudioVC.swift */,
+				3895492A2291835900B3075B /* iPadFontsVC.swift */,
 			);
 			path = iPad;
 			sourceTree = "<group>";
