@@ -10,12 +10,16 @@ import UIKit
 
 class FontCells: UICollectionViewCell {
 
+    @IBOutlet weak var containerview: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mainLable: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        containerview.borderlize(.deepRose, 1)
+        containerview.roundCorners(5)
         if #available(iOS 11.0, *) {
+            
             nameLabel.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         } else {
             // Fallback on earlier versions

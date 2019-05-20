@@ -75,7 +75,7 @@ extension iPadFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [80,80]
+        return [120,100]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -97,3 +97,10 @@ extension iPadFontsVC:UISearchBarDelegate{
         updateFonts(with: text ?? "")
     }
 }
+
+
+
+
+
+
+
