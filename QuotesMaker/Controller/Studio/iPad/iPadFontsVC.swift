@@ -48,7 +48,7 @@ class iPadFontsVC: UIViewController {
     */
 
     @IBAction func donePressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        removeFrom()
     }
 }
 
@@ -75,7 +75,7 @@ extension iPadFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [120,100]
+        return [100,70]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -95,6 +95,10 @@ extension iPadFontsVC:UISearchBarDelegate{
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         let text =  searchBar.text
         updateFonts(with: text ?? "")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        updateFonts(with: searchText)
     }
 }
 

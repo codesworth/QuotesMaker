@@ -377,7 +377,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kpf-JR-v0Z">
-                                <rect key="frame" x="0.0" y="114" width="410" height="654"/>
+                                <rect key="frame" x="8" y="114" width="394" height="654"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lxk-jH-osL">
                                     <size key="itemSize" width="50" height="50"/>
@@ -403,9 +403,9 @@
                             <constraint firstItem="HOX-Fh-XEb" firstAttribute="leading" secondItem="Ztj-hO-KKw" secondAttribute="leading" id="AWt-KM-szl"/>
                             <constraint firstItem="AgS-7K-ZEk" firstAttribute="top" secondItem="HOX-Fh-XEb" secondAttribute="bottom" id="GKw-BC-4Cd"/>
                             <constraint firstItem="AgS-7K-ZEk" firstAttribute="trailing" secondItem="Ztj-hO-KKw" secondAttribute="trailing" id="Q3Y-xH-bmx"/>
-                            <constraint firstItem="Ztj-hO-KKw" firstAttribute="trailing" secondItem="Kpf-JR-v0Z" secondAttribute="trailing" id="Upy-XU-KA2"/>
+                            <constraint firstItem="Ztj-hO-KKw" firstAttribute="trailing" secondItem="Kpf-JR-v0Z" secondAttribute="trailing" constant="8" id="Upy-XU-KA2"/>
                             <constraint firstItem="AgS-7K-ZEk" firstAttribute="leading" secondItem="Ztj-hO-KKw" secondAttribute="leading" id="Y3C-Y4-ziX"/>
-                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="leading" secondItem="DP1-hs-9VV" secondAttribute="leading" id="ark-kI-dTj"/>
+                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="leading" secondItem="DP1-hs-9VV" secondAttribute="leading" constant="8" id="ark-kI-dTj"/>
                             <constraint firstItem="HOX-Fh-XEb" firstAttribute="top" secondItem="DP1-hs-9VV" secondAttribute="top" id="d9m-M1-hFX"/>
                             <constraint firstItem="HOX-Fh-XEb" firstAttribute="trailing" secondItem="Ztj-hO-KKw" secondAttribute="trailing" id="lzD-tC-h5q"/>
                             <constraint firstAttribute="bottom" secondItem="Kpf-JR-v0Z" secondAttribute="bottom" id="v0Q-Pq-dIP"/>
