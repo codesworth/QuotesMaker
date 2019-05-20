@@ -10,12 +10,16 @@ import UIKit
 
 class FontCells: UICollectionViewCell {
 
+    @IBOutlet weak var containerview: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mainLable: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        containerview.borderlize(.darkGray, 1)
+        containerview.roundCorners(4)
         if #available(iOS 11.0, *) {
+            
             nameLabel.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         } else {
             // Fallback on earlier versions
@@ -30,10 +34,10 @@ class FontCells: UICollectionViewCell {
     }
     
     
-    func configure(font:UIFont.Font){
-        mainLable.font = font.font
-        nameLabel.text = font.name.capitalized
-    }
+//    func configure(font:UIFont.F){
+//        mainLable.font = font.font
+//        nameLabel.text = font.name.capitalized
+//    }
     
     func configure(font:UIFont){
         mainLable.font = font

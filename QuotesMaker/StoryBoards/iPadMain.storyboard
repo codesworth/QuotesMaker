@@ -351,25 +351,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="410" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afh-ko-nlL">
-                                <rect key="frame" x="0.0" y="0.0" width="410" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Fonts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-jH-mpZ">
-                                        <rect key="frame" x="160" y="19.5" width="90" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <color key="textColor" red="1" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="HOX-Fh-XEb">
+                                <rect key="frame" x="0.0" y="0.0" width="410" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="1wF-18-afa"/>
-                                    <constraint firstItem="EFa-jH-mpZ" firstAttribute="centerY" secondItem="Afh-ko-nlL" secondAttribute="centerY" id="c2Q-yR-61L"/>
-                                    <constraint firstItem="EFa-jH-mpZ" firstAttribute="centerX" secondItem="Afh-ko-nlL" secondAttribute="centerX" id="uEq-36-IAB"/>
+                                    <constraint firstAttribute="height" constant="50" id="S3s-X4-DfC"/>
                                 </constraints>
-                            </view>
+                                <color key="barTintColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="More Fonts" id="iFm-NR-IcD">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="3hs-Fa-RHk">
+                                            <color key="tintColor" red="1" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="donePressed:" destination="9I4-pK-gvQ" id="vkO-W7-Lzy"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <searchBar contentMode="redraw" placeholder="Search Font..." translatesAutoresizingMaskIntoConstraints="NO" id="AgS-7K-ZEk">
+                                <rect key="frame" x="0.0" y="50" width="410" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="cHM-PI-M4x"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kpf-JR-v0Z">
-                                <rect key="frame" x="0.0" y="60" width="410" height="708"/>
+                                <rect key="frame" x="8" y="114" width="394" height="654"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lxk-jH-osL">
                                     <size key="itemSize" width="50" height="50"/>
@@ -391,22 +399,46 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Afh-ko-nlL" firstAttribute="leading" secondItem="Ztj-hO-KKw" secondAttribute="leading" id="3Mv-O6-3zY"/>
-                            <constraint firstItem="Afh-ko-nlL" firstAttribute="top" secondItem="DP1-hs-9VV" secondAttribute="top" id="QyU-S7-5Jf"/>
-                            <constraint firstItem="Ztj-hO-KKw" firstAttribute="trailing" secondItem="Kpf-JR-v0Z" secondAttribute="trailing" id="Upy-XU-KA2"/>
-                            <constraint firstItem="Afh-ko-nlL" firstAttribute="trailing" secondItem="Ztj-hO-KKw" secondAttribute="trailing" id="X43-Pe-cUN"/>
-                            <constraint firstItem="Ztj-hO-KKw" firstAttribute="bottom" secondItem="Kpf-JR-v0Z" secondAttribute="bottom" id="Ztr-d5-f2H"/>
-                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="leading" secondItem="DP1-hs-9VV" secondAttribute="leading" id="ark-kI-dTj"/>
-                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="top" secondItem="Afh-ko-nlL" secondAttribute="bottom" id="lvr-Wy-3gO"/>
+                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="top" secondItem="AgS-7K-ZEk" secondAttribute="bottom" constant="8" id="9Qd-9o-BzM"/>
+                            <constraint firstItem="HOX-Fh-XEb" firstAttribute="leading" secondItem="Ztj-hO-KKw" secondAttribute="leading" id="AWt-KM-szl"/>
+                            <constraint firstItem="AgS-7K-ZEk" firstAttribute="top" secondItem="HOX-Fh-XEb" secondAttribute="bottom" id="GKw-BC-4Cd"/>
+                            <constraint firstItem="AgS-7K-ZEk" firstAttribute="trailing" secondItem="Ztj-hO-KKw" secondAttribute="trailing" id="Q3Y-xH-bmx"/>
+                            <constraint firstItem="Ztj-hO-KKw" firstAttribute="trailing" secondItem="Kpf-JR-v0Z" secondAttribute="trailing" constant="8" id="Upy-XU-KA2"/>
+                            <constraint firstItem="AgS-7K-ZEk" firstAttribute="leading" secondItem="Ztj-hO-KKw" secondAttribute="leading" id="Y3C-Y4-ziX"/>
+                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="leading" secondItem="DP1-hs-9VV" secondAttribute="leading" constant="8" id="ark-kI-dTj"/>
+                            <constraint firstItem="HOX-Fh-XEb" firstAttribute="top" secondItem="DP1-hs-9VV" secondAttribute="top" id="d9m-M1-hFX"/>
+                            <constraint firstItem="HOX-Fh-XEb" firstAttribute="trailing" secondItem="Ztj-hO-KKw" secondAttribute="trailing" id="lzD-tC-h5q"/>
+                            <constraint firstAttribute="bottom" secondItem="Kpf-JR-v0Z" secondAttribute="bottom" id="v0Q-Pq-dIP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ztj-hO-KKw"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="410" height="768"/>
                     <connections>
                         <outlet property="collectionView" destination="Kpf-JR-v0Z" id="ZHt-PM-xzt"/>
+                        <outlet property="searchBar" destination="AgS-7K-ZEk" id="f6c-zR-0c2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4v2-jY-GsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afh-ko-nlL">
+                    <rect key="frame" x="0.0" y="0.0" width="410" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Fonts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-jH-mpZ">
+                            <rect key="frame" x="160" y="19.5" width="90" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" red="1" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="1wF-18-afa"/>
+                        <constraint firstItem="EFa-jH-mpZ" firstAttribute="centerY" secondItem="Afh-ko-nlL" secondAttribute="centerY" id="c2Q-yR-61L"/>
+                        <constraint firstItem="EFa-jH-mpZ" firstAttribute="centerX" secondItem="Afh-ko-nlL" secondAttribute="centerX" id="uEq-36-IAB"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Rjn-kg-vfa"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-2673.046875" y="-800"/>
         </scene>

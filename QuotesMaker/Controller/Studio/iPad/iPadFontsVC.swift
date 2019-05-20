@@ -13,9 +13,12 @@ class iPadFontsVC: UIViewController {
     private var fonts:[UIFont] = []
     var model:TextLayerModel!
     weak var delegate:TextModelDelegate?
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
         fonts = engine.getAvailableFonts()
         collectionView.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
         collectionView.delegate = self
@@ -23,6 +26,16 @@ class iPadFontsVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    func updateFonts(with name:String){
+        defer {collectionView.reloadData()}
+        if name == ""{
+            fonts = engine.getAvailableFonts()
+        }else{
+            fonts = engine.filterFonts(search: name)
+        }
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -34,6 +47,9 @@ class iPadFontsVC: UIViewController {
     }
     */
 
+    @IBAction func donePressed(_ sender: Any) {
+        removeFrom()
+    }
 }
 
 
@@ -59,7 +75,7 @@ extension iPadFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [80,80]
+        return [100,70]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -68,3 +84,27 @@ extension iPadFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         delegate?.didUpdateModel(model)
     }
 }
+
+
+extension iPadFontsVC:UISearchBarDelegate{
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        let text =  searchBar.text
+        updateFonts(with: text ?? "")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        updateFonts(with: searchText)
+    }
+}
+
+
+
+
+
+
+

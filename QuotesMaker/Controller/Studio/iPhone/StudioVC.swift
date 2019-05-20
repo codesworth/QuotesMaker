@@ -65,7 +65,7 @@ class StudioVC: UIViewController {
         studioPanel.delegate = self
         coordinator.delegate = self
         //subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChanged(_:)))
-        let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont.font(.painter),.foregroundColor:UIColor.white])
+        let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont(name: "RobotoMono-Regular", size: 45)!,.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         setupViews()
         //print("Orientations: \(UIDevice.current.orientation.rawValue)")
