@@ -18,7 +18,7 @@ class TextDesignableInputView:UIView{
     
     var blockDelegation = false
     
-    var fonts = UIFont.getFeaturedFonts()
+    var fonts = UIFont.getfeatured()
     
     lazy var titleLable:BasicLabel = {
         let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .semibold))

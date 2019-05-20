@@ -13,10 +13,10 @@ struct TextLayerModel:Codable {
     
     var string:String = "Hello"
     private var _textColor:StudioColor = .black
-    var _font:StudioFont = StudioFont(font: UIFont.font(.painter, size: 27))
+    var _font:StudioFont = StudioFont(font: UIFont(name: "RobotoMono-Regular", size: 45)!)
     var font:UIFont{
         get{
-            return _font.font ?? UIFont.font(.painter, size: 27)
+            return _font.font ?? UIFont(name: "RobotoMono-Regular", size: 45)!
         }
         set{
             _font = StudioFont(font: newValue)

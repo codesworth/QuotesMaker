@@ -34,10 +34,10 @@ class FontCells: UICollectionViewCell {
     }
     
     
-    func configure(font:UIFont.Font){
-        mainLable.font = font.font
-        nameLabel.text = font.name.capitalized
-    }
+//    func configure(font:UIFont.F){
+//        mainLable.font = font.font
+//        nameLabel.text = font.name.capitalized
+//    }
     
     func configure(font:UIFont){
         mainLable.font = font

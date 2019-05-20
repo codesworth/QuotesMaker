@@ -19,6 +19,8 @@ class FontEngine: NSObject {
         
     }
     
+
+    
     @discardableResult
     func getAvailableFonts()->[UIFont]{
         guard availableFonts.isEmpty else { return availableFonts}
