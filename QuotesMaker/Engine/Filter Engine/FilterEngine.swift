@@ -62,8 +62,8 @@ class FilterEngine:NSObject{
     
     override init() {
         super.init()
-        //CIFilter.registerName(NoFilter.Category, constructor: NoFilterConstructor(), classAttributes: [kCIAttributeFilterCategories:NoFilter.Category])
-        availableFilters.append(contentsOf: stabilizedColorFilters)
+        
+        availableFilters.append(contentsOf: stabilizedColorAdjustMentFilters)
         
     }
     
