@@ -10,6 +10,8 @@ import UIKit
 
 class FilterEngine:NSObject{
     
+
+    
     static let NoFilter = "No Filter"
     private var _internalContainer:[String:UIImage] = [:]
     
@@ -64,7 +66,11 @@ class FilterEngine:NSObject{
         super.init()
         
         availableFilters.append(contentsOf: stabilizedColorAdjustMentFilters)
-        
+        listAllFilters()
+    }
+    
+    func listAllFilters(){
+        print("The filters for color effects are: \(stabilizedColorAdjustMentFilters)")
     }
     
     func filterFor(_ name:String)->CIFilter?{
@@ -122,5 +128,40 @@ class FilterEngine:NSObject{
 //        return nil
 //    }
 //}
+
+extension Array where Element:Hashable{
+    
+    mutating func merge1(_ elements:Element...){
+        guard !isEmpty else { self = elements; return}
+        elements.makeIterator().forEach{if !contains($0){append($0)}}
+    }
+}
+
+
+
+extension Array where Element:Hashable{
+    
+    mutating func merge(_ elements:Element...){
+        guard !isEmpty else {self = elements; return}
+        elements.makeIterator().forEach{if contains($0){append($0)}}
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

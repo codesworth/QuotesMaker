@@ -8,8 +8,10 @@
 
 import Foundation
 
-struct Filter {
+struct Filters {
+    private static let allColorFilters = ["CIColorCrossPolynomial", "CIColorCube", "CIColorCubesMixedWithMask", "CIColorCubeWithColorSpace", "CIColorCurves", "CIColorInvert", "*CIColorMap", "CIColorMonochrome", "CIColorPosterize", "CIDither", "CIFalseColor", "*CILabDeltaE", "CIMaskToAlpha", "*CIMaximumComponent", "CIMinimumComponent", "CIPhotoEffectChrome", "CIPhotoEffectFade", "CIPhotoEffectInstant", "CIPhotoEffectMono", "CIPhotoEffectNoir", "CIPhotoEffectProcess", "CIPhotoEffectTonal", "CIPhotoEffectTransfer", "CISepiaTone", "CIThermal", "CIVignette", "*CIVignetteEffect", "CIXRay"]
     
-//    var name:String
-//    var 
+    private static let availableColorFilters = [ "CIColorCurves", "CIColorInvert", "CIColorMonochrome", "CIColorPosterize", "CIDither", "CIFalseColor", "CIMaskToAlpha", "CIMaximumComponent", "CIMinimumComponent", "CIPhotoEffectChrome", "CIPhotoEffectFade", "CIPhotoEffectInstant", "CIPhotoEffectMono", "CIPhotoEffectNoir", "CIPhotoEffectProcess", "CIPhotoEffectTonal", "CIPhotoEffectTransfer", "CISepiaTone", "CIThermal", "CIVignette", "CIXRay"]
+
 }
+
