@@ -64,15 +64,17 @@ class FilterEngine:NSObject{
     var stabilizedHalftoneFilters = CIFilter.filterNames(inCategory: kCICategoryHalftoneEffect)
     var stabilizedReductionFilters = CIFilter.filterNames(inCategory: kCICategoryReduction)
     var stabilizedStylizeFilters = CIFilter.filterNames(inCategory: kCICategoryStylize)
+    var stabilizedTransitionFilters = CIFilter.filterNames(inCategory: kCICategoryTransition)
+    var stabilizedTilesFilters = CIFilter.filterNames(inCategory: kCICategoryTileEffect)
     override init() {
         super.init()
-        
-        availableFilters.append(contentsOf:stabilizedStylizeFilters )
+        let systemFiltered = Filters.availableFilters.filter{CIFilter.localizedName(forFilterName: $0) != nil}
+        availableFilters.append(contentsOf:systemFiltered)
         listAllFilters()
     }
     
     func listAllFilters(){
-        print("The filters for color effects are: \(stabilizedStylizeFilters)")
+        print("The filters for color effects are: \(availableFilters)")
     }
     
     func filterFor(_ name:String)->CIFilter?{
@@ -81,6 +83,8 @@ class FilterEngine:NSObject{
     
     class func applyFilter(name:String,image:UIImage)->UIImage?{
         if name == NoFilter{ return image }
+        //let data = image.jpegData(compressionQuality: 0.1)!
+        //let image = UIImage(data: data)!
         guard let filter = CIFilter(name: name), let ciimage = CIImage(image: image) else {return nil}
         
         filter.setValue(ciimage, forKey: kCIInputImageKey)
@@ -146,6 +150,13 @@ extension Array where Element:Hashable{
     mutating func merge(_ elements:Element...){
         guard !isEmpty else {self = elements; return}
         elements.makeIterator().forEach{if contains($0){append($0)}}
+    }
+    
+    func merge(_ elements:[Element])->[Element]{
+        guard !isEmpty else {return elements}
+        var array = self
+        elements.makeIterator().forEach{if !contains($0){array.append($0)}}
+        return array
     }
 }
 
