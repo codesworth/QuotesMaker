@@ -61,16 +61,18 @@ class FilterEngine:NSObject{
     var stabilizedColorFilters:[String] = CIFilter.filterNames(inCategory: kCICategoryColorEffect)
     var stabilizedColorAdjustMentFilters:[String] = CIFilter.filterNames(inCategory: kCICategoryColorAdjustment)
     var stabilizedSharpenFilters:[String] = CIFilter.filterNames(inCategory: kCICategorySharpen)
-    
+    var stabilizedHalftoneFilters = CIFilter.filterNames(inCategory: kCICategoryHalftoneEffect)
+    var stabilizedReductionFilters = CIFilter.filterNames(inCategory: kCICategoryReduction)
+    var stabilizedStylizeFilters = CIFilter.filterNames(inCategory: kCICategoryStylize)
     override init() {
         super.init()
         
-        availableFilters.append(contentsOf: stabilizedColorAdjustMentFilters)
+        availableFilters.append(contentsOf:stabilizedStylizeFilters )
         listAllFilters()
     }
     
     func listAllFilters(){
-        print("The filters for color effects are: \(stabilizedColorAdjustMentFilters)")
+        print("The filters for color effects are: \(stabilizedStylizeFilters)")
     }
     
     func filterFor(_ name:String)->CIFilter?{
