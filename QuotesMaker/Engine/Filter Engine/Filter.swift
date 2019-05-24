@@ -37,6 +37,10 @@ struct Filters {
 
 extension Filters{
     
+    enum CustomFilters:String,CaseIterable{
+       case clarendonFilter,nashvilleFilter,apply1977Filter,toasterFilter,hazeRemovalFilter
+    }
+    
     public static func clarendonFilter(foregroundImage: CIImage) -> CIImage? {
         let backgroundImage = getColorImage(red: 127, green: 187, blue: 227, alpha: Int(255 * 0.2), rect: foregroundImage.extent)
         return foregroundImage.applyingFilter("CIOverlayBlendMode", parameters: [

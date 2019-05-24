@@ -94,6 +94,28 @@ class FilterEngine:NSObject{
         guard let output = filter.outputImage else {return nil}
         return UIImage(ciImage: output)
     }
+    
+    class func applyCustomFilters(name:Filters.CustomFilters,image:UIImage)->UIImage?{
+        
+        guard let ciimage = image.ciImage ?? CIImage(image: image) else {return nil}
+        switch name {
+        case .apply1977Filter:
+            let filtered = Filters.apply1977Filter(ciImage: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        case .clarendonFilter:
+            let filtered = Filters.clarendonFilter(foregroundImage: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        case .nashvilleFilter:
+            let filtered = Filters.nashvilleFilter(foregroundImage: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        case .toasterFilter:
+            let filtered = Filters.toasterFilter(ciImage: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        case .hazeRemovalFilter:
+            let filtered = Filters.hazeRemovalFilter(image: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        }
+    }
 }
 
 //class NoFilter:CIFilter{

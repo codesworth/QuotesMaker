@@ -11,6 +11,7 @@ import UIKit
 class PreviewVC: UIViewController {
     
     var filterEngine = FilterEngine.globalInstance
+    var filters = Filters.CustomFilters.allCases
     
     lazy var imageView:UIImageView = {
         let imv = UIImageView(frame: .zero)
@@ -117,13 +118,13 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filterEngine.availableFilters.count
+        return filters.count//filterEngine.availableFilters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
-        let filter = filterEngine.availableFilters[indexPath.row]
-        cell.configureView(name: filter, image: inputImage, size: canvas.size)
+        let filter = filters[indexPath.row]//filterEngine.availableFilters[indexPath.row]
+        cell.configureView(name: filter.rawValue, image: inputImage, size: canvas.size)
         return cell
     }
     
@@ -132,8 +133,8 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let name = filterEngine.availableFilters[indexPath.row]
-        if let image = filterEngine.imageFor(name){
+        let name = filters[indexPath.row]//filterEngine.availableFilters[indexPath.row]
+        if let image = filterEngine.imageFor(name.rawValue){
             imageView.image = image
             //imageView.contentMode =
         }else{
