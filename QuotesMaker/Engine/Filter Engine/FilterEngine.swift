@@ -147,15 +147,15 @@ extension Array where Element:Hashable{
 
 extension Array where Element:Hashable{
     
-    mutating func merge(_ elements:Element...){
+    mutating func merging(_ elements:Element...){
         guard !isEmpty else {self = elements; return}
-        elements.makeIterator().forEach{if contains($0){append($0)}}
+        elements.forEach{if !contains($0){append($0)}}
     }
     
     func merge(_ elements:[Element])->[Element]{
         guard !isEmpty else {return elements}
         var array = self
-        elements.makeIterator().forEach{if !contains($0){array.append($0)}}
+        elements.forEach{if !contains($0){array.append($0)}}
         return array
     }
 }
