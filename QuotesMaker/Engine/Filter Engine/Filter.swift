@@ -38,7 +38,7 @@ struct Filters {
 extension Filters{
     
     enum CustomFilters:String,CaseIterable{
-       case clarendonFilter,nashvilleFilter,apply1977Filter,toasterFilter,hazeRemovalFilter
+       case Voilet,Warm,Retro,Sunny,Monoscene
     }
     
     public static func clarendonFilter(foregroundImage: CIImage) -> CIImage? {

@@ -99,19 +99,19 @@ class FilterEngine:NSObject{
         
         guard let ciimage = image.ciImage ?? CIImage(image: image) else {return nil}
         switch name {
-        case .apply1977Filter:
+        case .Retro:
             let filtered = Filters.apply1977Filter(ciImage: ciimage)
             return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
-        case .clarendonFilter:
+        case .Voilet:
             let filtered = Filters.clarendonFilter(foregroundImage: ciimage)
             return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
-        case .nashvilleFilter:
+        case .Sunny:
             let filtered = Filters.nashvilleFilter(foregroundImage: ciimage)
             return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
-        case .toasterFilter:
+        case .Warm:
             let filtered = Filters.toasterFilter(ciImage: ciimage)
             return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
-        case .hazeRemovalFilter:
+        case .Monoscene:
             let filtered = Filters.hazeRemovalFilter(image: ciimage)
             return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
         }
