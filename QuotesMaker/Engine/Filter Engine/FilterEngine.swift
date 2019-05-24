@@ -94,6 +94,28 @@ class FilterEngine:NSObject{
         guard let output = filter.outputImage else {return nil}
         return UIImage(ciImage: output)
     }
+    
+    class func applyCustomFilters(name:Filters.CustomFilters,image:UIImage)->UIImage?{
+        
+        guard let ciimage = image.ciImage ?? CIImage(image: image) else {return nil}
+        switch name {
+        case .Retro:
+            let filtered = Filters.apply1977Filter(ciImage: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        case .Voilet:
+            let filtered = Filters.clarendonFilter(foregroundImage: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        case .Sunny:
+            let filtered = Filters.nashvilleFilter(foregroundImage: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        case .Warm:
+            let filtered = Filters.toasterFilter(ciImage: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        case .Monoscene:
+            let filtered = Filters.hazeRemovalFilter(image: ciimage)
+            return (filtered != nil ) ? UIImage(ciImage: filtered!) : nil
+        }
+    }
 }
 
 //class NoFilter:CIFilter{
@@ -147,18 +169,20 @@ extension Array where Element:Hashable{
 
 extension Array where Element:Hashable{
     
-    mutating func merge(_ elements:Element...){
+    mutating func merging(_ elements:Element...){
         guard !isEmpty else {self = elements; return}
-        elements.makeIterator().forEach{if contains($0){append($0)}}
+        elements.forEach{if !contains($0){append($0)}}
     }
     
     func merge(_ elements:[Element])->[Element]{
         guard !isEmpty else {return elements}
         var array = self
-        elements.makeIterator().forEach{if !contains($0){array.append($0)}}
+        elements.forEach{if !contains($0){array.append($0)}}
         return array
     }
 }
+
+
 
 
 

@@ -50,7 +50,7 @@ class FilterCollectionCell: UICollectionViewCell {
             }
             isSet = true
         }
-        titleLabel.text = (name == FilterEngine.NoFilter) ? name : CIFilter.localizedName(forFilterName: name)
+        titleLabel.text = (name == FilterEngine.NoFilter) ? name : CIFilter.localizedName(forFilterName: name) ?? name
         if let filteredImage = FilterEngine.globalInstance.imageFor(name){
             imageView.image = filteredImage
             return
@@ -58,7 +58,8 @@ class FilterCollectionCell: UICollectionViewCell {
         self.loadingIndicator.startAnimating()
         let queue = DispatchQueue(label: "Filter", qos: .default, attributes: .concurrent)
         queue.async {
-            let filteredImage = FilterEngine.applyFilter(name: name, image: image)
+            guard let filter = Filters.CustomFilters(rawValue: name) else {return}
+            let filteredImage = FilterEngine.applyCustomFilters(name: filter, image: image)//FilterEngine.applyFilter(name: name, image: image)
             DispatchQueue.main.async { [unowned self] in
                 self.imageView.image = filteredImage
                 self.loadingIndicator.stopAnimating()

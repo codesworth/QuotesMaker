@@ -325,6 +325,13 @@ extension BackingTextView:UITextViewDelegate{
         return true
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        let state = State(model: oldModel, action: .nothing)
+        Subscription.main.post(suscription: .stateChange, object: state)
+        oldModel = model
+    }
+    
+    
 }
 
 extension BackingTextView:NSCopying{
