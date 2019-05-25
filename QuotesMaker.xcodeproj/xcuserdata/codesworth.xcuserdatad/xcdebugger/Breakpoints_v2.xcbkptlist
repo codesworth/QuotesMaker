@@ -5341,8 +5341,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "308"
             endingLineNumber = "308"
-            landmarkName = "didSelectView(with:)"
-            landmarkType = "7">
+            landmarkName = "EditingCoordinator"
+            landmarkType = "21">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"

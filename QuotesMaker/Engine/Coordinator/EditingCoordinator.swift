@@ -276,8 +276,9 @@ extension EditingCoordinator:ImagePanelDelegate{
             flipImage(.vertical)
             break
         case .filter:
-            if let controller = controller as? iPadStudioVC{
-                
+            if let controller = controller as? iPadStudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
+                let vc = ImageFilterVC(image: image, size: canvas.size)
+                controller.add(vc, to: controller.controlPanelContainer)
             }
         }
     }
