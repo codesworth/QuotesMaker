@@ -32,7 +32,7 @@ extension TextDesignableInputView{
                          aligmentSegment.topAnchor.constraint(equalTo: headlineline.bottomAnchor, constant: 12),
                          aligmentSegment.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
                          aligmentSegment.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-                         aligmentSegment.heightAnchor.constraint(equalToConstant: 20),
+                         aligmentSegment.heightAnchor.constraint(equalToConstant: 30),
             
 
                          fontCollectionview.topAnchor.constraint(equalTo: aligmentSegment.bottomAnchor, constant: 12),

@@ -146,10 +146,10 @@ class TextDesignableInputView:UIView{
     
     lazy var aligmentSegment:UISegmentedControl = { [unowned self] by in
         let segment = UISegmentedControl(frame: .zero)
-        segment.insertSegment(withTitle: "Left", at: 0, animated: true)
-        segment.insertSegment(withTitle: "Center", at: 1, animated: true)
-        segment.insertSegment(withTitle: "Right", at: 2, animated: true)
-        segment.insertSegment(withTitle: "Just", at: 3, animated: true)
+        segment.insertSegment(with: .alignLeft, at: 0, animated: true)
+        segment.insertSegment(with: .alignCenter, at: 1, animated: true)
+        segment.insertSegment(with: .alignRight, at: 2, animated: true)
+        segment.insertSegment(with: .alignJustify, at: 3, animated: true)
         segment.tintColor = UIColor.primary
         segment.selectedSegmentIndex = 0
         segment.addTarget(self, action: #selector(alignmentDidChange(_:)), for: .valueChanged)
