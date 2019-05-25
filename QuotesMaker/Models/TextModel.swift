@@ -11,17 +11,42 @@ import UIKit
 
 struct TextLayerModel:Codable {
     
+    init(from decoder: Decoder) throws{
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        string = try container.decodeIfPresent(String.self, forKey: .string) ?? "Hello"
+        _textColor = try container.decodeIfPresent(StudioColor.self, forKey: ._textColor) ?? StudioColor(color: .black)
+        _font =  try container.decodeIfPresent(StudioFont.self, forKey: ._font) ?? StudioFont(font: UIFont(name: "RobotoMono-Regular", size: 30)!)
+        shadowBlur = try container.decodeIfPresent(CGFloat.self, forKey: .shadowBlur) ?? 0
+        shadowOffset = try container.decodeIfPresent(CGSize.self, forKey: .shadowOffset) ?? .zero
+        strikeThrough = try container.decodeIfPresent(Int.self, forKey: .strikeThrough) ?? 0
+        _strikeThroughColor = try container.decodeIfPresent(StudioColor.self, forKey: ._strikeThroughColor) ?? nil
+        _strokeColor = try container.decodeIfPresent(StudioColor.self, forKey: ._strokeColor) ?? nil
+        _underlineColor = try container.decodeIfPresent(StudioColor.self, forKey: ._underlineColor) ?? nil
+        underlineStyle = try container.decodeIfPresent(Int.self, forKey: .underlineStyle) ?? 0
+        strokeWidth = try container.decodeIfPresent(Int.self, forKey: .strokeWidth) ?? 0
+        obliquess = try container.decodeIfPresent(Int.self, forKey: .obliquess) ?? 0
+        layerFrame = try container.decodeIfPresent(LayerFrame.self, forKey: .layerFrame)
+        alignment = try container.decodeIfPresent(Int.self, forKey: .alignment) ?? 0
+        shadowAlpha = try container.decodeIfPresent(CGFloat.self, forKey: .shadowAlpha) ?? 0.3
+        _shadowColor = try container.decodeIfPresent(StudioColor.self, forKey: ._shadowColor) ?? .clear
+        style = try container.decodeIfPresent(Style.self, forKey: .style) ?? Style()
+        layerIndex = try container.decodeIfPresent(CGFloat.self, forKey: .layerIndex) ?? 0
+        updateTime = try container.decodeIfPresent(TimeInterval.self, forKey: .updateTime) ?? Date().timeIntervalSinceReferenceDate
+    }
+    
     var string:String = "Hello"
     private var _textColor:StudioColor = .black
-    var _font:StudioFont = StudioFont(font: UIFont(name: "RobotoMono-Regular", size: 45)!)
+    var _font:StudioFont = StudioFont(font: UIFont(name: "RobotoMono-Regular", size: 30)!)
     var font:UIFont{
         get{
-            return _font.font ?? UIFont(name: "RobotoMono-Regular", size: 45)!
+            return _font.font ?? UIFont(name: "RobotoMono-Regular", size: 30)!
         }
         set{
             _font = StudioFont(font: newValue)
         }
     }
+    
+    
 
     private  var shadowBlur:CGFloat = 0
     private var shadowOffset:CGSize = .zero
@@ -32,6 +57,25 @@ struct TextLayerModel:Codable {
     var strokeWidth:Int = 0
     var obliquess:Int = 0
     var layerFrame:LayerFrame?
+    var alignment:Int = 0
+    
+    
+    func setAlignment()->NSTextAlignment{
+        if alignment == 0{
+            return .left
+        }
+        if alignment == 1{
+            return .center
+        }
+        if alignment == 2{
+            return .right
+        }
+        if alignment == 3{
+            return .justified
+        }
+        
+        return .natural
+    }
     
     var shadow:NSShadow{
         get{
@@ -125,7 +169,8 @@ struct TextLayerModel:Codable {
             .strokeWidth : strokeWidth.nsNumber(),
             .obliqueness : obliquess.nsNumber(),
             .underlineColor:underlineColor,
-            .shadow:shadow
+            .shadow:shadow,
+            
         ]
         attributes.forEach{if $0.value == nil{attributes.removeValue(forKey: $0.key)}}
         return NSAttributedString(string: string, attributes: attributes as [NSAttributedString.Key : Any])

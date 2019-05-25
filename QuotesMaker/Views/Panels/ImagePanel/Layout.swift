@@ -15,7 +15,7 @@ extension ImagePanel{
     override func layoutSubviews() {
         super.layoutSubviews()
         if UIDevice.idiom == .pad{closeButton.isHidden = true}
-        pickFromInternetButton.roundCorners()
+        addFilterButton.roundCorners()
         pickFromGalleryButton.roundCorners(5)
         subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         scrollView.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
@@ -47,16 +47,15 @@ extension ImagePanel{
             pickFromGalleryButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             //pickFromGalleryButton.widthAnchor.constraint(equalToConstant: 120),
             pickFromGalleryButton.heightAnchor.constraint(equalToConstant: 40),
-            //pickFromInternetButton.topAnchor.constraint(equalTo: pickFromGalleryButton.bottomAnchor, constant: 12),
-            //pickFromInternetButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            //pickFromInternetButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            //pickFromInternetButton.heightAnchor.constraint(equalToConstant: 40),
             stack.topAnchor.constraint(equalTo: pickFromGalleryButton.bottomAnchor, constant: 12),
             stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            stack.heightAnchor.constraint(equalToConstant: 40)
-            
-            ])
+            stack.heightAnchor.constraint(equalToConstant: 40),
+            addFilterButton.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 12),
+            addFilterButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            addFilterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            addFilterButton.heightAnchor.constraint(equalToConstant: 40),
+        ])
     }
     
     override func didMoveToWindow() {

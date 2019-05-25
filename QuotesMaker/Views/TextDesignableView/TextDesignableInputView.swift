@@ -144,6 +144,17 @@ class TextDesignableInputView:UIView{
         return lab
     }()
     
+    lazy var aligmentSegment:UISegmentedControl = { [unowned self] by in
+        let segment = UISegmentedControl(frame: .zero)
+        segment.insertSegment(with: .alignLeft, at: 0, animated: true)
+        segment.insertSegment(with: .alignCenter, at: 1, animated: true)
+        segment.insertSegment(with: .alignRight, at: 2, animated: true)
+        segment.insertSegment(with: .alignJustify, at: 3, animated: true)
+        segment.tintColor = UIColor.primary
+        segment.selectedSegmentIndex = 0
+        segment.addTarget(self, action: #selector(alignmentDidChange(_:)), for: .valueChanged)
+        return segment
+    }(())
     
     
     lazy var scrollView:UIScrollView = {
@@ -316,6 +327,7 @@ class TextDesignableInputView:UIView{
         contentView.addSubview(obliqStyleLabel)
         contentView.addSubview(headlineline)
         contentView.addSubview(sixthline)
+        contentView.addSubview(aligmentSegment)
         contentView.addSubview(shadowView)
     }
 }

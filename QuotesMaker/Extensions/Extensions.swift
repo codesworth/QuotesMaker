@@ -135,6 +135,21 @@ extension UIImage{
             return #imageLiteral(resourceName: "redo_arrow")
         }
     }
+    
+    class var alignLeft:UIImage?{
+        return #imageLiteral(resourceName: "left")
+    }
+    class var alignCenter:UIImage?{
+        return #imageLiteral(resourceName: "center")
+    }
+    
+    class var alignRight:UIImage?{
+        return #imageLiteral(resourceName: "right")
+    }
+    
+    class var alignJustify:UIImage?{
+        return #imageLiteral(resourceName: "justify")
+    }
 }
 
 

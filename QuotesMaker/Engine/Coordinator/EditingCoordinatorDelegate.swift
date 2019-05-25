@@ -39,6 +39,7 @@ extension EditingCoordinator:TextModelDelegate{
         var model = model
         guard let current = baseView.currentSubview as? BackingTextView else {return}
         model.string = current.textView.text
+        undostates.append(State(model: current.model, action: .nothing))
         current.model = model
     }
 }

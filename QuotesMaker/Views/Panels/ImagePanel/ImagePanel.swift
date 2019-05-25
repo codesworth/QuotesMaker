@@ -25,6 +25,7 @@ class ImagePanel: MaterialView {
         case rotate
         case flipVertical
         case flipHorizontal
+        case filter
     }
     
     lazy var cropButton:TabControl = {
@@ -127,11 +128,11 @@ class ImagePanel: MaterialView {
         return butt
     }()
     
-    lazy var pickFromInternetButton:UIButton = {
+    lazy var addFilterButton:UIButton = {
         let butt = UIButton(frame: [0])
         butt.backgroundColor = .clear
         butt.backgroundColor = .primary
-        butt.setTitle("Explore", for: .normal)
+        butt.setTitle("Filters", for: .normal)
         butt.setTitleColor(.white, for: .normal)
         butt.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
         butt.titleLabel?.numberOfLines = 2
@@ -183,12 +184,12 @@ class ImagePanel: MaterialView {
         contentView.addSubview(firstline)
         contentView.addSubview(secondline)
         contentView.addSubview(pickFromGalleryButton)
-        //contentView.addSubview(pickFromInternetButton)
+        contentView.addSubview(addFilterButton)
         //contentView.addSubview(testActionsSegment)
         addStackViews()
         contentView.addSubview(stack)
         pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromGallery), for: .touchUpInside)
-        pickFromGalleryButton.addTarget(self, action: #selector(pickImageFromInternet), for: .touchUpInside)
+        addFilterButton.addTarget(self, action: #selector(addFilters), for: .touchUpInside)
     }
     
     

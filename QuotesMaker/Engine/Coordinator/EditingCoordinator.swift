@@ -114,6 +114,7 @@ class EditingCoordinator:NSObject{
     
     func textChanged(text:String){
         guard let current = baseView.currentSubview as? BackingTextView else {return}
+        undostates.append(State(model: current.model, action: .nothing))
         current.model.string = text
     }
     
@@ -274,6 +275,11 @@ extension EditingCoordinator:ImagePanelDelegate{
         case .flipVertical:
             flipImage(.vertical)
             break
+        case .filter:
+            if let controller = controller as? iPadStudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
+                let vc = ImageFilterVC(image: image, size: canvas.size)
+                controller.add(vc, to: controller.controlPanelContainer)
+            }
         }
     }
     
