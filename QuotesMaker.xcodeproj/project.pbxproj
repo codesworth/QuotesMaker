@@ -577,6 +577,7 @@
 		3896507D2242C193009434B4 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507C2242C193009434B4 /* Actions.swift */; };
 		3896507F2242DD7F009434B4 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507E2242DD7F009434B4 /* States.swift */; };
 		3897184D22974B010047F19E /* HazelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3897184C22974B010047F19E /* HazelFilter.swift */; };
+		3897184F229999200047F19E /* ImageFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3897184E229999200047F19E /* ImageFilterVC.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -1215,6 +1216,7 @@
 		3896507C2242C193009434B4 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		3896507E2242DD7F009434B4 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 		3897184C22974B010047F19E /* HazelFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HazelFilter.swift; sourceTree = "<group>"; };
+		3897184E229999200047F19E /* ImageFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterVC.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -2963,6 +2965,7 @@
 				38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */,
 				38F13A0F2254C855002C4109 /* iPadStudioVC.swift */,
 				3895492A2291835900B3075B /* iPadFontsVC.swift */,
+				3897184E229999200047F19E /* ImageFilterVC.swift */,
 			);
 			path = iPad;
 			sourceTree = "<group>";
@@ -3588,6 +3591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3897184F229999200047F19E /* ImageFilterVC.swift in Sources */,
 				384B9DA82236E903007B4BD0 /* QPreviewView.swift in Sources */,
 				3895492E22918BD800B3075B /* MoreFontCells.swift in Sources */,
 				38C80FBD223A904700150FD4 /* StateProtocol.swift in Sources */,

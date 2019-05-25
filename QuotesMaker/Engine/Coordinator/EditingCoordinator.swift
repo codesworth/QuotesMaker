@@ -275,6 +275,10 @@ extension EditingCoordinator:ImagePanelDelegate{
         case .flipVertical:
             flipImage(.vertical)
             break
+        case .filter:
+            if let controller = controller as? iPadStudioVC{
+                
+            }
         }
     }
     

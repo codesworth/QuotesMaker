@@ -78,7 +78,7 @@ extension ImagePanel{
         delegate?.didSelect(.gallery)
     }
     
-    @objc func pickImageFromInternet(){
-        delegate?.didSelect(.online)
+    @objc func addFilters(){
+        delegate?.didSelect(.filter)
     }
 }
