@@ -80,6 +80,7 @@ class BackingTextView: UIView {
             textView.attributedText = model.outPutString()
             textView.textColor = model.textColor
             textView.font = model.font
+            textView.textAlignment = model.setAlignment()
             
         }
     }
@@ -119,6 +120,7 @@ class BackingTextView: UIView {
         textView.text = "Hello"
         resizerView.contentView = textView
         addSubview(resizerView)
+        
         
         
     }
@@ -251,8 +253,8 @@ extension BackingTextView{
 extension BackingTextView:TextModelDelegate{
     
     func didUpdateModel(_ model: TextLayerModel) {
-        oldModel = model
         Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
+        oldModel = self.model
         var model = model
         model.string = textView.text
         self.model = model
@@ -325,11 +327,6 @@ extension BackingTextView:UITextViewDelegate{
         return true
     }
     
-    func textViewDidChange(_ textView: UITextView) {
-        let state = State(model: oldModel, action: .nothing)
-        Subscription.main.post(suscription: .stateChange, object: state)
-        oldModel = model
-    }
     
     
 }

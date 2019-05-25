@@ -28,9 +28,16 @@ extension TextDesignableInputView{
                          headlineline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 48),
                          headlineline.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -48),
                          headlineline.heightAnchor.constraint(equalToConstant: 1),
-                         fontCollectionview.topAnchor.constraint(equalTo: headlineline.bottomAnchor, constant: 12),
-                         fontCollectionview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-                         fontCollectionview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+                         
+                         aligmentSegment.topAnchor.constraint(equalTo: headlineline.bottomAnchor, constant: 12),
+                         aligmentSegment.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                         aligmentSegment.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                         aligmentSegment.heightAnchor.constraint(equalToConstant: 20),
+            
+
+                         fontCollectionview.topAnchor.constraint(equalTo: aligmentSegment.bottomAnchor, constant: 12),
+                         fontCollectionview.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                         fontCollectionview.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
                          fontCollectionview.heightAnchor.constraint(equalToConstant: 80),
                          firstline.topAnchor.constraint(equalTo: fontCollectionview.bottomAnchor, constant: 8),
                          firstline.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),

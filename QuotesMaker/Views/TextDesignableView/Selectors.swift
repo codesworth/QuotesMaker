@@ -27,6 +27,12 @@ extension TextDesignableInputView{
         delegate?.didUpdateModel(model)
     }
     
+    @objc func alignmentDidChange(_ sender:UISegmentedControl){
+        let index = sender.selectedSegmentIndex
+        model.alignment = index
+        delegate?.didUpdateModel(model)
+    }
+    
     @objc func strokecolorSliderChanged(_ slider:ColorSlider){
         if blockDelegation{return}
         let color = slider.color

@@ -26,6 +26,8 @@ struct StudioModel:Codable{
         canvasType = type
     }
     
+    
+    
     mutating func update(models:[BaseModel], bg:UIColor? = nil){
         self.models = models
         backgroundColor = (bg != nil) ? StudioColor(color: bg!) : nil

@@ -114,6 +114,7 @@ class EditingCoordinator:NSObject{
     
     func textChanged(text:String){
         guard let current = baseView.currentSubview as? BackingTextView else {return}
+        undostates.append(State(model: current.model, action: .nothing))
         current.model.string = text
     }
     
