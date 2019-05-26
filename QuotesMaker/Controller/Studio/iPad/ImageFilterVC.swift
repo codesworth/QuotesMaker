@@ -9,7 +9,8 @@
 import UIKit
 
 protocol ImageFilterDelegate:class {
-    func apply(_ filter:Filters.CustomFilters)
+    func apply(_ filter:String)
+    func donePressed()
 }
 
 class ImageFilterVC: UIViewController {
@@ -19,7 +20,7 @@ class ImageFilterVC: UIViewController {
     
     weak var delegate:ImageFilterDelegate?
     
-    let filters = Filters.CustomFilters.allCases
+    let filters = Filters.availableFilters
     lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         
@@ -82,6 +83,7 @@ class ImageFilterVC: UIViewController {
     @objc func dismissButtonPressed(){
         self.removeFrom()
         FilterEngine.globalInstance.purge()
+        delegate?.donePressed()
     }
     
     
@@ -115,7 +117,7 @@ extension ImageFilterVC:UICollectionViewDelegate,UICollectionViewDelegateFlowLay
         let filter = filters[indexPath.row]
         cell.borderlize(.black, 1)
         
-        cell.configureView(name: filter.rawValue, image: image, size: size,contentMode:.scaleAspectFill)
+        cell.configureView(name: filter, image: image, size: size,contentMode:.scaleAspectFill)
         return cell
         
     }

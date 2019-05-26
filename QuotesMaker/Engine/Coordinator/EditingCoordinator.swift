@@ -292,12 +292,19 @@ extension EditingCoordinator:ImagePanelDelegate{
 
 
 extension EditingCoordinator: ImageFilterDelegate{
-    func filtered(_ image: UIImage?) {
-        if let current = baseView.currentSubview as? BackingImageView, let image = image{
-            current.setImage(image: image)
+    func apply(_ filter: String) {
+        if let current = baseView.currentSubview as? BackingImageView{
+            current.addFilter(filter: filter)
         }
     }
-
+    
+    func donePressed() {
+        if let current = baseView.currentSubview as? BackingImageView{
+            current.confirmFilter()
+        }
+    }
+    
+    
 }
 
 extension EditingCoordinator:FetchedAssetDelegate{
