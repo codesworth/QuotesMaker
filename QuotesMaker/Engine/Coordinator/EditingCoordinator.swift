@@ -277,8 +277,7 @@ extension EditingCoordinator:ImagePanelDelegate{
             break
         case .filter:
             if let controller = controller as? iPadStudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
-                let vc = ImageFilterVC(image: image, size: canvas.size)
-                controller.add(vc, to: controller.controlPanelContainer)
+                controller.launchImageFilter(image:image)
             }
         }
     }
@@ -288,6 +287,16 @@ extension EditingCoordinator:ImagePanelDelegate{
             current.flip(side)
         }
     }
+}
+
+
+extension EditingCoordinator: ImageFilterDelegate{
+    func filtered(_ image: UIImage?) {
+        if let current = baseView.currentSubview as? BackingImageView, let image = image{
+            current.setImage(image: image)
+        }
+    }
+
 }
 
 extension EditingCoordinator:FetchedAssetDelegate{

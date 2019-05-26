@@ -578,7 +578,7 @@
 		3896507F2242DD7F009434B4 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507E2242DD7F009434B4 /* States.swift */; };
 		3897184D22974B010047F19E /* HazelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3897184C22974B010047F19E /* HazelFilter.swift */; };
 		3897184F229999200047F19E /* ImageFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3897184E229999200047F19E /* ImageFilterVC.swift */; };
-		389718512299AFF30047F19E /* FiilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389718502299AFF30047F19E /* FiilterCell.xib */; };
+		389718512299AFF30047F19E /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389718502299AFF30047F19E /* FilterCell.xib */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -1218,7 +1218,7 @@
 		3896507E2242DD7F009434B4 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 		3897184C22974B010047F19E /* HazelFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HazelFilter.swift; sourceTree = "<group>"; };
 		3897184E229999200047F19E /* ImageFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterVC.swift; sourceTree = "<group>"; };
-		389718502299AFF30047F19E /* FiilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiilterCell.xib; sourceTree = "<group>"; };
+		389718502299AFF30047F19E /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -2778,7 +2778,7 @@
 				3873738B22452BBE00A1FB7B /* StudioEditorView.swift */,
 				388BE339222B39D4005BF44B /* BasicLabel.swift */,
 				385A1EF6228F582300185D48 /* FIlterCollectionCell.swift */,
-				389718502299AFF30047F19E /* FiilterCell.xib */,
+				389718502299AFF30047F19E /* FilterCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3180,7 +3180,7 @@
 				380826AD2291698100B351DB /* NotoSansJP-Light.otf in Resources */,
 				380828142291698200B351DB /* Oswald-Regular.ttf in Resources */,
 				380826D22291698100B351DB /* Poppins-ExtraLightItalic.ttf in Resources */,
-				389718512299AFF30047F19E /* FiilterCell.xib in Resources */,
+				389718512299AFF30047F19E /* FilterCell.xib in Resources */,
 				380827472291698200B351DB /* SourceSansPro-Italic.ttf in Resources */,
 				380827622291698200B351DB /* Muli-Black.ttf in Resources */,
 				380827862291698200B351DB /* Nunito-Light.ttf in Resources */,
