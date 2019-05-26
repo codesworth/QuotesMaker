@@ -24,13 +24,14 @@ class FilterCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        containerView.backgroundColor = .white
         containerView.addSubview(imageView)
         loadingIndicator = UIActivityIndicatorView(frame: frame)
         loadingIndicator.hidesWhenStopped = true
         self.addSubview(self.loadingIndicator!)
         loadingIndicator.stopAnimating()
-        backgroundColor = .black
-        borderlize(.white, 1)
+        //backgroundColor = .black
+        
         roundCorners(8)
     }
     

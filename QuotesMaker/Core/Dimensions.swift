@@ -102,7 +102,7 @@ class Dimensions{
         }
         static var controlPanelWidth:CGFloat{
             
-            return size.width * 0.30
+            return size.max * 0.30
         }
         
         static var editorHeightPotrait:CGFloat{

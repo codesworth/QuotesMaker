@@ -25,7 +25,7 @@ class ImageFilterVC: UIViewController {
         
         layout.scrollDirection = .vertical
         let view =  UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "\(FilterCollectionCell.self)")
         return view
     }()
@@ -81,6 +81,7 @@ class ImageFilterVC: UIViewController {
     
     @objc func dismissButtonPressed(){
         self.removeFrom()
+        FilterEngine.globalInstance.purge()
     }
     
     
@@ -125,7 +126,7 @@ extension ImageFilterVC:UICollectionViewDelegate,UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let filter = filters[indexPath.row]
-        let image = FilterEngine.applyCustomFilters(name: filter, image: self.image)
+        let image = FilterEngine.globalInstance.imageFor(filter.rawValue)
         delegate?.filtered(image)
     }
 }

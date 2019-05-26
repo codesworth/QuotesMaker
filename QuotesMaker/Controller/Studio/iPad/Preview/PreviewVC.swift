@@ -29,6 +29,7 @@ class PreviewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        filterEngine.purge()
         imageView.image = inputImage
         filterView.delegate = self
         filterView.dataSource = self
@@ -124,6 +125,7 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
         let filter = filters[indexPath.row]//filterEngine.availableFilters[indexPath.row]
+        cell.borderlize(.white, 1)
         cell.configureView(name: filter.rawValue, image: inputImage, size: canvas.size)
         return cell
     }
