@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ImageFilterDelegate:class {
-    func filtered(_ image:UIImage?)
+    func apply(_ filter:Filters.CustomFilters)
 }
 
 class ImageFilterVC: UIViewController {
@@ -113,20 +113,22 @@ extension ImageFilterVC:UICollectionViewDelegate,UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
         let filter = filters[indexPath.row]
+        cell.borderlize(.black, 1)
         
-        cell.configureView(name: filter.rawValue, image: image, size: size)
+        cell.configureView(name: filter.rawValue, image: image, size: size,contentMode:.scaleAspectFill)
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let inSize = (view.frame.width / 2) - 20
-        return [inSize]
+        //let inSize = (view.frame.width / 2) -
+        //print("The size ids: \(inSize)")
+        return [150,170]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let filter = filters[indexPath.row]
-        let image = FilterEngine.globalInstance.imageFor(filter.rawValue)
-        delegate?.filtered(image)
+        //let image = FilterEngine.globalInstance.imageFor(filter.rawValue)
+        delegate?.apply(filter)
     }
 }

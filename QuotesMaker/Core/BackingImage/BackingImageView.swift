@@ -87,7 +87,8 @@ class BackingImageView: UIView{
     var uid:UUID = UUID()
     
     func setImage(image:UIImage){
-       self.image = image
+        let newImage = image.studioImage
+       self.image = newImage
         //updateModel(new)
         //Subscription.main.post(suscription: .stateChange, object: true)
         //Subscription.main.post(suscription: .canUndo, object: true)
