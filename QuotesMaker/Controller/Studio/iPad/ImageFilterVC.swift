@@ -73,6 +73,7 @@ class ImageFilterVC: UIViewController {
         }
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -111,13 +112,15 @@ extension ImageFilterVC:UICollectionViewDelegate,UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
         let filter = filters[indexPath.row]
+        
         cell.configureView(name: filter.rawValue, image: image, size: size)
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [150]
+        let inSize = (view.frame.width / 2) - 20
+        return [inSize]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

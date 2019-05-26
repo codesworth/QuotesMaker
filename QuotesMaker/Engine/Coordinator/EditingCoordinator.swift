@@ -277,7 +277,8 @@ extension EditingCoordinator:ImagePanelDelegate{
             break
         case .filter:
             if let controller = controller as? iPadStudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
-                controller.launchImageFilter(image:image)
+                let size = (baseView.currentSubview as! BackingImageView).bounds.size
+                controller.launchImageFilter(image:image, size:size)
             }
         }
     }

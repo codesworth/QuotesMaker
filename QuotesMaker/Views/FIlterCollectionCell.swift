@@ -29,6 +29,9 @@ class FilterCollectionCell: UICollectionViewCell {
         loadingIndicator.hidesWhenStopped = true
         self.addSubview(self.loadingIndicator!)
         loadingIndicator.stopAnimating()
+        backgroundColor = .black
+        borderlize(.white, 1)
+        roundCorners(8)
     }
     
     override func prepareForReuse() {
@@ -37,10 +40,10 @@ class FilterCollectionCell: UICollectionViewCell {
         imageView.image = nil
     }
     
-    func configureView(name:String,image:UIImage,size:CGSize){
+    func configureView(name:String,image:UIImage,size:CGSize, intrinsicSize:CGSize = [140,140]){
         if !isSet{
             let ratio = size.width/size.height
-            let newSize:CGSize = (size.width > size.height) ? [140,140 * (1/ratio)] : [140 * ratio,140]
+            let newSize:CGSize = (size.width > size.height) ? [intrinsicSize.width,intrinsicSize.height * (1/ratio)] : [intrinsicSize.width * ratio,intrinsicSize.height]
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.layout{
                 $0.width |=| newSize.width

@@ -125,8 +125,8 @@ extension iPadStudioVC:EditingCoordinatorDelegate{
         NSLayoutConstraint.activate(picker.view.pinAllSides())
     }
     
-    func launchImageFilter(image:UIImage){
-        let vc = ImageFilterVC(image: image, size: canvas.size)
+    func launchImageFilter(image:UIImage,size:CGSize){
+        let vc = ImageFilterVC(image: image, size: size)
         vc.delegate = coordinator
         add(vc, to: controlPanelContainer)
         vc.view.translatesAutoresizingMaskIntoConstraints = false
