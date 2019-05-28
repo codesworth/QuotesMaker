@@ -27,11 +27,11 @@ extension iPadStudioVC{
             }
         case .potrait:
             if handle == .pad_norm || handle == .pad_pro_9_7{
-                iPadLayoutSmallPotrait()
+               iPadSmallLayoutLandscape()
                 //iPadLayoutLargePotrait()
                 return
             }else{
-                iPadLayoutLargePotrait()
+                iPadlargeLayoutLandscape()
                 return
             }
             

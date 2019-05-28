@@ -85,6 +85,10 @@ class FilterEngine:NSObject{
         if name == NoFilter{ return image }
         //let data = image.jpegData(compressionQuality: 0.1)!
         //let image = UIImage(data: data)!
+        //let metalGPU = MTLCreateSystemDefaultDevice()!
+        //let eagl = EAGLContext(api: .openGLES3)
+        let context = CIContext()
+        
         guard let filter = CIFilter(name: name), let ciimage = CIImage(image: image) else {return nil}
         
         filter.setValue(ciimage, forKey: kCIInputImageKey)
@@ -92,7 +96,8 @@ class FilterEngine:NSObject{
             filter.setValue(ciimage, forKey: kCIInputMaskImageKey)
         }
         guard let output = filter.outputImage else {return nil}
-        return UIImage(ciImage: output)
+        let cgimage = context.createCGImage(output, from: output.extent)
+        return cgimage != nil ? UIImage(cgImage: cgimage!) : nil
     }
     
     class func applyCustomFilters(name:Filters.CustomFilters,image:UIImage)->UIImage?{

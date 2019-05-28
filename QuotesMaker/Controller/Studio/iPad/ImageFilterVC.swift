@@ -8,23 +8,42 @@
 
 import UIKit
 
+protocol ImageFilterDelegate:class {
+    func apply(_ filter:String)
+    func donePressed()
+}
+
 class ImageFilterVC: UIViewController {
     
     private var image:UIImage!
     private var size:CGSize = .zero
     
-    let filters = Filters.CustomFilters.allCases
+    weak var delegate:ImageFilterDelegate?
+    
+    let filters = Filters.availableFilters
     lazy var collectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        
         layout.scrollDirection = .vertical
         let view =  UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .clear
         view.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "\(FilterCollectionCell.self)")
         return view
+    }()
+    
+    lazy var navbar:UINavigationBar = {
+        let bar  = UINavigationBar(frame: .zero)
+        let item = UINavigationItem(title: "Filters")
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissButtonPressed))
+        item.rightBarButtonItem = rightButton
+        bar.items = [item]
+        return bar
     }()
     
     init(image:UIImage,size:CGSize) {
         self.image = image
         self.size = size
+        super.init(nibName: nil, bundle: nil)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -37,14 +56,35 @@ class ImageFilterVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        view.addSubview(navbar)
+        navbar.layout{
+            $0.top == view.topAnchor
+            $0.leading == view.leadingAnchor
+            $0.trailing == view.trailingAnchor
+            $0.height |=| 60
+        }
+        
         view.addSubview(collectionView)
-        collectionView.frame = view.bounds
+        collectionView.layout{
+            $0.top == navbar.bottomAnchor + 8
+            $0.leading == view.leadingAnchor + 8
+            $0.trailing == view.trailingAnchor - 8
+            $0.bottom == view.bottomAnchor - 8
+        }
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
     
     
     
-    
+    @objc func dismissButtonPressed(){
+        self.removeFrom()
+        FilterEngine.globalInstance.purge()
+        delegate?.donePressed()
+    }
     
     
 
@@ -75,14 +115,22 @@ extension ImageFilterVC:UICollectionViewDelegate,UICollectionViewDelegateFlowLay
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
         let filter = filters[indexPath.row]
-        cell.configureView(name: filter.rawValue, image: image, size: size)
+        cell.borderlize(.black, 1)
+        
+        cell.configureView(name: filter, image: image, size: size,contentMode:.scaleAspectFill)
+        return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [150]
+        //let inSize = (view.frame.width / 2) -
+        //print("The size ids: \(inSize)")
+        return [150,170]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        let filter = filters[indexPath.row]
+        //let image = FilterEngine.globalInstance.imageFor(filter.rawValue)
+        delegate?.apply(filter)
     }
 }

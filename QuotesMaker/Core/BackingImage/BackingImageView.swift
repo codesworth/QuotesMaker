@@ -87,6 +87,7 @@ class BackingImageView: UIView{
     var uid:UUID = UUID()
     
     func setImage(image:UIImage){
+        //let newImage = image.studioImage
        self.image = image
         //updateModel(new)
         //Subscription.main.post(suscription: .stateChange, object: true)
@@ -149,6 +150,30 @@ class BackingImageView: UIView{
 //        }
 //
 //    }
+    
+    func addFilter(filter name:String){
+        let loader = LoaderView(frame: bounds)
+        addSubview(loader)
+        //let opthread = DispatchQueue(label: name.rawValue, qos: .default)
+        DispatchQueue.main.async { [unowned self] in
+            
+            guard let image = self.image else {loader.removeFromSuperview(); return}
+            print("Unfiltered image size and count: \(image.size) :: \(image.pngData()?.count ?? 0)")
+            if let filtered = FilterEngine.applyFilter(name: name, image: image){
+                print("filtered image size and count: \(filtered.size) :: \(filtered.pngData()?.count ?? 0)")
+                self.baseImageView.image = filtered
+                loader.removeFromSuperview()
+            }
+        }
+    }
+    
+    func confirmFilter(){
+        if let bImage = baseImageView.image, let image = self.image{
+            if image != bImage{
+                self.image = bImage
+            }
+        }
+    }
     
     func releaseImage(){
         if let name = model.imageSrc{

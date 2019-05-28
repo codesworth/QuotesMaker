@@ -436,6 +436,7 @@
 		3811532C224D0E5B00DA7D3B /* RectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532B224D0E5B00DA7D3B /* RectView.swift */; };
 		3811532E224D17B000DA7D3B /* StyleSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532D224D17B000DA7D3B /* StyleSelectors.swift */; };
 		38115330224D228400DA7D3B /* SuperRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532F224D228400DA7D3B /* SuperRectView.swift */; };
+		3812AEA3229DDC330059C13B /* Filter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3812AEA2229DDC330059C13B /* Filter+Extension.swift */; };
 		381865B5223C9972006C0C56 /* LayerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B4223C9972006C0C56 /* LayerStack.swift */; };
 		381865B8223C9E1F006C0C56 /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B6223C9E1F006C0C56 /* StackCell.swift */; };
 		381865B9223C9E1F006C0C56 /* StackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381865B7223C9E1F006C0C56 /* StackCell.xib */; };
@@ -578,7 +579,8 @@
 		3896507F2242DD7F009434B4 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507E2242DD7F009434B4 /* States.swift */; };
 		3897184D22974B010047F19E /* HazelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3897184C22974B010047F19E /* HazelFilter.swift */; };
 		3897184F229999200047F19E /* ImageFilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3897184E229999200047F19E /* ImageFilterVC.swift */; };
-		389718512299AFF30047F19E /* FiilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389718502299AFF30047F19E /* FiilterCell.xib */; };
+		389718512299AFF30047F19E /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 389718502299AFF30047F19E /* FilterCell.xib */; };
+		38971853229B0C670047F19E /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38971852229B0C670047F19E /* LoaderView.swift */; };
 		389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */; };
 		389B938F2227689E009FE9E6 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B938E2227689E009FE9E6 /* Utils.swift */; };
 		389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B9391222769CD009FE9E6 /* Dimensions.swift */; };
@@ -1071,6 +1073,7 @@
 		3811532B224D0E5B00DA7D3B /* RectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectView.swift; sourceTree = "<group>"; };
 		3811532D224D17B000DA7D3B /* StyleSelectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSelectors.swift; sourceTree = "<group>"; };
 		3811532F224D228400DA7D3B /* SuperRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRectView.swift; sourceTree = "<group>"; };
+		3812AEA2229DDC330059C13B /* Filter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Filter+Extension.swift"; sourceTree = "<group>"; };
 		381865B4223C9972006C0C56 /* LayerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerStack.swift; sourceTree = "<group>"; };
 		381865B6223C9E1F006C0C56 /* StackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCell.swift; sourceTree = "<group>"; };
 		381865B7223C9E1F006C0C56 /* StackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCell.xib; sourceTree = "<group>"; };
@@ -1218,7 +1221,8 @@
 		3896507E2242DD7F009434B4 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 		3897184C22974B010047F19E /* HazelFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HazelFilter.swift; sourceTree = "<group>"; };
 		3897184E229999200047F19E /* ImageFilterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFilterVC.swift; sourceTree = "<group>"; };
-		389718502299AFF30047F19E /* FiilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FiilterCell.xib; sourceTree = "<group>"; };
+		389718502299AFF30047F19E /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
+		38971852229B0C670047F19E /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		389B938C222766BB009FE9E6 /* QMImageBackingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMImageBackingLayer.swift; sourceTree = "<group>"; };
 		389B938E2227689E009FE9E6 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		389B9391222769CD009FE9E6 /* Dimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimensions.swift; sourceTree = "<group>"; };
@@ -1295,6 +1299,7 @@
 				38012FF1228CCC9100372516 /* FilterEngine.swift */,
 				38012FF3228CCD2700372516 /* Filter.swift */,
 				38013039228CDA1D00372516 /* FilterExtensions.swift */,
+				3812AEA2229DDC330059C13B /* Filter+Extension.swift */,
 			);
 			path = "Filter Engine";
 			sourceTree = "<group>";
@@ -2778,7 +2783,8 @@
 				3873738B22452BBE00A1FB7B /* StudioEditorView.swift */,
 				388BE339222B39D4005BF44B /* BasicLabel.swift */,
 				385A1EF6228F582300185D48 /* FIlterCollectionCell.swift */,
-				389718502299AFF30047F19E /* FiilterCell.xib */,
+				389718502299AFF30047F19E /* FilterCell.xib */,
+				38971852229B0C670047F19E /* LoaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -3180,7 +3186,7 @@
 				380826AD2291698100B351DB /* NotoSansJP-Light.otf in Resources */,
 				380828142291698200B351DB /* Oswald-Regular.ttf in Resources */,
 				380826D22291698100B351DB /* Poppins-ExtraLightItalic.ttf in Resources */,
-				389718512299AFF30047F19E /* FiilterCell.xib in Resources */,
+				389718512299AFF30047F19E /* FilterCell.xib in Resources */,
 				380827472291698200B351DB /* SourceSansPro-Italic.ttf in Resources */,
 				380827622291698200B351DB /* Muli-Black.ttf in Resources */,
 				380827862291698200B351DB /* Nunito-Light.ttf in Resources */,
@@ -3730,11 +3736,13 @@
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38236561223FEB640078A723 /* +StateChangeable.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
+				3812AEA3229DDC330059C13B /* Filter+Extension.swift in Sources */,
 				38743D592258114500897B13 /* EditingCoordinatorDelegate.swift in Sources */,
 				38686D2A2277406000349E02 /* TemplateCell.swift in Sources */,
 				38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */,
 				385A1ED9228F4A5900185D48 /* MercurializeFilter.swift in Sources */,
 				3818DADA2270FCF000202C14 /* BaseModelCollection.swift in Sources */,
+				38971853229B0C670047F19E /* LoaderView.swift in Sources */,
 				3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,

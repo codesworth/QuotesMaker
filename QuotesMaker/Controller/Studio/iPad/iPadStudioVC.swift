@@ -125,6 +125,14 @@ extension iPadStudioVC:EditingCoordinatorDelegate{
         NSLayoutConstraint.activate(picker.view.pinAllSides())
     }
     
+    func launchImageFilter(image:UIImage){
+        let vc = ImageFilterVC(image: image, size: canvas.size)
+        vc.delegate = coordinator
+        add(vc, to: controlPanelContainer)
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate(vc.view.pinAllSides())
+    }
+    
     func beginCroppingImage() {
         if let current = coordinator.baseView.currentSubview as? BackingImageView{
 //           let view = UIView(frame: [0,0,500,500])

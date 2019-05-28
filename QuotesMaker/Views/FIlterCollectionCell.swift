@@ -24,11 +24,15 @@ class FilterCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        containerView.backgroundColor = .white
         containerView.addSubview(imageView)
         loadingIndicator = UIActivityIndicatorView(frame: frame)
         loadingIndicator.hidesWhenStopped = true
         self.addSubview(self.loadingIndicator!)
         loadingIndicator.stopAnimating()
+        //backgroundColor = .black
+        
+        roundCorners(8)
     }
     
     override func prepareForReuse() {
@@ -37,10 +41,11 @@ class FilterCollectionCell: UICollectionViewCell {
         imageView.image = nil
     }
     
-    func configureView(name:String,image:UIImage,size:CGSize){
+    func configureView(name:String,image:UIImage,size:CGSize, intrinsicSize:CGSize = [140,140], contentMode:UIView.ContentMode = .scaleAspectFit){
         if !isSet{
+            imageView.contentMode = contentMode
             let ratio = size.width/size.height
-            let newSize:CGSize = (size.width > size.height) ? [140,140 * (1/ratio)] : [140 * ratio,140]
+            let newSize:CGSize = (size.width > size.height) ? [intrinsicSize.width,intrinsicSize.height * (1/ratio)] : [intrinsicSize.width * ratio,intrinsicSize.height]
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.layout{
                 $0.width |=| newSize.width
@@ -50,7 +55,7 @@ class FilterCollectionCell: UICollectionViewCell {
             }
             isSet = true
         }
-        titleLabel.text = (name == FilterEngine.NoFilter) ? name : CIFilter.localizedName(forFilterName: name) ?? name
+        titleLabel.text = CIFilter.alias(name)//(name == FilterEngine.NoFilter) ? name : CIFilter.localizedName(forFilterName: name) ?? name
         if let filteredImage = FilterEngine.globalInstance.imageFor(name){
             imageView.image = filteredImage
             return
@@ -58,8 +63,9 @@ class FilterCollectionCell: UICollectionViewCell {
         self.loadingIndicator.startAnimating()
         let queue = DispatchQueue(label: "Filter", qos: .default, attributes: .concurrent)
         queue.async {
-            guard let filter = Filters.CustomFilters(rawValue: name) else {return}
-            let filteredImage = FilterEngine.applyCustomFilters(name: filter, image: image)//FilterEngine.applyFilter(name: name, image: image)
+            //guard let filter = Filters.CustomFilters(rawValue: name) else {return}
+            let filteredImage = //FilterEngine.applyCustomFilters(name: filter, image: image)
+                FilterEngine.applyFilter(name: name, image: image)
             DispatchQueue.main.async { [unowned self] in
                 self.imageView.image = filteredImage
                 self.loadingIndicator.stopAnimating()

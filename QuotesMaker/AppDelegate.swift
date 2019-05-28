@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
 //        let idiom = UIDevice.idiom
 //        if idiom == .pad{
-//            return .landscapeLeft
+//            return .landscape
 //        }else{
 //            return .portrait
 //        }

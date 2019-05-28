@@ -150,6 +150,48 @@ extension UIImage{
     class var alignJustify:UIImage?{
         return #imageLiteral(resourceName: "justify")
     }
+    
+    enum ImageSizes:Int{
+        case supermax = 32000000
+        case max = 16000000
+        case medium = 8000000
+        case minlg = 4000000
+        case min = 1000000
+    }
+    
+    var studioImage:UIImage?{
+        if let data = dataFromJPEG(){
+            return UIImage(data: data)
+        }
+        return nil
+    }
+    
+    func dataFromJPEG()-> Data?{
+        var compression:CGFloat = 1
+        if let data = jpegData(compressionQuality: compression){
+            if data.count < ImageSizes.min.rawValue{
+                compression = 0.6
+                return jpegData(compressionQuality: compression)
+            }
+            if data.count < ImageSizes.minlg.rawValue{
+                compression = 0.5
+                return jpegData(compressionQuality: compression)
+            }
+            if data.count < ImageSizes.medium.rawValue{
+                compression = 0.4
+                return jpegData(compressionQuality: compression)
+            }
+            if data.count < ImageSizes.max.rawValue{
+                compression = 0.2
+                return jpegData(compressionQuality: compression)
+            }
+            
+            compression = 0.1
+            return jpegData(compressionQuality: compression)
+            
+        }
+        return nil
+    }
 }
 
 

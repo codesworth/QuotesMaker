@@ -10,7 +10,9 @@ import CoreImage
 
 struct Filters {
     
-    public static var availableFilters = availableColorFilters.merge(availableColorAdjustmentFilters).merge(availableStylyzedFilters)
+    public static var availableFilters = ["CIColorCurves","CIColorInvert", "CIColorMonochrome", "CIColorPosterize","CIPhotoEffectMono", "CIPhotoEffectNoir","CIDither", "CIFalseColor","CIMaximumComponent", "CIMinimumComponent", "CIPhotoEffectChrome", "CIPhotoEffectFade", "CIPhotoEffectInstant","CIPhotoEffectMono", "CIPhotoEffectNoir", "CIPhotoEffectProcess", "CIPhotoEffectTonal", "CIPhotoEffectTransfer", "CISepiaTone", "CIThermal", "CIVignette", "CIXRay","CILinearToSRGBToneCurve","CICrystallize", "CIEdgeWork", "CIPointillize", "CISpotColor"]
+    
+    // availableColorFilters.merge(availableColorAdjustmentFilters).merge(availableStylyzedFilters)
 
     private static let allColorFilters = ["CIColorCrossPolynomial", "CIColorCube", "CIColorCubesMixedWithMask", "CIColorCubeWithColorSpace", "CIColorCurves", "CIColorInvert", "*CIColorMap", "CIColorMonochrome", "CIColorPosterize", "CIDither", "CIFalseColor", "*CILabDeltaE", "CIMaskToAlpha", "*CIMaximumComponent", "CIMinimumComponent", "CIPhotoEffectChrome", "CIPhotoEffectFade", "CIPhotoEffectInstant", "CIPhotoEffectMono", "CIPhotoEffectNoir", "CIPhotoEffectProcess", "CIPhotoEffectTonal", "CIPhotoEffectTransfer", "CISepiaTone", "CIThermal", "CIVignette", "*CIVignetteEffect", "CIXRay"]
     
