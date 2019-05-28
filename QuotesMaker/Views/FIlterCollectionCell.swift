@@ -55,7 +55,7 @@ class FilterCollectionCell: UICollectionViewCell {
             }
             isSet = true
         }
-        titleLabel.text = (name == FilterEngine.NoFilter) ? name : CIFilter.localizedName(forFilterName: name) ?? name
+        titleLabel.text = CIFilter.alias(name)//(name == FilterEngine.NoFilter) ? name : CIFilter.localizedName(forFilterName: name) ?? name
         if let filteredImage = FilterEngine.globalInstance.imageFor(name){
             imageView.image = filteredImage
             return

@@ -436,6 +436,7 @@
 		3811532C224D0E5B00DA7D3B /* RectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532B224D0E5B00DA7D3B /* RectView.swift */; };
 		3811532E224D17B000DA7D3B /* StyleSelectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532D224D17B000DA7D3B /* StyleSelectors.swift */; };
 		38115330224D228400DA7D3B /* SuperRectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3811532F224D228400DA7D3B /* SuperRectView.swift */; };
+		3812AEA3229DDC330059C13B /* Filter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3812AEA2229DDC330059C13B /* Filter+Extension.swift */; };
 		381865B5223C9972006C0C56 /* LayerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B4223C9972006C0C56 /* LayerStack.swift */; };
 		381865B8223C9E1F006C0C56 /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 381865B6223C9E1F006C0C56 /* StackCell.swift */; };
 		381865B9223C9E1F006C0C56 /* StackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 381865B7223C9E1F006C0C56 /* StackCell.xib */; };
@@ -1072,6 +1073,7 @@
 		3811532B224D0E5B00DA7D3B /* RectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectView.swift; sourceTree = "<group>"; };
 		3811532D224D17B000DA7D3B /* StyleSelectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSelectors.swift; sourceTree = "<group>"; };
 		3811532F224D228400DA7D3B /* SuperRectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperRectView.swift; sourceTree = "<group>"; };
+		3812AEA2229DDC330059C13B /* Filter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Filter+Extension.swift"; sourceTree = "<group>"; };
 		381865B4223C9972006C0C56 /* LayerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerStack.swift; sourceTree = "<group>"; };
 		381865B6223C9E1F006C0C56 /* StackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCell.swift; sourceTree = "<group>"; };
 		381865B7223C9E1F006C0C56 /* StackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackCell.xib; sourceTree = "<group>"; };
@@ -1297,6 +1299,7 @@
 				38012FF1228CCC9100372516 /* FilterEngine.swift */,
 				38012FF3228CCD2700372516 /* Filter.swift */,
 				38013039228CDA1D00372516 /* FilterExtensions.swift */,
+				3812AEA2229DDC330059C13B /* Filter+Extension.swift */,
 			);
 			path = "Filter Engine";
 			sourceTree = "<group>";
@@ -3733,6 +3736,7 @@
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38236561223FEB640078A723 /* +StateChangeable.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
+				3812AEA3229DDC330059C13B /* Filter+Extension.swift in Sources */,
 				38743D592258114500897B13 /* EditingCoordinatorDelegate.swift in Sources */,
 				38686D2A2277406000349E02 /* TemplateCell.swift in Sources */,
 				38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */,
