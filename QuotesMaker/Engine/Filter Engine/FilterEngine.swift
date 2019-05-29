@@ -83,8 +83,7 @@ class FilterEngine:NSObject{
     
     class func applyFilter(name:String,image:UIImage)->UIImage?{
         if name == NoFilter{ return image }
-        //let data = image.jpegData(compressionQuality: 0.1)!
-        //let image = UIImage(data: data)!
+        
         //let metalGPU = MTLCreateSystemDefaultDevice()!
         //let eagl = EAGLContext(api: .openGLES3)
         let context = CIContext()
@@ -92,9 +91,6 @@ class FilterEngine:NSObject{
         guard let filter = CIFilter(name: name), let ciimage = CIImage(image: image) else {return nil}
         
         filter.setValue(ciimage, forKey: kCIInputImageKey)
-        if (filter.name == "CIColorCubesMixedWithMask"){
-            filter.setValue(ciimage, forKey: kCIInputMaskImageKey)
-        }
         guard let output = filter.outputImage else {return nil}
         let cgimage = context.createCGImage(output, from: output.extent)
         return cgimage != nil ? UIImage(cgImage: cgimage!) : nil

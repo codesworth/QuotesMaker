@@ -42,9 +42,7 @@ struct Canvas {
     enum AspectRatios:Int,CaseIterable,Codable{
         
         case instagram
-        case facebook
         case ig_horizontal
-        
         case pinterest
         case snapchat
         case ig_vertical
@@ -64,6 +62,7 @@ struct Canvas {
         case twitter = 1.77777777778
         case twitter_header = 3.00
         
+        
     }
     
     public private (set) var icon:String
@@ -80,23 +79,23 @@ struct Canvas {
             aspectRatio = aspect
             size = [.fixedWidth]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
-            icon = "ig"
+            icon = "ig_square"
             ratio = Ratios.instagram.rawValue
             break
-        case .facebook:
-            name = "Facebook Post"
-            aspectRatio = aspect
-            size = [.fixedWidth, .fixedWidth * (1 / Ratios.facebook.rawValue)]
-            scale = WidthSizes.facebook_twitter.rawValue / size.width
-            icon = "fb"
-            ratio = Ratios.facebook.rawValue
-            break
+//        case .facebook:
+//            name = "Facebook Post"
+//            aspectRatio = aspect
+//            size = [.fixedWidth, .fixedWidth * (1 / Ratios.facebook.rawValue)]
+//            scale = WidthSizes.facebook_twitter.rawValue / size.width
+//            icon = "fb"
+//            ratio = Ratios.facebook.rawValue
+//            break
         case .facebook_stories:
             name = "Facebook Story"
             aspectRatio = aspect
             size = [.fixedWidthHG, .fixedWidthHG * (1 / Ratios.stories.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
-            icon = "fb"
+            icon = "fb_story"
             ratio = Ratios.stories.rawValue
             break
         case .ig_stories:
@@ -120,7 +119,7 @@ struct Canvas {
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.ig_vertical.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
-            icon = "ig"
+            icon = "ig_vertical"
             ratio = Ratios.ig_vertical.rawValue
             break
         case .ig_horizontal:
@@ -128,7 +127,7 @@ struct Canvas {
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.ig_horizontal.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
-            icon = "ig"
+            icon = "ig_horizontal"
             ratio = Ratios.ig_horizontal.rawValue
             break
         case .pinterest:
@@ -151,7 +150,7 @@ struct Canvas {
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter_header.rawValue)]
             scale = WidthSizes.twitter_header.rawValue / size.width
-            icon = "tw"
+            icon = "tw_header"
             ratio = Ratios.twitter_header.rawValue
             break
         case .facebook_header:
@@ -159,7 +158,7 @@ struct Canvas {
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter.rawValue)]
             scale = WidthSizes.facebook_header.rawValue / size.width
-            icon = "fb"
+            icon = "fb_header"
             ratio = Ratios.twitter.rawValue
             break
 //        default:
