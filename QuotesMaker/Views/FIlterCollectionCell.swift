@@ -61,11 +61,11 @@ class FilterCollectionCell: UICollectionViewCell {
             return
         }
         self.loadingIndicator.startAnimating()
+        
         let queue = DispatchQueue(label: "Filter", qos: .default, attributes: .concurrent)
         queue.async {
-            //guard let filter = Filters.CustomFilters(rawValue: name) else {return}
-            let filteredImage = //FilterEngine.applyCustomFilters(name: filter, image: image)
-                FilterEngine.applyFilter(name: name, image: image)
+            
+            let filteredImage = FilterEngine.applyFilter(name: name, image: image)
             DispatchQueue.main.async { [unowned self] in
                 self.imageView.image = filteredImage
                 self.loadingIndicator.stopAnimating()
