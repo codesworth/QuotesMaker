@@ -10,7 +10,7 @@ import CoreImage
 
 struct Filters {
     
-    public static var availableFilters = ["CIColorCurves","CIColorInvert", "CIColorMonochrome", "CIColorPosterize","CIPhotoEffectMono", "CIPhotoEffectNoir","CIDither", "CIFalseColor","CIMaximumComponent", "CIMinimumComponent", "CIPhotoEffectChrome", "CIPhotoEffectFade", "CIPhotoEffectInstant","CIPhotoEffectMono", "CIPhotoEffectNoir", "CIPhotoEffectProcess", "CIPhotoEffectTonal", "CIPhotoEffectTransfer", "CISepiaTone", "CIThermal", "CIVignette", "CIXRay","CILinearToSRGBToneCurve","CICrystallize", "CIEdgeWork", "CIPointillize", "CISpotColor"]
+    public static var availableFilters = ["CIColorCurves","CIColorInvert", "CIColorMonochrome", "CIColorPosterize","CIPhotoEffectMono", "CIPhotoEffectNoir","CIDither", "CIFalseColor","CIMaximumComponent", "CIMinimumComponent", "CIPhotoEffectChrome", "CIPhotoEffectFade", "CIPhotoEffectInstant","CIPhotoEffectMono", "CIPhotoEffectNoir", "CIPhotoEffectProcess", "CIPhotoEffectTonal", "CIPhotoEffectTransfer", "CISepiaTone", "CIThermal", "CIVignette", "CIXRay","CILinearToSRGBToneCurve","CICrystallize", "CIEdgeWork", "CIPointillize", "CISpotColor"].filter{CIFilter.localizedName(forFilterName: $0) != nil}
     
     // availableColorFilters.merge(availableColorAdjustmentFilters).merge(availableStylyzedFilters)
 

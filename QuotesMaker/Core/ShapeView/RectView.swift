@@ -15,7 +15,7 @@ protocol ShapableView {
 }
 
 class RectView:SuperRectView{
-    
+    var ovalLayer = CAShapeLayer()
     var superlayer:CALayer!
     var oldModel:ShapeModel = .default()
     
@@ -138,10 +138,13 @@ class RectView:SuperRectView{
         resizerView.hideEditingHandles()
         addSubview(resizerView)
         //contentView.layer.masksToBounds = true
-        contentView.layer.addSublayer(superlayer)
+        contentView.layer.addSublayer(ovalLayer)
+        ovalLayer.masksToBounds = true
+        ovalLayer.path = UIBezierPath(ovalIn: bounds).cgPath
+        //ovalLayer.addSublayer(superlayer)
         superlayer.needsDisplayOnBoundsChange = true
         superlayer.bounds = contentView.layer.bounds
-        superlayer.position = [contentView.bounds.midX,contentView.bounds.midY]
+        ovalLayer.position = [contentView.bounds.midX,contentView.bounds.midY]
         
     }
     
