@@ -18,16 +18,25 @@ class TriangleShape:UIView{
 
 class OvalView:UIView{
     
-    private var shapeLayer:CAShapeLayer?
+    private var shapeLayer = CAShapeLayer()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        initialiaze()
     }
     
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     func initialiaze(){
-        shapeLayer = CAShapeLayer()
+        layer.addSublayer(shapeLayer)
+        let path = UIBezierPath(ovalIn: bounds)
+        shapeLayer.path = path.cgPath
     }
     
     
 }
+
+
