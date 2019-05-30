@@ -11,7 +11,7 @@ import UIKit
 class PreviewVC: UIViewController {
     
     var filterEngine = FilterEngine.globalInstance
-    var filters = Filters.CustomFilters.allCases
+    var filters = Filters.availableFilters
     
     lazy var imageView:UIImageView = {
         let imv = UIImageView(frame: .zero)
@@ -126,7 +126,7 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
         let filter = filters[indexPath.row]//filterEngine.availableFilters[indexPath.row]
         cell.borderlize(.white, 1)
-        cell.configureView(name: filter.rawValue, image: inputImage, size: canvas.size)
+        cell.configureView(name: filter, image: inputImage, size: canvas.size)
         return cell
     }
     
@@ -136,7 +136,7 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let name = filters[indexPath.row]//filterEngine.availableFilters[indexPath.row]
-        if let image = filterEngine.imageFor(name.rawValue){
+        if let image = filterEngine.imageFor(name){
             imageView.image = image
             //imageView.contentMode =
         }else{
