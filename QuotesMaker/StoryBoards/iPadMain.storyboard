@@ -343,10 +343,10 @@
             </objects>
             <point key="canvasLocation" x="-3229.1015625" y="-345.3125"/>
         </scene>
-        <!--iPad FontsVC-->
+        <!--More FontsVC-->
         <scene sceneID="gqA-sU-ZOk">
             <objects>
-                <viewController storyboardIdentifier="iPadFontsVC" id="9I4-pK-gvQ" customClass="iPadFontsVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="iPadFontsVC" id="9I4-pK-gvQ" customClass="MoreFontsVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DP1-hs-9VV">
                         <rect key="frame" x="0.0" y="0.0" width="410" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
