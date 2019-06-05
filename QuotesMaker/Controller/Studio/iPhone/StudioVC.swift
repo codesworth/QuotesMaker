@@ -67,6 +67,7 @@ class StudioVC: UIViewController {
         view.addSubview(editorView)
         studioPanel.delegate = self
         coordinator.delegate = self
+        coordinator.controller = self
         //subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChanged(_:)))
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont(name: "RobotoMono-Regular", size: 45)!,.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
@@ -75,6 +76,16 @@ class StudioVC: UIViewController {
         print("This is Height::: \(UIScreen.main.bounds) and scale:: \(UIScreen.main.scale)")
         print("This is native bound::: \(UIScreen.main.nativeBounds) and scale:: \(UIScreen.main.nativeScale)")
 
+    }
+    
+    func launchImageFilter(image:UIImage){
+        let imageVc = ImageFilterVC(image: image, size: canvas.size)
+        imageVc.delegate = coordinator
+        present(imageVc, animated: true, completion: nil)
+    }
+    
+    func launchFonts(){
+        
     }
     
     
@@ -87,6 +98,17 @@ class StudioVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+    }
+    
+    
+    @objc func launchMoreFonts(_ notifcation:Notification){
+        if let fonts = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "\(iPadFontsVC.self)") as? iPadFontsVC {
+            fonts.delegate = coordinator
+            fonts.model = coordinator.getCurrentModel() as? TextLayerModel ?? TextLayerModel()
+            add(fonts, to: controlPanelContainer)
+            fonts.view.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate(fonts.view.pinAllSides())
+        }
     }
     
     func setHeight(){

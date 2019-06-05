@@ -53,7 +53,7 @@ class EditorPanel: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let width:CGFloat = CGFloat(processes.count  * 100) + 100
+        //let width:CGFloat = CGFloat(processes.count  * 100) + 100
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
 //            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
@@ -62,10 +62,10 @@ class EditorPanel: UIView {
 //            collectionView.heightAnchor.constraint(equalToConstant: 80)
 //        ])
         collectionView.layout{
-            $0.bottom == bottomAnchor - 10
-            $0.centerX == centerXAnchor
+            $0.leading == leadingAnchor + 12
+            $0.centerY == centerYAnchor
             $0.height |=| 80
-            $0.width |=| width
+            $0.trailing == trailingAnchor
         }
     }
 }

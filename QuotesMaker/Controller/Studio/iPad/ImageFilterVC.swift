@@ -81,10 +81,17 @@ class ImageFilterVC: UIViewController {
     
     
     @objc func dismissButtonPressed(){
-        self.removeFrom()
+        if UIDevice.idiom == .phone{
+            self.dismiss(animated: true, completion: nil)
+        }else{
+            self.removeFrom()
+        }
         FilterEngine.globalInstance.purge()
         delegate?.donePressed()
     }
+    
+    
+    
     
     
 

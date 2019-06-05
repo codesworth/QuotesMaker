@@ -421,23 +421,70 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4v2-jY-GsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afh-ko-nlL">
-                    <rect key="frame" x="0.0" y="0.0" width="410" height="60"/>
+                <view contentMode="scaleToFill" id="zTl-El-ef7">
+                    <rect key="frame" x="0.0" y="0.0" width="410" height="768"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Fonts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFa-jH-mpZ">
-                            <rect key="frame" x="160" y="19.5" width="90" height="21"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                            <color key="textColor" red="1" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="U0q-Df-VwG">
+                            <rect key="frame" x="0.0" y="0.0" width="410" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="e7o-5g-hMl"/>
+                            </constraints>
+                            <color key="barTintColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <items>
+                                <navigationItem title="More Fonts" id="e1C-gY-pVr">
+                                    <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="RUs-en-Vuj">
+                                        <color key="tintColor" red="1" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="donePressed:" destination="9I4-pK-gvQ" id="jOM-kY-mMt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <searchBar contentMode="redraw" placeholder="Search Font..." translatesAutoresizingMaskIntoConstraints="NO" id="8XR-6D-yS5">
+                            <rect key="frame" x="0.0" y="50" width="410" height="56"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="GQl-Pr-4Bx"/>
+                            </constraints>
+                            <color key="barTintColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-fW-JZR">
+                            <rect key="frame" x="8" y="114" width="394" height="654"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gzY-fo-Mf7">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <cells>
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qRE-17-m9m">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </view>
+                                </collectionViewCell>
+                            </cells>
+                        </collectionView>
                     </subviews>
-                    <color key="backgroundColor" red="0.30588235289999999" green="0.80392156859999997" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="1wF-18-afa"/>
-                        <constraint firstItem="EFa-jH-mpZ" firstAttribute="centerY" secondItem="Afh-ko-nlL" secondAttribute="centerY" id="c2Q-yR-61L"/>
-                        <constraint firstItem="EFa-jH-mpZ" firstAttribute="centerX" secondItem="Afh-ko-nlL" secondAttribute="centerX" id="uEq-36-IAB"/>
+                        <constraint firstItem="U0q-Df-VwG" firstAttribute="leading" secondItem="fGd-V5-sBs" secondAttribute="leading" id="EzF-nJ-LHG"/>
+                        <constraint firstItem="8XR-6D-yS5" firstAttribute="trailing" secondItem="fGd-V5-sBs" secondAttribute="trailing" id="GXb-MM-4sJ"/>
+                        <constraint firstItem="Zpf-fW-JZR" firstAttribute="leading" secondItem="zTl-El-ef7" secondAttribute="leading" constant="8" id="WIJ-Pf-Ns2"/>
+                        <constraint firstItem="8XR-6D-yS5" firstAttribute="leading" secondItem="fGd-V5-sBs" secondAttribute="leading" id="WPL-F5-T8e"/>
+                        <constraint firstItem="8XR-6D-yS5" firstAttribute="top" secondItem="U0q-Df-VwG" secondAttribute="bottom" id="XRZ-4B-iSc"/>
+                        <constraint firstItem="Zpf-fW-JZR" firstAttribute="top" secondItem="8XR-6D-yS5" secondAttribute="bottom" constant="8" id="Z8k-1s-cdr"/>
+                        <constraint firstItem="U0q-Df-VwG" firstAttribute="top" secondItem="zTl-El-ef7" secondAttribute="top" id="aP2-8j-F8Q"/>
+                        <constraint firstAttribute="bottom" secondItem="Zpf-fW-JZR" secondAttribute="bottom" id="kND-CD-Qk3"/>
+                        <constraint firstItem="U0q-Df-VwG" firstAttribute="trailing" secondItem="fGd-V5-sBs" secondAttribute="trailing" id="mAq-tk-Dfe"/>
+                        <constraint firstItem="fGd-V5-sBs" firstAttribute="trailing" secondItem="Zpf-fW-JZR" secondAttribute="trailing" constant="8" id="pDX-XA-Z8R"/>
                     </constraints>
-                    <viewLayoutGuide key="safeArea" id="Rjn-kg-vfa"/>
+                    <viewLayoutGuide key="safeArea" id="fGd-V5-sBs"/>
                 </view>
             </objects>
             <point key="canvasLocation" x="-2673.046875" y="-800"/>
