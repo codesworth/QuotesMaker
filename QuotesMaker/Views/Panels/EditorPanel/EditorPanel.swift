@@ -19,6 +19,7 @@ class EditorPanel: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.alwaysBounceHorizontal = true
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = .clear
         return view
@@ -26,6 +27,7 @@ class EditorPanel: UIView {
     
     var processes:[Processes] = Processes.getAllProcesses()
     weak var delegate:EditorPanelDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         commonInit()
@@ -46,6 +48,7 @@ class EditorPanel: UIView {
         collectionView.register(UINib(nibName: "\(PanelCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(PanelCell.self)")
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.isScrollEnabled = true
     }
     
     override func layoutSubviews() {

@@ -39,6 +39,7 @@ class StudioVC: UIViewController {
         self.canvas = canvas
         self.coordinator = EditingCoordinator(model: model, canvas: canvas)
         super.init(nibName: nil, bundle: nil)
+        
     }
     
     
@@ -53,10 +54,10 @@ class StudioVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let value = UIInterfaceOrientation.landscapeLeft.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
+        //let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        //UIDevice.current.setValue(value, forKey: "orientation")
         //setupDevice()
-        
+        view.backgroundColor = .white
         studioTab = StudioTab(frame: .zero)
         studioPanel = EditorPanel(frame: .zero)
         studioPanel.backgroundColor = .seafoamBlue
@@ -253,6 +254,10 @@ extension StudioVC:OptionsSelectedDelegate{
         }
         
     }
+    
+   // override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+    //    return .portrait
+    //}
 }
 
 
