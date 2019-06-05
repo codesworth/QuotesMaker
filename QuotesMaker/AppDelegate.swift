@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        if idiom == .pad{
 //            window?.rootViewController = iPadStudioVC()
 //        }
-//        setRootViewContoroller()
+        setRootViewContoroller()
 //        for family: String in UIFont.familyNames
 //        {
 //            print("\(family)")
@@ -70,7 +70,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func setRootViewContoroller(){
-        window?.rootViewController = StudioVC()
+        if UIDevice.idiom == .phone{
+            let home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(HomePageVC.self)") as! HomePageVC
+            window?.rootViewController = home
+        }
     }
 }
 

@@ -18,8 +18,9 @@ class StudioVC: UIViewController {
         editor.clipsToBounds = true
         return editor
     }()
+    private var canvas:Canvas!
     
-    var coordinator = EditingCoordinator()
+    var coordinator:EditingCoordinator!
     var studioHeight: CGFloat!
     var studioPanel: EditorPanel!
     var colorPanel:ColorSliderPanel!
@@ -34,9 +35,10 @@ class StudioVC: UIViewController {
     //private var aspectRatio:Dimensions.AspectRatios = .square
     
     
-    init() {
+    init(model:StudioModel? = nil, canvas:Canvas) {
+        self.canvas = canvas
+        self.coordinator = EditingCoordinator(model: model, canvas: canvas)
         super.init(nibName: nil, bundle: nil)
-        
     }
     
     
