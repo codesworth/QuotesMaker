@@ -9,8 +9,8 @@
 import UIKit
 
 class TemplateCell: UICollectionViewCell {
-    private let width:CGFloat = 200
-    private let height:CGFloat = 160
+    private var width:CGFloat = 200
+    private var height:CGFloat = 160
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     lazy var imageView:UIImageView = {
@@ -23,6 +23,10 @@ class TemplateCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        if UIDevice.idiom == .phone{
+            width = 120
+            height = 100
+        }
         containerView.addSubview(imageView)
         
         // Initialization code

@@ -572,7 +572,7 @@
 		389268DC22A0859000D27777 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389268DB22A0859000D27777 /* TriangleView.swift */; };
 		389537CB2268AC37000B4E9D /* StateUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389537CA2268AC37000B4E9D /* StateUpdate.swift */; };
 		3895492922917D9900B3075B /* FontEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895492822917D9900B3075B /* FontEngine.swift */; };
-		3895492B2291835900B3075B /* iPadFontsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895492A2291835900B3075B /* iPadFontsVC.swift */; };
+		3895492B2291835900B3075B /* MoreFontsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895492A2291835900B3075B /* MoreFontsVC.swift */; };
 		3895492E22918BD800B3075B /* MoreFontCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3895492C22918BD800B3075B /* MoreFontCells.swift */; };
 		3895492F22918BD800B3075B /* MoreFontCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3895492D22918BD800B3075B /* MoreFontCells.xib */; };
 		3896507B2242C154009434B4 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896507A2242C154009434B4 /* Layout.swift */; };
@@ -1215,7 +1215,7 @@
 		389268DB22A0859000D27777 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
 		389537CA2268AC37000B4E9D /* StateUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUpdate.swift; sourceTree = "<group>"; };
 		3895492822917D9900B3075B /* FontEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontEngine.swift; sourceTree = "<group>"; };
-		3895492A2291835900B3075B /* iPadFontsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadFontsVC.swift; sourceTree = "<group>"; };
+		3895492A2291835900B3075B /* MoreFontsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFontsVC.swift; sourceTree = "<group>"; };
 		3895492C22918BD800B3075B /* MoreFontCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreFontCells.swift; sourceTree = "<group>"; };
 		3895492D22918BD800B3075B /* MoreFontCells.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreFontCells.xib; sourceTree = "<group>"; };
 		3896507A2242C154009434B4 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
@@ -2976,7 +2976,7 @@
 				38F13A0822543679002C4109 /* ControlPanel */,
 				38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */,
 				38F13A0F2254C855002C4109 /* iPadStudioVC.swift */,
-				3895492A2291835900B3075B /* iPadFontsVC.swift */,
+				3895492A2291835900B3075B /* MoreFontsVC.swift */,
 				3897184E229999200047F19E /* ImageFilterVC.swift */,
 			);
 			path = iPad;
@@ -3706,7 +3706,7 @@
 				38661B03224BE89E00440AC7 /* BorderPanel.swift in Sources */,
 				3801303A228CDA1D00372516 /* FilterExtensions.swift in Sources */,
 				384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */,
-				3895492B2291835900B3075B /* iPadFontsVC.swift in Sources */,
+				3895492B2291835900B3075B /* MoreFontsVC.swift in Sources */,
 				389B939A2227834E009FE9E6 /* BlankBackingLayer.swift in Sources */,
 				382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */,
 				3826512D227E4A78003D2E19 /* RotationView.swift in Sources */,

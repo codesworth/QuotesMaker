@@ -38,6 +38,9 @@ extension StudioVC:EditorPanelDelegate{
     func moveToProcess(_ process:Processes){
         
         switch process.subProcess {
+        case .home:
+            goHome()
+            break
         case .selectImage:
             imageOptionSelected()
             break
@@ -47,19 +50,27 @@ extension StudioVC:EditorPanelDelegate{
         case .addText:
             addText()
             break
-        case .addFilter:
-            //baseView.transformViewTolayer()
-            break
         case .preview:
-            //launchPreview()
+            //coordinator.
             break
         case .save:
             coordinator.save()
             break
         case .startOver:
-            //baseView.invalidateLayers()
+            coordinator.startOver()
             break
         }
+    }
+    
+    func goHome(){
+        let alert = UIAlertController(title: "Info", message: "Are you sure you want leave studio. All unsaved edits would be lost", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let action2 = UIAlertAction(title: "Exit Studio", style: .destructive) { _ in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        alert.addAction(action2)
+        present(alert, animated: true, completion: nil)
     }
     
     func actionFromPanel(_ process: Processes) {

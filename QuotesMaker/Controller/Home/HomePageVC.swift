@@ -82,17 +82,30 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if UIDevice.idiom == .phone{
+            return [120]
+        }
         return [200]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView ==  recentCollectionVIew{
             let model = allModels[indexPath.row]
-            let studio = iPadStudioVC(model: model, canvas:Canvas(aspect: model.canvasType))
+            let studio:UIViewController
+            if UIDevice.idiom == .phone{
+                studio = StudioVC(model: model, canvas:Canvas(aspect: model.canvasType))
+            }else{
+              studio = iPadStudioVC(model: model, canvas:Canvas(aspect: model.canvasType))
+            }
             present(studio, animated: true, completion: nil)
         }else{
             let canvas = sizes[indexPath.row]
-            let studio = iPadStudioVC(canvas: canvas)
+            let studio:UIViewController
+            if UIDevice.idiom == .phone{
+                studio = StudioVC(canvas:canvas)
+            }else{
+                studio = iPadStudioVC(canvas: canvas)
+            }
             present(studio, animated: true, completion: nil)
         }
     }

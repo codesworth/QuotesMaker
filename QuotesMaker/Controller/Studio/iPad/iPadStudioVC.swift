@@ -91,7 +91,7 @@ class iPadStudioVC: UIViewController {
     
     
     @objc func launchMoreFonts(_ notifcation:Notification){
-        if let fonts = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "\(iPadFontsVC.self)") as? iPadFontsVC {
+        if let fonts = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "\(MoreFontsVC.self)") as? MoreFontsVC {
             fonts.delegate = coordinator
             fonts.model = coordinator.getCurrentModel() as? TextLayerModel ?? TextLayerModel()
             add(fonts, to: controlPanelContainer)

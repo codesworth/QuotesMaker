@@ -31,16 +31,15 @@ class QMEngine:NSObject{
 
 struct Processes {
     enum Process{
-        case createImagebackground,addShape,createText, filter, preview, manage
+        case createImagebackground,addShape,createText,home, preview, manage
         
     }
     
     enum SubProcesses:CaseIterable {
-        case selectImage
+        case home
         case addShadpe
-        //case addClipArt :: Possibly Future
+        case selectImage
         case addText
-        case addFilter
         case preview
         case save
         case startOver
@@ -58,6 +57,9 @@ struct Processes {
             var s:String
             var p:Process
             switch i{
+            case .home:
+                s = "Home"
+                p = .home
             case .selectImage:
                 s = "Add Image"
                 p = .createImagebackground
@@ -68,9 +70,6 @@ struct Processes {
             case .addText:
                 s = "Add Text"
                 p = .createText
-            case .addFilter:
-                s = "Add Filter"
-                p = .filter
             case .preview:
                 s = "Preview"
                 p = .preview

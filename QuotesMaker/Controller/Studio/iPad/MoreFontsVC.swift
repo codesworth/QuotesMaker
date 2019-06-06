@@ -8,7 +8,7 @@
 
 import UIKit
 
-class iPadFontsVC: UIViewController {
+class MoreFontsVC: UIViewController {
     private var engine = FontEngine()
     private var fonts:[UIFont] = []
     var model:TextLayerModel!
@@ -54,7 +54,7 @@ class iPadFontsVC: UIViewController {
 
 
 
-extension iPadFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+extension MoreFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -86,7 +86,7 @@ extension iPadFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
 }
 
 
-extension iPadFontsVC:UISearchBarDelegate{
+extension MoreFontsVC:UISearchBarDelegate{
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true

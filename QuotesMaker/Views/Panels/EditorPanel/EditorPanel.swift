@@ -19,6 +19,7 @@ class EditorPanel: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.alwaysBounceHorizontal = true
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = .clear
         return view
@@ -26,6 +27,7 @@ class EditorPanel: UIView {
     
     var processes:[Processes] = Processes.getAllProcesses()
     weak var delegate:EditorPanelDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame:frame)
         commonInit()
@@ -46,11 +48,12 @@ class EditorPanel: UIView {
         collectionView.register(UINib(nibName: "\(PanelCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(PanelCell.self)")
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.isScrollEnabled = true
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let width:CGFloat = CGFloat(processes.count  * 100) + 100
+        //let width:CGFloat = CGFloat(processes.count  * 100) + 100
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
 //            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
@@ -59,10 +62,10 @@ class EditorPanel: UIView {
 //            collectionView.heightAnchor.constraint(equalToConstant: 80)
 //        ])
         collectionView.layout{
-            $0.bottom == bottomAnchor - 10
-            $0.centerX == centerXAnchor
+            $0.leading == leadingAnchor + 12
+            $0.centerY == centerYAnchor
             $0.height |=| 80
-            $0.width |=| width
+            $0.trailing == trailingAnchor
         }
     }
 }

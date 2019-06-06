@@ -140,6 +140,10 @@ class EditingCoordinator:NSObject{
 
     }
     
+    func startOver(){
+        baseView.invalidateLayers()
+    }
+    
     func persistModel(title:String){
         if title == ""{
             save(message: "Enter a valid name for project")
@@ -278,6 +282,8 @@ extension EditingCoordinator:ImagePanelDelegate{
         case .filter:
             if let controller = controller as? iPadStudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
                 //let size = (baseView.currentSubview as! BackingImageView).bounds.size
+                controller.launchImageFilter(image:image)
+            }else if let controller = controller as? StudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
                 controller.launchImageFilter(image:image)
             }
         }
