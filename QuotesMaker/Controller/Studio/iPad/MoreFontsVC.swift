@@ -13,7 +13,6 @@ class MoreFontsVC: UIViewController {
     private var fonts:[UIFont] = []
     var model:TextLayerModel!
     weak var delegate:TextModelDelegate?
-    var preview:String = ""
     @IBOutlet weak var previewTextView: UITextView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,7 +24,7 @@ class MoreFontsVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         if !__IS_IPAD{
-            previewTextView.text = preview
+            previewTextView.attributedText = model.outPutString()
         }
         // Do any additional setup after loading the view.
     }
@@ -91,7 +90,7 @@ extension MoreFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         model.font = chosenFont
         delegate?.didUpdateModel(model)
         if !__IS_IPAD{
-            previewTextView.font = chosenFont
+            previewTextView.attributedText = model.outPutString()
         }
     }
 }

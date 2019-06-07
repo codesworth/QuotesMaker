@@ -180,7 +180,7 @@
         <!--More Fonts-->
         <scene sceneID="H87-qm-pmr">
             <objects>
-                <viewController id="Gqs-Am-WyD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoreFontsVC" id="Gqs-Am-WyD" customClass="MoreFontsVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jll-JQ-1lN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +197,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hgq-74-Ddt">
-                                        <rect key="frame" x="8" y="124" width="359" height="543"/>
+                                        <rect key="frame" x="8" y="212" width="359" height="455"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mCZ-Mt-e3L">
                                             <size key="itemSize" width="50" height="50"/>
@@ -216,16 +216,28 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD3-qp-uTp">
+                                        <rect key="frame" x="8" y="124" width="359" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="0aJ-xX-2gR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="xug-vI-v51" firstAttribute="trailing" secondItem="bD3-qp-uTp" secondAttribute="trailing" constant="8" id="7O5-SI-8Yk"/>
                                     <constraint firstItem="xug-vI-v51" firstAttribute="trailing" secondItem="Hgq-74-Ddt" secondAttribute="trailing" constant="8" id="Dtf-Xg-IOO"/>
                                     <constraint firstItem="9xU-X8-cnz" firstAttribute="top" secondItem="nMf-f1-a7I" secondAttribute="top" constant="60" id="Dxc-m1-eJF"/>
                                     <constraint firstItem="9xU-X8-cnz" firstAttribute="leading" secondItem="xug-vI-v51" secondAttribute="leading" id="LnE-Oz-Wml"/>
+                                    <constraint firstItem="Hgq-74-Ddt" firstAttribute="top" secondItem="bD3-qp-uTp" secondAttribute="bottom" constant="8" id="YIi-l7-JBN"/>
                                     <constraint firstItem="9xU-X8-cnz" firstAttribute="trailing" secondItem="xug-vI-v51" secondAttribute="trailing" id="aHp-v4-GLh"/>
+                                    <constraint firstItem="bD3-qp-uTp" firstAttribute="top" secondItem="9xU-X8-cnz" secondAttribute="bottom" constant="8" id="bwh-Lu-WZx"/>
                                     <constraint firstItem="Hgq-74-Ddt" firstAttribute="leading" secondItem="nMf-f1-a7I" secondAttribute="leading" constant="8" id="cnt-Gp-kjE"/>
                                     <constraint firstAttribute="bottom" secondItem="Hgq-74-Ddt" secondAttribute="bottom" id="cp6-nf-PdW"/>
-                                    <constraint firstItem="Hgq-74-Ddt" firstAttribute="top" secondItem="9xU-X8-cnz" secondAttribute="bottom" constant="8" id="q95-wc-BaA"/>
+                                    <constraint firstItem="bD3-qp-uTp" firstAttribute="leading" secondItem="xug-vI-v51" secondAttribute="leading" constant="8" id="w0m-OP-Zag"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="xug-vI-v51"/>
                             </view>
@@ -242,8 +254,16 @@
                     <navigationItem key="navigationItem" title="More Fonts" id="Weq-sU-VY4">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="np8-Bw-u5Y">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="donePressed:" destination="Gqs-Am-WyD" id="z9I-7c-MgW"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="Hgq-74-Ddt" id="dYj-hr-LjK"/>
+                        <outlet property="previewTextView" destination="bD3-qp-uTp" id="6fJ-fd-co0"/>
+                        <outlet property="searchBar" destination="9xU-X8-cnz" id="O97-Ez-MdW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohb-vW-6vf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,7 +292,8 @@
         <!--Navigation Controller-->
         <scene sceneID="fhC-Mg-5hp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7bF-BT-MXd" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NZk-c5-doN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="MoreFontsVCNav" automaticallyAdjustsScrollViewInsets="NO" id="7bF-BT-MXd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="fBA-vD-Rgw">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -284,7 +305,6 @@
                         <segue destination="Gqs-Am-WyD" kind="relationship" relationship="rootViewController" id="VzO-UC-ob6"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NZk-c5-doN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5037.6000000000004" y="78.710644677661179"/>
         </scene>
