@@ -105,9 +105,7 @@ class StudioVC: UIViewController {
         if let fonts = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "\(MoreFontsVC.self)") as? MoreFontsVC {
             fonts.delegate = coordinator
             fonts.model = coordinator.getCurrentModel() as? TextLayerModel ?? TextLayerModel()
-            add(fonts, to: controlPanelContainer)
-            fonts.view.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate(fonts.view.pinAllSides())
+            present(fonts, animated: true, completion: nil)
         }
     }
     

@@ -377,7 +377,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kpf-JR-v0Z">
-                                <rect key="frame" x="8" y="114" width="394" height="654"/>
+                                <rect key="frame" x="8" y="206" width="394" height="562"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lxk-jH-osL">
                                     <size key="itemSize" width="50" height="50"/>
@@ -396,18 +396,28 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unO-Sq-Dyf">
+                                <rect key="frame" x="8" y="110" width="394" height="92"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="top" secondItem="AgS-7K-ZEk" secondAttribute="bottom" constant="8" id="9Qd-9o-BzM"/>
+                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="top" secondItem="AgS-7K-ZEk" secondAttribute="bottom" constant="100" id="9Qd-9o-BzM"/>
                             <constraint firstItem="HOX-Fh-XEb" firstAttribute="leading" secondItem="Ztj-hO-KKw" secondAttribute="leading" id="AWt-KM-szl"/>
                             <constraint firstItem="AgS-7K-ZEk" firstAttribute="top" secondItem="HOX-Fh-XEb" secondAttribute="bottom" id="GKw-BC-4Cd"/>
+                            <constraint firstItem="Ztj-hO-KKw" firstAttribute="trailing" secondItem="unO-Sq-Dyf" secondAttribute="trailing" constant="8" id="IJe-JU-LOi"/>
                             <constraint firstItem="AgS-7K-ZEk" firstAttribute="trailing" secondItem="Ztj-hO-KKw" secondAttribute="trailing" id="Q3Y-xH-bmx"/>
+                            <constraint firstItem="Kpf-JR-v0Z" firstAttribute="top" secondItem="unO-Sq-Dyf" secondAttribute="bottom" constant="4" id="TBx-1y-LfG"/>
                             <constraint firstItem="Ztj-hO-KKw" firstAttribute="trailing" secondItem="Kpf-JR-v0Z" secondAttribute="trailing" constant="8" id="Upy-XU-KA2"/>
                             <constraint firstItem="AgS-7K-ZEk" firstAttribute="leading" secondItem="Ztj-hO-KKw" secondAttribute="leading" id="Y3C-Y4-ziX"/>
                             <constraint firstItem="Kpf-JR-v0Z" firstAttribute="leading" secondItem="DP1-hs-9VV" secondAttribute="leading" constant="8" id="ark-kI-dTj"/>
                             <constraint firstItem="HOX-Fh-XEb" firstAttribute="top" secondItem="DP1-hs-9VV" secondAttribute="top" id="d9m-M1-hFX"/>
+                            <constraint firstItem="unO-Sq-Dyf" firstAttribute="top" secondItem="AgS-7K-ZEk" secondAttribute="bottom" constant="4" id="hIg-U3-OMf"/>
                             <constraint firstItem="HOX-Fh-XEb" firstAttribute="trailing" secondItem="Ztj-hO-KKw" secondAttribute="trailing" id="lzD-tC-h5q"/>
+                            <constraint firstItem="unO-Sq-Dyf" firstAttribute="leading" secondItem="Ztj-hO-KKw" secondAttribute="leading" constant="8" id="pUn-v3-Cfg"/>
                             <constraint firstAttribute="bottom" secondItem="Kpf-JR-v0Z" secondAttribute="bottom" id="v0Q-Pq-dIP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ztj-hO-KKw"/>
@@ -417,6 +427,7 @@
                     <size key="freeformSize" width="410" height="768"/>
                     <connections>
                         <outlet property="collectionView" destination="Kpf-JR-v0Z" id="ZHt-PM-xzt"/>
+                        <outlet property="previewTextView" destination="unO-Sq-Dyf" id="nHv-wU-SfD"/>
                         <outlet property="searchBar" destination="AgS-7K-ZEk" id="f6c-zR-0c2"/>
                     </connections>
                 </viewController>

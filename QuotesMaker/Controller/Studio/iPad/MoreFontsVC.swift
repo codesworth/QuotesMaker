@@ -13,7 +13,8 @@ class MoreFontsVC: UIViewController {
     private var fonts:[UIFont] = []
     var model:TextLayerModel!
     weak var delegate:TextModelDelegate?
-    
+    var preview:String = ""
+    @IBOutlet weak var previewTextView: UITextView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -23,6 +24,9 @@ class MoreFontsVC: UIViewController {
         collectionView.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
         collectionView.delegate = self
         collectionView.dataSource = self
+        if !__IS_IPAD{
+            previewTextView.text = preview
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -48,7 +52,11 @@ class MoreFontsVC: UIViewController {
     */
 
     @IBAction func donePressed(_ sender: Any) {
-        removeFrom()
+        if __IS_IPAD{
+            removeFrom()
+        }else{
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
@@ -82,6 +90,9 @@ extension MoreFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         let chosenFont = fonts[indexPath.row]
         model.font = chosenFont
         delegate?.didUpdateModel(model)
+        if !__IS_IPAD{
+            previewTextView.font = chosenFont
+        }
     }
 }
 
