@@ -75,6 +75,7 @@ class StudioVC: UIViewController {
         //print("Orientations: \(UIDevice.current.orientation.rawValue)")
         print("This is Height::: \(UIScreen.main.bounds) and scale:: \(UIScreen.main.scale)")
         print("This is native bound::: \(UIScreen.main.nativeBounds) and scale:: \(UIScreen.main.nativeScale)")
+        subscribeTo(subscription: .moreFonts, selector: #selector(launchMoreFonts(_:)))
 
     }
     
@@ -102,12 +103,10 @@ class StudioVC: UIViewController {
     
     
     @objc func launchMoreFonts(_ notifcation:Notification){
-        if let fonts = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "\(MoreFontsVC.self)") as? MoreFontsVC {
+        if let nav = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "MoreFontsVCNav") as? UINavigationController, let fonts = nav.viewControllers.first as? MoreFontsVC{
             fonts.delegate = coordinator
             fonts.model = coordinator.getCurrentModel() as? TextLayerModel ?? TextLayerModel()
-            add(fonts, to: controlPanelContainer)
-            fonts.view.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate(fonts.view.pinAllSides())
+            present(nav, animated: true, completion: nil)
         }
     }
     
