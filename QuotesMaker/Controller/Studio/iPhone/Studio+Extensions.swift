@@ -170,8 +170,6 @@ extension StudioVC:StudioTabDelegate{
             break
         case .redo:
             break
-        default:
-            break
         }
     }
     
