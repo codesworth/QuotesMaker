@@ -12,7 +12,7 @@ import UIKit
 struct ImageLayerModel:LayerModel {
 
     enum ContentMode:String,CaseIterable,Codable{
-        case fill, fit, contain, scaled
+        case fill, fit, contain, center
     }
     
     var layerFrame:LayerFrame?
