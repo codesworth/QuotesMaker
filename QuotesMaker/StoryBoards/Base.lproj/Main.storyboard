@@ -292,7 +292,7 @@
         <!--Preview-->
         <scene sceneID="Tce-RG-Sg4">
             <objects>
-                <viewController id="g0T-hF-0T7" sceneMemberID="viewController">
+                <viewController id="g0T-hF-0T7" customClass="PreviewVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B4q-fH-IF9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,6 +333,9 @@
                                 <state key="normal" title="Actions">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareImage:" destination="g0T-hF-0T7" eventType="touchUpInside" id="PhY-kV-sNa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -353,8 +356,15 @@
                     <navigationItem key="navigationItem" title="Preview" id="O9v-RX-Bb5">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="c0f-xb-IW9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelPressed:" destination="g0T-hF-0T7" id="DWA-dN-PSf"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="filterView" destination="nLT-PU-wuE" id="qAw-SH-78K"/>
+                        <outlet property="imageContainerView" destination="LIJ-Oe-EVT" id="r6C-qk-KnM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3e-4p-et1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
