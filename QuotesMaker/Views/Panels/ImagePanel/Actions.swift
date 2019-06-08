@@ -24,6 +24,12 @@ extension ImagePanel{
 //        }
 //    }
     
+    @objc func aspectChanged(_ sender: UISegmentedControl){
+        aspectIndex = sender.selectedSegmentIndex
+        let  mode = contentModes[aspectIndex]
+        delegate?.didSelect(.aspect(mode))
+    }
+    
     @objc func donePressed(){
         Utils.animatePanelsOut(self)
         unsubscribe()

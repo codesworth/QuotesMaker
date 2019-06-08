@@ -26,7 +26,11 @@ class ImagePanel: MaterialView {
         case flipVertical
         case flipHorizontal
         case filter
+        case aspect(ImageLayerModel.ContentMode)
     }
+    
+    var aspectIndex = 0
+    var contentModes = ImageLayerModel.ContentMode.allCases
     
     lazy var cropButton:TabControl = {
         let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "crop"))
@@ -79,6 +83,7 @@ class ImagePanel: MaterialView {
         return line
     }()
     
+    
     weak var stateDelegate:StateControlDelegate?
     
 //    lazy var stateControl:StateChangeControl = {
@@ -91,7 +96,12 @@ class ImagePanel: MaterialView {
     
 
     
-    let height:CGFloat = 250
+    var height:CGFloat{
+        if __IS_IPAD{
+            return 250
+        }
+        return 300
+    }
     
     lazy var secondline:LineView = {
         let line = LineView(frame: .zero)
@@ -141,6 +151,17 @@ class ImagePanel: MaterialView {
         return butt
     }()
     
+    lazy var aspectSegment:UISegmentedControl = { [unowned self] by in
+        let segment = UISegmentedControl(frame: .zero)
+        for (index, mode) in contentModes.enumerated(){
+            segment.insertSegment(withTitle: mode.rawValue.capitalized, at: index, animated: true)
+        }
+        segment.selectedSegmentIndex = aspectIndex
+        segment.tintColor = .primary
+        segment.addTarget(self, action: #selector(aspectChanged(_:)), for: .valueChanged)
+        return segment
+    }(())
+    
     lazy var scrollView:UIScrollView = {
         return .panelScrollView()
     }()
@@ -185,6 +206,7 @@ class ImagePanel: MaterialView {
         contentView.addSubview(secondline)
         contentView.addSubview(pickFromGalleryButton)
         contentView.addSubview(addFilterButton)
+        contentView.addSubview(aspectSegment)
         //contentView.addSubview(testActionsSegment)
         addStackViews()
         contentView.addSubview(stack)

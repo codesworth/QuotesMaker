@@ -56,7 +56,26 @@ class BackingImageView: UIView{
     var model:ImageLayerModel = ImageLayerModel(){
         didSet{
             //updateLayerFrame(model: model)
+            changeMode()
             updateShape(model.style)
+        }
+    }
+    
+    private func changeMode(){
+        let mode = model.mode
+        switch mode {
+        case .fill:
+            baseImageView.contentMode = .scaleAspectFill
+            break
+        case .contain:
+            baseImageView.contentMode = .scaleToFill
+            break
+        case .fit:
+            baseImageView.contentMode = .scaleAspectFit
+            break
+        case .scaled:
+            baseImageView.contentMode = .redraw
+            break
         }
     }
     
@@ -85,6 +104,13 @@ class BackingImageView: UIView{
     }
     
     var uid:UUID = UUID()
+    
+    func changeAspect(_ mode:ImageLayerModel.ContentMode){
+        oldmodel = self.model
+        model.mode = mode
+        let state = State(model:oldmodel, action: .nothing)
+        Subscription.main.post(suscription: .stateChange, object: state)
+    }
     
     func setImage(image:UIImage){
         //let newImage = image.studioImage

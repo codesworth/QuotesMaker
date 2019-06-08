@@ -280,12 +280,26 @@ extension EditingCoordinator:ImagePanelDelegate{
             flipImage(.vertical)
             break
         case .filter:
-            if let controller = controller as? iPadStudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
-                //let size = (baseView.currentSubview as! BackingImageView).bounds.size
-                controller.launchImageFilter(image:image)
-            }else if let controller = controller as? StudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
-                controller.launchImageFilter(image:image)
-            }
+            filter()
+            break
+        case .aspect(let mode):
+            changeAspect(mode)
+            break
+        }
+    }
+    
+    func changeAspect(_ mode:ImageLayerModel.ContentMode){
+        if let current = baseView.currentSubview as? BackingImageView{
+            current.changeAspect(mode)
+        }
+    }
+    
+    private func filter(){
+        if let controller = controller as? iPadStudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
+            //let size = (baseView.currentSubview as! BackingImageView).bounds.size
+            controller.launchImageFilter(image:image)
+        }else if let controller = controller as? StudioVC, let image = (baseView.currentSubview as? BackingImageView)?.image{
+            controller.launchImageFilter(image:image)
         }
     }
     

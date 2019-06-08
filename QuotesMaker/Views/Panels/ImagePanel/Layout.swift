@@ -55,6 +55,11 @@ extension ImagePanel{
             addFilterButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             addFilterButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
             addFilterButton.heightAnchor.constraint(equalToConstant: 40),
+            aspectSegment.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            aspectSegment.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            aspectSegment.topAnchor.constraint(equalTo: addFilterButton.bottomAnchor, constant: 12),
+            aspectSegment.heightAnchor.constraint(equalToConstant: 30)
+            
         ])
     }
     

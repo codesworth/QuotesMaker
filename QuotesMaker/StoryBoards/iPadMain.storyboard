@@ -470,6 +470,10 @@
                                 </collectionViewCell>
                             </cells>
                         </collectionView>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fb" translatesAutoresizingMaskIntoConstraints="NO" id="yl4-yi-FAn">
+                            <rect key="frame" x="68" y="20" width="280" height="350"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -1538,6 +1542,7 @@
     <resources>
         <image name="delete" width="96" height="96"/>
         <image name="duplicate" width="192" height="192"/>
+        <image name="fb" width="960" height="600"/>
         <image name="home" width="102.40000152587891" height="102.40000152587891"/>
         <image name="img_ic" width="96" height="96"/>
         <image name="mdw" width="96" height="96"/>

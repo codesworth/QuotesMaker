@@ -227,7 +227,7 @@ extension BackingTextView{
 extension BackingTextView{
     
     func watchForKeyBoardNotifications(){
-        //NotificationCenter.default.addObserver(self, selector: #selector(sizeViewToFit), name: UITextView.textDidChangeNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(), name: UITextView.textDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(respondtoKeyBoard), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
@@ -244,6 +244,15 @@ extension BackingTextView{
         self.inputFrame = keyBoardFrame
         
         
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if __IS_IPAD{return}
+        Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
+        oldModel = self.model
+        var mod = model
+        mod.string = textView.text
+        self.model = mod
     }
 }
 
