@@ -37,10 +37,10 @@ extension StudioVC{
             
             ])
         studioPanel.layout{
-            $0.bottom == view.bottomAnchor
+            $0.top == view.bottomAnchor - 60
             $0.leading == view.leadingAnchor
             $0.trailing == view.trailingAnchor
-            $0.height |=| studioHeight
+            $0.height |=| (UIScreen.main.bounds.height * 0.8)
         }
         
     }

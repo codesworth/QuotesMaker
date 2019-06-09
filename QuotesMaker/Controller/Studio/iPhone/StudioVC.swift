@@ -61,10 +61,10 @@ class StudioVC: UIViewController {
         studioTab = StudioTab(frame: .zero)
         studioPanel = EditorPanel(frame: .zero)
         studioPanel.backgroundColor = .seafoamBlue
-        view.addSubview(studioPanel)
         studioTab.delegate = self
         view.addSubview(studioTab)
         view.addSubview(editorView)
+        view.addSubview(studioPanel)
         studioPanel.delegate = self
         coordinator.delegate = self
         coordinator.controller = self
