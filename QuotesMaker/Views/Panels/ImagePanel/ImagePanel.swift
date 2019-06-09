@@ -56,6 +56,12 @@ class ImagePanel: MaterialView {
         return tab
     }()
     
+    lazy var modelable:BasicLabel = {
+        let lab = BasicLabel.basicMake()
+        lab.text = "Aspect Mode"
+        return lab
+    }()
+    
 //    lazy var testActionsSegment:UISegmentedControl = {
 //        let seg = UISegmentedControl(frame: .zero)
 //        seg.insertSegment(withTitle: "Rotate", at: 0, animated: true)
@@ -207,6 +213,7 @@ class ImagePanel: MaterialView {
         contentView.addSubview(pickFromGalleryButton)
         contentView.addSubview(addFilterButton)
         contentView.addSubview(aspectSegment)
+        contentView.addSubview(modelable)
         //contentView.addSubview(testActionsSegment)
         addStackViews()
         contentView.addSubview(stack)

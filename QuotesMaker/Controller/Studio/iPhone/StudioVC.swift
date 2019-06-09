@@ -18,7 +18,7 @@ class StudioVC: UIViewController {
         editor.clipsToBounds = true
         return editor
     }()
-    private var canvas:Canvas!
+    var canvas:Canvas!
     
     var coordinator:EditingCoordinator!
     var studioHeight: CGFloat!

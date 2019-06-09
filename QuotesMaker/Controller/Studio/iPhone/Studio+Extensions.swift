@@ -62,6 +62,14 @@ extension StudioVC:EditorPanelDelegate{
         }
     }
     
+    func launchPreview(){
+        guard let image = coordinator.exportImage(),
+            let nav = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "PreviewNav") as? UINavigationController, let vc = nav.viewControllers.first as? PreviewVC else { return}
+        vc.inputImage = image
+        vc.canvas = canvas
+        present(nav, animated: true, completion: nil)
+    }
+    
     func goHome(){
         let alert = UIAlertController(title: "Info", message: "Are you sure you want leave studio. All unsaved edits would be lost", preferredStyle: .alert)
         let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)

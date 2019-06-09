@@ -42,6 +42,7 @@ class BackingImageView: UIView{
     var image:UIImage?{
         didSet{
             baseImageView.image = image
+            backgroundColor = .clear
             //imageSrc = UUID().uuidString.appending(".\(FileManager.Extensions.png)")
         }
     }
@@ -73,8 +74,8 @@ class BackingImageView: UIView{
         case .fit:
             baseImageView.contentMode = .scaleAspectFit
             break
-        case .scaled:
-            baseImageView.contentMode = .redraw
+        case .center:
+            baseImageView.contentMode = .center
             break
         }
     }
