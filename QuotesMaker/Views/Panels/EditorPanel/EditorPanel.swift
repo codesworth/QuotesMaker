@@ -29,8 +29,9 @@ class EditorPanel: UIView {
     
     lazy var handle:UIImageView = {[unowned self] by in
         let view = UIImageView(frame: .zero)
-        view.backgroundColor = .primary
-        
+        view.backgroundColor = .clear
+        view.contentMode = .scaleAspectFit
+        view.image = #imageLiteral(resourceName: "handle")
         view.isUserInteractionEnabled = true
         return view
     }(())
@@ -46,11 +47,13 @@ class EditorPanel: UIView {
         if recognizer.state == .ended{
             if  frame.origin.y < screenHeight - 100{
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
-                    self.frame.origin.y = self.screenHeight - 140
+                    self.frame.origin.y = self.screenHeight - 150
+                    self.handle.rotate(CGFloat.pi)
                 }, completion: nil)
             }else {
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
                     self.frame.origin.y = self.screenHeight - 60
+                    self.handle.rotate(0)
                 }, completion: nil)
             }
         }
@@ -100,15 +103,15 @@ class EditorPanel: UIView {
 //        ])
         collectionView.layout{
             $0.leading == leadingAnchor + 12
-            $0.top == topAnchor + 20
+            $0.top == topAnchor + 30
             $0.height |=| 80
             $0.trailing == trailingAnchor
         }
         handle.layout{
             $0.centerX == centerXAnchor
-            $0.top == topAnchor - 10
-            $0.height |=| 30
-            $0.width |=| 80
+            $0.top == topAnchor
+            $0.height |=| 20
+            $0.width |=| 60
         }
     }
 }
