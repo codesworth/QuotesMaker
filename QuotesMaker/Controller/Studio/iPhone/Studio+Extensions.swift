@@ -153,7 +153,7 @@ extension StudioVC:StudioTabDelegate{
             }
             break
         case .layers:
-            makeStackTable()
+            toggleStack()
 //            baseView.enterResizeMode()
             break
         case .moveUp:
@@ -191,8 +191,10 @@ extension StudioVC:StudioTabDelegate{
         stackShowing ?
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.stack?.frame.origin.x += width
+            self.stackShowing = false
         }, completion: nil) : UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.stack?.frame.origin.x -= width
+            self.stackShowing = true
         }, completion: nil)
     }
     
