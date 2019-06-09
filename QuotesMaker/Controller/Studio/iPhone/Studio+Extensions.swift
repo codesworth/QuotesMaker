@@ -187,12 +187,12 @@ extension StudioVC:StudioTabDelegate{
 
     
     func toggleStack(){
-        let width = (view.frame.width * 0.4) + 20
+        let width = (view.frame.width * 0.5) + 20
         stackShowing ?
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
             self.stack?.frame.origin.x += width
             self.stackShowing = false
-        }, completion: nil) : UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+        }, completion: nil) : UIView.animate(withDuration: 0.5, delay: 0,  options: .curveEaseInOut, animations: {
             self.stack?.frame.origin.x -= width
             self.stackShowing = true
         }, completion: nil)
@@ -201,7 +201,7 @@ extension StudioVC:StudioTabDelegate{
     
     func makeStackTable(){
         let datasource = coordinator.layerDatasource
-        stack = LayerStack(frame: CGRect(origin: [view.frame.width + 20,60], size: [view.frame.width * 0.4,view.frame.height - 60]), dataSource: datasource)
+        stack = LayerStack(frame: CGRect(origin: [view.frame.width + 20,80], size: [view.frame.width * 0.5,view.frame.height - 80]), dataSource: datasource)
 //        stack?.center = coordinator.baseView.center
 //        stack?.alpha = 0
         self.view.addSubview(stack!)
