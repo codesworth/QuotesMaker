@@ -133,6 +133,8 @@ extension UIImage{
             return #imageLiteral(resourceName: "undo_arrow")
         case .redo:
             return #imageLiteral(resourceName: "redo_arrow")
+        case .duplicate:
+            return #imageLiteral(resourceName: "duplicate")
         }
     }
     

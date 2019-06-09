@@ -28,7 +28,7 @@ class StudioVC: UIViewController {
     var studioTab:StudioTab!
     var imagePanel:ImagePanel!
     var stylingPanel:StylingPanel!
-    
+    var stackShowing = false
     
     var stack:LayerStack?
     //private var textField = BackingTextView(frame: .zero)
@@ -72,9 +72,8 @@ class StudioVC: UIViewController {
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont(name: "RobotoMono-Regular", size: 45)!,.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         setupViews()
+        makeStackTable()
         //print("Orientations: \(UIDevice.current.orientation.rawValue)")
-        print("This is Height::: \(UIScreen.main.bounds) and scale:: \(UIScreen.main.scale)")
-        print("This is native bound::: \(UIScreen.main.nativeBounds) and scale:: \(UIScreen.main.nativeScale)")
         subscribeTo(subscription: .moreFonts, selector: #selector(launchMoreFonts(_:)))
 
     }

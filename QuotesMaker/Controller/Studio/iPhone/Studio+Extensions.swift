@@ -51,7 +51,7 @@ extension StudioVC:EditorPanelDelegate{
             addText()
             break
         case .preview:
-            //coordinator.
+            launchPreview()
             break
         case .save:
             coordinator.save()
@@ -178,24 +178,34 @@ extension StudioVC:StudioTabDelegate{
             break
         case .redo:
             break
+        case .duplicate:
+            coordinator.baseView.duplicateLayer()
+            break
         }
     }
     
 
     
-
+    func toggleStack(){
+        let width = (view.frame.width * 0.4) + 20
+        stackShowing ?
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            self.stack?.frame.origin.x += width
+        }, completion: nil) : UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            self.stack?.frame.origin.x -= width
+        }, completion: nil)
+    }
     
-    @discardableResult // ("For Testing")
-    func makeStackTable()->LayerStack?{
-        guard stack == nil else {return nil}
+    
+    func makeStackTable(){
         let datasource = coordinator.layerDatasource
-        stack = LayerStack(frame: CGRect(origin: .zero, size: coordinator.baseView.bounds.size.scaledBy(0.9)), dataSource: datasource)
-        stack?.center = coordinator.baseView.center
-        stack?.alpha = 0
+        stack = LayerStack(frame: CGRect(origin: [view.frame.width + 20,60], size: [view.frame.width * 0.4,view.frame.height - 60]), dataSource: datasource)
+//        stack?.center = coordinator.baseView.center
+//        stack?.alpha = 0
         self.view.addSubview(stack!)
-        Utils.fadeIn(stack!)
+//        Utils.fadeIn(stack!)
         stack?.delegate = coordinator
-        return stack
+
         
     }
     

@@ -31,6 +31,9 @@ class PreviewVC: UIViewController {
         super.viewDidLoad()
         filterEngine.purge()
         imageView.image = inputImage
+        if !__IS_IPAD{
+            filterView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "\(FilterCollectionCell.self)")
+        }
         filterView.delegate = self
         filterView.dataSource = self
         // Do any additional setup after loading the view.
@@ -88,7 +91,7 @@ class PreviewVC: UIViewController {
     */
 
     @IBAction func shareImage(_ sender: UIButton) {
-        let image  = inputImage
+        let image  = imageView.image
         let alert = UIActivityViewController(activityItems: [image as Any], applicationActivities: [])
         if __IS_IPAD{
             alert.modalPresentationStyle = .currentContext
