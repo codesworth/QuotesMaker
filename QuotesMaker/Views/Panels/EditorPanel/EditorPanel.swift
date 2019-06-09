@@ -13,7 +13,7 @@ protocol EditorPanelDelegate:class {
     func actionFromPanel(_ process:Processes)
 }
 
-class EditorPanel: UIView {
+class EditorPanel: MaterialView {
     
     private let screenHeight = UIScreen.main.bounds.height
     
@@ -81,6 +81,7 @@ class EditorPanel: UIView {
     
     func commonInit(){
         clipsToBounds = true
+        roundCorners(4)
         let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
         addGestureRecognizer(pan)
         addSubview(collectionView)

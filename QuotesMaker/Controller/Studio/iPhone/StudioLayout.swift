@@ -25,7 +25,7 @@ extension StudioVC{
         let size = Dimensions.editorSize
         
         NSLayoutConstraint.activate([
-            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 40),
+            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 30),
             studioTab.heightAnchor.constraint(equalToConstant: 40),
             studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
