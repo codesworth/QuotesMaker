@@ -25,7 +25,7 @@ extension StudioVC{
         let size = Dimensions.editorSize
         
         NSLayoutConstraint.activate([
-            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 40),
+            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 30),
             studioTab.heightAnchor.constraint(equalToConstant: 40),
             studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
@@ -36,12 +36,14 @@ extension StudioVC{
             editorView.heightAnchor.constraint(equalToConstant: size.height),
             
             ])
-        studioPanel.layout{
-            $0.bottom == view.bottomAnchor
-            $0.leading == view.leadingAnchor
-            $0.trailing == view.trailingAnchor
-            $0.height |=| studioHeight
-        }
+        studioPanel.translatesAutoresizingMaskIntoConstraints = true
+        studioPanel.frame = CGRect(x: 0, y: UIScreen.main.bounds.height - 60, width: view.frame.width, height: (UIScreen.main.bounds.height * 0.8))
+//        studioPanel.layout{
+//            $0.top == view.bottomAnchor - 140
+//            $0.leading == view.leadingAnchor
+//            $0.trailing == view.trailingAnchor
+//            $0.height |=| (UIScreen.main.bounds.height * 0.8)
+//        }
         
     }
 }

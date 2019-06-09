@@ -102,6 +102,7 @@ class LayerStack: MaterialView {
     }
     
     func initialize(){
+        roundCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner], radius: 4)
         backgroundColor = .groupTableViewBackground
         addSubview(stackTable)
         addSubview(headerLable)
@@ -133,7 +134,7 @@ class LayerStack: MaterialView {
             doneButt.topAnchor.constraint(equalTo: topAnchor, constant: 8),
             doneButt.widthAnchor.constraint(equalToConstant: 30),
             doneButt.heightAnchor.constraint(equalToConstant: 30),
-            stackTable.topAnchor.constraint(equalTo: headerLable.bottomAnchor, constant:16),
+            stackTable.topAnchor.constraint(equalTo: headerLable.bottomAnchor, constant:0),
             
             stackTable.leftAnchor.constraint(equalTo: leftAnchor),
             stackTable.rightAnchor.constraint(equalTo: rightAnchor),

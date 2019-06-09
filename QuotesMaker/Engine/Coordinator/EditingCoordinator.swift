@@ -341,7 +341,7 @@ extension EditingCoordinator:FetchedAssetDelegate{
 
 extension EditingCoordinator:StackTableDelegate{
     func didDismiss() {
-        //
+        (controller as? StudioVC)?.toggleStack()
     }
     
     

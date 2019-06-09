@@ -84,7 +84,7 @@ class StudioEditorView:UIView{
         contentView.addSubview(base)
         let size = base.frame.size
         base.translatesAutoresizingMaskIntoConstraints = false
-        print(bounds)
+        //print(bounds)
         //base.center = [contentView.bounds.midX,contentView.bounds.midY]
         NSLayoutConstraint.activate([
             base.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -92,6 +92,21 @@ class StudioEditorView:UIView{
             base.widthAnchor.constraint(equalToConstant: size.width),
             base.heightAnchor.constraint(equalToConstant: size.height)
         ])
+//        if __IS_IPAD{
+//            NSLayoutConstraint.activate([
+//                base.centerXAnchor.constraint(equalTo: centerXAnchor),
+//                base.centerYAnchor.constraint(equalTo: centerYAnchor),
+//                base.widthAnchor.constraint(equalToConstant: size.width),
+//                base.heightAnchor.constraint(equalToConstant: size.height)
+//            ])
+//        }else{
+//            base.layout{
+//                $0.top == topAnchor + 10
+//                $0.centerX == centerXAnchor
+//                $0.width |=| size.width
+//                $0.height |=| size.height
+//            }
+//        }
     }
     
     

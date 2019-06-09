@@ -20,12 +20,14 @@ class StudioTab: UIView {
         case fill
         case gradient
         case imgPanel
+        case duplicate
         case moveUp
         case moveDown
         case layers
         case undo
         case redo
         case delete
+        
     }
 
     var tabActions:[TabActions] = TabActions.allCases

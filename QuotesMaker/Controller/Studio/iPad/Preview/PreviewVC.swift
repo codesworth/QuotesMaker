@@ -31,6 +31,9 @@ class PreviewVC: UIViewController {
         super.viewDidLoad()
         filterEngine.purge()
         imageView.image = inputImage
+        if !__IS_IPAD{
+            filterView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "\(FilterCollectionCell.self)")
+        }
         filterView.delegate = self
         filterView.dataSource = self
         // Do any additional setup after loading the view.
@@ -88,13 +91,15 @@ class PreviewVC: UIViewController {
     */
 
     @IBAction func shareImage(_ sender: UIButton) {
-        let image  = inputImage
+        let image  = imageView.image
         let alert = UIActivityViewController(activityItems: [image as Any], applicationActivities: [])
-        alert.modalPresentationStyle = .currentContext
-        let presentation = alert.popoverPresentationController
-        presentation?.permittedArrowDirections = .any
-        presentation?.sourceView = sender
-        presentation?.sourceRect = sender.frame
+        if __IS_IPAD{
+            alert.modalPresentationStyle = .currentContext
+            let presentation = alert.popoverPresentationController
+            presentation?.permittedArrowDirections = .any
+            presentation?.sourceView = sender
+            presentation?.sourceRect = sender.frame
+        }
         present(alert, animated: true){}
     }
     
@@ -131,7 +136,10 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [140,180]
+        if __IS_IPAD{
+            return [140,180]
+        }
+        return [140]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

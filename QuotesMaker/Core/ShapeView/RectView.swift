@@ -141,7 +141,7 @@ class RectView:SuperRectView{
         //contentView.layer.addSublayer(ovalLayer)
         //ovalLayer.masksToBounds = true
         //ovalLayer.path = UIBezierPath(ovalIn: bounds).cgPath
-        //ovalLayer.addSublayer(superlayer)
+        contentView.layer.addSublayer(superlayer)
         superlayer.needsDisplayOnBoundsChange = true
         superlayer.bounds = contentView.layer.bounds
         //ovalLayer.position = [contentView.bounds.midX,contentView.bounds.midY]

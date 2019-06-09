@@ -25,7 +25,7 @@ class BackingGradientlayer: CAGradientLayer {
     var model:GradientLayerModel!{
 
         didSet{
-            if previousModels.isEmpty{previousModels.push(model)}else{previousModels.push(oldValue)}
+            //if previousModels.isEmpty{previousModels.push(model)}else{previousModels.push(oldValue)}
             startPoint = model.startPoint
             endPoint = model.endPoint
             locations = model.locations

@@ -18,7 +18,7 @@ class StudioVC: UIViewController {
         editor.clipsToBounds = true
         return editor
     }()
-    private var canvas:Canvas!
+    var canvas:Canvas!
     
     var coordinator:EditingCoordinator!
     var studioHeight: CGFloat!
@@ -28,7 +28,7 @@ class StudioVC: UIViewController {
     var studioTab:StudioTab!
     var imagePanel:ImagePanel!
     var stylingPanel:StylingPanel!
-    
+    var stackShowing = false
     
     var stack:LayerStack?
     //private var textField = BackingTextView(frame: .zero)
@@ -61,10 +61,10 @@ class StudioVC: UIViewController {
         studioTab = StudioTab(frame: .zero)
         studioPanel = EditorPanel(frame: .zero)
         studioPanel.backgroundColor = .seafoamBlue
-        view.addSubview(studioPanel)
         studioTab.delegate = self
         view.addSubview(studioTab)
         view.addSubview(editorView)
+        view.addSubview(studioPanel)
         studioPanel.delegate = self
         coordinator.delegate = self
         coordinator.controller = self
@@ -72,9 +72,8 @@ class StudioVC: UIViewController {
         let attr = NSAttributedString(string: "Quote Maker", attributes: [.font:UIFont(name: "RobotoMono-Regular", size: 45)!,.foregroundColor:UIColor.white])
         navigationController?.title = attr.string
         setupViews()
+        makeStackTable()
         //print("Orientations: \(UIDevice.current.orientation.rawValue)")
-        print("This is Height::: \(UIScreen.main.bounds) and scale:: \(UIScreen.main.scale)")
-        print("This is native bound::: \(UIScreen.main.nativeBounds) and scale:: \(UIScreen.main.nativeScale)")
         subscribeTo(subscription: .moreFonts, selector: #selector(launchMoreFonts(_:)))
 
     }
