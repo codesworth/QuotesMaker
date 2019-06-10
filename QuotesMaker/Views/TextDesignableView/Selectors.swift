@@ -22,7 +22,7 @@ extension TextDesignableInputView{
         if blockDelegation{return}
         let val = stepper.value
         fontSizeLable.text =  "Size: \(val)"
-        let newFont = UIFont(name: chosenFont, size: CGFloat(val))!
+        let newFont = UIFont(name: model.font.fontName, size: CGFloat(val))!
         model.font = newFont
         delegate?.didUpdateModel(model)
     }

@@ -135,6 +135,10 @@ extension UIImage{
             return #imageLiteral(resourceName: "redo_arrow")
         case .duplicate:
             return #imageLiteral(resourceName: "duplicate")
+        case .alpha:
+            return #imageLiteral(resourceName: "textalpha")
+        case .background:
+            return #imageLiteral(resourceName: "bgs")
         }
     }
     

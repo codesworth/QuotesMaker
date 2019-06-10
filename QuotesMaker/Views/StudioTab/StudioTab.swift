@@ -16,6 +16,7 @@ protocol StudioTabDelegate:class {
 class StudioTab: UIView {
     
     enum TabActions:CaseIterable{
+        case alpha
         case stylePanel
         case fill
         case gradient
@@ -27,6 +28,9 @@ class StudioTab: UIView {
         case undo
         case redo
         case delete
+        case background
+        
+        
         
     }
 
@@ -69,12 +73,15 @@ class StudioTab: UIView {
         defer {collectionview.reloadData()}
         if let data = notification.userInfo?[.info] as? BaseView.BaseSubView{
            canSelect = true
+            let defaultTabs:[TabActions] = [.duplicate,.moveUp,.moveDown,.layers,.undo,.redo,.delete,.background]
             if let _ = data as? BackingImageView{
-                tabActions = TabActions.allCases.filter{$0 != .gradient && $0 != .fill}
+                tabActions = defaultTabs.reversed().merge([.stylePanel,.imgPanel])
+                tabActions.reverse()
             }else if let _ = data as? RectView{
-                tabActions = TabActions.allCases.filter{$0 != .imgPanel}
+                tabActions = defaultTabs.reversed().merge([.stylePanel,.fill,.gradient])
+                tabActions.reverse()
             }else{
-               tabActions = TabActions.allCases.filter{$0 != .gradient && $0 != .fill && $0 != .imgPanel}
+                tabActions = defaultTabs.reversed().merge([.alpha]).reversed()
             }
         }else{
            canSelect = false

@@ -185,6 +185,7 @@ class StudioVC: UIViewController {
         if imagePanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if let current = coordinator.baseView.currentSubview as? BackingTextView {
             current.textView.becomeFirstResponder()
+            current.designInputView?.model = coordinator.getCurrentModel() as? TextLayerModel ?? TextLayerModel()
             return
         }
         

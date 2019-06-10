@@ -41,6 +41,7 @@ extension EditingCoordinator:TextModelDelegate{
         model.string = current.textView.text
         undostates.append(State(model: current.model, action: .nothing))
         current.model = model
+        
     }
 }
 

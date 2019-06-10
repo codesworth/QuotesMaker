@@ -18,6 +18,8 @@ class BackingTextView: UIView {
         view.isUserInteractionEnabled = false
         return view
     }(())
+    
+    var designInputView:TextDesignableInputView?
 
     lazy var resizerView:SPUserResizableView = { [unowned self] by in
         let resize = SPUserResizableView(frame: bounds)
@@ -185,11 +187,11 @@ extension BackingTextView{
         if currentInput == .keyboard{
             let adjustedFrame = CGRect(origin: inputFrame.origin, size: [inputFrame.size.width,320])
             model.string = textView.text
-            let view = TextDesignableInputView(frame: adjustedFrame, model: self.model)
+            designInputView = TextDesignableInputView(frame: adjustedFrame, model: self.model)
             doneToolbar.items?.first?.title = "Keyboard"
-            view.delegate = self
-            view.backgroundColor = .white
-            self.textView.inputView = view
+            designInputView?.delegate = self
+            designInputView?.backgroundColor = .white
+            self.textView.inputView = designInputView
             
             currentInput = .designboard
         }else{

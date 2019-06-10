@@ -145,6 +145,9 @@ extension StudioVC:StudioTabDelegate{
     
     func actiondone(_ action: StudioTab.TabActions) {
         switch action {
+        case .alpha:
+            setupStyleInteractivePanel()
+            break
         case .delete:
             if let current = coordinator.baseView.currentSubview{
                 current.removeFromSuperview()
@@ -180,6 +183,8 @@ extension StudioVC:StudioTabDelegate{
             break
         case .duplicate:
             coordinator.baseView.duplicateLayer()
+            break
+        case .background:
             break
         }
     }
