@@ -75,10 +75,10 @@ class StudioTab: UIView {
            canSelect = true
             let defaultTabs:[TabActions] = [.duplicate,.moveUp,.moveDown,.layers,.undo,.redo,.delete,.background]
             if let _ = data as? BackingImageView{
-                tabActions = defaultTabs.reversed().merge([.imgPanel])
+                tabActions = defaultTabs.reversed().merge([.stylePanel,.imgPanel])
                 tabActions.reverse()
             }else if let _ = data as? RectView{
-                tabActions = defaultTabs.reversed().merge([.fill,.gradient])
+                tabActions = defaultTabs.reversed().merge([.stylePanel,.fill,.gradient])
                 tabActions.reverse()
             }else{
                 tabActions = defaultTabs.reversed().merge([.alpha]).reversed()
