@@ -78,7 +78,7 @@ class StudioTab: UIView {
                 tabActions = defaultTabs.reversed().merge([.stylePanel,.imgPanel])
                 tabActions.reverse()
             }else if let _ = data as? RectView{
-                tabActions = defaultTabs.reversed().merge([.stylePanel,.fill,.gradient])
+                tabActions = defaultTabs.reversed().merge([.stylePanel, .fill,.gradient])
                 tabActions.reverse()
             }else{
                 tabActions = defaultTabs.reversed().merge([.alpha]).reversed()
