@@ -18,6 +18,8 @@ extension UIFont{
     class var header:UIFont{
         return .systemFont(ofSize: 18, weight: .medium)
     }
+    
+    
     class func getfeatured()->[UIFont]{
         var famNames:[String] = []
         let fontFam = UIFont.familyNames

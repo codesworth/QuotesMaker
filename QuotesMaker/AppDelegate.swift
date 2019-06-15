@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-
+import StoreKit
+let APP_RUN_FIRSTTIME = "firstRun"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,8 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        //let alreadyRun = UserDefaults.standard.bool(forKey: "first")
-        //if !alreadyRun{
+        
+        let alreadyRun = KeychainWrapper.standard.bool(forKey: APP_RUN_FIRSTTIME) ?? false
+        if !alreadyRun{
+            KeychainWrapper.standard.set(false, forKey: Store.PRO_STUDIO)
+        }
             Persistence.main.createDirectories()
           //  UserDefaults.standard.set(true, forKey: "first")
         //}
@@ -79,6 +82,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = home
         }
     }
+}
+
+extension AppDelegate:SKPaymentTransactionObserver{
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions{
+            switch transaction.transactionState{
+            case .purchased, .restored:
+                completeTransaction(transaction)
+                break
+            case .failed:
+                failedTransaction(transaction)
+                break
+            default:
+                break
+            }
+        }
+    }
+    
+    func completeTransaction(_ transaction:SKPaymentTransaction){
+        KeychainWrapper.standard.set(true, forKey: transaction.payment.productIdentifier)
+        deliverPurchaseNotification(identifier: transaction.payment.productIdentifier)
+        SKPaymentQueue.default().finishTransaction(transaction)
+        
+    }
+    
+    func failedTransaction(_ transaction:SKPaymentTransaction){
+        if let transactionError = transaction.error as NSError?, let desc = transaction.error?.localizedDescription, transactionError.code != SKError.paymentCancelled.rawValue{
+            print("Store error with sig: \(desc)")
+            
+        }
+        SKPaymentQueue.default().finishTransaction(transaction)
+    }
+    
+    func deliverPurchaseNotification(identifier:String?){
+        guard let identifier = identifier else {return}
+        Subscription.main.post(suscription: .purchaseNotification, object: identifier)
+        Store.main.handlePurchase(purchaseIdentifier: identifier)
+    }
+    
 }
 
 func printFonts(){

@@ -185,6 +185,7 @@ extension StudioVC:StudioTabDelegate{
             coordinator.baseView.duplicateLayer()
             break
         case .background:
+            
             break
         }
     }

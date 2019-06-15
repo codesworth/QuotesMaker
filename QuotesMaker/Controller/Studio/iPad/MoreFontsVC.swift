@@ -24,7 +24,10 @@ class MoreFontsVC: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         if !__IS_IPAD{
-            previewTextView.attributedText = model.outPutString()
+            previewTextView.textAlignment = .center
+            var mod = model; mod?.font = model.font.withSize(23)
+            mod?.textColor = .black
+            previewTextView.attributedText = mod?.outPutString()
         }
         // Do any additional setup after loading the view.
     }
@@ -90,7 +93,10 @@ extension MoreFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         model.font = chosenFont
         delegate?.didUpdateModel(model)
         if !__IS_IPAD{
-            previewTextView.attributedText = model.outPutString()
+            var mod = model
+            mod?.font = chosenFont.withSize(23)
+            mod?.textColor = .black
+            previewTextView.attributedText = mod?.outPutString()
         }
     }
 }
