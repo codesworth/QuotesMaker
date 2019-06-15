@@ -26,6 +26,7 @@ class MoreFontsVC: UIViewController {
         if !__IS_IPAD{
             previewTextView.textAlignment = .center
             var mod = model; mod?.font = model.font.withSize(23)
+            mod?.textColor = .black
             previewTextView.attributedText = mod?.outPutString()
         }
         // Do any additional setup after loading the view.
@@ -94,6 +95,7 @@ extension MoreFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         if !__IS_IPAD{
             var mod = model
             mod?.font = chosenFont.withSize(23)
+            mod?.textColor = .black
             previewTextView.attributedText = mod?.outPutString()
         }
     }

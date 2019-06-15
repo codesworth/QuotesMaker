@@ -65,7 +65,7 @@ struct Processes {
                 p = .createImagebackground
                 break
             case .addShadpe:
-                s = "Add Shape"
+                s = "Add Layer"
                 p = .addShape
             case .addText:
                 s = "Add Text"

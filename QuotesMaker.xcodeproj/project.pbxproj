@@ -12,6 +12,7 @@
 		38012FF4228CCD2700372516 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38012FF3228CCD2700372516 /* Filter.swift */; };
 		3801303A228CDA1D00372516 /* FilterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013039228CDA1D00372516 /* FilterExtensions.swift */; };
 		3802749C2280541C00E7E5AC /* Coordinator+StateChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */; };
+		3804802022B5A81E00BDC9F3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3804801F22B5A81E00BDC9F3 /* StoreKit.framework */; };
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
 		38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCD2253B90900D9E763 /* StudioLayout.swift */; };
 		38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */; };
@@ -592,6 +593,7 @@
 		38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687B223E8E3D00F29F52 /* Elysium.swift */; };
 		38A6687E223EED7C00F29F52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687D223EED7C00F29F52 /* Colors.swift */; };
 		38AA311522442AF50050604A /* BaseContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA311422442AF50050604A /* BaseContentView.swift */; };
+		38AC557822B59EFD00E0C42C /* StudioStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC557722B59EFD00E0C42C /* StudioStore.swift */; };
 		38C2E4022265A39000EE5DEB /* ControlPanelStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */; };
 		38C2E4042266180400EE5DEB /* StackPanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4032266180400EE5DEB /* StackPanelVC.swift */; };
 		38C697F5225D05FA009C8CCD /* PickerNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C697F4225D05FA009C8CCD /* PickerNavController.swift */; };
@@ -650,6 +652,7 @@
 		38012FF3228CCD2700372516 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		38013039228CDA1D00372516 /* FilterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtensions.swift; sourceTree = "<group>"; };
 		3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator+StateChanges.swift"; sourceTree = "<group>"; };
+		3804801F22B5A81E00BDC9F3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		38051CCD2253B90900D9E763 /* StudioLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLayout.swift; sourceTree = "<group>"; };
 		38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiolLayoutIPad.swift; sourceTree = "<group>"; };
@@ -1235,6 +1238,7 @@
 		38A6687B223E8E3D00F29F52 /* Elysium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elysium.swift; sourceTree = "<group>"; };
 		38A6687D223EED7C00F29F52 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		38AA311422442AF50050604A /* BaseContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContentView.swift; sourceTree = "<group>"; };
+		38AC557722B59EFD00E0C42C /* StudioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioStore.swift; sourceTree = "<group>"; };
 		38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelStack.swift; sourceTree = "<group>"; };
 		38C2E4032266180400EE5DEB /* StackPanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPanelVC.swift; sourceTree = "<group>"; };
 		38C697F4225D05FA009C8CCD /* PickerNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerNavController.swift; sourceTree = "<group>"; };
@@ -1273,6 +1277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3804802022B5A81E00BDC9F3 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1314,6 +1319,14 @@
 				3897184C22974B010047F19E /* HazelFilter.swift */,
 			);
 			path = "Filter Library";
+			sourceTree = "<group>";
+		};
+		3804801622B5A32600BDC9F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3804801F22B5A81E00BDC9F3 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		38051CCA2253B12300D9E763 /* StoryBoards */ = {
@@ -2805,6 +2818,7 @@
 		389B938B22275CB9009FE9E6 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				38AC557622B59E7300E0C42C /* IAP */,
 				3826512E227EF6CF003D2E19 /* Dimensions */,
 				38D97D7622522CD900B941A0 /* StateChanges */,
 				38D97D6F224FC0C600B941A0 /* Text */,
@@ -2838,6 +2852,14 @@
 				38A6687B223E8E3D00F29F52 /* Elysium.swift */,
 			);
 			path = Elysium;
+			sourceTree = "<group>";
+		};
+		38AC557622B59E7300E0C42C /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				38AC557722B59EFD00E0C42C /* StudioStore.swift */,
+			);
+			path = IAP;
 			sourceTree = "<group>";
 		};
 		38C80FB7223A7ACB00150FD4 /* Panels */ = {
@@ -3029,6 +3051,7 @@
 				38FEDBE8222352D90005EB60 /* QuotesMaker */,
 				38FEDBFD222352DB0005EB60 /* QuotesMakerTests */,
 				38FEDBE7222352D90005EB60 /* Products */,
+				3804801622B5A32600BDC9F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3125,6 +3148,11 @@
 					38FEDBE5222352D90005EB60 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					38FEDBF9222352DB0005EB60 = {
 						CreatedOnToolsVersion = 10.1;
@@ -3737,6 +3765,7 @@
 				380C78FE2232CA9E006B8F8D /* ImageModel.swift in Sources */,
 				388BE328222ADC6F005BF44B /* AlphaSliderView.swift in Sources */,
 				381865BD223CF736006C0C56 /* Aliases.swift in Sources */,
+				38AC557822B59EFD00E0C42C /* StudioStore.swift in Sources */,
 				389B938D222766BB009FE9E6 /* QMImageBackingLayer.swift in Sources */,
 				38236561223FEB640078A723 /* +StateChangeable.swift in Sources */,
 				380BC9962231C3B5007F87FE /* LayerModel.swift in Sources */,
@@ -3954,7 +3983,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuotesMaker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuoteStudio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuotesMaker/Frameworks/Rexixable/QuotesMaker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3976,7 +4005,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuotesMaker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuoteStudio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuotesMaker/Frameworks/Rexixable/QuotesMaker-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
