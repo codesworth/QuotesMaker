@@ -13,6 +13,8 @@
 		3801303A228CDA1D00372516 /* FilterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38013039228CDA1D00372516 /* FilterExtensions.swift */; };
 		3802749C2280541C00E7E5AC /* Coordinator+StateChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */; };
 		3804802022B5A81E00BDC9F3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3804801F22B5A81E00BDC9F3 /* StoreKit.framework */; };
+		3804802422B5B4C100BDC9F3 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804802222B5B4C100BDC9F3 /* KeychainItemAccessibility.swift */; };
+		3804802522B5B4C100BDC9F3 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804802322B5B4C100BDC9F3 /* KeychainWrapper.swift */; };
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
 		38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCD2253B90900D9E763 /* StudioLayout.swift */; };
 		38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */; };
@@ -653,6 +655,8 @@
 		38013039228CDA1D00372516 /* FilterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterExtensions.swift; sourceTree = "<group>"; };
 		3802749B2280541C00E7E5AC /* Coordinator+StateChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator+StateChanges.swift"; sourceTree = "<group>"; };
 		3804801F22B5A81E00BDC9F3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3804802222B5B4C100BDC9F3 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		3804802322B5B4C100BDC9F3 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		38051CCD2253B90900D9E763 /* StudioLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLayout.swift; sourceTree = "<group>"; };
 		38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiolLayoutIPad.swift; sourceTree = "<group>"; };
@@ -1327,6 +1331,15 @@
 				3804801F22B5A81E00BDC9F3 /* StoreKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3804802122B5B4A100BDC9F3 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				3804802222B5B4C100BDC9F3 /* KeychainItemAccessibility.swift */,
+				3804802322B5B4C100BDC9F3 /* KeychainWrapper.swift */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 		38051CCA2253B12300D9E763 /* StoryBoards */ = {
@@ -2572,6 +2585,7 @@
 		387B96472229966F00824498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3804802122B5B4A100BDC9F3 /* Keychain */,
 				38CFAAAF22878CB000D40330 /* Zoom */,
 				385D3065225A2AE80054694A /* ImagePicker */,
 				38F13A02225435D1002C4109 /* CollapsibleTableViews */,
@@ -3747,6 +3761,7 @@
 				3896507B2242C154009434B4 /* Layout.swift in Sources */,
 				38743D542257F59E00897B13 /* TaskBarControlsProxy.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
+				3804802522B5B4C100BDC9F3 /* KeychainWrapper.swift in Sources */,
 				38D97D7822522D3600B941A0 /* State.swift in Sources */,
 				3895492922917D9900B3075B /* FontEngine.swift in Sources */,
 				380C78F82232C1BE006B8F8D /* BlankLayerModel.swift in Sources */,
@@ -3789,6 +3804,7 @@
 				38661B0F224C42D300440AC7 /* StudioTabCells.swift in Sources */,
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
 				38CFAAB222878CCD00D40330 /* ZoomableUIView.swift in Sources */,
+				3804802422B5B4C100BDC9F3 /* KeychainItemAccessibility.swift in Sources */,
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
 				381865B8223C9E1F006C0C56 /* StackCell.swift in Sources */,
