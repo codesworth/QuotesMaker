@@ -15,6 +15,7 @@
 		3804802022B5A81E00BDC9F3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3804801F22B5A81E00BDC9F3 /* StoreKit.framework */; };
 		3804802422B5B4C100BDC9F3 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804802222B5B4C100BDC9F3 /* KeychainItemAccessibility.swift */; };
 		3804802522B5B4C100BDC9F3 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804802322B5B4C100BDC9F3 /* KeychainWrapper.swift */; };
+		3804802722B5BE8000BDC9F3 /* UnlockProView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804802622B5BE8000BDC9F3 /* UnlockProView.swift */; };
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
 		38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCD2253B90900D9E763 /* StudioLayout.swift */; };
 		38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */; };
@@ -657,6 +658,7 @@
 		3804801F22B5A81E00BDC9F3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3804802222B5B4C100BDC9F3 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		3804802322B5B4C100BDC9F3 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		3804802622B5BE8000BDC9F3 /* UnlockProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockProView.swift; sourceTree = "<group>"; };
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		38051CCD2253B90900D9E763 /* StudioLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLayout.swift; sourceTree = "<group>"; };
 		38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiolLayoutIPad.swift; sourceTree = "<group>"; };
@@ -2872,6 +2874,7 @@
 			isa = PBXGroup;
 			children = (
 				38AC557722B59EFD00E0C42C /* StudioStore.swift */,
+				3804802622B5BE8000BDC9F3 /* UnlockProView.swift */,
 			);
 			path = IAP;
 			sourceTree = "<group>";
@@ -3792,6 +3795,7 @@
 				3818DADA2270FCF000202C14 /* BaseModelCollection.swift in Sources */,
 				38971853229B0C670047F19E /* LoaderView.swift in Sources */,
 				3818DAD32270D2AF00202C14 /* StudioFont.swift in Sources */,
+				3804802722B5BE8000BDC9F3 /* UnlockProView.swift in Sources */,
 				388BE330222B0771005BF44B /* Fonts.swift in Sources */,
 				38FEDC0A222354970005EB60 /* HomeVC.swift in Sources */,
 				3802749C2280541C00E7E5AC /* Coordinator+StateChanges.swift in Sources */,
