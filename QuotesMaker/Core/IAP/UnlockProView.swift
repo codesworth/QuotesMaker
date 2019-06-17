@@ -28,9 +28,11 @@ class UnlockProView: UIView {
     
     lazy var activityController:UIActivityIndicatorView = {
         let indicator  = UIActivityIndicatorView(frame: .zero)
-        indicator.color = .seafoamBlue
         indicator.style = .whiteLarge
         indicator.hidesWhenStopped = true
+        indicator.tintColor = .seafoamBlue
+        //indicator.backgroundColor = .seafoamBlue
+        indicator.color = .seafoamBlue
         return indicator
     }()
     
@@ -107,6 +109,12 @@ class UnlockProView: UIView {
     @objc func purchase(_ sender:UIButton){
         guard let product = product else {return}
         Store.main.buyProduct(product: product)
+        activityController.isHidden = false
+        activityController.startAnimating()
+        purchaseButton.isHidden = true
+        cancelButton.isHidden = true
+        detailLable.isHidden = true
+        
         cancel(sender)
     }
     
@@ -142,6 +150,9 @@ class UnlockProView: UIView {
                         self.detailLable.text = "Unable to connect to iTunes store"
                     }
                 }else{
+                    self.detailLable.isHidden = false
+                    self.activityController.isHidden = true
+                    self.indicatorLable.isHidden = true
                     self.detailLable.text = error?.localizedDescription
                 }
             }
@@ -158,8 +169,8 @@ class UnlockProView: UIView {
         presentationView.addSubview(detailLable)
         presentationView.addSubview(purchaseButton)
         presentationView.addSubview(cancelButton)
-        presentationView.addSubview(activityController)
         presentationView.addSubview(indicatorLable)
+        presentationView.addSubview(activityController)
         detailLable.isHidden = true
         purchaseButton.isHidden = true
     }
@@ -240,7 +251,7 @@ class UnlockProView: UIView {
     
     func show(){
         //self.alpha = 0
-        DispatchQueue.main.async { [unowned self] in
+        DispatchQueue.main.async { //[unowned self] in
             UIApplication.shared.keyWindow?.addSubview(self)
 //            UIView.animate(withDuration: 1, animations: {
 //                self.alpha = 1
