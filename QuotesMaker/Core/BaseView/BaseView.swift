@@ -241,7 +241,8 @@ extension BaseView{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("Nothing happenng here")
+        print("Subview moving at: \(touches.first)")
+        
         //scrollValue = true
     }
 }

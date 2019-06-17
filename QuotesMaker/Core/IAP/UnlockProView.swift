@@ -125,6 +125,7 @@ class UnlockProView: UIView {
         activityController.isHidden = false
         activityController.startAnimating()
         purchaseButton.isHidden = true
+        restoreButton.isHidden = true
         cancelButton.isHidden = true
         detailLable.isHidden = true
         indicatorLable.text = "Communicating with iTunes"
@@ -139,7 +140,7 @@ class UnlockProView: UIView {
         self.activityController.isHidden = true
         self.indicatorLable.isHidden = true
         self.detailLable.textColor = .red
-        self.detailLable.text = error.description
+        self.detailLable.text = error.localizedDescription
         cancelButton.isHidden = false
         
     }
@@ -269,8 +270,10 @@ class UnlockProView: UIView {
             
         }
         detailLable.layout{
-            $0.centerX == presentationView.centerXAnchor
+            $0.leading == leadingAnchor + 16
+            $0.trailing == trailingAnchor - 16
             $0.top == titleLable.bottomAnchor + 20
+            
         }
         
         activityController.layout{
@@ -313,12 +316,12 @@ class UnlockProView: UIView {
     }
     
     func show(){
-        //self.alpha = 0
+        self.alpha = 0
         DispatchQueue.main.async { //[unowned self] in
             UIApplication.shared.keyWindow?.addSubview(self)
-//            UIView.animate(withDuration: 1, animations: {
-//                self.alpha = 1
-//            }, completion: nil)
+            UIView.animate(withDuration: 0.5, animations: {
+                self.alpha = 1
+            }, completion: nil)
         }
         
     }

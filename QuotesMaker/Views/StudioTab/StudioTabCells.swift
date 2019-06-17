@@ -20,6 +20,7 @@ class StudioTabCells: UICollectionViewCell {
     
     func configureCell(_ image:UIImage){
         control.contentImageView.image = image
+        control.contentImageView.setImageMaskColor(.black)
     }
 
 

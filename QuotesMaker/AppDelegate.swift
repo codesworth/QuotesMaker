@@ -51,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print("== \(names)")
 //            }
 //        }
+        SKPaymentQueue.default().add(self)
         let appearance = UIBarButtonItem.appearance()
         appearance.tintColor = .primary
         return true
@@ -80,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setRootViewContoroller(){
         if UIDevice.idiom == .phone{
-            let home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(HomePageVC.self)") as! HomePageVC
+            let home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNav") as! UINavigationController
             window?.rootViewController = home
         }
     }
