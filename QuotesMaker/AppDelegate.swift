@@ -111,12 +111,12 @@ extension AppDelegate:SKPaymentTransactionObserver{
     }
     
     func failedTransaction(_ transaction:SKPaymentTransaction){
-        if let transactionError = transaction.error as NSError?, let desc = transaction.error?.localizedDescription, transactionError.code != SKError.paymentCancelled.rawValue{
-            print("Store error with sig: \(desc)")
-            
+        if let transactionError = transaction.error as NSError? {
+           Subscription.main.post(suscription: .failedPurchase, object:transactionError )
         }
         SKPaymentQueue.default().finishTransaction(transaction)
     }
+    
     
     func deliverPurchaseNotification(identifier:String?){
         guard let identifier = identifier else {return}

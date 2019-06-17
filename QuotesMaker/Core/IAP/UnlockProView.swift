@@ -22,9 +22,20 @@ class UnlockProView: UIView {
             activityController.isHidden = true
             indicatorLable.isHidden = true
             detailLable.isHidden = false
+            restoreButton.isHidden = false
             purchaseButton.addTarget(self, action: #selector(purchase(_:)), for: .touchUpInside)
         }
     }
+    
+    lazy var restoreButton:UIButton = { [unowned self] by in
+        let button = UIButton(frame: .zero)
+        button.backgroundColor = #colorLiteral(red: 0.3565862775, green: 0.8337638974, blue: 0.8115196824, alpha: 1)
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Restore", for: .normal)
+        button.roundCorners(5.0)
+        button.addTarget(self, action: #selector(restorePurchase(_:)), for: .touchUpInside)
+        return button
+    }(())
     
     lazy var activityController:UIActivityIndicatorView = {
         let indicator  = UIActivityIndicatorView(frame: .zero)
@@ -108,25 +119,62 @@ class UnlockProView: UIView {
     
     @objc func purchase(_ sender:UIButton){
         guard let product = product else {return}
+        subscribeTo(subscription: .purchaseNotification, selector: #selector(purchased(_:)))
+        subscribeTo(subscription: .failedPurchase, selector: #selector(failedTransaction(_:)))
         Store.main.buyProduct(product: product)
         activityController.isHidden = false
         activityController.startAnimating()
         purchaseButton.isHidden = true
         cancelButton.isHidden = true
         detailLable.isHidden = true
+        indicatorLable.text = "Communicating with iTunes"
+        indicatorLable.isHidden = false
+        //cancel(sender)
+    }
+    
+    @objc func failedTransaction(_ notification:Notification){
+        guard let error = notification.userInfo?[.info] as? NSError else {return}
+        print("Purchase Error with sig: ", error.localizedDescription)
+        self.detailLable.isHidden = false
+        self.activityController.isHidden = true
+        self.indicatorLable.isHidden = true
+        self.detailLable.textColor = .red
+        self.detailLable.text = error.description
+        cancelButton.isHidden = false
         
-        cancel(sender)
+    }
+    
+    @objc func restorePurchase(_ sender:UIButton){
+        sender.isHidden = true
+        subscribeTo(subscription: .purchaseNotification, selector: #selector(purchased(_:)))
+        subscribeTo(subscription: .failedPurchase, selector: #selector(failedTransaction(_:)))
+        Store.main.restorePurchase()
+        activityController.isHidden = false
+        activityController.startAnimating()
+        purchaseButton.isHidden = true
+        cancelButton.isHidden = true
+        detailLable.isHidden = true
+        indicatorLable.text = "Communicating with iTunes"
+        indicatorLable.isHidden = false
+    }
+    
+    @objc func purchased(_ notification:Notification){
+        
+        animateout()
     }
     
     
     @objc func cancel(_ sender:UIButton){
+        animateout()
+    }
+    
+    func animateout(){
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
             self.frame.origin.y += UIScreen.main.bounds.height
         }) { (_) in
             self.removeFromSuperview()
         }
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -147,12 +195,14 @@ class UnlockProView: UIView {
                         self.detailLable.isHidden = false
                         self.activityController.isHidden = true
                         self.indicatorLable.isHidden = true
+                        self.detailLable.textColor = .red
                         self.detailLable.text = "Unable to connect to iTunes store"
                     }
                 }else{
                     self.detailLable.isHidden = false
                     self.activityController.isHidden = true
                     self.indicatorLable.isHidden = true
+                    self.detailLable.textColor = .red
                     self.detailLable.text = error?.localizedDescription
                 }
             }
@@ -171,8 +221,10 @@ class UnlockProView: UIView {
         presentationView.addSubview(cancelButton)
         presentationView.addSubview(indicatorLable)
         presentationView.addSubview(activityController)
+        presentationView.addSubview(restoreButton)
         detailLable.isHidden = true
         purchaseButton.isHidden = true
+        restoreButton.isHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -204,6 +256,12 @@ class UnlockProView: UIView {
             $0.top == presentationView.topAnchor + 20
             $0.width |=| 100
             $0.height |=| 100
+        }
+        restoreButton.layout{
+            $0.top == presentationView.topAnchor + 20
+            $0.trailing == presentationView.trailingAnchor - 8
+            $0.height |=| 30
+            $0.width |=| 100
         }
         titleLable.layout{
             $0.centerX == presentationView.centerXAnchor
@@ -248,6 +306,11 @@ class UnlockProView: UIView {
         formatter.numberStyle = .currency
         return formatter
     }()
+    
+    override func removeFromSuperview() {
+        super.removeFromSuperview()
+        unsubscribe()
+    }
     
     func show(){
         //self.alpha = 0
