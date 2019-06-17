@@ -112,7 +112,7 @@ class StudioEditorView:UIView{
         
         //scrollView.addSubview(contentView)
         borderlize(.primary, 1)
-        contentView.setZoomable(true)
+        self.setZoomable(true)
         
     }
     
@@ -250,6 +250,16 @@ extension StudioEditorView:ZoomableUIView{
     
     func optionsForZooming() -> ZoomableViewOptions {
         return ZoomableViewOptions(minZoom: ZoomScale.default.rawValue, maxZoom: ZoomScale.max.rawValue)
+    }
+    
+    func willBeginZooming() {
+        scrollbar.isHidden = true
+        scrollCircle.isHidden = true
+    }
+    
+    func didEndZooming() {
+        scrollbar.isHidden = false
+        scrollCircle.isHidden = false
     }
     
     

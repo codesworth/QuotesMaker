@@ -22,6 +22,19 @@ class UnlockProView: UIView {
         }
     }
     
+    lazy var activityController:UIActivityIndicatorView = {
+        let indicator  = UIActivityIndicatorView(frame: .zero)
+        indicator.color = .seafoamBlue
+        indicator.style = .whiteLarge
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
+    lazy var indicatorLable:BasicLabel = {
+        let label = BasicLabel(frame: .zero)
+        label
+    }()
+    
     lazy var overlay:UIView = {
         let view = UIView(frame: UIScreen.main.bounds)
         view.backgroundColor = UIColor.darkText.withAlphaComponent(0.6)
@@ -137,7 +150,7 @@ class UnlockProView: UIView {
             $0.leading == leadingAnchor
             $0.trailing == trailingAnchor
             $0.bottom == bottomAnchor
-            $0.height |=| 450
+            $0.height |=| 400
         }
         imageView.layout{
             $0.centerX == presentationView.centerXAnchor
@@ -176,4 +189,15 @@ class UnlockProView: UIView {
         formatter.numberStyle = .currency
         return formatter
     }()
+    
+    func show(){
+        self.alpha = 0
+        DispatchQueue.main.async { [unowned self] in
+            UIApplication.shared.keyWindow?.addSubview(self)
+            UIView.animate(withDuration: 1, animations: {
+                self.alpha = 1
+            }, completion: nil)
+        }
+        
+    }
 }

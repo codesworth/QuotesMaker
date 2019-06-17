@@ -136,9 +136,7 @@ class EditingCoordinator:NSObject{
                         let proAdd = UnlockProView(frame: .zero)
                         proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
                         proAdd.product = product
-                        DispatchQueue.main.async {
-                            UIApplication.shared.keyWindow?.addSubview(proAdd)
-                        }
+                        proAdd.show()
                     }
                 }
             }

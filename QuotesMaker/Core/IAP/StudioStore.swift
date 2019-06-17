@@ -97,6 +97,7 @@ extension Store:SKProductsRequestDelegate{
         handler?(false,nil)
         handler = .none
         productsRequest = .none
+        print("Unable to Look up items with error: \(error.localizedDescription)")
     }
     
 }

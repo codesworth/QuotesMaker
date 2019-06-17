@@ -41,14 +41,3 @@ final class BaseContentView:UIView{
 }
 
 
-extension BaseContentView:ZoomableUIView{
-    func viewForZooming() -> UIView {
-        return self
-    }
-    
-    func optionsForZooming() -> ZoomableViewOptions {
-        return ZoomableViewOptions(minZoom: 1, maxZoom: 4)
-    }
-    
-    
-}

@@ -21,7 +21,7 @@ extension TextDesignableInputView{
                          contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
                          contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
                          contentView.widthAnchor.constraint(equalTo: widthAnchor),
-                         contentView.heightAnchor.constraint(equalToConstant: 950)]
+                         contentView.heightAnchor.constraint(equalToConstant: 1000)]
         let contents1 = [titleLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
                          titleLable.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
                          headlineline.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 4),

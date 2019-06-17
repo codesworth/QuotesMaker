@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let alreadyRun = KeychainWrapper.standard.bool(forKey: APP_RUN_FIRSTTIME) ?? false
         if !alreadyRun{
             KeychainWrapper.standard.set(false, forKey: Store.PRO_STUDIO)
+            KeychainWrapper.standard.set(true, forKey: APP_RUN_FIRSTTIME)
         }
             Persistence.main.createDirectories()
           //  UserDefaults.standard.set(true, forKey: "first")
