@@ -121,26 +121,9 @@ class EditingCoordinator:NSObject{
     func save(message:String = "Enter project name"){
         //TODO: Verify pais user or throw alert to buy app
         if !Store.isPro(){
-            if Store.main.hasProduct{
-                let proAdd = UnlockProView(frame: .zero)
-                proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
-                proAdd.product = Store.main.studioProProduct
-                DispatchQueue.main.async {
-                    UIApplication.shared.keyWindow?.addSubview(proAdd)
-                }
-            }else{
-                Store.main.requestProProduct { (success, products) in
-                    guard let products = products else {return}
-                    if !products.isEmpty && success{
-                        let product = products.first!
-                        let proAdd = UnlockProView(frame: .zero)
-                        proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
-                        proAdd.product = product
-                        proAdd.show()
-                    }
-                }
-            }
-            
+            let proAdd = UnlockProView(frame: .zero)
+            proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
+            proAdd.show()
            return
         }
         //TODO: Verify name does not exist before saving

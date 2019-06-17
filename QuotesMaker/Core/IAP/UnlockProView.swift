@@ -18,6 +18,10 @@ class UnlockProView: UIView {
             titleLable.text = prod.localizedTitle
             let text = "Unlock \(priceFormatter.string(from: prod.price) ?? "$0.00")"
             purchaseButton.setTitle(text, for: .normal)
+            purchaseButton.isHidden = false
+            activityController.isHidden = true
+            indicatorLable.isHidden = true
+            detailLable.isHidden = false
             purchaseButton.addTarget(self, action: #selector(purchase(_:)), for: .touchUpInside)
         }
     }
@@ -32,7 +36,11 @@ class UnlockProView: UIView {
     
     lazy var indicatorLable:BasicLabel = {
         let label = BasicLabel(frame: .zero)
-        label
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.textColor = .darkText
+        label.textAlignment = .center
+        label.text = "Connecting to iTunes Store"
+        return label
     }()
     
     lazy var overlay:UIView = {
@@ -65,6 +73,7 @@ class UnlockProView: UIView {
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .primary
         label.textAlignment = .center
+        label.text = "Quote Studio Pro"
         return label
     }()
     
@@ -116,6 +125,29 @@ class UnlockProView: UIView {
         initialize()
     }
     
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        activityController.startAnimating()
+        if Store.main.hasProduct{
+            self.product = Store.main.studioProProduct
+        }else{
+            Store.main.requestProProduct { (success,products, error ) in
+                if success{
+                    if let product = products?.first {
+                        self.product = product
+                    }else{
+                        self.detailLable.isHidden = false
+                        self.activityController.isHidden = true
+                        self.indicatorLable.isHidden = true
+                        self.detailLable.text = "Unable to connect to iTunes store"
+                    }
+                }else{
+                    self.detailLable.text = error?.localizedDescription
+                }
+            }
+        }
+    }
+    
     private func initialize(){
         self.frame = UIScreen.main.bounds
         backgroundColor = .clear
@@ -126,6 +158,10 @@ class UnlockProView: UIView {
         presentationView.addSubview(detailLable)
         presentationView.addSubview(purchaseButton)
         presentationView.addSubview(cancelButton)
+        presentationView.addSubview(activityController)
+        presentationView.addSubview(indicatorLable)
+        detailLable.isHidden = true
+        purchaseButton.isHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -168,6 +204,18 @@ class UnlockProView: UIView {
             $0.top == titleLable.bottomAnchor + 20
         }
         
+        activityController.layout{
+            $0.top == titleLable.bottomAnchor + 16
+            $0.centerX == presentationView.centerXAnchor
+            $0.width |=| 50
+            $0.height |=| 50
+        }
+        
+        indicatorLable.layout{
+            $0.centerX == centerXAnchor
+            $0.top == activityController.bottomAnchor + 16
+        }
+        
         cancelButton.layout{
             $0.leading == presentationView.leadingAnchor + 20
             $0.trailing == presentationView.trailingAnchor - 20
@@ -191,12 +239,12 @@ class UnlockProView: UIView {
     }()
     
     func show(){
-        self.alpha = 0
+        //self.alpha = 0
         DispatchQueue.main.async { [unowned self] in
             UIApplication.shared.keyWindow?.addSubview(self)
-            UIView.animate(withDuration: 1, animations: {
-                self.alpha = 1
-            }, completion: nil)
+//            UIView.animate(withDuration: 1, animations: {
+//                self.alpha = 1
+//            }, completion: nil)
         }
         
     }
