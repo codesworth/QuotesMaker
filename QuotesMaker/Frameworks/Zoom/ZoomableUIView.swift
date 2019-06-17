@@ -24,6 +24,8 @@ public protocol ZoomableUIView {
    func reset()
    func viewForZooming() -> UIView
    func optionsForZooming() -> ZoomableViewOptions
+   func willBeginZooming()
+   func didEndZooming()
 }
 
 extension ZoomableUIView where Self:EditorExpandableView  {
@@ -31,6 +33,7 @@ extension ZoomableUIView where Self:EditorExpandableView  {
     internal func reset() {
       UIView.animate(withDuration: 0.3) {
          self.viewForZooming().transform = .identity
+        self.didEndZooming()
       }
       
       if let panGestureRecognizer = gestureRecognizers?.filter({$0 is UIPanGestureRecognizer}).first, let index = gestureRecognizers?.index(of: panGestureRecognizer) {
@@ -59,7 +62,9 @@ extension ZoomableUIView where Self:EditorExpandableView  {
 extension UIView:UIGestureRecognizerDelegate {
    
    @objc func didPinchZoomableView(_ pinch: UIPinchGestureRecognizer) {
+    
       if let view = (self as? ZoomableUIView)?.viewForZooming(), let options = (self as? ZoomableUIView)?.optionsForZooming() {
+        (self as? ZoomableUIView)?.willBeginZooming()
          switch pinch.state {
          case .ended:
             if view.transform.currentScale > options.minZoom && gestureRecognizers?.filter({$0 is UIPanGestureRecognizer}).count == 0 {

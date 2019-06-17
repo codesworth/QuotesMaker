@@ -86,6 +86,7 @@ class BaseView:UIView{
 //    }
     
     func setup(){
+        
         backgroundColor = .white
         layer.borderWidth = 1
         layer.cornerRadius = 2

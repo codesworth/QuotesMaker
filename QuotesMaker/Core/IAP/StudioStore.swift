@@ -18,6 +18,14 @@ public class Store:NSObject{
         PRO_STUDIO
     ]
     
+    public private (set) var hasProduct = false
+    
+    public private (set) var studioProProduct:SKProduct?{
+        didSet{
+            hasProduct = studioProProduct != nil
+        }
+    }
+    
     private static let _main = Store()
     
     public static var main:Store{
@@ -48,6 +56,13 @@ public class Store:NSObject{
     static func isPro()->Bool{
         return main.purchasedProducts.contains(PRO_STUDIO)
     }
+    
+    func getStudioProProduct(){
+        requestProProduct { (_, products) in
+            let product = products?.first(where: {$0.productIdentifier == Store.PRO_STUDIO})
+            if let product = product{self.studioProProduct = product}
+        }
+    }
 }
 
 
@@ -75,6 +90,7 @@ extension Store:SKProductsRequestDelegate{
         handler?(true,response.products)
         handler = .none
         productsRequest = .none
+        
     }
     
     public func request(_ request: SKRequest, didFailWithError error: Error) {

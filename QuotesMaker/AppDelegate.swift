@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            window?.rootViewController = iPadStudioVC()
 //        }
         setRootViewContoroller()
+        Store.main.getStudioProProduct()
 //        for family: String in UIFont.familyNames
 //        {
 //            print("\(family)")
