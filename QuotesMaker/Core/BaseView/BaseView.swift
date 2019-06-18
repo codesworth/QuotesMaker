@@ -11,17 +11,9 @@ import UIKit
 
 class BaseView:UIView{
     
-    private lazy var xCrossHair:UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .red
-        return view
-    }()
+    var xCrossHair = CrosssHairLineView(frame: .zero)
+    var yCrossHair = CrosssHairLineView(frame: .zero)
     
-    private lazy var yCrossHair:UIView = {
-        let view = UIView(frame: .zero)
-        view.backgroundColor = .red
-        return view
-    }()
     
     typealias BaseSubView = UIView & BaseViewSubViewable & NSCopying
     
@@ -106,6 +98,11 @@ class BaseView:UIView{
         contentMode = .scaleAspectFill
         layer.masksToBounds = true
         subscribeTo(subscription: .layerReArranged, selector: #selector(layerArranged(_:)))
+        subscribeTo(subscription: .showXCrossHairs, selector: #selector(showXCorssHairs))
+        subscribeTo(subscription: .showYCrossHairs, selector: #selector(showYCrossHair))
+        subscribeTo(subscription: .unshowXCrossHairs, selector: #selector(removeXCrossHair))
+        subscribeTo(subscription: .unshowYCrossHairs, selector: #selector(removeYCrossHair))
+        subscribeTo(subscription: .unshowAllCrossHairs, selector: #selector(removeAllCrossHairs))
     }
     
     @objc func layerArranged(_ notification:Notification){
@@ -116,7 +113,11 @@ class BaseView:UIView{
     
     
 
-    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        xCrossHair.frame = [bounds.midX,0,1,bounds.height]
+        yCrossHair.frame = [0,bounds.midY,bounds.width,1]
+    }
     
     
     
@@ -186,6 +187,7 @@ class BaseView:UIView{
     }
     
     override func willRemoveSubview(_ subview: UIView) {
+        if type(of: subview) == CrosssHairLineView.self{return}
         let subs = subviews.filter{$0 != subview}
         Subscription.main.post(suscription: .layerChanged, object: subs)
         
@@ -203,6 +205,7 @@ class BaseView:UIView{
     
     override func didAddSubview(_ subview: UIView) {
         super.didAddSubview(subview)
+        if type(of: subview) == CrosssHairLineView.self {return}
         if let view = subview as?  BackingImageView{
             viewTags.imgs += 1
             view.id_tag = viewTags.imgs

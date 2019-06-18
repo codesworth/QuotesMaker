@@ -112,11 +112,7 @@ class StudioEditorView:UIView{
         addSubview(scrollbar)
         addSubview(scrollCircle)
         
-        subscribeTo(subscription: .showXCrossHairs, selector: #selector(showXCorssHairs))
-        subscribeTo(subscription: .showYCrossHairs, selector: #selector(showYCrossHair))
-        subscribeTo(subscription: .unshowXCrossHairs, selector: #selector(removeXCrossHair))
-        subscribeTo(subscription: .unshowYCrossHairs, selector: #selector(removeYCrossHair))
-        subscribeTo(subscription: .unshowAllCrossHairs, selector: #selector(removeAllCrossHairs))
+        
         //scrollView.addSubview(contentView)
         borderlize(.primary, 1)
         self.setZoomable(true)
