@@ -86,6 +86,7 @@ class BaseView:UIView{
 //    }
     
     func setup(){
+        
         backgroundColor = .white
         layer.borderWidth = 1
         layer.cornerRadius = 2
@@ -240,7 +241,8 @@ extension BaseView{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("Nothing happenng here")
+        print("Subview moving at: \(touches.first)")
+        
         //scrollValue = true
     }
 }

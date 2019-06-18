@@ -9,7 +9,7 @@
 import Foundation
 import StoreKit
 
-public typealias ProductsRequestCompletionHandler = (_ success:Bool, _ product:[SKProduct]?) -> ()
+public typealias ProductsRequestCompletionHandler = (_ success:Bool, _ product:[SKProduct]?, _ error:Error?) -> ()
 
 
 public class Store:NSObject{
@@ -17,6 +17,14 @@ public class Store:NSObject{
     static let nonConsumableIds:Set<String> = [
         PRO_STUDIO
     ]
+    
+    public private (set) var hasProduct = false
+    
+    public private (set) var studioProProduct:SKProduct?{
+        didSet{
+            hasProduct = studioProProduct != nil
+        }
+    }
     
     private static let _main = Store()
     
@@ -48,6 +56,13 @@ public class Store:NSObject{
     static func isPro()->Bool{
         return main.purchasedProducts.contains(PRO_STUDIO)
     }
+    
+    func getStudioProProduct(){
+        requestProProduct { (_, products,_) in
+            let product = products?.first(where: {$0.productIdentifier == Store.PRO_STUDIO})
+            if let product = product{self.studioProProduct = product}
+        }
+    }
 }
 
 
@@ -72,15 +87,17 @@ extension Store{
 extension Store:SKProductsRequestDelegate{
     
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        handler?(true,response.products)
+        handler?(true,response.products,nil)
         handler = .none
         productsRequest = .none
+        
     }
     
     public func request(_ request: SKRequest, didFailWithError error: Error) {
-        handler?(false,nil)
+        handler?(false,nil,error)
         handler = .none
         productsRequest = .none
+        print("Unable to Look up items with error: \(error.localizedDescription)")
     }
     
 }

@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let alreadyRun = KeychainWrapper.standard.bool(forKey: APP_RUN_FIRSTTIME) ?? false
         if !alreadyRun{
             KeychainWrapper.standard.set(false, forKey: Store.PRO_STUDIO)
+            KeychainWrapper.standard.set(true, forKey: APP_RUN_FIRSTTIME)
         }
             Persistence.main.createDirectories()
           //  UserDefaults.standard.set(true, forKey: "first")
@@ -41,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            window?.rootViewController = iPadStudioVC()
 //        }
         setRootViewContoroller()
+        Store.main.getStudioProProduct()
 //        for family: String in UIFont.familyNames
 //        {
 //            print("\(family)")
@@ -49,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print("== \(names)")
 //            }
 //        }
+        SKPaymentQueue.default().add(self)
         let appearance = UIBarButtonItem.appearance()
         appearance.tintColor = .primary
         return true
@@ -78,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setRootViewContoroller(){
         if UIDevice.idiom == .phone{
-            let home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(HomePageVC.self)") as! HomePageVC
+            let home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNav") as! UINavigationController
             window?.rootViewController = home
         }
     }
@@ -109,12 +112,12 @@ extension AppDelegate:SKPaymentTransactionObserver{
     }
     
     func failedTransaction(_ transaction:SKPaymentTransaction){
-        if let transactionError = transaction.error as NSError?, let desc = transaction.error?.localizedDescription, transactionError.code != SKError.paymentCancelled.rawValue{
-            print("Store error with sig: \(desc)")
-            
+        if let transactionError = transaction.error as NSError? {
+           Subscription.main.post(suscription: .failedPurchase, object:transactionError )
         }
         SKPaymentQueue.default().finishTransaction(transaction)
     }
+    
     
     func deliverPurchaseNotification(identifier:String?){
         guard let identifier = identifier else {return}

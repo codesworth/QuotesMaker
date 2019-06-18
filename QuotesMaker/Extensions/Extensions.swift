@@ -109,7 +109,18 @@ extension UIScrollView{
 }
 
 
+extension UIImageView{
+    func setImageMaskColor(_ color:UIColor){
+        let maskImage = image?.withRenderingMode(.alwaysTemplate)
+        image = maskImage
+        tintColor = color
+    }
+}
+
+
 extension UIImage{
+    
+
     
     class func image(for tab:StudioTab.TabActions)->UIImage{
         switch tab {

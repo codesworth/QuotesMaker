@@ -43,6 +43,42 @@ class StudioEditorView:UIView{
         
     }()
     
+    private lazy var scrollbar:UIView = {
+        let view  = UIView(frame: .zero)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.55)
+        view.roundCorners(4)
+        return view
+        
+    }()
+    
+    private lazy var scrollCircle:UIView = { [unowned self] by in
+        let circle = UIView(frame: .zero)
+        circle.backgroundColor = .white
+        circle.layer.shadowColor = UIColor.black.cgColor
+        circle.layer.shadowRadius = 2
+        circle.layer.shadowOpacity = 0.5
+        circle.layer.shadowOffset = CGSize(width: 0, height: 2)
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(scrollCirclePanned(_:)))
+        circle.addGestureRecognizer(gesture)
+        
+        return circle
+    }(())
+    
+    @objc func scrollCirclePanned(_ recognizer:UIPanGestureRecognizer){
+        guard let view = recognizer.view else {return}
+        
+        let translation = recognizer.translation(in: view)
+        let finalPoint = view.center.y + translation.y
+        if finalPoint > 40 && finalPoint < bounds.maxY - 60{
+            view.center.y = finalPoint
+            _baseView?.center.y = finalPoint
+        }
+        
+        recognizer.setTranslation(.zero, in: view)
+        
+        
+    }
+    
     private lazy var containerView:UIView = {
         let view = UIView(frame: .zero)
         return view
@@ -71,6 +107,9 @@ class StudioEditorView:UIView{
     private func initialize(){
         backgroundColor = .red
         addSubview(contentView)
+        addSubview(scrollbar)
+        addSubview(scrollCircle)
+        
         //scrollView.addSubview(contentView)
         borderlize(.primary, 1)
         self.setZoomable(true)
@@ -129,6 +168,21 @@ class StudioEditorView:UIView{
             $0.bottom == bottomAnchor
             
         }
+        
+        scrollbar.layout{
+            $0.top == topAnchor + 20
+            $0.bottom == bottomAnchor - 40
+            $0.width |=| 15
+            $0.trailing == trailingAnchor
+        }
+        
+        scrollCircle.layout{
+            $0.centerY == centerYAnchor
+            $0.trailing == trailingAnchor
+            $0.height |=| 40
+            $0.width |=| 15
+        }
+        
 //        NSLayoutConstraint.activate([
 //
 //            scrollView.topAnchor.constraint(equalTo: topAnchor),
@@ -196,6 +250,16 @@ extension StudioEditorView:ZoomableUIView{
     
     func optionsForZooming() -> ZoomableViewOptions {
         return ZoomableViewOptions(minZoom: ZoomScale.default.rawValue, maxZoom: ZoomScale.max.rawValue)
+    }
+    
+    func willBeginZooming() {
+        scrollbar.isHidden = true
+        scrollCircle.isHidden = true
+    }
+    
+    func didEndZooming() {
+        scrollbar.isHidden = false
+        scrollCircle.isHidden = false
     }
     
     
