@@ -2843,7 +2843,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "296"
             endingLineNumber = "296"
-            landmarkName = "layerChanged(_:)"
+            landmarkName = "userResizableViewDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2860,7 +2860,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "299"
             endingLineNumber = "299"
-            landmarkName = "layerChanged(_:)"
+            landmarkName = "userResizableViewDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2877,7 +2877,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "302"
             endingLineNumber = "302"
-            landmarkName = "layerChanged(_:)"
+            landmarkName = "userResizableViewDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2894,7 +2894,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "305"
             endingLineNumber = "305"
-            landmarkName = "layerChanged(_:)"
+            landmarkName = "userResizableViewDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2911,8 +2911,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "307"
             endingLineNumber = "307"
-            landmarkName = "layerChanged(_:)"
-            landmarkType = "7">
+            landmarkName = "RectView"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2928,7 +2928,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "309"
             endingLineNumber = "309"
-            landmarkName = "layerChanged(_:)"
+            landmarkName = "postFrameChange(old:new:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -3013,8 +3013,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
             endingLineNumber = "90"
-            landmarkName = "updateShape(_:)"
-            landmarkType = "7">
+            landmarkName = "model"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3217,8 +3217,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "277"
             endingLineNumber = "277"
-            landmarkName = "userResizableViewDidEndEditing(_:)"
-            landmarkType = "7">
+            landmarkName = "RectView"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3302,8 +3302,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "274"
             endingLineNumber = "274"
-            landmarkName = "userResizableViewDidEndEditing(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3319,8 +3319,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "276"
             endingLineNumber = "276"
-            landmarkName = "userResizableViewDidEndEditing(_:)"
-            landmarkType = "7">
+            landmarkName = "RectView"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3336,8 +3336,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "275"
             endingLineNumber = "275"
-            landmarkName = "userResizableViewDidEndEditing(_:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5523,8 +5523,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "281"
             endingLineNumber = "281"
-            landmarkName = "userResizableViewDidEndEditing(_:)"
-            landmarkType = "7">
+            landmarkName = "RectView"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6101,8 +6101,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
-            landmarkName = "updateLayerFrame(model:)"
-            landmarkType = "7">
+            landmarkName = "model"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6118,8 +6118,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
             endingLineNumber = "78"
-            landmarkName = "updateLayerFrame(model:)"
-            landmarkType = "7">
+            landmarkName = "model"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6135,8 +6135,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
             endingLineNumber = "79"
-            landmarkName = "updateLayerFrame(model:)"
-            landmarkType = "7">
+            landmarkName = "model"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6152,8 +6152,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
             endingLineNumber = "81"
-            landmarkName = "updateLayerFrame(model:)"
-            landmarkType = "7">
+            landmarkName = "model"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6169,7 +6169,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "278"
             endingLineNumber = "278"
-            landmarkName = "userResizableViewDidEndEditing(_:)"
+            landmarkName = "startWatching()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6186,7 +6186,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "279"
             endingLineNumber = "279"
-            landmarkName = "userResizableViewDidEndEditing(_:)"
+            landmarkName = "startWatching()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -6471,7 +6471,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "271"
             endingLineNumber = "271"
-            landmarkName = "userResizableViewDidEndEditing(_:)"
+            landmarkName = "focused(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -7283,8 +7283,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "updateShape(_:)"
-            landmarkType = "7">
+            landmarkName = "model"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7774,8 +7774,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "updateShape(_:)"
-            landmarkType = "7">
+            landmarkName = "RectView"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -8131,102 +8131,6 @@
             endingLineNumber = "92"
             landmarkName = "productsRequest(_:didReceive:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0E8FAE7E-9016-4406-897B-80D7820DD842"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/IAP/UnlockProView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "setConstraints()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "66AF1636-43CA-4E55-B2EF-A749BFDCFD20"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/IAP/UnlockProView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "setConstraints()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C39EF1A1-8D9B-4AAE-84B3-596D8C40923C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/IAP/UnlockProView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "setConstraints()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0F2F861C-9301-414D-A26E-4C0766C8F2A3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Core/IAP/UnlockProView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "setConstraints()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0F2F861C-9301-414D-A26E-4C0766C8F2A3 - 842ba0a85b10a106"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.UnlockProView.setConstraints() -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Core/IAP/UnlockProView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "248"
-                  endingLineNumber = "248"
-                  offsetFromSymbolStart = "188">
-               </Location>
-               <Location
-                  uuid = "0F2F861C-9301-414D-A26E-4C0766C8F2A3 - 5d8e1db4d56dfea9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (QuotesMaker.LayoutProxy) -&gt; () in QuotesMaker.UnlockProView.setConstraints() -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Core/IAP/UnlockProView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "249"
-                  endingLineNumber = "249"
-                  offsetFromSymbolStart = "104">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

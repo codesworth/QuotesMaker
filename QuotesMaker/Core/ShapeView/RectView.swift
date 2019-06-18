@@ -27,6 +27,25 @@ class RectView:SuperRectView{
     
     var prevModel:LayerModel?
     
+    var universalCenter:CGPoint = .zero
+    
+    
+    
+    override var center: CGPoint{
+        didSet{
+            if center.x == universalCenter.x{
+                Subscription.main.post(suscription: .showXCrossHairs, object: nil)
+            }else{
+                Subscription.main.post(suscription: .unshowXCrossHairs, object: nil)
+            }
+            if center.y == universalCenter.y{
+                Subscription.main.post(suscription: .showYCrossHairs, object: nil)
+            }else{
+               Subscription.main.post(suscription: .unshowYCrossHairs, object: nil)
+            }
+        }
+    }
+    
     lazy var resizerView:SPUserResizableView = { [unowned self] by in
         let resize = SPUserResizableView(frame: bounds)
         resize.minHeight = bounds.height * 0.1
@@ -256,6 +275,10 @@ extension RectView:BaseViewSubViewable{
 
 extension RectView:SPUserResizableViewDelegate{
     
+    func startWatching(){
+        
+    }
+    
     func userResizableViewDidBeginEditing(_ userResizableView: SPUserResizableView!) {
         self.gestureRecognizers?.forEach{$0.cancelsTouchesInView = true}
         if let superview = superview as? BaseView {
@@ -268,7 +291,7 @@ extension RectView:SPUserResizableViewDelegate{
     func userResizableViewDidEndEditing(_ userResizableView: SPUserResizableView!) {
         self.frame.size = resizerView.frame.size
         //print("The new frame is: \(resizerView.frame)")
-        
+        Subscription.main.post(suscription: .unshowAllCrossHairs, object: nil)
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
         let old = model.layerFrame

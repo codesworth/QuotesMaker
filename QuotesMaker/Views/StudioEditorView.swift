@@ -51,6 +51,18 @@ class StudioEditorView:UIView{
         
     }()
     
+    private lazy var xCrossHair:UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .red
+        return view
+    }()
+    
+    private lazy var yCrossHair:UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .red
+        return view
+    }()
+    
     private lazy var scrollCircle:UIView = { [unowned self] by in
         let circle = UIView(frame: .zero)
         circle.backgroundColor = .white
@@ -116,6 +128,15 @@ class StudioEditorView:UIView{
         
     }
     
+    func setupCrossHairsIn(_ rect:CGRect){
+        xCrossHair.frame = [rect.midX,rect.origin.y,1,rect.height]
+        yCrossHair.frame = [rect.origin.x,rect.midY,rect.width,1]
+        xCrossHair.isHidden = true
+        yCrossHair.isHidden = true
+        addSubview(xCrossHair)
+        addSubview(yCrossHair)
+    }
+    
     func addCanvas(_ base:BaseView){
         setNeedsLayout()
         layoutIfNeeded()
@@ -131,6 +152,7 @@ class StudioEditorView:UIView{
             base.widthAnchor.constraint(equalToConstant: size.width),
             base.heightAnchor.constraint(equalToConstant: size.height)
         ])
+       // setupCrossHairsIn(<#T##rect: CGRect##CGRect#>)
 //        if __IS_IPAD{
 //            NSLayoutConstraint.activate([
 //                base.centerXAnchor.constraint(equalTo: centerXAnchor),
