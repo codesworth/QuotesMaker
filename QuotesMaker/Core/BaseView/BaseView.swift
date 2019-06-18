@@ -11,6 +11,18 @@ import UIKit
 
 class BaseView:UIView{
     
+    private lazy var xCrossHair:UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .red
+        return view
+    }()
+    
+    private lazy var yCrossHair:UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .red
+        return view
+    }()
+    
     typealias BaseSubView = UIView & BaseViewSubViewable & NSCopying
     
     
@@ -211,6 +223,7 @@ class BaseView:UIView{
         //currentSubview = subview as? BaseView.BaseSubView
         Subscription.main.post(suscription: .layerChanged, object: subviews)
     }
+    
     
     
 }
