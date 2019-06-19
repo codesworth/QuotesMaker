@@ -51,6 +51,8 @@ class StudioEditorView:UIView{
         
     }()
     
+   
+    
     private lazy var scrollCircle:UIView = { [unowned self] by in
         let circle = UIView(frame: .zero)
         circle.backgroundColor = .white
@@ -110,11 +112,15 @@ class StudioEditorView:UIView{
         addSubview(scrollbar)
         addSubview(scrollCircle)
         
+        
         //scrollView.addSubview(contentView)
         borderlize(.primary, 1)
         self.setZoomable(true)
         
     }
+    
+    
+    
     
     func addCanvas(_ base:BaseView){
         setNeedsLayout()
@@ -131,6 +137,7 @@ class StudioEditorView:UIView{
             base.widthAnchor.constraint(equalToConstant: size.width),
             base.heightAnchor.constraint(equalToConstant: size.height)
         ])
+        
 //        if __IS_IPAD{
 //            NSLayoutConstraint.activate([
 //                base.centerXAnchor.constraint(equalTo: centerXAnchor),

@@ -34,6 +34,43 @@ extension BaseView{
 //        return view
 //    }
     
+//    func setupCrossHairsIn(){
+//        xCrossHair.isHidden = true
+//        yCrossHair.isHidden = true
+//        addSubview(xCrossHair)
+//        addSubview(yCrossHair)
+//    }
+    
+    @objc func showXCorssHairs(){
+        
+        //xCrossHair.frame = [rect.midX,rect.origin.y,1,rect.height]
+        xCrossHair.frame = [bounds.midX,0,1,bounds.height]
+        yCrossHair.frame = [0,bounds.midY,bounds.width,1]
+        print("I was added X")
+        addSubview(xCrossHair)
+    }
+    
+    @objc func removeAllCrossHairs(){
+        removeXCrossHair()
+        removeYCrossHair()
+    }
+    
+    @objc func showYCrossHair(){
+        print("I was added Y")
+        xCrossHair.frame = [bounds.midX,0,1,bounds.height]
+        yCrossHair.frame = [0,bounds.midY,bounds.width,1]
+        addSubview(yCrossHair)
+    }
+    
+    @objc func removeXCrossHair(){
+        print("I was removed X")
+        xCrossHair.removeFromSuperview()
+    }
+    @objc func removeYCrossHair(){
+        print("I was removed Y")
+        yCrossHair.removeFromSuperview()
+    }
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         subviews.forEach{
             if let resizer = $0 as? BaseSubView{resizer.focused(false)}}

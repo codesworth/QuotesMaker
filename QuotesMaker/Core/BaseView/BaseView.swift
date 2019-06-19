@@ -11,6 +11,10 @@ import UIKit
 
 class BaseView:UIView{
     
+    var xCrossHair = CrosssHairLineView(frame: .zero)
+    var yCrossHair = CrosssHairLineView(frame: .zero)
+    
+    
     typealias BaseSubView = UIView & BaseViewSubViewable & NSCopying
     
     
@@ -94,6 +98,11 @@ class BaseView:UIView{
         contentMode = .scaleAspectFill
         layer.masksToBounds = true
         subscribeTo(subscription: .layerReArranged, selector: #selector(layerArranged(_:)))
+        subscribeTo(subscription: .showXCrossHairs, selector: #selector(showXCorssHairs))
+        subscribeTo(subscription: .showYCrossHairs, selector: #selector(showYCrossHair))
+        subscribeTo(subscription: .unshowXCrossHairs, selector: #selector(removeXCrossHair))
+        subscribeTo(subscription: .unshowYCrossHairs, selector: #selector(removeYCrossHair))
+        subscribeTo(subscription: .unshowAllCrossHairs, selector: #selector(removeAllCrossHairs))
     }
     
     @objc func layerArranged(_ notification:Notification){
@@ -104,7 +113,11 @@ class BaseView:UIView{
     
     
 
-    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        xCrossHair.frame = [bounds.midX,0,1,bounds.height]
+        yCrossHair.frame = [0,bounds.midY,bounds.width,1]
+    }
     
     
     
@@ -174,6 +187,7 @@ class BaseView:UIView{
     }
     
     override func willRemoveSubview(_ subview: UIView) {
+        if type(of: subview) == CrosssHairLineView.self{return}
         let subs = subviews.filter{$0 != subview}
         Subscription.main.post(suscription: .layerChanged, object: subs)
         
@@ -191,6 +205,7 @@ class BaseView:UIView{
     
     override func didAddSubview(_ subview: UIView) {
         super.didAddSubview(subview)
+        if type(of: subview) == CrosssHairLineView.self {return}
         if let view = subview as?  BackingImageView{
             viewTags.imgs += 1
             view.id_tag = viewTags.imgs
@@ -198,6 +213,7 @@ class BaseView:UIView{
             viewTags.txt += 1
             view.id_tag = viewTags.txt
         }else if let view = subview as? RectView{
+            view.universalCenter = [bounds.midX,bounds.midY]
             if let _ = view.superlayer as? BackingGradientlayer{
                 viewTags.grd += 1
                 view.grd_tag = viewTags.grd
@@ -211,6 +227,7 @@ class BaseView:UIView{
         //currentSubview = subview as? BaseView.BaseSubView
         Subscription.main.post(suscription: .layerChanged, object: subviews)
     }
+    
     
     
 }
