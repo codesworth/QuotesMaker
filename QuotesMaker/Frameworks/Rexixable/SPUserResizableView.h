@@ -134,4 +134,12 @@ typedef struct SPUserResizableViewAnchorPoint {
  */
 - (void)userResizableViewNewRealFrame:(SPUserResizableView *)userResizableView;
 
+/**
+ * Called everytime the frame is set
+ *
+ * @param newCentre New Centre of the view
+ */
+
+- (void)userResizableviewCentreChanged:(CGPoint)newCentre;
+
 @end

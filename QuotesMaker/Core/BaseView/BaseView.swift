@@ -213,6 +213,7 @@ class BaseView:UIView{
             viewTags.txt += 1
             view.id_tag = viewTags.txt
         }else if let view = subview as? RectView{
+            view.universalCenter = [bounds.midX,bounds.midY]
             if let _ = view.superlayer as? BackingGradientlayer{
                 viewTags.grd += 1
                 view.grd_tag = viewTags.grd

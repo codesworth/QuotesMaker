@@ -280,6 +280,7 @@ typedef struct CGPointSPUserResizableViewAnchorPointPair {
     }
     
     self.frame = CGRectMake(newX, newY, newWidth, newHeight);
+    
     touchStart = touchPoint;
 }
 
@@ -302,11 +303,15 @@ typedef struct CGPointSPUserResizableViewAnchorPointPair {
             newCenter.y = midPointY;
         }
     }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(userResizableviewCentreChanged:)]){
+        [self.delegate userResizableviewCentreChanged:newCenter];
+    }
     self.center = newCenter;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([self isResizing]) {
+        
         [self resizeUsingTouchLocation:[[touches anyObject] locationInView:self.superview]];
     } else {
         [self translateUsingTouchLocation:[[touches anyObject] locationInView:self]];

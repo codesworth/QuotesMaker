@@ -31,19 +31,23 @@ class RectView:SuperRectView{
     
     
     
-    override var center: CGPoint{
-        didSet{
-            if center.x == universalCenter.x{
-                Subscription.main.post(suscription: .showXCrossHairs, object: nil)
-            }else{
-                Subscription.main.post(suscription: .unshowXCrossHairs, object: nil)
-            }
-            if center.y == universalCenter.y{
-                Subscription.main.post(suscription: .showYCrossHairs, object: nil)
-            }else{
-               Subscription.main.post(suscription: .unshowYCrossHairs, object: nil)
-            }
+    func checkCenterChanged(center:CGPoint){
+        print("centres are: \([Int(self.center.x):Int(universalCenter.x)]) and \([center.x])")
+        if Int(self.center.x) == Int(universalCenter.x){
+            
+            print("Equality found")
+            Subscription.main.post(suscription: .showXCrossHairs, object: nil)
         }
+        /*else{
+            Subscription.main.post(suscription: .unshowXCrossHairs, object: nil)
+        }*/
+        if Int(self.center.y) == Int(universalCenter.y){
+            Subscription.main.post(suscription: .showYCrossHairs, object: nil)
+        }
+            
+//        else{
+//            Subscription.main.post(suscription: .unshowYCrossHairs, object: nil)
+//        }
     }
     
     lazy var resizerView:SPUserResizableView = { [unowned self] by in
@@ -169,8 +173,9 @@ class RectView:SuperRectView{
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        if let _ = superview{
+        if let sup = superview{
             oldModel.layerFrame = makeLayerFrame()
+            universalCenter = sup.center
         }
     }
     
@@ -179,6 +184,7 @@ class RectView:SuperRectView{
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        print("I was layout")
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         superlayer.frame = contentView.bounds
@@ -303,6 +309,14 @@ extension RectView:SPUserResizableViewDelegate{
         
        Subscription.main.post(suscription: .roundedCornerRadiusValueChanged, object: contentView.bounds.size.min)
         
+    }
+    
+    func userResizableviewCentreChanged(_ newCenter: CGPoint) {
+        checkCenterChanged(center: newCenter)
+    }
+    
+    func userResizableViewNewRealFrame(_ userResizableView: SPUserResizableView!) {
+        //print("New Frame set was: \(userResizableView.frame)")
     }
     
     func postFrameChange(old:LayerModel,new:LayerModel){
