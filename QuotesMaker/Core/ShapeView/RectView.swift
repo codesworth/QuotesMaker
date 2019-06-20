@@ -32,8 +32,8 @@ class RectView:SuperRectView{
     
     
     func checkCenterChanged(center:CGPoint){
-        print("centres are: \([Int(self.center.x):Int(universalCenter.x)]) and \([center.x])")
-        if Int(self.center.x) == Int(universalCenter.x){
+        print("centres are: \([Int(center.x):Int(universalCenter.x)])")
+        if Int(center.x).isInRange(specifiedRange: 10, with: Int(universalCenter.x)){
             
             print("Equality found")
             Subscription.main.post(suscription: .showXCrossHairs, object: nil)
@@ -41,7 +41,7 @@ class RectView:SuperRectView{
         /*else{
             Subscription.main.post(suscription: .unshowXCrossHairs, object: nil)
         }*/
-        if Int(self.center.y) == Int(universalCenter.y){
+        if Int(center.y).isInRange(specifiedRange: 10, with: Int(universalCenter.y)){
             Subscription.main.post(suscription: .showYCrossHairs, object: nil)
         }
             
@@ -173,9 +173,9 @@ class RectView:SuperRectView{
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        if let sup = superview{
+        if let _ = superview{
             oldModel.layerFrame = makeLayerFrame()
-            universalCenter = sup.center
+            //universalCenter = sup.center
         }
     }
     

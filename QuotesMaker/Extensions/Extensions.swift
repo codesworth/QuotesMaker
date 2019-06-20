@@ -15,6 +15,13 @@ extension CGRect{
     
 }
 
+extension Int{
+    func isInRange(specifiedRange:Int, with value:Int)->Bool{
+        let val = (self - value).magnitude
+        return val <= specifiedRange
+    }
+}
+
 
 extension UIDevice{
     
