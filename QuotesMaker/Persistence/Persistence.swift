@@ -19,6 +19,22 @@ class Persistence{
         return _main
     }
     
+    private var _imageSrcHolder:[String] = []
+    
+    func getImageSrcs()->[String]{
+        return _imageSrcHolder
+    }
+    
+    func updateImage(src:String){
+        if !_imageSrcHolder.contains(src){
+            _imageSrcHolder.append(src)
+        }
+    }
+    
+    func invalidateHeldImages(){
+        _imageSrcHolder.removeAll()
+    }
+    
     func createDirectories(){
         do {
             try FileManager.default.createDirectory(at: FileManager.modelDir, withIntermediateDirectories: true, attributes: nil)
@@ -89,6 +105,9 @@ class Persistence{
             let data = try encoder.encode(model)
             let url = URL(fileURLWithPath: model.name, relativeTo: FileManager.modelDir).addExtension(.json) //FileManager.modelDir.appendingPathComponent(model.id).addExtension(.json)
             try data.write(to: url)
+            let item = Cloudstore.CloudItem(name: model.name, blobUrl: url,asseturls:getImageSrcs())
+            Cloudstore.store.saveToRecord(item: item)
+            invalidateHeldImages()
             print("This is the url to file: \(url)")
         }catch let err{
             print("Error Occurred with sig: \(err.localizedDescription)")
