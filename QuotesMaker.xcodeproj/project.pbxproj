@@ -465,6 +465,7 @@
 		382365772240ED9A0078A723 /* PhotoTweaksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 382365742240ED990078A723 /* PhotoTweaksViewController.m */; };
 		3826512D227E4A78003D2E19 /* RotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3826512C227E4A78003D2E19 /* RotationView.swift */; };
 		38265130227EF703003D2E19 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3826512F227EF703003D2E19 /* Canvas.swift */; };
+		382C464C22EC80210003DE16 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382C464B22EC80210003DE16 /* CloudKit.framework */; };
 		3833521F22819CF800DA6857 /* SPUserResizableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3833521E22819CF800DA6857 /* SPUserResizableView.m */; };
 		384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA322366202007B4BD0 /* ImagePanel.swift */; };
 		384B9DA622369908007B4BD0 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B9DA522369908007B4BD0 /* CloseButton.swift */; };
@@ -1113,6 +1114,8 @@
 		382365742240ED990078A723 /* PhotoTweaksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTweaksViewController.m; sourceTree = "<group>"; };
 		3826512C227E4A78003D2E19 /* RotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationView.swift; sourceTree = "<group>"; };
 		3826512F227EF703003D2E19 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		382C464A22EC80150003DE16 /* QuotesMaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuotesMaker.entitlements; sourceTree = "<group>"; };
+		382C464B22EC80210003DE16 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3833521D22819CF700DA6857 /* SPUserResizableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUserResizableView.h; sourceTree = "<group>"; };
 		3833521E22819CF800DA6857 /* SPUserResizableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUserResizableView.m; sourceTree = "<group>"; };
 		384B9DA322366202007B4BD0 /* ImagePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePanel.swift; sourceTree = "<group>"; };
@@ -1286,6 +1289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3804802022B5A81E00BDC9F3 /* StoreKit.framework in Frameworks */,
+				382C464C22EC80210003DE16 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1332,6 +1336,7 @@
 		3804801622B5A32600BDC9F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				382C464B22EC80210003DE16 /* CloudKit.framework */,
 				3804801F22B5A81E00BDC9F3 /* StoreKit.framework */,
 			);
 			name = Frameworks;
@@ -3087,6 +3092,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
+				382C464A22EC80150003DE16 /* QuotesMaker.entitlements */,
 				3818DAD42270E31700202C14 /* Persistence */,
 				38051CCA2253B12300D9E763 /* StoryBoards */,
 				38C80FBA223A901800150FD4 /* Protocols */,
@@ -3170,6 +3176,12 @@
 						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -3999,6 +4011,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = QuotesMaker/QuotesMaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MB46J93Q7Z;
 				INFOPLIST_FILE = QuotesMaker/Info.plist;
@@ -4021,6 +4034,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = QuotesMaker/QuotesMaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MB46J93Q7Z;
 				INFOPLIST_FILE = QuotesMaker/Info.plist;
