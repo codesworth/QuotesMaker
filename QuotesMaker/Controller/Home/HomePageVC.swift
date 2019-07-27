@@ -106,6 +106,7 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             }else{
                 studio = iPadStudioVC(canvas: canvas)
             }
+            studio.modalPresentationStyle = .fullScreen
             present(studio, animated: true, completion: nil)
         }
     }

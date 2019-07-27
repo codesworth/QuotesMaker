@@ -120,7 +120,7 @@ class EditingCoordinator:NSObject{
     
     func save(message:String = "Enter project name"){
         //TODO: Verify pais user or throw alert to buy app
-        if !Store.isPro(){
+        if Store.isPro(){
             let proAdd = UnlockProView(frame: .zero)
             proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
             proAdd.show()

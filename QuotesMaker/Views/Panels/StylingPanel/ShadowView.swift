@@ -174,6 +174,7 @@ final class ShadowPanel:UIView{
         }
         
         divider.layout{
+            print("i was called")
             $0.top == colorSlider.bottomAnchor + 30
             $0.leading == leadingAnchor + 30
             $0.trailing == trailingAnchor - 30
@@ -186,12 +187,18 @@ final class ShadowPanel:UIView{
             $0.width |=| 100
             $0.height |=| 20
         }
+        shadowRadius.translatesAutoresizingMaskIntoConstraints = false
         
-        shadowRadius.layout{
-            $0.leading == leadingAnchor + 20
-            $0.top == radiusStepper.bottomAnchor + 12
-            $0.width |=| 100
-        }
+        NSLayoutConstraint.activate([
+            shadowRadius.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            shadowRadius.widthAnchor.constraint(equalToConstant: 100),
+            shadowRadius.topAnchor.constraint(equalTo: radiusStepper.bottomAnchor, constant: 12),
+        ])
+//        shadowRadius.layout{
+//            $0.leading == leadingAnchor + 20
+//            $0.top == radiusStepper.bottomAnchor + 12
+//            $0.width |=| 100
+//        }
         
         Xstepper.layout{
             $0.top == divider.bottomAnchor + 30
