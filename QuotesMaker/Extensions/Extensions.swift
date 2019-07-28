@@ -265,3 +265,15 @@ extension UIStoryboard{
         return UIStoryboard(name: "Main", bundle: .main)
     }
 }
+
+
+
+extension URL{
+    
+    static func path(name:String, `in`:FileManager.Directories, extension:FileManager.Extensions? = nil)->URL{
+        if `extension` == nil {
+            return URL(fileURLWithPath: name, relativeTo:  FileManager.homeDir.appendingPathComponent(`in`.rawValue, isDirectory:true))
+        }
+        return URL(fileURLWithPath: name, relativeTo:  FileManager.homeDir.appendingPathComponent(`in`.rawValue, isDirectory:true)).addExtension(`extension`!)
+    }
+}
