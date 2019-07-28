@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 
 class Persistence{
@@ -17,6 +18,22 @@ class Persistence{
     
     static var main:Persistence{
         return _main
+    }
+    
+    private var _imageSrcHolder:[String] = []
+    
+    func getImageSrcs()->[String]{
+        return _imageSrcHolder
+    }
+    
+    func updateImage(src:String){
+        if !_imageSrcHolder.contains(src){
+            _imageSrcHolder.append(src)
+        }
+    }
+    
+    func invalidateHeldImages(){
+        _imageSrcHolder.removeAll()
     }
     
     func createDirectories(){
@@ -89,6 +106,9 @@ class Persistence{
             let data = try encoder.encode(model)
             let url = URL(fileURLWithPath: model.name, relativeTo: FileManager.modelDir).addExtension(.json) //FileManager.modelDir.appendingPathComponent(model.id).addExtension(.json)
             try data.write(to: url)
+            let item = Cloudstore.CloudItem(name: model.name, blobUrl: url,asseturls:getImageSrcs())
+            Cloudstore.store.saveToRecord(item: item)
+            invalidateHeldImages()
             print("This is the url to file: \(url)")
         }catch let err{
             print("Error Occurred with sig: \(err.localizedDescription)")
@@ -109,6 +129,37 @@ class Persistence{
         let file = URL(fileURLWithPath: name, relativeTo: directory).addExtension(`extension`)
         return FileManager.default.fileExists(atPath: file.path)
         
+    }
+    
+    func persistFromCloud(record:CKRecord, assets:[CKRecord]){
+        guard let name = record[Cloudstore.Keys.name] as? String else {return}
+        let thumbImageAsset = record[Cloudstore.Keys.thumbNail]
+            as? CKAsset
+        let blobAsset = record[Cloudstore.Keys.blob] as? CKAsset
+        //let imageAssests = record[Cloudstore.Keys.blobAssets] as? [CKAsset] ?? []
+        if let blobUrl = blobAsset?.fileURL{
+            do{
+                let data = try Data(contentsOf: blobUrl)
+                try data.write(to: URL(fileURLWithPath: name, relativeTo: FileManager.modelDir).addExtension(.json))
+                if let thumburl = thumbImageAsset?.fileURL{
+                    let data = try Data(contentsOf: thumburl)
+                    try data.write(to: .path(name: name, in: .previewThumbnails, extension:.png))
+                }
+                try assets.forEach{
+                    if let id = $0[Cloudstore.Keys.id] as? String,
+                        let asset = $0[Cloudstore.Keys.asset] as? CKAsset{
+                        let data = try Data(contentsOf: asset.fileURL)
+                        try data.write(to: .path(name:id, in: .modelImages))
+                    }
+                }
+
+            }catch let err {
+                print("Error Persisting Cloud Item : \(err.localizedDescription)")
+            }
+        }else{
+            return
+        }
+        print("Persistent to local storage")
     }
     
 }

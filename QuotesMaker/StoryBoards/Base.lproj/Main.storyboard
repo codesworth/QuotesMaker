@@ -138,7 +138,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Rj-yd-Ckl"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Quote Studio" id="W14-TU-fFK"/>
+                    <navigationItem key="navigationItem" title="Quote Studio" id="W14-TU-fFK">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="staroflife" catalog="system" id="z34-Be-aO5">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dimensionsProjectCollection" destination="z4M-KM-sK3" id="Sqt-9d-zLj"/>
                         <outlet property="recentCollectionVIew" destination="w2r-p3-12g" id="RGE-B7-lao"/>
@@ -420,4 +424,7 @@
             <point key="canvasLocation" x="2532" y="53.523238380809602"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="staroflife" catalog="system" width="64" height="64"/>
+    </resources>
 </document>

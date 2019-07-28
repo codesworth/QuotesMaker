@@ -129,6 +129,7 @@ class BaseView:UIView{
     func addSubviewable(_ view:BaseSubView, center:Bool = true){
         if center{
             view.center = [bounds.midX,bounds.midY]
+            
         }
         subIndex += 1
         view.setIndex(subIndex)

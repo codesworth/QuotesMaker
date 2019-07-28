@@ -31,6 +31,7 @@ extension BaseView{
                 //print(image.model.imageSrc)
                 let imgMod = image.model
                 let baseModel = BaseModel(type: .image, model: imgMod)
+                if let src = image.model.imageSrc{ Persistence.main.updateImage(src: src)}
                 return baseModel
             }
             return nil

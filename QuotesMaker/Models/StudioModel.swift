@@ -18,6 +18,7 @@ struct StudioModel:Codable{
     private var lastModified:TimeInterval
     public private (set) var models:[BaseModel] = []
     var backgroundColor:StudioColor?
+    
     init(models:[BaseModel],name:String = "untitled",type:Canvas.AspectRatios) {
         self.models = models
         dateCreated = Date().timeIntervalSinceReferenceDate
