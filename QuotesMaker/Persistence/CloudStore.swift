@@ -69,6 +69,8 @@ public class Cloudstore:NSObject{
             self.privateCloud.perform(assetQuery, inZoneWith: nil, completionHandler: { (assets, er) in
                 if let assets = assets {
                   Persistence.main.persistFromCloud(record: record, assets: assets)
+                }else{
+                    Persistence.main.persistFromCloud(record: record, assets: [])
                 }
             })
         }
