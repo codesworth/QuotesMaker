@@ -25,12 +25,12 @@ public class Cloudstore:NSObject{
     func saveToRecord(item:CloudItem){
        let record = CKRecord(recordType: Keys.entityStudioBlob)
         record[Keys.name] = item.name
-        record[Keys.thumbNail] = CKAsset(fileURL: URL(fileURLWithPath: item.name, relativeTo: FileManager.previewthumbDir).addExtension(.png))
+        record[Keys.thumbNail] = CKAsset(fileURL: URL(fileURLWithPath: item.name, relativeTo: FileManager.previewthumbDir).addExtension(.jpg))
         record[Keys.blob] = CKAsset(fileURL: item.blobUrl)
         var recordsToSave = item.assetList.compactMap{ id -> CKRecord in
             let assetRec = CKRecord(recordType: Keys.entityBlobAsset)
             assetRec[Keys.id] = id
-            assetRec[Keys.parentModel] = CKRecord.Reference(record: record, action: .deleteSelf)
+            assetRec[Keys.entityStudioBlob] = CKRecord.Reference(record: record, action: .deleteSelf)
             assetRec[Keys.type] = AssetType.image
             assetRec[Keys.asset] = CKAsset(fileURL: URL(fileURLWithPath: id, relativeTo: FileManager.modelImagesDir))
             return assetRec
@@ -40,7 +40,7 @@ public class Cloudstore:NSObject{
         let operation = CKModifyRecordsOperation(recordsToSave: recordsToSave, recordIDsToDelete: nil)
         operation.perRecordCompletionBlock = {record, err in
             if err != nil{
-                print("Error occurred: \(err!.localizedDescription)")
+                print("Error occurred at operation: \(err!.localizedDescription)")
             }
         }
         operation.completionBlock = {
@@ -65,7 +65,7 @@ public class Cloudstore:NSObject{
         
         operation.recordFetchedBlock = {record in
             guard let name = record[Keys.name] as? String else {return}
-            let assetQuery = CKQuery(recordType: Keys.entityBlobAsset, predicate: NSPredicate(format: "parentModel = %@", name))
+            let assetQuery = CKQuery(recordType: Keys.entityBlobAsset, predicate: NSPredicate(format: "\(Keys.entityStudioBlob) = %@", name))
             self.privateCloud.perform(assetQuery, inZoneWith: nil, completionHandler: { (assets, er) in
                 if let assets = assets {
                   Persistence.main.persistFromCloud(record: record, assets: assets)

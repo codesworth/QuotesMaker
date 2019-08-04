@@ -101,3 +101,9 @@ extension CGFloat{
 
 
 
+extension CGRect{
+    
+    static func zero()->CGRect{
+        return .zero
+    }
+}
