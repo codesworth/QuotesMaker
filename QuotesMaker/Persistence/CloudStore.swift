@@ -40,13 +40,18 @@ public class Cloudstore:NSObject{
         let operation = CKModifyRecordsOperation(recordsToSave: recordsToSave, recordIDsToDelete: nil)
         operation.perRecordCompletionBlock = {record, err in
             if err != nil{
-                print("Error occurred at operation: \(err!.localizedDescription)")
+                print("❌ ❌ ❌ Error occurred at operation: \(err!.localizedDescription)")
+            }else{
+                 print("✅ CLKIT ✅ Operation Per Record Completed Succesfully")
             }
         }
         operation.completionBlock = {
-            print("Operation Completed Succesfully")
+            print("✅ CLKIT ✅ Operation Completed Succesfully")
         }
         privateCloud.add(operation)
+        
+        
+        
 //        privateCloud.save(record) { (record, err) in
 //            if let err = err{
 //                print("Error occurred with iCloud: \(err.localizedDescription)")
@@ -55,6 +60,8 @@ public class Cloudstore:NSObject{
 //                print("The record is: \(record)")
 //            }
 //        }
+        
+        
     }
     
     func fetAvailableModel(cursor:CKQueryOperation.Cursor? = nil){

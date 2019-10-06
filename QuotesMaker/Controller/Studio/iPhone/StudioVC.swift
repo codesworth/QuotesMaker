@@ -246,8 +246,10 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage, let imageView = coordinator.baseView.currentSubview as? BackingImageView{
+            let resizedImage = image.downSampleImage(size: imageView.bounds.size)
+            print("The initial size was: \(image.byteSize) whiles resized image  size is: \(resizedImage!.byteSize)")
             //baseView.invalidateLayers()
-            imageView.setImage(image: image)
+            imageView.setImage(image: resizedImage != nil ? resizedImage! : image)
         }
         picker.dismiss(animated: true, completion: nil)
         imagePanel.isInView = true

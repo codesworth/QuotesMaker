@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         setRootViewContoroller()
         Store.main.getStudioProProduct()
+        Cloudstore().fetAvailableModel()
 //        for family: String in UIFont.familyNames
 //        {
 //            print("\(family)")

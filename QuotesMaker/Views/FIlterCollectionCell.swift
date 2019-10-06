@@ -66,9 +66,9 @@ class FilterCollectionCell: UICollectionViewCell {
         queue.async {
             
             let filteredImage = FilterEngine.applyFilter(name: name, image: image)
-            DispatchQueue.main.async { [unowned self] in
-                self.imageView.image = filteredImage
-                self.loadingIndicator.stopAnimating()
+            DispatchQueue.main.async { [weak self] in
+                self?.imageView.image = filteredImage
+                self?.loadingIndicator.stopAnimating()
                 FilterEngine.globalInstance.saveFiltered(filteredImage, for:name)
             }
         }
