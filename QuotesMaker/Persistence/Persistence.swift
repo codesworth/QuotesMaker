@@ -106,7 +106,7 @@ class Persistence{
             let data = try encoder.encode(model)
             let url = URL(fileURLWithPath: model.name, relativeTo: FileManager.modelDir).addExtension(.json) //FileManager.modelDir.appendingPathComponent(model.id).addExtension(.json)
             try data.write(to: url)
-            let item = Cloudstore.CloudItem(name: model.name, blobUrl: url,asseturls:getImageSrcs())
+            let item = Cloudstore.CloudItem(name: model.name, blobUrl: url,assetList:getImageSrcs())
             Cloudstore.store.saveToRecord(item: item)
             invalidateHeldImages()
             print("This is the url to file: \(url)")

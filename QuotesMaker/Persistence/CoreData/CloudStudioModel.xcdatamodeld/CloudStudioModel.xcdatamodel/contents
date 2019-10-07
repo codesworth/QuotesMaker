@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14838.16" systemVersion="18G84" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="">
+    <entity name="CLBaseModel" representedClassName="CLBaseModel" syncable="YES" codeGenerationType="class">
+        <attribute name="modelType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CLStudioAsset" representedClassName="CLStudioAsset" syncable="YES" codeGenerationType="class">
+        <attribute name="assetType" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="data" optional="YES" attributeType="Binary"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CLStudioBlobData" representedClassName="CLStudioBlobData" syncable="YES" codeGenerationType="class">
+        <attribute name="blob" optional="YES" attributeType="Binary"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastModified" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="CLStudioColor" representedClassName="CLStudioColor" syncable="YES" codeGenerationType="class">
+        <attribute name="alpha" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="blue" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="green" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="red" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CLStudioModel" representedClassName="CLStudioModel" syncable="YES" codeGenerationType="class">
+        <attribute name="attribute" optional="YES"/>
+        <attribute name="attribute1" optional="YES"/>
+        <attribute name="canvasType" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="lastModified" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="backgroundColor" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CLStudioColor"/>
+    </entity>
+    <elements>
+        <element name="CLStudioModel" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="CLStudioColor" positionX="-54" positionY="27" width="128" height="103"/>
+        <element name="CLBaseModel" positionX="-36" positionY="54" width="128" height="58"/>
+        <element name="CLStudioBlobData" positionX="-18" positionY="63" width="128" height="88"/>
+        <element name="CLStudioAsset" positionX="0" positionY="81" width="128" height="88"/>
+    </elements>
+</model>

@@ -127,6 +127,11 @@ extension UIImageView{
 
 extension UIImage{
     
+    
+    
+    var byteSize:Int{
+        return pngData()?.count ?? 0
+    }
 
     
     class func image(for tab:StudioTab.TabActions)->UIImage{
@@ -215,6 +220,20 @@ extension UIImage{
             
         }
         return nil
+    }
+    
+    func downSampleImage(size:CGSize)->UIImage?{
+        guard let data = pngData() else {return nil}
+        let option = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let source = CGImageSourceCreateWithData(data as CFData, option) else {return nil}
+        let scale = UIScreen.main.scale 
+        let maxDimensPix = max(size.width, size.height) * scale
+        let downOpts = [kCGImageSourceCreateThumbnailFromImageAlways: true,
+                        kCGImageSourceShouldCacheImmediately: true, kCGImageSourceCreateThumbnailWithTransform: true,
+                        kCGImageSourceThumbnailMaxPixelSize: maxDimensPix] as CFDictionary
+        
+        let cgImage = CGImageSourceCreateThumbnailAtIndex(source, 0, downOpts)
+        return (cgImage != nil) ?  UIImage(cgImage: cgImage!) : nil
     }
 }
 

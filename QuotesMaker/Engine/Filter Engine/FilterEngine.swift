@@ -84,9 +84,9 @@ class FilterEngine:NSObject{
     class func applyFilter(name:String,image:UIImage)->UIImage?{
         if name == NoFilter{ return image }
         
-        //let metalGPU = MTLCreateSystemDefaultDevice()!
-        //let eagl = EAGLContext(api: .openGLES3)
-        let context = CIContext()
+        let metalGPU = MTLCreateSystemDefaultDevice()!
+        let eagl = EAGLContext(api: .openGLES3)
+        let context = CIContext.init(eaglContext: eagl!)
         
         guard let filter = CIFilter(name: name), let ciimage = CIImage(image: image) else {return nil}
         
