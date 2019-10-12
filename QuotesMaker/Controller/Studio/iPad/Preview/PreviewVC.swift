@@ -12,6 +12,7 @@ class PreviewVC: UIViewController {
     
     var filterEngine = FilterEngine.globalInstance
     var filters = Filters.availableFilters
+    private let ctx = CIContext()
     
     lazy var imageView:UIImageView = {
         let imv = UIImageView(frame: .zero)

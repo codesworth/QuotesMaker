@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            return .portrait
 //        }
 //    }
+    
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -131,4 +133,6 @@ extension AppDelegate:SKPaymentTransactionObserver{
 func printFonts(){
     //print("The fonts are: \(UIFont)")
 }
+
+
 
