@@ -15,10 +15,12 @@ class FilterCollectionCell: UICollectionViewCell {
     @IBOutlet weak var containerView:UIView!
     private var isSet = false
     private var loadingIndicator:UIActivityIndicatorView!
+    private var engine:FilterEngine!
     lazy var imageView:UIImageView = {
         let imv = UIImageView(frame:.zero)
         imv.contentMode = .scaleAspectFit
         imv.clipsToBounds = true
+        engine = FilterEngine()
         return imv
     }()
     
@@ -65,7 +67,7 @@ class FilterCollectionCell: UICollectionViewCell {
         let queue = DispatchQueue(label: "Filter", qos: .default, attributes: .concurrent)
         queue.async {
             
-            let filteredImage = FilterEngine.applyFilter(name: name, image: image)
+            let filteredImage = self.engine.applyFilter(name: name, image: image)
             DispatchQueue.main.async { [weak self] in
                 self?.imageView.image = filteredImage
                 self?.loadingIndicator.stopAnimating()
