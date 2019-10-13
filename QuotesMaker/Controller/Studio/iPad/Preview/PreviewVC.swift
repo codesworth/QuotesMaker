@@ -153,7 +153,7 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let name = filters[indexPath.row]//filterEngine.availableFilters[indexPath.row]
-        if let image = filterEngine.imageFor(name){
+        if let image = filterEngine.applyFilter(name: name, image: inputImage){
             imageView.image = image
             //imageView.contentMode =
         }else{
