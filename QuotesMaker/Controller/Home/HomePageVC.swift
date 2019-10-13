@@ -33,8 +33,20 @@ class HomePageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        refreshRecent()
+        subscribeTo(subscription: .refreshRecent, selector: #selector(refreshRecent))
+    }
+    
+    @objc func refreshRecent(){
         allModels = Persistence.main.fetchAllModels()
-        recentCollectionVIew.reloadData()
+        dispatch_queue_main_t.main.async { [weak self] in
+            self?.recentCollectionVIew.reloadData()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        unsubscribe()
     }
     
     func setup(){

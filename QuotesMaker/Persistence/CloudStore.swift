@@ -89,6 +89,7 @@ public class Cloudstore:NSObject{
         operation.completionBlock = {
             //Fire a block to refresh
             print("Query completed")
+            Subscription.main.post(suscription: .refreshRecent, object: nil)
         }
         
         privateCloud.add(operation)

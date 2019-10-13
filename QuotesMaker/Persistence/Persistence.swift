@@ -49,7 +49,7 @@ class Persistence{
     }
     
     func getThumbImageFor(name:String)->UIImage?{
-        let  expectedName = name.appending(".").appending(FileManager.Extensions.jpg.rawValue)
+        let  expectedName = name.appending(".").appending(FileManager.Extensions.png.rawValue)
         do{
             let files = try FileManager.default.contentsOfDirectory(atPath: FileManager.previewthumbDir.path)
             print(files)
@@ -60,7 +60,7 @@ class Persistence{
             let image = UIImage(contentsOfFile: url.path)
             return image
         }catch let err{
-            print("Error Occurred gettting files: \(err)")
+            print("Error Occurred gettting files: \(err.localizedDescription)")
         }
         return nil
     }
@@ -71,17 +71,18 @@ class Persistence{
             var files = try FileManager.default.contentsOfDirectory(atPath: FileManager.modelDir.path)
             //print("These are all the files: \(files)")
             files.removeAll{!$0.hasSuffix(FileManager.Extensions.json.rawValue)}
-            //print("The trimmed files: \(files)")
+            print("The trimmed files: \(files)")
             var models:[StudioModel] = []
             files.forEach{
                 do{
                     let decoder = JSONDecoder()
                     let url = URL(fileURLWithPath: $0, relativeTo: FileManager.modelDir)
                     let data = try Data(contentsOf: url)
+                    print(data)
                     let model = try decoder.decode(StudioModel.self, from: data)
                     models.append(model)
                 }catch let err{
-                    print("Error Occurred gettting files: \(err)")
+                    print("Occurred gettting files: \(err)")
                     //continue
                 }
             }
