@@ -4780,7 +4780,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
                   endingLineNumber = "55"
-                  offsetFromSymbolStart = "222">
+                  offsetFromSymbolStart = "168">
                </Location>
                <Location
                   uuid = "C50C122A-02B2-48BF-9F30-216475C1E23D - 51ddca775847f83b"
@@ -4795,7 +4795,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
                   endingLineNumber = "56"
-                  offsetFromSymbolStart = "38">
+                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -5136,8 +5136,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "346"
             endingLineNumber = "346"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "didPickImage(image:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5153,8 +5153,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "349"
             endingLineNumber = "349"
-            landmarkName = "didDismiss()"
-            landmarkType = "7">
+            landmarkName = "EditingCoordinator"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5170,8 +5170,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "352"
             endingLineNumber = "352"
-            landmarkName = "EditingCoordinator"
-            landmarkType = "21">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5187,8 +5187,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "354"
             endingLineNumber = "354"
-            landmarkName = "EditingCoordinator"
-            landmarkType = "21">
+            landmarkName = "didDismiss()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5883,7 +5883,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
                   endingLineNumber = "99"
-                  offsetFromSymbolStart = "10846">
+                  offsetFromSymbolStart = "6444">
                </Location>
                <Location
                   uuid = "CA2164E1-8DD4-4D81-B6F3-6C16E5D5B60E - e3e6a1db17f62369"
@@ -5898,7 +5898,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
                   endingLineNumber = "99"
-                  offsetFromSymbolStart = "11160">
+                  offsetFromSymbolStart = "6692">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -5949,7 +5949,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "101"
                   endingLineNumber = "101"
-                  offsetFromSymbolStart = "19013">
+                  offsetFromSymbolStart = "10816">
                </Location>
                <Location
                   uuid = "62097121-2E03-47B0-B0E0-3BF5DFE59E45 - b430132ef0935737"
@@ -5964,7 +5964,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "102"
                   endingLineNumber = "102"
-                  offsetFromSymbolStart = "38">
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -6644,7 +6644,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "68"
                   endingLineNumber = "68"
-                  offsetFromSymbolStart = "2404">
+                  offsetFromSymbolStart = "2388">
                </Location>
                <Location
                   uuid = "E38426F3-50F3-46D4-B57A-DE97543E54BB - ffd9ce8e37bab419"
@@ -6659,7 +6659,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
                   endingLineNumber = "70"
-                  offsetFromSymbolStart = "197">
+                  offsetFromSymbolStart = "196">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7050,7 +7050,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
                   endingLineNumber = "22"
-                  offsetFromSymbolStart = "34">
+                  offsetFromSymbolStart = "116">
                </Location>
                <Location
                   uuid = "3B5E0BD0-3FB0-4D89-BFDD-601ABCB2F46F - 8bb7c269c3d43ff8"
@@ -7065,7 +7065,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
                   endingLineNumber = "23"
-                  offsetFromSymbolStart = "23">
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7439,7 +7439,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "176"
                   endingLineNumber = "176"
-                  offsetFromSymbolStart = "496">
+                  offsetFromSymbolStart = "420">
                </Location>
                <Location
                   uuid = "76C87258-C496-4D73-95DC-69B01821E798 - 782dcc7226372d97"
@@ -7454,7 +7454,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "177"
                   endingLineNumber = "177"
-                  offsetFromSymbolStart = "37">
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7624,7 +7624,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
                   endingLineNumber = "30"
-                  offsetFromSymbolStart = "1091">
+                  offsetFromSymbolStart = "1164">
                </Location>
                <Location
                   uuid = "DF121697-9871-48AA-A901-C60F66C9343F - cfa2e20fa1ed1d8f"
@@ -7639,7 +7639,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
                   endingLineNumber = "31"
-                  offsetFromSymbolStart = "222">
+                  offsetFromSymbolStart = "184">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7792,7 +7792,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
                   endingLineNumber = "41"
-                  offsetFromSymbolStart = "1549">
+                  offsetFromSymbolStart = "1656">
                </Location>
                <Location
                   uuid = "1B6617E2-A94E-4549-825C-E54E96CECA44 - a8badfd9214bc14d"
@@ -7807,7 +7807,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "107">
+                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7856,7 +7856,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "48"
                   endingLineNumber = "48"
-                  offsetFromSymbolStart = "1721">
+                  offsetFromSymbolStart = "1784">
                </Location>
                <Location
                   uuid = "C4FB2E14-7216-46E8-8B48-2EA622D18014 - 27534c1b66a77a6"
@@ -7871,7 +7871,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "49"
                   endingLineNumber = "49"
-                  offsetFromSymbolStart = "8">
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7936,7 +7936,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
                   endingLineNumber = "41"
-                  offsetFromSymbolStart = "1549">
+                  offsetFromSymbolStart = "1656">
                </Location>
                <Location
                   uuid = "47CD331A-5B6C-420D-BAAC-D043DAF8CCBA - a8badfd9214bc14d"
@@ -7951,7 +7951,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "107">
+                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -8080,7 +8080,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "76"
                   endingLineNumber = "76"
-                  offsetFromSymbolStart = "1430">
+                  offsetFromSymbolStart = "1432">
                </Location>
                <Location
                   uuid = "8B373E87-14A8-45FD-AA3B-95B1931C61D7 - 76ad37c6268b4fb1"
@@ -8095,7 +8095,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "78"
                   endingLineNumber = "78"
-                  offsetFromSymbolStart = "312">
+                  offsetFromSymbolStart = "288">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -8192,7 +8192,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "84"
                   endingLineNumber = "84"
-                  offsetFromSymbolStart = "1554">
+                  offsetFromSymbolStart = "472">
                </Location>
                <Location
                   uuid = "19A6EAEA-A149-4025-B8CE-F43546C04539 - 76ad37c6268b4fb1"
@@ -8207,7 +8207,22 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "84"
                   endingLineNumber = "84"
-                  offsetFromSymbolStart = "1709">
+                  offsetFromSymbolStart = "1148">
+               </Location>
+               <Location
+                  uuid = "19A6EAEA-A149-4025-B8CE-F43546C04539 - 76ad37c6268b4fb1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.String) -&gt; () in QuotesMaker.Persistence.fetchAllModels() -&gt; Swift.Array&lt;QuotesMaker.StudioModel&gt;"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "1264">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -8305,6 +8320,134 @@
             startingLineNumber = "64"
             endingLineNumber = "64"
             landmarkName = "getThumbImageFor(name:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F9645EC-F98A-4C71-A07E-440A3E18481F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "deliverPurchaseNotification(identifier:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AFC85659-9F11-4DCD-B4FD-9DE063A9FC30"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "deliverPurchaseNotification(identifier:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4BA1E69-748A-42FC-A3BF-EF99BC5A9D01"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "deliverPurchaseNotification(identifier:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "391634E1-51A2-4A54-8CE5-33C1E1D645C7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Engine/Coordinator/EditingCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "save(message:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A62CB427-F6C0-463E-A566-DB8CF7BF834A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Engine/Coordinator/EditingCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "save(message:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DA872FE-8F7A-4C5E-93F5-DECA83401EFC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Engine/Coordinator/EditingCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "save(message:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E50FBE35-4F33-44F7-AA63-948EEF4A31DC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Engine/Coordinator/EditingCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "save(message:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43AAFBC9-82C4-4827-B381-E32E0A6B596D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Engine/Coordinator/EditingCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "save(message:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

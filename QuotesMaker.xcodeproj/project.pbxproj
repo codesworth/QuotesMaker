@@ -623,6 +623,7 @@
 		38F13A0D2254B6FF002C4109 /* PanelContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A0B2254B6FF002C4109 /* PanelContainerCell.swift */; };
 		38F13A0E2254B6FF002C4109 /* PanelContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F13A0C2254B6FF002C4109 /* PanelContainerCell.xib */; };
 		38F13A102254C855002C4109 /* iPadStudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A0F2254C855002C4109 /* iPadStudioVC.swift */; };
+		38F793EB23582AE2008703B4 /* CloudIssues.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 38F793EA23582AE2008703B4 /* CloudIssues.rtf */; };
 		38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDBE9222352D90005EB60 /* AppDelegate.swift */; };
 		38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBED222352D90005EB60 /* Main.storyboard */; };
 		38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBF0222352DB0005EB60 /* Assets.xcassets */; };
@@ -1278,6 +1279,7 @@
 		38F13A0B2254B6FF002C4109 /* PanelContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelContainerCell.swift; sourceTree = "<group>"; };
 		38F13A0C2254B6FF002C4109 /* PanelContainerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PanelContainerCell.xib; sourceTree = "<group>"; };
 		38F13A0F2254C855002C4109 /* iPadStudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadStudioVC.swift; sourceTree = "<group>"; };
+		38F793EA23582AE2008703B4 /* CloudIssues.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = CloudIssues.rtf; sourceTree = "<group>"; };
 		38FEDBE6222352D90005EB60 /* QuotesMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FEDBE9222352D90005EB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FEDBEE222352D90005EB60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -3089,6 +3091,14 @@
 			path = ControlPanel;
 			sourceTree = "<group>";
 		};
+		38F793E923582AB4008703B4 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				38F793EA23582AE2008703B4 /* CloudIssues.rtf */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		38FEDBDD222352D90005EB60 = {
 			isa = PBXGroup;
 			children = (
@@ -3111,6 +3121,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
+				38F793E923582AB4008703B4 /* Docs */,
 				382C464A22EC80150003DE16 /* QuotesMaker.entitlements */,
 				3818DAD42270E31700202C14 /* Persistence */,
 				38051CCA2253B12300D9E763 /* StoryBoards */,
@@ -3446,6 +3457,7 @@
 				388BE331222B0A16005BF44B /* painter.ttf in Resources */,
 				380827D32291698200B351DB /* CormorantGaramond-SemiBoldItalic.ttf in Resources */,
 				380827412291698200B351DB /* SourceSansPro-Light.ttf in Resources */,
+				38F793EB23582AE2008703B4 /* CloudIssues.rtf in Resources */,
 				380827EE2291698200B351DB /* Volkhov-Italic.ttf in Resources */,
 				380826F52291698100B351DB /* TitilliumWeb-Bold.ttf in Resources */,
 				380827752291698200B351DB /* HindGuntur-Medium.ttf in Resources */,

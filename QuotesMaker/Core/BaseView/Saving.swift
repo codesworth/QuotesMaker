@@ -103,7 +103,7 @@ extension BaseView{
     func getThumbnailSrc(name:String){
         
         guard let image = makeImageFromView() else {return }
-        let url = URL(fileURLWithPath: name, relativeTo: FileManager.previewthumbDir).addExtension(.jpg)
+        let url = URL(fileURLWithPath: name, relativeTo: FileManager.previewthumbDir).addExtension(.png)
         let data = image.jpegData(compressionQuality: 0.5)
         do{
             try data?.write(to: url)

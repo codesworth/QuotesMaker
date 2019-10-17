@@ -124,8 +124,9 @@ extension AppDelegate:SKPaymentTransactionObserver{
     
     func deliverPurchaseNotification(identifier:String?){
         guard let identifier = identifier else {return}
-        Subscription.main.post(suscription: .purchaseNotification, object: identifier)
         Store.main.handlePurchase(purchaseIdentifier: identifier)
+        Subscription.main.post(suscription: .purchaseNotification, object: identifier)
+        
     }
     
 }
