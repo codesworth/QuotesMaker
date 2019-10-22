@@ -25,8 +25,10 @@ public class Cloudstore:NSObject{
     func saveToRecord(item:CloudItem){
        let record = CKRecord(recordType: Keys.entityStudioBlob)
         record[Keys.name] = item.name
-        record[Keys.thumbNail] = CKAsset(fileURL: URL(fileURLWithPath: item.name, relativeTo: FileManager.previewthumbDir).addExtension(.jpg))
+        record[Keys.thumbNail] = CKAsset(fileURL: URL(fileURLWithPath: item.name, relativeTo: FileManager.previewthumbDir).addExtension(.png))
         record[Keys.blob] = CKAsset(fileURL: item.blobUrl)
+//        let relatedImgsAssets = item.assetList.compactMap{CKAsset(fileURL: URL(fileURLWithPath: $0, relativeTo: FileManager.modelImagesDir))}
+        record[Keys.relatedAssets] = item.assetList
         var recordsToSave = item.assetList.compactMap{ id -> CKRecord in
             let assetRec = CKRecord(recordType: Keys.entityBlobAsset)
             assetRec[Keys.id] = id
@@ -34,7 +36,7 @@ public class Cloudstore:NSObject{
             assetRec[Keys.type] = AssetType.image
             assetRec[Keys.asset] = CKAsset(fileURL: URL(fileURLWithPath: id, relativeTo: FileManager.modelImagesDir))
             return assetRec
-            
+
         }
         recordsToSave.append(record)
         let operation = CKModifyRecordsOperation(recordsToSave: recordsToSave, recordIDsToDelete: nil)
@@ -71,9 +73,10 @@ public class Cloudstore:NSObject{
         operation.resultsLimit = 20
         
         operation.recordFetchedBlock = {record in
-            guard let name = record[Keys.name] as? String else {return}
-            let assetQuery = CKQuery(recordType: Keys.entityBlobAsset, predicate: NSPredicate(format: "\(Keys.entityStudioBlob) = %@", name))
+            
+            let assetQuery = CKQuery(recordType: Keys.entityBlobAsset, predicate: NSPredicate(format: "\(Keys.entityStudioBlob) = %@", record.recordID))
             self.privateCloud.perform(assetQuery, inZoneWith: nil, completionHandler: { (assets, er) in
+                print(assets ?? "No Asset")
                 if let assets = assets {
                   Persistence.main.persistFromCloud(record: record, assets: assets)
                 }else{
@@ -127,6 +130,7 @@ extension Cloudstore{
         static let name = "name"
         static let type = "type"
         static let thumbNail = "thumbNail"
+        static let relatedAssets = "relatedAssets"
         static let asset = "asset"
         static let parentModel = "parentModel"
     }

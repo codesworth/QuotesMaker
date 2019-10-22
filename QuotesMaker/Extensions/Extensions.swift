@@ -189,6 +189,7 @@ extension UIImage{
     }
     
     var studioImage:UIImage?{
+    
         if let data = dataFromJPEG(){
             return UIImage(data: data)
         }
