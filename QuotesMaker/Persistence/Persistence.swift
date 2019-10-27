@@ -161,6 +161,7 @@ class Persistence{
             return
         }
         print("Persistent to local storage")
+        Subscription.main.post(suscription: .refreshRecent, object: nil)
     }
     
 }

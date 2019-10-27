@@ -7507,7 +7507,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
                   endingLineNumber = "43"
-                  offsetFromSymbolStart = "1701">
+                  offsetFromSymbolStart = "1260">
                </Location>
                <Location
                   uuid = "D8B34415-3D7F-42E5-829E-C18737CB5452 - a8badfd9214bc14d"
@@ -7522,7 +7522,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
                   endingLineNumber = "44"
-                  offsetFromSymbolStart = "107">
+                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7734,7 +7734,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
                   endingLineNumber = "43"
-                  offsetFromSymbolStart = "1701">
+                  offsetFromSymbolStart = "1260">
                </Location>
                <Location
                   uuid = "74AC95D0-7868-45E0-8112-C084AF8667AD - a8badfd9214bc14d"
@@ -7749,7 +7749,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "44"
                   endingLineNumber = "44"
-                  offsetFromSymbolStart = "107">
+                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7910,7 +7910,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "78"
                   endingLineNumber = "78"
-                  offsetFromSymbolStart = "785">
+                  offsetFromSymbolStart = "692">
                </Location>
                <Location
                   uuid = "BCF96217-5ABA-4F3A-8217-92288477192B - 9d018269692eeb46"
@@ -7925,7 +7925,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "79"
                   endingLineNumber = "79"
-                  offsetFromSymbolStart = "180">
+                  offsetFromSymbolStart = "164">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -8102,7 +8102,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
                   endingLineNumber = "32"
-                  offsetFromSymbolStart = "1263">
+                  offsetFromSymbolStart = "924">
                </Location>
                <Location
                   uuid = "2DB5F83B-0E2F-43D0-A5FA-9AC36E6941B1 - cfa2e20fa1ed1d8f"
@@ -8117,7 +8117,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
                   endingLineNumber = "33"
-                  offsetFromSymbolStart = "222">
+                  offsetFromSymbolStart = "184">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -8198,7 +8198,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
                   endingLineNumber = "69"
-                  offsetFromSymbolStart = "6">
+                  offsetFromSymbolStart = "0">
                </Location>
                <Location
                   uuid = "E5B5DFDD-3533-4847-89B0-552030B99C18 - e9feabb509d3c227"
@@ -8213,7 +8213,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
                   endingLineNumber = "70"
-                  offsetFromSymbolStart = "151">
+                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -8311,6 +8311,290 @@
             startingLineNumber = "79"
             endingLineNumber = "79"
             landmarkName = "fetAvailableModel(cursor:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3D2EE6B-3418-4250-B4A3-F37BCE8256D6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0407E5F-1813-41DC-915F-B0CD59882DF7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "276CB5C1-845D-4CA7-A0DB-3CCF144A7D6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "808F6912-A6DF-440F-8FB9-D21EFA38BF5C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5FDB91FF-287D-426C-9E90-3159B4774D1C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC667FA5-D549-41F6-A836-1549FF38AC9D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4550165D-EAE5-4EFD-9D3D-6804DFB54DE3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705 - 9cb53e527c814824"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "2412">
+               </Location>
+               <Location
+                  uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705 - 9cb53e527c814824"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "2904">
+               </Location>
+               <Location
+                  uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705 - 9cb53e527c814824"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "3496">
+               </Location>
+               <Location
+                  uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705 - 9cb53e527c814824"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "4168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "persistFromCloud(record:assets:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3 - 9cb53e527c814824"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "2412">
+               </Location>
+               <Location
+                  uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3 - 9cb53e527c814824"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "2904">
+               </Location>
+               <Location
+                  uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3 - 9cb53e527c814824"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "3496">
+               </Location>
+               <Location
+                  uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3 - 9cb53e527c814824"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "4168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1071853F-BC6B-4359-9D9D-3DD7F924CCEB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Persistence/Persistence.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "persistFromCloud(record:assets:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
