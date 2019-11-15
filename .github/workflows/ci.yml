@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run Tests
-      run: xcodebuild -project 'QuotesMaker.xcodeproj' -scheme 'QuotesMaker' -destination -'platform=iOS Simulator,name=iPhone XR' test
+      run: xcodebuild -project 'QuotesMaker.xcodeproj' -scheme 'QuotesMaker' -destination 'platform=iOS Simulator,name=iPhone XR' test
     - name: Run Build
-      run: xcodebuild -project 'QuotesMaker.xcodeproj' -scheme 'QuotesMaker' -destination -'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
+      run: xcodebuild -project 'QuotesMaker.xcodeproj' -scheme 'QuotesMaker' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
