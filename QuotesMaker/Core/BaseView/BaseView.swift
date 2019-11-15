@@ -168,7 +168,8 @@ class BaseView:UIView{
     func makeImageFromView(scale:CGFloat = UIScreen.main.scale)->UIImage?{
         currentSubview?.focused(false)
         layer.borderColor = UIColor.clear.cgColor
-        UIGraphicsBeginImageContextWithOptions(bounds.size,isOpaque,scale * 6)
+        let scale = scale * 2
+        UIGraphicsBeginImageContextWithOptions(bounds.size,isOpaque,scale)
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

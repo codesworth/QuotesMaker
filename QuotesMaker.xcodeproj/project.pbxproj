@@ -599,6 +599,8 @@
 		38A6687E223EED7C00F29F52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687D223EED7C00F29F52 /* Colors.swift */; };
 		38AA311522442AF50050604A /* BaseContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA311422442AF50050604A /* BaseContentView.swift */; };
 		38AC557822B59EFD00E0C42C /* StudioStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC557722B59EFD00E0C42C /* StudioStore.swift */; };
+		38B1C744237F4607004B58CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C743237F4607004B58CE /* Images.xcassets */; };
+		38B57DF0234E30A0009A45B2 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */; };
 		38C2E4022265A39000EE5DEB /* ControlPanelStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */; };
 		38C2E4042266180400EE5DEB /* StackPanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4032266180400EE5DEB /* StackPanelVC.swift */; };
 		38C697F5225D05FA009C8CCD /* PickerNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C697F4225D05FA009C8CCD /* PickerNavController.swift */; };
@@ -622,6 +624,7 @@
 		38F13A0D2254B6FF002C4109 /* PanelContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A0B2254B6FF002C4109 /* PanelContainerCell.swift */; };
 		38F13A0E2254B6FF002C4109 /* PanelContainerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F13A0C2254B6FF002C4109 /* PanelContainerCell.xib */; };
 		38F13A102254C855002C4109 /* iPadStudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A0F2254C855002C4109 /* iPadStudioVC.swift */; };
+		38F793EB23582AE2008703B4 /* CloudIssues.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 38F793EA23582AE2008703B4 /* CloudIssues.rtf */; };
 		38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEDBE9222352D90005EB60 /* AppDelegate.swift */; };
 		38FEDBEF222352D90005EB60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBED222352D90005EB60 /* Main.storyboard */; };
 		38FEDBF1222352DB0005EB60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38FEDBF0222352DB0005EB60 /* Assets.xcassets */; };
@@ -1253,6 +1256,8 @@
 		38A6687D223EED7C00F29F52 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		38AA311422442AF50050604A /* BaseContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContentView.swift; sourceTree = "<group>"; };
 		38AC557722B59EFD00E0C42C /* StudioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioStore.swift; sourceTree = "<group>"; };
+		38B1C743237F4607004B58CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelStack.swift; sourceTree = "<group>"; };
 		38C2E4032266180400EE5DEB /* StackPanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPanelVC.swift; sourceTree = "<group>"; };
 		38C697F4225D05FA009C8CCD /* PickerNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerNavController.swift; sourceTree = "<group>"; };
@@ -1276,6 +1281,7 @@
 		38F13A0B2254B6FF002C4109 /* PanelContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelContainerCell.swift; sourceTree = "<group>"; };
 		38F13A0C2254B6FF002C4109 /* PanelContainerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PanelContainerCell.xib; sourceTree = "<group>"; };
 		38F13A0F2254C855002C4109 /* iPadStudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadStudioVC.swift; sourceTree = "<group>"; };
+		38F793EA23582AE2008703B4 /* CloudIssues.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = CloudIssues.rtf; sourceTree = "<group>"; };
 		38FEDBE6222352D90005EB60 /* QuotesMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuotesMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FEDBE9222352D90005EB60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38FEDBEE222352D90005EB60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -3087,6 +3093,14 @@
 			path = ControlPanel;
 			sourceTree = "<group>";
 		};
+		38F793E923582AB4008703B4 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				38F793EA23582AE2008703B4 /* CloudIssues.rtf */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		38FEDBDD222352D90005EB60 = {
 			isa = PBXGroup;
 			children = (
@@ -3109,6 +3123,7 @@
 		38FEDBE8222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXGroup;
 			children = (
+				38F793E923582AB4008703B4 /* Docs */,
 				382C464A22EC80150003DE16 /* QuotesMaker.entitlements */,
 				3818DAD42270E31700202C14 /* Persistence */,
 				38051CCA2253B12300D9E763 /* StoryBoards */,
@@ -3135,6 +3150,8 @@
 				38FEDBFE222352DB0005EB60 /* QuotesMakerTests.swift */,
 				38FEDC00222352DB0005EB60 /* Info.plist */,
 				381865BE223CFC5E006C0C56 /* StudioVCTests.swift */,
+				38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */,
+				38B1C743237F4607004B58CE /* Images.xcassets */,
 			);
 			path = QuotesMakerTests;
 			sourceTree = "<group>";
@@ -3443,6 +3460,7 @@
 				388BE331222B0A16005BF44B /* painter.ttf in Resources */,
 				380827D32291698200B351DB /* CormorantGaramond-SemiBoldItalic.ttf in Resources */,
 				380827412291698200B351DB /* SourceSansPro-Light.ttf in Resources */,
+				38F793EB23582AE2008703B4 /* CloudIssues.rtf in Resources */,
 				380827EE2291698200B351DB /* Volkhov-Italic.ttf in Resources */,
 				380826F52291698100B351DB /* TitilliumWeb-Bold.ttf in Resources */,
 				380827752291698200B351DB /* HindGuntur-Medium.ttf in Resources */,
@@ -3672,6 +3690,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B1C744237F4607004B58CE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3877,6 +3896,7 @@
 			files = (
 				381865BF223CFC5E006C0C56 /* StudioVCTests.swift in Sources */,
 				38FEDBFF222352DB0005EB60 /* QuotesMakerTests.swift in Sources */,
+				38B57DF0234E30A0009A45B2 /* CoordinatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -186,7 +186,7 @@ class BackingImageView: UIView{
             
             guard let image = self.image else {loader.removeFromSuperview(); return}
             print("Unfiltered image size and count: \(image.size) :: \(image.pngData()?.count ?? 0)")
-            if let filtered = FilterEngine.applyFilter(name: name, image: image){
+            if let filtered = FilterEngine().applyFilter(name: name, image: image){
                 print("filtered image size and count: \(filtered.size) :: \(filtered.pngData()?.count ?? 0)")
                 self.baseImageView.image = filtered
                 loader.removeFromSuperview()

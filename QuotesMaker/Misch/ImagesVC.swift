@@ -144,11 +144,11 @@ extension ImagesVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     }
     
     func generateLow(image:UIImage){
-        print("Original image size is: \(image.jpegData(compressionQuality: 1))")
+        //print("Original image size is: \(image.jpegData(compressionQuality: 1))")
         
         let elysium = Elysium(source: image)
         if let finalImage = elysium.makeScaledImage(.average){
-           print("New image size is: \(finalImage.jpegData(compressionQuality: 1))")
+           //print("New image size is: \(finalImage.jpegData(compressionQuality: 1))")
             imageView.image = finalImage
         }else{
             print("Error geerating image")

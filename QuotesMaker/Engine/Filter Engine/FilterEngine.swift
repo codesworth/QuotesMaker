@@ -17,6 +17,9 @@ class FilterEngine:NSObject{
     
     private static let _global = FilterEngine()
     
+    let context = CIContext()
+    
+    
     static var globalInstance:FilterEngine{
         return _global
     }
@@ -81,12 +84,12 @@ class FilterEngine:NSObject{
         return CIFilter(name: name)
     }
     
-    class func applyFilter(name:String,image:UIImage)->UIImage?{
-        if name == NoFilter{ return image }
+    func applyFilter(name:String,image:UIImage)->UIImage?{
+        if name == FilterEngine.NoFilter{ return image }
         
-        let metalGPU = MTLCreateSystemDefaultDevice()!
-        let eagl = EAGLContext(api: .openGLES3)
-        let context = CIContext.init(eaglContext: eagl!)
+//        let metalGPUDevice = MTLCreateSystemDefaultDevice()!
+//        let eagl = EAGLContext(api: .openGLES3)
+        let context = CIContext()
         
         guard let filter = CIFilter(name: name), let ciimage = CIImage(image: image) else {return nil}
         

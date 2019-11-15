@@ -118,14 +118,15 @@ class EditingCoordinator:NSObject{
         current.model.string = text
     }
     
-    func save(message:String = "Enter project name"){
+    @objc func save(message:String = "Enter project name"){
         //TODO: Verify pais user or throw alert to buy app
-        if Store.isPro(){
-            let proAdd = UnlockProView(frame: .zero)
-            proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
-            proAdd.show()
-           return
-        }
+//        if Store.isPro(){
+//            let proAdd = UnlockProView(frame: .zero)
+//            proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
+//            proAdd.show()
+//            subscribeTo(subscription: .purchaseNotification, selector: #selector(save(message:)))
+//           return
+//        }
         //TODO: Verify name does not exist before saving
         if existingModel == nil{
             let alert = UIAlertController(title:"Save Project", message:message, preferredStyle: .alert)
@@ -173,6 +174,10 @@ class EditingCoordinator:NSObject{
         return baseView.makeImageFromView(scale: canvas.scale)
     }
     
+    
+    deinit {
+        unsubscribe()
+    }
 
 }
 

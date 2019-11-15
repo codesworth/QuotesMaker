@@ -12,6 +12,7 @@ class PreviewVC: UIViewController {
     
     var filterEngine = FilterEngine.globalInstance
     var filters = Filters.availableFilters
+    private let ctx = CIContext()
     
     lazy var imageView:UIImageView = {
         let imv = UIImageView(frame: .zero)
@@ -22,6 +23,7 @@ class PreviewVC: UIViewController {
     
     
     var inputImage:UIImage!
+    var optimImage:UIImage?
     var canvas:Canvas!
     @IBOutlet weak var imageContainerView: UIView!
     
@@ -30,6 +32,7 @@ class PreviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filterEngine.purge()
+        optimImageMake()
         imageView.image = inputImage
         if !__IS_IPAD{
             filterView.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "\(FilterCollectionCell.self)")
@@ -44,6 +47,10 @@ class PreviewVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupImageView()
+    }
+    
+    func optimImageMake(){
+        optimImage = ImageProcess.main.resizeImage(inputImage, for: computeSizeForColletionCell())
     }
     
     func setupImageView(){
@@ -79,7 +86,12 @@ class PreviewVC: UIViewController {
         }
     }
     
-
+    func computeSizeForColletionCell()->CGSize{
+        if __IS_IPAD{
+            return [140,180]
+        }
+        return [140]
+    }
     /*
     // MARK: - Navigation
 
@@ -136,15 +148,12 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if __IS_IPAD{
-            return [140,180]
-        }
-        return [140]
+        return computeSizeForColletionCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let name = filters[indexPath.row]//filterEngine.availableFilters[indexPath.row]
-        if let image = filterEngine.imageFor(name){
+        if let image = filterEngine.applyFilter(name: name, image: inputImage){
             imageView.image = image
             //imageView.contentMode =
         }else{

@@ -29,10 +29,10 @@ class StudioVC: UIViewController {
     var imagePanel:ImagePanel!
     var stylingPanel:StylingPanel!
     var stackShowing = false
+    var imageLayerExists = false
     
     var stack:LayerStack?
-    //private var textField = BackingTextView(frame: .zero)
-    //private var aspectRatio:Dimensions.AspectRatios = .square
+    
     
     
     init(model:StudioModel? = nil, canvas:Canvas) {
@@ -157,11 +157,12 @@ class StudioVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{return}
-        if coordinator.baseView.currentSubview == nil {return}
+        
         imagePanel.delegate = coordinator
         view.addSubview(imagePanel)
         Utils.animatePanelsIn(imagePanel)
         imagePanel.isInView = true
+        
         
     }
     
@@ -197,15 +198,19 @@ class StudioVC: UIViewController {
     }
     
     func imageOptionSelected(){
-
-        coordinator.imageOptionSelected()
-        setupImageInteractiveView()
+        
+        //coordinator.imageOptionSelected()
+        //setupImageInteractiveView()
+        imageLayerExists = false
+        launchPicker()
+        
     }
     
     func launchPicker(){
         let picker = UIImagePickerController()
         picker.delegate = self
         present(picker, animated: true, completion: nil)
+        
     }
     
     func shapeSelected(){
@@ -242,16 +247,23 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
         imagePanel.isInView = true
+       
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if !imageLayerExists {
+            coordinator.imageOptionSelected()
+            setupImageInteractiveView()
+        }
+        
         if let image = info[.originalImage] as? UIImage, let imageView = coordinator.baseView.currentSubview as? BackingImageView{
             let resizedImage = image.downSampleImage(size: imageView.bounds.size)
             print("The initial size was: \(image.byteSize) whiles resized image  size is: \(resizedImage!.byteSize)")
             //baseView.invalidateLayers()
             imageView.setImage(image: resizedImage != nil ? resizedImage! : image)
         }
-        picker.dismiss(animated: true, completion: nil)
+        
         imagePanel.isInView = true
     }
 }
@@ -278,38 +290,8 @@ extension StudioVC:OptionsSelectedDelegate{
         
     }
     
-   // override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
-    //    return .portrait
-    //}
+   
 }
 
 
 
-
-
-
-
-
-
-
-
-//    @objc func resetHeight(){
-////       let size = baseView.bounds.size.scaledBy(0.5)
-////
-////        let height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-////        textField.frame.size = [size.width,height]
-////        textField.center = [baseView.bounds.midX,baseView.bounds.midY]
-//        var size = textField.frame.size
-//        let cheight = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-//        if cheight > size.height {
-//            size.height = cheight
-//            if cheight > baseView.bounds.height * 0.8 {
-//                size.width = baseView.bounds.width * 0.8
-//                size.height = textField.text!.height(withConstrainedWidth: size.width, font: textField.font!)
-//            }
-//            DispatchQueue.main.async {
-//                self.textField.frame.size = size
-//                self.textField.center = [self.baseView.bounds.midX,self.baseView.bounds.midY]
-//            }
-//        }
-//    }

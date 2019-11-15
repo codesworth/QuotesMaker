@@ -37,7 +37,7 @@ class StudioTab: UIView {
     var tabActions:[TabActions] = TabActions.allCases
     private var canSelect = false
     
-    private lazy var collectionview:UICollectionView = {
+    lazy var collectionview:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)

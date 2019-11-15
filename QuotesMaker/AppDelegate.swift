@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            return .portrait
 //        }
 //    }
+    
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -122,8 +124,9 @@ extension AppDelegate:SKPaymentTransactionObserver{
     
     func deliverPurchaseNotification(identifier:String?){
         guard let identifier = identifier else {return}
-        Subscription.main.post(suscription: .purchaseNotification, object: identifier)
         Store.main.handlePurchase(purchaseIdentifier: identifier)
+        Subscription.main.post(suscription: .purchaseNotification, object: identifier)
+        
     }
     
 }
@@ -131,4 +134,6 @@ extension AppDelegate:SKPaymentTransactionObserver{
 func printFonts(){
     //print("The fonts are: \(UIFont)")
 }
+
+
 

@@ -17,8 +17,10 @@ public class ImageProcess{
     
     private let scaleMultiplier:CGFloat = 3
     
-    func resizeImage(_ image:UIImage)->UIImage{
-        //if let data = image.png
+    func resizeImage(_ image:UIImage, for size:CGSize)->UIImage{
+        if let data = image.pngData(){
+            return downSampleImage(data: data, size: size) ?? image
+        }
         return image
     }
     
