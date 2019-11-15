@@ -68,6 +68,7 @@ extension StudioVC:EditorPanelDelegate{
         vc.inputImage = image
         vc.canvas = canvas
         present(nav, animated: true, completion: nil)
+        
     }
     
     func goHome(){
