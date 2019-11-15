@@ -34,13 +34,17 @@ class StudioVCTests: XCTestCase {
 
     }
     
-    func test_tapping_AddImageOptionAddsImageLayerToBaseView(){
+    func test_tapping_AddImageOptionAddsImageBackingLayerAndSetsImageProperty(){
         studioVc.loadViewIfNeeded()
-        
+
         XCTAssertNil(studioVc.coordinator.baseView.currentSubview,"Error Initialized with a default subview")
         studioVc.studioPanel.collectionView(studioVc.studioPanel.collectionView, didSelectItemAt: IndexPath(row: 2, section: 0))
+        let image = UIImage(named: "testImage.png")
+        XCTAssertNotNil(image, "Unable to load test Image")
+        studioVc.imagePickerController(UIImagePickerController(), didFinishPickingMediaWithInfo: [UIImagePickerController.InfoKey.originalImage:image!])
         XCTAssertNotNil(studioVc.coordinator.baseView.currentSubview,"Current Baseview has no current subview")
         XCTAssertNotNil(studioVc.coordinator.baseView.currentSubview as? BackingImageView, "Wrong Layer Added")
+        XCTAssertNotNil((studioVc.coordinator.baseView.currentSubview as? BackingImageView)?.image, "Failed to set image to backing ImageView")
         
 
     }

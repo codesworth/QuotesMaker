@@ -599,6 +599,7 @@
 		38A6687E223EED7C00F29F52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687D223EED7C00F29F52 /* Colors.swift */; };
 		38AA311522442AF50050604A /* BaseContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA311422442AF50050604A /* BaseContentView.swift */; };
 		38AC557822B59EFD00E0C42C /* StudioStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC557722B59EFD00E0C42C /* StudioStore.swift */; };
+		38B1C744237F4607004B58CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C743237F4607004B58CE /* Images.xcassets */; };
 		38B57DF0234E30A0009A45B2 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */; };
 		38C2E4022265A39000EE5DEB /* ControlPanelStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */; };
 		38C2E4042266180400EE5DEB /* StackPanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4032266180400EE5DEB /* StackPanelVC.swift */; };
@@ -1255,6 +1256,7 @@
 		38A6687D223EED7C00F29F52 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		38AA311422442AF50050604A /* BaseContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContentView.swift; sourceTree = "<group>"; };
 		38AC557722B59EFD00E0C42C /* StudioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioStore.swift; sourceTree = "<group>"; };
+		38B1C743237F4607004B58CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelStack.swift; sourceTree = "<group>"; };
 		38C2E4032266180400EE5DEB /* StackPanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPanelVC.swift; sourceTree = "<group>"; };
@@ -3149,6 +3151,7 @@
 				38FEDC00222352DB0005EB60 /* Info.plist */,
 				381865BE223CFC5E006C0C56 /* StudioVCTests.swift */,
 				38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */,
+				38B1C743237F4607004B58CE /* Images.xcassets */,
 			);
 			path = QuotesMakerTests;
 			sourceTree = "<group>";
@@ -3687,6 +3690,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38B1C744237F4607004B58CE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

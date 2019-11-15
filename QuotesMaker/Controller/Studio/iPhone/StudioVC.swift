@@ -29,6 +29,7 @@ class StudioVC: UIViewController {
     var imagePanel:ImagePanel!
     var stylingPanel:StylingPanel!
     var stackShowing = false
+    var imageLayerExists = false
     
     var stack:LayerStack?
     
@@ -156,7 +157,7 @@ class StudioVC: UIViewController {
         if colorPanel.isInView{Utils.animatePanelsOut(colorPanel)}
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{return}
-        if coordinator.baseView.currentSubview == nil {return}
+        
         imagePanel.delegate = coordinator
         view.addSubview(imagePanel)
         Utils.animatePanelsIn(imagePanel)
@@ -199,7 +200,9 @@ class StudioVC: UIViewController {
     func imageOptionSelected(){
         
         //coordinator.imageOptionSelected()
-        setupImageInteractiveView()
+        //setupImageInteractiveView()
+        imageLayerExists = false
+        launchPicker()
         
     }
     
@@ -207,7 +210,7 @@ class StudioVC: UIViewController {
         let picker = UIImagePickerController()
         picker.delegate = self
         present(picker, animated: true, completion: nil)
-        coordinator.imageOptionSelected()
+        
     }
     
     func shapeSelected(){
@@ -244,10 +247,15 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
         imagePanel.isInView = true
-        coordinator.deleteCurrent()
+       
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if !imageLayerExists {
+            coordinator.imageOptionSelected()
+            setupImageInteractiveView()
+        }
         
         if let image = info[.originalImage] as? UIImage, let imageView = coordinator.baseView.currentSubview as? BackingImageView{
             let resizedImage = image.downSampleImage(size: imageView.bounds.size)
@@ -255,7 +263,7 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
             //baseView.invalidateLayers()
             imageView.setImage(image: resizedImage != nil ? resizedImage! : image)
         }
-        picker.dismiss(animated: true, completion: nil)
+        
         imagePanel.isInView = true
     }
 }

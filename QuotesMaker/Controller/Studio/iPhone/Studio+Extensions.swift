@@ -98,6 +98,7 @@ extension StudioVC:EditorPanelDelegate{
 extension StudioVC:EditingCoordinatorDelegate{
     
     func launchImagePicker() {
+        imageLayerExists = true
         launchPicker()
     }
     
