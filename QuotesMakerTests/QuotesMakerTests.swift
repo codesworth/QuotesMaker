@@ -20,8 +20,7 @@ class QuotesMakerTests: XCTestCase {
     }
 
     func testWrapperView(){
-        let view = WrapperView(frame: .zero, layer: BackingGradientlayer())
-        XCTAssertTrue(view.isGradient, "Value of isgradient = \(view.isGradient)")
+        
     }
 
     func testPerformanceExample() {
