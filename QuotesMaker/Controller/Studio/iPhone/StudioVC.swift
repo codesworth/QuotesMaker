@@ -84,9 +84,6 @@ class StudioVC: UIViewController {
         present(imageVc, animated: true, completion: nil)
     }
     
-    func launchFonts(){
-        
-    }
     
     
     

@@ -14,8 +14,8 @@ class HomePageVC: UIViewController {
     @IBOutlet weak var templatesCollection: UICollectionView!
     @IBOutlet weak var dimensionsProjectCollection: UICollectionView!
     
-    private var allModels:[StudioModel] = []
-    private var sizes:[Canvas] = []
+    public private (set) var allModels:[StudioModel] = []
+    public private (set) var sizes:[Canvas] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,9 +101,14 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionViewItemSelected(collectionView: collectionView, indexPath: indexPath)
+    }
+    
+    @discardableResult func collectionViewItemSelected(collectionView:UICollectionView, indexPath:IndexPath)->UIViewController{
+        let studio:UIViewController
         if collectionView ==  recentCollectionVIew{
             let model = allModels[indexPath.row]
-            let studio:UIViewController
+            
             if UIDevice.idiom == .phone{
                 studio = StudioVC(model: model, canvas:Canvas(aspect: model.canvasType))
             }else{
@@ -111,6 +116,7 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             }
             studio.modalPresentationStyle = .fullScreen
             present(studio, animated: true, completion: nil)
+            return studio
         }else{
             let canvas = sizes[indexPath.row]
             let studio:UIViewController
@@ -121,6 +127,7 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             }
             studio.modalPresentationStyle = .fullScreen
             present(studio, animated: true, completion: nil)
+            return studio
         }
     }
 }

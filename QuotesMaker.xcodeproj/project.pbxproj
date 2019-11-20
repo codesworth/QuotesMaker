@@ -617,6 +617,7 @@
 		38D54E1F223930E3009FCF9A /* CustomAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D54E1E223930E3009FCF9A /* CustomAlbum.swift */; };
 		38D97D722251932700B941A0 /* CornersStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D97D712251932700B941A0 /* CornersStack.swift */; };
 		38D97D7822522D3600B941A0 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D97D7722522D3600B941A0 /* State.swift */; };
+		38DB65A52385404200B2B7FC /* HomeVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DB65A42385404200B2B7FC /* HomeVCTests.swift */; };
 		38EE3A8C22B8D79500658079 /* CrossHairLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EE3A8B22B8D79500658079 /* CrossHairLineView.swift */; };
 		38F13A052254360E002C4109 /* CollapsibleTableSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A032254360D002C4109 /* CollapsibleTableSectionViewController.swift */; };
 		38F13A062254360E002C4109 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F13A042254360E002C4109 /* CollapsibleTableViewHeader.swift */; };
@@ -1274,6 +1275,7 @@
 		38D54E1E223930E3009FCF9A /* CustomAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAlbum.swift; sourceTree = "<group>"; };
 		38D97D712251932700B941A0 /* CornersStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornersStack.swift; sourceTree = "<group>"; };
 		38D97D7722522D3600B941A0 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		38DB65A42385404200B2B7FC /* HomeVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCTests.swift; sourceTree = "<group>"; };
 		38EE3A8B22B8D79500658079 /* CrossHairLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossHairLineView.swift; sourceTree = "<group>"; };
 		38F13A032254360D002C4109 /* CollapsibleTableSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableSectionViewController.swift; sourceTree = "<group>"; };
 		38F13A042254360E002C4109 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
@@ -3152,6 +3154,7 @@
 				381865BE223CFC5E006C0C56 /* StudioVCTests.swift */,
 				38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */,
 				38B1C743237F4607004B58CE /* Images.xcassets */,
+				38DB65A42385404200B2B7FC /* HomeVCTests.swift */,
 			);
 			path = QuotesMakerTests;
 			sourceTree = "<group>";
@@ -3895,6 +3898,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				381865BF223CFC5E006C0C56 /* StudioVCTests.swift in Sources */,
+				38DB65A52385404200B2B7FC /* HomeVCTests.swift in Sources */,
 				38FEDBFF222352DB0005EB60 /* QuotesMakerTests.swift in Sources */,
 				38B57DF0234E30A0009A45B2 /* CoordinatorTests.swift in Sources */,
 			);

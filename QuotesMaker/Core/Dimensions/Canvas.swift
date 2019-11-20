@@ -28,7 +28,7 @@ import Foundation
  */
 
 
-struct Canvas {
+struct Canvas:Equatable {
     
     private enum WidthSizes:CGFloat{
         case `default` = 500.00
