@@ -101,8 +101,8 @@ class ColorSliderPanel: MaterialView {
 //        }
 //    }
     
-    private let alphaSlider = AlphaSliderView(frame: .zero)
-    private let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
+    let alphaSlider = AlphaSliderView(frame: .zero)
+    let colorSlider = ColorSlider(orientation: .horizontal, previewSide: .top)
     var currentColor:UIColor = .clear
     //var currentAlpha:CGFloat = 0.5
     weak var delegate:PickerColorDelegate?

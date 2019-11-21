@@ -14,7 +14,7 @@ class CoordinatorTests: XCTestCase {
     private var coordinator:EditingCoordinator!
 
     override func setUp() {
-        
+        let studio = StudioVC(model: nil, canvas: Canvas(aspect: .instagram))
         coordinator = EditingCoordinator(canvas: Canvas(aspect: .instagram))
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }

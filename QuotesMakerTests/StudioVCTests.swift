@@ -47,7 +47,7 @@ class StudioVCTests: XCTestCase {
         XCTAssertNotNil(studioVc.coordinator.baseView.currentSubview as? BackingImageView, "Wrong Layer Added")
         XCTAssertNotNil((studioVc.coordinator.baseView.currentSubview as? BackingImageView)?.image, "Failed to set image to backing ImageView")
         
-
+       
     }
     
     func test_tapping_AddTextOptionAddsTextLayerToBaseView(){
@@ -73,10 +73,9 @@ class StudioVCTests: XCTestCase {
         XCTAssertEqual(studioVc.coordinator.baseView.subviews.count, 6)
         studioVc.studioPanel.collectionView(studioVc.studioPanel.collectionView, didSelectItemAt: IndexPath(row: 6, section: 0))
         
-        XCTAssertNil(studioVc.coordinator.baseView.currentSubview, "Failed to clear CUrrebtSubview")
+        XCTAssertNil(studioVc.coordinator.baseView.currentSubview, "Failed to clear CurrentSubview")
         XCTAssertEqual(studioVc.coordinator.baseView.subviews.count, 0)
         
-
     }
     
     func test_DuplicatesOptionWorks(){
@@ -96,13 +95,20 @@ class StudioVCTests: XCTestCase {
         XCTAssertEqual(studioVc.coordinator.baseView.subviews.count, 0, "Unable to duplicate Layers")
     }
     
-    func test_Select_Gradient_Swaps_BlankLayer_To_GradientLayer(){
+    func test_Select_Gradient_Swaps_BlankLayer_To_GradientLayer_ViseVersa(){
         studioVc.loadViewIfNeeded()
         XCTAssertNil(studioVc.coordinator.baseView.currentSubview,"Error Initialized with a default subview")
         studioVc.studioPanel.collectionView(studioVc.studioPanel.collectionView, didSelectItemAt: IndexPath(row: 1, section: 0))
         studioVc.studioTab.collectionView(studioVc.studioTab.collectionview, didSelectItemAt: IndexPath(row: 0, section: 0))
         studioVc.gradientPanel.colorSliderDidChanged(studioVc.gradientPanel.colorSlider)
         XCTAssertNotNil((studioVc.coordinator.baseView.currentSubview as? RectView)?.model.gradient, "Failed to swap Gradient Layer")
+        //studioVc.colorPanel.colorChanged(studioVc.colorPanel.colorSlider)
+        XCTAssertTrue((studioVc.coordinator.baseView.currentSubview as? RectView)?.model.isGradient ?? false, "Falied to change Gradient Layer to Fill layer")
+    }
+    
+    func test_Select_FillColor_ChangesGradientViewToFillView(){
+        studioVc.loadViewIfNeeded()
+        
     }
     
     

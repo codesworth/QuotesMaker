@@ -48,6 +48,16 @@
                ReferencedContainer = "container:QuotesMaker.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "38BBBF5B2387206C008395DC"
+               BuildableName = "QuotesMakerUITests.xctest"
+               BlueprintName = "QuotesMakerUITests"
+               ReferencedContainer = "container:QuotesMaker.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
