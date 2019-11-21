@@ -107,6 +107,7 @@ class StudioVCTests: XCTestCase {
     }
     
     func test_Select_FillColor_ChangesGradientViewToFillView(){
+        studioVc.loadViewIfNeeded()
         
     }
     

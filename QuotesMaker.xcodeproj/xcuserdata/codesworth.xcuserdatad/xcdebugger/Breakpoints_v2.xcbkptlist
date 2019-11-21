@@ -4681,38 +4681,6 @@
             endingLineNumber = "55"
             landmarkName = "init(models:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C50C122A-02B2-48BF-9F30-216475C1E23D - 26f7523761912f60"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.BaseModelCollection.init(models: Swift.Array&lt;A&gt;) -&gt; QuotesMaker.BaseModelCollection&lt;A&gt;"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Models/BaseModelCollection.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "184">
-               </Location>
-               <Location
-                  uuid = "C50C122A-02B2-48BF-9F30-216475C1E23D - 51ddca775847f83b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (A) -&gt; () in QuotesMaker.BaseModelCollection.init(models: Swift.Array&lt;A&gt;) -&gt; QuotesMaker.BaseModelCollection&lt;A&gt;"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Models/BaseModelCollection.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "144">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5784,38 +5752,6 @@
             endingLineNumber = "99"
             landmarkName = "changeModel(state:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CA2164E1-8DD4-4D81-B6F3-6C16E5D5B60E - e3e6a1db17f62369"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.EditingCoordinator.changeModel(state: QuotesMaker.State) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Engine/Coordinator/Coordinator+StateChanges.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "6564">
-               </Location>
-               <Location
-                  uuid = "CA2164E1-8DD4-4D81-B6F3-6C16E5D5B60E - e3e6a1db17f62369"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.EditingCoordinator.changeModel(state: QuotesMaker.State) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Engine/Coordinator/Coordinator+StateChanges.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
-                  offsetFromSymbolStart = "6812">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -5850,38 +5786,6 @@
             endingLineNumber = "101"
             landmarkName = "changeModel(state:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "62097121-2E03-47B0-B0E0-3BF5DFE59E45 - e3e6a1db17f62369"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.EditingCoordinator.changeModel(state: QuotesMaker.State) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Engine/Coordinator/Coordinator+StateChanges.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "10980">
-               </Location>
-               <Location
-                  uuid = "62097121-2E03-47B0-B0E0-3BF5DFE59E45 - b430132ef0935737"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 () -&gt; () in QuotesMaker.EditingCoordinator.changeModel(state: QuotesMaker.State) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Engine/Coordinator/Coordinator+StateChanges.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "120">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6545,38 +6449,6 @@
             endingLineNumber = "68"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E38426F3-50F3-46D4-B57A-DE97543E54BB - f68a964d9d02c686"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.FilterCollectionCell.configureView(name: Swift.String, image: __C.UIImage, size: __C.CGSize, intrinsicSize: __C.CGSize, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Views/FIlterCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "2476">
-               </Location>
-               <Location
-                  uuid = "E38426F3-50F3-46D4-B57A-DE97543E54BB - ffd9ce8e37bab419"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in QuotesMaker.FilterCollectionCell.configureView(name: Swift.String, image: __C.UIImage, size: __C.CGSize, intrinsicSize: __C.CGSize, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Views/FIlterCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "208">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7121,38 +6993,6 @@
             endingLineNumber = "176"
             landmarkName = "layoutSubviews()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "76C87258-C496-4D73-95DC-69B01821E798 - 49272eb93490f0fa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.ShadowPanel.layoutSubviews() -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Views/Panels/StylingPanel/ShadowView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
-                  offsetFromSymbolStart = "448">
-               </Location>
-               <Location
-                  uuid = "76C87258-C496-4D73-95DC-69B01821E798 - 782dcc7226372d97"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (QuotesMaker.LayoutProxy) -&gt; () in QuotesMaker.ShadowPanel.layoutSubviews() -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Views/Panels/StylingPanel/ShadowView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
-                  offsetFromSymbolStart = "120">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7391,38 +7231,6 @@
             endingLineNumber = "43"
             landmarkName = "saveToRecord(item:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D8B34415-3D7F-42E5-829E-C18737CB5452 - 3204150333d6ba4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Cloudstore.saveToRecord(item: QuotesMaker.Cloudstore.CloudItem) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/CloudStore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1276">
-               </Location>
-               <Location
-                  uuid = "D8B34415-3D7F-42E5-829E-C18737CB5452 - a8badfd9214bc14d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.CKRecord, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in QuotesMaker.Cloudstore.saveToRecord(item: QuotesMaker.Cloudstore.CloudItem) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/CloudStore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "144">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7618,38 +7426,6 @@
             endingLineNumber = "43"
             landmarkName = "saveToRecord(item:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "74AC95D0-7868-45E0-8112-C084AF8667AD - 3204150333d6ba4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Cloudstore.saveToRecord(item: QuotesMaker.Cloudstore.CloudItem) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/CloudStore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1276">
-               </Location>
-               <Location
-                  uuid = "74AC95D0-7868-45E0-8112-C084AF8667AD - a8badfd9214bc14d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (__C.CKRecord, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in QuotesMaker.Cloudstore.saveToRecord(item: QuotesMaker.Cloudstore.CloudItem) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/CloudStore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "144">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7890,38 +7666,6 @@
             endingLineNumber = "231"
             landmarkName = "generateImageSource()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "93ABA32B-9145-43C3-8027-D13EB9ED82D7 - a4227289efc6e2b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.BackingImageView.generateImageSource() -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Core/BackingImage/BackingImageView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "231"
-                  endingLineNumber = "231"
-                  offsetFromSymbolStart = "2676">
-               </Location>
-               <Location
-                  uuid = "93ABA32B-9145-43C3-8027-D13EB9ED82D7 - a4227289efc6e2b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.BackingImageView.generateImageSource() -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Core/BackingImage/BackingImageView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "231"
-                  endingLineNumber = "231"
-                  offsetFromSymbolStart = "3048">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7986,38 +7730,6 @@
             endingLineNumber = "32"
             landmarkName = "saveToRecord(item:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2DB5F83B-0E2F-43D0-A5FA-9AC36E6941B1 - 3204150333d6ba4b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Cloudstore.saveToRecord(item: QuotesMaker.Cloudstore.CloudItem) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/CloudStore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "940">
-               </Location>
-               <Location
-                  uuid = "2DB5F83B-0E2F-43D0-A5FA-9AC36E6941B1 - cfa2e20fa1ed1d8f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; __C.CKRecord in QuotesMaker.Cloudstore.saveToRecord(item: QuotesMaker.Cloudstore.CloudItem) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/CloudStore.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "196">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -8274,68 +7986,6 @@
             endingLineNumber = "156"
             landmarkName = "persistFromCloud(record:assets:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705 - 9cb53e527c814824"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "2496">
-               </Location>
-               <Location
-                  uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705 - 9cb53e527c814824"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "3004">
-               </Location>
-               <Location
-                  uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705 - 9cb53e527c814824"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "3596">
-               </Location>
-               <Location
-                  uuid = "AC4A0F03-E30A-4B55-A40E-EDF97E5DB705 - 9cb53e527c814824"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "4396">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -8352,68 +8002,6 @@
             endingLineNumber = "157"
             landmarkName = "persistFromCloud(record:assets:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3 - 9cb53e527c814824"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "2496">
-               </Location>
-               <Location
-                  uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3 - 9cb53e527c814824"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "3004">
-               </Location>
-               <Location
-                  uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3 - 9cb53e527c814824"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "3596">
-               </Location>
-               <Location
-                  uuid = "7043FE83-C378-4B95-B99E-0927BC47C5D3 - 9cb53e527c814824"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.Persistence.persistFromCloud(record: __C.CKRecord, assets: Swift.Array&lt;__C.CKRecord&gt;) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Persistence/Persistence.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "4396">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -8605,6 +8193,70 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "test_RecentSelected()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B792E9F4-AEF9-425F-AD10-26CFD0F5C353"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMakerUITests/QuotesMakerUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "test_General_UI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1DF7090A-D5CC-4D86-A1AA-634227F13788"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMakerUITests/QuotesMakerUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "test_General_UI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6A11432-E1DD-4285-9910-FA4244BBA005"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMakerUITests/QuotesMakerUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "test_General_UI()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "632882DE-BBFA-4696-AAC1-237EDCC8F8FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMakerUITests/QuotesMakerUITests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "test_General_UI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

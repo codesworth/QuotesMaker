@@ -601,6 +601,7 @@
 		38AC557822B59EFD00E0C42C /* StudioStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC557722B59EFD00E0C42C /* StudioStore.swift */; };
 		38B1C744237F4607004B58CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C743237F4607004B58CE /* Images.xcassets */; };
 		38B57DF0234E30A0009A45B2 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */; };
+		38BBBF5F2387206C008395DC /* QuotesMakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BBBF5E2387206C008395DC /* QuotesMakerUITests.swift */; };
 		38C2E4022265A39000EE5DEB /* ControlPanelStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */; };
 		38C2E4042266180400EE5DEB /* StackPanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C2E4032266180400EE5DEB /* StackPanelVC.swift */; };
 		38C697F5225D05FA009C8CCD /* PickerNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C697F4225D05FA009C8CCD /* PickerNavController.swift */; };
@@ -636,6 +637,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		38BBBF612387206C008395DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38FEDBDE222352D90005EB60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 38FEDBE5222352D90005EB60;
+			remoteInfo = QuotesMaker;
+		};
 		38FEDBFB222352DB0005EB60 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 38FEDBDE222352D90005EB60 /* Project object */;
@@ -1259,6 +1267,9 @@
 		38AC557722B59EFD00E0C42C /* StudioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioStore.swift; sourceTree = "<group>"; };
 		38B1C743237F4607004B58CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
+		38BBBF5C2387206C008395DC /* QuotesMakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuotesMakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		38BBBF5E2387206C008395DC /* QuotesMakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesMakerUITests.swift; sourceTree = "<group>"; };
+		38BBBF602387206C008395DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38C2E4012265A39000EE5DEB /* ControlPanelStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlPanelStack.swift; sourceTree = "<group>"; };
 		38C2E4032266180400EE5DEB /* StackPanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPanelVC.swift; sourceTree = "<group>"; };
 		38C697F4225D05FA009C8CCD /* PickerNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerNavController.swift; sourceTree = "<group>"; };
@@ -1298,6 +1309,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		38BBBF592387206C008395DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38FEDBE3222352D90005EB60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2904,6 +2922,15 @@
 			path = IAP;
 			sourceTree = "<group>";
 		};
+		38BBBF5D2387206C008395DC /* QuotesMakerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				38BBBF5E2387206C008395DC /* QuotesMakerUITests.swift */,
+				38BBBF602387206C008395DC /* Info.plist */,
+			);
+			path = QuotesMakerUITests;
+			sourceTree = "<group>";
+		};
 		38C80FB7223A7ACB00150FD4 /* Panels */ = {
 			isa = PBXGroup;
 			children = (
@@ -3108,6 +3135,7 @@
 			children = (
 				38FEDBE8222352D90005EB60 /* QuotesMaker */,
 				38FEDBFD222352DB0005EB60 /* QuotesMakerTests */,
+				38BBBF5D2387206C008395DC /* QuotesMakerUITests */,
 				38FEDBE7222352D90005EB60 /* Products */,
 				3804801622B5A32600BDC9F3 /* Frameworks */,
 			);
@@ -3118,6 +3146,7 @@
 			children = (
 				38FEDBE6222352D90005EB60 /* QuotesMaker.app */,
 				38FEDBFA222352DB0005EB60 /* QuotesMakerTests.xctest */,
+				38BBBF5C2387206C008395DC /* QuotesMakerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3162,6 +3191,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		38BBBF5B2387206C008395DC /* QuotesMakerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38BBBF652387206C008395DC /* Build configuration list for PBXNativeTarget "QuotesMakerUITests" */;
+			buildPhases = (
+				38BBBF582387206C008395DC /* Sources */,
+				38BBBF592387206C008395DC /* Frameworks */,
+				38BBBF5A2387206C008395DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38BBBF622387206C008395DC /* PBXTargetDependency */,
+			);
+			name = QuotesMakerUITests;
+			productName = QuotesMakerUITests;
+			productReference = 38BBBF5C2387206C008395DC /* QuotesMakerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		38FEDBE5222352D90005EB60 /* QuotesMaker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38FEDC03222352DB0005EB60 /* Build configuration list for PBXNativeTarget "QuotesMaker" */;
@@ -3204,10 +3251,14 @@
 		38FEDBDE222352D90005EB60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Shadrach Mensah";
 				TargetAttributes = {
+					38BBBF5B2387206C008395DC = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 38FEDBE5222352D90005EB60;
+					};
 					38FEDBE5222352D90005EB60 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -3244,11 +3295,19 @@
 			targets = (
 				38FEDBE5222352D90005EB60 /* QuotesMaker */,
 				38FEDBF9222352DB0005EB60 /* QuotesMakerTests */,
+				38BBBF5B2387206C008395DC /* QuotesMakerUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		38BBBF5A2387206C008395DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38FEDBE4222352D90005EB60 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3700,6 +3759,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		38BBBF582387206C008395DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38BBBF5F2387206C008395DC /* QuotesMakerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38FEDBE2222352D90005EB60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3907,6 +3974,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		38BBBF622387206C008395DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 38FEDBE5222352D90005EB60 /* QuotesMaker */;
+			targetProxy = 38BBBF612387206C008395DC /* PBXContainerItemProxy */;
+		};
 		38FEDBFC222352DB0005EB60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 38FEDBE5222352D90005EB60 /* QuotesMaker */;
@@ -3934,6 +4006,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		38BBBF632387206C008395DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MB46J93Q7Z;
+				INFOPLIST_FILE = QuotesMakerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuotesMakerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuotesMaker;
+			};
+			name = Debug;
+		};
+		38BBBF642387206C008395DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MB46J93Q7Z;
+				INFOPLIST_FILE = QuotesMakerUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuotesMakerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = QuotesMaker;
+			};
+			name = Release;
+		};
 		38FEDC01222352DB0005EB60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -4140,6 +4252,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		38BBBF652387206C008395DC /* Build configuration list for PBXNativeTarget "QuotesMakerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38BBBF632387206C008395DC /* Debug */,
+				38BBBF642387206C008395DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		38FEDBE1222352D90005EB60 /* Build configuration list for PBXProject "QuotesMaker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
