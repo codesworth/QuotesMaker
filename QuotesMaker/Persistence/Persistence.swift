@@ -117,6 +117,11 @@ class Persistence{
     
     }
     
+    func deleteModel(name:String){
+         let url = URL(fileURLWithPath: name, relativeTo: FileManager.modelDir).addExtension(.json)
+        deleteFile(src: url)
+    }
+    
     func deleteFile(src: URL,in directory:FileManager.Directories? = nil){
         do {
             try FileManager.default.removeItem(at: src)
