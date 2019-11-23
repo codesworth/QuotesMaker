@@ -43,7 +43,7 @@ extension TextDesignableInputView:UICollectionViewDelegate,UICollectionViewDataS
         chosenFont = fonts[indexPath.row].fontName
         let newFont = UIFont(name: chosenFont, size: CGFloat(fontSizeStepper.value))!
         model.font = newFont
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model,true)
     }
     
 }

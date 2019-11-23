@@ -64,14 +64,14 @@ class EditingCoordinator:NSObject{
     //@stateChangeable
     func deleteCurrent(){
         if let current = baseView.currentSubview{
+            let state = State(model: current.layerModel, action: .delete)
+            undostates.append(state)
             //print("is uniquely referenced: \(isKnownUniquelyReferenced)")
             current.removeFromSuperview()
             if let image = current as? BackingImageView{
                 image.releaseImage()
             }
             baseView.currentSubview = nil
-            let state = State(model: current.layerModel, action: .delete)
-            undostates.append(state)
         }
     }
     

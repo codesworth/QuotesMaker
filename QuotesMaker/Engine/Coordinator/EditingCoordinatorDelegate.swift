@@ -35,7 +35,7 @@ extension EditingCoordinator:UIImagePickerControllerDelegate,UINavigationControl
 
 extension EditingCoordinator:TextModelDelegate{
     
-    func didUpdateModel(_ model: TextLayerModel) {
+    func didUpdateModel(_ model: TextLayerModel, _ memorize:Bool) {
         var model = model
         guard let current = baseView.currentSubview as? BackingTextView else {return}
         model.string = current.textView.text

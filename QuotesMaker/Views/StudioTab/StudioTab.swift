@@ -142,8 +142,9 @@ extension StudioTab:UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if !canSelect{return}
         let tab = tabActions[indexPath.row]
+        if !canSelect && tab != .undo && tab != .redo {return}
+        
         delegate?.actiondone(tab)
     }
     

@@ -15,7 +15,7 @@ struct TextLayerModel:Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         string = try container.decodeIfPresent(String.self, forKey: .string) ?? "Hello"
         _textColor = try container.decodeIfPresent(StudioColor.self, forKey: ._textColor) ?? StudioColor(color: .black)
-        _font =  try container.decodeIfPresent(StudioFont.self, forKey: ._font) ?? StudioFont(font: UIFont(name: "RobotoMono-Regular", size: 30)!)
+        _font =  try container.decodeIfPresent(StudioFont.self, forKey: ._font) ?? StudioFont(font: UIFont(name: "RobotoMono-Regular", size: 20)!)
         shadowBlur = try container.decodeIfPresent(CGFloat.self, forKey: .shadowBlur) ?? 0
         shadowOffset = try container.decodeIfPresent(CGSize.self, forKey: .shadowOffset) ?? .zero
         strikeThrough = try container.decodeIfPresent(Int.self, forKey: .strikeThrough) ?? 0

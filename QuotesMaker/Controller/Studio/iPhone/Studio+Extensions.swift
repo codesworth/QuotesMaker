@@ -115,6 +115,7 @@ extension StudioVC:EditingCoordinatorDelegate{
             cropper.delegate = coordinator
             cropper.autoSaveToLibray = false
             cropper.maxRotationAngle = CGFloat(Double.pi / 4)
+            cropper.modalPresentationStyle = .fullScreen
             present(cropper, animated: true, completion: nil)
         }
     }
@@ -151,11 +152,13 @@ extension StudioVC:StudioTabDelegate{
             setupStyleInteractivePanel()
             break
         case .delete:
-            if let current = coordinator.baseView.currentSubview{
-                current.removeFromSuperview()
-                coordinator.baseView.currentSubview = nil
+            coordinator.deleteCurrent()
+//            if let current = coordinator.baseView.currentSubview{
+//                current.removeFromSuperview()
+//                coordinator.baseView.currentSubview = nil
                 dismissPanels()
-            }
+            
+            //}
             break
         case .layers:
             toggleStack()
@@ -182,6 +185,7 @@ extension StudioVC:StudioTabDelegate{
             coordinator.stateUndo()
             break
         case .redo:
+            coordinator.stateRedo()
             break
         case .duplicate:
             coordinator.baseView.duplicateLayer()

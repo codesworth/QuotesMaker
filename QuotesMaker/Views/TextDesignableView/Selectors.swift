@@ -11,11 +11,18 @@ import UIKit
 
 extension TextDesignableInputView{
     
+    @objc func colorSliderChanging(_ slider:ColorSlider){
+        if blockDelegation{return}
+        let color = slider.color
+        model.textColor = color
+        delegate?.didUpdateModel(model, false)
+    }
+    
     @objc func colorSliderChanged(_ slider:ColorSlider){
         if blockDelegation{return}
         let color = slider.color
         model.textColor = color
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     @objc func fontSizeXhanged(_ stepper:UIStepper){
@@ -24,35 +31,47 @@ extension TextDesignableInputView{
         fontSizeLable.text =  "Size: \(val)"
         let newFont = UIFont(name: model.font.fontName, size: CGFloat(val))!
         model.font = newFont
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     @objc func alignmentDidChange(_ sender:UISegmentedControl){
         let index = sender.selectedSegmentIndex
         model.alignment = index
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     @objc func strokecolorSliderChanged(_ slider:ColorSlider){
         if blockDelegation{return}
         let color = slider.color
         model.strokeColor = color
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
-    
+    @objc func strokecolorSliderChanging(_ slider:ColorSlider){
+        if blockDelegation{return}
+        let color = slider.color
+        model.strokeColor = color
+        delegate?.didUpdateModel(model, false)
+    }
     @objc func strokeWidthCanged(_ stepper:UIStepper){
         if blockDelegation{return}
         let val = stepper.value
         strokeWidthLabel.text =  "Size: \(val)"
         model.strokeWidth = Int(val)
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     @objc func underlineStyleColorChanged(_ slider:ColorSlider){
         if blockDelegation{return}
         let color = slider.color
         model.underlineColor = color
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
+    }
+    
+    @objc func underlineStyleColorChanging(_ slider:ColorSlider){
+        if blockDelegation{return}
+        let color = slider.color
+        model.underlineColor = color
+        delegate?.didUpdateModel(model, false)
     }
     
     @objc func underlineStyleChanged(_ stepper:UIStepper){
@@ -60,22 +79,29 @@ extension TextDesignableInputView{
         let val = stepper.value
         underlineStylelable.text = "Style: \(val)"
         model.underlineStyle = Int(val)
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     @objc func strikeThroughcolorSliderChanged(_ slider:ColorSlider){
         if blockDelegation{return}
         let color = slider.color
         model.strikeThroughColor = color
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
+    
+    @objc func strikeThroughcolorSliderChanging(_ slider:ColorSlider){
+           if blockDelegation{return}
+           let color = slider.color
+           model.strikeThroughColor = color
+           delegate?.didUpdateModel(model,false)
+       }
     
     @objc func strikeThroughStylehanged(_ stepper:UIStepper){
         if blockDelegation{return}
         let val = stepper.value
         strikeStyleLabel.text = "Style: \(val)"
         model.strikeThrough = Int(val)
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     @objc func obliquessChanged(_ stepper:UIStepper){
@@ -83,21 +109,25 @@ extension TextDesignableInputView{
         let val = stepper.value
         obliqStyleLabel.text = "Style: \(val)"
         model.obliquess = Int(val)
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     func registrationsAndtargetSets(){
         fontCollectionview.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
         fontCollectionview.register(UINib(nibName: "\(MoreFontCells.self)", bundle: .main), forCellWithReuseIdentifier: "\(MoreFontCells.self)")
-        colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .valueChanged)
+        colorSlider.addTarget(self, action: #selector(colorSliderChanging(_:)), for: .valueChanged)
+        colorSlider.addTarget(self, action: #selector(colorSliderChanged(_:)), for: .touchUpInside)
         fontSizeStepper.addTarget(self, action: #selector(fontSizeXhanged(_:)), for: .valueChanged)
         fontCollectionview.delegate = self
         fontCollectionview.dataSource = self
-        strokeColorSlider.addTarget(self, action: #selector(strokecolorSliderChanged(_:)), for: .valueChanged)
+        strokeColorSlider.addTarget(self, action: #selector(strokecolorSliderChanging(_:)), for: .valueChanged)
+         strokeColorSlider.addTarget(self, action: #selector(strokecolorSliderChanged(_:)), for: .touchUpInside)
         strokeWidthStepper.addTarget(self, action: #selector(strokeWidthCanged(_:)), for: .valueChanged)
-        underlineColorSlider.addTarget(self, action: #selector(underlineStyleColorChanged(_:)), for: .valueChanged)
+        underlineColorSlider.addTarget(self, action: #selector(underlineStyleColorChanging(_:)), for: .valueChanged)
+        underlineColorSlider.addTarget(self, action: #selector(underlineStyleColorChanged(_:)), for: .touchUpInside)
         underlineStyleStepper.addTarget(self, action: #selector(underlineStyleChanged(_:)), for: .valueChanged)
-        strikeThroghColorSlider.addTarget(self, action: #selector(strikeThroughcolorSliderChanged(_:)), for: .valueChanged)
+        strikeThroghColorSlider.addTarget(self, action: #selector(strikeThroughcolorSliderChanged(_:)), for: .touchUpInside)
+         strikeThroghColorSlider.addTarget(self, action: #selector(strikeThroughcolorSliderChanging(_:)), for: .valueChanged)
         strikeThroughStyleStepper.addTarget(self, action: #selector(strikeThroughStylehanged(_:)), for: .valueChanged)
         obliqueStepper.addTarget(self, action: #selector(obliquessChanged(_:)), for: .valueChanged)
     }
@@ -109,7 +139,7 @@ extension TextDesignableInputView{
         shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
         model.shadowColor = slider.color
         model.shadow = shadow
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model,true)
     }
     
     @objc func shadowColorChanging(_ slider:ColorSlider){if blockDelegation{return}
@@ -117,7 +147,7 @@ extension TextDesignableInputView{
         shadow.shadowColor = slider.color.withAlphaComponent(model.shadowAlpha)
         model.shadowColor = slider.color
         model.shadow = shadow
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     @objc func shadowRadiusChanged(_ stepper:UIStepper){
@@ -125,7 +155,7 @@ extension TextDesignableInputView{
         guard let shadow = model.shadow.copy() as? NSShadow else{return}
         shadow.shadowBlurRadius = CGFloat(stepper.value)
         model.shadow = shadow
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
         shadowView.shadowRadius.text = "Radius: \(Int(stepper.value))"
         
     }
@@ -135,7 +165,7 @@ extension TextDesignableInputView{
         guard let shadow = model.shadow.copy() as? NSShadow else{return}
         shadow.shadowOffset.width = CGFloat(stepper.value)
         model.shadow = shadow
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
         shadowView.shadowX.text = "X: \(Int(stepper.value))"
         
     }
@@ -145,7 +175,7 @@ extension TextDesignableInputView{
         guard let shadow = model.shadow.copy() as? NSShadow else{return}
         shadow.shadowOffset.height = CGFloat(stepper.value)
         model.shadow = shadow
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
         shadowView.shadowY.text = "Y: \(Int(stepper.value))"
     }
     
@@ -155,7 +185,7 @@ extension TextDesignableInputView{
         model.shadowAlpha = CGFloat(slider.value)
         shadow.shadowColor = model.shadowColor.withAlphaComponent(CGFloat(slider.value))
         model.shadow = shadow
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model, true)
     }
     
     @objc func shadowOpacityChanging(_ slider:UISlider){
@@ -164,7 +194,7 @@ extension TextDesignableInputView{
         model.shadowAlpha = CGFloat(slider.value)
         shadow.shadowColor = model.shadowColor.withAlphaComponent(CGFloat(slider.value))
         model.shadow = shadow
-        delegate?.didUpdateModel(model)
+        delegate?.didUpdateModel(model,false)
     }
     
     
