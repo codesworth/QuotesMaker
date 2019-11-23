@@ -179,14 +179,12 @@ extension StudioVC:StudioTabDelegate{
             setupImageInteractiveView()
             break
         case .undo:
-            //undoState()
+            coordinator.stateUndo()
             break
         case .redo:
             break
         case .duplicate:
             coordinator.baseView.duplicateLayer()
-            break
-        case .background:
             
             break
         }

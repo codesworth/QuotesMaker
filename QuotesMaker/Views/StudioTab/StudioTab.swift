@@ -28,7 +28,7 @@ class StudioTab: UIView {
         case undo
         case redo
         case delete
-        case background
+        
         
         
         
@@ -73,7 +73,7 @@ class StudioTab: UIView {
         defer {collectionview.reloadData()}
         if let data = notification.userInfo?[.info] as? BaseView.BaseSubView{
            canSelect = true
-            let defaultTabs:[TabActions] = [.duplicate,.moveUp,.moveDown,.layers,.undo,.redo,.delete,.background]
+            let defaultTabs:[TabActions] = [.duplicate,.moveUp,.moveDown,.layers,.undo,.redo,.delete]
             if let _ = data as? BackingImageView{
                 tabActions = defaultTabs.reversed().merge([.stylePanel,.imgPanel])
                 tabActions.reverse()

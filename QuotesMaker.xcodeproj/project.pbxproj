@@ -3261,7 +3261,7 @@
 					};
 					38FEDBE5222352D90005EB60 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1120;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -3276,6 +3276,7 @@
 					};
 					38FEDBF9222352DB0005EB60 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1120;
 						TestTargetID = 38FEDBE5222352D90005EB60;
 					};
 				};
@@ -4180,7 +4181,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuotesMaker/Frameworks/Rexixable/QuotesMaker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -4202,7 +4203,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuoteStudio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuotesMaker/Frameworks/Rexixable/QuotesMaker-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -4222,7 +4223,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuotesMakerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuotesMaker.app/QuotesMaker";
 			};
@@ -4243,7 +4244,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuotesMakerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuotesMaker.app/QuotesMaker";
 			};

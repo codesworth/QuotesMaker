@@ -143,18 +143,18 @@ class Persistence{
             as? CKAsset
         let blobAsset = record[Cloudstore.Keys.blob] as? CKAsset
         //let imageAssests = record[Cloudstore.Keys.blobAssets] as? [CKAsset] ?? []
-        if let blobUrl = blobAsset?.fileURL{
+        if let blobUrl = blobAsset?.fileURL!{
             do{
                 let data = try Data(contentsOf: blobUrl)
                 try data.write(to: URL(fileURLWithPath: name, relativeTo: FileManager.modelDir).addExtension(.json))
-                if let thumburl = thumbImageAsset?.fileURL{
+                if let thumburl = thumbImageAsset?.fileURL!{
                     let data = try Data(contentsOf: thumburl)
                     try data.write(to: .path(name: name, in: .previewThumbnails, extension:.png))
                 }
                 try assets.forEach{
                     if let id = $0[Cloudstore.Keys.id] as? String,
                         let asset = $0[Cloudstore.Keys.asset] as? CKAsset{
-                        let data = try Data(contentsOf: asset.fileURL)
+                        let data = try Data(contentsOf: asset.fileURL!)
                         try data.write(to: .path(name:id, in: .modelImages))
                     }
                 }

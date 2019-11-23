@@ -160,8 +160,7 @@ extension UIImage{
             return #imageLiteral(resourceName: "duplicate")
         case .alpha:
             return #imageLiteral(resourceName: "textalpha")
-        case .background:
-            return #imageLiteral(resourceName: "bgs")
+       
         }
     }
     
