@@ -137,7 +137,7 @@ class StylingPanel:MaterialView{
         contentView.addSubview(cornerPanel)
         contentView.addSubview(borderPanel)
         //contentView.addSubview(rotationpanel)
-        subscribeTo(subscription: .cornermask, selector: #selector(listenForCornermaskChanges(_:)))
+        //subscribeTo(subscription: .cornermask, selector: #selector(listenForCornermaskChanges(_:)))
     }
     
     
@@ -179,7 +179,7 @@ class StylingPanel:MaterialView{
             $0.bottom == scrollView.bottomAnchor
             $0.trailing == scrollView.trailingAnchor
             $0.width == widthAnchor
-            $0.height |=| 650
+            $0.height |=| 550
         }
         
         
@@ -201,7 +201,7 @@ class StylingPanel:MaterialView{
             $0.top == firstline.bottomAnchor
             $0.leading == contentView.leadingAnchor
             $0.trailing == contentView.trailingAnchor
-            $0.height |=| 180
+            $0.height |=| 60 
         }
         
         secondline.layout{

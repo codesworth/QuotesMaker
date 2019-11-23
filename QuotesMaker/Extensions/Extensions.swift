@@ -57,11 +57,15 @@ extension CGFloat{
         return UIScreen.main.bounds.height * 0.8
     }
     
+    var halved:CGFloat{
+        return self / 2
+    }
         
     static func Angle(_ degree:CGFloat)-> CGFloat{
         return (.pi * degree) / 180
     }
 }
+
 
 
 

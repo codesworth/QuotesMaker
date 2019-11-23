@@ -87,4 +87,13 @@ extension CALayer{
             self.mask = mask
        // }
     }
+    
+    @discardableResult
+    func wrapCornerRadiusMin(radius:CGFloat)->CGFloat{
+        if cornerRadius > bounds.size.min.halved{
+            cornerRadius = bounds.size.min.halved
+            return bounds.size.min.halved
+        }
+        return radius
+    }
 }

@@ -81,7 +81,7 @@ class BackingImageView: UIView{
     }
     
     private func updateShape(_ style:Style){
-        baseImageView.layer.roundCorners(style.maskedCorners, radius: style.cornerRadius)
+        baseImageView.layer.cornerRadius = style.cornerRadius
         baseImageView.layer.borderWidth = style.borderWidth
         baseImageView.layer.borderColor = style.borderColor.cgColor
         transform = transform.rotated(by: .Angle(style.rotationAngle))

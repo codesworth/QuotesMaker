@@ -28,7 +28,7 @@ class RectView:SuperRectView{
     var prevModel:LayerModel?
     
     var universalCenter:CGPoint = .zero
-    
+    var ratioOfRadius:CGFloat = 0
     
     
     func checkCenterChanged(center:CGPoint){
@@ -108,15 +108,10 @@ class RectView:SuperRectView{
     private func updateShape(_ style:Style){
         superlayer.masksToBounds = true
         let radius = (style.cornerRadius > bounds.size.min) ? bounds.size.min : style.cornerRadius
-        superlayer.roundCorners(style.maskedCorners, radius: radius)
+        ratioOfRadius = radius / bounds.size.min
+        superlayer.cornerRadius = radius //roundCorners(style.maskedCorners, radius: radius)
         superlayer.borderWidth = style.borderWidth
         superlayer.borderColor = style.borderColor.cgColor
-        //print("The angle is: \(CGFloat.Angle(style.rotationAngle))")
-//        print("The frame before \(contentView.frame)")
-//        let transform = CGAffineTransform(rotationAngle: .Angle(style.rotationAngle))
-//        resizerView.transform = transform
-//
-//        print("The frame after \(contentView.frame)")
         //resizerView.sizeToFit()
         /*contentView.*/layer.shadowColor = style.shadowColor.cgColor
         /*contentView.*/layer.shadowRadius = style.shadowRadius
@@ -160,10 +155,7 @@ class RectView:SuperRectView{
         resizerView.contentView = contentView
         resizerView.hideEditingHandles()
         addSubview(resizerView)
-        //contentView.layer.masksToBounds = true
-        //contentView.layer.addSublayer(ovalLayer)
-        //ovalLayer.masksToBounds = true
-        //ovalLayer.path = UIBezierPath(ovalIn: bounds).cgPath
+
         contentView.layer.addSublayer(superlayer)
         superlayer.needsDisplayOnBoundsChange = true
         superlayer.bounds = contentView.layer.bounds
@@ -303,6 +295,7 @@ extension RectView:SPUserResizableViewDelegate{
         let old = model.layerFrame
         if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
+        model.style.cornerRadius = superlayer.wrapCornerRadiusMin(radius:model.style.cornerRadius)
         if model.layerFrame != oldModel.layerFrame{
             Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
         }
