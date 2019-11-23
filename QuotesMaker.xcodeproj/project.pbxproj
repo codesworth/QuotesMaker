@@ -523,6 +523,7 @@
 		38686D2A2277406000349E02 /* TemplateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38686D282277406000349E02 /* TemplateCell.swift */; };
 		38686D2B2277406000349E02 /* TemplateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38686D292277406000349E02 /* TemplateCell.xib */; };
 		386F0B2F22414284009EF6A5 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */; };
+		387189882389B98A00E2A344 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387189872389B98A00E2A344 /* UIImage+Extension.swift */; };
 		38732A4C222EEA9100CDB703 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732A4B222EEA9100CDB703 /* String+Ex.swift */; };
 		38732E95222FE10F00CDB703 /* TextDesignableInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */; };
 		38732E9822300DE700CDB703 /* FontCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38732E9622300DE700CDB703 /* FontCells.swift */; };
@@ -1189,6 +1190,7 @@
 		38686D282277406000349E02 /* TemplateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateCell.swift; sourceTree = "<group>"; };
 		38686D292277406000349E02 /* TemplateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemplateCell.xib; sourceTree = "<group>"; };
 		386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		387189872389B98A00E2A344 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		38732A4B222EEA9100CDB703 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
 		38732E94222FE10F00CDB703 /* TextDesignableInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDesignableInputView.swift; sourceTree = "<group>"; };
 		38732E9622300DE700CDB703 /* FontCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCells.swift; sourceTree = "<group>"; };
@@ -2901,6 +2903,7 @@
 				38A6687D223EED7C00F29F52 /* Colors.swift */,
 				386F0B2E22414284009EF6A5 /* UIView+Extensions.swift */,
 				385BB9AD225E20F6009541A3 /* UIScreen+Extensions.swift */,
+				387189872389B98A00E2A344 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -3261,7 +3264,7 @@
 					};
 					38FEDBE5222352D90005EB60 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1120;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -3276,6 +3279,7 @@
 					};
 					38FEDBF9222352DB0005EB60 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1120;
 						TestTargetID = 38FEDBE5222352D90005EB60;
 					};
 				};
@@ -3868,6 +3872,7 @@
 				38115330224D228400DA7D3B /* SuperRectView.swift in Sources */,
 				38236565224045390078A723 /* ResizableView.swift in Sources */,
 				38FEDBEA222352D90005EB60 /* AppDelegate.swift in Sources */,
+				387189882389B98A00E2A344 /* UIImage+Extension.swift in Sources */,
 				3811532E224D17B000DA7D3B /* StyleSelectors.swift in Sources */,
 				388BE346222C4FB6005BF44B /* DoneButton.swift in Sources */,
 				38C80FB9223A837C00150FD4 /* StudioTab.swift in Sources */,
@@ -4180,7 +4185,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuotesMaker/Frameworks/Rexixable/QuotesMaker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -4202,7 +4207,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuoteStudio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "QuotesMaker/Frameworks/Rexixable/QuotesMaker-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -4222,7 +4227,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuotesMakerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuotesMaker.app/QuotesMaker";
 			};
@@ -4243,7 +4248,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codesworth.QuotesMakerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuotesMaker.app/QuotesMaker";
 			};

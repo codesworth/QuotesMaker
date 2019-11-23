@@ -11,6 +11,7 @@ import UIKit
 class MoreFontsVC: UIViewController {
     private var engine = FontEngine()
     private var fonts:[UIFont] = []
+    var size:CGFloat = 30
     var model:TextLayerModel!
     weak var delegate:TextModelDelegate?
     @IBOutlet weak var previewTextView: UITextView!
@@ -23,6 +24,7 @@ class MoreFontsVC: UIViewController {
         collectionView.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
         collectionView.delegate = self
         collectionView.dataSource = self
+        size = model.font.pointSize
         if !__IS_IPAD{
             previewTextView.textAlignment = .center
             var mod = model; mod?.font = model.font.withSize(23)
@@ -90,8 +92,9 @@ extension MoreFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let chosenFont = fonts[indexPath.row]
-        model.font = chosenFont
-        delegate?.didUpdateModel(model)
+        model.font = chosenFont.withSize(size)
+        //delegate?.didUpdateModel(model,true)
+        Subscription.main.post(suscription: .fontsChanged, object: model)
         if !__IS_IPAD{
             var mod = model
             mod?.font = chosenFont.withSize(23)

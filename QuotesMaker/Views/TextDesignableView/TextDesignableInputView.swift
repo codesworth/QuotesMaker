@@ -11,7 +11,7 @@ import UIKit
 
 
 protocol TextModelDelegate:class {
-    func didUpdateModel(_ model:TextLayerModel)
+    func didUpdateModel(_ model:TextLayerModel,_ memorize:Bool)
 }
 
 class TextDesignableInputView:UIView{
@@ -30,6 +30,14 @@ class TextDesignableInputView:UIView{
     var model:TextLayerModel = TextLayerModel()
     var chosenFont:String!
     weak var delegate:TextModelDelegate?
+    
+    
+    @objc func fontChanged(_ notification:Notification){
+        if let model = notification.userInfo?[.info] as? TextLayerModel{
+            self.model = model
+            delegate?.didUpdateModel(model,true)
+        }
+    }
     
     lazy var fontCollectionview:UICollectionView = {
         let flow = UICollectionViewFlowLayout()
@@ -175,7 +183,7 @@ class TextDesignableInputView:UIView{
         stepper.maximumValue = 100
         stepper.minimumValue = 10
         stepper.stepValue = 1
-        stepper.value = 27
+        stepper.value = 20
         stepper.tintColor = .primary
         return stepper
     }()
@@ -280,6 +288,8 @@ class TextDesignableInputView:UIView{
         chosenFont = model.font.fontName
         addsubviews()
         registrationsAndtargetSets()
+        updatePanle(model)
+        subscribeTo(subscription: .fontsChanged, selector: #selector(fontChanged(_:)))
     }
     
 

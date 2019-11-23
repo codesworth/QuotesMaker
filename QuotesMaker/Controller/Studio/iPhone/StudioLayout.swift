@@ -19,7 +19,7 @@ extension StudioVC{
         gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])
         //gradientPanel.stateDelegate = self
         imagePanel = ImagePanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
-        stylingPanel = StylingPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.imagePanelHeight])
+        stylingPanel = StylingPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.stylingPanelHeight])
         
         //imagePanel.stateDelegate = self
         let size = Dimensions.editorSize

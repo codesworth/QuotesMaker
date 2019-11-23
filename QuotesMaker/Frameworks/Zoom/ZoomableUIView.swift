@@ -36,7 +36,7 @@ extension ZoomableUIView where Self:EditorExpandableView  {
         self.didEndZooming()
       }
       
-      if let panGestureRecognizer = gestureRecognizers?.filter({$0 is UIPanGestureRecognizer}).first, let index = gestureRecognizers?.index(of: panGestureRecognizer) {
+      if let panGestureRecognizer = gestureRecognizers?.filter({$0 is UIPanGestureRecognizer}).first, let index = gestureRecognizers?.firstIndex(of: panGestureRecognizer) {
          gestureRecognizers?.remove(at: index)
       }
    }

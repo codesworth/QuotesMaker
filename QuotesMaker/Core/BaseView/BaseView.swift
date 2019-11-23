@@ -117,6 +117,7 @@ class BaseView:UIView{
         super.didMoveToWindow()
         xCrossHair.frame = [bounds.midX,0,1,bounds.height]
         yCrossHair.frame = [0,bounds.midY,bounds.width,1]
+        
     }
     
     

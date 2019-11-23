@@ -57,11 +57,15 @@ extension CGFloat{
         return UIScreen.main.bounds.height * 0.8
     }
     
+    var halved:CGFloat{
+        return self / 2
+    }
         
     static func Angle(_ degree:CGFloat)-> CGFloat{
         return (.pi * degree) / 180
     }
 }
+
 
 
 
@@ -160,8 +164,7 @@ extension UIImage{
             return #imageLiteral(resourceName: "duplicate")
         case .alpha:
             return #imageLiteral(resourceName: "textalpha")
-        case .background:
-            return #imageLiteral(resourceName: "bgs")
+       
         }
     }
     

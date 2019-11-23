@@ -40,6 +40,10 @@ class Dimensions{
         return 250
     }
     
+    class var stylingPanelHeight:CGFloat{
+        return 250
+    }
+    
     class var designatedHeight:CGFloat{
         return UIScreen.main.bounds.height * 0.3
     }

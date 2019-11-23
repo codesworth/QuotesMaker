@@ -53,6 +53,7 @@ public class Store:NSObject{
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
+    @inline( __always)
     static func isPro()->Bool{
         return main.purchasedProducts.contains(PRO_STUDIO)
     }

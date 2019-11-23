@@ -263,8 +263,10 @@ extension BackingTextView{
 
 extension BackingTextView:TextModelDelegate{
     
-    func didUpdateModel(_ model: TextLayerModel) {
-        Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
+    func didUpdateModel(_ model: TextLayerModel,_ memorize:Bool) {
+        if memorize{
+            Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
+        }
         oldModel = self.model
         var model = model
         model.string = textView.text
