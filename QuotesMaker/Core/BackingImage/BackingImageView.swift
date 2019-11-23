@@ -356,9 +356,13 @@ extension BackingImageView:SPUserResizableViewDelegate{
         let old = model.layerFrame
         if old == makeLayerFrame(){return}
         model.layerFrame = makeLayerFrame()
+        model.style.cornerRadius = baseImageView.layer.wrapCornerRadiusMin(radius:model.style.cornerRadius)
         if model.layerFrame != oldmodel.layerFrame{
             Subscription.main.post(suscription: .stateChange, object: State(model: oldmodel, action: .nothing))
         }
+        
+        Subscription.main.post(suscription: .roundedCornerRadiusValueChanged, object: baseImageView.layer.bounds.size.min.halved)
+               
     }
 }
 

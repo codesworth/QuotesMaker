@@ -79,7 +79,13 @@ final class CornersPanel:UIView{
         addSubview(cornerlable)
         addSubview(cornerRadius)
         addSubview(slider)
+        subscribeTo(subscription: .roundedCornerRadiusValueChanged, selector: #selector(cornerChanged(_:)))
         //addSubview(roundCornerView)
+    }
+    
+    @objc func cornerChanged(_ notif:Notification){
+        guard let radius = notif.userInfo?[.info] as? CGFloat else{return}
+        slider.maximumValue = Float(radius)
     }
     
 }

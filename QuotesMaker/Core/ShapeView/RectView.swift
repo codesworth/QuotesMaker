@@ -300,7 +300,7 @@ extension RectView:SPUserResizableViewDelegate{
             Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
         }
         
-       Subscription.main.post(suscription: .roundedCornerRadiusValueChanged, object: contentView.bounds.size.min)
+        Subscription.main.post(suscription: .roundedCornerRadiusValueChanged, object: superlayer.bounds.size.min.halved)
         
     }
     
