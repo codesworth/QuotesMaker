@@ -107,14 +107,14 @@ class StudioEditorView:UIView{
     }
     
     private func initialize(){
-        backgroundColor = .red
+        backgroundColor = .primaryDark
         addSubview(contentView)
         addSubview(scrollbar)
         addSubview(scrollCircle)
         
         
         //scrollView.addSubview(contentView)
-        borderlize(.primary, 1)
+        borderlize(.secondaryDark, 1)
         self.setZoomable(true)
         
     }

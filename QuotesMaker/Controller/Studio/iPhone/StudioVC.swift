@@ -19,7 +19,7 @@ class StudioVC: UIViewController {
         return editor
     }()
     var canvas:Canvas!
-    
+    var tabTopConstraint:NSLayoutConstraint!
     var coordinator:EditingCoordinator!
     var studioHeight: CGFloat!
     var studioPanel: EditorPanel!
@@ -30,6 +30,8 @@ class StudioVC: UIViewController {
     var stylingPanel:StylingPanel!
     var stackShowing = false
     var imageLayerExists = false
+    var tabsShowing = false
+    
     
     var stack:LayerStack?
     
@@ -57,9 +59,10 @@ class StudioVC: UIViewController {
         //let value = UIInterfaceOrientation.landscapeLeft.rawValue
         //UIDevice.current.setValue(value, forKey: "orientation")
         //setupDevice()
-        view.backgroundColor = .white
+        view.backgroundColor = .primaryDark
         studioTab = StudioTab(frame: .zero)
         studioPanel = EditorPanel(frame: .zero)
+        studioTab.isHidden = true
         studioPanel.backgroundColor = .seafoamBlue
         studioTab.delegate = self
         view.addSubview(studioTab)
@@ -194,12 +197,33 @@ class StudioVC: UIViewController {
         
     }
     
+    
+    func showTabs(){
+        if tabsShowing{return}
+        tabsShowing = true
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn], animations: {
+            [unowned self] in
+            self.tabTopConstraint.constant = 30
+            self.studioTab.isHidden = false
+        })
+    }
+    
+    func hideTabs(){
+        if !tabsShowing{return}
+        tabsShowing = false
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn], animations: { [unowned self] in
+            self.tabTopConstraint.constant = -30
+            self.studioTab.isHidden = true
+        })
+    }
+    
     func imageOptionSelected(){
         
         //coordinator.imageOptionSelected()
         //setupImageInteractiveView()
         imageLayerExists = false
         launchPicker()
+        
         
     }
     
@@ -211,6 +235,7 @@ class StudioVC: UIViewController {
     }
     
     func shapeSelected(){
+        showTabs()
         coordinator.shapeSelected()
         setupColorPanel()
 
@@ -218,6 +243,7 @@ class StudioVC: UIViewController {
     
     
     func addText(){
+        showTabs()
         coordinator.addText()
         
     }
@@ -250,6 +276,7 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if !imageLayerExists {
+            showTabs()
             coordinator.imageOptionSelected()
             setupImageInteractiveView()
         }

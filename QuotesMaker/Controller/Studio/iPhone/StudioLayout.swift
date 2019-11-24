@@ -23,9 +23,9 @@ extension StudioVC{
         
         //imagePanel.stateDelegate = self
         let size = Dimensions.editorSize
-        
+        tabTopConstraint = studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: -30)
         NSLayoutConstraint.activate([
-            studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: 30),
+            tabTopConstraint,
             studioTab.heightAnchor.constraint(equalToConstant: 40),
             studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
