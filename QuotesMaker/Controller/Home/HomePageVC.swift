@@ -10,6 +10,7 @@ import UIKit
 
 class HomePageVC: UIViewController {
     
+    @IBOutlet weak var header: UIView!
     @IBOutlet weak var recentCollectionVIew: UICollectionView!
     @IBOutlet weak var templatesCollection: UICollectionView!
     @IBOutlet weak var dimensionsProjectCollection: UICollectionView!
@@ -19,6 +20,8 @@ class HomePageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recentCollectionVIew.showsHorizontalScrollIndicator = false
+        dimensionsProjectCollection.showsHorizontalScrollIndicator = false
         setup()
         makeSizes()
         
@@ -50,6 +53,7 @@ class HomePageVC: UIViewController {
     }
     
     func setup(){
+        header.layer.cornerRadius = 30
         recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
         recentCollectionVIew.delegate = self
         recentCollectionVIew.dataSource = self
@@ -57,6 +61,8 @@ class HomePageVC: UIViewController {
         dimensionsProjectCollection.delegate = self
         dimensionsProjectCollection.dataSource = self
         //recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
+        recentCollectionVIew.roundCorners()
+        dimensionsProjectCollection.roundCorners()                                                           
     }
 
 }
@@ -87,7 +93,7 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             return cell
         }else {
             let canvas = sizes[indexPath.row]
-            cell.configureView(name: canvas.name, icon:canvas.icon, size: canvas.size)
+            cell.configureView(canvas)
             return cell
         }
         

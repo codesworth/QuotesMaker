@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,19 +24,19 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WgO-Td-yHL">
-                        <rect key="frame" x="6" y="174" width="188" height="21"/>
+                        <rect key="frame" x="6" y="173" width="188" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="e01-i3-03G"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="GKy-R5-dua" secondAttribute="trailing" constant="6" id="17M-H3-1DZ"/>
-                <constraint firstItem="WgO-Td-yHL" firstAttribute="top" secondItem="GKy-R5-dua" secondAttribute="bottom" constant="8" id="8rG-3Y-hVw"/>
+                <constraint firstAttribute="bottom" secondItem="WgO-Td-yHL" secondAttribute="bottom" constant="8" id="AbU-hf-h8o"/>
                 <constraint firstAttribute="trailing" secondItem="WgO-Td-yHL" secondAttribute="trailing" constant="6" id="J4r-id-z5L"/>
                 <constraint firstItem="GKy-R5-dua" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="Rfk-cK-l5U"/>
                 <constraint firstItem="GKy-R5-dua" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="dLk-Fi-lRl"/>

@@ -115,7 +115,7 @@ struct Canvas:Equatable {
             ratio = Ratios.stories.rawValue
             break
         case .ig_vertical:
-            name = "Instagram Vertical"
+            name = "IG Vertical"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.ig_vertical.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
@@ -123,7 +123,7 @@ struct Canvas:Equatable {
             ratio = Ratios.ig_vertical.rawValue
             break
         case .ig_horizontal:
-            name = "Instagram Horizontal"
+            name = "IG Horizontal"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.ig_horizontal.rawValue)]
             scale = WidthSizes.ig_and_snap_stories.rawValue / size.width
@@ -154,7 +154,7 @@ struct Canvas:Equatable {
             ratio = Ratios.twitter_header.rawValue
             break
         case .facebook_header:
-            name = "Facebook Header"
+            name = "FB Header"
             aspectRatio = aspect
             size = [.fixedWidth, .fixedWidth * (1 / Ratios.twitter.rawValue)]
             scale = WidthSizes.facebook_header.rawValue / size.width
