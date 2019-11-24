@@ -35,7 +35,7 @@ class TabControl: UIControl {
     
     
     func initialize(){
-        backgroundColor = .white
+        //backgroundColor = .white
         addSubview(contentImageView)
         contentImageView.image = self.image
     }

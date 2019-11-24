@@ -16,11 +16,12 @@ class StudioTabCells: UICollectionViewCell {
         super.awakeFromNib()
         control.isUserInteractionEnabled = false
         isUserInteractionEnabled = true
+        backgroundColor = .clear
     }
     
     func configureCell(_ image:UIImage){
         control.contentImageView.image = image
-        //control.contentImageView.setImageMaskColor(.black)
+        control.contentImageView.setImageMaskColor(.white)
     }
 
 

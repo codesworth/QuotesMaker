@@ -58,9 +58,9 @@ class StudioTab: UIView {
     
     
     func initialize(){
-        backgroundColor = .white
+        backgroundColor = .secondaryDark
         layer.shadowOffset = [0,0]
-        borderlize(.primary, 1)
+        borderlize(.secondaryDark, 1)
         addSubview(collectionview)
         collectionview.register(UINib(nibName: "\(StudioTabCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(StudioTabCells.self)")
         collectionview.delegate = self
