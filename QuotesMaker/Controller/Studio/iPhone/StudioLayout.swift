@@ -30,7 +30,7 @@ extension StudioVC{
             studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             
-            editorView.topAnchor.constraint(equalTo: studioTab.bottomAnchor, constant: 8),
+            editorView.topAnchor.constraint(equalTo: view.topAnchor, constant: 58),
             editorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             editorView.widthAnchor.constraint(equalToConstant: size.width),
             editorView.heightAnchor.constraint(equalToConstant: size.height),

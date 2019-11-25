@@ -62,12 +62,12 @@ class StudioVC: UIViewController {
         view.backgroundColor = .primaryDark
         studioTab = StudioTab(frame: .zero)
         studioPanel = EditorPanel(frame: .zero)
-        studioTab.isHidden = true
-        studioPanel.backgroundColor = .seafoamBlue
+        //studioTab.isHidden = true
         studioTab.delegate = self
-        view.addSubview(studioTab)
+        
         view.addSubview(editorView)
         view.addSubview(studioPanel)
+        view.addSubview(studioTab)
         studioPanel.delegate = self
         coordinator.delegate = self
         coordinator.controller = self
@@ -204,7 +204,7 @@ class StudioVC: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn], animations: {
             [unowned self] in
             self.tabTopConstraint.constant = 30
-            self.studioTab.isHidden = false
+            //self.studioTab.isHidden = false
         })
     }
     
@@ -213,7 +213,7 @@ class StudioVC: UIViewController {
         tabsShowing = false
         UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn], animations: { [unowned self] in
             self.tabTopConstraint.constant = -30
-            self.studioTab.isHidden = true
+            //self.studioTab.isHidden = true
         })
     }
     

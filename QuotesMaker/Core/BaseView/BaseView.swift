@@ -94,7 +94,7 @@ class BaseView:UIView{
         backgroundColor = .white
         layer.borderWidth = 1
         layer.cornerRadius = 2
-        layer.borderColor = UIColor.primary.cgColor
+        layer.borderColor = UIColor.secondaryDark.cgColor
         contentMode = .scaleAspectFill
         layer.masksToBounds = true
         subscribeTo(subscription: .layerReArranged, selector: #selector(layerArranged(_:)))

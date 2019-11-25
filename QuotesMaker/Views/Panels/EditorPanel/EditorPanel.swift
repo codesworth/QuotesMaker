@@ -42,12 +42,12 @@ class EditorPanel: MaterialView {
         
         let translation = recognizer.translation(in: view)
         let finalPoint = view.frame.origin + translation
-        frame.origin.y = max(finalPoint.y, 150)
+        frame.origin.y = max(finalPoint.y, 120)
         
         if recognizer.state == .ended{
             if  frame.origin.y < screenHeight - 100{
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
-                    self.frame.origin.y = self.screenHeight - 150
+                    self.frame.origin.y = self.screenHeight - 120
                     self.handle.rotate(CGFloat.pi)
                 }, completion: nil)
             }else {
@@ -82,6 +82,7 @@ class EditorPanel: MaterialView {
     func commonInit(){
         clipsToBounds = true
         roundCorners(4)
+        backgroundColor = .secondaryDark
         let pan = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
         addGestureRecognizer(pan)
         addSubview(collectionView)
@@ -140,7 +141,7 @@ extension EditorPanel:UICollectionViewDelegate,UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [100,80]
+        return [80,80]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

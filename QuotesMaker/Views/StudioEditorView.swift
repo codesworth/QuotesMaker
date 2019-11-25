@@ -45,7 +45,7 @@ class StudioEditorView:UIView{
     
     private lazy var scrollbar:UIView = {
         let view  = UIView(frame: .zero)
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.55)
+        view.backgroundColor = .secondaryDark //UIColor.black.withAlphaComponent(0.55)
         view.roundCorners(4)
         return view
         
@@ -114,7 +114,7 @@ class StudioEditorView:UIView{
         
         
         //scrollView.addSubview(contentView)
-        borderlize(.secondaryDark, 1)
+        //borderlize(.secondaryDark, 1)
         self.setZoomable(true)
         
     }

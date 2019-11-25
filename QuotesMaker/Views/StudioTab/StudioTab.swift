@@ -132,13 +132,17 @@ extension StudioTab:UICollectionViewDelegate, UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "\(StudioTabCells.self)", for: indexPath) as? StudioTabCells else {return StudioTabCells()}
         let tab = tabActions[indexPath.row]
-        cell.configureCell(.image(for: tab))
+        if tab == .gradient || tab == .fill{
+            cell.configureCell(.image(for: tab),false)
+        }else{
+            cell.configureCell(.image(for: tab))
+        }
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return [60,40]
+        return [40,40]
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

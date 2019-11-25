@@ -19,9 +19,11 @@ class StudioTabCells: UICollectionViewCell {
         backgroundColor = .clear
     }
     
-    func configureCell(_ image:UIImage){
+    func configureCell(_ image:UIImage, _ mask:Bool = true){
         control.contentImageView.image = image
-        control.contentImageView.setImageMaskColor(.white)
+        if mask{
+            control.contentImageView.setImageMaskColor(.white)
+        }
     }
 
 
