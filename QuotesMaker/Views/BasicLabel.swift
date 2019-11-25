@@ -42,8 +42,8 @@ class BasicLabel: UILabel {
         return BasicLabel(frame: .zero, font: .systemFont(ofSize: 15, weight: .regular))
     }
     
-    class func basicLabel(_ text:String,_ color:UIColor = .charcoal)->BasicLabel{
-        let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .medium))
+    class func basicLabel(_ text:String,_ color:UIColor = .white)->BasicLabel{
+        let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 14, weight: .thin))
         label.text = text
         label.textAlignment = .center
         label.textColor = color

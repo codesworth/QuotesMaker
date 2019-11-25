@@ -115,6 +115,7 @@ extension UIScrollView{
         let scroll = UIScrollView(frame: .zero)
         scroll.bounces = true
         scroll.isScrollEnabled = true
+        scroll.showsVerticalScrollIndicator = false
         return scroll
     }
 }

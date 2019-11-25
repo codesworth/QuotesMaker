@@ -41,14 +41,14 @@ class StylingPanel:MaterialView{
     
     lazy var contentView:UIView = {
         let v = UIView(frame: .zero)
-        v.backgroundColor = .white
+        v.backgroundColor = .secondaryDark
         return v
     }()
     
     lazy var header:BasicLabel = {
         let lab = BasicLabel.basicHeader()
         lab.text = "Styling"
-        lab.textColor = .primary
+        lab.textColor = .white
         return lab
     }()
     
@@ -123,7 +123,7 @@ class StylingPanel:MaterialView{
     weak var stateDelegate:StateControlDelegate?
     
     func initialize(){
-        backgroundColor = .white
+        backgroundColor = .secondaryDark
         addSubview(header)
         //addSubview(stateControl)
         
@@ -179,7 +179,7 @@ class StylingPanel:MaterialView{
             $0.bottom == scrollView.bottomAnchor
             $0.trailing == scrollView.trailingAnchor
             $0.width == widthAnchor
-            $0.height |=| 550
+            $0.height |=| 480
         }
         
         

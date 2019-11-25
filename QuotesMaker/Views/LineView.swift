@@ -37,7 +37,7 @@ class LineView: UIView {
         line.layer.shadowOpacity = 0.5
         line.layer.shadowRadius = 2
         line.layer.shadowOffset = [2,0]
-        line.backgroundColor = .primary
+        line.backgroundColor = .primaryDark
         return line
     }
     

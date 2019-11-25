@@ -8823,16 +8823,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E651E83A-DBAB-4138-ADA9-612274A83E44"
+            uuid = "EA6234C1-1431-4867-A6FD-C720AEE702C1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QuotesMaker/Controller/Home/TemplateCell.swift"
+            filePath = "QuotesMaker/Controller/Studio/iPhone/Studio+Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "layoutImageView(size:)"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "actiondone(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9D76925-47B9-42A9-B2F9-ADC62BAB8D61"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Controller/Studio/iPhone/Studio+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "actiondone(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

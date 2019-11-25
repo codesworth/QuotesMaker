@@ -269,7 +269,7 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        imagePanel.isInView = true
+        imagePanel.isInView = false
        
     }
     
