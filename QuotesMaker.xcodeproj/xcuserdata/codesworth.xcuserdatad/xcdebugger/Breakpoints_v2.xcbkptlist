@@ -4539,8 +4539,8 @@
             timestampString = "577365697.618539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "alphaChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4556,8 +4556,8 @@
             timestampString = "577365697.6186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "alphaChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -8830,9 +8830,9 @@
             filePath = "QuotesMaker/Controller/Home/TemplateCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "configureView(_:)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "layoutImageView(size:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

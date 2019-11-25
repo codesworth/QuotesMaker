@@ -39,20 +39,10 @@ class GradientPanel: MaterialView {
         //subscribeTo(subscription: .canUndo, selector: #selector(canUndo(_:)))
     }
     
-//    @objc func canUndo(_ notification:Notification){
-//        if let canundo = notification.userInfo?[.info] as? Bool{
-//            stateControl.undoButt.isEnabled = canundo
-//        }
-//    }
     
     weak var stateDelegate:StateControlDelegate?
     
-//    lazy var stateControl:StateChangeControl = {
-//        let view = StateChangeControl(frame: .zero)
-//        view.undoButt.addTarget(self, action: #selector(undo), for: .touchUpInside)
-//        view.redoButt.addTarget(self, action: #selector(redo), for: .touchUpInside)
-//        return view
-//    }()
+
     
     @objc func undo(){
         stateDelegate?.stateChanged(.undo)
@@ -72,15 +62,15 @@ class GradientPanel: MaterialView {
     
     lazy var titleLable:BasicLabel = {
         let lable = BasicLabel(frame: .zero, font:.header)
-        lable.text = "Customize Gradients"
-        lable.textColor = .primary
+        lable.text = "Customize Gradient"
+        lable.textColor = .white
         return lable
     }()
     
     var designtedAlphas:[CGFloat] = [1,1,1,1]
     lazy var parent:UIView = {
         let v = UIView(frame: frame)
-        v.backgroundColor = .white
+        v.backgroundColor = .secondaryDark
         return v
     }()
 
@@ -100,7 +90,8 @@ class GradientPanel: MaterialView {
     lazy var stepperTitle:BasicLabel = {
         let lable = BasicLabel(frame: .zero)
         lable.text = "Add / Remove Colors"
-        lable.font = .systemFont(ofSize: 16, weight: .regular)
+        lable.font = .systemFont(ofSize: 14, weight: .thin)
+        lable.textColor = .white
         return lable
     }()
     
@@ -108,12 +99,13 @@ class GradientPanel: MaterialView {
         let scroll = UIScrollView(frame: .zero)
         scroll.bounces = true
         scroll.isScrollEnabled = true
+        scroll.showsVerticalScrollIndicator = false
         return scroll
     }()
     
     lazy var contentView:UIView = {
         let v = UIView(frame: .zero)
-        v.backgroundColor = .white
+        v.backgroundColor = .clear
         return v
     }()
     
@@ -121,7 +113,7 @@ class GradientPanel: MaterialView {
         let segment = UISegmentedControl(frame: .zero)
         segment.insertSegment(withTitle: "1", at: 0, animated: true)
         segment.insertSegment(withTitle: "2", at: 1, animated: true)
-        segment.tintColor = .gray
+        segment.tintColor = .white
         segment.selectedSegmentIndex = 0
         return segment
     }()
@@ -131,12 +123,13 @@ class GradientPanel: MaterialView {
         stepper.maximumValue = 4
         stepper.minimumValue = 2
         stepper.stepValue = 1
-        stepper.tintColor = .primary
+        stepper.tintColor = .white
         return stepper
     }()
     
     lazy var colorSlider:ColorSlider = {
         let slider = ColorSlider(orientation: .horizontal, previewSide: .top)
+        slider.gradientView.layer.borderColor = UIColor.primaryDark.cgColor
         return slider
     }()
     
@@ -145,12 +138,14 @@ class GradientPanel: MaterialView {
         slider.minimumValue = 0
         slider.maximumValue = 1
         slider.isContinuous = true
-        
+        slider.thumbTintColor = .primaryDark
+        slider.tintColor = .white
         return slider
     }()
     
     lazy var locationTitle:BasicLabel = {
-        let lable = BasicLabel(frame: .zero,font: .systemFont(ofSize: 16, weight: .regular))
+        let lable = BasicLabel(frame: .zero,font: .systemFont(ofSize: 14, weight: .thin))
+        lable.textColor = .white
         lable.text = "Set Gradient Location"
         return lable
     }()
@@ -169,7 +164,7 @@ class GradientPanel: MaterialView {
     func commonInit(){
         clipsToBounds = false
         model = GradientLayerModel.defualt()
-        backgroundColor = .white
+        backgroundColor = .secondaryDark
         parent.clipsToBounds = true
         addSubview(parent)
         
@@ -309,7 +304,7 @@ class GradientPanel: MaterialView {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             contentView.widthAnchor.constraint(equalTo: parent.widthAnchor),
-            contentView.heightAnchor.constraint(equalToConstant: 650),
+            contentView.heightAnchor.constraint(equalToConstant: 550),
             //priorityC,
             gradientSegments.topAnchor.constraint(equalTo: contentView.topAnchor),
             gradientSegments.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: insets),

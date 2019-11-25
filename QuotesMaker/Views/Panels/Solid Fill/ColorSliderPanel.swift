@@ -44,8 +44,8 @@ class ColorSliderPanel: MaterialView {
     
     lazy var header:BasicLabel = {
         let h = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .medium))
-        h.textColor = .primary
-        h.text = "Styling"
+        h.textColor = .white
+        h.text = "Fill Color"
         return h
     }()
     
@@ -59,7 +59,7 @@ class ColorSliderPanel: MaterialView {
         let lable = UILabel(frame: .zero)
         lable.font = .systemFont(ofSize: 16, weight: .medium)
         lable.text = "Set Background Color"
-        lable.textColor = .black
+        lable.textColor = .white
         lable.textAlignment = .center
         return lable
     }()
@@ -118,7 +118,8 @@ class ColorSliderPanel: MaterialView {
     }
     
     func commonSetup(){
-        backgroundColor = .white
+        backgroundColor = .secondaryDark
+        colorSlider.gradientView.layer.borderColor = UIColor.primaryDark.cgColor
         addSubview(header)
         //addSubview(stateControl)
         colorSlider.addTarget(self, action: #selector(colorIsChanging(_:)), for: .valueChanged)

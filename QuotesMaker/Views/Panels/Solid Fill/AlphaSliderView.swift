@@ -16,6 +16,8 @@ class AlphaSliderView: UIView {
         let slider = UISlider(frame: .zero)
         slider.maximumValue = 1
         slider.minimumValue = 0
+        slider.tintColor = .white
+        slider.thumbTintColor = .primaryDark
         slider.isContinuous = true
         return slider
     }()
@@ -24,7 +26,7 @@ class AlphaSliderView: UIView {
         let lable = UILabel(frame: .zero)
         lable.font = .systemFont(ofSize: 16, weight: .medium)
         lable.text = "Set Opacity"
-        lable.textColor = .black
+        lable.textColor = .white
         lable.textAlignment = .center
         return lable
     }()
