@@ -22,7 +22,7 @@ class TextDesignableInputView:UIView{
     
     lazy var titleLable:BasicLabel = {
         let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .semibold))
-        lab.textColor = .primary
+        lab.textColor = .white
         lab.attributedText = NSAttributedString(string: "Fonts", attributes: [:])
         return lab
     }()

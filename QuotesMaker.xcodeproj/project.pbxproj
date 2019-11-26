@@ -19,6 +19,7 @@
 		38051CCC2253B14F00D9E763 /* iPadMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38051CCB2253B14F00D9E763 /* iPadMain.storyboard */; };
 		38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCD2253B90900D9E763 /* StudioLayout.swift */; };
 		38051CD02253C28B00D9E763 /* StudiolLayoutIPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */; };
+		38059F2C238D69B800A2351B /* TabContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38059F2B238D69B800A2351B /* TabContainer.swift */; };
 		3808267F2291698100B351DB /* JosefinSlab-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 380824902291696300B351DB /* JosefinSlab-LightItalic.ttf */; };
 		380826802291698100B351DB /* JosefinSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 380824912291696300B351DB /* JosefinSlab-Light.ttf */; };
 		380826812291698100B351DB /* JosefinSlab-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 380824922291696300B351DB /* JosefinSlab-SemiBoldItalic.ttf */; };
@@ -680,6 +681,7 @@
 		38051CCB2253B14F00D9E763 /* iPadMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = iPadMain.storyboard; sourceTree = "<group>"; };
 		38051CCD2253B90900D9E763 /* StudioLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioLayout.swift; sourceTree = "<group>"; };
 		38051CCF2253C28B00D9E763 /* StudiolLayoutIPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiolLayoutIPad.swift; sourceTree = "<group>"; };
+		38059F2B238D69B800A2351B /* TabContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainer.swift; sourceTree = "<group>"; };
 		380824902291696300B351DB /* JosefinSlab-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-LightItalic.ttf"; sourceTree = "<group>"; };
 		380824912291696300B351DB /* JosefinSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-Light.ttf"; sourceTree = "<group>"; };
 		380824922291696300B351DB /* JosefinSlab-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSlab-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -2805,6 +2807,7 @@
 				38C80FC5223C453D00150FD4 /* TabControl.swift */,
 				38661B0D224C42D300440AC7 /* StudioTabCells.swift */,
 				38661B0E224C42D300440AC7 /* StudioTabCells.xib */,
+				38059F2B238D69B800A2351B /* TabContainer.swift */,
 			);
 			path = StudioTab;
 			sourceTree = "<group>";
@@ -3826,6 +3829,7 @@
 				38797C2522309DAF003A9D99 /* Constraints.swift in Sources */,
 				38265130227EF703003D2E19 /* Canvas.swift in Sources */,
 				385A1EE7228F4A5900185D48 /* ColorDirectedBlur.swift in Sources */,
+				38059F2C238D69B800A2351B /* TabContainer.swift in Sources */,
 				385A1EE6228F4A5900185D48 /* CIKL_Sky.swift in Sources */,
 				381865B5223C9972006C0C56 /* LayerStack.swift in Sources */,
 				388BE336222B2135005BF44B /* BackingGradientlayer.swift in Sources */,

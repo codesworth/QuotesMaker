@@ -45,7 +45,7 @@ class StudioEditorView:UIView{
     
     private lazy var scrollbar:UIView = {
         let view  = UIView(frame: .zero)
-        view.backgroundColor = .secondaryDark //UIColor.black.withAlphaComponent(0.55)
+        view.backgroundColor = .primaryDark //UIColor.black.withAlphaComponent(0.55)
         view.roundCorners(4)
         return view
         

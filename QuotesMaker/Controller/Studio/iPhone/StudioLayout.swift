@@ -14,6 +14,7 @@ extension StudioVC{
     func layout(){
         view.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         let points = Dimensions.originalPanelPoints
+        studioTabContainer = TabContainer(frame: [0,-200,Dimensions.panelWidth,80])
         colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
         //colorPanel.stateDelegate = self
         gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])
@@ -23,12 +24,13 @@ extension StudioVC{
         
         //imagePanel.stateDelegate = self
         let size = Dimensions.editorSize
-        tabTopConstraint = studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: -30)
+        //tabTopConstraint = studioTab.topAnchor.constraint(equalTo:view.topAnchor, constant: -30)
+//        tabTopConstraint,
+//        studioTab.heightAnchor.constraint(equalToConstant: 40),
+//        studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+//        studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
         NSLayoutConstraint.activate([
-            tabTopConstraint,
-            studioTab.heightAnchor.constraint(equalToConstant: 40),
-            studioTab.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            studioTab.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            
             
             editorView.topAnchor.constraint(equalTo: view.topAnchor, constant: 58),
             editorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -45,5 +47,9 @@ extension StudioVC{
 //            $0.height |=| (UIScreen.main.bounds.height * 0.8)
 //        }
         
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
     }
 }
