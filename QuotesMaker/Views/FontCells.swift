@@ -16,7 +16,7 @@ class FontCells: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerview.borderlize(.darkGray, 1)
+        
         containerview.roundCorners(4)
         if #available(iOS 11.0, *) {
             

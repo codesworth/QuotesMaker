@@ -88,6 +88,7 @@ final class CornersPanel:UIView{
     @objc func cornerChanged(_ notif:Notification){
         guard let radius = notif.userInfo?[.info] as? CGFloat else{return}
         slider.maximumValue = Float(radius)
+        cornerRadius.text = "Radius: \(Int(radius))"
     }
     
 }

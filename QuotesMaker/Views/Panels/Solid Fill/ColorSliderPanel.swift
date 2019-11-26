@@ -120,6 +120,7 @@ class ColorSliderPanel: MaterialView {
     func commonSetup(){
         backgroundColor = .secondaryDark
         colorSlider.gradientView.layer.borderColor = UIColor.primaryDark.cgColor
+        
         addSubview(header)
         //addSubview(stateControl)
         colorSlider.addTarget(self, action: #selector(colorIsChanging(_:)), for: .valueChanged)

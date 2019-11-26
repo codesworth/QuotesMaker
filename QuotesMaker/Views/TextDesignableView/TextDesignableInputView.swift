@@ -42,8 +42,10 @@ class TextDesignableInputView:UIView{
     lazy var fontCollectionview:UICollectionView = {
         let flow = UICollectionViewFlowLayout()
         flow.scrollDirection = .horizontal
+        
         let col = UICollectionView(frame: .zero, collectionViewLayout: flow)
-        col.backgroundColor = .clear
+        col.backgroundColor = .secondaryDark
+        col.showsHorizontalScrollIndicator = false
         return col
     }()
     
@@ -77,77 +79,90 @@ class TextDesignableInputView:UIView{
     
     lazy var fontSizeLable:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Size: "
         return lab
     }()
     lazy var underlinelable:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Underline"
         return lab
     }()
     
     lazy var underlineStylelable:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Style"
         return lab
     }()
     
     lazy var underlineColorlable:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Color"
         return lab
     }()
     
     lazy var strokeLabel:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Text Stroke"
         return lab
     }()
     
     lazy var strokeWidthLabel:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Stroke width:"
         return lab
     }()
     
     lazy var strokeColorLabel:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Stroke Color"
         return lab
     }()
     
     lazy var strikeLabel:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Strikethrough"
         return lab
     }()
     
     lazy var strikeStyleLabel:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Style"
         return lab
     }()
     
     lazy var strikeColorLabel:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Color"
         return lab
     }()
     
     lazy var obliqLabel:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Obliqueness"
         return lab
     }()
     
     lazy var obliqStyleLabel:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Style: "
         return lab
     }()
     
     lazy var fontColorLable:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Color"
         return lab
     }()
@@ -158,7 +173,7 @@ class TextDesignableInputView:UIView{
         segment.insertSegment(with: .alignCenter, at: 1, animated: true)
         segment.insertSegment(with: .alignRight, at: 2, animated: true)
         segment.insertSegment(with: .alignJustify, at: 3, animated: true)
-        segment.tintColor = UIColor.primary
+        segment.tintColor = UIColor.white
         segment.selectedSegmentIndex = 0
         segment.addTarget(self, action: #selector(alignmentDidChange(_:)), for: .valueChanged)
         return segment
@@ -168,13 +183,15 @@ class TextDesignableInputView:UIView{
     lazy var scrollView:UIScrollView = {
         let scroll = UIScrollView(frame: .zero)
         scroll.bounces = true
+        scroll.showsVerticalScrollIndicator = false
+        scroll.backgroundColor = .secondaryDark
         scroll.isScrollEnabled = true
         return scroll
     }()
     
     lazy var contentView:UIView = {
         let v = UIView(frame: .zero)
-        v.backgroundColor = .white
+        v.backgroundColor = .secondaryDark
         return v
     }()
     
@@ -184,7 +201,7 @@ class TextDesignableInputView:UIView{
         stepper.minimumValue = 10
         stepper.stepValue = 1
         stepper.value = 20
-        stepper.tintColor = .primary
+        stepper.tintColor = .white
         return stepper
     }()
     
@@ -229,7 +246,7 @@ class TextDesignableInputView:UIView{
         stepper.minimumValue = 0
         stepper.stepValue = 1
         stepper.value = 0
-        stepper.tintColor = .primary
+        stepper.tintColor = .white
         return stepper
     }()
     
@@ -244,7 +261,7 @@ class TextDesignableInputView:UIView{
         stepper.minimumValue = -10
         stepper.stepValue = 1
         stepper.value = 0
-        stepper.tintColor = .primary
+        stepper.tintColor = .white
         return stepper
     }()
     
@@ -285,6 +302,7 @@ class TextDesignableInputView:UIView{
     }
     
     func initialize(){
+        backgroundColor = .secondaryDark
         chosenFont = model.font.fontName
         addsubviews()
         registrationsAndtargetSets()

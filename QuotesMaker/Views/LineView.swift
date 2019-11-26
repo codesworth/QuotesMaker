@@ -27,7 +27,7 @@ class LineView: UIView {
     }
     
     func regularInit(){
-        backgroundColor = .black
+        backgroundColor = .primaryDark
         layer.cornerRadius = 3
     }
     

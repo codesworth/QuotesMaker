@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         SKPaymentQueue.default().add(self)
         let appearance = UIBarButtonItem.appearance()
-        appearance.tintColor = .primary
+        appearance.tintColor = .white
         return true
     }
 
