@@ -21,6 +21,8 @@ class StudioEditorView:UIView{
         case max = 4
     }
     
+    private let delay:Int = 2
+    
     var scrollValue = false{
         didSet{
             print("I was set to: ",scrollValue)
@@ -45,7 +47,7 @@ class StudioEditorView:UIView{
     
     private lazy var scrollbar:UIView = {
         let view  = UIView(frame: .zero)
-        view.backgroundColor = .primaryDark //UIColor.black.withAlphaComponent(0.55)
+        view.backgroundColor = .secondaryDark //UIColor.black.withAlphaComponent(0.55)
         view.roundCorners(4)
         return view
         
@@ -66,6 +68,21 @@ class StudioEditorView:UIView{
         return circle
     }(())
     
+    func showScrollBars(){
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: {
+            self.scrollbar.alpha = 1
+        })
+       }
+    
+    func hideScrollBars(){
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(self.delay)) {
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseInOut], animations: {
+                self.scrollbar.alpha = 0
+            })
+        }
+    }
+        
+    
     @objc func scrollCirclePanned(_ recognizer:UIPanGestureRecognizer){
         guard let view = recognizer.view else {return}
         
@@ -77,7 +94,16 @@ class StudioEditorView:UIView{
         }
         
         recognizer.setTranslation(.zero, in: view)
-        
+        switch recognizer.state {
+        case .began:
+            showScrollBars()
+            break
+        case .ended:
+            hideScrollBars()
+            break
+        default:
+            break
+        }
         
     }
     
@@ -205,6 +231,12 @@ class StudioEditorView:UIView{
 //        ])
         
         
+    }
+    
+    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        hideScrollBars()
     }
     
     
