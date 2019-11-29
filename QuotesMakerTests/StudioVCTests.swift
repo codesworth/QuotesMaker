@@ -83,7 +83,7 @@ class StudioVCTests: XCTestCase {
         
         XCTAssertNil(studioVc.coordinator.baseView.currentSubview,"Error Initialized with a default subview")
         studioVc.studioPanel.collectionView(studioVc.studioPanel.collectionView, didSelectItemAt: IndexPath(row: 1, section: 0))
-        studioVc.studioTab.collectionView(studioVc.studioTab.collectionview, didSelectItemAt: IndexPath(row: 3, section: 0))
+        studioVc.studioTabContainer.studioTab.collectionView(studioVc.studioTabContainer.studioTab.collectionview, didSelectItemAt: IndexPath(row: 3, section: 0))
         XCTAssertEqual(studioVc.coordinator.baseView.subviews.count, 2, "Unable to duplicate Layers")
     }
     
@@ -91,7 +91,7 @@ class StudioVCTests: XCTestCase {
         studioVc.loadViewIfNeeded()
         XCTAssertNil(studioVc.coordinator.baseView.currentSubview,"Error Initialized with a default subview")
         studioVc.studioPanel.collectionView(studioVc.studioPanel.collectionView, didSelectItemAt: IndexPath(row: 1, section: 0))
-        studioVc.studioTab.collectionView(studioVc.studioTab.collectionview, didSelectItemAt: IndexPath(row: 9, section: 0))
+        studioVc.studioTabContainer.studioTab.collectionView(studioVc.studioTabContainer.studioTab.collectionview, didSelectItemAt: IndexPath(row: 9, section: 0))
         XCTAssertEqual(studioVc.coordinator.baseView.subviews.count, 0, "Unable to duplicate Layers")
     }
     
@@ -99,7 +99,7 @@ class StudioVCTests: XCTestCase {
         studioVc.loadViewIfNeeded()
         XCTAssertNil(studioVc.coordinator.baseView.currentSubview,"Error Initialized with a default subview")
         studioVc.studioPanel.collectionView(studioVc.studioPanel.collectionView, didSelectItemAt: IndexPath(row: 1, section: 0))
-        studioVc.studioTab.collectionView(studioVc.studioTab.collectionview, didSelectItemAt: IndexPath(row: 0, section: 0))
+        studioVc.studioTabContainer.studioTab.collectionView(studioVc.studioTabContainer.studioTab.collectionview, didSelectItemAt: IndexPath(row: 0, section: 0))
         studioVc.gradientPanel.colorSliderDidChanged(studioVc.gradientPanel.colorSlider)
         XCTAssertNotNil((studioVc.coordinator.baseView.currentSubview as? RectView)?.model.gradient, "Failed to swap Gradient Layer")
         //studioVc.colorPanel.colorChanged(studioVc.colorPanel.colorSlider)
