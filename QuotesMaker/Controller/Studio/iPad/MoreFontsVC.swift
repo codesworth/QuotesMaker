@@ -21,16 +21,21 @@ class MoreFontsVC: UIViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         fonts = engine.getAvailableFonts()
+        searchBar.searchTextField.textColor = .white
         collectionView.register(UINib(nibName: "\(FontCells.self)", bundle: nil), forCellWithReuseIdentifier: "\(FontCells.self)")
         collectionView.delegate = self
         collectionView.dataSource = self
         size = model.font.pointSize
+        
         if !__IS_IPAD{
-            previewTextView.textAlignment = .center
+            
             var mod = model; mod?.font = model.font.withSize(23)
-            mod?.textColor = .black
+            mod?.textColor = .white
+            mod?.alignment = 1
             previewTextView.attributedText = mod?.outPutString()
         }
+        previewTextView.roundCorners(10)
+        previewTextView.textColor = .white
         // Do any additional setup after loading the view.
     }
     
@@ -98,7 +103,7 @@ extension MoreFontsVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColl
         if !__IS_IPAD{
             var mod = model
             mod?.font = chosenFont.withSize(23)
-            mod?.textColor = .black
+            mod?.textColor = .white
             previewTextView.attributedText = mod?.outPutString()
         }
     }

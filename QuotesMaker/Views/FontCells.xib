@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="81" height="81"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFc-4x-89i">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sFc-4x-89i" customClass="MaterialView" customModule="QuotesMaker" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="81" height="81"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="7VK-1Y-FPe">
@@ -53,7 +53,7 @@
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="sFc-4x-89i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Vx-f2-zNH"/>
                 <constraint firstAttribute="bottom" secondItem="sFc-4x-89i" secondAttribute="bottom" id="FNT-sT-gb8"/>

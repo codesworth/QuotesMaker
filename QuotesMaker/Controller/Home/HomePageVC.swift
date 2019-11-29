@@ -36,6 +36,7 @@ class HomePageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        header.layer.cornerRadius = 30
         refreshRecent()
         subscribeTo(subscription: .refreshRecent, selector: #selector(refreshRecent))
     }
@@ -53,7 +54,7 @@ class HomePageVC: UIViewController {
     }
     
     func setup(){
-        header.layer.cornerRadius = 30
+        
         recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
         recentCollectionVIew.delegate = self
         recentCollectionVIew.dataSource = self
