@@ -34,30 +34,35 @@ class ImagePanel: MaterialView {
     
     lazy var cropButton:TabControl = {
         let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "crop"))
+        tab.contentImageView.setImageMaskColor(.white)
         tab.addtarget(self, selector: #selector(cropPressed(_:)))
         return tab
     }()
     
     lazy var rotateButton:TabControl = {
         let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "rotate"))
+        tab.contentImageView.setImageMaskColor(.white)
         tab.addtarget(self, selector: #selector(rotatePressed(_:)))
         return tab
     }()
     
     lazy var flipHorizButton:TabControl = {
         let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "hflip"))
+        tab.contentImageView.setImageMaskColor(.white)
         tab.addtarget(self, selector: #selector(flipHPressed(_:)))
         return tab
     }()
     
     lazy var flipvertButton:TabControl = {
         let tab = TabControl(frame: .zero, image: #imageLiteral(resourceName: "vflip"))
+        tab.contentImageView.setImageMaskColor(.white)
         tab.addtarget(self, selector: #selector(flipVPressed(_:)))
         return tab
     }()
     
     lazy var modelable:BasicLabel = {
         let lab = BasicLabel.basicMake()
+        lab.textColor = .white
         lab.text = "Aspect Mode"
         return lab
     }()
@@ -117,6 +122,7 @@ class ImagePanel: MaterialView {
     lazy var header:BasicLabel = {
         let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .medium))
         label.text = "Image Options"
+        label.textColor = .white
         return label
     }()
     
@@ -134,12 +140,12 @@ class ImagePanel: MaterialView {
     lazy var pickFromGalleryButton:UIButton = {
         let butt = UIButton(frame: [0])
         butt.backgroundColor = .clear
-        butt.backgroundColor = .primary
+        butt.backgroundColor = .primaryDark
         butt.setTitle("Add From Photos", for: .normal)
         butt.setTitleColor(.white, for: .normal)
         butt.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
         butt.titleLabel?.numberOfLines = 2
-        butt.borderlize()
+        
         
         return butt
     }()
@@ -147,12 +153,12 @@ class ImagePanel: MaterialView {
     lazy var addFilterButton:UIButton = {
         let butt = UIButton(frame: [0])
         butt.backgroundColor = .clear
-        butt.backgroundColor = .primary
+        butt.backgroundColor = .primaryDark
         butt.setTitle("Filters", for: .normal)
         butt.setTitleColor(.white, for: .normal)
         butt.titleLabel?.font = .systemFont(ofSize: 14, weight: .regular)
         butt.titleLabel?.numberOfLines = 2
-        butt.borderlize()
+        
         
         return butt
     }()
@@ -163,7 +169,7 @@ class ImagePanel: MaterialView {
             segment.insertSegment(withTitle: mode.rawValue.capitalized, at: index, animated: true)
         }
         segment.selectedSegmentIndex = aspectIndex
-        segment.tintColor = .primary
+        segment.tintColor = .primaryDark
         segment.addTarget(self, action: #selector(aspectChanged(_:)), for: .valueChanged)
         return segment
     }(())
@@ -174,7 +180,7 @@ class ImagePanel: MaterialView {
     
     lazy var contentView:UIView = {
         let v = UIView(frame: .zero)
-        v.backgroundColor = .white
+        v.backgroundColor = .secondaryDark
         return v
     }()
 
@@ -202,7 +208,7 @@ class ImagePanel: MaterialView {
     }
     
     func initialize(){
-        backgroundColor = .white
+        backgroundColor = .secondaryDark
         addSubview(header)
         //addSubview(stateControl)
         addSubview(scrollView)

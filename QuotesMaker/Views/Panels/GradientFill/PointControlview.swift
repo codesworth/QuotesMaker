@@ -19,7 +19,7 @@ class PointControlView: UIView {
         let seg = UISegmentedControl(frame: .zero)
         seg.insertSegment(withTitle: "Start Point", at: 0, animated: true)
         seg.insertSegment(withTitle: "End Point", at: 1, animated: true)
-        seg.tintColor = .gray
+        seg.tintColor = .primaryDark
         seg.selectedSegmentIndex = 0
         return seg
     }()
@@ -27,6 +27,7 @@ class PointControlView: UIView {
     lazy var label:BasicLabel = {
         let label = BasicLabel(frame: .zero, font: .systemFont(ofSize: 16, weight: .regular))
         label.text = "Gradient Orientation"
+        label.textColor = .white
         return label
     }()
     
@@ -53,7 +54,7 @@ class PointControlView: UIView {
     private var currentIndex = 0
     
     func commonInit(){
-        backgroundColor = .white
+        backgroundColor = .secondaryDark
         //layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMaxXMinYCorner,.layerMinXMinYCorner]
         addSubview(segments)
         addSubview(pad)

@@ -56,7 +56,7 @@ class ImageFilterVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .primaryDark
         view.addSubview(navbar)
         navbar.layout{
             $0.top == view.topAnchor

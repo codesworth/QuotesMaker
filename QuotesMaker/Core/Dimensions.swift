@@ -29,7 +29,7 @@ class Dimensions{
     }
     
     class var colorPanelHeight:CGFloat{
-        return 250
+        return 200
     }
     
     class var gradientPanelHeight:CGFloat{

@@ -19,7 +19,7 @@ class PointControlPad: UIView {
     lazy var pointControl:UIView = {
         let view = UIView(frame: CGRect(origin: .zero, size: 24))
         view.layer.cornerRadius = 12
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         view.layer.shadowColor = UIColor.darkGray.cgColor
         view.layer.shadowRadius = 5
         view.layer.shadowOpacity = 0.4
@@ -52,7 +52,7 @@ class PointControlPad: UIView {
     }
     
     func commonInit(){
-        backgroundColor = .green
+        backgroundColor = .primaryDark
         addSubview(pointControl)
         layer.cornerRadius = 3
         clipsToBounds = true

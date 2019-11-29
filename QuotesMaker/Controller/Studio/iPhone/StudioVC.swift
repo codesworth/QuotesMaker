@@ -19,17 +19,19 @@ class StudioVC: UIViewController {
         return editor
     }()
     var canvas:Canvas!
-    
+    var tabContainerHeight:CGFloat = 80
     var coordinator:EditingCoordinator!
     var studioHeight: CGFloat!
     var studioPanel: EditorPanel!
     var colorPanel:ColorSliderPanel!
     var gradientPanel:GradientPanel!
-    var studioTab:StudioTab!
+    var studioTabContainer:TabContainer!
     var imagePanel:ImagePanel!
     var stylingPanel:StylingPanel!
     var stackShowing = false
     var imageLayerExists = false
+    var tabsShowing = false
+    
     
     var stack:LayerStack?
     
@@ -57,12 +59,11 @@ class StudioVC: UIViewController {
         //let value = UIInterfaceOrientation.landscapeLeft.rawValue
         //UIDevice.current.setValue(value, forKey: "orientation")
         //setupDevice()
-        view.backgroundColor = .white
-        studioTab = StudioTab(frame: .zero)
+        view.backgroundColor = .primaryDark
         studioPanel = EditorPanel(frame: .zero)
-        studioPanel.backgroundColor = .seafoamBlue
-        studioTab.delegate = self
-        view.addSubview(studioTab)
+        
+        
+        
         view.addSubview(editorView)
         view.addSubview(studioPanel)
         studioPanel.delegate = self
@@ -75,6 +76,7 @@ class StudioVC: UIViewController {
         makeStackTable()
         //print("Orientations: \(UIDevice.current.orientation.rawValue)")
         subscribeTo(subscription: .moreFonts, selector: #selector(launchMoreFonts(_:)))
+        studioTabContainer.studioTab.delegate = self
 
     }
     
@@ -92,10 +94,6 @@ class StudioVC: UIViewController {
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-    }
     
     
     @objc func launchMoreFonts(_ notifcation:Notification){
@@ -111,15 +109,19 @@ class StudioVC: UIViewController {
         switch handle {
         case .xmax_xr:
             studioHeight = 130
+            tabContainerHeight = 80
             return
         case .xs_x:
             studioHeight = 130
+            tabContainerHeight = 80
             return
         case .pluses:
             studioHeight = 120
+            tabContainerHeight = 60
             return
         default:
             studioHeight = 100
+            tabContainerHeight = 60
             return
         }
     }
@@ -194,12 +196,34 @@ class StudioVC: UIViewController {
         
     }
     
+    
+    func showTabs(){
+        if tabsShowing{return}
+        view.addSubview(studioTabContainer)
+        tabsShowing = true
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn], animations: {
+            [unowned self] in
+            self.studioTabContainer.frame.origin.y += 200
+            //self.studioTab.isHidden = false
+        })
+    }
+    
+    func hideTabs(){
+        if !tabsShowing{return}
+        tabsShowing = false
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseIn], animations: { [unowned self] in
+            //self.tabTopConstraint.constant = -30
+            //self.studioTab.isHidden = true
+        })
+    }
+    
     func imageOptionSelected(){
         
         //coordinator.imageOptionSelected()
         //setupImageInteractiveView()
         imageLayerExists = false
         launchPicker()
+        
         
     }
     
@@ -211,6 +235,7 @@ class StudioVC: UIViewController {
     }
     
     func shapeSelected(){
+        showTabs()
         coordinator.shapeSelected()
         setupColorPanel()
 
@@ -218,6 +243,7 @@ class StudioVC: UIViewController {
     
     
     func addText(){
+        showTabs()
         coordinator.addText()
         
     }
@@ -243,13 +269,14 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
-        imagePanel.isInView = true
+        imagePanel.isInView = false
        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if !imageLayerExists {
+            showTabs()
             coordinator.imageOptionSelected()
             setupImageInteractiveView()
         }

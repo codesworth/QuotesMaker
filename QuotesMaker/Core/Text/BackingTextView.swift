@@ -14,6 +14,7 @@ class BackingTextView: UIView {
         let view = UITextView(frame: bounds, textContainer: nil)
         //view.adjustsFontForContentSizeCategory = true
         view.delegate = self
+        view.keyboardAppearance = .dark
         view.backgroundColor = .clear
         view.isUserInteractionEnabled = false
         return view

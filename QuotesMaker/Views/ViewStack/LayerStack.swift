@@ -25,7 +25,8 @@ class LayerStack: MaterialView {
     lazy var stackTable:UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.allowsMultipleSelection = false
-        table.backgroundColor = .clear
+        table.backgroundColor = .secondaryDark
+        table.tableHeaderView = UIView(frame: [8])
         table.isEditing = true
         table.allowsSelectionDuringEditing = true
         table.register(UINib(nibName: "\(StackCell.self)", bundle: nil), forCellReuseIdentifier: "\(StackCell.self)")
@@ -36,7 +37,7 @@ class LayerStack: MaterialView {
     
     lazy var headerLable:BasicLabel = {
         let lab = BasicLabel(frame: .zero, font: .systemFont(ofSize: 18, weight: .medium))
-        lab.textColor = .primary
+        lab.textColor = .white
         lab.text = "Layers"
         return lab
     }()
@@ -103,7 +104,7 @@ class LayerStack: MaterialView {
     
     func initialize(){
         roundCorners([.layerMinXMinYCorner,.layerMinXMaxYCorner], radius: 4)
-        backgroundColor = .groupTableViewBackground
+        backgroundColor = .secondaryDark
         addSubview(stackTable)
         addSubview(headerLable)
         addSubview(doneButt)

@@ -15,7 +15,8 @@ final class BorderPanel:UIView{
     
     lazy var borderText:BasicLabel = {
         let lab =  BasicLabel.basicLabel("Borders")
-        lab.font = .systemFont(ofSize: 18, weight: .semibold)
+        lab.font = .systemFont(ofSize: 16, weight: .regular)
+        
         return lab
     }()
     
@@ -32,7 +33,7 @@ final class BorderPanel:UIView{
         stepper.maximumValue = 100
         stepper.minimumValue = 0
         stepper.value = 0
-        stepper.tintColor = .primary
+        stepper.tintColor = .primaryDark
         stepper.stepValue = 0.5
         
         return stepper
@@ -40,6 +41,7 @@ final class BorderPanel:UIView{
     
     lazy var colorSlider: ColorSlider = {
         let slider = ColorSlider(orientation: .horizontal, previewSide: .top)
+        slider.gradientView.layer.borderColor = UIColor.primaryDark.cgColor
         return slider
     }()
     
@@ -93,7 +95,7 @@ final class BorderPanel:UIView{
         }
         
         colorSlider.layout{
-            $0.top == borderColor.bottomAnchor + 8
+            $0.top == borderColor.bottomAnchor + 16
             $0.leading == widthStepper.trailingAnchor + 12
             $0.trailing == trailingAnchor - 16
             $0.height |=| 20

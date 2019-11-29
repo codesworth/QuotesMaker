@@ -26,7 +26,7 @@ class FilterCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.backgroundColor = .white
+        containerView.backgroundColor = .primaryDark
         containerView.addSubview(imageView)
         loadingIndicator = UIActivityIndicatorView(frame: frame)
         loadingIndicator.hidesWhenStopped = true
@@ -34,7 +34,8 @@ class FilterCollectionCell: UICollectionViewCell {
         loadingIndicator.stopAnimating()
         //backgroundColor = .black
         
-        roundCorners(8)
+        imageView.roundCorners(5)
+        roundCorners(5)
     }
     
     override func prepareForReuse() {

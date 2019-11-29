@@ -29,7 +29,8 @@ final class CornersPanel:UIView{
         slider.minimumValue = 0
         slider.maximumValue = 100
         slider.value = 0
-        slider.tintColor = .primary
+        slider.tintColor = .white
+        slider.thumbTintColor = .primaryDark
         return slider
     }()
     
@@ -75,8 +76,9 @@ final class CornersPanel:UIView{
     
     
     func initialize(){
-        backgroundColor = .white
+        backgroundColor = .secondaryDark
         addSubview(cornerlable)
+        cornerlable.textColor = .white
         addSubview(cornerRadius)
         addSubview(slider)
         subscribeTo(subscription: .roundedCornerRadiusValueChanged, selector: #selector(cornerChanged(_:)))
@@ -86,6 +88,7 @@ final class CornersPanel:UIView{
     @objc func cornerChanged(_ notif:Notification){
         guard let radius = notif.userInfo?[.info] as? CGFloat else{return}
         slider.maximumValue = Float(radius)
+        cornerRadius.text = "Radius: \(Int(radius))"
     }
     
 }

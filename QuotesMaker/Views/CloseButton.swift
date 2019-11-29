@@ -13,7 +13,7 @@ class CloseButton: UIButton {
         
     override func draw(_ rect: CGRect) {
         let circle = UIBezierPath(ovalIn: rect.insetBy(dx: 5, dy: 5))
-        UIColor.primary.setFill()
+        UIColor.primaryDark.setFill()
         circle.fill()
         let slash = UIBezierPath()
         let slash2 = UIBezierPath()

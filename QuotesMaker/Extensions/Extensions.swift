@@ -115,6 +115,7 @@ extension UIScrollView{
         let scroll = UIScrollView(frame: .zero)
         scroll.bounces = true
         scroll.isScrollEnabled = true
+        scroll.showsVerticalScrollIndicator = false
         return scroll
     }
 }
@@ -151,9 +152,9 @@ extension UIImage{
         case .layers:
             return #imageLiteral(resourceName: "stack")
         case .fill:
-            return #imageLiteral(resourceName: "paint")
+            return #imageLiteral(resourceName: "fill")
         case .gradient:
-            return #imageLiteral(resourceName: "ic_grad")
+            return #imageLiteral(resourceName: "ic_gradient")
         case .imgPanel:
             return #imageLiteral(resourceName: "img_ic")
         case .undo:
@@ -163,7 +164,7 @@ extension UIImage{
         case .duplicate:
             return #imageLiteral(resourceName: "duplicate")
         case .alpha:
-            return #imageLiteral(resourceName: "textalpha")
+            return #imageLiteral(resourceName: "font")
        
         }
     }
