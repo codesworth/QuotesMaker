@@ -50,7 +50,9 @@ class TextDesignableInputView:UIView{
     }()
     
     lazy var headlineline:LineView = {
-        return LineView.getLine()
+        let line =  LineView.getLine()
+        line.backgroundColor = .clear
+        return line
     }()
     
     lazy var firstline:LineView = {

@@ -31,7 +31,7 @@
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="pFo-G5-jqN" firstAttribute="top" secondItem="Gup-ZC-ebo" secondAttribute="bottom" constant="4" id="ETm-rS-qTw"/>
                 <constraint firstItem="Gup-ZC-ebo" firstAttribute="leading" secondItem="T9i-p6-zsH" secondAttribute="leading" id="eCU-HU-GU5"/>

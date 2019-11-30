@@ -174,7 +174,7 @@ class BaseView:UIView{
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        layer.borderColor = UIColor.primary.cgColor
+        layer.borderColor = UIColor.secondaryDark.cgColor
         return image
     }
     

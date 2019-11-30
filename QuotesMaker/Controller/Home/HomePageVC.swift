@@ -73,6 +73,12 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == recentCollectionVIew{
+            if allModels.isEmpty{
+                let view = RecentEmptyView(frame: recentCollectionVIew.frame)
+                recentCollectionVIew.backgroundView = view
+            }else{
+                recentCollectionVIew.backgroundView = nil
+            }
             return allModels.count
         }
         return sizes.count

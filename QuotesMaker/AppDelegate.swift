@@ -86,7 +86,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setRootViewContoroller(){
         if UIDevice.idiom == .phone{
-            let home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(HomePageVC.self)") as! HomePageVC
+            let home = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EntryPoint") as! UITabBarController
+            
             window?.rootViewController = home
         }
     }
