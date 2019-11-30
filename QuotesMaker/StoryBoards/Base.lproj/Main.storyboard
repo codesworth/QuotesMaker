@@ -42,7 +42,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="t0P-NY-XGb"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tech2" id="ZOr-OZ-uyU"/>
+                    <tabBarItem key="tabBarItem" title="" image="support" id="ZOr-OZ-uyU"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="2609" y="1380"/>
@@ -208,7 +208,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Rj-yd-Ckl"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="home_tab32" id="RiQ-Z9-dxy"/>
+                    <tabBarItem key="tabBarItem" title="" image="tab_home" id="RiQ-Z9-dxy"/>
                     <navigationItem key="navigationItem" title="Quote Studio" id="W14-TU-fFK">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="staroflife" catalog="system" id="z34-Be-aO5">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -476,8 +476,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home_tab32" width="32" height="32"/>
         <image name="staroflife" catalog="system" width="62" height="64"/>
-        <image name="tech2" width="32" height="32"/>
+        <image name="support" width="32" height="32"/>
+        <image name="tab_home" width="32" height="28"/>
     </resources>
 </document>
