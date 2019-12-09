@@ -27,15 +27,16 @@ class MoreFontsVC: UIViewController {
         collectionView.dataSource = self
         size = model.font.pointSize
         
-        if !__IS_IPAD{
+        if !__IS_IPAD{ //Moving code outside this block will trigger fatal error on iPads
             
             var mod = model; mod?.font = model.font.withSize(23)
             mod?.textColor = .white
             mod?.alignment = 1
             previewTextView.attributedText = mod?.outPutString()
+            previewTextView.roundCorners(10)
+            previewTextView.textColor = .white
         }
-        previewTextView.roundCorners(10)
-        previewTextView.textColor = .white
+
         // Do any additional setup after loading the view.
     }
     

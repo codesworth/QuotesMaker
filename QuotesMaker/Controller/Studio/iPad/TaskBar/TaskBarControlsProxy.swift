@@ -17,6 +17,11 @@ class ControlProxy:UIControl{
         super.init(frame: frame)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -24,4 +29,13 @@ class ControlProxy:UIControl{
     
     
     
+}
+
+
+class ProxyImageView:UIImageView{
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setImageMaskColor(.white)
+    }
 }

@@ -36,7 +36,7 @@ class HomePageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        header.layer.cornerRadius = 30
+        header.layer.cornerRadius = __IS_IPAD ? 40 : 30
         refreshRecent()
         subscribeTo(subscription: .refreshRecent, selector: #selector(refreshRecent))
     }

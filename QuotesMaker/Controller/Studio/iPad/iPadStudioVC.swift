@@ -11,12 +11,11 @@ import UIKit
 class iPadStudioVC: UIViewController {
     
    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     
-//    lazy var studioPanel: EditorPanel = {
-//        let panel = EditorPanel(frame: .zero)
-//        panel.backgroundColor = .seafoamBlue
-//        return panel
-//    }()
+    
     init(model:StudioModel? = nil, canvas:Canvas) {
         self.canvas = canvas
         self.coordinator = EditingCoordinator(model: model, canvas: canvas)
@@ -59,7 +58,7 @@ class iPadStudioVC: UIViewController {
     var studioHeight:CGFloat = 130
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .secondaryDark
         view.addSubview(editor)
         self.view.addSubview(controlPanelContainer)
         view.addSubview(taskbarContainer)
@@ -149,6 +148,7 @@ extension iPadStudioVC:EditingCoordinatorDelegate{
             cropper.autoSaveToLibray = false
             cropper.maxRotationAngle = CGFloat(Double.pi / 4)
             //add(cropper,to: view)
+            cropper.modalPresentationStyle = .fullScreen
             present(cropper, animated: true, completion: nil)
         }
     }
