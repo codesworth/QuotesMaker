@@ -36,7 +36,7 @@ class HomePageVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        header.layer.cornerRadius = 30
+        header.layer.cornerRadius = __IS_IPAD ? 40 : 30
         refreshRecent()
         subscribeTo(subscription: .refreshRecent, selector: #selector(refreshRecent))
     }
@@ -73,6 +73,12 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == recentCollectionVIew{
+            if allModels.isEmpty{
+                let view = RecentEmptyView(frame: recentCollectionVIew.frame)
+                recentCollectionVIew.backgroundView = view
+            }else{
+                recentCollectionVIew.backgroundView = nil
+            }
             return allModels.count
         }
         return sizes.count

@@ -35,7 +35,7 @@ class FilterCollectionCell: UICollectionViewCell {
         //backgroundColor = .black
         
         imageView.roundCorners(5)
-        roundCorners(5)
+        //roundCorners(5)
     }
     
     override func prepareForReuse() {
@@ -45,8 +45,11 @@ class FilterCollectionCell: UICollectionViewCell {
     }
     
     func configureView(name:String,image:UIImage,size:CGSize, intrinsicSize:CGSize = [140,140], contentMode:UIView.ContentMode = .scaleAspectFit){
+        
+        
         if !isSet{
             imageView.contentMode = contentMode
+            
             let ratio = size.width/size.height
             let newSize:CGSize = (size.width > size.height) ? [intrinsicSize.width,intrinsicSize.height * (1/ratio)] : [intrinsicSize.width * ratio,intrinsicSize.height]
             imageView.translatesAutoresizingMaskIntoConstraints = false

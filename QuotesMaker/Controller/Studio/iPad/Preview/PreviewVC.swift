@@ -32,6 +32,7 @@ class PreviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filterEngine.purge()
+        
         optimImageMake()
         imageView.image = inputImage
         if !__IS_IPAD{
@@ -142,8 +143,8 @@ extension PreviewVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(FilterCollectionCell.self)", for: indexPath) as! FilterCollectionCell
         let filter = filters[indexPath.row]//filterEngine.availableFilters[indexPath.row]
-        cell.borderlize(.white, 1)
-        cell.configureView(name: filter, image: inputImage, size: canvas.size)
+        cell.containerView.backgroundColor = .clear
+        cell.configureView(name: filter, image: inputImage, size: canvas.size,contentMode: .scaleAspectFill)
         return cell
     }
     

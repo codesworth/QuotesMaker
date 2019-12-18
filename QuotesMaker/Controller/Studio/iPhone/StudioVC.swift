@@ -59,6 +59,7 @@ class StudioVC: UIViewController {
         //let value = UIInterfaceOrientation.landscapeLeft.rawValue
         //UIDevice.current.setValue(value, forKey: "orientation")
         //setupDevice()
+        hidesBottomBarWhenPushed = false
         view.backgroundColor = .primaryDark
         studioPanel = EditorPanel(frame: .zero)
         

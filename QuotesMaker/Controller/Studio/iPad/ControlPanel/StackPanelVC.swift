@@ -49,6 +49,7 @@ class StackPanelVC: UIViewController {
         textPanel.scrollView.isScrollEnabled = false
         textInputStack.isHidden = true
         fillControl.roundCorners(5)
+        
         gradientcontrol.roundCorners(5)
         imagecontrol.roundCorners(5)
         stylecontrol.roundCorners(5)
@@ -56,6 +57,10 @@ class StackPanelVC: UIViewController {
         parentStack.isHidden = true
         canvasBackgoundColorPanel.delegate = self
         fillPanel.delegate = studio.coordinator
+        fillPanel.doneButt.isHidden = true
+        fillPanel.roundCorners(5)
+        gradientPanel.roundCorners(5)
+        stylePanel.roundCorners(5)
         gradientPanel.delegate = studio.coordinator
         imagePanel.delegate = studio.coordinator
         stylePanel.delegate = studio.coordinator

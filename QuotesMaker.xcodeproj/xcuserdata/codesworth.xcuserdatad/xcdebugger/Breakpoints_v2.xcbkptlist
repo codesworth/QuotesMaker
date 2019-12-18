@@ -3250,7 +3250,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "281"
                   endingLineNumber = "281"
-                  offsetFromSymbolStart = "64">
+                  offsetFromSymbolStart = "69">
                </Location>
                <Location
                   uuid = "6640549B-91AB-4743-80DC-6C89FF610440 - fae8a0e5d8bc28f3"
@@ -3265,7 +3265,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "281"
                   endingLineNumber = "281"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3359,7 +3359,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B838CECE-5CD7-4DFB-AE73-2C7A6F387162"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/StyleSelectors.swift"
@@ -3376,7 +3376,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ABE1677B-004D-4E2B-A9BF-6CAF86F40462"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/StyleSelectors.swift"
@@ -3393,7 +3393,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "427758F1-5D41-4F46-88F2-A61005840506"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/StyleSelectors.swift"
@@ -3417,8 +3417,8 @@
             timestampString = "581458960.325254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "viewWillTransition(to:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3434,8 +3434,8 @@
             timestampString = "581458960.32547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "viewWillTransition(to:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -3451,8 +3451,8 @@
             timestampString = "581458960.325613"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "viewWillTransition(to:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -4727,7 +4727,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
                   endingLineNumber = "55"
-                  offsetFromSymbolStart = "184">
+                  offsetFromSymbolStart = "239">
                </Location>
                <Location
                   uuid = "C50C122A-02B2-48BF-9F30-216475C1E23D - 51ddca775847f83b"
@@ -4742,7 +4742,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
                   endingLineNumber = "55"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "38">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -5830,7 +5830,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
                   endingLineNumber = "99"
-                  offsetFromSymbolStart = "6564">
+                  offsetFromSymbolStart = "10936">
                </Location>
                <Location
                   uuid = "CA2164E1-8DD4-4D81-B6F3-6C16E5D5B60E - e3e6a1db17f62369"
@@ -5845,7 +5845,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "99"
                   endingLineNumber = "99"
-                  offsetFromSymbolStart = "6812">
+                  offsetFromSymbolStart = "11250">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -5896,7 +5896,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "101"
                   endingLineNumber = "101"
-                  offsetFromSymbolStart = "10980">
+                  offsetFromSymbolStart = "19139">
                </Location>
                <Location
                   uuid = "62097121-2E03-47B0-B0E0-3BF5DFE59E45 - b430132ef0935737"
@@ -5911,7 +5911,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "101"
                   endingLineNumber = "101"
-                  offsetFromSymbolStart = "120">
+                  offsetFromSymbolStart = "34">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -6080,8 +6080,8 @@
             timestampString = "581756915.973425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6167,8 +6167,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
             endingLineNumber = "153"
-            landmarkName = "PreviewVC"
-            landmarkType = "21">
+            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6184,8 +6184,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
             endingLineNumber = "149"
-            landmarkName = "PreviewVC"
-            landmarkType = "21">
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6201,8 +6201,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
             endingLineNumber = "154"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
+            landmarkName = "PreviewVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6235,8 +6235,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "150"
             endingLineNumber = "150"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
-            landmarkType = "7">
+            landmarkName = "PreviewVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6284,8 +6284,8 @@
             timestampString = "581756915.9795361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6301,8 +6301,8 @@
             timestampString = "581756915.979923"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6318,8 +6318,8 @@
             timestampString = "581756915.980261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6505,8 +6505,8 @@
             timestampString = "581756915.9812191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6522,8 +6522,8 @@
             timestampString = "581756915.981553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6539,8 +6539,8 @@
             timestampString = "581756915.981882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6556,8 +6556,8 @@
             timestampString = "581756915.982213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6573,42 +6573,10 @@
             timestampString = "581756915.98254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E38426F3-50F3-46D4-B57A-DE97543E54BB - f68a964d9d02c686"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.FilterCollectionCell.configureView(name: Swift.String, image: __C.UIImage, size: __C.CGSize, intrinsicSize: __C.CGSize, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Views/FIlterCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "2476">
-               </Location>
-               <Location
-                  uuid = "E38426F3-50F3-46D4-B57A-DE97543E54BB - ffd9ce8e37bab419"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in QuotesMaker.FilterCollectionCell.configureView(name: Swift.String, image: __C.UIImage, size: __C.CGSize, intrinsicSize: __C.CGSize, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Views/FIlterCollectionCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "208">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6622,8 +6590,8 @@
             timestampString = "581756915.982868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6639,8 +6607,8 @@
             timestampString = "581756915.983192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "configureView(name:image:size:intrinsicSize:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -6964,8 +6932,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
             endingLineNumber = "94"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -6981,8 +6949,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "AppDelegate"
-            landmarkType = "21">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7066,8 +7034,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
             endingLineNumber = "118"
-            landmarkName = "AppDelegate"
-            landmarkType = "21">
+            landmarkName = "completeTransaction(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -7108,7 +7076,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "47436862-5A6D-44D9-BEB2-F458F26EB357"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/ShadowView.swift"
@@ -7125,7 +7093,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "39FBF367-6DB9-492B-B58A-4CB1EA49E59C"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/ShadowView.swift"
@@ -7142,7 +7110,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "76C87258-C496-4D73-95DC-69B01821E798"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/ShadowView.swift"
@@ -7159,7 +7127,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1D2842A0-CBFA-4797-B422-35F2030356D3"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/ShadowView.swift"
@@ -7173,7 +7141,7 @@
             <Locations>
                <Location
                   uuid = "1D2842A0-CBFA-4797-B422-35F2030356D3 - 49272eb93490f0fa"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "QuotesMaker.ShadowPanel.layoutSubviews() -&gt; ()"
@@ -7184,11 +7152,11 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "181"
                   endingLineNumber = "181"
-                  offsetFromSymbolStart = "540">
+                  offsetFromSymbolStart = "635">
                </Location>
                <Location
                   uuid = "1D2842A0-CBFA-4797-B422-35F2030356D3 - e6f8772411309f94"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #5 (QuotesMaker.LayoutProxy) -&gt; () in QuotesMaker.ShadowPanel.layoutSubviews() -&gt; ()"
@@ -7199,7 +7167,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "181"
                   endingLineNumber = "181"
-                  offsetFromSymbolStart = "120">
+                  offsetFromSymbolStart = "37">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7208,7 +7176,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7A7E54B1-0865-42CD-8041-E21DC47492AA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuotesMaker/Views/Panels/StylingPanel/ShadowView.swift"
@@ -7222,7 +7190,7 @@
             <Locations>
                <Location
                   uuid = "7A7E54B1-0865-42CD-8041-E21DC47492AA - 49272eb93490f0fa"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "QuotesMaker.ShadowPanel.layoutSubviews() -&gt; ()"
@@ -7233,11 +7201,11 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "181"
                   endingLineNumber = "181"
-                  offsetFromSymbolStart = "540">
+                  offsetFromSymbolStart = "635">
                </Location>
                <Location
                   uuid = "7A7E54B1-0865-42CD-8041-E21DC47492AA - e6f8772411309f94"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #5 (QuotesMaker.LayoutProxy) -&gt; () in QuotesMaker.ShadowPanel.layoutSubviews() -&gt; ()"
@@ -7248,7 +7216,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "181"
                   endingLineNumber = "181"
-                  offsetFromSymbolStart = "120">
+                  offsetFromSymbolStart = "37">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7469,7 +7437,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
                   endingLineNumber = "43"
-                  offsetFromSymbolStart = "1276">
+                  offsetFromSymbolStart = "1718">
                </Location>
                <Location
                   uuid = "D8B34415-3D7F-42E5-829E-C18737CB5452 - a8badfd9214bc14d"
@@ -7484,7 +7452,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
                   endingLineNumber = "43"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "107">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -7696,7 +7664,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
                   endingLineNumber = "43"
-                  offsetFromSymbolStart = "1276">
+                  offsetFromSymbolStart = "1718">
                </Location>
                <Location
                   uuid = "74AC95D0-7868-45E0-8112-C084AF8667AD - a8badfd9214bc14d"
@@ -7711,7 +7679,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "43"
                   endingLineNumber = "43"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "107">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -8032,7 +8000,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
                   endingLineNumber = "32"
-                  offsetFromSymbolStart = "940">
+                  offsetFromSymbolStart = "1280">
                </Location>
                <Location
                   uuid = "2DB5F83B-0E2F-43D0-A5FA-9AC36E6941B1 - cfa2e20fa1ed1d8f"
@@ -8047,7 +8015,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "32"
                   endingLineNumber = "32"
-                  offsetFromSymbolStart = "196">
+                  offsetFromSymbolStart = "187">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -8898,38 +8866,6 @@
             endingLineNumber = "204"
             landmarkName = "showTabs()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "0639AE3C-B557-40DA-99CB-EEAC2EE0E888 - 984e803d242dba52"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "QuotesMaker.StudioVC.showTabs() -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Controller/Studio/iPhone/StudioVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "204"
-                  endingLineNumber = "204"
-                  offsetFromSymbolStart = "672">
-               </Location>
-               <Location
-                  uuid = "0639AE3C-B557-40DA-99CB-EEAC2EE0E888 - 789c56c176d7fb0e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in QuotesMaker.StudioVC.showTabs() -&gt; ()"
-                  moduleName = "QuotesMaker"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Controller/Studio/iPhone/StudioVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "205"
-                  endingLineNumber = "205"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -8962,6 +8898,38 @@
             endingLineNumber = "206"
             landmarkName = "showTabs()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "78CC672C-2EA2-40DC-B472-D3C690E40DF8 - 984e803d242dba52"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QuotesMaker.StudioVC.showTabs() -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Controller/Studio/iPhone/StudioVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "803">
+               </Location>
+               <Location
+                  uuid = "78CC672C-2EA2-40DC-B472-D3C690E40DF8 - 789c56c176d7fb0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in QuotesMaker.StudioVC.showTabs() -&gt; ()"
+                  moduleName = "QuotesMaker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/codesworth/Development/Projects/QuotesMaker/QuotesMaker/Controller/Studio/iPhone/StudioVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -9056,8 +9024,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "253"
             endingLineNumber = "253"
-            landmarkName = "dismissPanels()"
-            landmarkType = "7">
+            landmarkName = "StudioVC"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -9168,7 +9136,39 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
             endingLineNumber = "200"
-            landmarkName = "showTabs()"
+            landmarkName = "StudioVC"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B303244-B895-480A-AEBD-0A1D35FE0243"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Controller/Studio/iPad/iPadStudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "beginCroppingImage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83613FDD-94D3-4852-A9F7-B62462DB3FE9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QuotesMaker/Controller/Studio/iPad/iPadStudioVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "beginCroppingImage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

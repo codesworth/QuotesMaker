@@ -53,5 +53,28 @@ class CoordinatorTests: XCTestCase {
     }
     
     
+    func testUndoASingleOperationPerformed(){
+        XCTAssert(coordinator.undostates.isEmpty)
+        XCTAssertEqual(coordinator.baseView.subviews.count, 0)
+        coordinator.shapeSelected()
+        XCTAssertEqual(coordinator.undostates.count, 1)
+        coordinator.stateUndo()
+        XCTAssert(coordinator.undostates.isEmpty)
+        XCTAssertEqual(coordinator.baseView.subviews.count, 0)
+        XCTAssertEqual(coordinator.redostates.count, 1)
+    }
+    
+    func testRedoASingleOperationUndone(){
+        XCTAssert(coordinator.redostates.isEmpty)
+        XCTAssertEqual(coordinator.baseView.subviews.count, 0)
+        coordinator.shapeSelected()
+        XCTAssertEqual(coordinator.undostates.count, 1)
+        coordinator.stateUndo()
+        coordinator.stateRedo()
+        XCTAssertEqual(coordinator.baseView.subviews.count, 1)
+        XCTAssert(coordinator.redostates.isEmpty)
+        XCTAssertFalse(coordinator.undostates.isEmpty)
+    }
+    
 
 }

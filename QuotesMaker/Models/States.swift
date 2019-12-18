@@ -11,6 +11,7 @@ import Foundation
 
 struct States{
     
+    typealias StateCount = Int
     private var container:Array<State> = []
     
     mutating func push(_ element:State){
@@ -35,6 +36,10 @@ struct States{
     
     var exceeds:Bool{
         return container.count > 50
+    }
+    
+    var count:StateCount{
+        return container.count
     }
     
     var isMulti:Bool{
