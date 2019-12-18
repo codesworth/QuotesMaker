@@ -114,7 +114,7 @@ public final class GradientView: UIView {
 /// :nodoc:
 // MARK: - Layer and Internal Drawing
 public extension GradientView {
-	override public class var layerClass: AnyClass {
+    override class var layerClass: AnyClass {
 		return CAGradientLayer.self
 	}
 	
@@ -125,14 +125,14 @@ public extension GradientView {
 		return gradientLayer
 	}
 	
-	override public func draw(_ rect: CGRect) {
+    override func draw(_ rect: CGRect) {
 		gradientLayer.colors = gradient.colors.map({ (hsbColor) -> CGColor in
 			return UIColor(hsbColor: hsbColor).cgColor
 		})
 		gradientLayer.locations = gradient.locations as [NSNumber]
 	}
 	
-	override public func layoutSubviews() {
+    override func layoutSubviews() {
 		super.layoutSubviews()
 		
 		// Automatically adjust corner radius if needed
