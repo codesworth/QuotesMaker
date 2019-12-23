@@ -170,18 +170,18 @@ extension UIImage{
     }
     
     class var alignLeft:UIImage?{
-        return #imageLiteral(resourceName: "left")
+        return #imageLiteral(resourceName: "align_left")
     }
     class var alignCenter:UIImage?{
-        return #imageLiteral(resourceName: "center")
+        return #imageLiteral(resourceName: "center-align")
     }
     
     class var alignRight:UIImage?{
-        return #imageLiteral(resourceName: "right")
+        return #imageLiteral(resourceName: "align_right")
     }
     
     class var alignJustify:UIImage?{
-        return #imageLiteral(resourceName: "justify")
+        return #imageLiteral(resourceName: "align_justify")
     }
     
     enum ImageSizes:Int{
@@ -301,3 +301,6 @@ extension URL{
         return URL(fileURLWithPath: name, relativeTo:  FileManager.homeDir.appendingPathComponent(`in`.rawValue, isDirectory:true)).addExtension(`extension`!)
     }
 }
+
+
+

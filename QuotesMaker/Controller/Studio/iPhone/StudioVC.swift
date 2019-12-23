@@ -37,9 +37,9 @@ class StudioVC: UIViewController {
     
     
     
-    init(model:StudioModel? = nil, canvas:Canvas) {
+    init(model:StudioModel? = nil, canvas:Canvas, isTemplate:Bool = false) {
         self.canvas = canvas
-        self.coordinator = EditingCoordinator(model: model, canvas: canvas)
+        self.coordinator = EditingCoordinator(model: model, canvas: canvas, isTemplate: isTemplate)
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -52,6 +52,10 @@ class StudioVC: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return .portrait
     }
     
     override func viewDidLoad() {

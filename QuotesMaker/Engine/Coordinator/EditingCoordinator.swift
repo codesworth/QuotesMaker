@@ -21,7 +21,7 @@ class EditingCoordinator:NSObject{
     private var canvas:Canvas!
     weak var delegate:EditingCoordinatorDelegate?
     var existingModel:StudioModel?
-    
+    var isTemplate:Bool
     func constructFromModel(){
         if let model = existingModel{
             baseView.constructFrom(model: model)
@@ -33,12 +33,13 @@ class EditingCoordinator:NSObject{
         fatalError("Cannot instantiate object: Call Designated init(model:StudioModel?, canvas:Canvas)")
     }
     
-    init(model:StudioModel? = nil, canvas:Canvas){
+    init(model:StudioModel? = nil, canvas:Canvas, isTemplate:Bool = false){
         baseView = BaseView(frame: .zero)
         self.canvas = canvas
         let size = canvas.size
         baseView.frame = CGRect(origin: .zero, size: size)
         existingModel = model
+        self.isTemplate = isTemplate
         super.init()
         constructFromModel()
         subscribeTo(subscription: .stateChange, selector: #selector(listenForStateChange(_ :)))
@@ -120,20 +121,21 @@ class EditingCoordinator:NSObject{
     
     @objc func save(message:String = "Enter project name"){
         //TODO: Verify pais user or throw alert to buy app
-//        if Store.isPro(){
-//            let proAdd = UnlockProView(frame: .zero)
-//            proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
-//            proAdd.show()
-//            subscribeTo(subscription: .purchaseNotification, selector: #selector(save(message:)))
-//           return
-//        }
+        if !Store.isPro(){
+            let proAdd = UnlockProView(frame: .zero)
+            proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving your projects")
+            proAdd.show()
+            subscribeTo(subscription: .purchaseNotification, selector: #selector(save(message:)))
+           return
+        }
         //TODO: Verify name does not exist before saving
-        if existingModel == nil{
+        if existingModel == nil || isTemplate{
             let alert = UIAlertController(title:"Save Project", message:message, preferredStyle: .alert)
             alert.addTextField(configurationHandler: nil)
             alert.addAction(UIAlertAction(title: "Save", style: .default, handler: { (ac) in
                 let text = alert.textFields?.first!.text
                 self.persistModel(title: text ?? "untitled")
+                self.isTemplate = false
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
             controller?.present(alert, animated: true, completion: nil)
@@ -142,6 +144,7 @@ class EditingCoordinator:NSObject{
             baseView.getThumbnailSrc(name:existingModel!.name)
             existingModel?.update(models: mods, bg: baseView.backgroundColor)
             Persistence.main.save(model: existingModel!)
+            
         }
         
 

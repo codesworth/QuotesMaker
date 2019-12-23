@@ -65,7 +65,19 @@ class HomePageVC: UIViewController {
         recentCollectionVIew.roundCorners()
         dimensionsProjectCollection.roundCorners()                                                           
     }
-
+    
+    
+    @IBAction func showAllRecents(_ sender: UIButton) {
+        if let allRecentsVc = AllProjectsVC.wakeFromInterfaceBuilder(){
+            allRecentsVc.allModels = allModels
+            allRecentsVc.content = .recent
+            self.present(allRecentsVc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func showAllTemplates(_ sender: UIButton) {
+    }
+    
 }
 
 
@@ -142,5 +154,21 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
             present(studio, animated: true, completion: nil)
             return studio
         }
+    }
+}
+
+
+extension HomePageVC:ProjectsDelegate{
+    
+    func didSelect(project: StudioModel, isTemplate:Bool) {
+        let studio:UIViewController
+        
+        if UIDevice.idiom == .phone{
+            studio = StudioVC(model: project, canvas:Canvas(aspect: project.canvasType), isTemplate: isTemplate)
+        }else{
+          studio = iPadStudioVC(model: project, canvas:Canvas(aspect: project.canvasType),isTemplate: isTemplate)
+        }
+        studio.modalPresentationStyle = .fullScreen
+        present(studio, animated: true, completion: nil)
     }
 }

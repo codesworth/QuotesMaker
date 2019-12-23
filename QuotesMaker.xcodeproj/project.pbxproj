@@ -600,6 +600,11 @@
 		38A6687C223E8E3D00F29F52 /* Elysium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687B223E8E3D00F29F52 /* Elysium.swift */; };
 		38A6687E223EED7C00F29F52 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A6687D223EED7C00F29F52 /* Colors.swift */; };
 		38AA311522442AF50050604A /* BaseContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA311422442AF50050604A /* BaseContentView.swift */; };
+		38AA617D23AFD3DA00CB908B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA617C23AFD3DA00CB908B /* Album.swift */; };
+		38AA618023B0A16700CB908B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA617F23B0A16600CB908B /* SettingsVC.swift */; };
+		38AA618223B0A2D400CB908B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA618123B0A2D400CB908B /* Settings.swift */; };
+		38AA618423B0E6A300CB908B /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA618323B0E6A300CB908B /* Dispatch.swift */; };
+		38AA618623B0F4C900CB908B /* AllProjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA618523B0F4C900CB908B /* AllProjectsVC.swift */; };
 		38AC557822B59EFD00E0C42C /* StudioStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AC557722B59EFD00E0C42C /* StudioStore.swift */; };
 		38B1C744237F4607004B58CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38B1C743237F4607004B58CE /* Images.xcassets */; };
 		38B57DF0234E30A0009A45B2 /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */; };
@@ -1270,6 +1275,11 @@
 		38A6687B223E8E3D00F29F52 /* Elysium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elysium.swift; sourceTree = "<group>"; };
 		38A6687D223EED7C00F29F52 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		38AA311422442AF50050604A /* BaseContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseContentView.swift; sourceTree = "<group>"; };
+		38AA617C23AFD3DA00CB908B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		38AA617F23B0A16600CB908B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		38AA618123B0A2D400CB908B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		38AA618323B0E6A300CB908B /* Dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
+		38AA618523B0F4C900CB908B /* AllProjectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProjectsVC.swift; sourceTree = "<group>"; };
 		38AC557722B59EFD00E0C42C /* StudioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioStore.swift; sourceTree = "<group>"; };
 		38B1C743237F4607004B58CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		38B57DEF234E30A0009A45B2 /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
@@ -2647,6 +2657,7 @@
 				38D54E1E223930E3009FCF9A /* CustomAlbum.swift */,
 				388BE30D222ABBA5005BF44B /* Color Slider */,
 				388BE2F022299B01005BF44B /* LiteralExtensions */,
+				38AA618323B0E6A300CB908B /* Dispatch.swift */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -2843,6 +2854,7 @@
 				3818DAD22270D2AF00202C14 /* StudioFont.swift */,
 				3818DAD72270F63F00202C14 /* BaseModel.swift */,
 				3818DAD92270FCF000202C14 /* BaseModelCollection.swift */,
+				38AA618123B0A2D400CB908B /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2874,9 +2886,11 @@
 		389B938A22275CAB009FE9E6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				38AA617E23B0A14900CB908B /* Settings */,
 				38686D2322771F2400349E02 /* Home */,
 				38C80FC0223B070E00150FD4 /* Studio */,
 				381C0654234A2EA700D24FD7 /* Settings.md */,
+				38AA618523B0F4C900CB908B /* AllProjectsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2919,6 +2933,14 @@
 				38A6687B223E8E3D00F29F52 /* Elysium.swift */,
 			);
 			path = Elysium;
+			sourceTree = "<group>";
+		};
+		38AA617E23B0A14900CB908B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				38AA617F23B0A16600CB908B /* SettingsVC.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		38AC557622B59E7300E0C42C /* IAP */ = {
@@ -2994,6 +3016,7 @@
 			isa = PBXGroup;
 			children = (
 				38D2A0B623497334003573A2 /* ImageProcess.swift */,
+				38AA617C23AFD3DA00CB908B /* Album.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -3852,6 +3875,7 @@
 				388BE2F622299B01005BF44B /* CGPoint+Literals.swift in Sources */,
 				38F13A062254360E002C4109 /* CollapsibleTableViewHeader.swift in Sources */,
 				385A1EDF228F4A5900185D48 /* MultiBandHSV.swift in Sources */,
+				38AA617D23AFD3DA00CB908B /* Album.swift in Sources */,
 				385A1EEC228F4A5900185D48 /* VoronoiNoise.swift in Sources */,
 				385A1EF0228F4A5900185D48 /* ThirdPartyFilters.swift in Sources */,
 				38051CCE2253B90900D9E763 /* StudioLayout.swift in Sources */,
@@ -3860,6 +3884,7 @@
 				38012FF4228CCD2700372516 /* Filter.swift in Sources */,
 				385A1EEB228F4A5900185D48 /* CMYKRegistrationMismatch.swift in Sources */,
 				38661B01224BE85A00440AC7 /* ShadowView.swift in Sources */,
+				38AA618023B0A16700CB908B /* SettingsVC.swift in Sources */,
 				3823656D2240674F0078A723 /* +Resizing.swift in Sources */,
 				38743D562258072000897B13 /* EditingCoordinator.swift in Sources */,
 				38686D2522771F5000349E02 /* HomePageVC.swift in Sources */,
@@ -3909,6 +3934,7 @@
 				385D3067225A2BBB0054694A /* AssetGridViewController.swift in Sources */,
 				38AA311522442AF50050604A /* BaseContentView.swift in Sources */,
 				388BE31D222ABC94005BF44B /* ColorSliderPanel.swift in Sources */,
+				38AA618623B0F4C900CB908B /* AllProjectsVC.swift in Sources */,
 				3896507B2242C154009434B4 /* Layout.swift in Sources */,
 				38743D542257F59E00897B13 /* TaskBarControlsProxy.swift in Sources */,
 				388BE315222ABBA5005BF44B /* PreviewView.swift in Sources */,
@@ -3958,6 +3984,7 @@
 				388BE31A222ABBA5005BF44B /* HSBColor.swift in Sources */,
 				38CFAAB222878CCD00D40330 /* ZoomableUIView.swift in Sources */,
 				3804802422B5B4C100BDC9F3 /* KeychainItemAccessibility.swift in Sources */,
+				38AA618423B0E6A300CB908B /* Dispatch.swift in Sources */,
 				388BE33A222B39D4005BF44B /* BasicLabel.swift in Sources */,
 				38B7939B2392718E0081E41B /* RecentEmptyView.swift in Sources */,
 				388BE326222AD4E8005BF44B /* QMEngine.swift in Sources */,
@@ -3977,6 +4004,7 @@
 				384B9DA422366202007B4BD0 /* ImagePanel.swift in Sources */,
 				38732E9B2230359500CDB703 /* LineView.swift in Sources */,
 				385A1EE4228F4A5900185D48 /* KuwaharaFilter.swift in Sources */,
+				38AA618223B0A2D400CB908B /* Settings.swift in Sources */,
 				388BE38C222EC1C0005BF44B /* BackingTextView.swift in Sources */,
 				389B9392222769CD009FE9E6 /* Dimensions.swift in Sources */,
 				38D54E1F223930E3009FCF9A /* CustomAlbum.swift in Sources */,

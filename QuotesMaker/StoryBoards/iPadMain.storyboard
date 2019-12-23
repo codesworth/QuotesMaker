@@ -612,6 +612,9 @@
                                                 <state key="normal" title="See All">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="showAllRecents:" destination="RbE-Bc-U9E" eventType="touchUpInside" id="ZCd-Lr-ngw"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2B-T2-s4z">
                                                 <rect key="frame" x="961" y="626" width="53" height="40"/>
@@ -622,6 +625,9 @@
                                                 <state key="normal" title="See All">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="showAllTemplates:" destination="RbE-Bc-U9E" eventType="touchUpInside" id="Yh7-mG-fwa"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRe-fL-QyA">
                                                 <rect key="frame" x="20" y="90" width="56" height="30"/>
@@ -712,6 +718,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBV-W5-YwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2862.5" y="1371.6796875"/>
+        </scene>
+        <!--All Projects-->
+        <scene sceneID="ohh-Vk-mHj">
+            <objects>
+                <viewController id="cfi-c9-NkD" customClass="AllProjectsVC" customModule="QuotesMaker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e8w-Pn-Ani">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="718"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q4D-fs-BVf">
+                                <rect key="frame" x="16" y="36" width="992" height="652"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vVv-oM-m5v">
+                                    <size key="itemSize" width="194" height="205"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gkL-Pl-VAa">
+                                        <rect key="frame" x="0.0" y="0.0" width="194" height="205"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="194" height="205"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Q4D-fs-BVf" firstAttribute="top" secondItem="2fa-uG-uw9" secondAttribute="top" constant="36" id="cnt-dh-KfR"/>
+                            <constraint firstItem="2fa-uG-uw9" firstAttribute="trailing" secondItem="Q4D-fs-BVf" secondAttribute="trailing" constant="16" id="hRW-IJ-kef"/>
+                            <constraint firstItem="Q4D-fs-BVf" firstAttribute="leading" secondItem="e8w-Pn-Ani" secondAttribute="leading" constant="16" id="ia2-f8-2qE"/>
+                            <constraint firstItem="2fa-uG-uw9" firstAttribute="bottom" secondItem="Q4D-fs-BVf" secondAttribute="bottom" constant="30" id="ygz-vE-U3R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2fa-uG-uw9"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="All Projects" id="E7q-JZ-Xjf"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Q4D-fs-BVf" id="QR5-Ys-QgN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F31-RJ-CCR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1041.2109375" y="1333.59375"/>
         </scene>
         <!--Studio Task Bar Controller-->
         <scene sceneID="odm-27-yvT">
@@ -1463,14 +1516,14 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZU-BS-Ll7">
-                                <rect key="frame" x="30" y="527" width="52.5" height="21"/>
+                                <rect key="frame" x="30" y="526.5" width="52.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3b-rk-2fs">
                                 <rect key="frame" x="60" y="100" width="904" height="408"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRm-bj-NmP">
                                 <rect key="frame" x="60" y="20" width="136" height="45.5"/>
@@ -1478,53 +1531,61 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb7-vh-3Tw">
-                                <rect key="frame" x="522" y="32" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Share">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareImage:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="sfK-AJ-aBv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDK-cx-MU9">
-                                <rect key="frame" x="288" y="32" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Save To Photos">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveToPhotos:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="d2K-Wy-Ytn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aja-Ka-LpB">
-                                <rect key="frame" x="753" y="27" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelPressed:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="7Fk-zx-fIF"/>
-                                    <action selector="saveToPhotos:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="PpB-Ik-O8e"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="1ng-yt-sfz">
+                                <rect key="frame" x="592" y="32" width="372" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDK-cx-MU9" customClass="RoundedButton" customModule="QuotesMaker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="40"/>
+                                        <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveToPhotos:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="d2K-Wy-Ytn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb7-vh-3Tw" customClass="RoundedButton" customModule="QuotesMaker" customModuleProvider="target">
+                                        <rect key="frame" x="133" y="0.0" width="106" height="40"/>
+                                        <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Share">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shareImage:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="sfK-AJ-aBv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aja-Ka-LpB" customClass="RoundedButton" customModule="QuotesMaker" customModuleProvider="target">
+                                        <rect key="frame" x="266" y="0.0" width="106" height="40"/>
+                                        <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelPressed:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="7Fk-zx-fIF"/>
+                                            <action selector="saveToPhotos:" destination="Bs6-vp-oYz" eventType="touchUpInside" id="PpB-Ik-O8e"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="372" id="fCS-M3-NnJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="x2r-I5-6v9"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="J3b-rk-2fs" firstAttribute="leading" secondItem="qRm-bj-NmP" secondAttribute="leading" id="4rq-ly-rjh"/>
+                            <constraint firstItem="1ng-yt-sfz" firstAttribute="top" secondItem="UWF-eB-Gio" secondAttribute="top" constant="32" id="Ay0-6j-A6Q"/>
                             <constraint firstItem="dZU-BS-Ll7" firstAttribute="leading" secondItem="UWF-eB-Gio" secondAttribute="leading" constant="30" id="DGg-F2-Dyl"/>
                             <constraint firstItem="8kM-JJ-N8r" firstAttribute="leading" secondItem="UWF-eB-Gio" secondAttribute="leading" id="Icw-Ho-MsO"/>
                             <constraint firstItem="qRm-bj-NmP" firstAttribute="leading" secondItem="UWF-eB-Gio" secondAttribute="leading" constant="60" id="J1t-fL-S5u"/>
                             <constraint firstItem="8kM-JJ-N8r" firstAttribute="top" secondItem="J3b-rk-2fs" secondAttribute="bottom" constant="60" id="KbF-Eo-89z"/>
-                            <constraint firstItem="J3b-rk-2fs" firstAttribute="leading" secondItem="UWF-eB-Gio" secondAttribute="leading" constant="60" id="MSg-bH-5jq"/>
                             <constraint firstItem="J3b-rk-2fs" firstAttribute="centerX" secondItem="l9c-f2-1K8" secondAttribute="centerX" id="Vfs-0O-jlx"/>
                             <constraint firstItem="J3b-rk-2fs" firstAttribute="top" secondItem="UWF-eB-Gio" secondAttribute="top" constant="100" id="Ym1-ww-iSI"/>
                             <constraint firstItem="8kM-JJ-N8r" firstAttribute="trailing" secondItem="UWF-eB-Gio" secondAttribute="trailing" id="Zu4-67-g74"/>
                             <constraint firstItem="UWF-eB-Gio" firstAttribute="bottom" secondItem="8kM-JJ-N8r" secondAttribute="bottom" constant="20" id="hY9-CF-Pp4"/>
                             <constraint firstItem="qRm-bj-NmP" firstAttribute="top" secondItem="UWF-eB-Gio" secondAttribute="top" constant="20" id="mPn-9P-20k"/>
+                            <constraint firstItem="UWF-eB-Gio" firstAttribute="trailing" secondItem="1ng-yt-sfz" secondAttribute="trailing" constant="60" id="uLD-RO-6nA"/>
                             <constraint firstItem="8kM-JJ-N8r" firstAttribute="top" secondItem="dZU-BS-Ll7" secondAttribute="bottom" constant="20" id="uo9-pR-SHv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UWF-eB-Gio"/>
@@ -1532,11 +1593,33 @@
                     <connections>
                         <outlet property="filterView" destination="8kM-JJ-N8r" id="NZ9-XC-IYJ"/>
                         <outlet property="imageContainerView" destination="J3b-rk-2fs" id="Kam-I9-z2Y"/>
+                        <outlet property="optionsStack" destination="1ng-yt-sfz" id="WQd-5g-ZCv"/>
+                        <outlet property="saveButt" destination="aDK-cx-MU9" id="5l5-58-h5I"/>
+                        <outlet property="shareButt" destination="gb7-vh-3Tw" id="cCh-Ae-NaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgn-IO-0nR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-860.15625" y="-255.46875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DNS-RS-n8m">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Vg-SB-dHf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="ePs-pN-Ris">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.22352941179999999" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cfi-c9-NkD" kind="relationship" relationship="rootViewController" id="ZWV-vb-UlA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MsL-wk-v7j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1765.4296875" y="1333.59375"/>
         </scene>
     </scenes>
     <resources>

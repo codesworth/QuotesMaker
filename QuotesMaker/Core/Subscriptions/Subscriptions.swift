@@ -45,6 +45,10 @@ extension NSObject{
     func unsubscribe(){
         NotificationCenter.default.removeObserver(self)
     }
+    
+    func unsubscribe(_ name:Subscription.Name){
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: name.rawValue), object: nil)
+    }
 }
 
 

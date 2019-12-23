@@ -10,6 +10,9 @@ import UIKit
 
 class PreviewVC: UIViewController {
     
+    @IBOutlet weak var optionsStack: UIStackView!
+    @IBOutlet weak var saveButt: RoundedButton!
+    @IBOutlet weak var shareButt: RoundedButton!
     var filterEngine = FilterEngine.globalInstance
     var filters = Filters.availableFilters
     private let ctx = CIContext()
@@ -110,13 +113,25 @@ class PreviewVC: UIViewController {
             alert.modalPresentationStyle = .currentContext
             let presentation = alert.popoverPresentationController
             presentation?.permittedArrowDirections = .any
-            presentation?.sourceView = sender
-            presentation?.sourceRect = sender.frame
+            presentation?.sourceView = shareButt
+            presentation?.sourceRect = saveButt.frame
         }
         present(alert, animated: true){}
     }
     
-    @IBAction func saveToPhotos(_ sender: Any) {
+    @IBAction func saveToPhotos(_ sender: UIButton) {
+        let album = PhotoAlbum()
+        if let photo = imageView.image{
+            album.save(image: photo) { success, err in
+                if success{
+                    let alert = UIAlertController(title: "Success", message: "Photo succesfully saved", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    DispatchQueue.main.async { [weak self] in
+                        self?.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
