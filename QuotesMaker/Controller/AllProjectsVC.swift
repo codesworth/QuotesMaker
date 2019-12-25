@@ -19,6 +19,9 @@ class AllProjectsVC: UIViewController {
         case recent, template
     }
     
+    
+    
+    @IBOutlet weak var headerLable: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -28,18 +31,23 @@ class AllProjectsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.showsHorizontalScrollIndicator = false
         
         setup()
 
     }
     
-
+    @IBAction func donePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        refreshRecent()
-        subscribeTo(subscription: .refreshRecent, selector: #selector(refreshRecent))
+        //refreshRecent()
+        //subscribeTo(subscription: .refreshRecent, selector: #selector(refreshRecent))
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
     }
     
     @objc func refreshRecent(){
@@ -49,16 +57,19 @@ class AllProjectsVC: UIViewController {
         }
     }
     
+
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         unsubscribe()
     }
     
     func setup(){
+        headerLable.text = (content == .template) ? "All Templates" : "All Projects"
+          
         
         collectionView.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        
        
     }
 
@@ -94,6 +105,8 @@ extension AllProjectsVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
         let mod = allModels[indexPath.row]
         let canvas = Canvas(aspect: mod.canvasType)
         cell.configureViewAndIamge(name: mod.name, size: canvas.size)
+        //cell.configure(font: .systemFont(ofSize: 35, weight: .bold))
+        //cell.backgroundColor = [UIColor.white, UIColor.green, UIColor.blue, UIColor.magenta].randomElement()
         return cell
         
         
@@ -107,6 +120,7 @@ extension AllProjectsVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.dismiss(animated: true, completion: nil)
         let model = allModels[indexPath.row]
         delegate?.didSelect(project: model, isTemplate: content == .template)
     }
@@ -114,6 +128,14 @@ extension AllProjectsVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
     @discardableResult func collectionViewItemSelected(collectionView:UICollectionView, indexPath:IndexPath)->UIViewController{
         //let studio:UIViewController
         return UIViewController()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
 }
 

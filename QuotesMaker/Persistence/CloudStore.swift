@@ -17,12 +17,17 @@ public class Cloudstore:NSObject{
         return _store
     }
     
+    var settings:Settings{
+        return Settings()
+    }
+    
     var cursor:CKQueryOperation.Cursor?
     
     private var privateCloud = CKContainer.default().privateCloudDatabase
     private var publicCloud = CKContainer.default().publicCloudDatabase
     
     func saveToRecord(item:CloudItem){
+        if !settings.icloudSupport {return}
        let record = CKRecord(recordType: Keys.entityStudioBlob)
         record[Keys.name] = item.name
         record[Keys.thumbNail] = CKAsset(fileURL: URL(fileURLWithPath: item.name, relativeTo: FileManager.previewthumbDir).addExtension(.png))
@@ -67,6 +72,9 @@ public class Cloudstore:NSObject{
     }
     
     func fetAvailableModel(cursor:CKQueryOperation.Cursor? = nil){
+        if !settings.icloudSupport{
+            return
+        }
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: Keys.entityStudioBlob, predicate: predicate)
         let operation = (cursor != nil) ? CKQueryOperation(cursor: cursor!) : CKQueryOperation(query: query)

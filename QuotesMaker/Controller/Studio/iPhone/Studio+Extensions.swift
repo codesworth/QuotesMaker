@@ -67,6 +67,7 @@ extension StudioVC:EditorPanelDelegate{
             let nav = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "PreviewNav") as? UINavigationController, let vc = nav.viewControllers.first as? PreviewVC else { return}
         vc.inputImage = image
         vc.canvas = canvas
+        vc.projectName = coordinator.existingModel?.name
         present(nav, animated: true, completion: nil)
         
     }

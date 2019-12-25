@@ -26,7 +26,11 @@ class PhotoAlbum: NSObject {
     
     init(_ name:String? = nil) {
         super.init()
-        if let name = name {albumName = name}
+        if let name = name {
+            if Settings().projectAlbums{
+                albumName = "QS - \(name)"
+            }
+        }
         if PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.authorized {
             PHPhotoLibrary.requestAuthorization({ (status: PHAuthorizationStatus) -> Void in
                 ()

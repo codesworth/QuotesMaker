@@ -27,6 +27,7 @@ class PreviewVC: UIViewController {
     
     var inputImage:UIImage!
     var optimImage:UIImage?
+    var projectName:String?
     var canvas:Canvas!
     @IBOutlet weak var imageContainerView: UIView!
     
@@ -107,6 +108,22 @@ class PreviewVC: UIViewController {
     */
 
     @IBAction func shareImage(_ sender: UIButton) {
+        if __IS_IPAD{
+            share()
+        }else{
+            let alert = UIAlertController(title: "Export Options", message: "", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Save To Camera Roll", style: .default, handler: { _ in
+                self.saveToPhotos(UIButton())
+            }))
+            alert.addAction(UIAlertAction(title: "Share", style: .default, handler: { _ in
+                self.share()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func share(){
         let image  = imageView.image
         let alert = UIActivityViewController(activityItems: [image as Any], applicationActivities: [])
         if __IS_IPAD{
@@ -120,7 +137,7 @@ class PreviewVC: UIViewController {
     }
     
     @IBAction func saveToPhotos(_ sender: UIButton) {
-        let album = PhotoAlbum()
+        let album = PhotoAlbum(projectName)
         if let photo = imageView.image{
             album.save(image: photo) { success, err in
                 if success{

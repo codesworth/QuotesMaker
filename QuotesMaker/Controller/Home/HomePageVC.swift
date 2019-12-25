@@ -71,11 +71,25 @@ class HomePageVC: UIViewController {
         if let allRecentsVc = AllProjectsVC.wakeFromInterfaceBuilder(){
             allRecentsVc.allModels = allModels
             allRecentsVc.content = .recent
+            allRecentsVc.delegate = self
             self.present(allRecentsVc, animated: true, completion: nil)
         }
     }
     
     @IBAction func showAllTemplates(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func ipadSettingsPressed(_ sender: UIButton) {
+        if let settings = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "iPadSettingsTab") as? UINavigationController{
+            settings.modalPresentationStyle = .popover
+            let presentation = settings.popoverPresentationController
+            presentation?.permittedArrowDirections = .any
+            presentation?.sourceView = sender
+            presentation?.sourceRect = sender.bounds
+
+            present(settings, animated: true, completion: nil)
+        }
     }
     
 }
@@ -171,4 +185,9 @@ extension HomePageVC:ProjectsDelegate{
         studio.modalPresentationStyle = .fullScreen
         present(studio, animated: true, completion: nil)
     }
+}
+
+
+class SettingsSheet:UIAlertController{
+    
 }

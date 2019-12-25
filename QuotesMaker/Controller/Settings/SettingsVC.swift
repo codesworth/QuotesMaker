@@ -20,6 +20,9 @@ class SettingsVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    
+    
 
     // MARK: - Table view data source
 
@@ -32,13 +35,30 @@ class SettingsVC: UITableViewController {
         // #warning ("Incomplete implementation, return the number of rows")
         return 3
     }
+    
+    @objc func switchChanged(_ sender:UISwitch){
+        
+        if sender.tag == 1{
+            self.settings.saveiCloudSupport(sender.isOn)
+        }else if sender.tag == 2{
+            settings.saveProjectAlbumPhotos(sender.isOn)
+        }
+    }
+    
+
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath)
             if let uiswitch = cell.viewWithTag(1) as? UISwitch{
-                uiswitch.isOn = settings.icloudSupport
+                uiswitch.isEnabled = false
+                uiswitch.isOn = false
+                if Store.isPro(){
+                    uiswitch.isOn = settings.icloudSupport
+                }
+                uiswitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+                
             }
             return cell
         }
@@ -46,11 +66,20 @@ class SettingsVC: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
             if let uiswitch = cell.viewWithTag(2) as? UISwitch{
                 uiswitch.isOn = settings.projectAlbums
+                uiswitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
             }
             return cell
         }
         return tableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath)
         
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2{
+            let proAdd = UnlockProView(frame: .zero)
+            proAdd.setDetail(string:"Upgrade to Studio Pro to enable saving projects and iCloud Support")
+            proAdd.show()
+        }
     }
     
 
