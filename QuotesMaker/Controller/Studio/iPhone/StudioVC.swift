@@ -190,6 +190,9 @@ class StudioVC: UIViewController {
         if gradientPanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if imagePanel.isInView{Utils.animatePanelsOut(gradientPanel)}
         if let current = coordinator.baseView.currentSubview as? BackingTextView {
+            if current.designInputView == nil{
+                current.addDoneButtonOnKeyboard()
+            }
             current.textView.becomeFirstResponder()
             current.designInputView?.model = coordinator.getCurrentModel() as? TextLayerModel ?? TextLayerModel()
             return

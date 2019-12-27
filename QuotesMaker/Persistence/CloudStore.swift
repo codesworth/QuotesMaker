@@ -21,7 +21,10 @@ public class Cloudstore:NSObject{
         return Settings()
     }
     
-    var cursor:CKQueryOperation.Cursor?
+    
+    
+    var recentCursor:CKQueryOperation.Cursor?
+    var templateCursor:CKQueryOperation.Cursor?
     
     private var privateCloud = CKContainer.default().privateCloudDatabase
     private var publicCloud = CKContainer.default().publicCloudDatabase
@@ -77,7 +80,7 @@ public class Cloudstore:NSObject{
         }
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: Keys.entityStudioBlob, predicate: predicate)
-        let operation = (cursor != nil) ? CKQueryOperation(cursor: cursor!) : CKQueryOperation(query: query)
+        let operation = (recentCursor != nil) ? CKQueryOperation(cursor: recentCursor!) : CKQueryOperation(query: query)
         operation.resultsLimit = 20
         
         operation.recordFetchedBlock = {record in
@@ -86,15 +89,15 @@ public class Cloudstore:NSObject{
             self.privateCloud.perform(assetQuery, inZoneWith: nil, completionHandler: { (assets, er) in
                 print(assets ?? "No Asset")
                 if let assets = assets {
-                  Persistence.main.persistFromCloud(record: record, assets: assets)
+                    Persistence.main.persistFromCloud(record: record, assets: assets, dir: FileManager.modelDir, subscriptionName: .refreshRecent)
                 }else{
-                    Persistence.main.persistFromCloud(record: record, assets: [])
+                    Persistence.main.persistFromCloud(record: record, assets: [], dir: FileManager.modelDir, subscriptionName: .refreshRecent)
                 }
             })
         }
         
         operation.queryCompletionBlock = {cursor, error in
-            self.cursor = cursor
+            self.recentCursor = cursor
         }
         
         operation.completionBlock = {
@@ -105,6 +108,39 @@ public class Cloudstore:NSObject{
         
         privateCloud.add(operation)
         
+    }
+    
+    func  getTemplates(){
+    
+        let predicate = NSPredicate(value: true)
+        let query = CKQuery(recordType: Keys.entityStudioBlob, predicate: predicate)
+        let operation = (templateCursor != nil) ? CKQueryOperation(cursor: templateCursor!) : CKQueryOperation(query: query)
+        operation.resultsLimit = 20
+        
+        operation.recordFetchedBlock = {record in
+            
+            let assetQuery = CKQuery(recordType: Keys.entityBlobAsset, predicate: NSPredicate(format: "\(Keys.entityStudioBlob) = %@", record.recordID))
+            self.publicCloud.perform(assetQuery, inZoneWith: nil, completionHandler: { (assets, er) in
+                print(assets ?? "No Asset")
+                if let assets = assets {
+                    Persistence.main.persistFromCloud(record: record, assets: assets, dir: FileManager.templatesDir, subscriptionName: .refreshTemplates)
+                }else{
+                    Persistence.main.persistFromCloud(record: record, assets: [], dir: FileManager.templatesDir, subscriptionName: .refreshTemplates)
+                }
+            })
+        }
+        
+        operation.queryCompletionBlock = {cursor, error in
+            self.templateCursor = cursor
+        }
+        
+        operation.completionBlock = {
+            //Fire a block to refresh
+            print("Query completed")
+            Subscription.main.post(suscription: .refreshRecent, object: nil)
+        }
+        
+        publicCloud.add(operation)
     }
 }
 

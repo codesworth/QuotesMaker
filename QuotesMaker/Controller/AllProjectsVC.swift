@@ -51,7 +51,7 @@ class AllProjectsVC: UIViewController {
     }
     
     @objc func refreshRecent(){
-        allModels = Persistence.main.fetchAllModels()
+        allModels = Persistence.main.fetchAllModels(from: FileManager.modelDir)
         dispatch_queue_main_t.main.async { [weak self] in
             self?.collectionView.reloadData()
         }

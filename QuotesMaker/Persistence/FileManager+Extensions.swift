@@ -23,6 +23,7 @@ extension FileManager{
         case modelImages
         case previewThumbnails
         case exported
+        case templates
     }
     
     static var modelDir:URL{
@@ -31,6 +32,10 @@ extension FileManager{
     
     static var exportedDir:URL{
         return homeDir.appendingPathComponent(Directories.exported.rawValue, isDirectory:true)
+    }
+    
+    static var templatesDir:URL{
+        return homeDir.appendingPathComponent(Directories.templates.rawValue,isDirectory:true)
     }
     
     static var modelImagesDir:URL{
