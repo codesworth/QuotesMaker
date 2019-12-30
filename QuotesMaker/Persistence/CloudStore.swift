@@ -87,7 +87,6 @@ public class Cloudstore:NSObject{
             
             let assetQuery = CKQuery(recordType: Keys.entityBlobAsset, predicate: NSPredicate(format: "\(Keys.entityStudioBlob) = %@", record.recordID))
             self.privateCloud.perform(assetQuery, inZoneWith: nil, completionHandler: { (assets, er) in
-                print(assets ?? "No Asset")
                 if let assets = assets {
                     Persistence.main.persistFromCloud(record: record, assets: assets, dir: FileManager.modelDir, subscriptionName: .refreshRecent)
                 }else{

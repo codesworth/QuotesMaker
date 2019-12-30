@@ -285,6 +285,7 @@ extension StudioVC:UIImagePickerControllerDelegate,UINavigationControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if !imageLayerExists {
+            imageLayerExists = true
             showTabs()
             coordinator.imageOptionSelected()
             setupImageInteractiveView()

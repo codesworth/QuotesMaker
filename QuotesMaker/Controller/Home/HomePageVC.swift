@@ -19,6 +19,10 @@ class HomePageVC: UIViewController {
     public private (set) var sizes:[Canvas] = []
     public private (set) var templates:[StudioModel] = []
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         recentCollectionVIew.showsHorizontalScrollIndicator = false
@@ -27,9 +31,6 @@ class HomePageVC: UIViewController {
         setup()
         makeSizes()
         
-        //Persistence.main.getThumbImageFor(name:"")
-        //print("These are stored modles: \(allModels)")
-        // Do any additional setup after loading the view.
     }
     
     func makeSizes(){
@@ -205,6 +206,3 @@ extension HomePageVC:ProjectsDelegate{
 }
 
 
-class SettingsSheet:UIAlertController{
-    
-}
