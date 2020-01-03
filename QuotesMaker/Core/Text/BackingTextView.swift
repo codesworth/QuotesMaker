@@ -170,13 +170,14 @@ extension BackingTextView{
         }
     }
     
-    func addDoneButtonOnKeyboard()
+    func addDoneButtonOnKeyboard(_ model:LayerModel? = nil)
     {
         doneToolbar.barStyle = .default
         
         let items = [textEdits,flexSpace, done]
         doneToolbar.items = items
         doneToolbar.sizeToFit()
+        //self.model = model
         
         textView.inputAccessoryView = doneToolbar
         
@@ -320,13 +321,12 @@ extension BackingTextView:SPUserResizableViewDelegate{
         //print("The new frame is: \(resizerView.frame)")
         self.frame.origin = self.frame.origin + resizerView.frame.origin
         resizerView.frame.origin = .zero
-        //let old = model.layerFrame
-        //if old == makeLayerFrame(){return}
-        model.layerFrame = makeLayerFrame()
+
+        
         if oldModel.layerFrame != model.layerFrame{
-           Subscription.main.post(suscription: .stateChange, object: State(model: oldModel, action: .nothing))
+           Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
         }
-        //Subscription.main.post(suscription: .stateChange, object: State(model: model, action: .nothing))
+        model.layerFrame = makeLayerFrame()
     }
 }
 

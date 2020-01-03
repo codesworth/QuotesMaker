@@ -47,7 +47,6 @@ struct TextLayerModel:Codable {
     }
     
     
-
     private  var shadowBlur:CGFloat = 0
     private var shadowOffset:CGSize = .zero
     var strikeThrough:Int = 0

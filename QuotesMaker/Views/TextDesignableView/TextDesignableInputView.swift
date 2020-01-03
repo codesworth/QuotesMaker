@@ -289,9 +289,11 @@ class TextDesignableInputView:UIView{
     
     init(frame: CGRect, model:TextLayerModel) {
         super.init(frame:frame)
+        self.model = model
         initialize()
         
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

@@ -15,6 +15,7 @@ protocol LayerModel{
     var type:ModelType {get}
     var updateTime:TimeInterval {get set}
     
+    
 }
 
 

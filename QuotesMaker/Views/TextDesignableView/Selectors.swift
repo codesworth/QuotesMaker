@@ -230,6 +230,7 @@ extension TextDesignableInputView{
         shadowView.shadowY.text = "Y: \(model.shadow.shadowOffset.height)"
         shadowView.shadowRadius.text = "Radius: \(model.shadow.shadowBlurRadius)"
         shadowView.opacitylable.text = "Opacity: \(toSignficant(x: model.shadowAlpha))"
+        aligmentSegment.selectedSegmentIndex = model.alignment
         
         blockDelegation = false
         self.model = model
