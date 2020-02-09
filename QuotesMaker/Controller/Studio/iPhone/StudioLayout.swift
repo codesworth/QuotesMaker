@@ -14,7 +14,7 @@ extension StudioVC{
     func layout(){
         view.subviews.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
         let points = Dimensions.originalPanelPoints
-        studioTabContainer = TabContainer(frame: [0,-200,Dimensions.panelWidth,80])
+        studioTabContainer = TabContainer(frame: [0,-200,Dimensions.panelWidth,UIScreen.hasNotch() ? 80 : 60])
         colorPanel = ColorSliderPanel(frame: [points.x,points.y,Dimensions.panelWidth,Dimensions.colorPanelHeight])
         //colorPanel.stateDelegate = self
         gradientPanel = GradientPanel(frame: [points.x,points.y - 150, Dimensions.panelWidth,Dimensions.gradientPanelHeight])

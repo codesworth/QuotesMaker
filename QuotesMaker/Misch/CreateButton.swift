@@ -31,3 +31,14 @@ class CreateButton:UIButton{
         super.init(coder: aDecoder)
     }
 }
+
+
+class RoundedButton:UIButton{
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        clipsToBounds = true
+        layer.cornerRadius = 20
+        borderlize(.white, 2)
+    }
+}

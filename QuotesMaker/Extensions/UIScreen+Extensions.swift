@@ -66,34 +66,18 @@ extension UIScreen{
         case landscape
     }
     
-    /**
-     struct Size {
-     private let x:CGFloat
-     private let y:CGFloat
-     let orientation:UIDeviceOrientation
-     let scale:CGFloat
-     
-     init(bounds:CGSize, orientation:UIDeviceOrientation, scale:CGFloat) {
-     self.orientation = orientation
-     self.scale = scale
-     switch orientation {
-     case .portrait,.portraitUpsideDown:
-     x = bounds.width
-     y = bounds.height
-     case .landscapeLeft,.landscapeRight:
-     x = bounds.height
-     y = bounds.width
-     default:
-     x = bounds.width
-     y = bounds.height
-     }
-     }
-     
-     func getType()->Handle{
-     if (x == )
-     }
-     }
-     */
+    static func hasNotch()->Bool{
+        
+        let handle = main.screenType()
+        switch handle {
+        case .pluses,.eight_lower,.fives,.lowly:
+            return false
+        case .xs_x, .xmax_xr:
+            return true
+        default:
+            return false
+        }
+    }
     
     func screenType()->Handle{
         let height = UIScreen.main.bounds.height

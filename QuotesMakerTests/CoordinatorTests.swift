@@ -73,7 +73,7 @@ class CoordinatorTests: XCTestCase {
         coordinator.stateRedo()
         XCTAssertEqual(coordinator.baseView.subviews.count, 1)
         XCTAssert(coordinator.redostates.isEmpty)
-        XCTAssertFalse(coordinator.undostates.isEmpty)
+        XCTAssertFalse(coordinator.undostates.isEmpty) 
     }
     
 

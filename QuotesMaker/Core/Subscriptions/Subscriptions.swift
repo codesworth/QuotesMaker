@@ -14,7 +14,7 @@ class Subscription{
     enum Name:String {
         
         case canUndo,canRedo,layerChanged,layerReArranged,activatedLayer,cornermask,
-        noSub,stateChange,roundedCornerRadiusValueChanged,moreFonts, purchaseNotification, failedPurchase, showXCrossHairs,showYCrossHairs,unshowYCrossHairs,unshowXCrossHairs,unshowAllCrossHairs, refreshRecent, fontsChanged
+        noSub,stateChange,roundedCornerRadiusValueChanged,moreFonts, purchaseNotification, failedPurchase, showXCrossHairs,showYCrossHairs,unshowYCrossHairs,unshowXCrossHairs,unshowAllCrossHairs, refreshRecent,refreshTemplates, fontsChanged
     }
 
     private static let _main = Subscription()
@@ -44,6 +44,10 @@ extension NSObject{
     
     func unsubscribe(){
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func unsubscribe(_ name:Subscription.Name){
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: name.rawValue), object: nil)
     }
 }
 

@@ -42,6 +42,7 @@ class Persistence{
             try FileManager.default.createDirectory(at: FileManager.modelImagesDir, withIntermediateDirectories: true, attributes: nil)
             try FileManager.default.createDirectory(at: FileManager.previewthumbDir, withIntermediateDirectories: true, attributes: nil)
             try FileManager.default.createDirectory(at: FileManager.exportedDir, withIntermediateDirectories: true, attributes: nil)
+            try FileManager.default.createDirectory(at: FileManager.templatesDir, withIntermediateDirectories: true, attributes: nil)
         } catch let err {
             print("Error Creating Files: \(err)")
         
@@ -65,10 +66,10 @@ class Persistence{
         return nil
     }
     
-    func fetchAllModels()->[StudioModel]{
+    func fetchAllModels(from dir:URL)->[StudioModel]{
 
         do {
-            var files = try FileManager.default.contentsOfDirectory(atPath: FileManager.modelDir.path)
+            var files = try FileManager.default.contentsOfDirectory(atPath: dir.path)
             //print("These are all the files: \(files)")
             files.removeAll{!$0.hasSuffix(FileManager.Extensions.json.rawValue)}
             print("The trimmed files: \(files)")
@@ -76,7 +77,7 @@ class Persistence{
             files.forEach{
                 do{
                     let decoder = JSONDecoder()
-                    let url = URL(fileURLWithPath: $0, relativeTo: FileManager.modelDir)
+                    let url = URL(fileURLWithPath: $0, relativeTo: dir)
                     let data = try Data(contentsOf: url)
                     print(data)
                     let model = try decoder.decode(StudioModel.self, from: data)
@@ -137,7 +138,7 @@ class Persistence{
         
     }
     
-    func persistFromCloud(record:CKRecord, assets:[CKRecord]){
+    func persistFromCloud(record:CKRecord, assets:[CKRecord], dir:URL, subscriptionName:Subscription.Name){
         guard let name = record[Cloudstore.Keys.name] as? String else {return}
         let thumbImageAsset = record[Cloudstore.Keys.thumbNail]
             as? CKAsset
@@ -146,7 +147,7 @@ class Persistence{
         if let blobUrl = blobAsset?.fileURL!{
             do{
                 let data = try Data(contentsOf: blobUrl)
-                try data.write(to: URL(fileURLWithPath: name, relativeTo: FileManager.modelDir).addExtension(.json))
+                try data.write(to: URL(fileURLWithPath: name, relativeTo: dir).addExtension(.json))
                 if let thumburl = thumbImageAsset?.fileURL!{
                     let data = try Data(contentsOf: thumburl)
                     try data.write(to: .path(name: name, in: .previewThumbnails, extension:.png))
@@ -166,7 +167,7 @@ class Persistence{
             return
         }
         print("Persistent to local storage")
-        Subscription.main.post(suscription: .refreshRecent, object: nil)
+        Subscription.main.post(suscription: subscriptionName, object: nil)
     }
     
 }

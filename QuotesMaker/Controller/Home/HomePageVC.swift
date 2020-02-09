@@ -17,17 +17,20 @@ class HomePageVC: UIViewController {
     
     public private (set) var allModels:[StudioModel] = []
     public private (set) var sizes:[Canvas] = []
+    public private (set) var templates:[StudioModel] = []
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recentCollectionVIew.showsHorizontalScrollIndicator = false
         dimensionsProjectCollection.showsHorizontalScrollIndicator = false
+        templatesCollection.showsHorizontalScrollIndicator = false
         setup()
         makeSizes()
         
-        //Persistence.main.getThumbImageFor(name:"")
-        //print("These are stored modles: \(allModels)")
-        // Do any additional setup after loading the view.
     }
     
     func makeSizes(){
@@ -38,13 +41,24 @@ class HomePageVC: UIViewController {
         super.viewWillAppear(true)
         header.layer.cornerRadius = __IS_IPAD ? 40 : 30
         refreshRecent()
+        refreshTemplate()
         subscribeTo(subscription: .refreshRecent, selector: #selector(refreshRecent))
+        subscribeTo(subscription: .refreshTemplates, selector: #selector(refreshTemplate))
     }
     
     @objc func refreshRecent(){
-        allModels = Persistence.main.fetchAllModels()
+        allModels = Persistence.main.fetchAllModels(from: FileManager.modelDir)
+        
         dispatch_queue_main_t.main.async { [weak self] in
             self?.recentCollectionVIew.reloadData()
+            
+        }
+    }
+    
+    @objc func refreshTemplate(){
+        templates = Persistence.main.fetchAllModels(from: FileManager.templatesDir)
+        dispatch_queue_main_t.main.async { [weak self] in
+            self?.templatesCollection.reloadData()
         }
     }
     
@@ -61,11 +75,39 @@ class HomePageVC: UIViewController {
         dimensionsProjectCollection.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
         dimensionsProjectCollection.delegate = self
         dimensionsProjectCollection.dataSource = self
-        //recentCollectionVIew.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
+        templatesCollection.register(UINib(nibName: "\(TemplateCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(TemplateCell.self)")
         recentCollectionVIew.roundCorners()
+        templatesCollection.delegate = self
+        templatesCollection.dataSource = self
         dimensionsProjectCollection.roundCorners()                                                           
     }
+    
+    
+    @IBAction func showAllRecents(_ sender: UIButton) {
+        if let allRecentsVc = AllProjectsVC.wakeFromInterfaceBuilder(){
+            allRecentsVc.allModels = allModels
+            allRecentsVc.content = .recent
+            allRecentsVc.delegate = self
+            self.present(allRecentsVc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func showAllTemplates(_ sender: UIButton) {
+    }
+    
+    
+    @IBAction func ipadSettingsPressed(_ sender: UIButton) {
+        if let settings = UIStoryboard.storyboard.instantiateViewController(withIdentifier: "iPadSettingsTab") as? UINavigationController{
+            settings.modalPresentationStyle = .popover
+            let presentation = settings.popoverPresentationController
+            presentation?.permittedArrowDirections = .any
+            presentation?.sourceView = sender
+            presentation?.sourceRect = sender.bounds
 
+            present(settings, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 
@@ -80,6 +122,8 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
                 recentCollectionVIew.backgroundView = nil
             }
             return allModels.count
+        }else if collectionView == templatesCollection{
+            return templates.count
         }
         return sizes.count
     }
@@ -93,8 +137,8 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TemplateCell.self)", for: indexPath) as! TemplateCell
-        if collectionView == recentCollectionVIew{
-            let mod = allModels[indexPath.row]
+        if collectionView == recentCollectionVIew || collectionView == templatesCollection{
+            let mod = (collectionView == recentCollectionVIew) ? allModels[indexPath.row] : templates[indexPath.row]
             let canvas = Canvas(aspect: mod.canvasType)
             cell.configureViewAndIamge(name: mod.name, size: canvas.size)
             return cell
@@ -119,13 +163,13 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
     
     @discardableResult func collectionViewItemSelected(collectionView:UICollectionView, indexPath:IndexPath)->UIViewController{
         let studio:UIViewController
-        if collectionView ==  recentCollectionVIew{
-            let model = allModels[indexPath.row]
+        if collectionView ==  recentCollectionVIew || collectionView == templatesCollection{
+            let model = (collectionView == recentCollectionVIew) ? allModels[indexPath.row] : templates[indexPath.row]
             
             if UIDevice.idiom == .phone{
-                studio = StudioVC(model: model, canvas:Canvas(aspect: model.canvasType))
+                studio = StudioVC(model: model, canvas:Canvas(aspect: model.canvasType), isTemplate: collectionView == templatesCollection)
             }else{
-              studio = iPadStudioVC(model: model, canvas:Canvas(aspect: model.canvasType))
+              studio = iPadStudioVC(model: model, canvas:Canvas(aspect: model.canvasType),isTemplate: collectionView == templatesCollection)
             }
             studio.modalPresentationStyle = .fullScreen
             present(studio, animated: true, completion: nil)
@@ -144,3 +188,21 @@ extension HomePageVC:UICollectionViewDelegate,UICollectionViewDataSource,UIColle
         }
     }
 }
+
+
+extension HomePageVC:ProjectsDelegate{
+    
+    func didSelect(project: StudioModel, isTemplate:Bool) {
+        let studio:UIViewController
+        
+        if UIDevice.idiom == .phone{
+            studio = StudioVC(model: project, canvas:Canvas(aspect: project.canvasType), isTemplate: isTemplate)
+        }else{
+          studio = iPadStudioVC(model: project, canvas:Canvas(aspect: project.canvasType),isTemplate: isTemplate)
+        }
+        studio.modalPresentationStyle = .fullScreen
+        present(studio, animated: true, completion: nil)
+    }
+}
+
+

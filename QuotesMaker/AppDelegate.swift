@@ -45,7 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         setRootViewContoroller()
         Store.main.getStudioProProduct()
-        Cloudstore().fetAvailableModel()
+        let cloud  = Cloudstore()
+        cloud.fetAvailableModel()
+        cloud.getTemplates()
         
         
 //        for family: String in UIFont.familyNames

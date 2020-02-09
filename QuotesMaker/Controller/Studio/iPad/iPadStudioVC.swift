@@ -16,9 +16,9 @@ class iPadStudioVC: UIViewController {
     }
     
     
-    init(model:StudioModel? = nil, canvas:Canvas) {
+    init(model:StudioModel? = nil, canvas:Canvas, isTemplate:Bool = false) {
         self.canvas = canvas
-        self.coordinator = EditingCoordinator(model: model, canvas: canvas)
+        self.coordinator = EditingCoordinator(model: model, canvas: canvas,isTemplate: isTemplate)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -68,8 +68,7 @@ class iPadStudioVC: UIViewController {
         add(taskbar, to: taskbarContainer)
         iPadLayout()
         coordinator.controller = self
-        let mods  = Persistence.main.fetchAllModels()
-        print("Models are: \(mods)")
+        //let mods  = Persistence.main.fetchAllModels()
         coordinator.delegate = self
         editor.addCanvas(coordinator.baseView)
         subscribeTo(subscription: .moreFonts, selector: #selector(launchMoreFonts(_:)))

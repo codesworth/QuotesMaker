@@ -18,7 +18,7 @@ class BaseView:UIView{
     typealias BaseSubView = UIView & BaseViewSubViewable & NSCopying
     
     
-    
+    private var baseSubviews:[Int:BaseSubView] = [:]
     typealias ViewTags = (imgs:Int,txt:Int,blk:Int,grd:Int)
     var viewTags:ViewTags = (0,0,0,0)
        
@@ -135,11 +135,14 @@ class BaseView:UIView{
         subIndex += 1
         view.setIndex(subIndex)
         addSubview(view)
+        baseSubviews.updateValue(view, forKey: Int(subIndex))
         selectedView = view
     }
     
     
-
+    func getSubviewFor(_ index:Int)->BaseSubView?{
+        return baseSubviews[index]
+    }
     
     
     deinit {

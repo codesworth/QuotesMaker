@@ -29,7 +29,7 @@ class UnlockProView: UIView {
     
     lazy var restoreButton:UIButton = { [unowned self] by in
         let button = UIButton(frame: .zero)
-        button.backgroundColor = #colorLiteral(red: 0.3565862775, green: 0.8337638974, blue: 0.8115196824, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.1297397017, green: 0.1362194717, blue: 0.1622923017, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.setTitle("Restore", for: .normal)
         button.roundCorners(5.0)
@@ -64,7 +64,7 @@ class UnlockProView: UIView {
     
     lazy var presentationView:MaterialView = {
         let view = MaterialView(frame: .zero)
-        view.backgroundColor = .white
+        view.backgroundColor = .secondaryDark
         return view
         
     }()
@@ -77,14 +77,15 @@ class UnlockProView: UIView {
         let imgv = UIImageView(frame: .zero)
         imgv.contentMode = .scaleAspectFit
         imgv.clipsToBounds = true
-        imgv.image = #imageLiteral(resourceName: "ig_square")
+        imgv.roundCorners(4)
+        imgv.image = #imageLiteral(resourceName: "applogo")
         return imgv
     }()
     
     lazy var titleLable: BasicLabel = {
         let label = BasicLabel(frame: .zero)
         label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        label.textColor = .primary
+        label.textColor = .white
         label.textAlignment = .center
         label.text = "Quote Studio Pro"
         return label
@@ -93,14 +94,14 @@ class UnlockProView: UIView {
     lazy var detailLable: BasicLabel = {
         let label = BasicLabel(frame: .zero)
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .darkText
+        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
     
     lazy var purchaseButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.backgroundColor = #colorLiteral(red: 0.3565862775, green: 0.8337638974, blue: 0.8115196824, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.1297397017, green: 0.1362194717, blue: 0.1622923017, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.roundCorners(5.0)
         return button
@@ -108,9 +109,9 @@ class UnlockProView: UIView {
     
     lazy var cancelButton: UIButton = { [unowned self] by in
         let button = UIButton(frame: .zero)
-        button.backgroundColor = .white
-        button.borderlize(#colorLiteral(red: 0.3565862775, green: 0.8337638974, blue: 0.8115196824, alpha: 1), 1)
-        button.setTitleColor(#colorLiteral(red: 0.3565862775, green: 0.8337638974, blue: 0.8115196824, alpha: 1), for: .normal)
+        button.backgroundColor = .primaryDark
+        button.borderlize(#colorLiteral(red: 0.1297397017, green: 0.1362194717, blue: 0.1622923017, alpha: 1), 1)
+        button.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         button.setTitle("Cancel", for: .normal)
         button.addTarget(self, action: #selector(cancel(_:)), for: .touchUpInside)
         button.roundCorners(5.0)
@@ -189,22 +190,24 @@ class UnlockProView: UIView {
             self.product = Store.main.studioProProduct
         }else{
             Store.main.requestProProduct { (success,products, error ) in
-                if success{
-                    if let product = products?.first {
-                        self.product = product
+                AsyncOnMainThread {
+                    if success{
+                        if let product = products?.first {
+                            self.product = product
+                        }else{
+                            self.detailLable.isHidden = false
+                            self.activityController.isHidden = true
+                            self.indicatorLable.isHidden = true
+                            self.detailLable.textColor = .red
+                            self.detailLable.text = "Unable to connect to iTunes store"
+                        }
                     }else{
                         self.detailLable.isHidden = false
                         self.activityController.isHidden = true
                         self.indicatorLable.isHidden = true
                         self.detailLable.textColor = .red
-                        self.detailLable.text = "Unable to connect to iTunes store"
+                        self.detailLable.text = error?.localizedDescription
                     }
-                }else{
-                    self.detailLable.isHidden = false
-                    self.activityController.isHidden = true
-                    self.indicatorLable.isHidden = true
-                    self.detailLable.textColor = .red
-                    self.detailLable.text = error?.localizedDescription
                 }
             }
         }
