@@ -18,7 +18,6 @@ Similar to Canva
 
 
 
-## Editor
 ![Editor](https://github.com/codesworth/QuotesMaker/blob/master/screenshots/ipad-screenshot-2.png)
 ![Editor 2](https://github.com/codesworth/QuotesMaker/blob/master/screenshots/ipad-screenshot-4.png)
 
